@@ -1,0 +1,15 @@
+{
+  "name": "my Products",
+  "description": "Simple products management app",
+  "version": "0.1.0",
+  "main": "index.html",
+  "window": {
+    "title": "my Products",
+    "toolbar": false,
+    "width": 1024,
+    "height": 600,
+    "position": "mouse",
+    "min_width": 1204,
+    "min_height": 600
+  }
+}

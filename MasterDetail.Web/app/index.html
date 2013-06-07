@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>my Products</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link href="content/toastr.min.css" rel="stylesheet" />
+    <link href="content/bootstrap.min.css" rel="stylesheet" />
+    <link href="content/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="content/kendo/kendo.common.min.css" rel="stylesheet" />
+    <link href="content/kendo/kendo.blueopal.min.css" rel="stylesheet" />
+    <link href="content/font-awesome.min.css" rel="stylesheet" />
+    <link href="content/app.css" rel="stylesheet" />
+</head>
+<body class="ng-cloak">
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a href="#" class="brand">my Products</a>
+                <ul class="nav">
+                    <li><a href="#/">Articles</a></li>
+                    <li><a href="#/info">About</a></li>
+                </ul>
+                <ul class="nav pull-right">
+                    <li><a href="#/login">User</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div ng-view></div>
+    </div>
+
+    <footer id="footer">
+        <div class="container">
+            <a href="http://www.thinktecture.com" target="_blank" class="cloud-link">
+                <span class="icon-cloud">&nbsp;</span>thinktecture
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/lib/jquery-2.0.1.min.js"></script>
+    <script src="js/lib/toastr.min.js"></script>
+    <script src="js/lib/kendo.all.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-kendo.min.js"></script>
+    <script src="js/lib/jquery.signalR-1.1.2.min.js"></script>
+    <script src="js/lib/ngSignalR.min.js"></script>
+    <script src="js/lib/base64.min.js"></script>
+
+    <script src="js/app.min.js"></script>
+    <script src="js/infrastructure/tools.min.js"></script>
+    <script src="js/infrastructure/directives.min.js"></script>
+    <script src="js/infrastructure/filters.min.js"></script>
+    <script src="js/infrastructure/authenticationInterceptor.min.js"></script>
+    <script src="js/services/alertService.min.js"></script>
+    <script src="js/services/pushService.min.js"></script>
+    <script src="js/services/articlesApiService.min.js"></script>
+    <script src="js/controllers/articlesController.min.js"></script>
+    <script src="js/controllers/articleDetailsController.min.js"></script>
+    <script src="js/controllers/loginController.min.js"></script>
+</body>
+</html>

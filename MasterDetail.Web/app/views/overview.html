@@ -1,0 +1,22 @@
+﻿<h4>Overview</h4>
+
+<div>
+    Filter by article code:
+    <input kendo-auto-complete
+        kendo-source="articles" ng-model="filteredArticle"
+        data-filter="contains"
+        data-min-length="3"
+        data-data-text-field="Code"
+        on-change="valueOnChange = kendoEvent.sender.value()" />
+    <br />
+    <hr />
+    <div kendo-grid
+        kendo-source="articles" data-selectable="row"
+        reset-source-when="!filteredArticle"
+        data-columns='[{ "field": "Name", "title": "Name"}, 
+                        { "field": "Code",  "title": "Code"}]'
+        on-change="rowSelected(kendoEvent.sender.dataItem(kendoEvent.sender.select()[0]))"
+        data-pageable='{ "refresh": true, "pageSizes": false }'
+        data-scrollable='{ "virtual": true }'>
+    </div>
+</div>

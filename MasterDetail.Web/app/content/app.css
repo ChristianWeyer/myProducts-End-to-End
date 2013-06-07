@@ -1,0 +1,57 @@
+﻿[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+html, body {
+    height: 100%;
+    margin:0;
+    padding:0;
+}
+
+html
+{
+    overflow:hidden;
+}
+
+body {
+    padding-top: 60px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#grid
+{
+    border-width:0;
+    height:100%;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: black;
+    padding: 1em;
+    box-shadow: 0 -5px 20px #555;
+}
+
+#footer a {
+    color: silver;
+    text-decoration: none;
+}
+
+#footer .cloud-link {
+    float: right;
+}
+
+#ng-view {
+    position: relative;
+    min-height: 500px;
+}

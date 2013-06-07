@@ -1,0 +1,25 @@
+﻿<h4>Article details</h4>
+
+<form name="form" class="form-horizontal">
+    <div class="control-group" ng-class="{error: form.code.$invalid}">
+        <label class="control-label" for="code">Code</label>
+        <div class="controls">
+            <input type="text" ng-model="artikel.Code" id="code">
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: form.name.$invalid}">
+        <label class="control-label" for="name">Name</label>
+        <div class="controls">
+            <input type="text" ng-model="artikel.Name" id="name">
+        </div>
+    </div>
+    <div>
+        <img src="" alt="Product image" class="img-polaroid" ng-src="{{artikel.ImageUrl | baseUrl}}" />
+        <textarea type="text" rows="7" cols="20" ng-model="artikel.Description" />
+    </div>
+
+    <div class="form-actions">
+        <button ng-click="save()" class="btn btn-primary">Save</button>
+        <a href="#/" class="btn">Cancel</a>
+    </div>
+</form>
