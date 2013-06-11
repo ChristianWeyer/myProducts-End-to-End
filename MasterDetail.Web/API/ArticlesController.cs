@@ -13,10 +13,9 @@ using WebAPI.OutputCache;
 
 namespace MasterDetail.Web
 {
-    [AllowAnonymous]
     public class ArticlesController : ApiController
     {
-        [CacheOutput(ClientTimeSpan = 3600, ServerTimeSpan = 3600)]
+        [CacheOutput(ServerTimeSpan = 3600)]
         public PageResult<ArticleDto> Get(ODataQueryOptions<ArticleDto> options)
         {
             var settings = new ODataQuerySettings { PageSize = 10 };
@@ -41,7 +40,7 @@ namespace MasterDetail.Web
             }
         }
 
-        [CacheOutput(ClientTimeSpan = 3600, ServerTimeSpan = 3600)]
+        [CacheOutput(ServerTimeSpan = 3600)]
         [ActionName("GetById")]
         public ArticleDetailDto Get(string id)
         {

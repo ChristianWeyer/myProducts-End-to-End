@@ -12,11 +12,11 @@
     <hr />
     <div kendo-grid
         kendo-source="articles" data-selectable="row"
-        reset-source-when="!filteredArticle"
+        kendo-refresh="!filteredArticle"
         data-columns='[{ "field": "Name", "title": "Name"}, 
                         { "field": "Code",  "title": "Code"}]'
-        on-change="rowSelected(kendoEvent.sender.dataItem(kendoEvent.sender.select()[0]))"
         data-pageable='{ "refresh": true, "pageSizes": false }'
-        data-scrollable='{ "virtual": true }'>
+        data-scrollable='{ "virtual": true }'
+        on-change="rowSelected(kendoEvent.sender.dataItem(kendoEvent.sender.select()[0]))">
     </div>
 </div>

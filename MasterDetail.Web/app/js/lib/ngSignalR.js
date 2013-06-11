@@ -1,7 +1,5 @@
-﻿'use strict';
-
-angular.module('ngSignalR', ['ng']).
-    factory('hubProxy', ['$rootScope', function ($rootScope) {
+﻿angular.module('ngSignalR', ['ng'])
+    .factory('hubProxy', ['$rootScope', function ($rootScope) {
         function signalRHubProxyFactory(serverUrl, hubName) {
             var connection = $.hubConnection(serverUrl);
             connection.logging = true;

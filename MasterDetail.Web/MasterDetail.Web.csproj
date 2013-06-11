@@ -43,6 +43,12 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Fabrik.Common">
+      <HintPath>..\Reference Assemblies\Fabrik.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Fabrik.Common.WebAPI">
+      <HintPath>..\Reference Assemblies\Fabrik.Common.WebAPI.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.1.1.2\lib\net40\Microsoft.AspNet.SignalR.Core.dll</HintPath>
@@ -125,9 +131,6 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="Thinktecture.IdentityModel">
       <HintPath>..\packages\Thinktecture.IdentityModel.2.6.2\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
-    </Reference>
-    <Reference Include="WebAPI.OutputCache">
-      <HintPath>..\packages\Strathweb.CacheOutput.0.4.1\lib\net40\WebAPI.OutputCache.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -364,8 +367,8 @@
     <Content Include="app\js\controllers\loginController.min.js">
       <DependentUpon>loginController.js</DependentUpon>
     </Content>
-    <Content Include="app\js\infrastructure\authenticationInterceptor.min.js">
-      <DependentUpon>authenticationInterceptor.js</DependentUpon>
+    <Content Include="app\js\infrastructure\authentication.min.js">
+      <DependentUpon>authentication.js</DependentUpon>
     </Content>
     <Content Include="app\js\infrastructure\directives.min.js">
       <DependentUpon>directives.js</DependentUpon>
@@ -376,12 +379,14 @@
     <Content Include="app\js\infrastructure\tools.min.js">
       <DependentUpon>tools.js</DependentUpon>
     </Content>
+    <Content Include="app\js\lib\angular-kendo.js" />
     <Content Include="app\js\lib\angular-kendo.min.js">
       <DependentUpon>angular-kendo.js</DependentUpon>
     </Content>
     <Content Include="app\js\lib\base64.min.js">
       <DependentUpon>base64.js</DependentUpon>
     </Content>
+    <Content Include="app\js\lib\lawnchair-0.6.1.min.js" />
     <Content Include="app\js\lib\ngSignalR.min.js">
       <DependentUpon>ngSignalR.js</DependentUpon>
     </Content>
@@ -396,14 +401,13 @@
     <Content Include="app\js\infrastructure\filters.js" />
     <Content Include="app\js\lib\base64.js" />
     <Content Include="app\js\controllers\loginController.js" />
-    <Content Include="app\js\infrastructure\authenticationInterceptor.js" />
+    <Content Include="app\js\infrastructure\authentication.js" />
     <Content Include="app\js\lib\jquery-2.0.1.min.js" />
     <Content Include="app\js\lib\jquery.signalR-1.1.2.min.js" />
     <Content Include="app\js\lib\ngSignalR.js" />
     <Content Include="app\js\services\alertService.js" />
     <Content Include="app\js\infrastructure\directives.js" />
     <Content Include="app\js\services\articlesApiService.js" />
-    <Content Include="app\js\lib\angular-kendo.js" />
     <Content Include="app\js\lib\angular.min.js" />
     <Content Include="app\js\lib\bootstrap.min.js" />
     <Content Include="app\js\lib\kendo.all.min.js" />
@@ -455,9 +459,6 @@
     <Content Include="app\js\controllers\loginController.min.js.map">
       <DependentUpon>loginController.js</DependentUpon>
     </Content>
-    <Content Include="app\js\infrastructure\authenticationInterceptor.min.js.map">
-      <DependentUpon>authenticationInterceptor.js</DependentUpon>
-    </Content>
     <Content Include="app\js\infrastructure\directives.min.js.map">
       <DependentUpon>directives.js</DependentUpon>
     </Content>
@@ -479,14 +480,17 @@
     <Content Include="app\js\app.min.js.map">
       <DependentUpon>app.js</DependentUpon>
     </Content>
-    <Content Include="app\js\lib\angular-kendo.min.js.map">
-      <DependentUpon>angular-kendo.js</DependentUpon>
-    </Content>
     <Content Include="app\js\lib\base64.min.js.map">
       <DependentUpon>base64.js</DependentUpon>
     </Content>
     <Content Include="app\js\lib\ngSignalR.min.js.map">
       <DependentUpon>ngSignalR.js</DependentUpon>
+    </Content>
+    <Content Include="app\js\lib\angular-kendo.min.js.map">
+      <DependentUpon>angular-kendo.js</DependentUpon>
+    </Content>
+    <Content Include="app\js\infrastructure\authentication.min.js.map">
+      <DependentUpon>authentication.js</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -499,6 +503,10 @@
     <ProjectReference Include="..\MasterDetail.DataAccess\MasterDetail.DataAccess.csproj">
       <Project>{82eeaa96-8e08-4820-9914-0738cb1c3317}</Project>
       <Name>MasterDetail.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebAPI.OutputCache\WebAPI.OutputCache.csproj">
+      <Project>{4f32dc89-081b-4264-92f8-f3371a088eb4}</Project>
+      <Name>WebAPI.OutputCache</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
