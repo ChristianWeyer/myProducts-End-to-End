@@ -5,21 +5,21 @@ angular.module("tt.Authentication.Services", ["tt.Authentication.Internal"])
         var $http;
 
         return {
-            //authenticate: function(username, password) {
-            //    var auth = "Basic " + Base64.encode(username + ":" + password);
+            authenticate: function(username, password) {
+                var auth = "Basic " + Base64.encode(username + ":" + password);
                 
-            //    $http = $http || $injector.get("$http");
-            //    $http.defaults.headers.common["Authorization"] = auth;
+                $http = $http || $injector.get("$http");
+                $http.defaults.headers.common["Authorization"] = auth;
                 
-            //    $http.get(ttTools.baseUrl + "api/token").success(function (tokenData) {
-            //        username = "";
-            //        password = "";
-            //        auth = "";
+                $http.get(ttTools.baseUrl + "api/token").success(function (tokenData) {
+                    username = "";
+                    password = "";
+                    auth = "";
 
-            //        this.setToken(tokenData);
-            //        this.authenticationSuccess();
-            //    });
-            //},
+                    this.setToken(tokenData);
+                    this.authenticationSuccess();
+                });
+            },
             authenticationSuccess: function () {
                 $rootScope.$broadcast("tt:authNConfirmed");
                 httpBuffer.retry();
