@@ -4,7 +4,7 @@
     $scope.articles = articlesApiService.getArticleList();
     
     pushService.on("articleChanged", function () {
-        $scope.bestandsArtikelListe.read();
+        $scope.articles.read();
     });
     
     $scope.rowSelected = function (data) {

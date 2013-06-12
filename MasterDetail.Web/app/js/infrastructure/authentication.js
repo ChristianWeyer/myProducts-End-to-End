@@ -5,12 +5,12 @@ angular.module("tt.Authentication.Services", ["tt.Authentication.Internal"])
         var $http;
 
         return {
-            authenticate: function(username, password) {
+            authenticate: function (username, password) {
                 var auth = "Basic " + Base64.encode(username + ":" + password);
-                
+
                 $http = $http || $injector.get("$http");
                 $http.defaults.headers.common["Authorization"] = auth;
-                
+
                 $http.get(ttTools.baseUrl + "api/token").success(function (tokenData) {
                     username = "";
                     password = "";
@@ -53,17 +53,19 @@ angular.module("tt.Authentication.Services", ["tt.Authentication.Internal"])
 angular.module("tt.Authentication.Providers", ["tt.Authentication.Services", "tt.Authentication.Internal"])
     .config(["$httpProvider", function ($httpProvider) {
         var interceptor = ["$rootScope", "$q", "authService", "httpBuffer", function ($rootScope, $q, authService, httpBuffer) {
+            var counter = 0;
+            
             $.ajaxPrefilter(function (options) {
                 var thatError = options.error;
                 var thatOptions = options;
 
                 options.error = function (thisXhr, textStatus, errorThrown) {
-                    if (typeof (thatError) === "function" && thisXhr.status != 401)
-                        return thatError(thisXhr, textStatus, errorThrown);
-                    else {
+                    if (thisXhr.status === 401) {
                         var deferred = $.Deferred();
+                        counter++;
                         $rootScope.$apply(checkForToken(thatOptions, deferred));
                     }
+                    return thatError(thisXhr, textStatus, errorThrown);
                 };
             });
 
@@ -74,10 +76,10 @@ angular.module("tt.Authentication.Providers", ["tt.Authentication.Services", "tt
             function error(response) {
                 if (response.status === 401) {
                     var deferred = $q.defer();
-                    checkForToken(response, deferred);
-                } else {
-                    return $q.reject(response);
+                    return checkForToken(response, deferred);
                 }
+                
+                return $q.reject(response);
             }
 
             function checkForToken(response, deferred) {

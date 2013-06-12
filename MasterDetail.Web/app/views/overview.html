@@ -12,7 +12,7 @@
     <hr />
     <div kendo-grid
         kendo-source="articles" data-selectable="row"
-        kendo-refresh="!filteredArticle"
+        reset-source-when="!filteredArticle"
         data-columns='[{ "field": "Name", "title": "Name"}, 
                         { "field": "Code",  "title": "Code"}]'
         data-pageable='{ "refresh": true, "pageSizes": false }'
