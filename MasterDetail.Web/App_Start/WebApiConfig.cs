@@ -12,7 +12,7 @@ namespace MasterDetail.Web.App_Start
         public static void Register(HttpConfiguration config)
         {
             config.IncludeErrorDetailPolicy =
-                IncludeErrorDetailPolicy.Always;
+                IncludeErrorDetailPolicy.LocalOnly;
 
             config.Formatters.Clear();
             config.Formatters.Add(new JsonMediaTypeFormatter());
@@ -21,8 +21,6 @@ namespace MasterDetail.Web.App_Start
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional });
-
-            //config.EnableQuerySupport();
 
             var authNConfig = new AuthenticationConfiguration
             {

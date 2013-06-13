@@ -75,12 +75,12 @@ angular.module("tt.Authentication.Providers", ["tt.Authentication.Services", "tt
 
                         if (authService.requestAttempts > 0) {
                             $rootScope.$apply($rootScope.$broadcast("tt:authNRequired"));
-
-                            return deferred.promise;
                         } else {
                             authService.requestAttempts++;
                             $rootScope.$apply(checkForToken(thatOptions, deferred));
                         }
+                        
+                        return deferred.promise;
                     }
                     return thatError(thisXhr, textStatus, errorThrown);
                 };
@@ -96,12 +96,12 @@ angular.module("tt.Authentication.Providers", ["tt.Authentication.Services", "tt
 
                     if (authService.requestAttempts > 0) {
                         $rootScope.$broadcast("tt:authNRequired");
-
-                        return deferred.promise;
                     } else {
                         authService.requestAttempts++;
                         checkForToken(response, deferred);
                     }
+                    
+                    return deferred.promise;
                 }
 
                 return $q.reject(response);
@@ -124,7 +124,7 @@ angular.module("tt.Authentication.Providers", ["tt.Authentication.Services", "tt
                             authService.setToken(tokenData.token);
                             httpBuffer.retry();
 
-                            return deferred.resolve(response);
+                            return deferred.promise;
                         }
                     }
                 });

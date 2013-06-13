@@ -7,9 +7,9 @@
         })
         .error(function (data, status) {
             if (status > 0) {
-                console.log(status + " - " + data.ExceptionMessage);
+                console.log(status + " - " + data);
                 alertService.pop({
-                    title: "Error", body: data.ExceptionMessage, type: "error"
+                    title: "Error", body: data, type: "error"
                 });
             }
         });
@@ -24,9 +24,9 @@
             })
             .error(function (data, status) {
                 if (status > 0) {
-                    console.log(status + " - " + data.ExceptionMessage);
+                    console.log(status + " - " + data);
                     alertService.pop({
-                        title: "Error", body: data.ExceptionMessage, type: "error"
+                        title: "Error", body: data, type: "error"
                     });
                 }
             });
