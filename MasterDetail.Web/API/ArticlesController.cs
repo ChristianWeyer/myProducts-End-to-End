@@ -8,9 +8,9 @@ using System.Net;
 using System.Web.Http;
 using WebAPI.OutputCache;
 
-namespace MasterDetail.Web
+namespace MasterDetail.Web.Api
 {
-    [AllowAnonymous]
+    [ApiExceptionFilter]
     public class ArticlesController : ApiController
     {
         private readonly ProductsContext productsContext;
