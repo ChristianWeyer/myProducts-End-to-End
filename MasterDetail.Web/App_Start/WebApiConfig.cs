@@ -19,7 +19,7 @@ namespace MasterDetail.Web.App_Start
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional });
 
-            config.EnableQuerySupport();
+            //config.EnableQuerySupport();
 
             var authNConfig = new AuthenticationConfiguration
             {

@@ -12,7 +12,7 @@ namespace MasterDetail.TestData
             var artikel = Builder<Article>.CreateListOfSize(9723)
                                .Build();
 
-            using (var db = new ProductsEntities())
+            using (var db = new ProductsContext())
             {
                 int i = 1;
                 artikel.ToList().ForEach(

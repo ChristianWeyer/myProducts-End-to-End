@@ -2,10 +2,10 @@
 
 namespace MasterDetail.DataAccess
 {
-    public class ProductsEntities : DbContext
+    public class ProductsContext : DbContext
     {
-        public ProductsEntities()
-            : base("name=ProductsEntities")
+        public ProductsContext()
+            : base("name=ProductsContext")
         {
             this.Configuration.AutoDetectChangesEnabled = false;
             this.Configuration.LazyLoadingEnabled = false;

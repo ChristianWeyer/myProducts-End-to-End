@@ -40,6 +40,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -48,6 +52,14 @@
     </Reference>
     <Reference Include="Fabrik.Common.WebAPI">
       <HintPath>..\Reference Assemblies\Fabrik.Common.WebAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqToQuerystring, Version=0.6.0.20653, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\LinqToQuerystring.0.6.1\lib\net35\LinqToQuerystring.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqToQuerystring.WebApi, Version=1.1.0.17989, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\LinqToQuerystring.WebApi.1.1\lib\net45\LinqToQuerystring.WebApi.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -433,12 +445,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\PingController.cs" />
+    <Compile Include="Api\PingController.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="API\ArticleDetailDto.cs" />
-    <Compile Include="API\ArticleDto.cs" />
-    <Compile Include="API\ArticlesController.cs" />
-    <Compile Include="API\ClientNotificationHub.cs" />
+    <Compile Include="Api\ArticleDetailDto.cs" />
+    <Compile Include="Api\ArticleDto.cs" />
+    <Compile Include="Api\ArticlesController.cs" />
+    <Compile Include="Api\ClientNotificationHub.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

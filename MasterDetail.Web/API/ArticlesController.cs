@@ -1,44 +1,69 @@
-﻿using MasterDetail.DataAccess;
+﻿using System.Collections.Generic;
+using System.Net.Http;
+using System.Web.Http.OData;
+using System.Web.Http.OData.Query;
+using LinqToQuerystring.WebApi;
+using MasterDetail.DataAccess;
 using Microsoft.AspNet.SignalR;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.OData;
-using System.Web.Http.OData.Query;
 using WebAPI.OutputCache;
 
 namespace MasterDetail.Web
 {
     public class ArticlesController : ApiController
     {
-        [CacheOutput(ServerTimeSpan = 3600)]
-        public PageResult<ArticleDto> Get(ODataQueryOptions<ArticleDto> options)
+        private readonly ProductsContext productsContext;
+
+        public ArticlesController()
         {
-            var settings = new ODataQuerySettings { PageSize = 10 };
-
-            using (var database = new ProductsEntities())
-            {
-                var artikelQuery =
-                    from a in database.Articles
-                    orderby a.Code
-                    select new ArticleDto()
-                    {
-                        Id = a.Id,
-                        Code = a.Code,
-                        Name = a.Name
-                    };
-                var results = options.ApplyTo(artikelQuery, settings);
-
-                return new PageResult<ArticleDto>(
-                        results as IEnumerable<ArticleDto>,
-                        Request.GetNextPageLink(),
-                        Request.GetInlineCount());
-            }
+            productsContext = new ProductsContext();
         }
+
+        [CacheOutput(ServerTimeSpan = 3600)]
+        [LinqToQueryable(maxPageSize: 10)]
+        public IQueryable<ArticleDto> Get()
+        {
+            var results =
+                from a in productsContext.Articles
+                orderby a.Code
+                select new ArticleDto()
+                {
+                    Id = a.Id,
+                    Code = a.Code,
+                    Name = a.Name
+                };
+
+            return results;
+        }
+
+        //[CacheOutput(ServerTimeSpan = 3600)]
+        //public PageResult<ArticleDto> Get(ODataQueryOptions<ArticleDto> options)
+        //{
+        //    var settings = new ODataQuerySettings { PageSize = 10 };
+
+        //    using (var database = new ProductsContext())
+        //    {
+        //        var artikelQuery =
+        //            from a in database.Articles
+        //            orderby a.Code
+        //            select new ArticleDto()
+        //            {
+        //                Id = a.Id,
+        //                Code = a.Code,
+        //                Name = a.Name
+        //            };
+        //        var results = options.ApplyTo(artikelQuery, settings);
+
+        //        return new PageResult<ArticleDto>(
+        //                results as IEnumerable<ArticleDto>,
+        //                Request.GetNextPageLink(),
+        //                Request.GetInlineCount());
+        //    }
+        //}
 
         [CacheOutput(ServerTimeSpan = 3600)]
         [ActionName("GetById")]
@@ -50,29 +75,26 @@ namespace MasterDetail.Web
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
 
-            using (var database = new ProductsEntities())
+            var query =
+                from artikel in productsContext.Articles
+                where artikel.Id == guid
+                select new ArticleDetailDto
+                    {
+                        Id = artikel.Id,
+                        Code = artikel.Code,
+                        Name = artikel.Name,
+                        Description = artikel.Description,
+                        ImageUrl = artikel.ImageUrl
+                    };
+
+            var artikelDetails = query.FirstOrDefault();
+
+            if (artikelDetails == null)
             {
-                var query =
-                    from artikel in database.Articles
-                    where artikel.Id == guid
-                    select new ArticleDetailDto
-                        {
-                            Id = artikel.Id,
-                            Code = artikel.Code,
-                            Name = artikel.Name,
-                            Description = artikel.Description,
-                            ImageUrl = artikel.ImageUrl
-                        };
-
-                var artikelDetails = query.FirstOrDefault();
-
-                if (artikelDetails == null)
-                {
-                    throw new HttpResponseException(HttpStatusCode.NotFound);
-                }
-
-                return artikelDetails;
+                throw new HttpResponseException(HttpStatusCode.NotFound);
             }
+
+            return artikelDetails;
         }
 
         [InvalidateCacheOutput("Get")]
@@ -81,25 +103,29 @@ namespace MasterDetail.Web
         {
             if (ModelState.IsValid)
             {
-                using (var database = new ProductsEntities())
-                {
-                    var entity = new Article
-                        {
-                            Id = value.Id,
-                            Code = value.Code,
-                            Name = value.Name,
-                            Description = value.Description,
-                            ImageUrl = value.ImageUrl
-                        };
-                    database.Entry(entity).State = EntityState.Modified;
-                    database.Entry(entity).Property(e => e.ImageUrl).IsModified = false;
+                var entity = new Article
+                    {
+                        Id = value.Id,
+                        Code = value.Code,
+                        Name = value.Name,
+                        Description = value.Description,
+                        ImageUrl = value.ImageUrl
+                    };
 
-                    database.SaveChanges();
+                productsContext.Entry(entity).State = EntityState.Modified;
+                productsContext.Entry(entity).Property(e => e.ImageUrl).IsModified = false;
+                productsContext.SaveChanges();
 
-                    var hub = GlobalHost.ConnectionManager.GetHubContext<ClientNotificationHub>();
-                    hub.Clients.All.articleChanged();
-                }
+                var hub = GlobalHost.ConnectionManager.GetHubContext<ClientNotificationHub>();
+                hub.Clients.All.articleChanged();
             }
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            productsContext.Dispose();
+
+            base.Dispose(disposing);
         }
     }
 }

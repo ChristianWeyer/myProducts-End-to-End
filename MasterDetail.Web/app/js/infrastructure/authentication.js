@@ -1,60 +1,70 @@
 angular.module("tt.Authentication.Services", ["tt.Authentication.Internal"])
     .factory("authService", ["$rootScope", "$injector", "$q", "httpBuffer", function ($rootScope, $injector, $q, httpBuffer) {
+        var $http;
         var store = new Lawnchair({ adapter: "dom", table: "authenticationToken" }, function () { });
         var key = "tt:authNToken";
-        var $http;
+        var requestAttempts = 0;
+
+        function authenticate(username, password) {
+            var auth = "Basic " + Base64.encode(username + ":" + password);
+
+            $http = $http || $injector.get("$http");
+            $http.defaults.headers.common["Authorization"] = auth;
+
+            $http.get(ttTools.baseUrl + "api/token").success(function (tokenData) {
+                username = "";
+                password = "";
+                auth = "";
+
+                setToken(tokenData);
+                authenticationSuccess();
+            });
+        }
+
+        function authenticationSuccess() {
+            requestAttempts = 0;
+            $rootScope.$broadcast("tt:authNConfirmed");
+            httpBuffer.retry();
+        }
+
+        function setToken(tokenData) {
+            var expiration = new Date().getTime() + (tokenData.expires_in - 5) * 1000;
+            var sessionTokenValue = "Session " + tokenData.access_token;
+
+            $http = $http || $injector.get("$http");
+            $http.defaults.headers.common["Authorization"] = sessionTokenValue;
+
+            $(document).ajaxSend(function (event, xhr) {
+                xhr.setRequestHeader("Authorization", sessionTokenValue);
+            });
+
+            tokenData.expiration = expiration;
+            store.save({ key: key, token: tokenData }, "");
+        }
+
+        function getToken() {
+            var deferred = $q.defer();
+
+            store.get(key, function (token) {
+                deferred.resolve(token);
+            });
+
+            return deferred.promise;
+        }
 
         return {
-            authenticate: function (username, password) {
-                var auth = "Basic " + Base64.encode(username + ":" + password);
-
-                $http = $http || $injector.get("$http");
-                $http.defaults.headers.common["Authorization"] = auth;
-
-                $http.get(ttTools.baseUrl + "api/token").success(function (tokenData) {
-                    username = "";
-                    password = "";
-                    auth = "";
-
-                    this.setToken(tokenData);
-                    this.authenticationSuccess();
-                });
-            },
-            authenticationSuccess: function () {
-                $rootScope.$broadcast("tt:authNConfirmed");
-                httpBuffer.retry();
-            },
-            setToken: function (tokenData) {
-                var expiration = new Date().getTime() + (tokenData.expires_in - 5) * 1000;
-                var sessionTokenValue = "Session " + tokenData.access_token;
-
-                $http = $http || $injector.get("$http");
-                $http.defaults.headers.common["Authorization"] = sessionTokenValue;
-
-                $(document).ajaxSend(function (event, xhr) {
-                    xhr.setRequestHeader("Authorization", sessionTokenValue);
-                });
-
-                tokenData.expiration = expiration;
-                store.save({ key: key, token: tokenData }, "");
-            },
-            getToken: function () {
-                var deferred = $q.defer();
-
-                store.get(key, function (token) {
-                    deferred.resolve(token);
-                });
-
-                return deferred.promise;
-            }
+            requestAttempts: requestAttempts,
+            authenticate: authenticate,
+            authenticationSuccess: authenticationSuccess,
+            setToken: setToken,
+            getToken: getToken
         };
     }]);
 
 angular.module("tt.Authentication.Providers", ["tt.Authentication.Services", "tt.Authentication.Internal"])
     .config(["$httpProvider", function ($httpProvider) {
         var interceptor = ["$rootScope", "$q", "authService", "httpBuffer", function ($rootScope, $q, authService, httpBuffer) {
-            var counter = 0;
-            
+
             $.ajaxPrefilter(function (options) {
                 var thatError = options.error;
                 var thatOptions = options;
@@ -62,8 +72,15 @@ angular.module("tt.Authentication.Providers", ["tt.Authentication.Services", "tt
                 options.error = function (thisXhr, textStatus, errorThrown) {
                     if (thisXhr.status === 401) {
                         var deferred = $.Deferred();
-                        counter++;
-                        $rootScope.$apply(checkForToken(thatOptions, deferred));
+
+                        if (authService.requestAttempts > 0) {
+                            $rootScope.$apply($rootScope.$broadcast("tt:authNRequired"));
+
+                            return deferred.promise;
+                        } else {
+                            authService.requestAttempts++;
+                            $rootScope.$apply(checkForToken(thatOptions, deferred));
+                        }
                     }
                     return thatError(thisXhr, textStatus, errorThrown);
                 };
@@ -76,9 +93,17 @@ angular.module("tt.Authentication.Providers", ["tt.Authentication.Services", "tt
             function error(response) {
                 if (response.status === 401) {
                     var deferred = $q.defer();
-                    return checkForToken(response, deferred);
+
+                    if (authService.requestAttempts > 0) {
+                        $rootScope.$broadcast("tt:authNRequired");
+
+                        return deferred.promise;
+                    } else {
+                        authService.requestAttempts++;
+                        checkForToken(response, deferred);
+                    }
                 }
-                
+
                 return $q.reject(response);
             }
 

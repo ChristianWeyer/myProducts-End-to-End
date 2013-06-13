@@ -21,7 +21,7 @@
                 pageSize: 10,
                 schema: {
                     data: function (data) {
-                        return data.Items;
+                        return data.Results;
                     },
                     total: function (data) {
                         return data.Count;
