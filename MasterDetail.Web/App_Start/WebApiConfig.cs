@@ -11,6 +11,9 @@ namespace MasterDetail.Web.App_Start
     {
         public static void Register(HttpConfiguration config)
         {
+            config.IncludeErrorDetailPolicy =
+                IncludeErrorDetailPolicy.Always;
+
             config.Formatters.Clear();
             config.Formatters.Add(new JsonMediaTypeFormatter());
 

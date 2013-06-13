@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
-using System.Web.Http.OData;
-using System.Web.Http.OData.Query;
-using LinqToQuerystring.WebApi;
+﻿using LinqToQuerystring.WebApi;
 using MasterDetail.DataAccess;
 using Microsoft.AspNet.SignalR;
 using System;
@@ -14,6 +10,7 @@ using WebAPI.OutputCache;
 
 namespace MasterDetail.Web
 {
+    [AllowAnonymous]
     public class ArticlesController : ApiController
     {
         private readonly ProductsContext productsContext;
@@ -39,31 +36,6 @@ namespace MasterDetail.Web
 
             return results;
         }
-
-        //[CacheOutput(ServerTimeSpan = 3600)]
-        //public PageResult<ArticleDto> Get(ODataQueryOptions<ArticleDto> options)
-        //{
-        //    var settings = new ODataQuerySettings { PageSize = 10 };
-
-        //    using (var database = new ProductsContext())
-        //    {
-        //        var artikelQuery =
-        //            from a in database.Articles
-        //            orderby a.Code
-        //            select new ArticleDto()
-        //            {
-        //                Id = a.Id,
-        //                Code = a.Code,
-        //                Name = a.Name
-        //            };
-        //        var results = options.ApplyTo(artikelQuery, settings);
-
-        //        return new PageResult<ArticleDto>(
-        //                results as IEnumerable<ArticleDto>,
-        //                Request.GetNextPageLink(),
-        //                Request.GetInlineCount());
-        //    }
-        //}
 
         [CacheOutput(ServerTimeSpan = 3600)]
         [ActionName("GetById")]

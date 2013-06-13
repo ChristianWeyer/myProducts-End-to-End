@@ -431,6 +431,7 @@
     <Content Include="app\views\details.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\overview.html" />
+    <Content Include="App_Data\ProductsDemo.sdf" />
     <Content Include="Global.asax" />
     <Content Include="app\font\fontawesome-webfont.eot" />
     <Content Include="app\font\fontawesome-webfont.ttf" />
@@ -504,6 +505,7 @@
     <Content Include="app\js\infrastructure\authentication.min.js.map">
       <DependentUpon>authentication.js</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\ttngdemo.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
