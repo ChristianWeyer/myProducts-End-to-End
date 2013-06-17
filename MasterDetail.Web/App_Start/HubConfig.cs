@@ -1,6 +1,6 @@
 ﻿using System.Web.Routing;
 
-namespace MasterDetail.Web
+namespace MasterDetail.Web.App_Start
 {
     public class HubConfig
     {
