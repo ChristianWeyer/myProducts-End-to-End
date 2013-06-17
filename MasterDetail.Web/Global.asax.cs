@@ -10,7 +10,7 @@ namespace MasterDetail.Web
         protected void Application_Start(object sender, EventArgs e)
         {
             WebApiConfig.Register(GlobalConfiguration.Configuration);
-            RouteTable.Routes.MapHubs();
+            HubConfig.Register(RouteTable.Routes);
         }
     }
 }
