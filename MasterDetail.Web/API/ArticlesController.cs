@@ -1,4 +1,7 @@
-﻿using LinqToQuerystring.WebApi;
+﻿using System.Collections.Generic;
+using System.Net.Http;
+using System.Web.Http.OData;
+using System.Web.Http.OData.Query;
 using MasterDetail.DataAccess;
 using Microsoft.AspNet.SignalR;
 using System;
@@ -10,7 +13,9 @@ using WebAPI.OutputCache;
 
 namespace MasterDetail.Web.Api
 {
+    [AllowAnonymous]
     [ApiExceptionFilter]
+    [ValidationResponseFilterAttribute]
     public class ArticlesController : ApiController
     {
         private readonly ProductsContext productsContext;
@@ -20,11 +25,30 @@ namespace MasterDetail.Web.Api
             productsContext = new ProductsContext();
         }
 
+        //[CacheOutput(ServerTimeSpan = 3600)]
+        //[LinqToQueryable(maxPageSize: 10)]
+        //// Does not work with caching...
+        //public IQueryable<ArticleDto> Get()
+        //{
+        //    var results =
+        //        from a in productsContext.Articles
+        //        orderby a.Code
+        //        select new ArticleDto()
+        //        {
+        //            Id = a.Id,
+        //            Code = a.Code,
+        //            Name = a.Name
+        //        };
+
+        //    return results;
+        //}
+
         [CacheOutput(ServerTimeSpan = 3600)]
-        [LinqToQueryable(maxPageSize: 10)]
-        public IQueryable<ArticleDto> Get()
+        public PageResult<ArticleDto> Get(ODataQueryOptions<ArticleDto> options)
         {
-            var results =
+            var settings = new ODataQuerySettings { PageSize = 10 };
+
+            var artikelQuery =
                 from a in productsContext.Articles
                 orderby a.Code
                 select new ArticleDto()
@@ -33,8 +57,12 @@ namespace MasterDetail.Web.Api
                     Code = a.Code,
                     Name = a.Name
                 };
+            var results = options.ApplyTo(artikelQuery, settings);
 
-            return results;
+            return new PageResult<ArticleDto>(
+                    results as IEnumerable<ArticleDto>,
+                    Request.GetNextPageLink(),
+                    Request.GetInlineCount());
         }
 
         [CacheOutput(ServerTimeSpan = 3600)]
@@ -71,7 +99,7 @@ namespace MasterDetail.Web.Api
 
         [InvalidateCacheOutput("Get")]
         [InvalidateCacheOutput("GetById")]
-        public void Put(string id, ArticleDetailDto value)
+        public void Put(string id, ArticleDetailUpdateDto value)
         {
             if (ModelState.IsValid)
             {
@@ -80,8 +108,7 @@ namespace MasterDetail.Web.Api
                         Id = value.Id,
                         Code = value.Code,
                         Name = value.Name,
-                        Description = value.Description,
-                        ImageUrl = value.ImageUrl
+                        Description = value.Description
                     };
 
                 productsContext.Entry(entity).State = EntityState.Modified;

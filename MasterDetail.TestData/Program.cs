@@ -9,7 +9,7 @@ namespace MasterDetail.TestData
     {
         static void Main(string[] args)
         {
-            var artikel = Builder<Article>.CreateListOfSize(9723)
+            var artikel = Builder<Article>.CreateListOfSize(74657)
                                .Build();
 
             using (var db = new ProductsContext())
@@ -26,6 +26,8 @@ namespace MasterDetail.TestData
 
                 db.SaveChanges();
             }
+
+            Console.WriteLine("Done!");
         }
     }
 }

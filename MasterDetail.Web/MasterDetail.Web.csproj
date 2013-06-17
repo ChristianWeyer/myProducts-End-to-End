@@ -475,7 +475,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\ApiExceptionFilterAttribute.cs" />
+    <Compile Include="Api\ArticleDetailUpdateDtoValidator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Api\ArticleDetailUpdateDto.cs" />
+    <Compile Include="Api\FluentValidationExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Api\PingController.cs" />
+    <Compile Include="Api\ValidatableObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Api\ValidationResponseFilterAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Api\ArticleDetailDto.cs" />
     <Compile Include="Api\ArticleDto.cs" />
