@@ -475,25 +475,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\ApiExceptionFilterAttribute.cs" />
-    <Compile Include="Api\ArticleDetailUpdateDtoValidator.cs">
+    <Compile Include="Api\DTOs\ArticleDetailUpdateDtoValidator.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Api\ArticleDetailUpdateDto.cs" />
-    <Compile Include="Api\FluentValidationExtensions.cs">
+    <Compile Include="Api\DTOs\ArticleDetailUpdateDto.cs" />
+    <Compile Include="Api\Validation\FluentValidationExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Api\PingController.cs" />
-    <Compile Include="Api\ValidatableObject.cs">
+    <Compile Include="Api\Controllers\PingController.cs" />
+    <Compile Include="Api\Validation\ValidatableObject.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Api\ValidationResponseFilterAttribute.cs">
+    <Compile Include="Api\Validation\ValidationResponseFilterAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Api\ArticleDetailDto.cs" />
-    <Compile Include="Api\ArticleDto.cs" />
-    <Compile Include="Api\ArticlesController.cs" />
-    <Compile Include="Api\ClientNotificationHub.cs" />
+    <Compile Include="Api\DTOs\ArticleDetailDto.cs" />
+    <Compile Include="Api\DTOs\ArticleDto.cs" />
+    <Compile Include="Api\Controllers\ArticlesController.cs" />
+    <Compile Include="Api\Hubs\ClientNotificationHub.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
