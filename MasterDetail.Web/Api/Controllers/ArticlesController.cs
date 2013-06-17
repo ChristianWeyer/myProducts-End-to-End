@@ -13,9 +13,8 @@ using WebAPI.OutputCache;
 
 namespace MasterDetail.Web.Api
 {
-    [AllowAnonymous]
     [ApiExceptionFilter]
-    [ValidationResponseFilterAttribute]
+    [ValidationResponseFilter]
     public class ArticlesController : ApiController
     {
         private readonly ProductsContext productsContext;
@@ -101,23 +100,20 @@ namespace MasterDetail.Web.Api
         [InvalidateCacheOutput("GetById")]
         public void Put(string id, ArticleDetailUpdateDto value)
         {
-            if (ModelState.IsValid)
-            {
-                var entity = new Article
-                    {
-                        Id = value.Id,
-                        Code = value.Code,
-                        Name = value.Name,
-                        Description = value.Description
-                    };
+            var entity = new Article
+                {
+                    Id = value.Id,
+                    Code = value.Code,
+                    Name = value.Name,
+                    Description = value.Description
+                };
 
-                productsContext.Entry(entity).State = EntityState.Modified;
-                productsContext.Entry(entity).Property(e => e.ImageUrl).IsModified = false;
-                productsContext.SaveChanges();
+            productsContext.Entry(entity).State = EntityState.Modified;
+            productsContext.Entry(entity).Property(e => e.ImageUrl).IsModified = false;
+            productsContext.SaveChanges();
 
-                var hub = GlobalHost.ConnectionManager.GetHubContext<ClientNotificationHub>();
-                hub.Clients.All.articleChanged();
-            }
+            var hub = GlobalHost.ConnectionManager.GetHubContext<ClientNotificationHub>();
+            hub.Clients.All.articleChanged();
         }
 
         protected override void Dispose(bool disposing)
