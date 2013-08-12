@@ -1,4 +1,4 @@
-﻿var myApp = angular.module("myApp", ["kendo.directives", "ngSignalR", "tt.Authentication.Providers", "tt.Authentication.Services"]);
+﻿var myApp = angular.module("myApp", ["kendo.directives", "snap", "ngSignalR", "tt.Authentication.Providers", "tt.Authentication.Services"]);
 
 myApp.config(["$routeProvider", function ($routeProvider) {
     $routeProvider

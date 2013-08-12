@@ -1,4 +1,4 @@
-﻿myApp.controller("ArticlesController",
+myApp.controller("ArticlesController",
     ["$scope", "$location", "articlesApiService", "pushService", function ($scope, $location, articlesApiService, pushService) {
 
     $scope.articles = articlesApiService.getArticleList();
