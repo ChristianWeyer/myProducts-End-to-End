@@ -6,23 +6,23 @@
                     <form class="form-horizontal">
                         <fieldset>
                             <div id="legend">
-                                <legend class="">Login</legend>
+                                <legend class="">{{ 'LOGIN_LOGIN' | translate }}</legend>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="username">Username</label>
+                                <label class="control-label" for="username">{{ 'LOGIN_USERNAME' | translate }}</label>
                                 <div class="controls">
                                     <input type="text" ng-model="username" id="username" name="username" placeholder="" class="input-xlarge">
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="password">Password</label>
+                                <label class="control-label" for="password">{{ 'LOGIN_PASSWORD' | translate }}</label>
                                 <div class="controls">
                                     <input type="password" ng-model="password" id="password" name="password" placeholder="" class="input-xlarge">
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="controls">
-                                    <button ng-click="submit()" class="btn btn-success">Login</button>
+                                    <button ng-click="submit()" class="btn btn-success">{{ 'LOGIN_BUTTON_LOGIN' | translate }}</button>
                                 </div>
                             </div>
                         </fieldset>

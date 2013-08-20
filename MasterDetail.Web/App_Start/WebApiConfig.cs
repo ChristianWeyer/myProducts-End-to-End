@@ -26,6 +26,7 @@ namespace MasterDetail.Web.App_Start
 
             var authNConfig = new AuthenticationConfiguration
             {
+                RequireSsl = false,
                 EnableSessionToken = true,
                 SessionToken = new SessionTokenConfiguration()
                 {

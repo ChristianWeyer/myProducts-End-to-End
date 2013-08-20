@@ -134,6 +134,7 @@ angular.module("tt.Authentication.Providers", ["tt.Authentication.Services", "tt
                 return promise.then(success, error);
             };
         }];
+        
         $httpProvider.responseInterceptors.push(interceptor);
     }]);
 

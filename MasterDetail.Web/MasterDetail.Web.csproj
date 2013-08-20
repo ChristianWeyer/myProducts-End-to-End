@@ -15,7 +15,8 @@
     <AssemblyName>MasterDetail.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>44302</IISExpressSSLPort>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -309,7 +310,6 @@
     <Content Include="app\content\kendo\Uniform\slider-v.gif" />
     <Content Include="app\content\kendo\Uniform\sprite.png" />
     <Content Include="app\content\kendo\Uniform\sprite_2x.png" />
-    <Content Include="app\content\images\logo.png" />
     <Content Include="app\content\app.css" />
     <Content Include="app\content\themes\base\images\animated-overlay.gif" />
     <Content Include="app\content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -388,6 +388,10 @@
     <Content Include="app\js\controllers\articlesController.min.js">
       <DependentUpon>articlesController.js</DependentUpon>
     </Content>
+    <Content Include="app\js\controllers\navigationController.js" />
+    <Content Include="app\js\controllers\loginController.min - Copy.js">
+      <DependentUpon>navigationController.js</DependentUpon>
+    </Content>
     <Content Include="app\js\controllers\loginController.min.js">
       <DependentUpon>loginController.js</DependentUpon>
     </Content>
@@ -403,11 +407,17 @@
     <Content Include="app\js\infrastructure\tools.min.js">
       <DependentUpon>tools.js</DependentUpon>
     </Content>
+    <Content Include="app\js\lib\angular-cookies.min.js" />
     <Content Include="app\js\lib\angular-kendo.js" />
     <Content Include="app\js\lib\angular-kendo.min.js">
       <DependentUpon>angular-kendo.js</DependentUpon>
     </Content>
     <Content Include="app\js\lib\angular-snap.js" />
+    <Content Include="app\js\lib\angular-translate-loader-static-files.js" />
+    <Content Include="app\js\lib\angular-translate-loader-url.js" />
+    <Content Include="app\js\lib\angular-translate-storage-cookie.js" />
+    <Content Include="app\js\lib\angular-translate-storage-local.js" />
+    <Content Include="app\js\lib\angular-translate.js" />
     <Content Include="app\js\lib\base64.min.js">
       <DependentUpon>base64.js</DependentUpon>
     </Content>
@@ -458,6 +468,16 @@
     <Content Include="images\5.jpg" />
     <Content Include="images\0.jpg" />
     <Content Include="Web.config" />
+    <Content Include="app\data\locale-de.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="app\data\locale-en.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="app\js\controllers\loginController.min.js - Copy.map">
+      <DependentUpon>navigationController.js</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\ngmd.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -586,7 +606,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>16197</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44302/</IISUrl>
+          <IISUrl>http://localhost:44302/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
