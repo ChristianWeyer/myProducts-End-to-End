@@ -166,6 +166,7 @@
     <Content Include="app\content\font-awesome.css" />
     <Content Include="app\content\font-awesome.min.css" />
     <Content Include="app\content\images\apple-touch-icon.png" />
+    <Content Include="app\content\images\apple-touch-startup-image-1024x748.png" />
     <Content Include="app\content\images\apple-touch-startup-image-2048x1496.png" />
     <Content Include="app\content\images\glyphicons-halflings-white.png" />
     <Content Include="app\content\images\glyphicons-halflings.png" />
