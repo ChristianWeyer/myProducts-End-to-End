@@ -16,7 +16,12 @@ myApp.config(["$routeProvider", "$translateProvider", function ($routeProvider, 
     $translateProvider.useLocalStorage();
 }]);
 
-myApp.run(["$rootScope", "$location", function ($rootScope, $location) {
+myApp.run(["$http", "$templateCache", "$rootScope", "$location", function ($http, $templateCache, $rootScope, $location) {
+    $http.get("views/overview.html", { cache: $templateCache });
+    $http.get("views/details.html", { cache: $templateCache });
+    $http.get("views/info.html", { cache: $templateCache });
+    $http.get("views/login.html", { cache: $templateCache });
+    
     $rootScope.$on(tt.authentication.constants.authenticationRequired, function () {
         $location.path("/login");
     });
