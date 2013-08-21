@@ -432,6 +432,7 @@
     <Content Include="app\js\lib\base64.min.js">
       <DependentUpon>base64.js</DependentUpon>
     </Content>
+    <Content Include="app\js\lib\fastclick.js" />
     <Content Include="app\js\lib\lawnchair-0.6.1.min.js" />
     <Content Include="app\js\lib\ngSignalR.min.js">
       <DependentUpon>ngSignalR.js</DependentUpon>
