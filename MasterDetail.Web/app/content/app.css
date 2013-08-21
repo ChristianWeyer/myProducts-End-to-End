@@ -1,20 +1,19 @@
 ﻿[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
+    display: none !important;
 }
 
 html, body {
     height: 100%;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
-html
-{
-    overflow:hidden;
+html {
+    overflow: hidden;
 }
 
 body {
-    padding-top: 60px;
+    padding-top: 6em;
 }
 
 h1 {
@@ -26,10 +25,26 @@ h2 {
     margin-bottom: 10px;
 }
 
-#grid
-{
-    border-width:0;
-    height:100%;
+.navbar .brand {
+    font-size: 26px;
+    padding: 1em 20px 10px;
+}
+
+.navbar .container {
+    height: 3em;
+}
+
+.navbar .nav > li > a{
+    padding: 2em 15px 20px;
+}
+
+.language-icon {
+    cursor: pointer;
+}
+
+#grid {
+    border-width: 0;
+    height: 100%;
 }
 
 #footer {
@@ -42,14 +57,14 @@ h2 {
     box-shadow: 0 -5px 20px #555;
 }
 
-#footer a {
-    color: silver;
-    text-decoration: none;
-}
+    #footer a {
+        color: silver;
+        text-decoration: none;
+    }
 
-#footer .cloud-link {
-    float: right;
-}
+    #footer .cloud-link {
+        float: right;
+    }
 
 #ng-view {
     position: relative;

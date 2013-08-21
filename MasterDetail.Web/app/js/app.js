@@ -1,4 +1,4 @@
-﻿var myApp = angular.module("myApp", ["kendo.directives", "ngSignalR", "tt.Authentication.Providers", "tt.Authentication.Services", "ngCookies", "pascalprecht.translate"]);
+﻿var myApp = angular.module("myApp", ["ngRoute", "ngTouch", "kendo.directives", "ngSignalR", "tt.Authentication.Providers", "tt.Authentication.Services", "ngCookies", "pascalprecht.translate"]);
 
 myApp.config(["$routeProvider", "$translateProvider", function ($routeProvider, $translateProvider) {
     $routeProvider

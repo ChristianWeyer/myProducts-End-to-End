@@ -165,8 +165,11 @@
     <Content Include="app\content\bootstrap.min.css" />
     <Content Include="app\content\font-awesome.css" />
     <Content Include="app\content\font-awesome.min.css" />
+    <Content Include="app\content\images\apple-touch-icon-iphone4.png" />
     <Content Include="app\content\images\glyphicons-halflings-white.png" />
     <Content Include="app\content\images\glyphicons-halflings.png" />
+    <Content Include="app\content\images\lang_de.png" />
+    <Content Include="app\content\images\lang_en.png" />
     <Content Include="app\content\kendo\Black\editor.png" />
     <Content Include="app\content\kendo\Black\imagebrowser.png" />
     <Content Include="app\content\kendo\Black\loading-image.gif" />
@@ -412,7 +415,9 @@
     <Content Include="app\js\lib\angular-kendo.min.js">
       <DependentUpon>angular-kendo.js</DependentUpon>
     </Content>
+    <Content Include="app\js\lib\angular-route.min.js" />
     <Content Include="app\js\lib\angular-snap.js" />
+    <Content Include="app\js\lib\angular-touch.min.js" />
     <Content Include="app\js\lib\angular-translate-loader-static-files.js" />
     <Content Include="app\js\lib\angular-translate-loader-url.js" />
     <Content Include="app\js\lib\angular-translate-storage-cookie.js" />
@@ -468,12 +473,8 @@
     <Content Include="images\5.jpg" />
     <Content Include="images\0.jpg" />
     <Content Include="Web.config" />
-    <Content Include="app\data\locale-de.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="app\data\locale-en.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="app\data\locale-de.json" />
+    <Content Include="app\data\locale-en.json" />
     <Content Include="app\js\controllers\loginController.min.js - Copy.map">
       <DependentUpon>navigationController.js</DependentUpon>
     </Content>
