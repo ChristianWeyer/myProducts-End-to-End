@@ -1,19 +1,29 @@
-﻿var myApp = angular.module("myApp", ["ngRoute", "ngTouch", "$strap.directives", "kendo.directives", "ngSignalR", "tt.Authentication.Providers", "tt.Authentication.Services", "ngCookies", "pascalprecht.translate"]);
+﻿var myApp = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "kendo.directives", "ngSignalR", "tt.Authentication.Providers", "tt.Authentication.Services", "ngCookies", "pascalprecht.translate"]);
 
-myApp.config(["$routeProvider", "$translateProvider", function ($routeProvider, $translateProvider) {
+myApp.config(["$routeProvider", "$translateProvider", "$httpProvider", function ($routeProvider, $translateProvider, $httpProvider) {
+    //alert("debug");
     $routeProvider
         .when("/", { templateUrl: "views/overview.html", controller: "ArticlesController" })
         .when("/details/:id", { templateUrl: "views/details.html", controller: "ArticleDetailsController" })
         .when("/info", { templateUrl: "views/info.html" })
         .when("/login", { templateUrl: "views/login.html", controller: "LoginController" })
         .otherwise({ redirectTo: "/" });
-    
+
     $translateProvider.useStaticFilesLoader({
         prefix: 'data/locale-',
         suffix: '.json'
     });
     $translateProvider.preferredLanguage('de');
     $translateProvider.useLocalStorage();
+
+    $httpProvider.responseInterceptors.push("loadingIndicatorInterceptor");
+    var transformRequest = function (data) {
+        var sp = document.getElementById("spinner");
+        theSpinner.spin(sp);
+
+        return data;
+    };
+    $httpProvider.defaults.transformRequest.push(transformRequest);
 }]);
 
 myApp.run(["$http", "$templateCache", "$rootScope", "$location", function ($http, $templateCache, $rootScope, $location) {
@@ -21,7 +31,7 @@ myApp.run(["$http", "$templateCache", "$rootScope", "$location", function ($http
     $http.get("views/details.html", { cache: $templateCache });
     $http.get("views/info.html", { cache: $templateCache });
     $http.get("views/login.html", { cache: $templateCache });
-    
+
     $rootScope.$on(tt.authentication.constants.authenticationRequired, function () {
         $location.path("/login");
     });
@@ -29,3 +39,32 @@ myApp.run(["$http", "$templateCache", "$rootScope", "$location", function ($http
         $location.path("/");
     });
 }]);
+
+myApp.factory("loadingIndicatorInterceptor", function ($q) {
+    return function (promise) {
+        return promise.then(
+            function (response) {
+                theSpinner.stop();
+
+                return response;
+            },
+            function (response) {
+                theSpinner.stop();
+
+                return $q.reject(response);
+            });
+    };
+});
+
+var theSpinner = new Spinner({
+    lines: 12,
+    length: 20,
+    width: 2,
+    radius: 10,
+    color: '#000',
+    speed: 1,
+    trail: 100,
+    shadow: true,
+    top: "auto",
+    left: "auto"
+});

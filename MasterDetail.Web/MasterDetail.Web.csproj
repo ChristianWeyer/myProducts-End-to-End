@@ -166,6 +166,7 @@
     <Content Include="app\content\font-awesome.css" />
     <Content Include="app\content\font-awesome.min.css" />
     <Content Include="app\content\images\apple-touch-icon.png" />
+    <Content Include="app\content\images\apple-touch-startup-image-2048x1496.png" />
     <Content Include="app\content\images\glyphicons-halflings-white.png" />
     <Content Include="app\content\images\glyphicons-halflings.png" />
     <Content Include="app\content\images\lang_de.png" />
@@ -413,6 +414,7 @@
     <Content Include="app\js\infrastructure\tools.min.js">
       <DependentUpon>tools.js</DependentUpon>
     </Content>
+    <Content Include="app\js\lib\angular-animate.min.js" />
     <Content Include="app\js\lib\angular-cookies.min.js" />
     <Content Include="app\js\lib\angular-kendo.js" />
     <Content Include="app\js\lib\angular-kendo.min.js">
@@ -435,6 +437,7 @@
       <DependentUpon>ngSignalR.js</DependentUpon>
     </Content>
     <Content Include="app\js\lib\snap.js" />
+    <Content Include="app\js\lib\spin.min.js" />
     <Content Include="app\js\services\alertService.min.js">
       <DependentUpon>alertService.js</DependentUpon>
     </Content>

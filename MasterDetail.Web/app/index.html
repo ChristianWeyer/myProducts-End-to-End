@@ -6,14 +6,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <link rel="apple-touch-icon" href="content/images/apple-touch-icon.png" />
-    <!-- iPad Non-Retina Portrait -->
     <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: portrait)" href="apple-touch-startup-image-768x1004.png">
-    <!-- iPad Non-Retina Landscape -->
     <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: landscape)" href="apple-touch-startup-image-748x1024.png">
-    <!-- iPad Retina Portrait -->
     <link rel="apple-touch-startup-image" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="apple-touch-startup-image-1536x2008.png">
-    <!-- iPad Retina Landscape -->
-    <link rel="apple-touch-startup-image" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="apple-touch-startup-image-2048x1496.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="content/images/apple-touch-startup-image-2048x1496.png">
 
     <link href="content/toastr.min.css" rel="stylesheet" />
     <link href="content/bootstrap.min.css" rel="stylesheet" />
@@ -54,7 +50,8 @@
     </div>
 
     <div class="container">
-        <div ng-view></div>
+        <div id="spinner" style="position:fixed;top:50%;left:50%"></div>
+        <div ng-view id="ng-view" class="animation"></div>
     </div>
 
     <footer id="footer">
@@ -67,9 +64,11 @@
 
     <script src="js/lib/jquery-2.0.1.min.js"></script>
     <script src="js/lib/toastr.min.js"></script>
+    <script src="js/lib/spin.min.js"></script>
     <script src="js/lib/kendo.all.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
     <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-animate.min.js"></script>
     <script src="js/lib/angular-route.min.js"></script>
     <script src="js/lib/angular-touch.min.js"></script>
     <script src="js/lib/angular-strap.min.js"></script>
