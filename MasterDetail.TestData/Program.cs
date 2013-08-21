@@ -10,19 +10,19 @@ namespace MasterDetail.TestData
         static void Main(string[] args)
         {
             var artikel = Builder<Article>.CreateListOfSize(74657)
-                               .Build();
+                                .Build();
 
             using (var db = new ProductsContext())
             {
                 int i = 1;
                 artikel.ToList().ForEach(
                     a =>
-                        {
-                            int imageNumber = i%6;
-                            a.ImageUrl = String.Format("../images/{0}.jpg", imageNumber);
-                            db.Articles.Add(a);
-                            i++;
-                        });
+                    {
+                        int imageNumber = i % 6;
+                        a.ImageUrl = String.Format("images/{0}.jpg", imageNumber);
+                        db.Articles.Add(a);
+                        i++;
+                    });
 
                 db.SaveChanges();
             }
