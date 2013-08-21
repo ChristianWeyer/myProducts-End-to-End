@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    padding-top: 5em;
+    padding-top: 6em;
 }
 
 h1 {
@@ -28,22 +28,44 @@ h2 {
 .navbar .brand {
     max-height: 40px;
     overflow: visible;
-    padding-top: 0;
+    padding-top: 10px;
     padding-bottom: 0;
 }
 
-/*.navbar .brand {
-    font-size: 26px;
-    padding: 1em 20px 10px;
-}
-
 .navbar .container {
-    height: 3em;
+    height: 5em;
 }
 
-.navbar .nav > li > a{
-    padding: 2.1em 15px 20px;
-}*/
+.navbar .nav > li > a {
+    padding: 2em 15px 10px;
+}
+
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0px;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: #FF6600;
+    color: #000 !important;
+    background-color: transparent !important;
+}
+
+.nav-pills > li > a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0px;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: lightblue;
+    color: #000 !important;
+    background-color: transparent !important;
+}
+
+.nav-pills > li > a {
+    border-radius: 0px;
+}
 
 .language-icon {
     cursor: pointer;

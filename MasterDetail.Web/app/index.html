@@ -30,11 +30,11 @@
         <div class="navbar-inner">
             <div class="container">
                 <span class="brand">
-                    <img src="content/images/logo.png" style="height: 40%" />
+                    <img src="content/images/logo.png" />
                     <a href="#" class="brand">{{ 'INDEX_MYPRODUCTS' | translate }}</a>
                 </span>
 
-                <ul class="nav">
+                <ul class="nav nav-pills">
                     <li data-match-route="/"><a href="#/">{{ 'INDEX_ARTICLES' | translate }}</a></li>
                     <li data-match-route="/info"><a href="#/info">{{ 'INDEX_INFO' | translate }}</a></li>
                 </ul>
@@ -45,6 +45,8 @@
                             <img src="content/images/lang_en_t.png" ng-click="changeLanguage('en')" class="language-icon" />
                         </a>
                     </li>
+                </ul>
+                <ul class="nav nav-pills pull-right">
                     <li data-match-route="/login"><a href="#/login">{{ 'INDEX_USER' | translate }}</a></li>
                 </ul>
             </div>
