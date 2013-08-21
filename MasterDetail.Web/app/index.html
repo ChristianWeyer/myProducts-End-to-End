@@ -18,22 +18,22 @@
     <link href="content/app.css" rel="stylesheet" />
 </head>
 <body class="ng-cloak">
-    <div class="navbar navbar-fixed-top" ng-controller="NavigationController">
+    <div class="navbar navbar-fixed-top" ng-controller="NavigationController" bs-navbar>
         <div class="navbar-inner">
             <div class="container">
                 <a href="#" class="brand">{{ 'INDEX_MYPRODUCTS' | translate }}</a>
                 <ul class="nav">
-                    <li><a href="#/">{{ 'INDEX_ARTICLES' | translate }}</a></li>
-                    <li><a href="#/info">{{ 'INDEX_INFO' | translate }}</a></li>
+                    <li data-match-route="/"><a href="#/">{{ 'INDEX_ARTICLES' | translate }}</a></li>
+                    <li data-match-route="/info"><a href="#/info">{{ 'INDEX_INFO' | translate }}</a></li>
                 </ul>
                 <ul class="nav pull-right">
                     <li>
                         <a href="">
-                            <img src="content/images/lang_de.png" ng-click="changeLanguage('de')" class="language-icon" />
-                            <img src="content/images/lang_en.png" ng-click="changeLanguage('en')" class="language-icon" />
+                            <img src="content/images/lang_de_t.png" ng-click="changeLanguage('de')" class="language-icon" />
+                            <img src="content/images/lang_en_t.png" ng-click="changeLanguage('en')" class="language-icon" />
                         </a>
                     </li> 
-                    <li><a href="#/login">{{ 'INDEX_USER' | translate }}</a></li>
+                    <li data-match-route="/login"><a href="#/login">{{ 'INDEX_USER' | translate }}</a></li>
                 </ul>
             </div>
         </div>
@@ -58,6 +58,7 @@
     <script src="js/lib/angular.min.js"></script>
     <script src="js/lib/angular-route.min.js"></script>
     <script src="js/lib/angular-touch.min.js"></script>
+    <script src="js/lib/angular-strap.min.js"></script>
     <script src="js/lib/angular-kendo.min.js"></script>
     <script src="js/lib/jquery.signalR-1.1.2.min.js"></script>
     <script src="js/lib/ngSignalR.min.js"></script>

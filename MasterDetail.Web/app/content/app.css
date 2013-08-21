@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    padding-top: 6em;
+    padding-top: 5em;
 }
 
 h1 {
@@ -25,7 +25,7 @@ h2 {
     margin-bottom: 10px;
 }
 
-.navbar .brand {
+/*.navbar .brand {
     font-size: 26px;
     padding: 1em 20px 10px;
 }
@@ -35,8 +35,8 @@ h2 {
 }
 
 .navbar .nav > li > a{
-    padding: 2em 15px 20px;
-}
+    padding: 2.1em 15px 20px;
+}*/
 
 .language-icon {
     cursor: pointer;
