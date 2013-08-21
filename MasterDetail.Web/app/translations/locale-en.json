@@ -1,17 +1,22 @@
 ﻿{
-  "LOGIN_LOGIN": "User login",
+  "LOGIN_TITLE": "User login",
   "LOGIN_USERNAME": "Username",
   "LOGIN_PASSWORD": "Password",
   "LOGIN_BUTTON_LOGIN": "Log in",
 
-  "INDEX_MYPRODUCTS": "myProducts",
+  "INDEX_TITLE": "myProducts",
   "INDEX_ARTICLES": "Articles",
   "INDEX_INFO": "About",
   "INDEX_USER": "User Account",
 
-  "OVERVIEW_OVERVIEW": "Overview",
+  "OVERVIEW_TITLE": "Overview",
   "OVERVIEW_FILTER": "Filter by article code",
 
-  "ABOUT_ABOUT": "About this application",
-  "ABOUT_BODY": "Our super awesome products management application..."
+  "DETAILS_TITLE": "Article details",
+
+  "ABOUT_TITLE": "About this application",
+  "ABOUT_BODY": "Our super awesome products management application...",
+    
+  "COMMON_CANCEL": "Cancel",
+  "COMMON_SAVE": "Save"
 }

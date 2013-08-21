@@ -1,4 +1,4 @@
-﻿<h3>Article details</h3>
+﻿<h3>{{ 'DETAILS_TITLE' | translate }}</h3>
 
 <form name="form" class="form-horizontal">
     <div class="control-group" ng-class="{error: form.code.$invalid}">
@@ -19,7 +19,7 @@
     </div>
 
     <div class="form-actions">
-        <button ng-click="save()" class="btn btn-primary">Save</button>
-        <a href="#/" class="btn">Cancel</a>
+        <button ng-click="save()" class="btn btn-primary">{{ 'COMMON_SAVE' | translate }}</button>
+        <a href="#/" class="btn">{{ 'COMMON_CANCEL' | translate }}</a>
     </div>
 </form>
