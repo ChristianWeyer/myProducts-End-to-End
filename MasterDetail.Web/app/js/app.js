@@ -32,10 +32,17 @@ myApp.run(["$http", "$templateCache", "$rootScope", "$location", function ($http
     $http.get("views/info.html", { cache: $templateCache });
     $http.get("views/login.html", { cache: $templateCache });
 
+    $rootScope.$on("$locationChangeStart", function () {
+        if (!$rootScope.ttUserAuthenticated) {
+            $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
+        }
+    });
+
     $rootScope.$on(tt.authentication.constants.authenticationRequired, function () {
         $location.path("/login");
     });
     $rootScope.$on(tt.authentication.constants.authenticationConfirmed, function () {
+        $rootScope.ttUserAuthenticated = true;
         $location.path("/");
     });
 }]);
