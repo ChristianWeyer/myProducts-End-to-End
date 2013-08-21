@@ -9,8 +9,9 @@ myApp.config(["$routeProvider", "$translateProvider", "$httpProvider", function 
         .when("/login", { templateUrl: "views/login.html", controller: "LoginController" })
         .otherwise({ redirectTo: "/" });
 
+    $translateProvider.translations("de", tt.translations.de);
     $translateProvider.useStaticFilesLoader({
-        prefix: 'data/locale-',
+        prefix: 'translations/locale-',
         suffix: '.json'
     });
     $translateProvider.preferredLanguage('de');

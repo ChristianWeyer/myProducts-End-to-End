@@ -381,6 +381,9 @@
     <Content Include="app\content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="app\content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="app\content\toastr.min.css" />
+    <Content Include="app\translations\translations-de.min.js">
+      <DependentUpon>translations-de.js</DependentUpon>
+    </Content>
     <Content Include="app\font\fontawesome-webfont.svg" />
     <Content Include="app\index.html" />
     <Content Include="app\js\app.js" />
@@ -402,6 +405,7 @@
     <Content Include="app\js\controllers\loginController.min.js">
       <DependentUpon>loginController.js</DependentUpon>
     </Content>
+    <Content Include="app\translations\translations-de.js" />
     <Content Include="app\js\infrastructure\authentication.min.js">
       <DependentUpon>thinktecture.Authentication.js</DependentUpon>
     </Content>
@@ -480,11 +484,14 @@
     <Content Include="images\4.jpg" />
     <Content Include="images\5.jpg" />
     <Content Include="images\0.jpg" />
+    <Content Include="index.html" />
     <Content Include="Web.config" />
-    <Content Include="app\data\locale-de.json" />
-    <Content Include="app\data\locale-en.json" />
+    <Content Include="app\translations\locale-en.json" />
     <Content Include="app\js\controllers\loginController.min.js - Copy.map">
       <DependentUpon>navigationController.js</DependentUpon>
+    </Content>
+    <Content Include="app\translations\translations-de.min.js.map">
+      <DependentUpon>translations-de.js</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
