@@ -17,10 +17,10 @@ myApp.config(["$routeProvider", "$translateProvider", function ($routeProvider, 
 }]);
 
 myApp.run(["$rootScope", "$location", function ($rootScope, $location) {
-    $rootScope.$on("tt:authNRequired", function () {
+    $rootScope.$on(tt.authentication.constants.authenticationRequired, function () {
         $location.path("/login");
     });
-    $rootScope.$on("tt:authNConfirmed", function () {
+    $rootScope.$on(tt.authentication.constants.authenticationConfirmed, function () {
         $location.path("/");
     });
 }]);

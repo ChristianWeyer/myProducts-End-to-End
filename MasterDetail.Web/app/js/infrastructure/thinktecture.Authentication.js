@@ -1,8 +1,14 @@
+var tt = window.tt || {}; tt.authentication = {};
+tt.authentication.constants = {
+    authenticationRequired: "tt:authentication:authNRequired",
+    authenticationConfirmed: "tt:authentication:authNConfirmed"
+};
+
 angular.module("tt.Authentication.Services", ["tt.Authentication.Internal"])
     .factory("authService", ["$rootScope", "$injector", "$q", "httpBuffer", function ($rootScope, $injector, $q, httpBuffer) {
         var $http;
         var store = new Lawnchair({ adapter: "dom", table: "authenticationToken" }, function () { });
-        var key = "tt:authNToken";
+        var key = "tt:authentication:authNToken";
         var requestAttempts = 0;
 
         function authenticate(username, password) {
@@ -23,7 +29,7 @@ angular.module("tt.Authentication.Services", ["tt.Authentication.Internal"])
 
         function authenticationSuccess() {
             requestAttempts = 0;
-            $rootScope.$broadcast("tt:authNConfirmed");
+            $rootScope.$broadcast(tt.authentication.constants.authenticationConfirmed);
             httpBuffer.retry();
         }
 
@@ -74,7 +80,7 @@ angular.module("tt.Authentication.Providers", ["tt.Authentication.Services", "tt
                         var deferred = $.Deferred();
 
                         if (authService.requestAttempts > 0) {
-                            $rootScope.$apply($rootScope.$broadcast("tt:authNRequired"));
+                            $rootScope.$apply($rootScope.$broadcast(tt.authentication.constants.authenticationRequired));
                         } else {
                             authService.requestAttempts++;
                             $rootScope.$apply(checkForToken(thatOptions, deferred));
@@ -95,7 +101,7 @@ angular.module("tt.Authentication.Providers", ["tt.Authentication.Services", "tt
                     var deferred = $q.defer();
 
                     if (authService.requestAttempts > 0) {
-                        $rootScope.$broadcast("tt:authNRequired");
+                        $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
                     } else {
                         authService.requestAttempts++;
                         checkForToken(response, deferred);
@@ -112,12 +118,12 @@ angular.module("tt.Authentication.Providers", ["tt.Authentication.Services", "tt
                     httpBuffer.append(response, deferred);
 
                     if (!tokenData) {
-                        $rootScope.$broadcast("tt:authNRequired");
+                        $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
 
                         return deferred.promise;
                     } else {
                         if (new Date().getTime() > tokenData.token.expiration) {
-                            $rootScope.$broadcast("tt:authNRequired");
+                            $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
 
                             return deferred.promise;
                         } else {
