@@ -27,7 +27,7 @@ myApp.config(["$routeProvider", "$translateProvider", "$httpProvider", function 
     $httpProvider.defaults.transformRequest.push(transformRequest);
 }]);
 
-myApp.run(["$http", "$templateCache", "$rootScope", "$location", function ($http, $templateCache, $rootScope, $location) {
+myApp.run(["$http", "$templateCache", "$rootScope", "$location", "alertService", function ($http, $templateCache, $rootScope, $location, alertService) {
     $http.get("views/overview.html", { cache: $templateCache });
     $http.get("views/details.html", { cache: $templateCache });
     $http.get("views/info.html", { cache: $templateCache });
@@ -61,6 +61,12 @@ myApp.run(["$http", "$templateCache", "$rootScope", "$location", function ($http
     $rootScope.$on(tt.authentication.constants.authenticationConfirmed, function () {
         $rootScope.ttUserAuthenticated = true;
         $location.path("/");
+    });
+    $rootScope.$on(tt.authentication.constants.authenticationFailed, function () {
+        $rootScope.ttUserAuthenticated = false;
+        alertService.pop({
+            title: "Login", body: "Anmeldung fehlgeschlagen.", type: "error"
+        });
     });
 }]);
 

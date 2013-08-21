@@ -1,7 +1,8 @@
 var tt = window.tt || {}; tt.authentication = {};
 tt.authentication.constants = {
     authenticationRequired: "tt:authentication:authNRequired",
-    authenticationConfirmed: "tt:authentication:authNConfirmed"
+    authenticationConfirmed: "tt:authentication:authNConfirmed",
+    authenticationFailed: "tt:authentication:authNFailed"
 };
 
 angular.module("tt.Authentication.Services", ["tt.Authentication.Internal"])
@@ -17,14 +18,19 @@ angular.module("tt.Authentication.Services", ["tt.Authentication.Internal"])
             $http = $http || $injector.get("$http");
             $http.defaults.headers.common["Authorization"] = auth;
 
-            $http.get(ttTools.baseUrl + "api/token").success(function (tokenData) {
-                username = "";
-                password = "";
-                auth = "";
+            $http.get(ttTools.baseUrl + "api/token")
+                .success(function (tokenData) {
+                    username = "";
+                    password = "";
+                    auth = "";
 
-                setToken(tokenData);
-                authenticationSuccess();
-            });
+                    setToken(tokenData);
+                    authenticationSuccess();
+                })
+                .error(function (data) {
+                    $rootScope.$broadcast(tt.authentication.constants.authenticationFailed);
+                    console.log("LOGIN ERROR: " + JSON.stringify(data));
+                });
         }
 
         function authenticationSuccess() {
@@ -80,12 +86,12 @@ angular.module("tt.Authentication.Providers", ["tt.Authentication.Services", "tt
                         var deferred = $.Deferred();
 
                         if (authService.requestAttempts > 0) {
-                            $rootScope.$apply($rootScope.$broadcast(tt.authentication.constants.authenticationRequired));
+                            $rootScope.$apply($rootScope.$broadcast(tt.authentication.constants.authenticationFailed));
                         } else {
                             authService.requestAttempts++;
                             $rootScope.$apply(checkForToken(thatOptions, deferred));
                         }
-                        
+
                         return deferred.promise;
                     }
                     return thatError(thisXhr, textStatus, errorThrown);
@@ -101,12 +107,12 @@ angular.module("tt.Authentication.Providers", ["tt.Authentication.Services", "tt
                     var deferred = $q.defer();
 
                     if (authService.requestAttempts > 0) {
-                        $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
+                        $rootScope.$broadcast(tt.authentication.constants.authenticationFailed);
                     } else {
                         authService.requestAttempts++;
                         checkForToken(response, deferred);
                     }
-                    
+
                     return deferred.promise;
                 }
 
@@ -140,7 +146,7 @@ angular.module("tt.Authentication.Providers", ["tt.Authentication.Services", "tt
                 return promise.then(success, error);
             };
         }];
-        
+
         $httpProvider.responseInterceptors.push(interceptor);
     }]);
 
