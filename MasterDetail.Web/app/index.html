@@ -2,10 +2,18 @@
 <html ng-app="myApp">
 <head>
     <title>myProducts</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <link rel="apple-touch-icon" href="content/images/apple-touch-icon-iphone4.png" />
+    <link rel="apple-touch-icon" href="content/images/apple-touch-icon.png" />
+    <!-- iPad Non-Retina Portrait -->
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: portrait)" href="apple-touch-startup-image-768x1004.png">
+    <!-- iPad Non-Retina Landscape -->
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: landscape)" href="apple-touch-startup-image-748x1024.png">
+    <!-- iPad Retina Portrait -->
+    <link rel="apple-touch-startup-image" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="apple-touch-startup-image-1536x2008.png">
+    <!-- iPad Retina Landscape -->
+    <link rel="apple-touch-startup-image" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="apple-touch-startup-image-2048x1496.png">
 
     <link href="content/toastr.min.css" rel="stylesheet" />
     <link href="content/bootstrap.min.css" rel="stylesheet" />
@@ -21,7 +29,11 @@
     <div class="navbar navbar-fixed-top" ng-controller="NavigationController" bs-navbar>
         <div class="navbar-inner">
             <div class="container">
-                <a href="#" class="brand">{{ 'INDEX_MYPRODUCTS' | translate }}</a>
+                <span class="brand">
+                    <img src="content/images/logo.png" style="height: 40%" />
+                    <a href="#" class="brand">{{ 'INDEX_MYPRODUCTS' | translate }}</a>
+                </span>
+
                 <ul class="nav">
                     <li data-match-route="/"><a href="#/">{{ 'INDEX_ARTICLES' | translate }}</a></li>
                     <li data-match-route="/info"><a href="#/info">{{ 'INDEX_INFO' | translate }}</a></li>
@@ -32,7 +44,7 @@
                             <img src="content/images/lang_de_t.png" ng-click="changeLanguage('de')" class="language-icon" />
                             <img src="content/images/lang_en_t.png" ng-click="changeLanguage('en')" class="language-icon" />
                         </a>
-                    </li> 
+                    </li>
                     <li data-match-route="/login"><a href="#/login">{{ 'INDEX_USER' | translate }}</a></li>
                 </ul>
             </div>

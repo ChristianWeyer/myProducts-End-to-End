@@ -165,13 +165,14 @@
     <Content Include="app\content\bootstrap.min.css" />
     <Content Include="app\content\font-awesome.css" />
     <Content Include="app\content\font-awesome.min.css" />
-    <Content Include="app\content\images\apple-touch-icon-iphone4.png" />
+    <Content Include="app\content\images\apple-touch-icon.png" />
     <Content Include="app\content\images\glyphicons-halflings-white.png" />
     <Content Include="app\content\images\glyphicons-halflings.png" />
     <Content Include="app\content\images\lang_de.png" />
     <Content Include="app\content\images\lang_de_t.png" />
     <Content Include="app\content\images\lang_en.png" />
     <Content Include="app\content\images\lang_en_t.png" />
+    <Content Include="app\content\images\logo.png" />
     <Content Include="app\content\kendo\Black\editor.png" />
     <Content Include="app\content\kendo\Black\imagebrowser.png" />
     <Content Include="app\content\kendo\Black\loading-image.gif" />
