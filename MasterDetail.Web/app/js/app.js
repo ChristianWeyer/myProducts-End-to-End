@@ -32,6 +32,22 @@ myApp.run(["$http", "$templateCache", "$rootScope", "$location", function ($http
     $http.get("views/info.html", { cache: $templateCache });
     $http.get("views/login.html", { cache: $templateCache });
 
+    var oldOpen = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function (method, url, async, user, pass) {
+        if (url.indexOf("/signalr") === -1) {
+            this.addEventListener("readystatechange", function () {
+                if (this.readyState === 1) {
+                    theSpinner.spin(document.getElementById("spinner"));
+                };
+                if (this.readyState === 4) {
+                    theSpinner.stop();
+                };
+            }, false);    
+        }
+        
+        oldOpen.call(this, method, url, async, user, pass); 
+    };
+
     $rootScope.$on("$locationChangeStart", function () {
         if (!$rootScope.ttUserAuthenticated) {
             $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
