@@ -25,6 +25,12 @@ h2 {
     margin-bottom: 10px;
 }
 
+.center {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .navbar .brand {
     max-height: 40px;
     overflow: visible;
@@ -114,14 +120,14 @@ h2 {
     left: 100%;
 }
 
-.animation.ng-enter.ng-enter-active {
-    left: 0;
-}
+    .animation.ng-enter.ng-enter-active {
+        left: 0;
+    }
 
 .animation.ng-leave {
     left: 0;
 }
 
-.animation.ng-leave.ng-leave-active {
-    left: -100%;
-}
+    .animation.ng-leave.ng-leave-active {
+        left: -100%;
+    }
