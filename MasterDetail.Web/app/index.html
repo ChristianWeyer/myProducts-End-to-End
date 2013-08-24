@@ -48,8 +48,9 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="nav nav-pills pull-right">
-                    <li data-match-route="/login"><a href="#/login">{{ 'INDEX_USER' | translate }}</a></li>
+                <ul class="nav nav-pills pull-right">  
+                    <li ng-if="!tt.authentication.userLoggedIn" data-match-route="/login"><a href="#/login">{{ 'INDEX_LOGIN' | translate }}</a></li>
+                    <li ng-if="tt.authentication.userLoggedIn"><a href="" ng-click="logout();">{{ 'INDEX_LOGOUT' | translate }}</a></li>
                 </ul>
             </div>
         </div>

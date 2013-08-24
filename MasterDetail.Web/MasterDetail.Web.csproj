@@ -434,9 +434,6 @@
     <Content Include="app\js\lib\angular-translate-storage-cookie.js" />
     <Content Include="app\js\lib\angular-translate-storage-local.js" />
     <Content Include="app\js\lib\angular-translate.js" />
-    <Content Include="app\js\lib\base64.min.js">
-      <DependentUpon>base64.js</DependentUpon>
-    </Content>
     <Content Include="app\js\lib\fastclick.js" />
     <Content Include="app\js\lib\lawnchair-0.6.1.min.js" />
     <Content Include="app\js\lib\ngSignalR.min.js">
@@ -453,7 +450,6 @@
     <Content Include="app\js\services\pushService.js" />
     <Content Include="app\js\infrastructure\tools.js" />
     <Content Include="app\js\infrastructure\filters.js" />
-    <Content Include="app\js\lib\base64.js" />
     <Content Include="app\js\controllers\loginController.js" />
     <Content Include="app\js\infrastructure\thinktecture.Authentication.js" />
     <Content Include="app\js\lib\jquery-2.0.1.min.js" />
@@ -575,9 +571,6 @@
     </Content>
     <Content Include="app\js\app.min.js.map">
       <DependentUpon>app.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\lib\base64.min.js.map">
-      <DependentUpon>base64.js</DependentUpon>
     </Content>
     <Content Include="app\js\lib\ngSignalR.min.js.map">
       <DependentUpon>ngSignalR.js</DependentUpon>

@@ -50,7 +50,7 @@ myApp.run(["$http", "$templateCache", "$rootScope", "$location", "alertService",
     };
 
     $rootScope.$on("$locationChangeStart", function () {
-        if (!$rootScope.ttUserAuthenticated) {
+        if (!$rootScope.tt.authentication.userLoggedIn) {
             $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
         }
     });
@@ -58,15 +58,16 @@ myApp.run(["$http", "$templateCache", "$rootScope", "$location", "alertService",
     $rootScope.$on(tt.authentication.constants.authenticationRequired, function () {
         $location.path("/login");
     });
-    $rootScope.$on(tt.authentication.constants.authenticationConfirmed, function () {
-        $rootScope.ttUserAuthenticated = true;
+    $rootScope.$on(tt.authentication.constants.loginConfirmed, function () {
         $location.path("/");
     });
-    $rootScope.$on(tt.authentication.constants.authenticationFailed, function () {
-        $rootScope.ttUserAuthenticated = false;
+    $rootScope.$on(tt.authentication.constants.loginFailed, function () {
         alertService.pop({
             title: "Login", body: "Anmeldung fehlgeschlagen.", type: "error"
         });
+    });
+    $rootScope.$on(tt.authentication.constants.logoutConfirmed, function () {
+        $location.path("/login");
     });
 }]);
 

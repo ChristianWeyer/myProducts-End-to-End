@@ -8,8 +8,9 @@ tt.translations.de = {
     "INDEX_TITLE": "meineProdukte",
     "INDEX_ARTICLES": "Artikel",
     "INDEX_INFO": "Über",
-    "INDEX_USER": "Benutzerkonto",
-
+    "INDEX_LOGIN": "Anmelden",
+    "INDEX_LOGOUT": "Abmelden",
+    
     "OVERVIEW_TITLE": "Überblick",
     "OVERVIEW_FILTER": "Artikel-Code-Filterung",
 
