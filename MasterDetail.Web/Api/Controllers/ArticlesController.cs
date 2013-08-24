@@ -30,7 +30,7 @@ namespace MasterDetail.Web.Api
             var settings = new ODataQuerySettings { PageSize = 10, EnsureStableOrdering = false };
 
             var artikelQuery =
-                from a in productsContext.Articles
+                from a in productsContext.Articles.AsNoTracking()
                 orderby a.Code
                 select new ArticleDto()
                 {
@@ -57,7 +57,7 @@ namespace MasterDetail.Web.Api
             }
 
             var query =
-                from artikel in productsContext.Articles
+                from artikel in productsContext.Articles.AsNoTracking()
                 where artikel.Id == guid
                 select new ArticleDetailDto
                     {

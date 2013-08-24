@@ -511,7 +511,6 @@
     <Compile Include="Api\Validation\FluentValidationExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Api\Controllers\PingController.cs" />
     <Compile Include="Api\Validation\ValidatableObject.cs">
       <SubType>Code</SubType>
     </Compile>
