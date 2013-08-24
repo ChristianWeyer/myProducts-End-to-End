@@ -62,6 +62,7 @@ myApp.run(["$http", "$templateCache", "$rootScope", "$location", "alertService",
         $location.path("/");
     });
     $rootScope.$on(tt.authentication.constants.loginFailed, function () {
+        $location.path("/login");
         alertService.pop({
             title: "Login", body: "Anmeldung fehlgeschlagen.", type: "error"
         });
