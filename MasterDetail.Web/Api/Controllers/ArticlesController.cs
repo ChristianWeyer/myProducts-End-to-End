@@ -24,28 +24,10 @@ namespace MasterDetail.Web.Api
             productsContext = new ProductsContext();
         }
 
-        //[CacheOutput(ServerTimeSpan = 3600)]
-        //[LinqToQueryable(maxPageSize: 10)]
-        //// Does not work with caching...
-        //public IQueryable<ArticleDto> Get()
-        //{
-        //    var results =
-        //        from a in productsContext.Articles
-        //        orderby a.Code
-        //        select new ArticleDto()
-        //        {
-        //            Id = a.Id,
-        //            Code = a.Code,
-        //            Name = a.Name
-        //        };
-
-        //    return results;
-        //}
-
         [CacheOutput(ServerTimeSpan = 3600)]
         public PageResult<ArticleDto> Get(ODataQueryOptions<ArticleDto> options)
         {
-            var settings = new ODataQuerySettings { PageSize = 10 };
+            var settings = new ODataQuerySettings { PageSize = 10, EnsureStableOrdering = false };
 
             var artikelQuery =
                 from a in productsContext.Articles

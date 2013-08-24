@@ -1,15 +1,31 @@
 ﻿using FizzWare.NBuilder;
+using FizzWare.NBuilder.Implementation;
+using FizzWare.NBuilder.PropertyNaming;
 using MasterDetail.DataAccess;
 using System;
 using System.Linq;
 
 namespace MasterDetail.TestData
 {
+    class MyPropertyNamer : SequentialPropertyNamer
+    {
+        public MyPropertyNamer(IReflectionUtil reflectionUtil)
+            : base(reflectionUtil)
+        {
+        }
+
+        protected override Guid GetGuid(System.Reflection.MemberInfo memberInfo)
+        {
+            return Guid.NewGuid();
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            var artikel = Builder<Article>.CreateListOfSize(74657)
+            BuilderSetup.SetDefaultPropertyNamer(new MyPropertyNamer(new ReflectionUtil()));
+            var artikel = Builder<Article>.CreateListOfSize(27859)
                                 .Build();
 
             using (var db = new ProductsContext())
