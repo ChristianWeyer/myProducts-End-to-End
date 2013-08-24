@@ -113,7 +113,6 @@ angular.module("tt.Authentication.Providers", ["tt.Authentication.Services"])
 
             $.ajaxPrefilter(function (options) {
                 var thatError = options.error;
-                var thatOptions = options;
 
                 options.error = function (thisXhr, textStatus, errorThrown) {
                     if (thisXhr.status === 401) {
