@@ -119,9 +119,11 @@ tt.authentication.module.config(["$httpProvider", function ($httpProvider) {
 
                     if (authenticationService.requestAttempts > 0) {
                         $rootScope.$apply($rootScope.$broadcast(tt.authentication.constants.loginFailed));
+
+                        return deferred.reject();
                     } else {
                         authenticationService.requestAttempts++;
-                        $rootScope.$apply(authenticationService.checkForValidToken(deferred));
+                        authenticationService.checkForValidToken(deferred);
                     }
 
                     return deferred.promise;

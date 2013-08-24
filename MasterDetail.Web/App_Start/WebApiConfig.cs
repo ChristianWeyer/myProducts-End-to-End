@@ -1,4 +1,5 @@
-﻿using System.IdentityModel.Services;
+﻿using System;
+using System.IdentityModel.Services;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using Fabrik.Common.WebAPI;
@@ -30,7 +31,8 @@ namespace MasterDetail.Web.App_Start
                 EnableSessionToken = true,
                 SessionToken = new SessionTokenConfiguration()
                 {
-                    DefaultTokenLifetime = System.TimeSpan.FromHours(24)
+                    DefaultTokenLifetime = System.TimeSpan.FromHours(24),
+                    SigningKey = Convert.FromBase64String("V5cgP0Bzx4goMmOrFKUIPqUWRNmgpoH8IxXQ92M2T0E=")
                 },
                 SendWwwAuthenticateResponseHeaders = false,
                 ClaimsAuthenticationManager = FederatedAuthentication.FederationConfiguration.IdentityConfiguration.ClaimsAuthenticationManager
