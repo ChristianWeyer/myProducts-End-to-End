@@ -150,7 +150,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\content\angular-snap.css" />
     <Content Include="app\content\bootstrap-responsive.css" />
     <Content Include="app\content\bootstrap-responsive.min.css" />
     <Content Include="app\content\bootstrap.css" />
@@ -425,7 +424,6 @@
       <DependentUpon>angular-kendo.js</DependentUpon>
     </Content>
     <Content Include="app\js\lib\angular-route.min.js" />
-    <Content Include="app\js\lib\angular-snap.js" />
     <Content Include="app\js\lib\angular-strap.min.js" />
     <Content Include="app\js\lib\angular-touch.min.js" />
     <Content Include="app\js\lib\angular-translate-loader-static-files.js" />
