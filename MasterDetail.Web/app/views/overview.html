@@ -14,11 +14,10 @@
     <div kendo-grid
         k-data-source="articles"
         reset-source-when="!filteredArticle"
-        k-columns='[{ "field": "Name", "title": "Name"}, 
-                        { "field": "Code",  "title": "Code"}]'
+        k-columns='[{ "field": "Name", "title": "Name"}, { "field": "Code",  "title": "Code"}]'
         k-pageable='{ "refresh": true, "pageSizes": false }'
         k-scrollable='{ "virtual": true }'
-        k-data-selectable="row"
+        k-selectable="'row'"
         k-on-change="rowSelected(kendoEvent.sender.dataItem(kendoEvent.sender.select()[0]))">
     </div>
 </div>
