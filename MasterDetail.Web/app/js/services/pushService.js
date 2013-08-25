@@ -1,6 +1,17 @@
-﻿myApp.factory("pushService", ["hubProxy", function (hubProxy) {
+﻿myApp.factory("pushService", ["hubProxy", "$rootScope", function (hubProxy, $rootScope) {
     var hub = hubProxy(ttTools.baseUrl + "signalr", "clientNotificationHub");
-    hub.start({ transport: 'longPolling' });
+    startHub();
 
+    $rootScope.$on(tt.authentication.constants.loginConfirmed, function () {
+        startHub();
+    });
+    $rootScope.$on(tt.authentication.constants.logoutConfirmed, function () {
+        hub.stop();
+    });
+    
+    function startHub() {
+        hub.start({ transport: 'longPolling' });
+    }
+    
     return hub;
 }]);

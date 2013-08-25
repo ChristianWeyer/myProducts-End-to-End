@@ -11,10 +11,10 @@ myApp.config(["$routeProvider", "$translateProvider", "$httpProvider", function 
 
     $translateProvider.translations("de", tt.translations.de);
     $translateProvider.useStaticFilesLoader({
-        prefix: 'translations/locale-',
-        suffix: '.json'
+        prefix: "translations/locale-",
+        suffix: ".json"
     });
-    $translateProvider.preferredLanguage('de');
+    $translateProvider.preferredLanguage("de");
     $translateProvider.useLocalStorage();
 
     $httpProvider.responseInterceptors.push("loadingIndicatorInterceptor");

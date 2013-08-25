@@ -8,16 +8,16 @@ tt.authentication.constants = {
 };
 
 tt.authentication.module = angular.module("tt.Authentication", ["ng"]);
+
 tt.authentication.module.factory("authenticationService", ["$rootScope", "$injector", "$q", function ($rootScope, $injector, $q) {
     var $http;
     var store = new Lawnchair({ adapter: "dom", table: "authenticationToken" }, function () { });
     var key = "tt:authentication:authNToken";
-    var requestAttempts = 0;
 
     $rootScope.tt = $rootScope.tt || {}; $rootScope.tt.authentication = $rootScope.tt.authentication || {};
     $rootScope.tt.authentication.userLoggedIn = false;
 
-    checkForValidToken($q.defer());
+    checkForValidToken();
 
     function login(username, password) {
         var auth = "Basic " + tt.Base64.encode(username + ":" + password);
@@ -37,16 +37,37 @@ tt.authentication.module.factory("authenticationService", ["$rootScope", "$injec
     }
 
     function logout() {
-        $rootScope.tt.authentication.userLoggedIn = false;
         store.nuke();
+        $rootScope.tt.authentication.userLoggedIn = false;
         $rootScope.$broadcast(tt.authentication.constants.logoutConfirmed);
     }
 
     function authenticationSuccess() {
-        requestAttempts = 0;
         $rootScope.tt.authentication.userLoggedIn = true;
-        $rootScope.$broadcast(tt.authentication.constants.loginConfirmed);
         $rootScope.$broadcast(tt.authentication.constants.loggedIn);
+        $rootScope.$broadcast(tt.authentication.constants.loginConfirmed);
+    }
+
+    function checkForValidToken() {
+        getToken().then(function (tokenData) {
+            if (!tokenData) {
+                $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
+
+                return false;
+            } else {
+                if (new Date().getTime() > tokenData.token.expiration) {
+                    $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
+
+                    return false;
+                } else {
+                    setToken(tokenData.token);
+                    $rootScope.tt.authentication.userLoggedIn = true;
+                    $rootScope.$broadcast(tt.authentication.constants.loggedIn);
+
+                    return true;
+                }
+            }
+        });
     }
 
     function setToken(tokenData) {
@@ -74,36 +95,10 @@ tt.authentication.module.factory("authenticationService", ["$rootScope", "$injec
         return deferred.promise;
     }
 
-    function checkForValidToken(deferred) {
-        getToken().then(function (tokenData) {
-            if (!tokenData) {
-                $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
-
-                return deferred.promise;
-            } else {
-                if (new Date().getTime() > tokenData.token.expiration) {
-                    $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
-
-                    return deferred.promise;
-                } else {
-                    setToken(tokenData.token);
-                    $rootScope.tt.authentication.userLoggedIn = true;
-                    $rootScope.$broadcast(tt.authentication.constants.loggedIn);
-
-                    return deferred.promise;
-                }
-            }
-        });
-    }
-
     return {
         login: login,
         logout: logout,
-        authenticationSuccess: authenticationSuccess,
-        checkForValidToken: checkForValidToken,
-        setToken: setToken,
-        getToken: getToken,
-        requestAttempts: requestAttempts
+        checkForValidToken: checkForValidToken
     };
 }]);
 
@@ -114,21 +109,14 @@ tt.authentication.module.config(["$httpProvider", function ($httpProvider) {
 
             options.error = function (thisXhr, textStatus, errorThrown) {
                 if (thisXhr.status === 401) {
-                    var deferred = $.Deferred();
-                    $rootScope.tt.authentication.userLoggedIn = false;
-
-                    if (authenticationService.requestAttempts > 0) {
-                        $rootScope.$apply($rootScope.$broadcast(tt.authentication.constants.loginFailed));
-
-                        return deferred.reject();
-                    } else {
-                        authenticationService.requestAttempts++;
-                        authenticationService.checkForValidToken(deferred);
-                    }
-
-                    return deferred.promise;
+                    checkAuthenticationFailureStatus($.Deferred());
                 }
-                return thatError(thisXhr, textStatus, errorThrown);
+
+                if (thatError) {
+                    return thatError(thisXhr, textStatus, errorThrown);
+                } else {
+                    return null;
+                }
             };
         });
 
@@ -138,22 +126,23 @@ tt.authentication.module.config(["$httpProvider", function ($httpProvider) {
 
         function error(response) {
             if (response.status === 401) {
-                var deferred = $q.defer();
-                $rootScope.tt.authentication.userLoggedIn = false;
-
-                if (authenticationService.requestAttempts > 0) {
-                    $rootScope.$broadcast(tt.authentication.constants.loginFailed);
-
-                    return $q.reject(response);
-                } else {
-                    authenticationService.requestAttempts++;
-                    authenticationService.checkForValidToken(deferred);
-                }
-
-                return deferred.promise;
+                checkAuthenticationFailureStatus($q.defer());
             }
 
             return $q.reject(response);
+        }
+
+        function checkAuthenticationFailureStatus(deferred) {
+            $rootScope.tt.authentication.userLoggedIn = false;
+
+            if (authenticationService.checkForValidToken()) {
+                $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
+
+            } else {
+                $rootScope.$broadcast(tt.authentication.constants.loginFailed);
+            }
+
+            return deferred.promise;
         }
 
         return function (promise) {
