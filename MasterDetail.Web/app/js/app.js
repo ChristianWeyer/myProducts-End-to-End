@@ -1,4 +1,4 @@
-﻿var myApp = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "kendo.directives", "ngSignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate"]);
+﻿var myApp = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "kendo.directives", "ngSignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate"]);
 
 myApp.config(["$routeProvider", "$translateProvider", "$httpProvider", function ($routeProvider, $translateProvider, $httpProvider) {
     //alert("debug");

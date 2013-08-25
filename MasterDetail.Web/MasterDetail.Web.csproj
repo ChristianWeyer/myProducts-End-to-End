@@ -376,6 +376,11 @@
     <Content Include="app\content\toastr.min.css" />
     <Content Include="app\js\lib\jquery.signalR-1.1.3.js" />
     <Content Include="app\js\lib\jquery.signalR-1.1.3.min.js" />
+    <Content Include="app\js\lib\ui-bootstrap-tpls-0.5.0.min.js" />
+    <Content Include="app\js\services\dialogService.js" />
+    <Content Include="app\js\services\dialogService.min.js">
+      <DependentUpon>dialogService.js</DependentUpon>
+    </Content>
     <Content Include="app\translations\translations-de.min.js">
       <DependentUpon>translations-de.js</DependentUpon>
     </Content>
@@ -458,6 +463,7 @@
     <Content Include="app\js\services\pushService.min.js">
       <DependentUpon>pushService.js</DependentUpon>
     </Content>
+    <Content Include="app\views\dialog.html" />
     <Content Include="app\views\info.html" />
     <Content Include="app\views\details.html" />
     <Content Include="app\views\login.html" />
@@ -482,6 +488,9 @@
     </Content>
     <Content Include="app\translations\translations-de.min.js.map">
       <DependentUpon>translations-de.js</DependentUpon>
+    </Content>
+    <Content Include="app\js\services\dialogService.min.js.map">
+      <DependentUpon>dialogService.js</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />

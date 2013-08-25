@@ -106,6 +106,17 @@ h2 {
     min-height: 1024px;
 }
 
+.dialog-underline {
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0px;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: red;
+    color: #000 !important;
+    background-color: transparent !important;
+}
+
 /* Animations */
 .animation.ng-enter,
 .animation.ng-leave {
