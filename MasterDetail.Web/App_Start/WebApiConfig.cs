@@ -27,11 +27,11 @@ namespace MasterDetail.Web.App_Start
 
             var authNConfig = new AuthenticationConfiguration
             {
-                RequireSsl = false,
+                RequireSsl = true,
                 EnableSessionToken = true,
                 SessionToken = new SessionTokenConfiguration()
                 {
-                    DefaultTokenLifetime = System.TimeSpan.FromHours(24),
+                    DefaultTokenLifetime = TimeSpan.FromHours(24),
                     SigningKey = Convert.FromBase64String("V5cgP0Bzx4goMmOrFKUIPqUWRNmgpoH8IxXQ92M2T0E=")
                 },
                 SendWwwAuthenticateResponseHeaders = false,
