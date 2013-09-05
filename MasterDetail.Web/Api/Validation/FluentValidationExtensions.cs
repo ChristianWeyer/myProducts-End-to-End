@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using ValidationResult = System.ComponentModel.DataAnnotations.ValidationResult;
 
-namespace MasterDetail.Web.Api
+namespace MasterDetail.Web.Api.Validation
 {
     public static class FluentValidationExtensions
     {

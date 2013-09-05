@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace MasterDetail.Web
+namespace MasterDetail.Web.Api.Security
 {
     public class GlobalClaimsAuthenticationManager : ClaimsAuthenticationManager
     {

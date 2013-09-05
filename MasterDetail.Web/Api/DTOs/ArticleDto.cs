@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MasterDetail.Web.Api
+namespace MasterDetail.Web.Api.DTOs
 {
     public class ArticleDto
     {

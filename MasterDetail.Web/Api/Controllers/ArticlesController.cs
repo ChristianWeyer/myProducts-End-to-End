@@ -3,6 +3,9 @@ using System.Net.Http;
 using System.Web.Http.OData;
 using System.Web.Http.OData.Query;
 using MasterDetail.DataAccess;
+using MasterDetail.Web.Api.DTOs;
+using MasterDetail.Web.Api.Hubs;
+using MasterDetail.Web.Api.Validation;
 using Microsoft.AspNet.SignalR;
 using System;
 using System.Data;
@@ -11,7 +14,7 @@ using System.Net;
 using System.Web.Http;
 using WebAPI.OutputCache;
 
-namespace MasterDetail.Web.Api
+namespace MasterDetail.Web.Api.Controllers
 {
     [ApiExceptionFilter]
     [ValidationResponseFilter]
@@ -50,10 +53,10 @@ namespace MasterDetail.Web.Api
         [ActionName("GetById")]
         public ArticleDetailDto Get(string id)
         {
-            throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError)
-                {
-                    Content = new StringContent("Some big shit happened...!") // TODO: get language-specific error message
-                });
+            //throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError)
+            //    {
+            //        Content = new StringContent("Some big shit happened...!") // TODO: get language-specific error message
+            //    });
 
             Guid guid;
             if (!Guid.TryParse(id, out guid))
