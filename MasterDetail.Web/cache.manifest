@@ -1,12 +1,14 @@
 ﻿CACHE MANIFEST
-#0.023
+#0.025
 
 CACHE:
-./app/content/images/lang_de_t.png
-./app/content/images/lang_en_t.png
-./app/content/images/logo.png
-./app/content/images/apple-touch-startup-image-1024x748.png
-./app/content/images/apple-touch-startup-image-2048x1496.png
+./app/images/lang_de_t.png
+./app/images/lang_en_t.png
+./app/images/logo.png
+./app/images/apple-touch-startup-image-1024x748.png
+./app/images/apple-touch-startup-image-2048x1496.png
+./app/images/glyphicons-halflings-white.png
+./app/images/glyphicons-halflings.png
 
 ./index.html
 ./app/views/details.html
@@ -15,25 +17,22 @@ CACHE:
 ./app/views/login.html
 ./app/views/overview.html
 
-./app/content/app.css
-./app/content/bootstrap-responsive.min.css
-./app/content/bootstrap.min.css
-./app/content/font-awesome.min.css
-./app/content/kendo/kendo.bootstrap.min.css
-./app/content/kendo/kendo.common.min.css
-./app/content/toastr.min.css
-
-./app/content/images/glyphicons-halflings-white.png
-./app/content/images/glyphicons-halflings.png
-./app/content/kendo/Bootstrap/imagebrowser.png
-./app/content/kendo/Bootstrap/loading-image.gif
-./app/content/kendo/Bootstrap/loading.gif
-./app/content/kendo/Bootstrap/slider-h.gif
-./app/content/kendo/Bootstrap/slider-v.gif
-./app/content/kendo/Bootstrap/sprite.png
-./app/content/kendo/textures/hue.png
-./app/content/kendo/textures/transparency.png
-./app/content/kendo/textures/transtexture.png
+./app/css/app.css
+./app/css/bootstrap-responsive.min.css
+./app/css/bootstrap.min.css
+./app/css/font-awesome.min.css
+./app/css/kendo/kendo.bootstrap.min.css
+./app/css/kendo/kendo.common.min.css
+./app/css/toastr.min.css
+./app/css/kendo/Bootstrap/imagebrowser.png
+./app/css/kendo/Bootstrap/loading-image.gif
+./app/css/kendo/Bootstrap/loading.gif
+./app/css/kendo/Bootstrap/slider-h.gif
+./app/css/kendo/Bootstrap/slider-v.gif
+./app/css/kendo/Bootstrap/sprite.png
+./app/css/kendo/textures/hue.png
+./app/css/kendo/textures/transparency.png
+./app/css/kendo/textures/transtexture.png
 
 ./app/js/lib/jquery-2.0.1.min.js
 ./app/js/lib/toastr.min.js
