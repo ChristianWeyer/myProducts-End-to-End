@@ -50,10 +50,10 @@ namespace MasterDetail.Web.Api
         [ActionName("GetById")]
         public ArticleDetailDto Get(string id)
         {
-            //throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError)
-            //    {
-            //        Content = new StringContent("Some big shit happened...!")
-            //    });
+            throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError)
+                {
+                    Content = new StringContent("Some big shit happened...!")
+                });
 
             Guid guid;
             if (!Guid.TryParse(id, out guid))

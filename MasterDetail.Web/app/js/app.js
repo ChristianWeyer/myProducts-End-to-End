@@ -24,22 +24,29 @@ myApp.config(["$routeProvider", "$translateProvider", "$httpProvider", function 
         return data;
     };
     $httpProvider.defaults.transformRequest.push(transformRequest);
+}]);
 
+myApp.run(["$http", "$templateCache", "$rootScope", "$location", "alertService", "dialogService", function ($http, $templateCache, $rootScope, $location, alertService, dialogService) {
     window.applicationCache.addEventListener('updateready', function (ev) {
         if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
             console.log('CACHE: Browser downloaded a new app cache manifest.');
             window.applicationCache.swapCache();
 
-            if (confirm('Neue Version vorhanden - jetzt laden?')) {
-                window.location.reload();
-            }
+            $rootScope.$apply(dialogService.showModalDialog({}, {
+                headerText: 'App Update',
+                bodyText: 'Neue Version vorhanden - jetzt laden?',
+                closeButtonText: 'Nein',
+                actionButtonText: 'Ja, bitte',
+                callback: function () {
+                    window.location.reload();
+                    console.log('CACHE: App will be updated...');
+                }
+            }));
         } else {
             console.log('CACHE: Manifest didn\'t change.');
         }
     }, false);
-}]);
-
-myApp.run(["$http", "$templateCache", "$rootScope", "$location", "alertService", function ($http, $templateCache, $rootScope, $location, alertService) {
+    
     $http.get("app/views/overview.html", { cache: $templateCache });
     $http.get("app/views/details.html", { cache: $templateCache });
     $http.get("app/views/info.html", { cache: $templateCache });
