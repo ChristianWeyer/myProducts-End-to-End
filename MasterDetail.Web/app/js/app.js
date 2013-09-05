@@ -1,17 +1,16 @@
 ﻿var myApp = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "kendo.directives", "ngSignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate"]);
 
 myApp.config(["$routeProvider", "$translateProvider", "$httpProvider", function ($routeProvider, $translateProvider, $httpProvider) {
-    //alert("debug");
     $routeProvider
-        .when("/", { templateUrl: "views/overview.html", controller: "ArticlesController" })
-        .when("/details/:id", { templateUrl: "views/details.html", controller: "ArticleDetailsController" })
-        .when("/info", { templateUrl: "views/info.html" })
-        .when("/login", { templateUrl: "views/login.html", controller: "LoginController" })
+        .when("/", { templateUrl: "app/views/overview.html", controller: "ArticlesController" })
+        .when("/details/:id", { templateUrl: "app/views/details.html", controller: "ArticleDetailsController" })
+        .when("/info", { templateUrl: "app/views/info.html" })
+        .when("/login", { templateUrl: "app/views/login.html", controller: "LoginController" })
         .otherwise({ redirectTo: "/" });
 
     $translateProvider.translations("de", tt.translations.de);
     $translateProvider.useStaticFilesLoader({
-        prefix: "translations/locale-",
+        prefix: "app/translations/locale-",
         suffix: ".json"
     });
     $translateProvider.preferredLanguage("de");
@@ -25,13 +24,26 @@ myApp.config(["$routeProvider", "$translateProvider", "$httpProvider", function 
         return data;
     };
     $httpProvider.defaults.transformRequest.push(transformRequest);
+
+    window.applicationCache.addEventListener('updateready', function (ev) {
+        if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+            console.log('CACHE: Browser downloaded a new app cache manifest.');
+            window.applicationCache.swapCache();
+
+            if (confirm('Neue Version vorhanden - jetzt laden?')) {
+                window.location.reload();
+            }
+        } else {
+            console.log('CACHE: Manifest didn\'t change.');
+        }
+    }, false);
 }]);
 
 myApp.run(["$http", "$templateCache", "$rootScope", "$location", "alertService", function ($http, $templateCache, $rootScope, $location, alertService) {
-    $http.get("views/overview.html", { cache: $templateCache });
-    $http.get("views/details.html", { cache: $templateCache });
-    $http.get("views/info.html", { cache: $templateCache });
-    $http.get("views/login.html", { cache: $templateCache });
+    $http.get("app/views/overview.html", { cache: $templateCache });
+    $http.get("app/views/details.html", { cache: $templateCache });
+    $http.get("app/views/info.html", { cache: $templateCache });
+    $http.get("app/views/login.html", { cache: $templateCache });
 
     var oldOpen = XMLHttpRequest.prototype.open;
     XMLHttpRequest.prototype.open = function (method, url, async, user, pass) {
@@ -43,10 +55,10 @@ myApp.run(["$http", "$templateCache", "$rootScope", "$location", "alertService",
                 if (this.readyState === 4) {
                     theSpinner.stop();
                 };
-            }, false);    
+            }, false);
         }
-        
-        oldOpen.call(this, method, url, async, user, pass); 
+
+        oldOpen.call(this, method, url, async, user, pass);
     };
 
     $rootScope.$on("$locationChangeStart", function () {

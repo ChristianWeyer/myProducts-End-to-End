@@ -155,6 +155,7 @@
     <Content Include="app\content\bootstrap.min.css" />
     <Content Include="app\content\font-awesome.css" />
     <Content Include="app\content\font-awesome.min.css" />
+    <Content Include="app\content\images\ajax-loader.gif" />
     <Content Include="app\content\images\apple-touch-icon.png" />
     <Content Include="app\content\images\apple-touch-startup-image-1024x748.png" />
     <Content Include="app\content\images\apple-touch-startup-image-2048x1496.png" />
@@ -383,7 +384,7 @@
       <DependentUpon>translations-de.js</DependentUpon>
     </Content>
     <Content Include="app\font\fontawesome-webfont.svg" />
-    <Content Include="app\index.html" />
+    <Content Include="index.html" />
     <Content Include="app\js\app.js" />
     <Content Include="app\js\app.min.js">
       <DependentUpon>app.js</DependentUpon>
@@ -477,7 +478,6 @@
     <Content Include="images\4.jpg" />
     <Content Include="images\5.jpg" />
     <Content Include="images\0.jpg" />
-    <Content Include="index.html" />
     <Content Include="Web.config" />
     <Content Include="app\translations\locale-en.json" />
     <Content Include="app\js\controllers\loginController.min.js - Copy.map">
@@ -489,6 +489,7 @@
     <Content Include="app\js\services\dialogService.min.js.map">
       <DependentUpon>dialogService.js</DependentUpon>
     </Content>
+    <Content Include="cache.manifest" />
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
