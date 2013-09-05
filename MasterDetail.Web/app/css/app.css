@@ -25,6 +25,14 @@ h2 {
     margin-bottom: 10px;
 }
 
+.form-horizontal input.ng-invalid.ng-dirty {
+    background-color: #FA787E;
+}
+
+.form-horizontal input.ng-valid.ng-dirty {
+    background-color: #78FA89;
+}
+
 .center {
     float: none;
     margin-left: auto;
