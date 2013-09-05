@@ -26,7 +26,7 @@ myApp.config(["$routeProvider", "$translateProvider", "$httpProvider", function 
     $httpProvider.defaults.transformRequest.push(transformRequest);
 }]);
 
-myApp.run(["$http", "$templateCache", "$rootScope", "$location", "alertService", "dialogService", function ($http, $templateCache, $rootScope, $location, alertService, dialogService) {
+myApp.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "alertService", "dialogService", function ($http, $templateCache, $rootScope, $location, $translate, alertService, dialogService) {
     window.applicationCache.addEventListener('updateready', function (ev) {
         if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
             console.log('CACHE: Browser downloaded a new app cache manifest.');
@@ -34,9 +34,9 @@ myApp.run(["$http", "$templateCache", "$rootScope", "$location", "alertService",
 
             $rootScope.$apply(dialogService.showModalDialog({}, {
                 headerText: 'App Update',
-                bodyText: 'Neue Version vorhanden - jetzt laden?',
-                closeButtonText: 'Nein',
-                actionButtonText: 'Ja, bitte',
+                bodyText: $translate("APP_UPDATE_BODY"),
+                closeButtonText: $translate("COMMON_NO"),
+                actionButtonText: $translate("COMMON_YES"),
                 callback: function () {
                     window.location.reload();
                     console.log('CACHE: App will be updated...');
@@ -83,7 +83,7 @@ myApp.run(["$http", "$templateCache", "$rootScope", "$location", "alertService",
     $rootScope.$on(tt.authentication.constants.loginFailed, function () {
         $location.path("/login");
         alertService.pop({
-            title: "Login", body: "Anmeldung fehlgeschlagen.", type: "error"
+            title: "Login", body: $translate("LOGIN_FAILED"), type: "error"
         });
     });
     $rootScope.$on(tt.authentication.constants.logoutConfirmed, function () {

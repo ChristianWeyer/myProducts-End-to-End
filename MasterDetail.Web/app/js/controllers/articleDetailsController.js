@@ -1,22 +1,14 @@
 ﻿myApp.controller("ArticleDetailsController",
-    ["$scope", "$routeParams", "articlesApiService", "alertService", "$location", "dialogService", function ($scope, $routeParams, articlesApiService, alertService, $location, dialogService) {
+    ["$scope", "$routeParams", "articlesApiService", "alertService", "$location", "dialogService", "$translate", function ($scope, $routeParams, articlesApiService, alertService, $location, dialogService, $translate) {
 
         articlesApiService.getArticleDetails($routeParams.id)
             .success(function (data) {
                 $scope.artikel = data;
             })
-            //.error(function (data, status) {
-            //    if (status > 0) {
-            //        console.log(status + " - " + data);
-            //        alertService.pop({
-            //            title: "Error", body: data, type: "error"
-            //        });
-            //    }
-            //});
             .error(function (data, status, headers, config) {
                 dialogService.showModalDialog({}, {
-                    headerText: 'Error',
-                    bodyText: 'Article details could not be loaded (see details).',
+                    headerText: $translate("COMMON_ERROR"),
+                    bodyText: $translate("DETAILS_ERROR"),
                     detailsText: JSON.stringify(data)
                 });
             });

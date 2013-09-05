@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-#0.047
+#0.057
 
 CACHE:
 ./app/images/lang_de_t.png
@@ -54,7 +54,6 @@ CACHE:
 ./app/js/lib/angular-translate-storage-cookie.js
 ./app/js/lib/angular-translate-storage-local.js
 ./app/js/lib/angular-translate-loader-static-files.js
-./app/translations/translations-de.js
 ./app/js/infrastructure/thinktecture.Authentication.js
 ./app/js/app.js
 ./app/js/infrastructure/tools.js
@@ -69,6 +68,9 @@ CACHE:
 ./app/js/controllers/loginController.js
 ./app/js/controllers/navigationController.js
 ./app/js/lib/fastclick.js
+
+./app/translations/translations-de.js
+./app/translations/locale-en.json
 
 NETWORK:
 *
