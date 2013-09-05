@@ -8,7 +8,7 @@ ttTools.isInApp = function () {
 };
 
 ttTools.getBaseUrl = function () {
-    return window.location.protocol + "//" + window.location.host + "/";
+    return window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;
 };
 
 ttTools.baseUrl = ttTools.getBaseUrl();

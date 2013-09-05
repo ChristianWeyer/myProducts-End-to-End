@@ -25,7 +25,7 @@ tt.authentication.module.factory("authenticationService", ["$rootScope", "$injec
         $http = $http || $injector.get("$http");
         $http.defaults.headers.common["Authorization"] = auth;
 
-        return $http.get("/api/controller/token")
+        return $http.get("api/controller/token")
             .success(function (tokenData) {
                 username = "";
                 password = "";
