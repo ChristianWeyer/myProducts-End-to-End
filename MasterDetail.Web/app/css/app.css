@@ -95,13 +95,13 @@ h2 {
     bottom: 0;
     left: 0;
     right: 0;
-    background: black;
+    background: #7096C7;
     padding: 1em;
     box-shadow: 0 -5px 20px #555;
 }
 
     #footer a {
-        color: silver;
+        color: white;
         text-decoration: none;
     }
 
