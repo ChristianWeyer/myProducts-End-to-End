@@ -50,6 +50,8 @@ tt.authentication.module.factory("authenticationService", ["$rootScope", "$injec
 
     function checkForValidToken() {
         getToken().then(function (tokenData) {
+            $rootScope.tt.authentication.userLoggedIn = false;
+
             if (!tokenData) {
                 $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
 
