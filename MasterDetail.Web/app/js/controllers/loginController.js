@@ -5,6 +5,6 @@ myApp.controller("LoginController",
         $scope.password = "";
 
         $scope.submit = function () {
-            authenticationService.login($scope.username, $scope.password);
+            authenticationService.login(ttTools.getBaseUrl(), $scope.username, $scope.password);
         };
     }]);

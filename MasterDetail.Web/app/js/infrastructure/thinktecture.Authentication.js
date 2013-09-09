@@ -19,13 +19,13 @@ tt.authentication.module.factory("authenticationService", ["$rootScope", "$injec
 
     checkForValidToken();
 
-    function login(username, password) {
+    function login(baseUrl, username, password) {
         var auth = "Basic " + tt.Base64.encode(username + ":" + password);
 
         $http = $http || $injector.get("$http");
         $http.defaults.headers.common["Authorization"] = auth;
 
-        return $http.get("api/controller/token")
+        return $http.get(baseUrl + "api/controller/token")
             .success(function (tokenData) {
                 username = "";
                 password = "";
