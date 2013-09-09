@@ -6,6 +6,8 @@
                 $scope.artikel = data;
             })
             .error(function (data, status, headers, config) {
+                ttTools.logger.error("Server error", data);
+                
                 dialogService.showModalDialog({}, {
                     headerText: $translate("COMMON_ERROR"),
                     bodyText: $translate("DETAILS_ERROR"),
@@ -24,6 +26,7 @@
                 .error(function (data, status) {
                     if (status > 0) {
                         console.log(status + " - " + data);
+                        
                         alertService.pop({
                             title: "Error", body: data, type: "error"
                         });
