@@ -3,6 +3,9 @@ using System.IdentityModel.Services;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using Fabrik.Common.WebAPI;
+using Microsoft.WindowsAzure;
+using Microsoft.WindowsAzure.Storage;
+using Serilog;
 using Thinktecture.IdentityModel.Authorization.WebApi;
 using Thinktecture.IdentityModel.Tokens.Http;
 
@@ -12,6 +15,12 @@ namespace MasterDetail.Web.App_Start
     {
         public static void Register(HttpConfiguration config)
         {
+            var setting = CloudConfigurationManager.GetSetting("StorageConnectionString");
+            var storage = CloudStorageAccount.Parse(setting);
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.AzureTableStorage(storage)
+                .CreateLogger();
+
             config.IncludeErrorDetailPolicy =
                 IncludeErrorDetailPolicy.LocalOnly;
 
