@@ -1,9 +1,6 @@
 ﻿var myApp = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "kendo.directives", "ngSignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate"]);
 
 myApp.config(["$routeProvider", "$translateProvider", "$httpProvider", function ($routeProvider, $translateProvider, $httpProvider) {
-    ttTools.initLogger(ttTools.baseUrl + "api/log");
-    ttTools.logger.info("Configuring myApp...");
-    
     $routeProvider
         .when("/", { templateUrl: "app/views/overview.html", controller: "ArticlesController" })
         .when("/details/:id", { templateUrl: "app/views/details.html", controller: "ArticleDetailsController" })
@@ -50,11 +47,11 @@ myApp.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "
         }
     }, false);
     
+    $http.get("app/views/overview.html", { cache: $templateCache });
     $http.get("app/views/details.html", { cache: $templateCache });
     $http.get("app/views/info.html", { cache: $templateCache });
     $http.get("app/views/login.html", { cache: $templateCache });
-    $http.get("app/views/overview.html", { cache: $templateCache });
-    
+
     var oldOpen = XMLHttpRequest.prototype.open;
     XMLHttpRequest.prototype.open = function (method, url, async, user, pass) {
         if (url.indexOf("/signalr") === -1) {

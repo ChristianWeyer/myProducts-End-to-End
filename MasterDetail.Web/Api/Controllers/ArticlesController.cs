@@ -53,10 +53,10 @@ namespace MasterDetail.Web.Api.Controllers
         [ActionName("GetById")]
         public ArticleDetailDto Get(string id)
         {
-            throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError)
-                {
-                    Content = new StringContent("Some big shit happened...!") // TODO: get language-specific error message
-                });
+            //throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError)
+            //    {
+            //        Content = new StringContent("Some big shit happened...!") // TODO: get language-specific error message
+            //    });
 
             Guid guid;
             if (!Guid.TryParse(id, out guid))

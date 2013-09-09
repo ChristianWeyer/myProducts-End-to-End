@@ -80,12 +80,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.1.8.0.0\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.WindowsAzure.Storage, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\WindowsAzure.Storage.2.0.6.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -93,17 +87,7 @@
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Serilog">
-      <HintPath>..\packages\Serilog.0.9.2\lib\net45\Serilog.dll</HintPath>
-    </Reference>
-    <Reference Include="Serilog.FullNetFx">
-      <HintPath>..\packages\Serilog.0.9.2\lib\net45\Serilog.FullNetFx.dll</HintPath>
-    </Reference>
-    <Reference Include="Serilog.Sinks.AzureTableStorage">
-      <HintPath>..\packages\Serilog.Sinks.AzureTableStorage.0.9.1\lib\net45\Serilog.Sinks.AzureTableStorage.dll</HintPath>
-    </Reference>
     <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
@@ -391,7 +375,6 @@
     <Content Include="app\css\toastr.min.css" />
     <Content Include="app\js\lib\jquery.signalR-1.1.3.js" />
     <Content Include="app\js\lib\jquery.signalR-1.1.3.min.js" />
-    <Content Include="app\js\lib\log4javascript.js" />
     <Content Include="app\js\lib\ui-bootstrap-tpls-0.5.0.min.js" />
     <Content Include="app\js\services\dialogService.js" />
     <Content Include="app\js\services\dialogService.min.js">
@@ -528,7 +511,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\ApiExceptionFilterAttribute.cs" />
-    <Compile Include="Api\Controllers\LogController.cs" />
     <Compile Include="Api\DTOs\ArticleDetailUpdateDtoValidator.cs">
       <SubType>Code</SubType>
     </Compile>
