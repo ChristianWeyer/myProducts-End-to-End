@@ -8,6 +8,7 @@ myApp.config(["$routeProvider", "$translateProvider", "$httpProvider", function 
         .when("/", { templateUrl: "app/views/overview.html", controller: "ArticlesController" })
         .when("/details/:id", { templateUrl: "app/views/details.html", controller: "ArticleDetailsController" })
         .when("/info", { templateUrl: "app/views/info.html" })
+        .when("/log", { templateUrl: "app/views/log.html", controller: "LogController" })
         .when("/login", { templateUrl: "app/views/login.html", controller: "LoginController" })
         .otherwise({ redirectTo: "/" });
 

@@ -1,4 +1,4 @@
-﻿myApp.factory("pushService", ["hubProxy", "$rootScope", function (hubProxy, $rootScope) {
+﻿myApp.factory("dataPushService", ["hubProxy", "$rootScope", function (hubProxy, $rootScope) {
     var hub = hubProxy(ttTools.baseUrl + "signalr", "clientNotificationHub");
     startHub();
 

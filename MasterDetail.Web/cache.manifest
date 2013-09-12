@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-#0.092
+#0.095
 
 CACHE:
 ./app/images/lang_de_t.png
@@ -61,11 +61,13 @@ CACHE:
 ./app/js/infrastructure/directives.js
 ./app/js/infrastructure/filters.js
 ./app/js/services/alertService.js
-./app/js/services/pushService.js
+./app/js/services/dataPushService.js
+./app/js/services/logPushService.js
 ./app/js/services/dialogService.js
 ./app/js/services/articlesApiService.js
 ./app/js/controllers/articlesController.js
 ./app/js/controllers/articleDetailsController.js
+./app/js/controllers/logController.js
 ./app/js/controllers/loginController.js
 ./app/js/controllers/navigationController.js
 ./app/js/lib/fastclick.js

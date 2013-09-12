@@ -1,12 +1,12 @@
 myApp.controller("ArticlesController",
-    ["$scope", "$rootScope", "$location", "articlesApiService", "pushService", function ($scope, $rootScope, $location, articlesApiService, pushService) {
+    ["$scope", "$rootScope", "$location", "articlesApiService", "dataPushService", function ($scope, $rootScope, $location, articlesApiService, dataPushService) {
         $scope.articles = articlesApiService.getArticleList();
         
         $rootScope.$on(tt.authentication.constants.loggedIn, function () {
             $scope.articles.read();
         });
 
-        pushService.on("articleChanged", function () {
+        dataPushService.on("articleChanged", function () {
             $scope.articles.read();
         });
 

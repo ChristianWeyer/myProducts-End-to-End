@@ -27,5 +27,7 @@ tt.translations.de = {
     "COMMON_NO": "Nein",
     "COMMON_ERROR": "Fehler",
     "COMMON_CANCEL": "Abbrechen",
-    "COMMON_SAVE": "Speichern"
+    "COMMON_SAVE": "Speichern",
+    
+    "LOG_TITLE": "Log-Daten (über Server)"
 }
