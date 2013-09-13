@@ -534,6 +534,7 @@
   <ItemGroup>
     <Compile Include="Api\ApiExceptionFilterAttribute.cs" />
     <Compile Include="Api\Controllers\LogController.cs" />
+    <Compile Include="Api\Controllers\NavigationController.cs" />
     <Compile Include="Api\DTOs\ArticleDetailUpdateDtoValidator.cs">
       <SubType>Code</SubType>
     </Compile>
