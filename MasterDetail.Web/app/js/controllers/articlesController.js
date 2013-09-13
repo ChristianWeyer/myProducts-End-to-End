@@ -1,16 +1,18 @@
-myApp.controller("ArticlesController",
-    ["$scope", "$rootScope", "$location", "articlesApiService", "dataPushService", function ($scope, $rootScope, $location, articlesApiService, dataPushService) {
-        $scope.articles = articlesApiService.getArticleList();
-        
-        $rootScope.$on(tt.authentication.constants.loggedIn, function () {
-            $scope.articles.read();
-        });
+define(['app'], function (app) {
+    app.register.controller("ArticlesController",
+        ["$scope", "$rootScope", "$location", "articlesApiService", "dataPushService", function($scope, $rootScope, $location, articlesApiService, dataPushService) {
+            $scope.articles = articlesApiService.getArticleList();
 
-        dataPushService.on("articleChanged", function () {
-            $scope.articles.read();
-        });
+            $rootScope.$on(tt.authentication.constants.loggedIn, function() {
+                $scope.articles.read();
+            });
 
-        $scope.rowSelected = function (data) {
-            $location.path("/details/" + data.Id);
-        };
-    }]);
+            dataPushService.on("articleChanged", function() {
+                $scope.articles.read();
+            });
+
+            $scope.rowSelected = function(data) {
+                $location.path("/articles/" + data.Id);
+            };
+        }]);
+});

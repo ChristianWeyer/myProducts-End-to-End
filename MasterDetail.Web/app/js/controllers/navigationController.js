@@ -1,9 +1,24 @@
-myApp.controller('NavigationController', ['$translate', '$scope', 'authenticationService', function ($translate, $scope, authenticationService) {
-    $scope.changeLanguage = function (langKey) {
-        $translate.uses(langKey);
-    };
+define(['app'], function (app) {
+    app.controller('NavigationController', ['$http', '$translate', '$scope', '$rootScope', '$route', 'authenticationService',
+        function ($http, $translate, $scope, $rootScope, $route, authenticationService) {
 
-    $scope.logout = function() {
-        authenticationService.logout();
-    };
-}]);
+            $rootScope.$on(tt.authentication.constants.loggedIn, function () {
+                $http({ method: "GET", url: "api/modules" })
+                .success(function (data) {
+                    $scope.navigationItems = data;
+                });
+            });
+
+            $rootScope.$on(tt.authentication.constants.logoutConfirmed, function () {
+                $scope.navigationItems = null;
+            });
+
+            $scope.changeLanguage = function (langKey) {
+                $translate.uses(langKey);
+            };
+
+            $scope.logout = function () {
+                authenticationService.logout();
+            };
+        }]);
+});

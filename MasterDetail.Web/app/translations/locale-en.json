@@ -10,6 +10,8 @@
   "INDEX_TITLE": "myProducts",
   "INDEX_ARTICLES": "Articles",
   "INDEX_INFO": "About",
+  "INDEX_ADMIN": "Admin",
+  "INDEX_LOGS": "Logs",
   "INDEX_LOGIN": "Login",
   "INDEX_LOGOUT": "Log out",
 
@@ -22,11 +24,14 @@
   "ABOUT_TITLE": "About this application",
   "ABOUT_BODY": "Our super awesome products management application...",
     
+  "ADMIN_TITLE": "Admin",
+  "ADMIN_BODY": "Management tools...",
+    
+  "LOGS_TITLE": "Log data entries (via server)",
+
   "COMMON_YES": "Yes",
   "COMMON_NO": "No",
   "COMMON_ERROR": "Error",
   "COMMON_CANCEL": "Cancel",
-  "COMMON_SAVE": "Save",
-    
-  "LOG_TITLE": "Log data entries (via server)"
+  "COMMON_SAVE": "Save"
 }

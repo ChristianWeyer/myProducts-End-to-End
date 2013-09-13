@@ -11,6 +11,8 @@ tt.translations.de = {
     "INDEX_TITLE": "meineProdukte",
     "INDEX_ARTICLES": "Artikel",
     "INDEX_INFO": "Über",
+    "INDEX_ADMIN": "Admin",
+    "INDEX_LOGS": "Logs",
     "INDEX_LOGIN": "Anmelden",
     "INDEX_LOGOUT": "Abmelden",
     
@@ -23,11 +25,14 @@ tt.translations.de = {
     "ABOUT_TITLE": "Über diese Anwendung",
     "ABOUT_BODY": "Eine auf HTML5-basierende Produktverwaltung.",
     
+    "ADMIN_TITLE": "Administration",
+    "ADMIN_BODY": "Verwaltungswerkzeuge...",
+    
+    "LOGS_TITLE": "Log-Daten (über Server)",
+    
     "COMMON_YES": "Ja",
     "COMMON_NO": "Nein",
     "COMMON_ERROR": "Fehler",
     "COMMON_CANCEL": "Abbrechen",
-    "COMMON_SAVE": "Speichern",
-    
-    "LOG_TITLE": "Log-Daten (über Server)"
+    "COMMON_SAVE": "Speichern"
 }

@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
-<html manifest="cache.manifest" ng-app="myApp">
+<html>
+<!--<html manifest="cache.manifest">-->
 <head>
     <title>myProducts</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
@@ -36,8 +37,11 @@
                 </span>
 
                 <ul class="nav nav-pills">
-                    <li data-match-route="(/|/details.*)"><a href="#/">{{ 'INDEX_ARTICLES' | translate }}</a></li>
-                    <li data-match-route="/info"><a href="#/info">{{ 'INDEX_INFO' | translate }}</a></li>
+                    <li ng-repeat="ni in navigationItems" data-match-route='{{ ni.MatchPattern }}'>
+                        <a ng-if="ni.DisplayText" ng-href="#{{ ni.Url }}">{{ ni.DisplayText | translate }}</a>
+                    </li>
+
+                    <li data-match-route="/info"><a href="#/info">Info</a></li>
                 </ul>
                 <ul class="nav pull-right">
                     <li>
@@ -90,29 +94,15 @@
     <script src="app/js/lib/angular-translate-storage-local.js"></script>
     <script src="app/js/lib/angular-translate-loader-static-files.js"></script>
 
-    <script src="app/translations/translations-de.js"></script>
-    <script src="app/js/infrastructure/thinktecture.Authentication.js"></script>
-    <script src="app/js/infrastructure/tools.js"></script>
-    <script src="app/js/app.js"></script>
-    <script src="app/js/infrastructure/directives.js"></script>
-    <script src="app/js/infrastructure/filters.js"></script>
+    <!-- Load app scripts via RequireJS -->
+    <script src="app/js/lib/require.js" data-main="main"></script>
 
-    <script src="app/js/services/alertService.js"></script>
-    <script src="app/js/services/dataPushService.js"></script>
-    <script src="app/js/services/logPushService.js"></script>
-    <script src="app/js/services/dialogService.js"></script>
-    <script src="app/js/services/articlesApiService.js"></script>
-    <script src="app/js/controllers/articlesController.js"></script>
-    <script src="app/js/controllers/articleDetailsController.js"></script>
-    <script src="app/js/controllers/loginController.js"></script>
-    <script src="app/js/controllers/logController.js"></script>
-    <script src="app/js/controllers/navigationController.js"></script>
-
-    <script src="app/js/lib/fastclick.js"></script>
+    <!-- Temp solution until ng-touch is fixed -->
+    <!--<script src="app/js/lib/fastclick.js"></script>
     <script>
         $(function () {
             FastClick.attach(document.body);
         });
-    </script>
+    </script>-->
 </body>
 </html>
