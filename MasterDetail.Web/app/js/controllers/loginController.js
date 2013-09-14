@@ -6,7 +6,7 @@ define(['app'], function (app) {
             $scope.password = "";
 
             $scope.submit = function() {
-                authenticationService.login(ttTools.getBaseUrl(), $scope.username, $scope.password);
+                authenticationService.login(ttTools.baseUrl, $scope.username, $scope.password);
             };
         }]);
 });

@@ -53,7 +53,7 @@
         function ($http, $templateCache, $rootScope, $location, $translate, alertService, dialogService, $route, $routeProviderService, routeResolverProviderService) {
 
             $rootScope.$on(tt.authentication.constants.loggedIn, function () {
-                $http({ method: "GET", url: "api/modules" })
+                $http({ method: "GET", url: ttTools.baseUrl + "api/modules" })
                 .success(function (data) {
                     var route = routeResolverProviderService.route;
 

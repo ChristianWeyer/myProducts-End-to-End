@@ -3,7 +3,7 @@ define(['app'], function (app) {
         function ($http, $translate, $scope, $rootScope, $route, authenticationService) {
 
             $rootScope.$on(tt.authentication.constants.loggedIn, function () {
-                $http({ method: "GET", url: "api/modules" })
+                $http({ method: "GET", url: ttTools.baseUrl + "api/modules" })
                 .success(function (data) {
                     $scope.navigationItems = data;
                 });

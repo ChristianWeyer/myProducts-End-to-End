@@ -94,15 +94,17 @@
     <script src="app/js/lib/angular-translate-storage-local.js"></script>
     <script src="app/js/lib/angular-translate-loader-static-files.js"></script>
 
-    <!-- Load app scripts via RequireJS -->
-    <script src="app/js/lib/require.js" data-main="main"></script>
-
-    <!-- Temp solution until ng-touch is fixed -->
-    <!--<script src="app/js/lib/fastclick.js"></script>
+    <script src="app/js/lib/fastclick.js"></script>
     <script>
         $(function () {
             FastClick.attach(document.body);
         });
-    </script>-->
+        
+        window.requireNode = window.require;
+        window.require = undefined;
+    </script>
+
+    <!-- Load app scripts via RequireJS -->
+    <script src="app/js/lib/require.js" data-main="main"></script>
 </body>
 </html>
