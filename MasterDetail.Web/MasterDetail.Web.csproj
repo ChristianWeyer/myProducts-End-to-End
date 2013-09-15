@@ -586,6 +586,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\ApiExceptionFilterAttribute.cs" />
+    <Compile Include="Api\Controllers\ImageUploadController.cs" />
     <Compile Include="Api\Controllers\LogController.cs" />
     <Compile Include="Api\Controllers\ModulesController.cs" />
     <Compile Include="Api\DTOs\ArticleDetailUpdateDtoValidator.cs">
