@@ -409,6 +409,7 @@
     <Content Include="app\js\controllers\navigationController.min.js">
       <DependentUpon>navigationController.js</DependentUpon>
     </Content>
+    <Content Include="app\js\controllers\statisticsController.js" />
     <Content Include="app\js\infrastructure\thinktecture.Authentication.min.js">
       <DependentUpon>thinktecture.Authentication.js</DependentUpon>
     </Content>
@@ -438,6 +439,7 @@
     <Content Include="app\font\fontawesome-webfont.svg" />
     <Content Include="app\views\admin.html" />
     <Content Include="app\views\log.html" />
+    <Content Include="app\views\statistics.html" />
     <Content Include="index.html" />
     <Content Include="app\js\app.js" />
     <Content Include="app\js\app.min.js">

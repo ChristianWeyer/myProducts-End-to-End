@@ -13,6 +13,7 @@ tt.translations.de = {
     "INDEX_INFO": "Über",
     "INDEX_ADMIN": "Admin",
     "INDEX_LOGS": "Logs",
+    "INDEX_STATS": "Statistiken",
     "INDEX_LOGIN": "Anmelden",
     "INDEX_LOGOUT": "Abmelden",
     
@@ -29,6 +30,8 @@ tt.translations.de = {
     "ADMIN_BODY": "Verwaltungswerkzeuge...",
     
     "LOGS_TITLE": "Log-Daten (über Server)",
+
+    "STATS_TITLE": "Statistiken",
     
     "COMMON_YES": "Ja",
     "COMMON_NO": "Nein",

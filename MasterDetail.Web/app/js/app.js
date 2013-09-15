@@ -1,8 +1,8 @@
 ﻿define(['services/routeResolver'], function () {
     var app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "kendo.directives", "ngSignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices"]);
 
-    app.config(["$routeProvider", "$translateProvider", "$httpProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide",
-        function ($routeProvider, $translateProvider, $httpProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
+    app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide",
+        function ($routeProvider, $locationProvider, $translateProvider, $httpProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
 
             ttTools.initLogger(ttTools.baseUrl + "api/log");
             ttTools.logger.info("Configuring myApp...");
@@ -64,14 +64,12 @@
                             $routeProviderService.when("/", route.resolve(value.Module));
                         }
                     });
-
-                    $route.reload();
                 });
             });
 
             // TODO: what about unloading!?
             
-            // TODO: how should we handle pre-caching?
+            // TODO: should we handle pre-caching?
             //$http.get("app/views/details.html", { cache: $templateCache });
             //$http.get("app/views/info.html", { cache: $templateCache });
             //$http.get("app/views/login.html", { cache: $templateCache });

@@ -12,6 +12,7 @@
   "INDEX_INFO": "About",
   "INDEX_ADMIN": "Admin",
   "INDEX_LOGS": "Logs",
+  "INDEX_STATS": "Statistics",
   "INDEX_LOGIN": "Login",
   "INDEX_LOGOUT": "Log out",
 
@@ -28,6 +29,8 @@
   "ADMIN_BODY": "Management tools...",
     
   "LOGS_TITLE": "Log data entries (via server)",
+
+  "STATS_TITLE": "Stats",
 
   "COMMON_YES": "Yes",
   "COMMON_NO": "No",
