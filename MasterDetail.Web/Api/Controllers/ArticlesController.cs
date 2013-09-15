@@ -88,7 +88,7 @@ namespace MasterDetail.Web.Api.Controllers
 
         [InvalidateCacheOutput("Get")]
         [InvalidateCacheOutput("GetById")]
-        public void Put(string id, ArticleDetailUpdateDto value)
+        public void Post(string id, ArticleDetailUpdateDto value)
         {
             var entity = new Article
                 {
@@ -98,12 +98,29 @@ namespace MasterDetail.Web.Api.Controllers
                     Description = value.Description
                 };
 
-            productsContext.Entry(entity).State = EntityState.Modified;
-            productsContext.Entry(entity).Property(e => e.ImageUrl).IsModified = false;
+            if (entity.Id == Guid.Empty)
+            {
+                entity.Id = Guid.NewGuid();
+                productsContext.Entry(entity).State = EntityState.Added;
+            }
+            else
+            {
+                productsContext.Entry(entity).State = EntityState.Modified;
+                productsContext.Entry(entity).Property(e => e.ImageUrl).IsModified = false;
+            }
+
             productsContext.SaveChanges();
 
             var hub = GlobalHost.ConnectionManager.GetHubContext<ClientNotificationHub>();
-            hub.Clients.All.articleChanged();
+            hub.Clients.All.articleChange();
+        }
+
+        [InvalidateCacheOutput("Get")]
+        [InvalidateCacheOutput("GetById")]
+        public void Delete(string id)
+        {
+            productsContext.Entry(new Article { Id = Guid.Parse(id) }).State = EntityState.Deleted;
+            productsContext.SaveChanges();
         }
 
         protected override void Dispose(bool disposing)

@@ -11,7 +11,7 @@ namespace MasterDetail.Web.Api.Controllers
         public ModulesController()
         {
             var module0 = new ModuleItem { Module = "Articles", DisplayText = "INDEX_ARTICLES", Url = "/articles", MatchPattern = "(/|/articles.*)", Users = new List<string> { "cw", "bob" } };
-            var module1 = new ModuleItem { Module = "ArticleDetails", Url = "/articles/:id", Users = new List<string> {"cw", "bob" }};
+            var module1 = new ModuleItem { Module = "ArticleDetails", Url = "/articledetails/:id", Users = new List<string> {"cw", "bob" }};
             var module2 = new ModuleItem { Module = "Admin", DisplayText = "INDEX_ADMIN", Url = "/admin", MatchPattern = "/admin", Users = new List<string> { "cw" } };
             var module3 = new ModuleItem { Module = "Log", DisplayText = "INDEX_LOGS", Url = "/log", MatchPattern = "/log", Users = new List<string> { "cw" } };
             var module4 = new ModuleItem { Module = "Statistics", DisplayText = "INDEX_STATS", Url = "/stats", MatchPattern = "/stats", Users = new List<string> { "cw", "bob" } };

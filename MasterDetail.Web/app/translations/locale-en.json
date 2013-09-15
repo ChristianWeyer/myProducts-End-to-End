@@ -31,9 +31,16 @@
   "LOGS_TITLE": "Log data entries (via server)",
 
   "STATS_TITLE": "Stats",
+        
+  "POPUP_SUCCESS": "Success",
+  "POPUP_ERROR": "Error",
+  "POPUP_SAVED": "Saved.",
+  "POPUP_DELETED": "Gelöscht.",
 
   "COMMON_YES": "Yes",
   "COMMON_NO": "No",
+  "COMMON_OK": "OK",
+  "COMMON_CLOSE": "Close",
   "COMMON_ERROR": "Error",
   "COMMON_CANCEL": "Cancel",
   "COMMON_SAVE": "Save"

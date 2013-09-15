@@ -1,13 +1,6 @@
 ﻿define(['app'], function (app) {
     app.factory("articlesApiService", ["$http", function ($http) {
         var service = {
-            ping: function () {
-                $http({
-                    method: "GET",
-                    url: ttTools.baseUrl + "api/ping"
-                });
-            },
-
             getArticleList: function () {
                 var ds = new kendo.data.DataSource({
                     type: "odata",
@@ -42,9 +35,16 @@
 
             saveArticle: function (artikel) {
                 return $http({
-                    method: "PUT",
+                    method: "POST",
                     url: ttTools.baseUrl + "api/articles/" + artikel.Id,
                     data: artikel
+                });
+            },
+            
+            deleteArticle: function (id) {
+                return $http({
+                    method: "DELETE",
+                    url: ttTools.baseUrl + "api/articles/" + id
                 });
             }
         };

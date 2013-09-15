@@ -473,9 +473,6 @@
     <Content Include="app\js\lib\angular-animate.min.js" />
     <Content Include="app\js\lib\angular-cookies.min.js" />
     <Content Include="app\js\lib\angular-kendo.js" />
-    <Content Include="app\js\lib\angular-kendo.min.js">
-      <DependentUpon>angular-kendo.js</DependentUpon>
-    </Content>
     <Content Include="app\js\lib\angular-route.min.js" />
     <Content Include="app\js\lib\angular-strap.min.js" />
     <Content Include="app\js\lib\angular-touch.min.js" />
@@ -486,9 +483,6 @@
     <Content Include="app\js\lib\angular-translate.js" />
     <Content Include="app\js\lib\fastclick.js" />
     <Content Include="app\js\lib\lawnchair-0.6.1.min.js" />
-    <Content Include="app\js\lib\ngSignalR.min.js">
-      <DependentUpon>ngSignalR.js</DependentUpon>
-    </Content>
     <Content Include="app\js\lib\snap.js" />
     <Content Include="app\js\lib\spin.min.js" />
     <Content Include="app\js\services\alertService.min.js">
@@ -651,12 +645,6 @@
     </Content>
     <Content Include="app\js\app.min.js.map">
       <DependentUpon>app.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\lib\ngSignalR.min.js.map">
-      <DependentUpon>ngSignalR.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\lib\angular-kendo.min.js.map">
-      <DependentUpon>angular-kendo.js</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\ttngdemo.pubxml" />
     <None Include="Web.Debug.config">

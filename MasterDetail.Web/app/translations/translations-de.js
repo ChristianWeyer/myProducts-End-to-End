@@ -32,9 +32,16 @@ tt.translations.de = {
     "LOGS_TITLE": "Log-Daten (über Server)",
 
     "STATS_TITLE": "Statistiken",
+        
+    "POPUP_SUCCESS": "Erfolg",
+    "POPUP_ERROR": "Fehler",
+    "POPUP_SAVED": "Gespeichert.",
+    "POPUP_DELETED": "Gelöscht.",
     
     "COMMON_YES": "Ja",
     "COMMON_NO": "Nein",
+    "COMMON_OK": "OK",
+    "COMMON_CLOSE": "Schliessen",
     "COMMON_ERROR": "Fehler",
     "COMMON_CANCEL": "Abbrechen",
     "COMMON_SAVE": "Speichern"

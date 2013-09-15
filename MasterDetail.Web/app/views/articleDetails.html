@@ -1,16 +1,16 @@
 ﻿<h3>{{ 'DETAILS_TITLE' | translate }}</h3>
 
-<form name="form" class="form-horizontal">
+<form name="form" novalidate class="form-horizontal">
     <div class="control-group" ng-class="{error: form.code.$invalid}">
         <label class="control-label" for="code">Code</label>
         <div class="controls">
-            <input type="text" ng-model="artikel.Code" id="code">
+            <input type="text" required ng-model="artikel.Code" id="code">
         </div>
     </div>
     <div class="control-group" ng-class="{error: form.name.$invalid}">
         <label class="control-label" for="name">Name</label>
         <div class="controls">
-            <input type="text" ng-model="artikel.Name" id="name">
+            <input type="text" required ng-model="artikel.Name" id="name">
         </div>
     </div>
     <div>
