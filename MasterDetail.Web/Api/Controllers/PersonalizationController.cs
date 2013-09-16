@@ -8,23 +8,11 @@ namespace MasterDetail.Web.Api.Controllers
 {
     public class PersonalizationController : ApiController
     {
-        private readonly List<FeatureItem> features;
-
-        public PersonalizationController()
-        {
-            var module0 = new FeatureItem { Module = "Articles", DisplayText = "INDEX_ARTICLES", Url = "/articles", MatchPattern = "(/|/articles.*)", Users = new List<string> { "cw", "bob" } };
-            var module1 = new FeatureItem { Module = "ArticleDetails", Url = "/articledetails/:id", Users = new List<string> { "cw", "bob" } };
-            var module2 = new FeatureItem { Module = "Admin", DisplayText = "INDEX_ADMIN", Url = "/admin", MatchPattern = "/admin", Users = new List<string> { "cw" } };
-            var module3 = new FeatureItem { Module = "Log", DisplayText = "INDEX_LOGS", Url = "/log", MatchPattern = "/log", Users = new List<string> { "cw" } };
-            var module4 = new FeatureItem { Module = "Statistics", DisplayText = "INDEX_STATS", Url = "/stats", MatchPattern = "/stats", Users = new List<string> { "cw", "bob" } };
-            features = new List<FeatureItem> { module0, module1, module2, module3, module4 };
-        }
-
         public PersonalizationData GetPersonalizationData()
         {
             var persData = new PersonalizationData
                 {
-                    Features = features.Where(m => m.Users.Contains(User.Identity.Name)).ToList(),
+                    Features = GetFeatures().Where(m => m.Users.Contains(User.Identity.Name)),
                     UiClaims = new UiClaimsData
                         {
                             UserName = User.Identity.Name,
@@ -37,6 +25,17 @@ namespace MasterDetail.Web.Api.Controllers
             return persData;
         }
 
+        private IEnumerable<FeatureItem> GetFeatures()
+        {
+            var module0 = new FeatureItem { Module = "Articles", DisplayText = "INDEX_ARTICLES", Url = "/articles", MatchPattern = "(/|/articles.*)", Users = new List<string> { "cw", "bob" } };
+            var module1 = new FeatureItem { Module = "ArticleDetails", Url = "/articledetails/:id", Users = new List<string> { "cw", "bob" } };
+            var module2 = new FeatureItem { Module = "Admin", DisplayText = "INDEX_ADMIN", Url = "/admin", MatchPattern = "/admin", Users = new List<string> { "cw" } };
+            var module3 = new FeatureItem { Module = "Log", DisplayText = "INDEX_LOGS", Url = "/log", MatchPattern = "/log", Users = new List<string> { "cw" } };
+            var module4 = new FeatureItem { Module = "Statistics", DisplayText = "INDEX_STATS", Url = "/stats", MatchPattern = "/stats", Users = new List<string> { "cw", "bob" } };
+
+            return new List<FeatureItem> { module0, module1, module2, module3, module4 };
+        }
+
         private Constraints GetConstraints(IPrincipal principal)
         {
             double itemsLimit = GetItemsLimit(principal.Identity.Name);
@@ -45,7 +44,7 @@ namespace MasterDetail.Web.Api.Controllers
             {
                 new NumericConstraint
                 {
-                    Name = "MaxNumberOfitems",
+                    Name = "MaxNumberOfItems",
                     LowerLimit = 0,
                     UpperLimit = itemsLimit
                 }
@@ -56,7 +55,7 @@ namespace MasterDetail.Web.Api.Controllers
         {
             if (userName == "cw")
             {
-                return 100;
+                return 10;
             }
 
             return 5;
@@ -75,7 +74,6 @@ namespace MasterDetail.Web.Api.Controllers
             return new Capabilities { };
         }
 
-
         private NameValueClaims GetNameValueClaims(IPrincipal principal)
         {
             if (principal.Identity.Name.Equals("cw"))
@@ -83,7 +81,7 @@ namespace MasterDetail.Web.Api.Controllers
                 return new NameValueClaims
                 {
                     new NameValueClaim("Email", "christian.weyer@thinktecture.com"),
-                    new NameValueClaim("GivenName", "Chris"),
+                    new NameValueClaim("GivenName", "Christian"),
                 };
             }
 

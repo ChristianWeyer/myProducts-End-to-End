@@ -176,6 +176,7 @@
     <Content Include="app\css\bootstrap.min.css" />
     <Content Include="app\css\font-awesome.css" />
     <Content Include="app\css\font-awesome.min.css" />
+    <Content Include="app\images\emergency_stop.jpg" />
     <Content Include="app\images\user.png" />
     <Content Include="app\images\ajax-loader.gif" />
     <Content Include="app\images\apple-touch-icon.png" />
@@ -592,11 +593,10 @@
     <Compile Include="Api\Controllers\ImageUploadController.cs" />
     <Compile Include="Api\Controllers\LogController.cs" />
     <Compile Include="Api\Controllers\PersonalizationController.cs" />
-    <Compile Include="Api\DTOs\PersonalizationData.cs" />
-    <Compile Include="Api\DTOs\UiClaimsData.cs" />
-    <Compile Include="Api\DTOs\UserInfo.cs" />
+    <Compile Include="Api\DTOs\Personalization\PersonalizationData.cs" />
+    <Compile Include="Api\DTOs\Personalization\UiClaimsData.cs" />
     <Compile Include="Api\DTOs\LogData.cs" />
-    <Compile Include="Api\DTOs\FeatureItem.cs" />
+    <Compile Include="Api\DTOs\Personalization\FeatureItem.cs" />
     <Compile Include="Api\DTOs\ArticleDetailUpdateDtoValidator.cs">
       <SubType>Code</SubType>
     </Compile>

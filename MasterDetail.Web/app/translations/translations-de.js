@@ -28,7 +28,7 @@ tt.translations.de = {
     "ABOUT_BODY": "Eine auf HTML5-basierende Produktverwaltung.",
     
     "ADMIN_TITLE": "Administration",
-    "ADMIN_BODY": "Verwaltungswerkzeuge...",
+    "ADMIN_BODY": "Wichtige Verwaltungswerzeuge.",
     
     "LOGS_TITLE": "Log-Daten (über Server)",
 
