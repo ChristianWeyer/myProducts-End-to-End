@@ -1,12 +1,13 @@
-define(['app'], function (app) {
+define(["app"], function (app) {
     app.register.controller("ArticlesController",
-        ["$scope", "$rootScope", "$location", "articlesApiService", "dataPushService", "alertService", "dialogService", "$translate",
-            function ($scope, $rootScope, $location, articlesApiService, dataPushService, alertService, dialogService, $translate) {
-                $scope.articles = articlesApiService.getArticleList();
+        ["$scope", "$rootScope", "$location", "articlesApiService", "dataPushService", "alertService", "dialogService", "$translate", "personalizationService",
+            function ($scope, $rootScope, $location, articlesApiService, dataPushService, alertService, dialogService, $translate, personalizationService) {
+                $scope.capabilities = personalizationService.data.UiClaims.Capabilities;
+                $scope.capabilities.has = function(key) {
+                    return $scope.capabilities.indexOf(key) > -1;
+                };
 
-                $rootScope.$on(tt.authentication.constants.loggedIn, function () {
-                    $scope.articles.read();
-                });
+                $scope.articles = articlesApiService.getArticleList();
 
                 dataPushService.on("articleChange", function () {
                     $scope.articles.read();

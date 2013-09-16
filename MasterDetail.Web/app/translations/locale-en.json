@@ -15,6 +15,7 @@
   "INDEX_STATS": "Statistics",
   "INDEX_LOGIN": "Login",
   "INDEX_LOGOUT": "Log out",
+  "INDEX_USERNAME": "User",
 
   "OVERVIEW_TITLE": "Overview",
   "OVERVIEW_FILTER": "Filter by article code",

@@ -51,6 +51,10 @@
                         </a>
                     </li>
                 </ul>
+                <ul class="nav pull-right">
+                    <li ng-show="tt.authentication.userLoggedIn"><a href="">
+                        <img src="app/images/user.png" /><strong> {{ userName }}</strong></a></li>
+                </ul>
                 <ul class="nav nav-pills pull-right">
                     <li ng-if="!tt.authentication.userLoggedIn" data-match-route="/login"><a href="#/login">{{ 'INDEX_LOGIN' | translate }}</a></li>
                     <li ng-if="tt.authentication.userLoggedIn"><a href="" ng-click="logout();">{{ 'INDEX_LOGOUT' | translate }}</a></li>
@@ -99,7 +103,7 @@
         $(function () {
             FastClick.attach(document.body);
         });
-        
+
         window.requireNode = window.require;
         window.require = undefined;
     </script>

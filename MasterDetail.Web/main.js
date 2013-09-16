@@ -5,6 +5,7 @@
 require(
     [
         "../translations/translations-de",
+        "constants",
         "app",
         "infrastructure/thinktecture.Authentication",
         "infrastructure/tools",
@@ -16,12 +17,10 @@ require(
         "services/logPushService",
         "services/dialogService",
         "services/articlesApiService",
+        "services/personalizationService",
         "controllers/navigationController",
         "controllers/loginController",
         "controllers/infoController"
-        //"controllers/articlesController",
-        //"controllers/articleDetailsController",
-        //"controllers/logController",
     ],
     function () {
         angular.bootstrap(document, ["myApp"]);

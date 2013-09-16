@@ -1,12 +1,10 @@
-define(['app'], function (app) {
-    app.controller('NavigationController', ['$http', '$translate', '$scope', '$rootScope', '$route', 'authenticationService',
-        function ($http, $translate, $scope, $rootScope, $route, authenticationService) {
-
-            $rootScope.$on(tt.authentication.constants.loggedIn, function () {
-                $http({ method: "GET", url: ttTools.baseUrl + "api/modules" })
-                .success(function (data) {
-                    $scope.navigationItems = data;
-                });
+define(["app"], function (app) {
+    app.controller("NavigationController", ["$http", "$scope", "$rootScope", "$translate", "authenticationService", "personalizationService",
+        function ($http, $scope, $rootScope, $translate, authenticationService, personalizationService) {
+            
+            $rootScope.$on(tt.personalization.constants.dataLoaded, function () {
+                $scope.userName = personalizationService.data.UiClaims.UserName;
+                $scope.navigationItems = personalizationService.data.Features;
             });
 
             $rootScope.$on(tt.authentication.constants.logoutConfirmed, function () {

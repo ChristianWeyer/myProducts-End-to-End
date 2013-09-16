@@ -11,7 +11,7 @@
                k-on-change="valueOnChange = kendoEvent.sender.value()"
                ng-model="filteredArticle" />
 
-        <i class="btn btn-primary icon-plus pull-right" ng-click="addArticle()"></i>
+        <i ng-if="capabilities.has('AddArticle')" class="btn btn-primary icon-plus pull-right" ng-click="addArticle()"></i>
     </div>
     
     <hr />

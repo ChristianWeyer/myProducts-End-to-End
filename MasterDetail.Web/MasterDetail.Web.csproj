@@ -176,6 +176,8 @@
     <Content Include="app\css\bootstrap.min.css" />
     <Content Include="app\css\font-awesome.css" />
     <Content Include="app\css\font-awesome.min.css" />
+    <Content Include="app\css\jquery.fileupload-ui.css" />
+    <Content Include="app\images\user.png" />
     <Content Include="app\images\ajax-loader.gif" />
     <Content Include="app\images\apple-touch-icon.png" />
     <Content Include="app\images\apple-touch-startup-image-1024x748.png" />
@@ -394,9 +396,16 @@
     <Content Include="app\css\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="app\css\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="app\css\toastr.min.css" />
+    <Content Include="app\js\constants.js" />
     <Content Include="app\js\controllers\adminController.js" />
     <Content Include="app\js\controllers\adminController.min.js">
       <DependentUpon>adminController.js</DependentUpon>
+    </Content>
+    <Content Include="app\js\controllers\navigationController.min.js">
+      <DependentUpon>navigationController.js</DependentUpon>
+    </Content>
+    <Content Include="app\js\controllers\statisticsController.min.js">
+      <DependentUpon>statisticsController.js</DependentUpon>
     </Content>
     <Content Include="app\js\controllers\infoController.js" />
     <Content Include="app\js\controllers\infoController.min.js">
@@ -405,9 +414,6 @@
     <Content Include="app\js\controllers\logController.js" />
     <Content Include="app\js\controllers\logController.min.js">
       <DependentUpon>logController.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\controllers\navigationController.min.js">
-      <DependentUpon>navigationController.js</DependentUpon>
     </Content>
     <Content Include="app\js\controllers\statisticsController.js" />
     <Content Include="app\js\infrastructure\thinktecture.Authentication.min.js">
@@ -433,6 +439,7 @@
     <Content Include="app\js\services\routeResolver.min.js">
       <DependentUpon>routeResolver.js</DependentUpon>
     </Content>
+    <Content Include="app\js\services\personalizationService.js" />
     <Content Include="app\translations\translations-de.min.js">
       <DependentUpon>translations-de.js</DependentUpon>
     </Content>
@@ -454,9 +461,6 @@
       <DependentUpon>articlesController.js</DependentUpon>
     </Content>
     <Content Include="app\js\controllers\navigationController.js" />
-    <Content Include="app\js\controllers\loginController.min - Copy.js">
-      <DependentUpon>navigationController.js</DependentUpon>
-    </Content>
     <Content Include="app\js\controllers\loginController.min.js">
       <DependentUpon>loginController.js</DependentUpon>
     </Content>
@@ -528,9 +532,6 @@
     </Content>
     <Content Include="Web.config" />
     <Content Include="app\translations\locale-en.json" />
-    <Content Include="app\js\controllers\loginController.min.js - Copy.map">
-      <DependentUpon>navigationController.js</DependentUpon>
-    </Content>
     <Content Include="app\translations\translations-de.min.js.map">
       <DependentUpon>translations-de.js</DependentUpon>
     </Content>
@@ -547,9 +548,6 @@
     <Content Include="app\js\controllers\logController.min.js.map">
       <DependentUpon>logController.js</DependentUpon>
     </Content>
-    <Content Include="app\js\controllers\navigationController.min.js.map">
-      <DependentUpon>navigationController.js</DependentUpon>
-    </Content>
     <Content Include="app\js\infrastructure\thinktecture.Authentication.min.js.map">
       <DependentUpon>thinktecture.Authentication.js</DependentUpon>
     </Content>
@@ -564,6 +562,12 @@
     </Content>
     <Content Include="main.min.js.map">
       <DependentUpon>main.js</DependentUpon>
+    </Content>
+    <Content Include="app\js\controllers\navigationController.min.js.map">
+      <DependentUpon>navigationController.js</DependentUpon>
+    </Content>
+    <Content Include="app\js\controllers\statisticsController.min.js.map">
+      <DependentUpon>statisticsController.js</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
@@ -588,7 +592,12 @@
     <Compile Include="Api\ApiExceptionFilterAttribute.cs" />
     <Compile Include="Api\Controllers\ImageUploadController.cs" />
     <Compile Include="Api\Controllers\LogController.cs" />
-    <Compile Include="Api\Controllers\ModulesController.cs" />
+    <Compile Include="Api\Controllers\PersonalizationController.cs" />
+    <Compile Include="Api\DTOs\PersonalizationData.cs" />
+    <Compile Include="Api\DTOs\UiClaimsData.cs" />
+    <Compile Include="Api\DTOs\UserInfo.cs" />
+    <Compile Include="Api\DTOs\LogData.cs" />
+    <Compile Include="Api\DTOs\FeatureItem.cs" />
     <Compile Include="Api\DTOs\ArticleDetailUpdateDtoValidator.cs">
       <SubType>Code</SubType>
     </Compile>

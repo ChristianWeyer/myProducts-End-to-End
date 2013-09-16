@@ -53,17 +53,21 @@
         function ($http, $templateCache, $rootScope, $location, $translate, alertService, dialogService, $route, $routeProviderService, routeResolverProviderService) {
 
             $rootScope.$on(tt.authentication.constants.loggedIn, function () {
-                $http({ method: "GET", url: ttTools.baseUrl + "api/modules" })
+                $http({ method: "GET", url: ttTools.baseUrl + "api/personalization" })
                 .success(function (data) {
                     var route = routeResolverProviderService.route;
 
-                    angular.forEach(data, function (value, key) {
+                    tt.personalization.data = data;
+                    
+                    angular.forEach(data.Features, function (value, key) {
                         $routeProviderService.when(value.Url, route.resolve(value.Module));
                         
                         if (value.OverrideRoot) {
                             $routeProviderService.when("/", route.resolve(value.Module));
                         }
                     });
+                    
+                    $rootScope.$broadcast(tt.personalization.constants.dataLoaded);
                 });
             });
 

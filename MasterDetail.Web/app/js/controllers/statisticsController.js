@@ -1,4 +1,4 @@
-﻿define(['app'], function (app) {
+﻿define(["app"], function (app) {
     app.register.controller("StatisticsController",
         ["$scope", function ($scope) {
             // Hard-coded sample values
