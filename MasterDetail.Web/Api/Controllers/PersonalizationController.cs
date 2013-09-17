@@ -12,7 +12,7 @@ namespace MasterDetail.Web.Api.Controllers
         {
             var persData = new PersonalizationData
                 {
-                    Features = GetFeatures().Where(m => m.Users.Contains(User.Identity.Name)),
+                    Features = GetFeatures(User).ToList(),
                     UiClaims = new UiClaimsData
                         {
                             UserName = User.Identity.Name,
@@ -25,7 +25,7 @@ namespace MasterDetail.Web.Api.Controllers
             return persData;
         }
 
-        private IEnumerable<FeatureItem> GetFeatures()
+        private IEnumerable<FeatureItem> GetFeatures(IPrincipal principal)
         {
             var module0 = new FeatureItem { Module = "Articles", DisplayText = "INDEX_ARTICLES", Url = "/articles", MatchPattern = "(/|/articles.*)", Users = new List<string> { "cw", "bob" } };
             var module1 = new FeatureItem { Module = "ArticleDetails", Url = "/articledetails/:id", Users = new List<string> { "cw", "bob" } };
@@ -33,7 +33,7 @@ namespace MasterDetail.Web.Api.Controllers
             var module3 = new FeatureItem { Module = "Log", DisplayText = "INDEX_LOGS", Url = "/log", MatchPattern = "/log", Users = new List<string> { "cw" } };
             var module4 = new FeatureItem { Module = "Statistics", DisplayText = "INDEX_STATS", Url = "/stats", MatchPattern = "/stats", Users = new List<string> { "cw", "bob" } };
 
-            return new List<FeatureItem> { module0, module1, module2, module3, module4 };
+            return new List<FeatureItem> { module0, module1, module2, module3, module4 }.Where(m => m.Users.Contains(principal.Identity.Name));
         }
 
         private Constraints GetConstraints(IPrincipal principal)

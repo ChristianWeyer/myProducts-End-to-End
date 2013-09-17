@@ -596,7 +596,7 @@
     <Compile Include="Api\DTOs\Personalization\PersonalizationData.cs" />
     <Compile Include="Api\DTOs\Personalization\UiClaimsData.cs" />
     <Compile Include="Api\DTOs\LogData.cs" />
-    <Compile Include="Api\DTOs\Personalization\FeatureItem.cs" />
+    <Compile Include="Api\DTOs\Personalization\Features.cs" />
     <Compile Include="Api\DTOs\ArticleDetailUpdateDtoValidator.cs">
       <SubType>Code</SubType>
     </Compile>

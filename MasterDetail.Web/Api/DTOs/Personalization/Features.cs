@@ -2,6 +2,9 @@
 
 namespace MasterDetail.Web.Api.DTOs
 {
+    public class Features : List<FeatureItem>
+    { }
+
     public class FeatureItem
     {
         public string Module { get; set; }
