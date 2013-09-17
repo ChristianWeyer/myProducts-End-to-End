@@ -20,7 +20,7 @@
         k-data-source="articles"
         reset-source-when="!filteredArticle"
         k-columns='[{ "field": "Name", "title": "Name"}, { "field": "Code",  "title": "Code"},
-                    { "template": "<i class=\"btn icon-edit\" ng-click=\"getArticleDetails(&apos;#=Id#&apos;)\"></i><i class=\"btn icon-trash\" ng-click=\"deleteArticle(&apos;#=Id#&apos;)\"></i>", width: "10%"}]'
+                    { "template": "<i class=\"btn icon-edit\" ng-click=\"getArticleDetails(&apos;#=Id#&apos;)\"></i><i class=\"btn icon-trash\" ng-click=\"deleteArticle(&apos;#=Id#&apos;)\"></i>", width: "15%"}]'
         k-pageable='{ "refresh": true, "pageSizes": false }'
         k-scrollable='{ "virtual": true }'
         k-on-change="getArticleDetails(kendoEvent.sender.dataItem(kendoEvent.sender.select()[0]))">

@@ -55,30 +55,28 @@
             $rootScope.$on(tt.authentication.constants.loggedIn, function () {
                 $http({ method: "GET", url: ttTools.baseUrl + "api/personalization" })
                 .success(function (data) {
-                    var route = routeResolverProviderService.route;
-
+                    theSpinner.spin(document.getElementById("spinner"));
+                    
                     tt.personalization.data = data;
+
+                    var route = routeResolverProviderService.route;
+                    var viewsDir = routeResolverProviderService.routeConfig.getViewsDirectory();
+
+                    $http.get(viewsDir + "info.html", { cache: $templateCache });
                     
                     angular.forEach(data.Features, function (value, key) {
                         $routeProviderService.when(value.Url, route.resolve(value.Module));
-                        
-                        if (value.OverrideRoot) {
-                            $routeProviderService.when("/", route.resolve(value.Module));
-                        }
+                        $http.get(viewsDir + value.Module + ".html", { cache: $templateCache });
                     });
                     
                     $rootScope.$broadcast(tt.personalization.constants.dataLoaded);
+                    
+                    theSpinner.stop();
                 });
             });
 
             // TODO: what about unloading!?
             
-            // TODO: should we handle pre-caching?
-            //$http.get("app/views/details.html", { cache: $templateCache });
-            //$http.get("app/views/info.html", { cache: $templateCache });
-            //$http.get("app/views/login.html", { cache: $templateCache });
-            //$http.get("app/views/overview.html", { cache: $templateCache });
-
             window.applicationCache.addEventListener('updateready', function (ev) {
                 if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
                     console.log('CACHE: Browser downloaded a new app cache manifest.');
