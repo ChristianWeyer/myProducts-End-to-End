@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
-<!--<html manifest="cache.manifest">-->
+<html manifest="cache.manifest">
 <head>
     <title>myProducts</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
@@ -56,8 +55,8 @@
                         <img src="app/images/user.png" /><strong> {{ userName }}</strong></a></li>
                 </ul>
                 <ul class="nav nav-pills pull-right">
-                    <li ng-if="!tt.authentication.userLoggedIn" data-match-route="/login"><a href="#/login">{{ 'INDEX_LOGIN' | translate }}</a></li>
-                    <li ng-if="tt.authentication.userLoggedIn"><a href="" ng-click="logout();">{{ 'INDEX_LOGOUT' | translate }}</a></li>
+                    <li ng-if="!tt.authentication.userLoggedIn" data-match-route="/login"><a href="#/login"><em>{{ 'INDEX_LOGIN' | translate }}</em></a></li>
+                    <li ng-if="tt.authentication.userLoggedIn"><a href="" ng-click="logout();"><em>{{ 'INDEX_LOGOUT' | translate }}</em></a></li>
                 </ul>
             </div>
         </div>

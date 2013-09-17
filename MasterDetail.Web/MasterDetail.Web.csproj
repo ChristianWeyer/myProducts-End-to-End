@@ -487,7 +487,6 @@
     <Content Include="app\js\lib\angular-translate.js" />
     <Content Include="app\js\lib\fastclick.js" />
     <Content Include="app\js\lib\lawnchair-0.6.1.min.js" />
-    <Content Include="app\js\lib\snap.js" />
     <Content Include="app\js\lib\spin.min.js" />
     <Content Include="app\js\services\alertService.min.js">
       <DependentUpon>alertService.js</DependentUpon>

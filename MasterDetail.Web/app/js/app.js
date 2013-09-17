@@ -52,18 +52,17 @@
     app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "alertService", "dialogService", "$route", "$routeProviderService", "routeResolverProviderService",
         function ($http, $templateCache, $rootScope, $location, $translate, alertService, dialogService, $route, $routeProviderService, routeResolverProviderService) {
 
+            var viewsDir = routeResolverProviderService.routeConfig.getViewsDirectory();
+            $http.get(viewsDir + "info.html", { cache: $templateCache });
+
             $rootScope.$on(tt.authentication.constants.loggedIn, function () {
                 $http({ method: "GET", url: ttTools.baseUrl + "api/personalization" })
                 .success(function (data) {
                     theSpinner.spin(document.getElementById("spinner"));
                     
                     tt.personalization.data = data;
-
                     var route = routeResolverProviderService.route;
-                    var viewsDir = routeResolverProviderService.routeConfig.getViewsDirectory();
 
-                    $http.get(viewsDir + "info.html", { cache: $templateCache });
-                    
                     angular.forEach(data.Features, function (value, key) {
                         $routeProviderService.when(value.Url, route.resolve(value.Module));
                         $http.get(viewsDir + value.Module + ".html", { cache: $templateCache });
