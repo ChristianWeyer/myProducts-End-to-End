@@ -8,6 +8,7 @@ require(
         "constants",
         "app",
         "infrastructure/thinktecture.Authentication",
+        "infrastructure/thinktecture.SignalR",
         "infrastructure/tools",
         "infrastructure/directives",
         "infrastructure/filters",

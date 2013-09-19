@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-#0.102
+#0.111
 
 CACHE:
 ./app/images/lang_de_t.png
@@ -48,7 +48,6 @@ CACHE:
 ./app/js/lib/ui-bootstrap-tpls-0.5.0.min.js
 ./app/js/lib/angular-kendo.js
 ./app/js/lib/jquery.signalR-1.1.3.min.js
-./app/js/lib/ngSignalR.js
 ./app/js/lib/lawnchair-0.6.1.min.js
 ./app/js/lib/angular-cookies.min.js
 ./app/js/lib/angular-translate.js
@@ -59,6 +58,7 @@ CACHE:
 ./app/js/lib/require.js
 ./app/js/lib/fastclick.js
 ./app/js/infrastructure/thinktecture.Authentication.js
+./app/js/infrastructure/thinktecture.SignalR.js
 ./app/js/infrastructure/tools.js
 ./app/js/infrastructure/directives.js
 ./app/js/infrastructure/filters.js

@@ -1,4 +1,4 @@
-﻿define(['app'], function (app) {
+﻿define(["app"], function (app) {
     app.factory("dataPushService", ["hubProxy", "$rootScope", function (hubProxy, $rootScope) {
         var hub = hubProxy(ttTools.baseUrl + "signalr", "clientNotificationHub");
         startHub();
@@ -10,8 +10,10 @@
             hub.stop();
         });
 
+        hub.on("articleChange");
+        
         function startHub() {
-            hub.start({ transport: 'longPolling' });
+            hub.start({ transport: "longPolling" });
         }
 
         return hub;

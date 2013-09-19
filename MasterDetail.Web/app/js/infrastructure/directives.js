@@ -1,4 +1,4 @@
-﻿define(['app'], function (app) {
+﻿define(["app"], function (app) {
     app.directive('resetSourceWhen', function () {
         return function(scope, element, attrs) {
             var ds = element.inheritedData('$kendoDataSource');

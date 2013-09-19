@@ -1,4 +1,4 @@
-define(['app'], function (app) {
+define(["app"], function (app) {
     app.controller("LoginController",
         ["$scope", "$http", "$location", "authenticationService", "dialogService", function($scope, $http, $location, authenticationService) {
 

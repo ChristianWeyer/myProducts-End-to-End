@@ -501,7 +501,7 @@
     <Content Include="app\js\controllers\loginController.js" />
     <Content Include="app\js\infrastructure\thinktecture.Authentication.js" />
     <Content Include="app\js\lib\jquery-2.0.1.min.js" />
-    <Content Include="app\js\lib\ngSignalR.js" />
+    <Content Include="app\js\infrastructure\thinktecture.SignalR.js" />
     <Content Include="app\js\services\alertService.js" />
     <Content Include="app\js\infrastructure\directives.js" />
     <Content Include="app\js\services\articlesApiService.js" />

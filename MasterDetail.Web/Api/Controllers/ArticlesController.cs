@@ -121,6 +121,9 @@ namespace MasterDetail.Web.Api.Controllers
         {
             productsContext.Entry(new Article { Id = Guid.Parse(id) }).State = EntityState.Deleted;
             productsContext.SaveChanges();
+
+            var hub = GlobalHost.ConnectionManager.GetHubContext<ClientNotificationHub>();
+            hub.Clients.All.articleChange();
         }
 
         protected override void Dispose(bool disposing)

@@ -1,4 +1,4 @@
-﻿define(['app'], function (app) {
+﻿define(["app"], function (app) {
     app.filter("baseUrl", function () {
         return function (input) {
             if (input) {

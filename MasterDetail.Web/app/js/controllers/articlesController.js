@@ -2,6 +2,7 @@ define(["app"], function (app) {
     app.register.controller("ArticlesController",
         ["$scope", "$rootScope", "$location", "articlesApiService", "dataPushService", "alertService", "dialogService", "$translate", "personalizationService",
             function ($scope, $rootScope, $location, articlesApiService, dataPushService, alertService, dialogService, $translate, personalizationService) {
+
                 $scope.capabilities = personalizationService.data.UiClaims.Capabilities;
                 $scope.capabilities.has = function(key) {
                     return $scope.capabilities.indexOf(key) > -1;
@@ -9,7 +10,7 @@ define(["app"], function (app) {
 
                 $scope.articles = articlesApiService.getArticleList();
 
-                dataPushService.on("articleChange", function () {
+                $scope.$on(tt.signalr.constants.subscribe + "articleChange", function () {
                     $scope.articles.read();
                 });
 
