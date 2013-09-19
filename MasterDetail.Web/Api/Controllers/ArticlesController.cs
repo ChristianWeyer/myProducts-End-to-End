@@ -34,7 +34,7 @@ namespace MasterDetail.Web.Api.Controllers
 
             var artikelQuery =
                 from a in productsContext.Articles.AsNoTracking()
-                orderby a.Code
+                orderby a.Id
                 select new ArticleDto()
                 {
                     Id = a.Id,
