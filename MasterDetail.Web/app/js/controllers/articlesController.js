@@ -8,6 +8,7 @@ define(["app"], function (app) {
                     return $scope.capabilities.indexOf(key) > -1;
                 };
 
+                ttTools.logger.info("Loading articles...");
                 $scope.articles = articlesApiService.getArticleList();
 
                 $scope.$on(tt.signalr.constants.subscribe + "articleChange", function () {

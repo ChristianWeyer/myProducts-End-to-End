@@ -1,6 +1,8 @@
 ﻿define(["app"], function (app) {
     app.register.controller("StatisticsController",
         ["$scope", function ($scope) {
+            ttTools.logger.info("Freakin' cool stats!");
+            
             // Hard-coded sample values
             $scope.pieSeries = [{
                 type: "pie",

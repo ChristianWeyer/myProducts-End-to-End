@@ -3,6 +3,8 @@
         ["$scope", "$routeParams", "articlesApiService", "alertService", "$location", "dialogService", "$translate", function ($scope, $routeParams, articlesApiService, alertService, $location, dialogService, $translate) {
 
             if ($routeParams.id) {
+                ttTools.logger.info("Getting article details...");
+                
                 articlesApiService.getArticleDetails($routeParams.id)
                     .success(function (data) {
                         $scope.artikel = data;
