@@ -20,29 +20,33 @@ ttTools.getBaseUrl = function () {
 
 ttTools.baseUrl = ttTools.getBaseUrl();
 
+ttTools.iOS = function () {
+    return (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false);
+};
+
 ttTools.initLogger = function (url) {
     ttTools.JsonAppender.prototype = new log4javascript.Appender();
     ttTools.JsonAppender.prototype.toString = function () {
         return 'JsonAppender';
     };
     log4javascript.JsonAppender = ttTools.JsonAppender;
-    
+
     ttTools.logger = log4javascript.getLogger();
-    
+
     var ajaxAppender = new log4javascript.JsonAppender(url);
     ajaxAppender.setThreshold(log4javascript.Level.INFO);
     ttTools.logger.addAppender(ajaxAppender);
-    
+
     var consoleAppender = new log4javascript.BrowserConsoleAppender();
     var patternLayout = new log4javascript.PatternLayout("%d{HH:mm:ss,SSS} %-5p - %m{1}%n");
     consoleAppender.setLayout(patternLayout);
-    ttTools.logger.addAppender(consoleAppender);  
+    ttTools.logger.addAppender(consoleAppender);
 };
 
 ttTools.JsonAppender = function (url) {
     var isSupported = true;
     var successCallback = function (data, textStatus, jqXHR) { return; };
-    
+
     if (!url) {
         isSupported = false;
     }
@@ -55,7 +59,7 @@ ttTools.JsonAppender = function (url) {
         if (!isSupported) {
             return;
         }
-        
+
         $.ajax({
             url: url,
             type: "POST",

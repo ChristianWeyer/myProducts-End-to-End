@@ -13,7 +13,11 @@
         hub.on("articleChange");
         
         function startHub() {
-            hub.start({ transport: "longPolling" });
+            if (ttTools.iOS()) {
+                hub.start({ transport: "longPolling" });
+            } else {
+                hub.start();
+            }
         }
 
         return hub;
