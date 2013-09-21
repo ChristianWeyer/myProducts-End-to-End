@@ -21,8 +21,7 @@
 
             $routeProvider
                 .when("/info", route.resolve("Info"))
-                .when("/login", route.resolve("Login"))
-                .otherwise({ redirectTo: "/" });
+                .when("/login", route.resolve("Login"));
 
             $provide.factory('$routeProviderService', function () {
                 return $routeProvider;
@@ -69,7 +68,8 @@
                     });
                     
                     $rootScope.$broadcast(tt.personalization.constants.dataLoaded);
-                    
+                    $route.reload();
+
                     theSpinner.stop();
                 });
             });
