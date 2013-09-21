@@ -24,6 +24,7 @@ ttTools.iOS = function () {
     return (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false);
 };
 
+
 ttTools.initLogger = function (url) {
     ttTools.JsonAppender.prototype = new log4javascript.Appender();
     ttTools.JsonAppender.prototype.toString = function () {
