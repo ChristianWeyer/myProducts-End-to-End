@@ -1,6 +1,7 @@
 ﻿define(["app"], function (app) {
     app.factory("articlesApiService", ["$http", function ($http) {
         var service = {
+            
             getArticleList: function () {
                 var ds = new kendo.data.DataSource({
                     type: "odata",

@@ -12,8 +12,6 @@ namespace MasterDetail.Web
         {
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             HubConfig.Register(RouteTable.Routes);
-
-
         }
     }
 }
