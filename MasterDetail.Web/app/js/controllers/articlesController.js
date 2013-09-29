@@ -7,14 +7,14 @@ define(["app"], function (app) {
                 $scope.capabilities.has = function(key) {
                     return $scope.capabilities.indexOf(key) > -1;
                 };
-
+                
                 ttTools.logger.info("Loading articles...");
                 $scope.articles = articlesApiService.getArticleList();
 
                 $scope.$on(tt.signalr.constants.subscribe + "articleChange", function () {
                     $scope.articles.read();
                 });
-
+                
                 $scope.getArticleDetails = function (id) {
                     $location.path("/articledetails/" + id);
                 };
@@ -27,7 +27,7 @@ define(["app"], function (app) {
                     articlesApiService.deleteArticle(id)
                         .success(function () {
                             $scope.articles.read();
-
+                            
                             alertService.pop({
                                 title: $translate("POPUP_SUCCESS"),
                                 body: $translate("POPUP_DELETED"),

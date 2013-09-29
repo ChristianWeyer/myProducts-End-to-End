@@ -180,6 +180,8 @@
     <Content Include="app\css\font-awesome.css" />
     <Content Include="app\css\font-awesome.min.css" />
     <Content Include="app\images\emergency_stop.png" />
+    <Content Include="app\images\logo_de.png" />
+    <Content Include="app\images\logo_en.png" />
     <Content Include="app\images\user.png" />
     <Content Include="app\images\ajax-loader.gif" />
     <Content Include="app\images\apple-touch-icon.png" />
