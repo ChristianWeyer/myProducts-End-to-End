@@ -1,6 +1,6 @@
 define(["app"], function (app) {
     app.controller("LoginController",
-        ["$scope", "$http", "$location", "authenticationService", "dialogService", function($scope, $http, $location, authenticationService) {
+        ["$scope", "authenticationService", function($scope, authenticationService) {
 
             $scope.username = "";
             $scope.password = "";

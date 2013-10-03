@@ -33,13 +33,14 @@
         this.route = function (routeConfig) {
             var resolve = function (baseName, path) {
                 if (!path) path = '';
+                var lowercaseBaseName = lowercaserFirstLetter(baseName);
 
                 var routeDef = {};
-                routeDef.templateUrl = routeConfig.getViewsDirectory() + path + baseName + '.html';
+                routeDef.templateUrl = routeConfig.getViewsDirectory() + path + lowercaseBaseName + '.html';
                 routeDef.controller = baseName + 'Controller';
                 routeDef.resolve = {
                     load: ['$q', '$rootScope', function ($q, $rootScope) {
-                        var dependencies = [routeConfig.getControllersDirectory() + path + baseName + 'Controller.js'];
+                        var dependencies = [routeConfig.getControllersDirectory() + path + lowercaseBaseName + 'Controller.js'];
                         return resolveDependencies($q, $rootScope, dependencies);
                     }]
                 };
@@ -57,6 +58,10 @@
                 return defer.promise;
             };
 
+            function lowercaserFirstLetter(string) {
+                return string.charAt(0).toLowerCase() + string.slice(1);
+            }
+            
             return {
                 resolve: resolve
             };

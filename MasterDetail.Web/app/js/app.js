@@ -17,11 +17,10 @@
             };
 
             routeResolverProvider.routeConfig.setBaseDirectories("app/views/", "app/js/controllers/");
-            var route = routeResolverProvider.route;
-
+        
             $routeProvider
-                .when("/info", route.resolve("Info"))
-                .when("/login", route.resolve("Login"));
+                .when("/info", { templateUrl: "app/views/info.html", controller: "InfoController"})
+                .when("/login", { templateUrl: "app/views/login.html", controller: "LoginController" });
 
             $provide.factory('$routeProviderService', function () {
                 return $routeProvider;
