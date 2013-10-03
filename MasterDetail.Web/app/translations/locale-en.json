@@ -25,6 +25,7 @@
 
   "ABOUT_TITLE": "About this application",
   "ABOUT_BODY": "Our super awesome products management application...",
+  "ABOUT_CONTACT": "Questions &uuml; feedback: <a href='mailto:christian.weyer@thinktecture.com'>christian.weyer@thinktecture.com</a>",
     
   "ADMIN_TITLE": "Admin",
   "ADMIN_BODY": "Essential management tools.",
