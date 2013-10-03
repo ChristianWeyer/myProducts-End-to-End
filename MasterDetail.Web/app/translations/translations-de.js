@@ -26,7 +26,7 @@ tt.translations.de = {
 
     "ABOUT_TITLE": "Über diese Anwendung",
     "ABOUT_BODY": "Eine auf HTML5-basierende Produktverwaltung.",
-    "ABOUT_CONTACT": "Für Fragen &uuml; Feedback: <a href='mailto:christian.weyer@thinktecture.com'>christian.weyer@thinktecture.com</a>",
+    "ABOUT_CONTACT": "Für Fragen & Feedback: christian.weyer@thinktecture.com",
     
     "ADMIN_TITLE": "Administration",
     "ADMIN_BODY": "Wichtige Verwaltungswerzeuge.",
