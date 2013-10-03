@@ -63,7 +63,6 @@
 
                     angular.forEach(data.Features, function (value, key) {
                         $routeProviderService.when(value.Url, route.resolve(value.Module));
-                        $http.get(viewsDir + value.Module + ".html", { cache: $templateCache });
                     });
                     
                     $rootScope.$broadcast(tt.personalization.constants.dataLoaded);

@@ -33,7 +33,7 @@
         this.route = function (routeConfig) {
             var resolve = function (baseName, path) {
                 if (!path) path = '';
-                var lowercaseBaseName = lowercaserFirstLetter(baseName);
+                var lowercaseBaseName = ttTools.lowercaseFirstLetter(baseName);
 
                 var routeDef = {};
                 routeDef.templateUrl = routeConfig.getViewsDirectory() + path + lowercaseBaseName + '.html';
@@ -57,10 +57,6 @@
 
                 return defer.promise;
             };
-
-            function lowercaserFirstLetter(string) {
-                return string.charAt(0).toLowerCase() + string.slice(1);
-            }
             
             return {
                 resolve: resolve

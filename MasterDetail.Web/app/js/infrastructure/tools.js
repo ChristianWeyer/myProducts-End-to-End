@@ -24,6 +24,9 @@ ttTools.iOS = function () {
     return (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false);
 };
 
+ttTools.lowercaseFirstLetter = function(string) {
+    return string.charAt(0).toLowerCase() + string.slice(1);
+};
 
 ttTools.initLogger = function (url) {
     ttTools.JsonAppender.prototype = new log4javascript.Appender();
