@@ -28,6 +28,7 @@ ttTools.lowercaseFirstLetter = function(string) {
     return string.charAt(0).toLowerCase() + string.slice(1);
 };
 
+
 ttTools.initLogger = function (url) {
     ttTools.JsonAppender.prototype = new log4javascript.Appender();
     ttTools.JsonAppender.prototype.toString = function () {
