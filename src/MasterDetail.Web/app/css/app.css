@@ -9,7 +9,7 @@ html, body {
 }
 
 html {
-    overflow: scroll;
+    overflow: hidden;
 }
 
 body {
