@@ -1,0 +1,25 @@
+﻿<h3>{{ 'DETAILS_TITLE' | translate }}</h3>
+
+<form name="form" novalidate class="form-horizontal">
+    <div class="control-group" ng-class="{error: form.code.$invalid}">
+        <label class="control-label" for="code">Code</label>
+        <div class="controls">
+            <input type="text" required ng-model="artikel.Code" id="code">
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: form.name.$invalid}">
+        <label class="control-label" for="name">Name</label>
+        <div class="controls">
+            <input type="text" required ng-model="artikel.Name" id="name">
+        </div>
+    </div>
+    <div>
+        <img alt="Product image" class="img-polaroid" src="app/images/ajax-loader.gif" ng-src="{{artikel.ImageUrl | baseUrl}}" />
+        <textarea type="text" rows="7" cols="20" ng-model="artikel.Description" />
+    </div>
+
+    <div class="form-actions">
+        <button ng-click="save()" class="btn btn-primary">{{ 'COMMON_SAVE' | translate }}</button>
+        <a href="#/articles" class="btn">{{ 'COMMON_CANCEL' | translate }}</a>
+    </div>
+</form>

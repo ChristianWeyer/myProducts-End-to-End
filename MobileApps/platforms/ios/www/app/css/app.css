@@ -1,0 +1,152 @@
+﻿[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow: scroll;
+}
+
+body {
+    padding-top: 6em;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.form-horizontal input.ng-invalid.ng-dirty {
+    background-color: #FA787E;
+}
+
+.form-horizontal input.ng-valid.ng-dirty {
+    background-color: #78FA89;
+}
+
+.center {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar .brand {
+    max-height: 40px;
+    overflow: visible;
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+
+.navbar .container {
+    height: 5em;
+}
+
+.navbar .nav > li > a {
+    padding: 2em 15px 10px;
+}
+
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0px;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: #FF6600;
+    color: #000 !important;
+    background-color: transparent !important;
+}
+
+.nav-pills > li > a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0px;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: lightblue;
+    color: #000 !important;
+    background-color: transparent !important;
+}
+
+.nav-pills > li > a {
+    border-radius: 0px;
+}
+
+.language-icon {
+    cursor: pointer;
+}
+
+#grid {
+    border-width: 0;
+    height: 100%;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #7096C7;
+    padding: 1em;
+    box-shadow: 0 -5px 20px #555;
+}
+
+    #footer a {
+        color: white;
+        text-decoration: none;
+    }
+
+    #footer .cloud-link {
+        float: right;
+    }
+
+#ng-view {
+    position: relative;
+    min-height: 1024px;
+}
+
+.dialog-underline {
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0px;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: red;
+    color: #000 !important;
+    background-color: transparent !important;
+}
+
+/* Animations */
+.animation.ng-enter,
+.animation.ng-leave {
+    -webkit-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+}
+
+.animation.ng-enter {
+    left: 100%;
+}
+
+    .animation.ng-enter.ng-enter-active {
+        left: 0;
+    }
+
+.animation.ng-leave {
+    left: 0;
+}
+
+    .animation.ng-leave.ng-leave-active {
+        left: -100%;
+    }

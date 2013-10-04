@@ -1,0 +1,49 @@
+﻿{
+  "APP_UPDATE_BODY": "New version available - wanna load it?",
+
+  "LOGIN_TITLE": "User login",
+  "LOGIN_USERNAME": "Username",
+  "LOGIN_PASSWORD": "Password",
+  "LOGIN_BUTTON_LOGIN": "Log in",
+  "LOGIN_FAILED": "Login failed.",
+
+  "INDEX_TITLE": "myProducts",
+  "INDEX_ARTICLES": "Articles",
+  "INDEX_INFO": "About",
+  "INDEX_ADMIN": "Admin",
+  "INDEX_LOGS": "Logs",
+  "INDEX_STATS": "Statistics",
+  "INDEX_LOGIN": "Login",
+  "INDEX_LOGOUT": "Log out",
+  "INDEX_USERNAME": "User",
+
+  "OVERVIEW_TITLE": "Overview",
+  "OVERVIEW_FILTER": "Filter by article code",
+
+  "DETAILS_TITLE": "Article details",
+  "DETAILS_ERROR": "Article data could not be loaded (see details).",
+
+  "ABOUT_TITLE": "About this application",
+  "ABOUT_BODY": "Our super awesome products management application...",
+  "ABOUT_CONTACT": "Questions & feedback: christian.weyer@thinktecture.com",
+    
+  "ADMIN_TITLE": "Admin",
+  "ADMIN_BODY": "Essential management tools.",
+    
+  "LOGS_TITLE": "Log data entries (via server)",
+
+  "STATS_TITLE": "Stats",
+        
+  "POPUP_SUCCESS": "Success",
+  "POPUP_ERROR": "Error",
+  "POPUP_SAVED": "Saved.",
+  "POPUP_DELETED": "Gelöscht.",
+
+  "COMMON_YES": "Yes",
+  "COMMON_NO": "No",
+  "COMMON_OK": "OK",
+  "COMMON_CLOSE": "Close",
+  "COMMON_ERROR": "Error",
+  "COMMON_CANCEL": "Cancel",
+  "COMMON_SAVE": "Save"
+}
