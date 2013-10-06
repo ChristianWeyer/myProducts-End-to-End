@@ -9,6 +9,8 @@ using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Storage;
 using Serilog;
 using Thinktecture.IdentityModel.Authorization.WebApi;
+using Thinktecture.IdentityModel.Http.Cors;
+using Thinktecture.IdentityModel.Http.Cors.WebApi;
 using Thinktecture.IdentityModel.Tokens.Http;
 
 namespace MasterDetail.Web.App_Start
@@ -42,6 +44,11 @@ namespace MasterDetail.Web.App_Start
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional });
+
+            var corsConfig = new CorsConfiguration();
+            corsConfig.AllowAll();
+            var corsHandler = new CorsMessageHandler(corsConfig, config);
+            config.MessageHandlers.Add(corsHandler);
 
             var authNConfig = new AuthenticationConfiguration
             {
