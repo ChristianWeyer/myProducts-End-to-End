@@ -110,7 +110,7 @@ h2 {
 
 #ng-view {
     position: relative;
-    /*min-height: 1024px;*/
+    min-height: 1024px;
 }
 
 .dialog-underline {
