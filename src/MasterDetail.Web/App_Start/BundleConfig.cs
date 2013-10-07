@@ -22,7 +22,7 @@ namespace MasterDetail.Web.App_Start
                 .Include("~/app/js/lib/fastclick.js")
                 );
 
-            bundles.Add(new StyleBundle("~/app/css/common/css")
+            bundles.Add(new StyleBundle("~/app/css/common")
                 .Include("~/app/css/bootstrap.css")
                 .Include("~/app/css/toastr.css")
                 .Include("~/app/css/app.css")
@@ -30,6 +30,9 @@ namespace MasterDetail.Web.App_Start
             bundles.Add(new StyleBundle("~/app/css/kendo/css")
                 .Include("~/app/css/kendo/kendo.common.css")
                 .Include("~/app/css/kendo/kendo.bootstrap.css")
+                );
+            bundles.Add(new StyleBundle("~/app/css/font-awesome")
+                .Include("~/app/css/font-awesome.css")
                 );
         }
     }

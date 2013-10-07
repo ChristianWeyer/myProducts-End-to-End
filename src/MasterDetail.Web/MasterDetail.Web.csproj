@@ -279,7 +279,7 @@
     <Content Include="app\views\log.html" />
     <Content Include="app\views\statistics.html" />
     <Content Include="App_Data\ProductsDemo.sdf" />
-    <Content Include="index.html" />
+    <Content Include="___index.html" />
     <Content Include="app\js\app.js" />
     <Content Include="app\js\controllers\articlesController.js" />
     <Content Include="app\js\controllers\articleDetailsController.js" />
