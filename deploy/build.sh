@@ -28,8 +28,9 @@ cp ../../src/MasterDetail.Web/index.html .
 cp ../../src/MasterDetail.Web/main.js .
 cp ../node-webkit-sharedsource/* .
 
-#Downlod generated index.html page
-curl -k https://windows8vm.local/ngmd/ > index.html
+## Download generated index.html page
+#echo GETting index.html
+#curl -k https://windows8vm.local/ngmd/ > index.html
 
 ## ZIP directory into .nw for node-webkit
 zip -qr ../out/app.nw *
@@ -57,7 +58,7 @@ rm -rf myProducts/www
 cp -r ../tmp/ myProducts/www
 cp -r ../phonegap-sharedsource/ myProducts/
 
-echo Building PhoneGap projects
+echo Creating PhoneGap projects
 
 cd myProducts
 
