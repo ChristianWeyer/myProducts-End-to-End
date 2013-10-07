@@ -28,6 +28,9 @@ cp ../../src/MasterDetail.Web/index.html .
 cp ../../src/MasterDetail.Web/main.js .
 cp ../node-webkit-sharedsource/* .
 
+#Downlod generated index.html page
+curl -k https://windows8vm.local/ngmd/ > index.html
+
 ## ZIP directory into .nw for node-webkit
 zip -qr ../out/app.nw *
 
