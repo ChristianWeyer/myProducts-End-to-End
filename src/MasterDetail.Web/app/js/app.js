@@ -50,6 +50,13 @@
     app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "alertService", "dialogService", "$route", "$routeProviderService", "routeResolverProviderService",
         function ($http, $templateCache, $rootScope, $location, $translate, alertService, dialogService, $route, $routeProviderService, routeResolverProviderService) {
 
+            window.addEventListener("online", function () {
+                $rootScope.$apply($rootScope.$broadcast("tt:status:onlineChanged", true));
+            }, true);
+            window.addEventListener("offline", function () {
+                $rootScope.$apply($rootScope.$broadcast("tt:status:onlineChanged", false));
+            }, true);
+            
             var viewsDir = routeResolverProviderService.routeConfig.getViewsDirectory();
             $http.get(viewsDir + "info.html", { cache: $templateCache });
 

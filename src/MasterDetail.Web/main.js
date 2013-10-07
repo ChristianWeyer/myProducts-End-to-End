@@ -19,9 +19,11 @@ require(
         "services/dialogService",
         "services/articlesApiService",
         "services/personalizationService",
+        "services/networkStatusService",
         "controllers/navigationController",
         "controllers/loginController",
-        "controllers/infoController"
+        "controllers/infoController",
+        "controllers/statusController"
     ],
     function () {
         angular.bootstrap(document, ["myApp"]);

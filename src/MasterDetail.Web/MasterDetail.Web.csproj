@@ -229,8 +229,8 @@
     <Content Include="app\css\kendo\kendo.common.css" />
     <Content Include="app\css\toastr.css" />
     <Content Include="app\images\emergency_stop.png" />
-    <Content Include="app\images\logo_de.png" />
-    <Content Include="app\images\logo_en.png" />
+    <Content Include="app\images\offline.png" />
+    <Content Include="app\images\online.png" />
     <Content Include="app\images\user.png" />
     <Content Include="app\images\ajax-loader.gif" />
     <Content Include="app\images\apple-touch-icon.png" />
@@ -246,6 +246,7 @@
     <Content Include="app\css\app.css" />
     <Content Include="app\js\constants.js" />
     <Content Include="app\js\controllers\adminController.js" />
+    <Content Include="app\js\controllers\statusController.js" />
     <Content Include="app\js\controllers\infoController.js" />
     <Content Include="app\js\controllers\logController.js" />
     <Content Include="app\js\controllers\statisticsController.js" />
@@ -267,6 +268,7 @@
     <Content Include="app\js\lib\spin.js" />
     <Content Include="app\js\lib\toastr.js" />
     <Content Include="app\js\lib\ui-bootstrap-tpls-0.5.0.js" />
+    <Content Include="app\js\services\networkStatusService.js" />
     <Content Include="app\js\services\logPushService.js" />
     <Content Include="app\js\services\dialogService.js" />
     <Content Include="app\js\services\routeResolver.js" />

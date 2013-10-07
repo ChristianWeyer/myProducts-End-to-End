@@ -1,15 +1,14 @@
 define(["app"], function (app) {
-    app.controller("NavigationController", ["$http", "$scope", "$rootScope", "$translate", "authenticationService", "personalizationService",
-        function ($http, $scope, $rootScope, $translate, authenticationService, personalizationService) {
+    app.controller("NavigationController", ["$http", "$scope", "$translate", "authenticationService", "personalizationService",
+        function ($http, $scope, $translate, authenticationService, personalizationService) {
 
             $scope.currentLanguage = $translate.preferredLanguage() || $translate.proposedLanguage();
             
-            $rootScope.$on(tt.personalization.constants.dataLoaded, function () {
-                $scope.userName = personalizationService.data.UiClaims.UserName;
+            $scope.$on(tt.personalization.constants.dataLoaded, function () {
                 $scope.navigationItems = personalizationService.data.Features;
             });
 
-            $rootScope.$on(tt.authentication.constants.logoutConfirmed, function () {
+            $scope.$on(tt.authentication.constants.logoutConfirmed, function () {
                 $scope.navigationItems = null;
             });
 
