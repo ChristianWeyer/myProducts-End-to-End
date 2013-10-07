@@ -45,10 +45,6 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="nav pull-right">
-                    <li ng-show="tt.authentication.userLoggedIn"><a href="">
-                        <img src="app/images/user.png" /><strong> {{ userName }}</strong></a></li>
-                </ul>
                 <ul class="nav nav-pills pull-right">
                     <li ng-if="!tt.authentication.userLoggedIn" data-match-route="/login"><a href="#/login"><em>{{ 'INDEX_LOGIN' | translate }}</em></a></li>
                     <li ng-if="tt.authentication.userLoggedIn"><a href="" ng-click="logout();"><em>{{ 'INDEX_LOGOUT' | translate }}</em></a></li>
@@ -63,7 +59,13 @@
     </div>
 
     <footer id="footer">
-        <div class="container">
+        <div class="container" ng-controller="StatusController">
+            <img ng-if="isOnline" src="app/images/online.png" />
+            <img ng-if="!isOnline" src="app/images/offline.png" />
+            <span>
+                <img ng-if="tt.authentication.userLoggedIn" src="app/images/user.png" />
+                <strong ng-if="tt.authentication.userLoggedIn">{{ userName }}</strong>
+            </span>
             <a href="http://www.thinktecture.com" target="_blank" class="cloud-link">
                 <span class="icon-cloud">&nbsp;</span>thinktecture
             </a>
