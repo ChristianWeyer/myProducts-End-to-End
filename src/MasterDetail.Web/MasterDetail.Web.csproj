@@ -8,7 +8,7 @@
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{7B2C0D1F-37D9-4E8B-91FE-3CE33B1DA822}</ProjectGuid>
-    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MasterDetail.Web</RootNamespace>
@@ -40,6 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -93,6 +96,18 @@
     </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph">
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph.Data">
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph.Graphviz">
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Graphviz.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph.Serialization">
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Serilog, Version=0.9.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -150,6 +165,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
     </Reference>
@@ -159,6 +178,25 @@
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -171,14 +209,25 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Thinktecture.IdentityModel.3.5.0\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
     </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\css\bootstrap-responsive.css" />
-    <Content Include="app\css\bootstrap-responsive.min.css" />
     <Content Include="app\css\bootstrap.css" />
-    <Content Include="app\css\bootstrap.min.css" />
     <Content Include="app\css\font-awesome.css" />
-    <Content Include="app\css\font-awesome.min.css" />
+    <Content Include="app\css\kendo\Bootstrap\editor.png" />
+    <Content Include="app\css\kendo\Bootstrap\imagebrowser.png" />
+    <Content Include="app\css\kendo\Bootstrap\loading-image.gif" />
+    <Content Include="app\css\kendo\Bootstrap\loading.gif" />
+    <Content Include="app\css\kendo\Bootstrap\loading_2x.gif" />
+    <Content Include="app\css\kendo\Bootstrap\slider-h.gif" />
+    <Content Include="app\css\kendo\Bootstrap\slider-v.gif" />
+    <Content Include="app\css\kendo\Bootstrap\sprite.png" />
+    <Content Include="app\css\kendo\Bootstrap\sprite_2x.png" />
+    <Content Include="app\css\kendo\kendo.bootstrap.css" />
+    <Content Include="app\css\kendo\kendo.common.css" />
+    <Content Include="app\css\toastr.css" />
     <Content Include="app\images\emergency_stop.png" />
     <Content Include="app\images\logo_de.png" />
     <Content Include="app\images\logo_en.png" />
@@ -194,225 +243,30 @@
     <Content Include="app\images\lang_en.png" />
     <Content Include="app\images\lang_en_t.png" />
     <Content Include="app\images\logo.png" />
-    <Content Include="app\css\kendo\Black\editor.png" />
-    <Content Include="app\css\kendo\Black\imagebrowser.png" />
-    <Content Include="app\css\kendo\Black\loading-image.gif" />
-    <Content Include="app\css\kendo\Black\loading.gif" />
-    <Content Include="app\css\kendo\Black\slider-h.gif" />
-    <Content Include="app\css\kendo\Black\slider-v.gif" />
-    <Content Include="app\css\kendo\Black\sprite.png" />
-    <Content Include="app\css\kendo\Black\sprite_2x.png" />
-    <Content Include="app\css\kendo\BlueOpal\editor.png" />
-    <Content Include="app\css\kendo\BlueOpal\imagebrowser.png" />
-    <Content Include="app\css\kendo\BlueOpal\loading-image.gif" />
-    <Content Include="app\css\kendo\BlueOpal\loading.gif" />
-    <Content Include="app\css\kendo\BlueOpal\slider-h.gif" />
-    <Content Include="app\css\kendo\BlueOpal\slider-v.gif" />
-    <Content Include="app\css\kendo\BlueOpal\sprite.png" />
-    <Content Include="app\css\kendo\BlueOpal\sprite_2x.png" />
-    <Content Include="app\css\kendo\Bootstrap\editor.png" />
-    <Content Include="app\css\kendo\Bootstrap\imagebrowser.png" />
-    <Content Include="app\css\kendo\Bootstrap\loading-image.gif" />
-    <Content Include="app\css\kendo\Bootstrap\loading.gif" />
-    <Content Include="app\css\kendo\Bootstrap\slider-h.gif" />
-    <Content Include="app\css\kendo\Bootstrap\slider-v.gif" />
-    <Content Include="app\css\kendo\Bootstrap\sprite.png" />
-    <Content Include="app\css\kendo\Bootstrap\sprite_2x.png" />
-    <Content Include="app\css\kendo\Default\editor.png" />
-    <Content Include="app\css\kendo\Default\imagebrowser.png" />
-    <Content Include="app\css\kendo\Default\loading-image.gif" />
-    <Content Include="app\css\kendo\Default\loading.gif" />
-    <Content Include="app\css\kendo\Default\slider-h.gif" />
-    <Content Include="app\css\kendo\Default\slider-v.gif" />
-    <Content Include="app\css\kendo\Default\sprite.png" />
-    <Content Include="app\css\kendo\Default\sprite_2x.png" />
-    <Content Include="app\css\kendo\HighContrast\editor.png" />
-    <Content Include="app\css\kendo\HighContrast\imagebrowser.png" />
-    <Content Include="app\css\kendo\HighContrast\loading-image.gif" />
-    <Content Include="app\css\kendo\HighContrast\loading.gif" />
-    <Content Include="app\css\kendo\HighContrast\slider-h.gif" />
-    <Content Include="app\css\kendo\HighContrast\slider-v.gif" />
-    <Content Include="app\css\kendo\HighContrast\sprite.png" />
-    <Content Include="app\css\kendo\HighContrast\sprite_2x.png" />
-    <Content Include="app\css\kendo\images\back.png" />
-    <Content Include="app\css\kendo\images\wp8_icons.png" />
-    <Content Include="app\css\kendo\images\wp8_inverseicons.png" />
-    <Content Include="app\css\kendo\kendo.black.min.css" />
-    <Content Include="app\css\kendo\kendo.blueopal.min.css" />
-    <Content Include="app\css\kendo\kendo.bootstrap.min.css" />
-    <Content Include="app\css\kendo\kendo.common.min.css" />
-    <Content Include="app\css\kendo\kendo.dataviz.black.min.css" />
-    <Content Include="app\css\kendo\kendo.dataviz.blueopal.min.css" />
-    <Content Include="app\css\kendo\kendo.dataviz.bootstrap.min.css" />
-    <Content Include="app\css\kendo\kendo.dataviz.default.min.css" />
-    <Content Include="app\css\kendo\kendo.dataviz.highcontrast.min.css" />
-    <Content Include="app\css\kendo\kendo.dataviz.metro.min.css" />
-    <Content Include="app\css\kendo\kendo.dataviz.metroblack.min.css" />
-    <Content Include="app\css\kendo\kendo.dataviz.min.css" />
-    <Content Include="app\css\kendo\kendo.dataviz.moonlight.min.css" />
-    <Content Include="app\css\kendo\kendo.dataviz.silver.min.css" />
-    <Content Include="app\css\kendo\kendo.dataviz.uniform.min.css" />
-    <Content Include="app\css\kendo\kendo.default.min.css" />
-    <Content Include="app\css\kendo\kendo.highcontrast.min.css" />
-    <Content Include="app\css\kendo\kendo.metro.min.css" />
-    <Content Include="app\css\kendo\kendo.metroblack.min.css" />
-    <Content Include="app\css\kendo\kendo.mobile.all.min.css" />
-    <Content Include="app\css\kendo\kendo.mobile.android4.min.css" />
-    <Content Include="app\css\kendo\kendo.mobile.blackberry.min.css" />
-    <Content Include="app\css\kendo\kendo.mobile.common.min.css" />
-    <Content Include="app\css\kendo\kendo.mobile.ios.min.css" />
-    <Content Include="app\css\kendo\kendo.mobile.meego.min.css" />
-    <Content Include="app\css\kendo\kendo.mobile.wp8.min.css" />
-    <Content Include="app\css\kendo\kendo.moonlight.min.css" />
-    <Content Include="app\css\kendo\kendo.rtl.min.css" />
-    <Content Include="app\css\kendo\kendo.silver.min.css" />
-    <Content Include="app\css\kendo\kendo.uniform.min.css" />
-    <Content Include="app\css\kendo\MetroBlack\editor.png" />
-    <Content Include="app\css\kendo\MetroBlack\imagebrowser.png" />
-    <Content Include="app\css\kendo\MetroBlack\loading-image.gif" />
-    <Content Include="app\css\kendo\MetroBlack\loading.gif" />
-    <Content Include="app\css\kendo\MetroBlack\slider-h.gif" />
-    <Content Include="app\css\kendo\MetroBlack\slider-v.gif" />
-    <Content Include="app\css\kendo\MetroBlack\sprite.png" />
-    <Content Include="app\css\kendo\MetroBlack\sprite_2x.png" />
-    <Content Include="app\css\kendo\Metro\editor.png" />
-    <Content Include="app\css\kendo\Metro\imagebrowser.png" />
-    <Content Include="app\css\kendo\Metro\loading-image.gif" />
-    <Content Include="app\css\kendo\Metro\loading.gif" />
-    <Content Include="app\css\kendo\Metro\slider-h.gif" />
-    <Content Include="app\css\kendo\Metro\slider-v.gif" />
-    <Content Include="app\css\kendo\Metro\sprite.png" />
-    <Content Include="app\css\kendo\Metro\sprite_2x.png" />
-    <Content Include="app\css\kendo\Moonlight\editor.png" />
-    <Content Include="app\css\kendo\Moonlight\imagebrowser.png" />
-    <Content Include="app\css\kendo\Moonlight\loading-image.gif" />
-    <Content Include="app\css\kendo\Moonlight\loading.gif" />
-    <Content Include="app\css\kendo\Moonlight\slider-h.gif" />
-    <Content Include="app\css\kendo\Moonlight\slider-v.gif" />
-    <Content Include="app\css\kendo\Moonlight\sprite.png" />
-    <Content Include="app\css\kendo\Moonlight\sprite_2x.png" />
-    <Content Include="app\css\kendo\Silver\editor.png" />
-    <Content Include="app\css\kendo\Silver\imagebrowser.png" />
-    <Content Include="app\css\kendo\Silver\loading-image.gif" />
-    <Content Include="app\css\kendo\Silver\loading.gif" />
-    <Content Include="app\css\kendo\Silver\slider-h.gif" />
-    <Content Include="app\css\kendo\Silver\slider-v.gif" />
-    <Content Include="app\css\kendo\Silver\sprite.png" />
-    <Content Include="app\css\kendo\Silver\sprite_2x.png" />
-    <Content Include="app\css\kendo\textures\brushed-metal.png" />
-    <Content Include="app\css\kendo\textures\dots1.png" />
-    <Content Include="app\css\kendo\textures\dots10.png" />
-    <Content Include="app\css\kendo\textures\dots11.png" />
-    <Content Include="app\css\kendo\textures\dots12.png" />
-    <Content Include="app\css\kendo\textures\dots13.png" />
-    <Content Include="app\css\kendo\textures\dots2.png" />
-    <Content Include="app\css\kendo\textures\dots3.png" />
-    <Content Include="app\css\kendo\textures\dots4.png" />
-    <Content Include="app\css\kendo\textures\dots5.png" />
-    <Content Include="app\css\kendo\textures\dots6.png" />
-    <Content Include="app\css\kendo\textures\dots7.png" />
-    <Content Include="app\css\kendo\textures\dots8.png" />
-    <Content Include="app\css\kendo\textures\dots9.png" />
-    <Content Include="app\css\kendo\textures\glass-lighter.png" />
-    <Content Include="app\css\kendo\textures\glass.png" />
-    <Content Include="app\css\kendo\textures\highlight.png" />
-    <Content Include="app\css\kendo\textures\hsv-gradient.png" />
-    <Content Include="app\css\kendo\textures\hue.png" />
-    <Content Include="app\css\kendo\textures\leather1.png" />
-    <Content Include="app\css\kendo\textures\leather2.png" />
-    <Content Include="app\css\kendo\textures\noise.png" />
-    <Content Include="app\css\kendo\textures\stripe1.png" />
-    <Content Include="app\css\kendo\textures\stripe2.png" />
-    <Content Include="app\css\kendo\textures\stripe3.png" />
-    <Content Include="app\css\kendo\textures\stripe4.png" />
-    <Content Include="app\css\kendo\textures\stripe5.png" />
-    <Content Include="app\css\kendo\textures\stripe6.png" />
-    <Content Include="app\css\kendo\textures\transparency.png" />
-    <Content Include="app\css\kendo\textures\transtexture.png" />
-    <Content Include="app\css\kendo\Uniform\editor.png" />
-    <Content Include="app\css\kendo\Uniform\imagebrowser.png" />
-    <Content Include="app\css\kendo\Uniform\loading-image.gif" />
-    <Content Include="app\css\kendo\Uniform\loading.gif" />
-    <Content Include="app\css\kendo\Uniform\slider-h.gif" />
-    <Content Include="app\css\kendo\Uniform\slider-v.gif" />
-    <Content Include="app\css\kendo\Uniform\sprite.png" />
-    <Content Include="app\css\kendo\Uniform\sprite_2x.png" />
     <Content Include="app\css\app.css" />
-    <Content Include="app\css\themes\base\images\animated-overlay.gif" />
-    <Content Include="app\css\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="app\css\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="app\css\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="app\css\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="app\css\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="app\css\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="app\css\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="app\css\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="app\css\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="app\css\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="app\css\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="app\css\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="app\css\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="app\css\themes\base\jquery-ui.css" />
-    <Content Include="app\css\themes\base\jquery.ui.accordion.css" />
-    <Content Include="app\css\themes\base\jquery.ui.all.css" />
-    <Content Include="app\css\themes\base\jquery.ui.autocomplete.css" />
-    <Content Include="app\css\themes\base\jquery.ui.base.css" />
-    <Content Include="app\css\themes\base\jquery.ui.button.css" />
-    <Content Include="app\css\themes\base\jquery.ui.core.css" />
-    <Content Include="app\css\themes\base\jquery.ui.datepicker.css" />
-    <Content Include="app\css\themes\base\jquery.ui.dialog.css" />
-    <Content Include="app\css\themes\base\jquery.ui.menu.css" />
-    <Content Include="app\css\themes\base\jquery.ui.progressbar.css" />
-    <Content Include="app\css\themes\base\jquery.ui.resizable.css" />
-    <Content Include="app\css\themes\base\jquery.ui.selectable.css" />
-    <Content Include="app\css\themes\base\jquery.ui.slider.css" />
-    <Content Include="app\css\themes\base\jquery.ui.spinner.css" />
-    <Content Include="app\css\themes\base\jquery.ui.tabs.css" />
-    <Content Include="app\css\themes\base\jquery.ui.theme.css" />
-    <Content Include="app\css\themes\base\jquery.ui.tooltip.css" />
-    <Content Include="app\css\themes\base\minified\images\animated-overlay.gif" />
-    <Content Include="app\css\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="app\css\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="app\css\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="app\css\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="app\css\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="app\css\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="app\css\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="app\css\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="app\css\themes\base\minified\images\ui-icons_222222_256x240.png" />
-    <Content Include="app\css\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="app\css\themes\base\minified\images\ui-icons_454545_256x240.png" />
-    <Content Include="app\css\themes\base\minified\images\ui-icons_888888_256x240.png" />
-    <Content Include="app\css\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="app\css\themes\base\minified\jquery-ui.min.css" />
-    <Content Include="app\css\themes\base\minified\jquery.ui.accordion.min.css" />
-    <Content Include="app\css\themes\base\minified\jquery.ui.autocomplete.min.css" />
-    <Content Include="app\css\themes\base\minified\jquery.ui.button.min.css" />
-    <Content Include="app\css\themes\base\minified\jquery.ui.core.min.css" />
-    <Content Include="app\css\themes\base\minified\jquery.ui.datepicker.min.css" />
-    <Content Include="app\css\themes\base\minified\jquery.ui.dialog.min.css" />
-    <Content Include="app\css\themes\base\minified\jquery.ui.menu.min.css" />
-    <Content Include="app\css\themes\base\minified\jquery.ui.progressbar.min.css" />
-    <Content Include="app\css\themes\base\minified\jquery.ui.resizable.min.css" />
-    <Content Include="app\css\themes\base\minified\jquery.ui.selectable.min.css" />
-    <Content Include="app\css\themes\base\minified\jquery.ui.slider.min.css" />
-    <Content Include="app\css\themes\base\minified\jquery.ui.spinner.min.css" />
-    <Content Include="app\css\themes\base\minified\jquery.ui.tabs.min.css" />
-    <Content Include="app\css\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="app\css\themes\base\minified\jquery.ui.tooltip.min.css" />
-    <Content Include="app\css\toastr.min.css" />
     <Content Include="app\js\constants.js" />
     <Content Include="app\js\controllers\adminController.js" />
     <Content Include="app\js\controllers\infoController.js" />
     <Content Include="app\js\controllers\logController.js" />
     <Content Include="app\js\controllers\statisticsController.js" />
+    <Content Include="app\js\lib\angular-animate.js" />
+    <Content Include="app\js\lib\angular-cookies.js" />
+    <Content Include="app\js\lib\angular-route.js" />
+    <Content Include="app\js\lib\angular-strap.js" />
+    <Content Include="app\js\lib\angular-touch.js" />
+    <Content Include="app\js\lib\angular-.js" />
+    <Content Include="app\js\lib\bootstrap.js" />
     <Content Include="app\js\lib\iscroll.js" />
+    <Content Include="app\js\lib\jquery-2.0.1.js" />
     <Content Include="app\js\lib\jquery.signalR-1.1.3.js" />
-    <Content Include="app\js\lib\jquery.signalR-1.1.3.min.js" />
+    <Content Include="app\js\lib\kendo.all.js" />
+    <Content Include="app\js\lib\lawnchair-0.6.1.js" />
     <Content Include="app\js\lib\log4javascript.js" />
     <Content Include="app\js\lib\ng-scrollable.js" />
     <Content Include="app\js\lib\require.js" />
-    <Content Include="app\js\lib\ui-bootstrap-tpls-0.5.0.min.js" />
+    <Content Include="app\js\lib\spin.js" />
+    <Content Include="app\js\lib\toastr.js" />
+    <Content Include="app\js\lib\ui-bootstrap-tpls-0.5.0.js" />
     <Content Include="app\js\services\logPushService.js" />
     <Content Include="app\js\services\dialogService.js" />
     <Content Include="app\js\services\routeResolver.js" />
@@ -431,34 +285,22 @@
     <Content Include="app\js\controllers\articleDetailsController.js" />
     <Content Include="app\js\controllers\navigationController.js" />
     <Content Include="app\translations\translations-de.js" />
-    <Content Include="app\js\lib\angular-animate.min.js" />
-    <Content Include="app\js\lib\angular-cookies.min.js" />
     <Content Include="app\js\lib\angular-kendo.js" />
-    <Content Include="app\js\lib\angular-route.min.js" />
-    <Content Include="app\js\lib\angular-strap.min.js" />
-    <Content Include="app\js\lib\angular-touch.min.js" />
     <Content Include="app\js\lib\angular-translate-loader-static-files.js" />
     <Content Include="app\js\lib\angular-translate-loader-url.js" />
     <Content Include="app\js\lib\angular-translate-storage-cookie.js" />
     <Content Include="app\js\lib\angular-translate-storage-local.js" />
-    <Content Include="app\js\lib\angular-translate.js" />
+    <Content Include="app\js\lib\angular-translate-.js" />
     <Content Include="app\js\lib\fastclick.js" />
-    <Content Include="app\js\lib\lawnchair-0.6.1.min.js" />
-    <Content Include="app\js\lib\spin.min.js" />
     <Content Include="app\js\services\dataPushService.js" />
     <Content Include="app\js\infrastructure\tools.js" />
     <Content Include="app\js\infrastructure\filters.js" />
     <Content Include="app\js\controllers\loginController.js" />
     <Content Include="app\js\infrastructure\thinktecture.Authentication.js" />
-    <Content Include="app\js\lib\jquery-2.0.1.min.js" />
     <Content Include="app\js\infrastructure\thinktecture.SignalR.js" />
     <Content Include="app\js\services\alertService.js" />
     <Content Include="app\js\infrastructure\directives.js" />
     <Content Include="app\js\services\articlesApiService.js" />
-    <Content Include="app\js\lib\angular.min.js" />
-    <Content Include="app\js\lib\bootstrap.min.js" />
-    <Content Include="app\js\lib\kendo.all.min.js" />
-    <Content Include="app\js\lib\toastr.min.js" />
     <Content Include="app\views\dialog.html" />
     <Content Include="app\views\info.html" />
     <Content Include="app\views\articleDetails.html" />
@@ -482,6 +324,7 @@
       <DependentUpon>translations-de.js</DependentUpon>
     </Content>
     <Content Include="cache.manifest" />
+    <Content Include="index.cshtml" />
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
@@ -524,11 +367,13 @@
     <Compile Include="Api\Validation\ValidationResponseFilterAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="App_Start\ReplaceContentsBundleBuilder.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Api\DTOs\ArticleDetailDto.cs" />
     <Compile Include="Api\DTOs\ArticleDto.cs" />
     <Compile Include="Api\Controllers\ArticlesController.cs" />
     <Compile Include="Api\Hubs\ClientNotificationHub.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -539,8 +384,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="app\css\kendo\images\KendoUI.ttf" />
-    <Content Include="app\css\kendo\images\KendoUI.woff" />
     <None Include="Properties\PublishProfiles\ttngdemo.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

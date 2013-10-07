@@ -1,6 +1,5 @@
 ﻿define(["app"], function (app) {
-    app.service('dialogService', ['$dialog',
-        function($dialog) {
+    app.service('dialogService', ['$dialog',function($dialog) {
             var dialogDefaults = {
                 backdrop: true,
                 keyboard: true,

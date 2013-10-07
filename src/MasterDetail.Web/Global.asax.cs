@@ -1,4 +1,4 @@
-﻿using System.Web;
+﻿using System.Web.Optimization;
 using System.Web.Routing;
 using System;
 using System.Web.Http;
@@ -12,6 +12,7 @@ namespace MasterDetail.Web
         {
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             HubConfig.Register(RouteTable.Routes);
+            BundleConfig.Register(BundleTable.Bundles);
         }
     }
 }
