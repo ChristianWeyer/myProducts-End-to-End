@@ -402,34 +402,10 @@
     <Content Include="app\css\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="app\css\toastr.min.css" />
     <Content Include="app\js\constants.js" />
-    <Content Include="app\js\constants.min.js">
-      <DependentUpon>constants.js</DependentUpon>
-    </Content>
     <Content Include="app\js\controllers\adminController.js" />
-    <Content Include="app\js\controllers\adminController.min.js">
-      <DependentUpon>adminController.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\controllers\navigationController.min.js">
-      <DependentUpon>navigationController.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\controllers\statisticsController.min.js">
-      <DependentUpon>statisticsController.js</DependentUpon>
-    </Content>
     <Content Include="app\js\controllers\infoController.js" />
-    <Content Include="app\js\controllers\infoController.min.js">
-      <DependentUpon>infoController.js</DependentUpon>
-    </Content>
     <Content Include="app\js\controllers\logController.js" />
-    <Content Include="app\js\controllers\logController.min.js">
-      <DependentUpon>logController.js</DependentUpon>
-    </Content>
     <Content Include="app\js\controllers\statisticsController.js" />
-    <Content Include="app\js\infrastructure\thinktecture.Authentication.min.js">
-      <DependentUpon>thinktecture.Authentication.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\infrastructure\thinktecture.SignalR.min.js">
-      <DependentUpon>thinktecture.SignalR.js</DependentUpon>
-    </Content>
     <Content Include="app\js\lib\iscroll.js" />
     <Content Include="app\js\lib\jquery.signalR-1.1.3.js" />
     <Content Include="app\js\lib\jquery.signalR-1.1.3.min.js" />
@@ -437,24 +413,9 @@
     <Content Include="app\js\lib\ng-scrollable.js" />
     <Content Include="app\js\lib\require.js" />
     <Content Include="app\js\lib\ui-bootstrap-tpls-0.5.0.min.js" />
-    <Content Include="app\js\services\dataPushService.min.js">
-      <DependentUpon>dataPushService.js</DependentUpon>
-    </Content>
     <Content Include="app\js\services\logPushService.js" />
     <Content Include="app\js\services\dialogService.js" />
-    <Content Include="app\js\services\dialogService.min.js">
-      <DependentUpon>dialogService.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\services\logPushService.min.js">
-      <DependentUpon>logPushService.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\services\personalizationService.min.js">
-      <DependentUpon>personalizationService.js</DependentUpon>
-    </Content>
     <Content Include="app\js\services\routeResolver.js" />
-    <Content Include="app\js\services\routeResolver.min.js">
-      <DependentUpon>routeResolver.js</DependentUpon>
-    </Content>
     <Content Include="app\js\services\personalizationService.js" />
     <Content Include="app\translations\translations-de.min.js">
       <DependentUpon>translations-de.js</DependentUpon>
@@ -466,31 +427,10 @@
     <Content Include="App_Data\ProductsDemo.sdf" />
     <Content Include="index.html" />
     <Content Include="app\js\app.js" />
-    <Content Include="app\js\app.min.js">
-      <DependentUpon>app.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\controllers\articleDetailsController.min.js">
-      <DependentUpon>articleDetailsController.js</DependentUpon>
-    </Content>
     <Content Include="app\js\controllers\articlesController.js" />
     <Content Include="app\js\controllers\articleDetailsController.js" />
-    <Content Include="app\js\controllers\articlesController.min.js">
-      <DependentUpon>articlesController.js</DependentUpon>
-    </Content>
     <Content Include="app\js\controllers\navigationController.js" />
-    <Content Include="app\js\controllers\loginController.min.js">
-      <DependentUpon>loginController.js</DependentUpon>
-    </Content>
     <Content Include="app\translations\translations-de.js" />
-    <Content Include="app\js\infrastructure\directives.min.js">
-      <DependentUpon>directives.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\infrastructure\filters.min.js">
-      <DependentUpon>filters.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\infrastructure\tools.min.js">
-      <DependentUpon>tools.js</DependentUpon>
-    </Content>
     <Content Include="app\js\lib\angular-animate.min.js" />
     <Content Include="app\js\lib\angular-cookies.min.js" />
     <Content Include="app\js\lib\angular-kendo.js" />
@@ -505,12 +445,6 @@
     <Content Include="app\js\lib\fastclick.js" />
     <Content Include="app\js\lib\lawnchair-0.6.1.min.js" />
     <Content Include="app\js\lib\spin.min.js" />
-    <Content Include="app\js\services\alertService.min.js">
-      <DependentUpon>alertService.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\services\articlesApiService.min.js">
-      <DependentUpon>articlesApiService.js</DependentUpon>
-    </Content>
     <Content Include="app\js\services\dataPushService.js" />
     <Content Include="app\js\infrastructure\tools.js" />
     <Content Include="app\js\infrastructure\filters.js" />
@@ -542,57 +476,12 @@
     <Content Include="images\5.jpg" />
     <Content Include="images\0.jpg" />
     <Content Include="main.js" />
-    <Content Include="main.min.js">
-      <DependentUpon>main.js</DependentUpon>
-    </Content>
     <Content Include="Web.config" />
     <Content Include="app\translations\locale-en.json" />
     <Content Include="app\translations\translations-de.min.js.map">
       <DependentUpon>translations-de.js</DependentUpon>
     </Content>
-    <Content Include="app\js\services\dialogService.min.js.map">
-      <DependentUpon>dialogService.js</DependentUpon>
-    </Content>
     <Content Include="cache.manifest" />
-    <Content Include="app\js\controllers\adminController.min.js.map">
-      <DependentUpon>adminController.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\controllers\infoController.min.js.map">
-      <DependentUpon>infoController.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\controllers\logController.min.js.map">
-      <DependentUpon>logController.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\infrastructure\thinktecture.Authentication.min.js.map">
-      <DependentUpon>thinktecture.Authentication.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\services\dataPushService.min.js.map">
-      <DependentUpon>dataPushService.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\services\logPushService.min.js.map">
-      <DependentUpon>logPushService.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\services\routeResolver.min.js.map">
-      <DependentUpon>routeResolver.js</DependentUpon>
-    </Content>
-    <Content Include="main.min.js.map">
-      <DependentUpon>main.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\controllers\navigationController.min.js.map">
-      <DependentUpon>navigationController.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\controllers\statisticsController.min.js.map">
-      <DependentUpon>statisticsController.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\constants.min.js.map">
-      <DependentUpon>constants.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\services\personalizationService.min.js.map">
-      <DependentUpon>personalizationService.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\infrastructure\thinktecture.SignalR.min.js.map">
-      <DependentUpon>thinktecture.SignalR.js</DependentUpon>
-    </Content>
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
@@ -652,33 +541,6 @@
     <Content Include="packages.config" />
     <Content Include="app\css\kendo\images\KendoUI.ttf" />
     <Content Include="app\css\kendo\images\KendoUI.woff" />
-    <Content Include="app\js\controllers\articleDetailsController.min.js.map">
-      <DependentUpon>articleDetailsController.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\controllers\articlesController.min.js.map">
-      <DependentUpon>articlesController.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\controllers\loginController.min.js.map">
-      <DependentUpon>loginController.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\infrastructure\directives.min.js.map">
-      <DependentUpon>directives.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\infrastructure\filters.min.js.map">
-      <DependentUpon>filters.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\infrastructure\tools.min.js.map">
-      <DependentUpon>tools.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\services\alertService.min.js.map">
-      <DependentUpon>alertService.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\services\articlesApiService.min.js.map">
-      <DependentUpon>articlesApiService.js</DependentUpon>
-    </Content>
-    <Content Include="app\js\app.min.js.map">
-      <DependentUpon>app.js</DependentUpon>
-    </Content>
     <None Include="Properties\PublishProfiles\ttngdemo.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
