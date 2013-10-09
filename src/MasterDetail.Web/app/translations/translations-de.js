@@ -20,7 +20,7 @@ tt.translations.de = {
     "INDEX_USERNAME": "Benutzer",
     
     "OVERVIEW_TITLE": "Überblick",
-    "OVERVIEW_FILTER": "Artikel-Code-Filterung",
+    "OVERVIEW_FILTER": "Artikel-Name-Filterung:",
 
     "DETAILS_TITLE": "Artikel-Details",
     "DETAILS_ERROR": "Artikeldaten konnten nicht geladen werden (siehe Details).",

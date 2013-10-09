@@ -19,7 +19,7 @@
   "INDEX_USERNAME": "User",
 
   "OVERVIEW_TITLE": "Overview",
-  "OVERVIEW_FILTER": "Filter by article code",
+  "OVERVIEW_FILTER": "Filter by article name:",
 
   "DETAILS_TITLE": "Article details",
   "DETAILS_ERROR": "Article data could not be loaded (see details).",
