@@ -5,6 +5,7 @@
   "LOGIN_USERNAME": "Username",
   "LOGIN_PASSWORD": "Password",
   "LOGIN_BUTTON_LOGIN": "Log in",
+  "LOGIN_SUCCESS": "Login successful.",
   "LOGIN_FAILED": "Login failed.",
 
   "INDEX_TITLE": "myProducts",

@@ -6,6 +6,7 @@ tt.translations.de = {
     "LOGIN_USERNAME": "Benutzername",
     "LOGIN_PASSWORD": "Passwort",
     "LOGIN_BUTTON_LOGIN": "Anmelden",
+    "LOGIN_SUCCESS": "Anmeldung erfolgreich.",
     "LOGIN_FAILED": "Anmeldung fehlgeschlagen.",
     
     "INDEX_TITLE": "meineProdukte",

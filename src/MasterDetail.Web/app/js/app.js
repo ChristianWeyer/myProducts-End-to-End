@@ -130,6 +130,12 @@
             });
             $rootScope.$on(tt.authentication.constants.loginConfirmed, function () {
                 $location.path("/");
+                
+                alertService.pop({
+                    title: "Login",
+                    body: $translate("LOGIN_SUCCESS"),
+                    type: "success"
+                });
             });
             $rootScope.$on(tt.authentication.constants.loginFailed, function () {
                 $location.path("/login");
