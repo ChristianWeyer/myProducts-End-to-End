@@ -4,6 +4,7 @@
 
 html, body {
     height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
 }
@@ -13,6 +14,7 @@ html {
 
 body {
     padding-top: 6em;
+    overflow-y: scroll;
 }
 
 h1 {
@@ -110,7 +112,6 @@ h2 {
 
 #ng-view {
     position: relative;
-    min-height: 1024px;
 }
 
 .dialog-underline {
