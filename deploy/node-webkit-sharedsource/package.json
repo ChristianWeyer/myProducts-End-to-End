@@ -7,9 +7,9 @@
     "title": "my Products",
     "toolbar": false,
     "width": 1024,
-    "height": 600,
+    "height": 700,
     "position": "mouse",
     "min_width": 1024,
-    "min_height": 600
+    "min_height": 700
   }
 }
