@@ -1,5 +1,5 @@
 define(["app"], function (app) {
-    app.controller("StatusController", ["$scope", "networkStatusService", "personalizationService", function ($scope, networkStatusService, personalizationService) {
+    app.controller("StatusController", ["$scope", "networkStatusService", "personalizationService", "authenticationService", function ($scope, networkStatusService, personalizationService, authenticationService) {
         $scope.isOnline = networkStatusService.isOnline();
         
         $scope.$on(tt.personalization.constants.dataLoaded, function () {
@@ -9,5 +9,9 @@ define(["app"], function (app) {
         $scope.$on("tt:status:onlineChanged", function (evt, isOnline) {
             $scope.isOnline = isOnline;
         });
+        
+        $scope.logout = function () {
+            authenticationService.logout();
+        };
     }]);
 });

@@ -46,5 +46,8 @@ tt.translations.de = {
     "COMMON_CLOSE": "Schliessen",
     "COMMON_ERROR": "Fehler",
     "COMMON_CANCEL": "Abbrechen",
-    "COMMON_SAVE": "Speichern"
+    "COMMON_SAVE": "Speichern",
+    "COMMON_LANG": "Sprache",
+    "COMMON_DE": "Deutsch",
+    "COMMON_EN": "Englisch"
 }

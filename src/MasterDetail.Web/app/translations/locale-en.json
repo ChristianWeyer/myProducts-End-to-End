@@ -45,5 +45,8 @@
   "COMMON_CLOSE": "Close",
   "COMMON_ERROR": "Error",
   "COMMON_CANCEL": "Cancel",
-  "COMMON_SAVE": "Save"
+  "COMMON_SAVE": "Save",
+  "COMMON_LANG": "Language",
+  "COMMON_DE": "German",
+  "COMMON_EN": "English"
 }
