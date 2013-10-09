@@ -3,7 +3,7 @@
         ["$scope", function ($scope) {
             ttTools.logger.info("Freakin' cool stats!");
             
-            // Hard-coded sample values
+            // NOTE: Hard-coded sample values - go and fetch via Web API/localStorage
             $scope.pieSeries = [{
                 type: "pie",
                 startAngle: 150,
