@@ -37,35 +37,55 @@
 
                     <li data-match-route="/info"><a href="#/info">Info</a></li>
                 </ul>
-                <ul class="nav pull-right">
-                    <li>
-                        <a href="">
-                            <img src="app/images/lang_de_t.png" ng-click="changeLanguage('de')" class="language-icon" />
-                            <img src="app/images/lang_en_t.png" ng-click="changeLanguage('en')" class="language-icon" />
-                        </a>
-                    </li>
-                </ul>
+
                 <ul class="nav nav-pills pull-right">
-                    <li ng-if="!tt.authentication.userLoggedIn" data-match-route="/login"><a href="#/login"><em>{{ 'INDEX_LOGIN' | translate }}</em></a></li>
-                    <li ng-if="tt.authentication.userLoggedIn"><a href="" ng-click="logout();"><em>{{ 'INDEX_LOGOUT' | translate }}</em></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle"><i class="icon-align-justify"></i> {{ 'COMMON_LANG' | translate }}</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="" ng-click="changeLanguage('de')">
+                                    <img src="app/images/lang_de_t.png">
+                                    {{ 'COMMON_DE' | translate }}
+
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" ng-click="changeLanguage('en')">
+                                    <img src="app/images/lang_en_t.png">
+                                    {{ 'COMMON_EN' | translate }}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="container" ng-scrollable>
+    <div class="container">
         <div id="spinner" style="position: fixed; top: 50%; left: 50%"></div>
-        <div ng-view id="ng-view" class="animation"></div>
+        <div ng-view id="ng-view"></div>
     </div>
 
     <footer id="footer">
         <div class="container" ng-controller="StatusController">
             <img ng-if="isOnline" src="app/images/online.png" />
             <img ng-if="!isOnline" src="app/images/offline.png" />
-            <span>
-                <img ng-if="tt.authentication.userLoggedIn" src="app/images/user.png" />
-                <strong ng-if="tt.authentication.userLoggedIn">{{ userName }}</strong>
+
+            <span>&nbsp;
+                <span ng-if="tt.authentication.userLoggedIn">
+                    <a href="" ng-click="logout();">
+                        <i class="icon-user"></i>
+                        <strong>{{ userName }}</strong>
+                    </a>
+                </span>
+                <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
+                    <a href="#/login">
+                        {{ 'INDEX_LOGIN' | translate }}
+                    </a>
+                </span>
             </span>
+
             <a href="http://www.thinktecture.com" target="_blank" class="cloud-link">
                 <span class="icon-cloud">&nbsp;</span>thinktecture
             </a>
