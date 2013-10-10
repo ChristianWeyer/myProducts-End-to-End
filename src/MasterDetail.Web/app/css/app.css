@@ -2,19 +2,17 @@
     display: none !important;
 }
 
-html, body {
+html {
     height: 100%;
     width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-html {
+    overflow: hidden;
 }
 
 body {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
     padding-top: 6em;
-    overflow-y: scroll;
 }
 
 h1 {
