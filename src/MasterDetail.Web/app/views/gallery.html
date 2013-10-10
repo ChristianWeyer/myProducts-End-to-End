@@ -1,15 +1,17 @@
-﻿<h3>{{ 'GALLERY_TITLE' | translate }}</h3>
-<h3 translate="GALLERY_TITLE"></h3>
+﻿<div class="ng-cloak">
+    <h3>{{ 'GALLERY_TITLE' | translate }}</h3>
+    <h3 translate="GALLERY_TITLE"></h3>
 
-<span>{{ 'GALLERY_BODY' | translate }}</span>
+    <span>{{ 'GALLERY_BODY' | translate }}</span>
 
-<br />
-<br />
-<br />
-<div>
-    <ul rn-carousel rn-carousel-indicator class="carouselImages">
-        <li ng-repeat="image in productImages">
-            <img ng-src="{{ image }}" class="carouselImage" />
-        </li>
-    </ul>
+    <br />
+    <br />
+    <br />
+    <div>
+        <ul rn-carousel rn-carousel-indicator class="carouselImages">
+            <li ng-repeat="image in productImages">
+                <img ng-src="{{ image }}" class="carouselImage" />
+            </li>
+        </ul>
+    </div>
 </div>
