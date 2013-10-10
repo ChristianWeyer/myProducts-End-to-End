@@ -31,8 +31,9 @@ namespace MasterDetail.Web.App_Start
                 .Include("~/app/css/kendo/kendo.common.css")
                 .Include("~/app/css/kendo/kendo.bootstrap.css")
                 );
-            bundles.Add(new StyleBundle("~/app/css/font-awesome")
+            bundles.Add(new StyleBundle("~/app/css/others")
                 .Include("~/app/css/font-awesome.css")
+                .Include("~/app/css/angular-carousel.css")
                 );
         }
     }
