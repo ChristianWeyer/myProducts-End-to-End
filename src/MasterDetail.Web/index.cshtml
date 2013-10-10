@@ -27,12 +27,12 @@
             <div class="container">
                 <span class="brand">
                     <img src="app/images/logo.png" /><br />
-                    <a href="#" class="brand">{{ 'INDEX_TITLE' | translate }}</a>
+                    <a href="#" class="brand" translate>INDEX_TITLE</a>
                 </span>
 
                 <ul class="nav nav-pills">
                     <li ng-repeat="ni in navigationItems" data-match-route='{{ ni.MatchPattern }}'>
-                        <a ng-if="ni.DisplayText" ng-href="#{{ ni.Url }}">{{ ni.DisplayText | translate }}</a>
+                        <a ng-if="ni.DisplayText" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
                     </li>
 
                     <li data-match-route="/info"><a href="#/info">Info</a></li>
@@ -40,19 +40,18 @@
 
                 <ul class="nav nav-pills pull-right">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle"><i class="icon-align-justify"></i> {{ 'COMMON_LANG' | translate }}</a>
+                        <a href="#" class="dropdown-toggle"><i class="icon-align-justify"></i> <span translate>COMMON_LANG</span></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="" ng-click="changeLanguage('de')">
                                     <img src="app/images/lang_de_t.png">
-                                    {{ 'COMMON_DE' | translate }}
-
+                                    <span translate>COMMON_DE</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="" ng-click="changeLanguage('en')">
                                     <img src="app/images/lang_en_t.png">
-                                    {{ 'COMMON_EN' | translate }}
+                                    <span translate>COMMON_EN</span>
                                 </a>
                             </li>
                         </ul>
@@ -63,7 +62,7 @@
     </div>
 
     <div class="container">
-        <div id="spinner" style="position: fixed; top: 50%; left: 50%"></div>
+        <div id="spinner" style="position: absolute; top: 50%; left: 50%"></div>
         <div ng-view id="ng-view"></div>
     </div>
 
@@ -80,8 +79,8 @@
                     </a>
                 </span>
                 <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
-                    <a href="#/login">
-                        {{ 'INDEX_LOGIN' | translate }}
+                    <a href="#/login" translate>
+                        INDEX_LOGIN
                     </a>
                 </span>
             </span>
