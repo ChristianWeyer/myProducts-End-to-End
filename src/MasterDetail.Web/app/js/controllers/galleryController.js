@@ -1,11 +1,16 @@
 define(["app"], function (app) {
     app.register.controller("GalleryController", ["$scope", "$http", function ($scope, $http) {
+
+        $scope.loadImages = function () {
+            $http({
+                method: "GET",
+                url: ttTools.baseUrl + "api/images",
+                cache: true
+            }).then(function (response) {
+                $scope.productImages = response.data;
+            });
+        };
         
-        $http({
-            method: "GET",
-            url: ttTools.baseUrl + "api/images"
-        }).then(function (response) {
-            $scope.productImages = response.data;
-        });
+        $scope.loadImages();
     }]);
 });
