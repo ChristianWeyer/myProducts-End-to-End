@@ -1,4 +1,4 @@
-﻿<h3>{{ 'DETAILS_TITLE' | translate }}</h3>
+﻿<h3 translate>DETAILS_TITLE</h3>
 
 <form name="form" novalidate class="form-horizontal">
     <div class="control-group" ng-class="{error: form.code.$invalid}">
@@ -19,7 +19,7 @@
     </div>
 
     <div class="form-actions">
-        <button ng-click="save()" class="btn btn-primary">{{ 'COMMON_SAVE' | translate }}</button>
-        <a href="#/articles" class="btn">{{ 'COMMON_CANCEL' | translate }}</a>
+        <button ng-click="save()" class="btn btn-primary" translate>COMMON_SAVE</button>
+        <a href="#/articles" class="btn" translate>COMMON_CANCEL</a>
     </div>
 </form>
