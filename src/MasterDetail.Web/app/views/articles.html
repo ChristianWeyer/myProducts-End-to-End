@@ -16,7 +16,8 @@
     
     <hr />
 
-    <div kendo-grid
+    <div ng-if="articles" 
+        kendo-grid
         k-data-source="articles"
         reset-source-when="!filteredArticle"
         k-columns='[{ "field": "Name", "title": "Name"}, { "field": "Code",  "title": "Code"},
