@@ -1,7 +1,7 @@
 define(["app"], function (app) {
     app.register.controller("ArticlesController",
-        ["$scope", "$location", "articlesApiService", "dataPushService", "alertService", "dialogService", "$translate", "personalizationService",
-            function ($scope, $location, articlesApiService, dataPushService, alertService, dialogService, $translate, personalizationService) {
+        ["$scope", "$location", "articlesApiService", "alertService", "dialogService", "$translate", "personalizationService",
+            function ($scope, $location, articlesApiService, alertService, dialogService, $translate, personalizationService) {
 
                 $scope.capabilities = personalizationService.data.UiClaims.Capabilities;
                 $scope.capabilities.has = function(key) {
