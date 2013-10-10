@@ -27,7 +27,7 @@
             <div class="container">
                 <span class="brand">
                     <img src="app/images/logo.png" /><br />
-                    <a href="#" class="brand" translate>INDEX_TITLE</a>
+                    <a href="#" class="brand" translate="INDEX_TITLE"></a>
                 </span>
 
                 <ul class="nav nav-pills">
@@ -40,18 +40,18 @@
 
                 <ul class="nav nav-pills pull-right">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle"><i class="icon-align-justify"></i> <span translate>COMMON_LANG</span></a>
+                        <a href="#" class="dropdown-toggle"><i class="icon-align-justify"></i><span translate="COMMON_LANG"></span></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="" ng-click="changeLanguage('de')">
                                     <img src="app/images/lang_de_t.png">
-                                    <span translate>COMMON_DE</span>
+                                    <span translate="COMMON_DE"></span>
                                 </a>
                             </li>
                             <li>
                                 <a href="" ng-click="changeLanguage('en')">
                                     <img src="app/images/lang_en_t.png">
-                                    <span translate>COMMON_EN</span>
+                                    <span translate="COMMON_EN"></span>
                                 </a>
                             </li>
                         </ul>
@@ -79,9 +79,7 @@
                     </a>
                 </span>
                 <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
-                    <a href="#/login" translate>
-                        INDEX_LOGIN
-                    </a>
+                    <a href="#/login" translate="INDEX_LOGIN"></a>
                 </span>
             </span>
 
