@@ -6,13 +6,29 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Hosting;
 using System.Web.Http;
+using MasterDetail.DataAccess;
 
 namespace MasterDetail.Web.Api.Controllers
 {
-    public class ImageUploadController : ApiController
+    public class ImagesController : ApiController
     {
         private static readonly string mediaPath = HttpContext.Current.Server.MapPath("~/Images/");
         private static readonly string applicationPath = HostingEnvironment.MapPath("~/");
+
+        private readonly ProductsContext productsContext;
+
+        public ImagesController()
+        {
+            productsContext = new ProductsContext();
+        }
+
+        [Queryable]
+        public IQueryable<string> Get()
+        {
+            var todos = productsContext.Articles.Select(a => a.ImageUrl).Distinct();
+
+            return todos;
+        }
 
         public async Task<IEnumerable<string>> Post()
         {
@@ -33,6 +49,13 @@ namespace MasterDetail.Web.Api.Controllers
             var url = physicalPath.Substring(applicationPath.Length).Replace('\\', '/');
 
             return (url);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            productsContext.Dispose();
+
+            base.Dispose(disposing);
         }
     }
 }

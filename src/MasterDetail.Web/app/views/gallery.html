@@ -1,0 +1,14 @@
+﻿<h3>{{ 'GALLERY_TITLE' | translate }}</h3>
+
+<span>{{ 'GALLERY_BODY' | translate }}</span>
+
+<br />
+<br />
+<br />
+<div>
+    <ul rn-carousel rn-carousel-indicator class="carouselImages carouselContainer">
+        <li ng-repeat="image in productImages">
+            <img ng-src="{{ image }}" class="carouselImage" />
+        </li>
+    </ul>
+</div>

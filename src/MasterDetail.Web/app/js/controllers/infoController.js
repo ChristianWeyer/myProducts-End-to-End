@@ -1,5 +1,5 @@
 define(["app"], function (app) {
-    app.controller("InfoController", ["$scope", function ($scope) {
-        
+    app.controller("InfoController", ["$scope", "$http", function ($scope, $http) {
+
     }]);
 });

@@ -1,5 +1,5 @@
 ﻿define(['services/routeResolver'], function () {
-    var app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "kendo.directives", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "ng-scrollable"]);
+    var app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "kendo.directives", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "ng-scrollable", "angular-carousel"]);
 
     app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide",
         function ($routeProvider, $locationProvider, $translateProvider, $httpProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
@@ -51,10 +51,10 @@
         function ($http, $templateCache, $rootScope, $location, $translate, alertService, dialogService, $route, $routeProviderService, routeResolverProviderService) {
 
             window.addEventListener("online", function () {
-                $rootScope.$apply($rootScope.$broadcast("tt:status:onlineChanged", true));
+                $rootScope.$apply($rootScope.$broadcast(tt.networkstatus.constants.onlineChanged, true));
             }, true);
             window.addEventListener("offline", function () {
-                $rootScope.$apply($rootScope.$broadcast("tt:status:onlineChanged", false));
+                $rootScope.$apply($rootScope.$broadcast(tt.networkstatus.constants.onlineChanged, false));
             }, true);
             
             var viewsDir = routeResolverProviderService.routeConfig.getViewsDirectory();

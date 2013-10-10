@@ -11,6 +11,7 @@ tt.translations.de = {
     
     "INDEX_TITLE": "meineProdukte",
     "INDEX_ARTICLES": "Artikel",
+    "INDEX_GALLERY": "Galerie",
     "INDEX_INFO": "Über",
     "INDEX_ADMIN": "Admin",
     "INDEX_LOGS": "Logs",
@@ -22,6 +23,9 @@ tt.translations.de = {
     "OVERVIEW_TITLE": "Überblick",
     "OVERVIEW_FILTER": "Artikel-Name-Filterung:",
 
+    "GALLERY_TITLE": "Produktbilder",
+    "GALLERY_BODY": "Wischen Sie durch die Bilder.",
+    
     "DETAILS_TITLE": "Artikel-Details",
     "DETAILS_ERROR": "Artikeldaten konnten nicht geladen werden (siehe Details).",
 

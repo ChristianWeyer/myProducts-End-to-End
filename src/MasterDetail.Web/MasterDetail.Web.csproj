@@ -214,6 +214,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\css\angular-carousel.css" />
     <Content Include="app\css\bootstrap.css" />
     <Content Include="app\css\font-awesome.css" />
     <Content Include="app\css\kendo\Bootstrap\editor.png" />
@@ -247,12 +248,15 @@
     <Content Include="app\css\app.css" />
     <Content Include="app\js\constants.js" />
     <Content Include="app\js\controllers\adminController.js" />
+    <Content Include="app\js\controllers\galleryController.js" />
     <Content Include="app\js\controllers\statusController.js" />
     <Content Include="app\js\controllers\infoController.js" />
     <Content Include="app\js\controllers\logController.js" />
     <Content Include="app\js\controllers\statisticsController.js" />
     <Content Include="app\js\lib\angular-animate.js" />
+    <Content Include="app\js\lib\angular-carousel.js" />
     <Content Include="app\js\lib\angular-cookies.js" />
+    <Content Include="app\js\lib\angular-mobile.js" />
     <Content Include="app\js\lib\angular-route.js" />
     <Content Include="app\js\lib\angular-strap.js" />
     <Content Include="app\js\lib\angular-touch.js" />
@@ -274,11 +278,9 @@
     <Content Include="app\js\services\dialogService.js" />
     <Content Include="app\js\services\routeResolver.js" />
     <Content Include="app\js\services\personalizationService.js" />
-    <Content Include="app\translations\translations-de.min.js">
-      <DependentUpon>translations-de.js</DependentUpon>
-    </Content>
     <Content Include="app\font\fontawesome-webfont.svg" />
     <Content Include="app\views\admin.html" />
+    <Content Include="app\views\gallery.html" />
     <Content Include="app\views\log.html" />
     <Content Include="app\views\statistics.html" />
     <Content Include="App_Data\ProductsDemo.sdf" />
@@ -323,9 +325,6 @@
     <Content Include="main.js" />
     <Content Include="Web.config" />
     <Content Include="app\translations\locale-en.json" />
-    <Content Include="app\translations\translations-de.min.js.map">
-      <DependentUpon>translations-de.js</DependentUpon>
-    </Content>
     <Content Include="cache.manifest" />
     <Content Include="index.cshtml" />
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
@@ -349,7 +348,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\ApiExceptionFilterAttribute.cs" />
-    <Compile Include="Api\Controllers\ImageUploadController.cs" />
+    <Compile Include="Api\Controllers\ImagesController.cs" />
     <Compile Include="Api\Controllers\LogController.cs" />
     <Compile Include="Api\Controllers\PersonalizationController.cs" />
     <Compile Include="Api\DTOs\Personalization\PersonalizationData.cs" />

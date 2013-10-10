@@ -10,6 +10,7 @@
 
   "INDEX_TITLE": "myProducts",
   "INDEX_ARTICLES": "Articles",
+  "INDEX_GALLERY": "Gallery",
   "INDEX_INFO": "About",
   "INDEX_ADMIN": "Admin",
   "INDEX_LOGS": "Logs",
@@ -20,6 +21,9 @@
 
   "OVERVIEW_TITLE": "Overview",
   "OVERVIEW_FILTER": "Filter by article name:",
+
+  "GALLERY_TITLE": "Product images",
+  "GALLERY_BODY": "Swipe through the images gallery.",
 
   "DETAILS_TITLE": "Article details",
   "DETAILS_ERROR": "Article data could not be loaded (see details).",

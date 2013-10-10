@@ -2,11 +2,24 @@
 
 <span>{{ 'ABOUT_BODY' | translate }}</span>
 
-<br/><br/>
+<br />
+<br />
 <div>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <br />
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    <br />
     At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 </div>
 
-<br/><br/>
+<br />
+<br />
 <span>{{ 'ABOUT_CONTACT' | translate }}</span>
+
+<br />
+<br />
+<div>
+    <ul rn-carousel rn-carousel-indicator class="carouselImages">
+        <li ng-repeat="image in productImages">
+            <img ng-src="{{ image }}" class="carouselImage" />
+        </li>
+    </ul>
+</div>

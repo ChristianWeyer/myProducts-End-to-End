@@ -6,7 +6,7 @@ define(["app"], function (app) {
             $scope.userName = personalizationService.data.UiClaims.UserName;
         });
         
-        $scope.$on("tt:status:onlineChanged", function (evt, isOnline) {
+        $scope.$on(tt.networkstatus.constants.onlineChanged, function (evt, isOnline) {
             $scope.isOnline = isOnline;
         });
         
