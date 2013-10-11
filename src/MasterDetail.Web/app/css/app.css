@@ -90,10 +90,10 @@ h2 {
 
 .carouselImages {
     width: 400px;
+    text-align: center
 }
 
 .carouselImage {
-    display: block;
     margin-left: auto;
     margin-right: auto;
 }
