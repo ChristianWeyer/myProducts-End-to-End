@@ -73,7 +73,11 @@ tt.authentication.module.factory("authenticationService", ["$rootScope", "$injec
     }
 
     function setToken(tokenData) {
-        var expiration = new Date().getTime() + (tokenData.expires_in - 5) * 1000;
+        if (!tokenData.expiration) {
+            var expiration = new Date().getTime() + (tokenData.expires_in - 500) * 1000;
+            tokenData.expiration = expiration;
+        }
+
         var sessionTokenValue = "Session " + tokenData.access_token;
 
         $http = $http || $injector.get("$http");
@@ -83,7 +87,6 @@ tt.authentication.module.factory("authenticationService", ["$rootScope", "$injec
             xhr.setRequestHeader("Authorization", sessionTokenValue);
         });
 
-        tokenData.expiration = expiration;
         store.save({ key: key, token: tokenData }, "");
     }
 
