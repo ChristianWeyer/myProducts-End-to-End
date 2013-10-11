@@ -1,5 +1,5 @@
 var tt = window.tt || {}; tt.authentication = {};
-tt.authentication.constants = {
+tt.authentication = {
     authenticationRequired: "tt:authentication:authNRequired",
     loginConfirmed: "tt:authentication:loginConfirmed",
     loginFailed: "tt:authentication:loginFailed",
@@ -39,13 +39,13 @@ tt.authentication.module.factory("authenticationService", ["$rootScope", "$injec
     function logout() {
         store.nuke();
         $rootScope.tt.authentication.userLoggedIn = false;
-        $rootScope.$broadcast(tt.authentication.constants.logoutConfirmed);
+        $rootScope.$broadcast(tt.authentication.logoutConfirmed);
     }
 
     function authenticationSuccess() {
         $rootScope.tt.authentication.userLoggedIn = true;
-        $rootScope.$broadcast(tt.authentication.constants.loggedIn);
-        $rootScope.$broadcast(tt.authentication.constants.loginConfirmed);
+        $rootScope.$broadcast(tt.authentication.loggedIn);
+        $rootScope.$broadcast(tt.authentication.loginConfirmed);
     }
 
     function checkForValidToken() {
@@ -53,18 +53,18 @@ tt.authentication.module.factory("authenticationService", ["$rootScope", "$injec
             $rootScope.tt.authentication.userLoggedIn = false;
 
             if (!tokenData) {
-                $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
+                $rootScope.$broadcast(tt.authentication.authenticationRequired);
 
                 return false;
             } else {
                 if (new Date().getTime() > tokenData.token.expiration) {
-                    $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
+                    $rootScope.$broadcast(tt.authentication.authenticationRequired);
 
                     return false;
                 } else {
                     setToken(tokenData.token);
                     $rootScope.tt.authentication.userLoggedIn = true;
-                    $rootScope.$broadcast(tt.authentication.constants.loggedIn);
+                    $rootScope.$broadcast(tt.authentication.loggedIn);
 
                     return true;
                 }
@@ -138,10 +138,10 @@ tt.authentication.module.config(["$httpProvider", function ($httpProvider) {
             $rootScope.tt.authentication.userLoggedIn = false;
 
             if (authenticationService.checkForValidToken()) {
-                $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
+                $rootScope.$broadcast(tt.authentication.authenticationRequired);
 
             } else {
-                $rootScope.$broadcast(tt.authentication.constants.loginFailed);
+                $rootScope.$broadcast(tt.authentication.loginFailed);
             }
 
             return deferred.promise;

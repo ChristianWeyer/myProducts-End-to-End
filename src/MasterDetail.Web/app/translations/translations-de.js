@@ -13,6 +13,7 @@ tt.translations.de = {
     "INDEX_ARTICLES": "Artikel",
     "INDEX_GALLERY": "Galerie",
     "INDEX_INFO": "Über",
+    "INDEX_SETTINGS": "Einstellungen",
     "INDEX_ADMIN": "Admin",
     "INDEX_LOGS": "Logs",
     "INDEX_STATS": "Statistiken",
@@ -40,6 +41,8 @@ tt.translations.de = {
 
     "STATS_TITLE": "Statistiken",
         
+    "SETTINGS_TITLE": "Einstellungen",
+    
     "POPUP_SUCCESS": "Erfolg",
     "POPUP_ERROR": "Fehler",
     "POPUP_SAVED": "Gespeichert.",

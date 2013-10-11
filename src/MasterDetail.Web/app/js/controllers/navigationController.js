@@ -3,11 +3,11 @@ define(["app"], function (app) {
         function ($http, $scope, $translate, personalizationService) {
             $scope.currentLanguage = $translate.preferredLanguage() || $translate.proposedLanguage();
             
-            $scope.$on(tt.personalization.constants.dataLoaded, function () {
+            $scope.$on(tt.personalization.dataLoaded, function () {
                 $scope.navigationItems = personalizationService.data.Features;
             });
 
-            $scope.$on(tt.authentication.constants.logoutConfirmed, function () {
+            $scope.$on(tt.authentication.logoutConfirmed, function () {
                 $scope.navigationItems = null;
             });
             

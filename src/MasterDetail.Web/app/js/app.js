@@ -1,25 +1,5 @@
-﻿var app = angular.module("app", ["angular-carousel"]);
-
-app.controller("GalleryController", ["$scope", "$http", function ($scope, $http) {
-
-    $scope.loadImages = function () {
-        $http({
-            method: "GET",
-            url: "https://demo.christianweyer.net/api/images",
-            cache: true
-        }).then(function (response) {
-            $scope.productImages = response.data;
-        });
-    };
-
-    $scope.loadImages();
-}]);
-
-
-
-
-define(['services/routeResolver'], function () {
-    var app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "kendo.directives", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "ng-scrollable", "angular-carousel"]);
+﻿define(['services/routeResolver'], function () {
+    var app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "kendo.directives", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "ng-scrollable", "angular-carousel", "frapontillo.bootstrap-switch", "ngStorage"]);
 
     app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide",
         function ($routeProvider, $locationProvider, $translateProvider, $httpProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
@@ -37,9 +17,10 @@ define(['services/routeResolver'], function () {
             };
 
             routeResolverProvider.routeConfig.setBaseDirectories("app/views/", "app/js/controllers/");
-        
+
             $routeProvider
-                .when("/info", { templateUrl: "app/views/info.html", controller: "InfoController"})
+                .when("/info", { templateUrl: "app/views/info.html", controller: "InfoController" })
+                .when("/settings", { templateUrl: "app/views/settings.html", controller: "SettingsController" })
                 .when("/login", { templateUrl: "app/views/login.html", controller: "LoginController" });
 
             $provide.factory('$routeProviderService', function () {
@@ -71,28 +52,28 @@ define(['services/routeResolver'], function () {
         function ($http, $templateCache, $rootScope, $location, $translate, alertService, dialogService, $route, $routeProviderService, routeResolverProviderService) {
 
             window.addEventListener("online", function () {
-                $rootScope.$apply($rootScope.$broadcast(tt.networkstatus.constants.onlineChanged, true));
+                $rootScope.$apply($rootScope.$broadcast(tt.networkstatus.onlineChanged, true));
             }, true);
             window.addEventListener("offline", function () {
-                $rootScope.$apply($rootScope.$broadcast(tt.networkstatus.constants.onlineChanged, false));
+                $rootScope.$apply($rootScope.$broadcast(tt.networkstatus.onlineChanged, false));
             }, true);
-            
+
             var viewsDir = routeResolverProviderService.routeConfig.getViewsDirectory();
             $http.get(viewsDir + "info.html", { cache: $templateCache });
 
-            $rootScope.$on(tt.authentication.constants.loggedIn, function () {
+            $rootScope.$on(tt.authentication.loggedIn, function () {
                 $http({ method: "GET", url: ttTools.baseUrl + "api/personalization" })
                 .success(function (data) {
                     theSpinner.spin(document.getElementById("spinner"));
-                    
+
                     tt.personalization.data = data;
                     var route = routeResolverProviderService.route;
 
                     angular.forEach(data.Features, function (value, key) {
                         $routeProviderService.when(value.Url, route.resolve(value.Module));
                     });
-                    
-                    $rootScope.$broadcast(tt.personalization.constants.dataLoaded);
+
+                    $rootScope.$broadcast(tt.personalization.dataLoaded);
                     $route.reload();
 
                     theSpinner.stop();
@@ -100,7 +81,7 @@ define(['services/routeResolver'], function () {
             });
 
             // TODO: what about unloading!?
-            
+
             window.applicationCache.addEventListener('updateready', function (ev) {
                 if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
                     console.log('CACHE: Browser downloaded a new app cache manifest.');
@@ -141,23 +122,23 @@ define(['services/routeResolver'], function () {
 
             $rootScope.$on("$locationChangeStart", function () {
                 if (!$rootScope.tt.authentication.userLoggedIn) {
-                    $rootScope.$broadcast(tt.authentication.constants.authenticationRequired);
+                    $rootScope.$broadcast(tt.authentication.authenticationRequired);
                 }
             });
 
-            $rootScope.$on(tt.authentication.constants.authenticationRequired, function () {
+            $rootScope.$on(tt.authentication.authenticationRequired, function () {
                 $location.path("/login");
             });
-            $rootScope.$on(tt.authentication.constants.loginConfirmed, function () {
+            $rootScope.$on(tt.authentication.loginConfirmed, function () {
                 $location.path("/");
-                
+
                 alertService.pop({
                     title: "Login",
                     body: $translate("LOGIN_SUCCESS"),
                     type: "success"
                 });
             });
-            $rootScope.$on(tt.authentication.constants.loginFailed, function () {
+            $rootScope.$on(tt.authentication.loginFailed, function () {
                 $location.path("/login");
                 alertService.pop({
                     title: "Login",
@@ -165,7 +146,7 @@ define(['services/routeResolver'], function () {
                     type: "error"
                 });
             });
-            $rootScope.$on(tt.authentication.constants.logoutConfirmed, function () {
+            $rootScope.$on(tt.authentication.logoutConfirmed, function () {
                 $location.path("/login");
             });
         }]);

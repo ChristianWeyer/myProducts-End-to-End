@@ -24,10 +24,21 @@ ttTools.iOS = function () {
     return (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false);
 };
 
-ttTools.lowercaseFirstLetter = function(string) {
+ttTools.lowercaseFirstLetter = function (string) {
     return string.charAt(0).toLowerCase() + string.slice(1);
 };
 
+ttTools.startHub = function (hub) {
+    if (ttTools.iOS()) {
+        hub.start({ transport: "longPolling" });
+    } else {
+        hub.start();
+    }
+};
+
+ttTools.stopHub = function (hub) {
+    hub.stop();
+};
 
 ttTools.initLogger = function (url) {
     ttTools.JsonAppender.prototype = new log4javascript.Appender();

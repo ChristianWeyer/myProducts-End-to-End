@@ -4,17 +4,17 @@ define(["app"], function (app) {
             function ($scope, $location, articlesApiService, dataPushService, alertService, dialogService, $translate, personalizationService) {
 
                 $scope.capabilities = personalizationService.data.UiClaims.Capabilities;
-                $scope.capabilities.has = function(key) {
+                $scope.capabilities.has = function (key) {
                     return $scope.capabilities.indexOf(key) > -1;
                 };
-                
+
                 ttTools.logger.info("Loading articles...");
                 $scope.articles = articlesApiService.getArticleList();
 
-                $scope.$on(tt.signalr.constants.subscribe + "articleChange", function () {
+                $scope.$on(tt.signalr.subscribe + "articleChange", function () {
                     $scope.articles.read();
                 });
-                
+
                 $scope.getArticleDetails = function (id) {
                     $location.path("/articledetails/" + id);
                 };
@@ -27,7 +27,7 @@ define(["app"], function (app) {
                     articlesApiService.deleteArticle(id)
                         .success(function () {
                             $scope.articles.read();
-                            
+
                             alertService.pop({
                                 title: $translate("POPUP_SUCCESS"),
                                 body: $translate("POPUP_DELETED"),
@@ -35,17 +35,15 @@ define(["app"], function (app) {
                             });
                         })
                         .error(function (data, status) {
-                            if (status > 0) {
-                                ttTools.logger.error("Server error", data);
+                            ttTools.logger.error("Server error", data);
 
-                                dialogService.showModalDialog({}, {
-                                    headerText: $translate("COMMON_ERROR"),
-                                    bodyText: $translate("DETAILS_ERROR"),
-                                    closeButtonText: $translate("COMMON_CLOSE"),
-                                    actionButtonText: $translate("COMMON_OK"),
-                                    detailsText: JSON.stringify(data)
-                                });
-                            }
+                            dialogService.showModalDialog({}, {
+                                headerText: $translate("COMMON_ERROR"),
+                                bodyText: $translate("DETAILS_ERROR"),
+                                closeButtonText: $translate("COMMON_CLOSE"),
+                                actionButtonText: $translate("COMMON_OK"),
+                                detailsText: JSON.stringify(data)
+                            });
                         });
                 };
             }]);

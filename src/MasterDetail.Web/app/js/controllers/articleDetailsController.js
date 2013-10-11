@@ -4,12 +4,12 @@
 
             if ($routeParams.id) {
                 ttTools.logger.info("Getting article details...");
-                
+
                 articlesApiService.getArticleDetails($routeParams.id)
                     .success(function (data) {
                         $scope.artikel = data;
                     })
-                    .error(function (data, status, headers, config) {
+                    .error(function (data) {
                         ttTools.logger.error("Server error", data);
 
                         dialogService.showModalDialog({}, {
@@ -33,17 +33,15 @@
                         $location.path('/articles');
                     })
                     .error(function (data, status) {
-                        if (status > 0) {
-                            ttTools.logger.error("Server error", data);
+                        ttTools.logger.error("Server error", data);
 
-                            dialogService.showModalDialog({}, {
-                                headerText: $translate("COMMON_ERROR"),
-                                bodyText: $translate("DETAILS_ERROR"),
-                                closeButtonText: $translate("COMMON_CLOSE"),
-                                actionButtonText: $translate("COMMON_OK"),
-                                detailsText: JSON.stringify(data)
-                            });
-                        }
+                        dialogService.showModalDialog({}, {
+                            headerText: $translate("COMMON_ERROR"),
+                            bodyText: $translate("DETAILS_ERROR"),
+                            closeButtonText: $translate("COMMON_CLOSE"),
+                            actionButtonText: $translate("COMMON_OK"),
+                            detailsText: JSON.stringify(data)
+                        });
                     });
             };
         }]);

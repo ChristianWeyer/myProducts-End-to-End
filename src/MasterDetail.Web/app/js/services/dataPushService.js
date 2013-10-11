@@ -1,24 +1,26 @@
 ﻿define(["app"], function (app) {
-    app.factory("dataPushService", ["hubProxy", "$rootScope", function (hubProxy, $rootScope) {
+    app.factory("dataPushService", ["hubProxy", "$rootScope", "settingsService", function (hubProxy, $rootScope, settingsService) {
         var hub = hubProxy(ttTools.baseUrl + "signalr", "clientNotificationHub");
-        startHub();
-
-        $rootScope.$on(tt.authentication.constants.loginConfirmed, function () {
-            startHub();
-        });
-        $rootScope.$on(tt.authentication.constants.logoutConfirmed, function () {
-            hub.stop();
-        });
-
         hub.on("articleChange");
         
-        function startHub() {
-            if (ttTools.iOS()) {
-                hub.start({ transport: "longPolling" });
-            } else {
-                hub.start();
-            }
+        if (settingsService.enablePush) {
+            ttTools.startHub(hub);
         }
+        
+        $rootScope.$on(tt.authentication.loginConfirmed, function () {
+            ttTools.startHub(hub);
+        });
+        $rootScope.$on(tt.authentication.logoutConfirmed, function () {
+            ttTools.stopHub(hub);
+        });
+
+        $rootScope.$on(tt.settings.enablePushChanged, function (evt, enable) {
+            if (enable) {
+                ttTools.startHub(hub);
+            } else {
+                ttTools.stopHub(hub);
+            }
+        });
 
         return hub;
     }]);

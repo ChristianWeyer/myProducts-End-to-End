@@ -20,9 +20,11 @@ require(
         "services/articlesApiService",
         "services/personalizationService",
         "services/networkStatusService",
+        "services/settingsService",
         "controllers/navigationController",
         "controllers/loginController",
         "controllers/infoController",
+        "controllers/settingsController",
         "controllers/statusController"
     ],
     function () {

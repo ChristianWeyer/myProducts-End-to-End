@@ -12,6 +12,7 @@
   "INDEX_ARTICLES": "Articles",
   "INDEX_GALLERY": "Gallery",
   "INDEX_INFO": "About",
+  "INDEX_SETTINGS": "Settings",
   "INDEX_ADMIN": "Admin",
   "INDEX_LOGS": "Logs",
   "INDEX_STATS": "Statistics",
@@ -39,6 +40,8 @@
 
   "STATS_TITLE": "Stats",
         
+  "SETTINGS_TITLE": "Settings",
+
   "POPUP_SUCCESS": "Success",
   "POPUP_ERROR": "Error",
   "POPUP_SAVED": "Saved.",

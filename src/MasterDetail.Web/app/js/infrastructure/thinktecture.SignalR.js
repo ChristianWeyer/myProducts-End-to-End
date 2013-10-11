@@ -1,5 +1,5 @@
 ﻿var tt = window.tt || {}; tt.signalr = {};
-tt.signalr.constants = {
+tt.signalr = {
     subscribe: "tt:signalr:subscribe:"
 };
 
@@ -8,12 +8,10 @@ angular.module("tt.SignalR", ["ng"]).
         function signalRHubProxyFactory(serverUrl, hubName) {
             var connection = $.hubConnection(serverUrl);
             connection.logging = true;
-            var proxy;
+            var proxy = connection.createHubProxy(hubName);
 
             return {
                 start: function (startOptions) {
-                    proxy = connection.createHubProxy(hubName);
-
                     return connection.start(startOptions);
                 },
                 stop: function () {
@@ -22,29 +20,11 @@ angular.module("tt.SignalR", ["ng"]).
                 },
                 on: function (eventName) {
                     proxy.on(eventName, function (data) {
-                        $rootScope.$broadcast(tt.signalr.constants.subscribe + eventName, data);
+                        $rootScope.$broadcast(tt.signalr.subscribe + eventName, data);
                     });
-
-                    //proxy.on(eventName, function () {
-                    //    var eventNameArguments = arguments;
-                    //    if (callback) {
-                    //        $rootScope.$apply(function () {
-                    //            callback.apply(callback, eventNameArguments);
-                    //        });
-                    //    }
-                    //});
                 },
-                off: function (eventName, callback) {
+                off: function (eventName) {
                     proxy.off(eventName);
-
-                    //proxy.off(eventName, function () {
-                    //    var eventNameArguments = arguments;
-                    //    if (callback) {
-                    //        $rootScope.$apply(function () {
-                    //            callback.apply(callback, eventNameArguments);
-                    //        });
-                    //    }
-                    //});
                 },
                 invoke: function () { // params methodName, argsForMethodName..., callback
                     var len = arguments.length;

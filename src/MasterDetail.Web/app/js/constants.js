@@ -1,8 +1,11 @@
-﻿var tt = window.tt || {}; tt.personalization = tt.personalization || {}; tt.networkstatus = tt.networkstatus || {};
+﻿var tt = window.tt || {}; tt.personalization = tt.personalization || {}; tt.networkstatus = tt.networkstatus || {}; tt.settings = tt.settings || {};
 
-tt.personalization.constants = {
+tt.personalization = {
     dataLoaded: "tt:personalization:loaded"
 };
-tt.networkstatus.constants = {
+tt.networkstatus = {
     onlineChanged: "tt:networkstatus:onlinechanged"
+};
+tt.settings = {
+    enablePushChanged: "tt:settings:enablepushchanged"
 };
