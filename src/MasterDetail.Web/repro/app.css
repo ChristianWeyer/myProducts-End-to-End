@@ -8,8 +8,10 @@
 
 .carouselImages {
     width: 400px;
+    text-align: center
 }
 
 .carouselImage {
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
