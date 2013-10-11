@@ -1,4 +1,24 @@
-﻿define(['services/routeResolver'], function () {
+﻿var app = angular.module("app", ["angular-carousel"]);
+
+app.controller("GalleryController", ["$scope", "$http", function ($scope, $http) {
+
+    $scope.loadImages = function () {
+        $http({
+            method: "GET",
+            url: "https://demo.christianweyer.net/api/images",
+            cache: true
+        }).then(function (response) {
+            $scope.productImages = response.data;
+        });
+    };
+
+    $scope.loadImages();
+}]);
+
+
+
+
+define(['services/routeResolver'], function () {
     var app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "kendo.directives", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "ng-scrollable", "angular-carousel"]);
 
     app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide",

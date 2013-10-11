@@ -22,6 +22,7 @@ namespace MasterDetail.Web.Api.Controllers
             productsContext = new ProductsContext();
         }
 
+        [AllowAnonymous]
         [Queryable]
         public IQueryable<string> Get()
         {
