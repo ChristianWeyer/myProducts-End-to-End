@@ -12,5 +12,6 @@ app.controller("GalleryController", ["$scope", "$http", function ($scope, $http)
         });
     };
 
+    alert("Go ahead and fire up up debugging tools... ;)");
     $scope.loadImages();
 }]);
