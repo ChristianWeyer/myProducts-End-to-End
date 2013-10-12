@@ -3,9 +3,9 @@
 <br />
 <div class="row-fluid">
     <div class="span5">
-        <div kendo-chart k-series="pieSeries" k-legend="{ position: 'bottom' }" chart-auto-resize></div>
+        <div kendo-chart k-series="pieSeries" k-legend="{ position: 'bottom' }" k-tooltip="{ visible: true, format: '{0}%'}" chart-auto-resize></div>
     </div>
     <div class="span6">
-        <div kendo-chart k-series="columnSeries" chart-auto-resize></div>
+        <div kendo-chart k-series="columnSeries" k-tooltip="{ visible: true, format: '{0}'}" chart-auto-resize></div>
     </div>
 </div>
