@@ -51,7 +51,7 @@ rm ../out/app.nw
 ## Create phonegap project
 cd ${DIR}
 cd phonegap_tmp
-phonegap create myProducts com.tt.ngmd myProducts
+cordova create myProducts com.tt.ngmd myProducts
 rm -rf myProducts/www
 
 ## Copy existing application elements
@@ -62,25 +62,25 @@ echo Creating PhoneGap projects
 
 cd myProducts
 
-phonegap build ios
-phonegap build android
+cordova platform add ios
+cordova platform add android
 
 ## Build for iOS
 cp -r ../../phonegap-ios/ ./platforms/ios/myProducts
 cp ./www/config.xml ./platforms/ios/myProducts
 
 echo Building for iOS
-phonegap build ios
+cordova build ios
 
-cd platforms/ios/build/
-mv myProducts.app "../../../../../out/ios/myProducts.app"
-cd ../../..
+cd platforms/ios/build/device/
+mv myProducts.app "../../../../../../out/ios/myProducts.app"
+cd ../../../..
 
 ## Build Android
 cp -r ../../phonegap-android/ ./platforms/android/
 
 echo Building for Android
-phonegap build android
+cordova build android
 
 cd platforms/android/bin/
 cp myProducts-debug.apk ../../../../../out/android/
