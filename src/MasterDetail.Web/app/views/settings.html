@@ -6,11 +6,9 @@
             <legend></legend>
 
             <div class="control-group">
-                <label class="control-label" for="pushCheckbox">Enable push communication:</label>
+                <label class="control-label" for="pushCheckbox" translate="SETTINGS_PUSH"></label>
                 <div class="controls">
-                    <label class="checkbox" id="pushCheckbox">
-                            <input bs-switch ng-model="enablePush">
-                    </label>
+                    <input id="pushCheckbox" bs-switch switch-on-label="{{ 'SETTINGS_YES' | translate }}" switch-off-label="{{ 'SETTINGS_NO' | translate }}" ng-model="enablePush">
                 </div>
             </div>
         </fieldset>

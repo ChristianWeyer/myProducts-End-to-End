@@ -42,6 +42,9 @@ tt.translations.de = {
     "STATS_TITLE": "Statistiken",
         
     "SETTINGS_TITLE": "Einstellungen",
+    "SETTINGS_YES": "Ja",
+    "SETTINGS_NO": "Nein",
+    "SETTINGS_PUSH": "Push-Kommunikation:",
     
     "POPUP_SUCCESS": "Erfolg",
     "POPUP_ERROR": "Fehler",

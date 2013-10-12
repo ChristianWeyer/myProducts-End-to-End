@@ -41,6 +41,9 @@
   "STATS_TITLE": "Stats",
         
   "SETTINGS_TITLE": "Settings",
+  "SETTINGS_YES": "Yes",
+  "SETTINGS_NO": "No",
+  "SETTINGS_PUSH": "Enable push communication:",
 
   "POPUP_SUCCESS": "Success",
   "POPUP_ERROR": "Error",
