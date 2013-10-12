@@ -5,13 +5,12 @@
 html {
     height: 100%;
     width: 100%;
-    overflow: hidden;
 }
 
 body {
     height: 100%;
     width: 100%;
-    overflow: auto;
+    overflow: scroll;
     padding-top: 6em;
 }
 
