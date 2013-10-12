@@ -45,7 +45,7 @@ h2 {
     padding-bottom: 0;
 }
 
-.navbar .container {
+.navbar .container-fluid {
     height: 5em;
 }
 
