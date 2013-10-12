@@ -2,10 +2,11 @@
 
 <br />
 <div class="row-fluid">
-    <div class="span5">
-        <div id="pieChart" kendo-chart k-series="pieSeries" k-series-colors='["#b4dbeb", "#8cc7e0", "#7a94c6", "#174356", "#0c242e", "#839bc0"]' k-legend="{ position: 'bottom' }" k-tooltip="{ visible: true, format: '{0}%'}" chart-auto-resize></div>
-    </div>
     <div class="span6">
-        <div kendo-chart k-series="columnSeries" k-series-colors='["#b4dbeb", "#8cc7e0"]' k-tooltip="{ visible: true, format: '{0}'}" chart-auto-resize></div>
+        <div kendo-chart k-series="pieSeries" k-series-colors='["#b4dbeb", "#8cc7e0", "#7a94c6", "#174356", "#0c242e", "#839bc0"]' k-legend="{ position: 'bottom' }" k-tooltip="{ visible: true, format: '{0}%'}" chart-auto-resize></div>
     </div>
+    <div class="span5">
+        <div kendo-chart k-series="columnSeries" k-series-colors='["#b4dbeb", "#8cc7e0"]' k-legend="{ position: 'bottom' }" k-tooltip="{ visible: true, format: '{0}'}" chart-auto-resize></div>
+    </div>
+    <div class="span1"></div>
 </div>
