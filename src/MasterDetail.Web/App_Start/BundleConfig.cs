@@ -28,8 +28,7 @@ namespace MasterDetail.Web.App_Start
                 .Include("~/app/css/toastr.css")
                 );
             bundles.Add(new StyleBundle("~/app/css/kendo/css")
-                .Include("~/app/css/kendo/kendo.common.css")
-                .Include("~/app/css/kendo/kendo.bootstrap.css")
+                .Include("~/app/css/kendo/kendo.*")
                 );
             bundles.Add(new StyleBundle("~/app/css/others")
                 .Include("~/app/css/font-awesome.css")

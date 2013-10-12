@@ -229,6 +229,8 @@
     <Content Include="app\css\kendo\Bootstrap\sprite_2x.png" />
     <Content Include="app\css\kendo\kendo.bootstrap.css" />
     <Content Include="app\css\kendo\kendo.common.css" />
+    <Content Include="app\css\kendo\kendo.dataviz.bootstrap.css" />
+    <Content Include="app\css\kendo\kendo.dataviz-.css" />
     <Content Include="app\css\toastr.css" />
     <Content Include="app\images\default.png" />
     <Content Include="app\images\emergency_stop.png" />
