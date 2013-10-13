@@ -23,6 +23,13 @@ h2 {
     margin-bottom: 10px;
 }
 
+.disable-select {
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
 .form-horizontal input.ng-invalid.ng-dirty {
     background-color: #FA787E;
 }
