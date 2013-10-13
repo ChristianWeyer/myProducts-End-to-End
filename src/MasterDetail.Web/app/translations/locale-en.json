@@ -27,6 +27,7 @@
   "GALLERY_BODY": "Swipe through the images gallery.",
 
   "DETAILS_TITLE": "Article details",
+  "DETAILS_SELECTIMAGE": "Select image...",
   "DETAILS_ERROR": "Article data could not be loaded (see details).",
 
   "ABOUT_TITLE": "About this application",

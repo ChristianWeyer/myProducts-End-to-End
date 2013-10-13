@@ -266,6 +266,7 @@
     <Content Include="app\js\lib\angular-strap.js" />
     <Content Include="app\js\lib\angular-touch.js" />
     <Content Include="app\js\lib\angular-.js" />
+    <Content Include="app\js\lib\bootstrap-filestyle.js" />
     <Content Include="app\js\lib\bootstrap-switch.js" />
     <Content Include="app\js\lib\bootstrap-.js" />
     <Content Include="app\js\lib\iscroll.js" />
@@ -280,6 +281,7 @@
     <Content Include="app\js\lib\spin.js" />
     <Content Include="app\js\lib\toastr.js" />
     <Content Include="app\js\lib\ui-bootstrap-tpls-0.5.0.js" />
+    <Content Include="app\js\services\fileReaderService.js" />
     <Content Include="app\js\services\networkStatusService.js" />
     <Content Include="app\js\services\logPushService.js" />
     <Content Include="app\js\services\dialogService.js" />

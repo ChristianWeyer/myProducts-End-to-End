@@ -28,6 +28,7 @@ tt.translations.de = {
     "GALLERY_BODY": "Wischen Sie durch die Bilder.",
     
     "DETAILS_TITLE": "Artikel-Details",
+    "DETAILS_SELECTIMAGE": "Passendes Bild...",
     "DETAILS_ERROR": "Artikeldaten konnten nicht geladen werden (siehe Details).",
 
     "ABOUT_TITLE": "Über diese Anwendung",

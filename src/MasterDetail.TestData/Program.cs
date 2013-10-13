@@ -33,7 +33,7 @@ namespace MasterDetail.TestData
                                 Code = product.QuantityPerUnit,
                                 Description =
                                     "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-                                ImageUrl = String.Format("images/{0}.jpg", imageNumber)
+                                ImageUrl = String.Format("{0}.jpg", imageNumber)
                             };
 
                             ngmd.Articles.Add(ngArticle);

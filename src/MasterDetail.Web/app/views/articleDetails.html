@@ -1,21 +1,29 @@
 ﻿<h3 translate="DETAILS_TITLE"></h3>
 
 <form name="form" novalidate class="form-horizontal">
-    <div class="control-group" ng-class="{error: form.code.$invalid}">
-        <label class="control-label" for="code">Code</label>
-        <div class="controls">
-            <input type="text" required ng-model="artikel.Code" id="code">
-        </div>
-    </div>
-    <div class="control-group" ng-class="{error: form.name.$invalid}">
+    <div class="control-group" ng-class="{ error: form.name.$invalid }">
         <label class="control-label" for="name">Name</label>
         <div class="controls">
             <input type="text" required ng-model="artikel.Name" id="name">
         </div>
     </div>
+    
+    <div class="control-group" ng-class="{ error: form.code.$invalid }">
+        <label class="control-label" for="code">Code</label>
+        <div class="controls">
+            <input type="text" required ng-model="artikel.Code" id="code">
+        </div>
+    </div>
+
     <div>
-        <img alt="Product image" class="img" src="app/images/default.png" ng-src="{{artikel.ImageUrl | baseUrl}}" />
         <textarea type="text" rows="7" cols="20" ng-model="artikel.Description" />
+        <img ng-if="editMode" alt="Product image" class="img" src="app/images/default.png" ng-src="{{ artikel.ImageUrl | baseUrl }}" />
+        <span ng-show="!editMode">
+            <img ng-src="{{ imageData }}" />
+            <br />
+            <br />
+            <div file-input="imageFile" button-text="{{ 'DETAILS_SELECTIMAGE' | translate }}" on-change="readFile()"></div>
+        </span>
     </div>
 
     <div class="form-actions">

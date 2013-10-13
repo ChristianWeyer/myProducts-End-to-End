@@ -12,7 +12,11 @@ using System.Data;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
+using Newtonsoft.Json;
 using WebAPI.OutputCache;
+using System.Threading.Tasks;
+using System.Web;
+using System.IO;
 
 namespace MasterDetail.Web.Api.Controllers
 {
@@ -21,6 +25,7 @@ namespace MasterDetail.Web.Api.Controllers
     public class ArticlesController : ApiController
     {
         private readonly ProductsContext productsContext;
+        private const string imagesFolder = "images";
 
         public ArticlesController()
         {
@@ -53,12 +58,8 @@ namespace MasterDetail.Web.Api.Controllers
         [ActionName("GetById")]
         public ArticleDetailDto Get(string id)
         {
-            //throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError)
-            //    {
-            //        Content = new StringContent("Some big shit happened...!") // TODO: get language-specific error message
-            //    });
-
             Guid guid;
+
             if (!Guid.TryParse(id, out guid))
             {
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
@@ -73,7 +74,7 @@ namespace MasterDetail.Web.Api.Controllers
                         Code = artikel.Code,
                         Name = artikel.Name,
                         Description = artikel.Description,
-                        ImageUrl = artikel.ImageUrl
+                        ImageUrl = imagesFolder + "/" + artikel.ImageUrl
                     };
 
             var artikelDetails = query.FirstOrDefault();
@@ -88,8 +89,25 @@ namespace MasterDetail.Web.Api.Controllers
 
         [InvalidateCacheOutput("Get")]
         [InvalidateCacheOutput("GetById")]
-        public void Post(string id, ArticleDetailUpdateDto value)
+        public async Task<HttpResponseMessage> Post()
         {
+            if (!Request.Content.IsMimeMultipartContent())
+            {
+                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+            }
+
+            var uploadImagesFolder = HttpContext.Current.Server.MapPath("../" + imagesFolder);
+            var provider = new MultipartFormDataStreamProvider(uploadImagesFolder);
+            var postResult = await Request.Content.ReadAsMultipartAsync(provider);
+
+            if (postResult.FormData["model"] == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+
+            var dataString = postResult.FormData["model"];
+            var value = JsonConvert.DeserializeObject<ArticleDetailUpdateDto>(dataString);
+
             var entity = new Article
                 {
                     Id = value.Id,
@@ -109,10 +127,21 @@ namespace MasterDetail.Web.Api.Controllers
                 productsContext.Entry(entity).Property(e => e.ImageUrl).IsModified = false;
             }
 
+            var imageUrl = entity.Id.ToString() + ".jpg";
+            entity.ImageUrl = imageUrl;
+
             productsContext.SaveChanges();
+
+            if (provider.FileData.Count > 0)
+            {
+                var fileData = provider.FileData[0];
+                File.Move(fileData.LocalFileName, Path.Combine(uploadImagesFolder, imageUrl));
+            }
 
             var hub = GlobalHost.ConnectionManager.GetHubContext<ClientNotificationHub>();
             hub.Clients.All.articleChange();
+
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [InvalidateCacheOutput("Get")]
