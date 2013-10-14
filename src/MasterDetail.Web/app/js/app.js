@@ -1,4 +1,4 @@
-﻿define(['services/routeResolver'], function () {
+﻿define(['services/routeResolverService'], function () {
     var app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "kendo.directives", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "ng-scrollable", "angular-carousel", "frapontillo.bootstrap-switch", "ngStorage", "imageupload"]);
 
     app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide",
@@ -48,8 +48,8 @@
             $httpProvider.defaults.transformRequest.push(transformRequest);
         }]);
 
-    app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "alertService", "dialogService", "$route", "$routeProviderService", "routeResolverProviderService",
-        function ($http, $templateCache, $rootScope, $location, $translate, alertService, dialogService, $route, $routeProviderService, routeResolverProviderService) {
+    app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "toast", "dialog", "$route", "$routeProviderService", "routeResolverProviderService",
+        function ($http, $templateCache, $rootScope, $location, $translate, toast, dialog, $route, $routeProviderService, routeResolverProviderService) {
 
             window.addEventListener("online", function () {
                 $rootScope.$apply($rootScope.$broadcast(tt.networkstatus.onlineChanged, true));
@@ -87,7 +87,7 @@
                     console.log('CACHE: Browser downloaded a new app cache manifest.');
                     window.applicationCache.swapCache();
 
-                    $rootScope.$apply(dialogService.showModalDialog({}, {
+                    $rootScope.$apply(dialog.showModalDialog({}, {
                         headerText: 'App Update',
                         bodyText: $translate("APP_UPDATE_BODY"),
                         closeButtonText: $translate("COMMON_NO"),
@@ -132,7 +132,7 @@
             $rootScope.$on(tt.authentication.loginConfirmed, function () {
                 $location.path("/");
 
-                alertService.pop({
+                toast.pop({
                     title: "Login",
                     body: $translate("LOGIN_SUCCESS"),
                     type: "success"
@@ -140,7 +140,7 @@
             });
             $rootScope.$on(tt.authentication.loginFailed, function () {
                 $location.path("/login");
-                alertService.pop({
+                toast.pop({
                     title: "Login",
                     body: $translate("LOGIN_FAILED"),
                     type: "error"

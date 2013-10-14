@@ -1,15 +1,15 @@
 define(["app"], function (app) {
     app.register.controller("ArticlesController",
-        ["$scope", "$location", "articlesApiService", "dataPushService", "alertService", "dialogService", "$translate", "personalizationService",
-            function ($scope, $location, articlesApiService, dataPushService, alertService, dialogService, $translate, personalizationService) {
+        ["$scope", "$location", "articlesApi", "dataPush", "toast", "dialog", "$translate", "personalization",
+            function ($scope, $location, articlesApi, dataPush, toast, dialog, $translate, personalization) {
 
-                $scope.capabilities = personalizationService.data.UiClaims.Capabilities;
+                $scope.capabilities = personalization.data.UiClaims.Capabilities;
                 $scope.capabilities.has = function (key) {
                     return $scope.capabilities.indexOf(key) > -1;
                 };
 
                 ttTools.logger.info("Loading articles...");
-                $scope.articles = articlesApiService.getArticleList();
+                $scope.articles = articlesApi.getArticleList();
 
                 $scope.$on(tt.signalr.subscribe + "articleChange", function () {
                     $scope.articles.read();
@@ -24,11 +24,11 @@ define(["app"], function (app) {
                 };
 
                 $scope.deleteArticle = function (id) {
-                    articlesApiService.deleteArticle(id)
+                    articlesApi.deleteArticle(id)
                         .success(function () {
                             $scope.articles.read();
 
-                            alertService.pop({
+                            toast.pop({
                                 title: $translate("POPUP_SUCCESS"),
                                 body: $translate("POPUP_DELETED"),
                                 type: "success"
@@ -37,7 +37,7 @@ define(["app"], function (app) {
                         .error(function (data, status) {
                             ttTools.logger.error("Server error", data);
 
-                            dialogService.showModalDialog({}, {
+                            dialog.showModalDialog({}, {
                                 headerText: $translate("COMMON_ERROR"),
                                 bodyText: $translate("DETAILS_ERROR"),
                                 closeButtonText: $translate("COMMON_CLOSE"),

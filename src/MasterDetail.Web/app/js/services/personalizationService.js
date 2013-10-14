@@ -1,5 +1,5 @@
 ﻿define(["app"], function (app) {
-    app.factory("personalizationService", function () {
+    app.factory("personalization", function () {
         return tt.personalization;
     });
 });

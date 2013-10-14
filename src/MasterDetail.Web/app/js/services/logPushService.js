@@ -1,9 +1,9 @@
 ﻿define(["app"], function (app) {
-    app.factory("logPushService", ["hubProxy", "$rootScope", "settingsService", function (hubProxy, $rootScope, settingsService) {
+    app.factory("logPush", ["hubProxy", "$rootScope", "settings", function (hubProxy, $rootScope, settings) {
         var hub = hubProxy(ttTools.baseUrl + "signalr", "logHub");
         hub.on("sendLogEvent");
         
-        if (settingsService.enablePush) {
+        if (settings.enablePush) {
             ttTools.startHub(hub);
         }
         

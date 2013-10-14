@@ -1,5 +1,5 @@
 define(["app"], function (app) {
-    app.register.controller("LogController", ["$scope", "logPushService", function ($scope, logPushService) {
+    app.register.controller("LogController", ["$scope", "logPush", function ($scope, logPush) {
         $scope.logEntries = [];
 
         $scope.$on(tt.signalr.subscribe + "sendLogEvent", function (event, data) {

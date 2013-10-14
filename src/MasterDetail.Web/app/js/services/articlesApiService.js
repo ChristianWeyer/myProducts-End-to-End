@@ -1,5 +1,5 @@
 ﻿define(["app"], function (app) {
-    app.factory("articlesApiService", ["$http", function ($http) {
+    app.factory("articlesApi", ["$http", function ($http) {
         var service = {
 
             getArticleList: function () {

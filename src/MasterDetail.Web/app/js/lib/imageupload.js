@@ -82,10 +82,12 @@ angular.module("imageupload", [])
                 buttonText: '@'
             },
             link: function postLink(scope, element, attrs, ctrl) {
-                angular.element(element).filestyle({ input: false, buttonText: scope.buttonText });
+                element.filestyle({ input: false, buttonText: scope.buttonText });
 
-                scope.$watch('buttonText', function () {
-                    angular.element(element).filestyle({ 'buttonText': scope.buttonText });
+                scope.$watch('buttonText', function (newValue) {
+                    if (newValue) {
+                        element.filestyle({ 'buttonText': newValue });
+                    }
                 });
                 
                 var doResizing = function (imageResult, callback) {

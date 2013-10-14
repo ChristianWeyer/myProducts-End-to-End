@@ -1,12 +1,12 @@
 define(["app"], function (app) {
     app.controller("LoginController",
-        ["$scope", "authenticationService", function($scope, authenticationService) {
+        ["$scope", "tokenAuthentication", function ($scope, tokenAuthentication) {
 
             $scope.username = "";
             $scope.password = "";
 
             $scope.submit = function() {
-                authenticationService.login(ttTools.baseUrl, $scope.username, $scope.password);
+                tokenAuthentication.login(ttTools.baseUrl, $scope.username, $scope.password);
             };
         }]);
 });

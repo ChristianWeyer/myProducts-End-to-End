@@ -1,21 +1,21 @@
 ﻿define(["app"], function (app) {
     app.register.controller("ArticleDetailsController",
-        ["$scope", "$routeParams", "articlesApiService", "alertService", "$location", "dialogService", "$translate",
-            function ($scope, $routeParams, articlesApiService, alertService, $location, dialogService, $translate) {
+        ["$scope", "$routeParams", "articlesApi", "toast", "$location", "dialog", "$translate",
+            function ($scope, $routeParams, articlesApi, toast, $location, dialog, $translate) {
 
                 if ($routeParams.id) {
                     ttTools.logger.info("Getting article details...");
 
                     $scope.editMode = true;
 
-                    articlesApiService.getArticleDetails($routeParams.id)
+                    articlesApi.getArticleDetails($routeParams.id)
                         .success(function (data) {
                             $scope.artikel = data;
                         })
                         .error(function (data) {
                             ttTools.logger.error("Server error", data);
 
-                            dialogService.showModalDialog({}, {
+                            dialog.showModalDialog({}, {
                                 headerText: $translate("COMMON_ERROR"),
                                 bodyText: $translate("DETAILS_ERROR"),
                                 closeButtonText: $translate("COMMON_CLOSE"),
@@ -26,9 +26,9 @@
                 }
 
                 $scope.save = function () {
-                    articlesApiService.saveArticleWithImage($scope.artikel, $scope.image.file)
+                    articlesApi.saveArticleWithImage($scope.artikel, $scope.image.file)
                         .success(function () {
-                            alertService.pop({
+                            toast.pop({
                                 title: $translate("POPUP_SUCCESS"),
                                 body: $translate("POPUP_SAVED"),
                                 type: "success"
@@ -38,7 +38,7 @@
                         .error(function (data) {
                             ttTools.logger.error("Server error", data);
 
-                            dialogService.showModalDialog({}, {
+                            dialog.showModalDialog({}, {
                                 headerText: $translate("COMMON_ERROR"),
                                 bodyText: $translate("DETAILS_ERROR"),
                                 closeButtonText: $translate("COMMON_CLOSE"),

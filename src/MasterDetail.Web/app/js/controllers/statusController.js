@@ -1,17 +1,18 @@
 define(["app"], function (app) {
-    app.controller("StatusController", ["$scope", "networkStatusService", "personalizationService", "authenticationService", function ($scope, networkStatusService, personalizationService, authenticationService) {
-        $scope.isOnline = networkStatusService.isOnline();
-        
-        $scope.$on(tt.personalization.dataLoaded, function () {
-            $scope.userName = personalizationService.data.UiClaims.UserName;
-        });
-        
-        $scope.$on(tt.networkstatus.onlineChanged, function (evt, isOnline) {
-            $scope.isOnline = isOnline;
-        });
-        
-        $scope.logout = function () {
-            authenticationService.logout();
-        };
-    }]);
+    app.controller("StatusController", ["$scope", "networkStatus", "personalization", "tokenAuthentication",
+        function ($scope, networkStatus, personalization, tokenAuthentication) {
+            $scope.isOnline = networkStatus.isOnline();
+
+            $scope.$on(tt.personalization.dataLoaded, function () {
+                $scope.userName = personalization.data.UiClaims.UserName;
+            });
+
+            $scope.$on(tt.networkstatus.onlineChanged, function (evt, isOnline) {
+                $scope.isOnline = isOnline;
+            });
+
+            $scope.logout = function () {
+                tokenAuthentication.logout();
+            };
+        }]);
 });

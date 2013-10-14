@@ -9,7 +9,7 @@ tt.authentication = {
 
 tt.authentication.module = angular.module("tt.Authentication", ["ng"]);
 
-tt.authentication.module.factory("authenticationService", ["$rootScope", "$injector", "$q", function ($rootScope, $injector, $q) {
+tt.authentication.module.factory("tokenAuthentication", ["$rootScope", "$injector", "$q", function ($rootScope, $injector, $q) {
     var $http;
     var store = new Lawnchair({ adapter: "dom", table: "authenticationToken" }, function () { });
     var key = "tt:authentication:authNToken";
@@ -108,7 +108,7 @@ tt.authentication.module.factory("authenticationService", ["$rootScope", "$injec
 }]);
 
 tt.authentication.module.config(["$httpProvider", function ($httpProvider) {
-    var interceptor = ["$rootScope", "$q", "authenticationService", function ($rootScope, $q, authenticationService) {
+    var interceptor = ["$rootScope", "$q", "tokenAuthentication", function ($rootScope, $q, tokenAuthentication) {
         $.ajaxPrefilter(function (options) {
             var thatError = options.error;
 
@@ -140,7 +140,7 @@ tt.authentication.module.config(["$httpProvider", function ($httpProvider) {
         function checkAuthenticationFailureStatus(deferred) {
             $rootScope.tt.authentication.userLoggedIn = false;
 
-            if (authenticationService.checkForValidToken()) {
+            if (tokenAuthentication.checkForValidToken()) {
                 $rootScope.$broadcast(tt.authentication.authenticationRequired);
 
             } else {

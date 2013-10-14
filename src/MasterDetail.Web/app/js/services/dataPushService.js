@@ -1,9 +1,9 @@
 ﻿define(["app"], function (app) {
-    app.factory("dataPushService", ["hubProxy", "$rootScope", "settingsService", function (hubProxy, $rootScope, settingsService) {
+    app.factory("dataPush", ["hubProxy", "$rootScope", "settings", function (hubProxy, $rootScope, settings) {
         var hub = hubProxy(ttTools.baseUrl + "signalr", "clientNotificationHub");
         hub.on("articleChange");
         
-        if (settingsService.enablePush) {
+        if (settings.enablePush) {
             ttTools.startHub(hub);
         }
         

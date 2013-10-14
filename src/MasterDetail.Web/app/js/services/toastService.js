@@ -1,5 +1,5 @@
 ﻿define(["app"], function (app) {
-    app.factory("alertService", ["$rootScope", function ($rootScope) {
+    app.factory("toast", ["$rootScope", function ($rootScope) {
         var queue = [], currentMessage = {};
         toastr.options.timeOut = 2000;
 

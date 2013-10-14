@@ -1,10 +1,10 @@
 define(["app"], function (app) {
-    app.controller("NavigationController", ["$http", "$scope", "$translate", "personalizationService",
-        function ($http, $scope, $translate, personalizationService) {
+    app.controller("NavigationController", ["$http", "$scope", "$translate", "personalization",
+        function ($http, $scope, $translate, personalization) {
             $scope.currentLanguage = $translate.preferredLanguage() || $translate.proposedLanguage();
             
             $scope.$on(tt.personalization.dataLoaded, function () {
-                $scope.navigationItems = personalizationService.data.Features;
+                $scope.navigationItems = personalization.data.Features;
             });
 
             $scope.$on(tt.authentication.logoutConfirmed, function () {
