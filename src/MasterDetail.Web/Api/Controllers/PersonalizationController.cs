@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Security.Principal;
 using System.Web.Http;
-using MasterDetail.Web.Api.DTOs;
 using MasterDetail.Web.Api.DTOs.Personalization;
 
 namespace MasterDetail.Web.Api.Controllers
