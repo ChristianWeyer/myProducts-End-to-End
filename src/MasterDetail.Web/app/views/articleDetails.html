@@ -19,15 +19,15 @@
         <textarea type="text" rows="7" cols="20" ng-model="artikel.Description" />
         <img ng-if="editMode" alt="Product image" class="img" src="app/images/default.png" ng-src="{{ artikel.ImageUrl | baseUrl }}" />
         <span ng-show="!editMode">
-            <img ng-src="{{ imageData }}" />
+            <img ng-show="image" ng-src="{{ image.resized.dataURL }}" type="{{ image.file.type }}" />
             <br />
             <br />
-            <div file-input="imageFile" button-text="{{ 'DETAILS_SELECTIMAGE' | translate }}" on-change="readFile()"></div>
+            <input type="file" accept="image/*" image="image" resize-max-width="400" resize-quality="0.9" button-text="{{ 'DETAILS_SELECTIMAGE' | translate }}" />
         </span>
     </div>
 
     <div class="form-actions">
-        <button ng-click="save()" class="btn btn-primary" translate="COMMON_SAVE"></button>
+        <button ng-click="save()" ng-disabled="form.$invalid" class="btn btn-primary" translate="COMMON_SAVE"></button>
         <a href="#/articles" class="btn" translate="COMMON_CANCEL"></a>
     </div>
 </form>

@@ -102,11 +102,15 @@ namespace MasterDetail.Web.Api.Controllers
 
             if (postResult.FormData["model"] == null)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = "No valid model" });
             }
 
-            var dataString = postResult.FormData["model"];
-            var value = JsonConvert.DeserializeObject<ArticleDetailUpdateDto>(dataString);
+            var value = JsonConvert.DeserializeObject<ArticleDetailUpdateDto>(postResult.FormData["model"]);
+
+            if (value == null)
+            {
+                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = "No valid model" });
+            }
 
             var entity = new Article
                 {

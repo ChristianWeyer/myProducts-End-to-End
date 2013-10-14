@@ -39,12 +39,12 @@
 
                 // TODO: this is obviously not working... FIX IT
                 attrs.$observe(attrs.buttonText, function (value) {
-                    $(element).filestyle({'buttonText': value});
+                    $(element).filestyle({ 'buttonText': value });
                 });
                 scope.$watch('buttonText', function (newValue) {
-                    $(element).filestyle({'buttonText': newValue});
+                    $(element).filestyle({ 'buttonText': newValue });
                 });
-                
+
                 var modelGet = $parse(attrs.fileInput);
                 var modelSet = modelGet.assign;
                 var onChange = $parse(attrs.onChange);

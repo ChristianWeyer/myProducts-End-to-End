@@ -21,7 +21,6 @@ require(
         "services/personalizationService",
         "services/networkStatusService",
         "services/settingsService",
-        "services/fileReaderService",
         "controllers/navigationController",
         "controllers/loginController",
         "controllers/infoController",

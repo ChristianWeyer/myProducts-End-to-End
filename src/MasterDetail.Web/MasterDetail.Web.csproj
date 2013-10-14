@@ -269,6 +269,7 @@
     <Content Include="app\js\lib\bootstrap-filestyle.js" />
     <Content Include="app\js\lib\bootstrap-switch.js" />
     <Content Include="app\js\lib\bootstrap-.js" />
+    <Content Include="app\js\lib\imageupload.js" />
     <Content Include="app\js\lib\iscroll.js" />
     <Content Include="app\js\lib\jquery-2.0.1.js" />
     <Content Include="app\js\lib\jquery.signalR-1.1.3.js" />
@@ -281,7 +282,6 @@
     <Content Include="app\js\lib\spin.js" />
     <Content Include="app\js\lib\toastr.js" />
     <Content Include="app\js\lib\ui-bootstrap-tpls-0.5.0.js" />
-    <Content Include="app\js\services\fileReaderService.js" />
     <Content Include="app\js\services\networkStatusService.js" />
     <Content Include="app\js\services\logPushService.js" />
     <Content Include="app\js\services\dialogService.js" />

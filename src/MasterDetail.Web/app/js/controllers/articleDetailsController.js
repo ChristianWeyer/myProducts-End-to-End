@@ -1,7 +1,7 @@
 ﻿define(["app"], function (app) {
     app.register.controller("ArticleDetailsController",
-        ["$scope", "$routeParams", "articlesApiService", "alertService", "$location", "dialogService", "$translate", "fileReaderService", "$http",
-            function ($scope, $routeParams, articlesApiService, alertService, $location, dialogService, $translate, fileReaderService, $http) {
+        ["$scope", "$routeParams", "articlesApiService", "alertService", "$location", "dialogService", "$translate",
+            function ($scope, $routeParams, articlesApiService, alertService, $location, dialogService, $translate) {
 
                 if ($routeParams.id) {
                     ttTools.logger.info("Getting article details...");
@@ -25,15 +25,8 @@
                         });
                 }
 
-                $scope.readFile = function () {
-                    fileReaderService.readAsDataUrl($scope.imageFile, $scope)
-                              .then(function (result) {
-                                  $scope.imageData = result;
-                              });
-                };
-
                 $scope.save = function () {
-                    articlesApiService.saveArticleWithImage($scope.artikel, $scope.imageFile)
+                    articlesApiService.saveArticleWithImage($scope.artikel, $scope.image.file)
                         .success(function () {
                             alertService.pop({
                                 title: $translate("POPUP_SUCCESS"),
@@ -42,7 +35,7 @@
                             });
                             $location.path('/articles');
                         })
-                        .error(function (data, status) {
+                        .error(function (data) {
                             ttTools.logger.error("Server error", data);
 
                             dialogService.showModalDialog({}, {
