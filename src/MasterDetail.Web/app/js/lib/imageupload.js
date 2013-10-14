@@ -16,6 +16,7 @@ angular.module("imageupload", [])
 
             return resizeArea;
         };
+        
         var resizeImage = function (origImage, options) {
             var maxHeight = options.resizeMaxHeight || 300;
             var maxWidth = options.resizeMaxWidth || 250;
@@ -78,10 +79,15 @@ angular.module("imageupload", [])
                 resizeMaxWidth: '@?',
                 resizeQuality: '@?',
                 resizeType: '@?',
+                buttonText: '@'
             },
             link: function postLink(scope, element, attrs, ctrl) {
-                $(element).filestyle({ input: false, buttonText: attrs.buttonText });
+                angular.element(element).filestyle({ input: false, buttonText: scope.buttonText });
 
+                scope.$watch('buttonText', function () {
+                    angular.element(element).filestyle({ 'buttonText': scope.buttonText });
+                });
+                
                 var doResizing = function (imageResult, callback) {
                     createImage(imageResult.url, function (image) {
                         var dataURL = resizeImage(image, scope);
@@ -102,7 +108,6 @@ angular.module("imageupload", [])
                             scope.image = imageResult;
                     });
                 };
-
 
                 element.bind('change', function (evt) {
                     //when multiple always return an array of images
