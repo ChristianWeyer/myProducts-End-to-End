@@ -21,6 +21,7 @@ namespace MasterDetail.Web.App_Start
                 .Include("~/app/js/lib/ng-scrollable.js")
                 .Include("~/app/js/lib/ngStorage.js")
                 .Include("~/app/js/lib/imageupload.js")
+                .Include("~/app/js/lib/fastclick.js")
                 );
 
             bundles.Add(new StyleBundle("~/app/css/common")

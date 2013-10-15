@@ -135,8 +135,13 @@
     <script src="app/js/lib/ngStorage.js"></script>
     <script src="app/js/lib/bootstrap-filestyle.js"></script>
     <script src="app/js/lib/imageupload.js"></script>
+    <script src="app/js/lib/fastclick.js"></script>
 
     <script>
+        $(function () {
+            FastClick.attach(document.body);
+        });
+
         window.requireNode = window.require;
         window.require = undefined;
     </script>

@@ -97,6 +97,10 @@
     @System.Web.Optimization.Scripts.Render("~/app/js-lib")
 
     <script>
+        $(function () {
+            FastClick.attach(document.body);
+        });
+
         window.requireNode = window.require;
         window.require = undefined;
     </script>
