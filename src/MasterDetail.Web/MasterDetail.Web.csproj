@@ -335,6 +335,8 @@
     <Content Include="images\5.jpg" />
     <Content Include="images\0.jpg" />
     <Content Include="main.js" />
+    <Content Include="tests\jasmine.js" />
+    <Content Include="tests\loginControllerTests.js" />
     <Content Include="Web.config" />
     <Content Include="app\translations\locale-en.json" />
     <Content Include="index.cshtml" />
