@@ -3,7 +3,7 @@
         ["$scope", "$routeParams", "articlesApi", "toast", "$location", "dialog", "$translate",
             function ($scope, $routeParams, articlesApi, toast, $location, dialog, $translate) {
 
-                if ($routeParams.id) {
+                if ($routeParams.id !== "new") {
                     ttTools.logger.info("Getting article details...");
 
                     $scope.editMode = true;

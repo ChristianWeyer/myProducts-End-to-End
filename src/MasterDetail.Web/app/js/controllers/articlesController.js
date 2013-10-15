@@ -20,7 +20,7 @@ define(["app"], function (app) {
                 };
 
                 $scope.addArticle = function () {
-                    $location.path("/articledetails/");
+                    $location.path("/articledetails/new");
                 };
 
                 $scope.deleteArticle = function (id) {
