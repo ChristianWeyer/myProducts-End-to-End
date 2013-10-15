@@ -67,7 +67,8 @@
     <div class="container-fluid">
         <div id="spinner" style="position: absolute; top: 50%; left: 50%"></div>
         <div ng-view id="ng-view"></div>
-        <br/><br/>
+        <br />
+        <br />
     </div>
 
     <footer id="footer">
@@ -96,10 +97,6 @@
     @System.Web.Optimization.Scripts.Render("~/app/js-lib")
 
     <script>
-        $(function () {
-            FastClick.attach(document.body);
-        });
-
         window.requireNode = window.require;
         window.require = undefined;
     </script>

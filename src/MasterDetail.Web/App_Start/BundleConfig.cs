@@ -19,7 +19,6 @@ namespace MasterDetail.Web.App_Start
                 .Include("~/app/js/lib/log4javascript.js")
                 .Include("~/app/js/lib/iscroll.js")
                 .Include("~/app/js/lib/ng-scrollable.js")
-                .Include("~/app/js/lib/fastclick.js")
                 .Include("~/app/js/lib/ngStorage.js")
                 .Include("~/app/js/lib/imageupload.js")
                 );

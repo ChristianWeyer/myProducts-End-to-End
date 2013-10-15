@@ -76,7 +76,8 @@
     <div class="container-fluid">
         <div id="spinner" style="position: absolute; top: 50%; left: 50%"></div>
         <div ng-view id="ng-view"></div>
-        <br/><br/>
+        <br />
+        <br />
     </div>
 
     <footer id="footer">
@@ -135,17 +136,11 @@
     <script src="app/js/lib/bootstrap-filestyle.js"></script>
     <script src="app/js/lib/imageupload.js"></script>
 
-    <script src="app/js/lib/fastclick.js"></script>
     <script>
-        $(function () {
-            FastClick.attach(document.body);
-        });
-
         window.requireNode = window.require;
         window.require = undefined;
     </script>
 
-    <!-- Load app scripts via RequireJS -->
     <script src="app/js/lib/require.js" data-main="main"></script>
 </body>
 </html>
