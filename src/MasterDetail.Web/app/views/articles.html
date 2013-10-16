@@ -19,7 +19,6 @@
     <div kendo-grid
         k-data-source="articles"
         tt-reset-source-when="!filteredArticle"
-        tt-broadcast-size-change
         k-columns='[{ "field": "Name", "title": "Name"}, { "field": "Code",  "title": "Code"},
                     { "template": "<i class=\"btn icon-edit\" ng-click=\"getArticleDetails(&apos;#=Id#&apos;)\"></i><i class=\"btn icon-trash\" ng-click=\"deleteArticle(&apos;#=Id#&apos;)\"></i>", width: "15%"}]'
         k-pageable='{ "refresh": true, "pageSizes": false }'
