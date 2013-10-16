@@ -103,6 +103,7 @@
         </div>
     </footer>
 
+    <script src="app/js/lib/script.js"></script>
     <script src="app/js/lib/jquery-2.0.1.js"></script>
     <script src="app/js/lib/toastr.js"></script>
     <script src="app/js/lib/spin.js"></script>
@@ -136,15 +137,11 @@
     <script src="app/js/lib/imageupload.js"></script>
     <script src="app/js/lib/fastclick.js"></script>
 
+    <script src="main.js"></script>
     <script>
         $(function () {
             FastClick.attach(document.body);
         });
-
-        window.requireNode = window.require;
-        window.require = undefined;
     </script>
-
-    <script src="app/js/lib/require.js" data-main="main"></script>
 </body>
 </html>
