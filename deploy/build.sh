@@ -65,6 +65,9 @@ cd myProducts
 cordova platform add ios
 cordova platform add android
 
+### Windows 8...
+#cordova platform add windows8
+
 ## Build for iOS
 cp -r ../../phonegap-ios/ ./platforms/ios/myProducts
 cp ./www/config.xml ./platforms/ios/myProducts
