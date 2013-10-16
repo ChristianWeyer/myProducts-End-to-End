@@ -1,5 +1,5 @@
 ﻿define(["app"], function (app) {
-    app.directive("chartAutoResize", function () {
+    app.directive("ttChartAutoResize", function () {
         return function (scope, element, attrs) {
             $(window).resize(function () {
                 var chartDiv = element;
