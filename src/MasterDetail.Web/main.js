@@ -1,13 +1,10 @@
-﻿require.config({
-    baseUrl: "app/js"
-});
-
-require(
+﻿$script.path('app/js/');
+$script(
     [
         "../translations/translations-de",
         "constants",
         "app",
-        
+
         "infrastructure/tools",
         "infrastructure/thinktecture.Authentication",
         "infrastructure/thinktecture.SignalR",
@@ -30,8 +27,8 @@ require(
         "controllers/infoController",
         "controllers/settingsController",
         "controllers/statusController"
-    ],
-    function () {
-        angular.bootstrap(document, ["myApp"]);
-    }
-);
+    ], 'bundle');
+$script.ready('bundle', function () {
+    $script.path('');
+    angular.bootstrap(document, ['myApp']);
+});

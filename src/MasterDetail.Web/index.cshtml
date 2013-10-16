@@ -95,15 +95,11 @@
     </footer>
 
     @System.Web.Optimization.Scripts.Render("~/app/js-lib")
-    @System.Web.Optimization.Scripts.Render("~/app/app-lib")
 
+    <script src="~/main.js"></script>
     <script>
         $(function () {
             FastClick.attach(document.body);
-            
-            $script(['app/js/app.js'], function () {
-                angular.bootstrap(document, ['myApp']);
-            });
         });
     </script>
 </body>
