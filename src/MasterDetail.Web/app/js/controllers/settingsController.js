@@ -1,4 +1,3 @@
-define(["app"], function (app) {
     app.controller("SettingsController", ["$scope", "$rootScope", "settings", function ($scope, $rootScope, settings) {
         $scope.enablePush = settings.enablePush;
 
@@ -9,4 +8,3 @@ define(["app"], function (app) {
             }
         });
     }]);
-});

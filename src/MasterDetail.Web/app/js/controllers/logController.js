@@ -1,9 +1,7 @@
-define(["app"], function (app) {
-    app.register.controller("LogController", ["$scope", "logPush", function ($scope, logPush) {
-        $scope.logEntries = [];
+app.register.controller("LogController", ["$scope", "logPush", function ($scope, logPush) {
+    $scope.logEntries = [];
 
-        $scope.$on(tt.signalr.subscribe + "sendLogEvent", function (event, data) {
-            $scope.$apply($scope.logEntries.push(data));
-        });
-    }]);
-});
+    $scope.$on(tt.signalr.subscribe + "sendLogEvent", function (event, data) {
+        $scope.$apply($scope.logEntries.push(data));
+    });
+}]);

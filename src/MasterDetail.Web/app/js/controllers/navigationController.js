@@ -1,4 +1,3 @@
-define(["app"], function (app) {
     app.controller("NavigationController", ["$http", "$scope", "$translate", "personalization",
         function ($http, $scope, $translate, personalization) {
             $scope.currentLanguage = $translate.preferredLanguage() || $translate.proposedLanguage();
@@ -16,4 +15,3 @@ define(["app"], function (app) {
                 $translate.uses(langKey);
             };
         }]);
-});

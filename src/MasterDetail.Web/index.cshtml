@@ -95,16 +95,16 @@
     </footer>
 
     @System.Web.Optimization.Scripts.Render("~/app/js-lib")
+    @System.Web.Optimization.Scripts.Render("~/app/app-lib")
 
     <script>
         $(function () {
             FastClick.attach(document.body);
+            
+            $script(['app/js/app.js'], function () {
+                angular.bootstrap(document, ['myApp']);
+            });
         });
-
-        window.requireNode = window.require;
-        window.require = undefined;
     </script>
-
-    <script src="app/js/lib/require.js" data-main="main"></script>
 </body>
 </html>
