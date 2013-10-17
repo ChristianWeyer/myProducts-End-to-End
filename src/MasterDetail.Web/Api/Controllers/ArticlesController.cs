@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Net.Http;
 using System.Web.Http.OData;
 using System.Web.Http.OData.Query;
@@ -8,7 +9,6 @@ using MasterDetail.Web.Api.Hubs;
 using MasterDetail.Web.Api.Validation;
 using Microsoft.AspNet.SignalR;
 using System;
-using System.Data;
 using System.Linq;
 using System.Net;
 using System.Web.Http;

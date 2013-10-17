@@ -11,7 +11,6 @@ namespace MasterDetail.Web
         protected void Application_Start(object sender, EventArgs e)
         {
             WebApiConfig.Register(GlobalConfiguration.Configuration);
-            HubConfig.Register(RouteTable.Routes);
             BundleConfig.Register(BundleTable.Bundles);
         }
     }
