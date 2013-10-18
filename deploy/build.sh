@@ -24,13 +24,14 @@ cd ${DIR}
 cd tmp
 cp -r ../../src/MasterDetail.Web/app .
 cp -r ../../src/MasterDetail.Web/images .
-cp ../../src/MasterDetail.Web/index.html .
+#cp ../../src/MasterDetail.Web/index.html .
 cp ../../src/MasterDetail.Web/main.js .
 cp ../node-webkit-sharedsource/* .
 
 ## Download generated index.html page
-#echo GETting index.html
-#curl -k https://windows8vm.local/ngmd/ > index.html
+echo GETting index.html
+curl -k https://windows8vm.local/ngmd/ > index.html
+perl -pi -w -e 's/\/ngmd\///g;' index.html
 
 ## ZIP directory into .nw for node-webkit
 zip -qr ../out/app.nw *
