@@ -299,7 +299,6 @@
     <Content Include="app\views\settings.html" />
     <Content Include="app\views\statistics.html" />
     <Content Include="App_Data\ProductsDemo.sdf" />
-    <Content Include="index.html" />
     <Content Include="app\js\app.js" />
     <Content Include="app\js\controllers\articlesController.js" />
     <Content Include="app\js\controllers\articleDetailsController.js" />
@@ -339,6 +338,7 @@
     <Content Include="images\0.jpg" />
     <Content Include="main.js" />
     <Content Include="app\js\lib\jquery.signalR-2.0.0.js" />
+    <Content Include="tests\angular-mocks.js" />
     <Content Include="tests\jasmine.js" />
     <Content Include="tests\loginControllerTests.js" />
     <Content Include="Web.config" />
