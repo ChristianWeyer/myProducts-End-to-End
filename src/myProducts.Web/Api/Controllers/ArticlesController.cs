@@ -3,22 +3,23 @@ using System.Data.Entity;
 using System.Net.Http;
 using System.Web.Http.OData;
 using System.Web.Http.OData.Query;
-using MasterDetail.DataAccess;
-using MasterDetail.Web.Api.DTOs;
-using MasterDetail.Web.Api.Hubs;
-using MasterDetail.Web.Api.Validation;
 using Microsoft.AspNet.SignalR;
 using System;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
+using MyProducts.DataAccess;
+using MyProducts.Web.Api.DTOs;
+using MyProducts.Web.Api.Hubs;
+using MyProducts.Web.Api.Validation;
 using Newtonsoft.Json;
+using PerfIt;
 using WebAPI.OutputCache;
 using System.Threading.Tasks;
 using System.Web;
 using System.IO;
 
-namespace MasterDetail.Web.Api.Controllers
+namespace MyProducts.Web.Api.Controllers
 {
     [ApiExceptionFilter]
     [ValidationResponseFilter]
@@ -33,6 +34,7 @@ namespace MasterDetail.Web.Api.Controllers
         }
 
         [CacheOutput(ServerTimeSpan = 3600)]
+        [PerfItFilter(Name = "Articles.GetAll", Description = "Gets all items", Counters = new[] { CounterTypes.TotalNoOfOperations, CounterTypes.AverageTimeTaken })]
         public PageResult<ArticleDto> Get(ODataQueryOptions<ArticleDto> options)
         {
             var settings = new ODataQuerySettings { PageSize = 10, EnsureStableOrdering = false };
@@ -56,6 +58,7 @@ namespace MasterDetail.Web.Api.Controllers
 
         [CacheOutput(ServerTimeSpan = 3600)]
         [ActionName("GetById")]
+        [PerfItFilter(Name = "Articles.GetById", Description = "Gets one item", Counters = new[] { CounterTypes.TotalNoOfOperations, CounterTypes.AverageTimeTaken })]
         public ArticleDetailDto Get(string id)
         {
             Guid guid;

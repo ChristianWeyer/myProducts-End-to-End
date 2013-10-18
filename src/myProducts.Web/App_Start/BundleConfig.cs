@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace MasterDetail.Web.App_Start
+namespace MyProducts.Web.App_Start
 {
     public static class BundleConfig
     {

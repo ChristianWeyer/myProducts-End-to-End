@@ -1,7 +1,7 @@
 ﻿using System;
-using MasterDetail.Web.Api.Validation;
+using MyProducts.Web.Api.Validation;
 
-namespace MasterDetail.Web.Api.DTOs
+namespace MyProducts.Web.Api.DTOs
 {
     public class ArticleDetailUpdateDto : ValidatableObject<ArticleDetailUpdateDtoValidator>
     {

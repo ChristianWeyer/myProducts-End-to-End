@@ -3,17 +3,18 @@ using System.IdentityModel.Services;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using Fabrik.Common.WebAPI;
-using MasterDetail.Web.Api.Hubs;
 using Microsoft.AspNet.SignalR;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Storage;
+using MyProducts.Web.Api.Hubs;
+using PerfIt;
 using Serilog;
 using Thinktecture.IdentityModel.Authorization.WebApi;
 using Thinktecture.IdentityModel.Http.Cors;
 using Thinktecture.IdentityModel.Http.Cors.WebApi;
 using Thinktecture.IdentityModel.Tokens.Http;
 
-namespace MasterDetail.Web.App_Start
+namespace MyProducts.Web.App_Start
 {
     public static class WebApiConfig
     {
@@ -70,6 +71,8 @@ namespace MasterDetail.Web.App_Start
             config.Filters.Add(new ClaimsAuthorizeAttribute());
 
             config.MessageHandlers.Insert(0, new CompressionHandler());
+
+            config.MessageHandlers.Add(new PerfItDelegatingHandler(config, "myProducts application services"));
         }
     }
 }

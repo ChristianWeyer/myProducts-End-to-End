@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MasterDetail.Web.Api.DTOs.Personalization
+namespace MyProducts.Web.Api.DTOs.Personalization
 {
     public class PersonalizationData
     {

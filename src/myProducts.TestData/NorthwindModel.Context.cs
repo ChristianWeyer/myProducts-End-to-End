@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MasterDetail.TestData
+namespace myProducts.Web.TestData
 {
     using System;
     using System.Data.Entity;

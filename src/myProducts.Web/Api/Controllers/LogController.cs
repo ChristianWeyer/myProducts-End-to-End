@@ -1,8 +1,8 @@
 ﻿using System.Web.Http;
-using MasterDetail.Web.Api.DTOs;
+using MyProducts.Web.Api.DTOs;
 using Serilog;
 
-namespace MasterDetail.Web.Api.Controllers
+namespace MyProducts.Web.Api.Controllers
 {
     [AllowAnonymous]
     public class LogController : ApiController

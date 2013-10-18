@@ -1,11 +1,12 @@
 ﻿using FizzWare.NBuilder;
 using FizzWare.NBuilder.Implementation;
 using FizzWare.NBuilder.PropertyNaming;
-using MasterDetail.DataAccess;
 using System;
 using System.Linq;
+using MyProducts.DataAccess;
+using myProducts.Web.TestData;
 
-namespace MasterDetail.TestData
+namespace MyProducts.TestData
 {
     class Program
     {

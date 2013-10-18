@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace MasterDetail.Web.Api.Validation
+namespace MyProducts.Web.Api.Validation
 {
     public static class FluentValidationExtensions
     {

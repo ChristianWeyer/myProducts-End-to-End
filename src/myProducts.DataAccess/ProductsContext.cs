@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace MasterDetail.DataAccess
+namespace MyProducts.DataAccess
 {
     public class ProductsContext : DbContext
     {

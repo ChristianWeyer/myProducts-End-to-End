@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http.Filters;
 
-namespace MasterDetail.Web.Api
+namespace MyProducts.Web.Api
 {
     public class ApiExceptionFilterAttribute : ExceptionFilterAttribute
     {

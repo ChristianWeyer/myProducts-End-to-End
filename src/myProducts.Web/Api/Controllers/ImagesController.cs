@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Web.Http;
-using MasterDetail.DataAccess;
+using MyProducts.DataAccess;
 
-namespace MasterDetail.Web.Api.Controllers
+namespace MyProducts.Web.Api.Controllers
 {
     public class ImagesController : ApiController
     {

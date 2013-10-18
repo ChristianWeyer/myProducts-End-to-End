@@ -2,9 +2,9 @@
 using System.Web.Routing;
 using System;
 using System.Web.Http;
-using MasterDetail.Web.App_Start;
+using MyProducts.Web.App_Start;
 
-namespace MasterDetail.Web
+namespace MyProducts.Web
 {
     public class Global : System.Web.HttpApplication
     {

@@ -7,8 +7,8 @@
     <ProjectGuid>{82EEAA96-8E08-4820-9914-0738CB1C3317}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MasterDetail.DataAccess</RootNamespace>
-    <AssemblyName>MasterDetail.DataAccess</AssemblyName>
+    <RootNamespace>myProducts.DataAccess</RootNamespace>
+    <AssemblyName>myProducts.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -56,7 +56,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

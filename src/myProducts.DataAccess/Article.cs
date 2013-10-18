@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MasterDetail.DataAccess
+namespace MyProducts.DataAccess
 {
     public class Article
     {

@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Security.Principal;
 using System.Web.Http;
-using MasterDetail.Web.Api.DTOs.Personalization;
+using MyProducts.Web.Api.DTOs.Personalization;
 
-namespace MasterDetail.Web.Api.Controllers
+namespace MyProducts.Web.Api.Controllers
 {
     public class PersonalizationController : ApiController
     {

@@ -1,4 +1,4 @@
-﻿namespace MasterDetail.Web.Api.DTOs
+﻿namespace MyProducts.Web.Api.DTOs
 {
     public class LogData
     {

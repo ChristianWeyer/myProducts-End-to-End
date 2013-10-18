@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
-namespace MasterDetail.Web.Api.Validation
+namespace MyProducts.Web.Api.Validation
 {
     public class ValidationResponseFilterAttribute : ActionFilterAttribute
     {

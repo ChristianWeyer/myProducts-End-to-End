@@ -5,7 +5,7 @@ using System.Web;
 using Microsoft.AspNet.SignalR;
 using Owin;
 
-namespace MasterDetail.Web.App_Start
+namespace MyProducts.Web.App_Start
 {
     public class Startup
     {
