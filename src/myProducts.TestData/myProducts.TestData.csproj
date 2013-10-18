@@ -114,9 +114,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MasterDetail.DataAccess\MasterDetail.DataAccess.csproj">
+    <ProjectReference Include="..\myProducts.DataAccess\myProducts.DataAccess.csproj">
       <Project>{82EEAA96-8E08-4820-9914-0738CB1C3317}</Project>
-      <Name>MasterDetail.DataAccess</Name>
+      <Name>myProducts.DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

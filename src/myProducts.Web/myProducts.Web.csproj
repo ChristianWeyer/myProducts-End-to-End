@@ -412,9 +412,9 @@
     <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MasterDetail.DataAccess\MasterDetail.DataAccess.csproj">
+    <ProjectReference Include="..\myProducts.DataAccess\myProducts.DataAccess.csproj">
       <Project>{82eeaa96-8e08-4820-9914-0738cb1c3317}</Project>
-      <Name>MasterDetail.DataAccess</Name>
+      <Name>myProducts.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebAPI.OutputCache\WebAPI.OutputCache.csproj">
       <Project>{4f32dc89-081b-4264-92f8-f3371a088eb4}</Project>

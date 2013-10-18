@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterDetail.DataAccess", "MasterDetail.DataAccess\MasterDetail.DataAccess.csproj", "{82EEAA96-8E08-4820-9914-0738CB1C3317}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.DataAccess", "myProducts.DataAccess\myProducts.DataAccess.csproj", "{82EEAA96-8E08-4820-9914-0738CB1C3317}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterDetail.Web", "MasterDetail.Web\MasterDetail.Web.csproj", "{7B2C0D1F-37D9-4E8B-91FE-3CE33B1DA822}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Web", "myProducts.Web\myProducts.Web.csproj", "{7B2C0D1F-37D9-4E8B-91FE-3CE33B1DA822}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterDetail.TestData", "MasterDetail.TestData\MasterDetail.TestData.csproj", "{E24817BB-5AD6-4B27-B75B-1D3824EA88FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.TestData", "myProducts.TestData\myProducts.TestData.csproj", "{E24817BB-5AD6-4B27-B75B-1D3824EA88FB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.OutputCache", "WebAPI.OutputCache\WebAPI.OutputCache.csproj", "{4F32DC89-081B-4264-92F8-F3371A088EB4}"
 EndProject
