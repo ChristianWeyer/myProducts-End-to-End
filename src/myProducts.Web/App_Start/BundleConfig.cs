@@ -7,7 +7,7 @@ namespace MyProducts.Web.App_Start
         public static void Register(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/app/js-lib")
-                 .Include("~/app/js/lib/script.js")
+                .Include("~/app/js/lib/script.js")
                 .Include("~/app/js/lib/jquery-2.0.1.js")
                 .Include("~/app/js/lib/toastr.js")
                 .Include("~/app/js/lib/spin.js")
@@ -22,12 +22,14 @@ namespace MyProducts.Web.App_Start
                 .Include("~/app/js/lib/ng-scrollable.js")
                 .Include("~/app/js/lib/ngStorage.js")
                 .Include("~/app/js/lib/imageupload.js")
+                .Include("~/app/js/lib/ng-grid.js")
                 .Include("~/app/js/lib/fastclick.js")
                 );
 
             bundles.Add(new StyleBundle("~/app/css/common")
                 .Include("~/app/css/bootstrap*")
                 .Include("~/app/css/toastr.css")
+                .Include("~/app/css/ng-grid.css")
                 );
             bundles.Add(new StyleBundle("~/app/css/kendo/css")
                 .Include("~/app/css/kendo/kendo.*")

@@ -1,29 +1,10 @@
 ﻿app.factory("articlesApi", ["$http", function ($http) {
     var service = {
-
-        getArticleList: function () {
-            var ds = new kendo.data.DataSource({
-                type: "odata",
-                transport: {
-                    read: {
-                        url: ttTools.baseUrl + "api/articles",
-                        dataType: "json"
-                    }
-                },
-                serverFiltering: true,
-                serverPaging: true,
-                pageSize: 10,
-                schema: {
-                    data: function (data) {
-                        return data.Items;
-                    },
-                    total: function (data) {
-                        return data.Count;
-                    }
-                }
+        getArticlesPaged: function (pageSize, page) {
+            return $http({
+                method: "GET",
+                url: "api/articles?$inlinecount=allpages&$top=" + pageSize + "&$skip=" + (page - 1) * pageSize
             });
-
-            return ds;
         },
 
         getArticleDetails: function (id) {

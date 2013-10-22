@@ -235,6 +235,7 @@
     <Content Include="app\css\kendo\kendo.common.css" />
     <Content Include="app\css\kendo\kendo.dataviz.bootstrap.css" />
     <Content Include="app\css\kendo\kendo.dataviz-.css" />
+    <Content Include="app\css\ng-grid.css" />
     <Content Include="app\css\toastr.css" />
     <Content Include="app\images\default.png" />
     <Content Include="app\images\emergency_stop.png" />
@@ -281,6 +282,7 @@
     <Content Include="app\js\lib\kendo.all.js" />
     <Content Include="app\js\lib\lawnchair-0.6.1.js" />
     <Content Include="app\js\lib\log4javascript.js" />
+    <Content Include="app\js\lib\ng-grid.js" />
     <Content Include="app\js\lib\ng-scrollable.js" />
     <Content Include="app\js\lib\ngStorage.js" />
     <Content Include="app\js\lib\require.js" />
