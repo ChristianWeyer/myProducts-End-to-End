@@ -2,6 +2,7 @@ app.register.controller("ArticlesController",
     ["$scope", "$location", "articlesApi", "dataPush", "toast", "dialog", "$translate", "personalization",
         function ($scope, $location, articlesApi, dataPush, toast, dialog, $translate, personalization) {
             $scope.totalServerItems = 0;
+            $scope.selectedArticles = [];
             $scope.pagingOptions = { pageSizes: [10], pageSize: 10, currentPage: 1 };
             $scope.gridOptions = {
                 data: "articlesData",
@@ -9,7 +10,12 @@ app.register.controller("ArticlesController",
                 showFooter: true,
                 totalServerItems: "totalServerItems",
                 pagingOptions: $scope.pagingOptions,
-                columnDefs: [{ field: 'Name', displayName: 'Name' }, { field: 'Code', displayName: 'Code' }, { cellTemplate: "<i class=\"btn icon-edit\" ng-click=\"getArticleDetails(&apos;#=Id#&apos;)\"></i><i class=\"btn icon-trash\" ng-click=\"deleteArticle(&apos;#=Id#&apos;)\"></i>" }]
+                multiSelect: false,
+                selectedItems: $scope.selectedArticles,
+                afterSelectionChange: function(data) {
+                    console.log("lol", $scope.selectedArticles[0]);
+                },
+                columnDefs: [{ field: 'Name', displayName: 'Name' }, { field: 'Code', displayName: 'Code' }, { cellTemplate: "<i class=\"btn icon-edit\" ng-click=\"getArticleDetails(&apos;#=Id#&apos;)\"></i><i class=\"btn icon-trash\" ng-click=\"deleteArticle(&apos;#=Id#&apos;)\"></i>", width: "10%" }]
             };
 
             $scope.getPagedData = function (pageSize, page) {
