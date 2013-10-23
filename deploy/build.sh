@@ -22,10 +22,10 @@ mkdir out/web
 ## Copy existing source
 cd ${DIR}
 cd tmp
-cp -r ../../src/MasterDetail.Web/app .
-cp -r ../../src/MasterDetail.Web/images .
-#cp ../../src/MasterDetail.Web/index.html .
-cp ../../src/MasterDetail.Web/main.js .
+cp -r ../../src/myProducts.Web/app .
+cp -r ../../src/myProducts.Web/images .
+#cp ../../src/myProducts.Web/index.html .
+cp ../../src/myProducts.Web/main.js .
 cp ../node-webkit-sharedsource/* .
 
 ## Download generated index.html page
