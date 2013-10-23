@@ -5,7 +5,7 @@
   "main": "index.html",
   "window": {
     "title": "my Products",
-    "toolbar": false,
+    "toolbar": true,
     "width": 1024,
     "height": 700,
     "position": "mouse",
