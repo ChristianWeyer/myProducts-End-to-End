@@ -1,8 +1,6 @@
 app.register.controller("ArticlesController",
     ["$scope", "$location", "articlesApi", "dataPush", "toast", "dialog", "$translate", "personalization",
         function ($scope, $location, articlesApi, dataPush, toast, dialog, $translate, personalization) {
-            $scope.totalServerItems = 0;
-            $scope.selectedArticles = [];
             $scope.pagingOptions = { pageSizes: [10], pageSize: 10, currentPage: 1 };
             $scope.gridOptions = {
                 data: "articlesData",
@@ -11,36 +9,33 @@ app.register.controller("ArticlesController",
                 totalServerItems: "totalServerItems",
                 pagingOptions: $scope.pagingOptions,
                 multiSelect: false,
-                selectedItems: $scope.selectedArticles,
-                afterSelectionChange: function(data) {
-                    console.log("lol", $scope.selectedArticles[0]);
-                },
-                columnDefs: [{ field: 'Name', displayName: 'Name' }, { field: 'Code', displayName: 'Code' }, { cellTemplate: "<i class=\"btn icon-edit\" ng-click=\"getArticleDetails(&apos;#=Id#&apos;)\"></i><i class=\"btn icon-trash\" ng-click=\"deleteArticle(&apos;#=Id#&apos;)\"></i>", width: "10%" }]
+                columnDefs: [{ field: 'Name', displayName: 'Name' }, { field: 'Code', displayName: 'Code' }, { cellTemplate: "app/views/gridCellTemplate.html", width: "90px" }]
             };
 
-            $scope.getPagedData = function (pageSize, page) {
-                articlesApi.getArticlesPaged(pageSize, page).success(function (data) {
-                    $scope.articlesData = data.Items;
-                    $scope.totalServerItems = data.Count;
-                });
+            $scope.getPagedData = function (searchText) {
+                articlesApi.getArticlesPaged($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, searchText)
+                    .success(function (data) {
+                        $scope.articlesData = data.Items;
+                        $scope.totalServerItems = data.Count;
+                    });
             };
 
             ttTools.logger.info("Loading articles...");
-            $scope.getPagedData($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
-            
+            $scope.getPagedData();
+
             $scope.$watch("pagingOptions", function (newVal, oldVal) {
                 if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage) {
-                    $scope.getPagedData($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
+                    $scope.getPagedData();
                 }
             }, true);
- 
+
             $scope.capabilities = personalization.data.UiClaims.Capabilities;
             $scope.capabilities.has = function (key) {
                 return $scope.capabilities.indexOf(key) > -1;
             };
 
             $scope.$on(tt.signalr.subscribe + "articleChange", function () {
-                $scope.getPagedData($scope.pagingOptions.pageSize, 0);
+                $scope.getPagedData();
             });
 
             $scope.getArticleDetails = function (id) {
@@ -54,7 +49,7 @@ app.register.controller("ArticlesController",
             $scope.deleteArticle = function (id) {
                 articlesApi.deleteArticle(id)
                     .success(function () {
-                        $scope.articles.read();
+                        $scope.getPagedData();
 
                         toast.pop({
                             title: $translate("POPUP_SUCCESS"),
@@ -62,7 +57,7 @@ app.register.controller("ArticlesController",
                             type: "success"
                         });
                     })
-                    .error(function (data, status) {
+                    .error(function (data) {
                         ttTools.logger.error("Server error", data);
 
                         dialog.showModalDialog({}, {

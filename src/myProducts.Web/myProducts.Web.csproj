@@ -177,6 +177,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.0.0\lib\net45\System.Web.Http.OData.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Http.Tracing">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Tracing.5.0.0\lib\net45\System.Web.Http.Tracing.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
@@ -299,6 +302,7 @@
     <Content Include="app\js\services\settingsService.js" />
     <Content Include="app\views\admin.html" />
     <Content Include="app\views\gallery.html" />
+    <Content Include="app\views\gridCellTemplate.html" />
     <Content Include="app\views\log.html" />
     <Content Include="app\views\settings.html" />
     <Content Include="app\views\statistics.html" />

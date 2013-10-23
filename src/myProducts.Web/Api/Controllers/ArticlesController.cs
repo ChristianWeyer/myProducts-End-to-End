@@ -48,6 +48,7 @@ namespace MyProducts.Web.Api.Controllers
                     Code = a.Code,
                     Name = a.Name
                 };
+
             var results = options.ApplyTo(artikelQuery, settings);
 
             return new PageResult<ArticleDto>(

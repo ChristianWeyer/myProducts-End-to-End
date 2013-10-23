@@ -35,6 +35,7 @@ namespace MyProducts.Web.App_Start
 
             config.IncludeErrorDetailPolicy =
                 IncludeErrorDetailPolicy.LocalOnly;
+            config.EnableSystemDiagnosticsTracing();
 
             config.Formatters.Clear();
             config.Formatters.Add(new JsonMediaTypeFormatter());
@@ -45,11 +46,6 @@ namespace MyProducts.Web.App_Start
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional });
-
-            var corsConfig = new CorsConfiguration();
-            corsConfig.AllowAll();
-            var corsHandler = new CorsMessageHandler(corsConfig, config);
-            config.MessageHandlers.Add(corsHandler);
 
             var authNConfig = new AuthenticationConfiguration
             {
