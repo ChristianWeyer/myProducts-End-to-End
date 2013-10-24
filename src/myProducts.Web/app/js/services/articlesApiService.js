@@ -1,10 +1,14 @@
 ﻿app.factory("articlesApi", ["$http", function ($http) {
     var service = {
         getArticlesPaged: function (pageSize, page, searchText) {
+            var url = "api/articles?$inlinecount=allpages&$top=" + pageSize + "&$skip=" + (page - 1) * pageSize;
+            if (searchText) {
+                url += "&$filter=substringof('" + searchText.toLowerCase() + "',tolower(Name))";
+            }
+            
             return $http({
                 method: "GET",
-                url: "api/articles?$inlinecount=allpages&$top=" + pageSize + "&$skip=" + (page - 1) * pageSize +
-                    "&$filter=substringof('" + searchText + "',Name)"
+                url: url
             });
         },
 

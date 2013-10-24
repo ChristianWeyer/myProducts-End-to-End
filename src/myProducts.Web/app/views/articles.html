@@ -2,20 +2,14 @@
 
 <div>
     <div>
-        <span translate="OVERVIEW_FILTER"></span>
-        <input kendo-auto-complete
-               k-data-source="articles"
-               k-filter="'contains'"
-               k-min-length="3"
-               k-data-text-field="'Name'"
-               k-on-change="valueOnChange = kendoEvent.sender.value()"
-               ng-model="filteredArticle" />
-        
-        <input type="text" ng-model="selected" typeahead="article for article in getPagedData($viewValue)">
+        <div>
+            <span translate="OVERVIEW_FILTER"></span>
+            <input type="text" ng-model="selected" typeahead="article for article in getPagedData($viewValue)">
+        </div>
 
         <i ng-if="capabilities.has('AddArticle')" class="btn btn-primary icon-plus pull-right" ng-click="addArticle()"></i>
     </div>
-    
+
     <hr />
 
     <div class="gridStyle" ng-grid="gridOptions"></div>
