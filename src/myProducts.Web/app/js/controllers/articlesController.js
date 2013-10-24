@@ -13,7 +13,7 @@ app.register.controller("ArticlesController",
             };
 
             $scope.getPagedData = function (searchText) {
-                articlesApi.getArticlesPaged($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, searchText)
+                return articlesApi.getArticlesPaged($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, searchText)
                     .success(function (data) {
                         $scope.articlesData = data.Items;
                         $scope.totalServerItems = data.Count;
