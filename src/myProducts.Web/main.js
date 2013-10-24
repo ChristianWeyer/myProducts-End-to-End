@@ -1,10 +1,15 @@
-﻿$script.path('app/js/');
+﻿$script.path("app/js/");
+
 $script(
     [
         "../translations/translations-de",
         "constants",
-        "app",
+        "app"
+    ], "app");
 
+$script.ready("app", function () {
+    $script(
+    [
         "infrastructure/tools",
         "infrastructure/thinktecture.Authentication",
         "infrastructure/thinktecture.SignalR",
@@ -27,8 +32,10 @@ $script(
         "controllers/infoController",
         "controllers/settingsController",
         "controllers/statusController"
-    ], 'bundle');
-$script.ready('bundle', function () {
-    $script.path('');
-    angular.bootstrap(document, ['myApp']);
+    ], "bundle");
+
+    $script.ready("bundle", function () {
+        $script.path('');
+        angular.bootstrap(document, ['myApp']);
+    });
 });
