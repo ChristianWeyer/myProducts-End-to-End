@@ -61,9 +61,9 @@
     <Reference Include="Fabrik.Common.WebAPI">
       <HintPath>..\Reference Assemblies\Fabrik.Common.WebAPI.dll</HintPath>
     </Reference>
-    <Reference Include="FluentValidation, Version=4.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="FluentValidation, Version=5.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\FluentValidation.4.0.0.1\lib\Net40\FluentValidation.dll</HintPath>
+      <HintPath>..\packages\FluentValidation.5.0.0.1\lib\Net40\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -104,6 +104,7 @@
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
@@ -211,9 +212,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="Thinktecture.IdentityModel, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Thinktecture.IdentityModel, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Thinktecture.IdentityModel.3.5.0\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
+      <HintPath>..\packages\Thinktecture.IdentityModel.3.6.0\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -288,7 +289,6 @@
     <Content Include="app\js\lib\ng-grid.js" />
     <Content Include="app\js\lib\ng-scrollable.js" />
     <Content Include="app\js\lib\ngStorage.js" />
-    <Content Include="app\js\lib\require.js" />
     <Content Include="app\js\lib\script.js" />
     <Content Include="app\js\lib\spin.js" />
     <Content Include="app\js\lib\toastr.js" />
@@ -349,7 +349,9 @@
     <Content Include="tests\angular-mocks.js" />
     <Content Include="tests\jasmine.js" />
     <Content Include="tests\loginControllerTests.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="app\translations\locale-en.json" />
     <Content Include="index.cshtml" />
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
@@ -416,7 +418,9 @@
     <Compile Include="Api\Security\GlobalClaimsAuthorizationManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\ttngdemo.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
