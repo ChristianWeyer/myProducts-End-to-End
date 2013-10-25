@@ -376,6 +376,7 @@
     <Compile Include="Api\Controllers\ImagesController.cs" />
     <Compile Include="Api\Controllers\LogController.cs" />
     <Compile Include="Api\Controllers\PersonalizationController.cs" />
+    <Compile Include="Api\Controllers\StatisticsController.cs" />
     <Compile Include="Api\DTOs\Personalization\PersonalizationData.cs" />
     <Compile Include="Api\DTOs\Personalization\UiClaimsData.cs" />
     <Compile Include="Api\DTOs\LogData.cs" />
