@@ -39,8 +39,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
 
         $httpProvider.responseInterceptors.push("loadingIndicatorInterceptor");
         var transformRequest = function (data) {
-            var sp = document.getElementById("spinner");
-            theSpinner.spin(sp);
+            theSpinner.spin(getSpinner());
 
             return data;
         };
@@ -63,7 +62,7 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
         $rootScope.$on(tt.authentication.loggedIn, function () {
             $http({ method: "GET", url: ttTools.baseUrl + "api/personalization" })
             .success(function (data) {
-                theSpinner.spin(document.getElementById("spinner"));
+                theSpinner.spin(getSpinner());
 
                 tt.personalization.data = data;
                 var route = routeResolverProviderService.route;
@@ -106,7 +105,7 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
             if (url.indexOf("/signalr") === -1) {
                 this.addEventListener("readystatechange", function () {
                     if (this.readyState === 1) {
-                        theSpinner.spin(document.getElementById("spinner"));
+                        theSpinner.spin(getSpinner());
                     }
                     ;
                     if (this.readyState === 4) {
@@ -178,3 +177,8 @@ var theSpinner = new Spinner({
     top: "auto",
     left: "auto"
 });
+
+function getSpinner() {
+    var sp = document.getElementById("spinner");
+    return sp;
+}
