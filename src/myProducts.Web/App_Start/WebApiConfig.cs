@@ -32,7 +32,7 @@ namespace MyProducts.Web.App_Start
             Log.Logger = logConfig.CreateLogger();;
 
             config.IncludeErrorDetailPolicy =
-                IncludeErrorDetailPolicy.LocalOnly;
+                IncludeErrorDetailPolicy.Always;
             config.EnableSystemDiagnosticsTracing();
 
             config.Formatters.Clear();
