@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using MyProducts.Web.Api.DTOs.Personalization;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
 using System.Web.Http;
-using MyProducts.Web.Api.DTOs.Personalization;
 
 namespace MyProducts.Web.Api.Controllers
 {

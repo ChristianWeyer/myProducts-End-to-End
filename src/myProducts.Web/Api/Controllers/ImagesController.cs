@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using MyProducts.DataAccess;
+using System.Linq;
 using System.Web.Http;
-using MyProducts.DataAccess;
 
 namespace MyProducts.Web.Api.Controllers
 {

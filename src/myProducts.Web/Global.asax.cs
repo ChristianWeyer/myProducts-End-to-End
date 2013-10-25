@@ -1,8 +1,7 @@
-﻿using System.Web.Optimization;
-using System.Web.Routing;
+﻿using MyProducts.Web.App_Start;
 using System;
 using System.Web.Http;
-using MyProducts.Web.App_Start;
+using System.Web.Optimization;
 
 namespace MyProducts.Web
 {

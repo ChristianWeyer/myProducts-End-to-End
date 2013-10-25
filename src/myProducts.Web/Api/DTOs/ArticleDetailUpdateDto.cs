@@ -1,5 +1,5 @@
-﻿using System;
-using MyProducts.Web.Api.Validation;
+﻿using MyProducts.Web.Api.Validation;
+using System;
 
 namespace MyProducts.Web.Api.DTOs
 {

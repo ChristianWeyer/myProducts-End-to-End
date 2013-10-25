@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using FluentValidation;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using FluentValidation;
 using ValidationContext = System.ComponentModel.DataAnnotations.ValidationContext;
 
 namespace MyProducts.Web.Api.Validation

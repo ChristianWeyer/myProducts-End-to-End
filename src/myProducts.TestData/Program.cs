@@ -1,10 +1,10 @@
 ﻿using FizzWare.NBuilder;
 using FizzWare.NBuilder.Implementation;
 using FizzWare.NBuilder.PropertyNaming;
+using myProducts.Web.TestData;
+using MyProducts.DataAccess;
 using System;
 using System.Linq;
-using MyProducts.DataAccess;
-using myProducts.Web.TestData;
 
 namespace MyProducts.TestData
 {

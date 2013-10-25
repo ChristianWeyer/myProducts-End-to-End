@@ -1,6 +1,6 @@
-﻿using System.Web.Http;
-using MyProducts.Web.Api.DTOs;
+﻿using MyProducts.Web.Api.DTOs;
 using Serilog;
+using System.Web.Http;
 
 namespace MyProducts.Web.Api.Controllers
 {

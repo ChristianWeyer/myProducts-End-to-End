@@ -1,17 +1,15 @@
-﻿using System;
-using System.IdentityModel.Services;
-using System.Net.Http.Formatting;
-using System.Web.Http;
-using Fabrik.Common.WebAPI;
+﻿using Fabrik.Common.WebAPI;
 using Microsoft.AspNet.SignalR;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Storage;
 using MyProducts.Web.Api.Hubs;
 using PerfIt;
 using Serilog;
+using System;
+using System.IdentityModel.Services;
+using System.Net.Http.Formatting;
+using System.Web.Http;
 using Thinktecture.IdentityModel.Authorization.WebApi;
-using Thinktecture.IdentityModel.Http.Cors;
-using Thinktecture.IdentityModel.Http.Cors.WebApi;
 using Thinktecture.IdentityModel.Tokens.Http;
 
 namespace MyProducts.Web.App_Start
