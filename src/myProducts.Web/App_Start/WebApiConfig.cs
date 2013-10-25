@@ -66,7 +66,7 @@ namespace MyProducts.Web.App_Start
             config.Filters.Add(new ClaimsAuthorizeAttribute());
 
             config.MessageHandlers.Insert(0, new CompressionHandler());
-            config.MessageHandlers.Add(new PerfItDelegatingHandler(config, "myProducts application services"));
+            //config.MessageHandlers.Add(new PerfItDelegatingHandler(config, "myProducts application services"));
 
             config.EnsureInitialized();
         }
