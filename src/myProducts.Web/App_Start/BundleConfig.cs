@@ -12,6 +12,8 @@ namespace MyProducts.Web.App_Start
                 .Include("~/app/js/lib/toastr.js")
                 .Include("~/app/js/lib/spin.js")
                 .Include("~/app/js/lib/bootstrap*")
+                .Include("~/app/js/lib/d3.v3.js")
+                .Include("~/app/js/lib/nv.d3.js")
                 .Include("~/app/js/lib/angular*")
                 .Include("~/app/js/lib/ui-bootstrap-tpls-0.5.0.js")
                 .Include("~/app/js/lib/jquery.signalR*")
@@ -29,8 +31,7 @@ namespace MyProducts.Web.App_Start
                 .Include("~/app/css/bootstrap*")
                 .Include("~/app/css/toastr.css")
                 .Include("~/app/css/ng-grid.css")
-                );
-            bundles.Add(new StyleBundle("~/app/css/others")
+                .Include("~/app/css/nv.d3.css")
                 .Include("~/app/css/font-awesome.css")
                 .Include("~/app/css/angular-carousel.css")
                 );
