@@ -2,6 +2,7 @@
 
 <br />
 <div class="row-fluid">
+    <br/>
     <div class="span6">
         <nvd3-pie-chart
             data="pieSeries"
@@ -9,11 +10,14 @@
             margin="{left:0,top:0,bottom:0,right:0}"
             x="pieX()"
             y="pieY()"
-            showlabels="true"
-            pielabelsoutside="true"
-            showvalues="true"
-            labeltype="percent"
-            showlegend="true"
+            showLabels="true"
+            pieLabelsOutside="true"
+            showValues="true"
+            labelType="percent"
+            showLegend="true"
+            donut="true"
+            donutRatio=".25"
+            donutLabelsOutside="true"
             height="350">
             <svg height="350"></svg>
         </nvd3-pie-chart>
