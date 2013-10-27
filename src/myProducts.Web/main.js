@@ -13,8 +13,6 @@ $script.ready("app", function () {
         "infrastructure/tools",
         "infrastructure/thinktecture.Authentication",
         "infrastructure/thinktecture.SignalR",
-        "infrastructure/resetSourceWhenDirective",
-        "infrastructure/chartAutoResizeDirective",
         "infrastructure/baseUrlFilter",
 
         "services/routeResolverService",

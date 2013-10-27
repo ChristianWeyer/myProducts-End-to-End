@@ -230,19 +230,6 @@
     <Content Include="app\css\bootstrap-switch.css" />
     <Content Include="app\css\bootstrap-.css" />
     <Content Include="app\css\font-awesome.css" />
-    <Content Include="app\css\kendo\Bootstrap\editor.png" />
-    <Content Include="app\css\kendo\Bootstrap\imagebrowser.png" />
-    <Content Include="app\css\kendo\Bootstrap\loading-image.gif" />
-    <Content Include="app\css\kendo\Bootstrap\loading.gif" />
-    <Content Include="app\css\kendo\Bootstrap\loading_2x.gif" />
-    <Content Include="app\css\kendo\Bootstrap\slider-h.gif" />
-    <Content Include="app\css\kendo\Bootstrap\slider-v.gif" />
-    <Content Include="app\css\kendo\Bootstrap\sprite.png" />
-    <Content Include="app\css\kendo\Bootstrap\sprite_2x.png" />
-    <Content Include="app\css\kendo\kendo.bootstrap.css" />
-    <Content Include="app\css\kendo\kendo.common.css" />
-    <Content Include="app\css\kendo\kendo.dataviz.bootstrap.css" />
-    <Content Include="app\css\kendo\kendo.dataviz-.css" />
     <Content Include="app\css\ng-grid.css" />
     <Content Include="app\css\toastr.css" />
     <Content Include="app\images\default.png" />
@@ -270,7 +257,6 @@
     <Content Include="app\js\controllers\infoController.js" />
     <Content Include="app\js\controllers\logController.js" />
     <Content Include="app\js\controllers\statisticsController.js" />
-    <Content Include="app\js\infrastructure\resetSourceWhenDirective.js" />
     <Content Include="app\js\lib\angular-animate.js" />
     <Content Include="app\js\lib\angular-bootstrap-switch.js" />
     <Content Include="app\js\lib\angular-carousel.js" />
@@ -280,9 +266,11 @@
     <Content Include="app\js\lib\angular-strap.js" />
     <Content Include="app\js\lib\angular-touch.js" />
     <Content Include="app\js\lib\angular-.js" />
+    <Content Include="app\js\lib\angularjs-nvd3-directives.js" />
     <Content Include="app\js\lib\bootstrap-filestyle.js" />
     <Content Include="app\js\lib\bootstrap-switch.js" />
     <Content Include="app\js\lib\bootstrap-.js" />
+    <Content Include="app\js\lib\d3.v3.js" />
     <Content Include="app\js\lib\imageupload.js" />
     <Content Include="app\js\lib\iscroll.js" />
     <Content Include="app\js\lib\jquery-2.0.1.js" />
@@ -291,6 +279,7 @@
     <Content Include="app\js\lib\ng-grid.js" />
     <Content Include="app\js\lib\ng-scrollable.js" />
     <Content Include="app\js\lib\ngStorage.js" />
+    <Content Include="app\js\lib\nv.d3.js" />
     <Content Include="app\js\lib\script.js" />
     <Content Include="app\js\lib\spin.js" />
     <Content Include="app\js\lib\toastr.js" />
@@ -314,7 +303,6 @@
     <Content Include="app\js\controllers\articleDetailsController.js" />
     <Content Include="app\js\controllers\navigationController.js" />
     <Content Include="app\translations\translations-de.js" />
-    <Content Include="app\js\lib\angular-kendo.js" />
     <Content Include="app\js\lib\angular-translate-loader-static-files.js" />
     <Content Include="app\js\lib\angular-translate-loader-url.js" />
     <Content Include="app\js\lib\angular-translate-storage-cookie.js" />
@@ -328,7 +316,6 @@
     <Content Include="app\js\infrastructure\thinktecture.Authentication.js" />
     <Content Include="app\js\infrastructure\thinktecture.SignalR.js" />
     <Content Include="app\js\services\toastService.js" />
-    <Content Include="app\js\infrastructure\chartAutoResizeDirective.js" />
     <Content Include="app\js\services\articlesApiService.js" />
     <Content Include="app\views\dialog.html" />
     <Content Include="app\views\info.html" />
