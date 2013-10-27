@@ -24,40 +24,47 @@
     <div class="navbar navbar-fixed-top" ng-controller="NavigationController" bs-navbar>
         <div class="navbar-inner">
             <div class="container-fluid">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <span class="brand">
                     <img src="app/images/logo.png" /><br />
                     <a href="#" class="brand" translate="INDEX_TITLE"></a>
                 </span>
 
-                <ul class="nav nav-pills">
-                    <li ng-repeat="ni in navigationItems" data-match-route='{{ ni.MatchPattern }}'>
-                        <a ng-if="ni.DisplayText" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
-                    </li>
+                <div class="nav-collapse collapse">
+                    <ul class="nav nav-pills">
+                        <li ng-repeat="ni in navigationItems" data-match-route='{{ ni.MatchPattern }}'>
+                            <a ng-if="ni.DisplayText" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
+                        </li>
 
-                    <li data-match-route="/info"><a href="#/info">Info</a></li>
-                </ul>
+                        <li data-match-route="/info"><a href="#/info">Info</a></li>
+                    </ul>
 
-                <ul class="nav nav-pills pull-right">
-                    <li data-match-route="/settings"><a href="#/settings" translate="INDEX_SETTINGS"></a></li>
+                    <ul class="nav nav-pills pull-right">
+                        <li data-match-route="/settings"><a href="#/settings" translate="INDEX_SETTINGS"></a></li>
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle"><i class="icon-align-justify"></i>&nbsp;<span translate="COMMON_LANG"></span></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="" ng-click="changeLanguage('de')">
-                                    <img src="app/images/lang_de_t.png">
-                                    <span translate="COMMON_DE"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" ng-click="changeLanguage('en')">
-                                    <img src="app/images/lang_en_t.png">
-                                    <span translate="COMMON_EN"></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle"><i class="icon-align-justify"></i>&nbsp;<span translate="COMMON_LANG"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="" ng-click="changeLanguage('de')">
+                                        <img src="app/images/lang_de_t.png">
+                                        <span translate="COMMON_DE"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" ng-click="changeLanguage('en')">
+                                        <img src="app/images/lang_en_t.png">
+                                        <span translate="COMMON_EN"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -75,12 +82,12 @@
             <img ng-if="!isOnline" src="app/images/offline.png" />
 
             <span>&nbsp;
-                <span ng-if="tt.authentication.userLoggedIn">
-                    <a href="" ng-click="logout();">
-                        <i class="icon-user"></i>
-                        <strong>{{ userName }}</strong>
-                    </a>
-                </span>
+                    <span ng-if="tt.authentication.userLoggedIn">
+                        <a href="" ng-click="logout();">
+                            <i class="icon-user"></i>
+                            <strong>{{ userName }}</strong>
+                        </a>
+                    </span>
                 <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
                     <a href="#/login" translate="INDEX_LOGIN"></a>
                 </span>
@@ -94,7 +101,7 @@
 
     @System.Web.Optimization.Scripts.Render("~/app/js-lib")
 
-    <script src="main.js"></script>
+        <script src="main.js"></script>
     <script>
         $(function () {
             FastClick.attach(document.body);

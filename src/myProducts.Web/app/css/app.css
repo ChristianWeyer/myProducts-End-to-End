@@ -11,7 +11,7 @@ body {
     height: 100%;
     width: 100%;
     overflow: scroll;
-    padding-top: 6em;
+    /*padding-top: 6em;*/
 }
 
 h1 {

@@ -227,6 +227,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\css\angular-carousel.css" />
+    <Content Include="app\css\bootstrap-responsive.css" />
     <Content Include="app\css\bootstrap-switch.css" />
     <Content Include="app\css\bootstrap-.css" />
     <Content Include="app\css\font-awesome.css" />
