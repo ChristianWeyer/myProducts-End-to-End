@@ -229,7 +229,8 @@
     <Content Include="app\css\angular-carousel.css" />
     <Content Include="app\css\bootstrap-responsive.css" />
     <Content Include="app\css\bootstrap-switch.css" />
-    <Content Include="app\css\bootstrap-.css" />
+    <Content Include="app\css\bootstrap.css" />
+    <Content Include="app\css\tweak-bootstrap.css" />
     <Content Include="app\css\font-awesome.css" />
     <Content Include="app\css\ng-grid.css" />
     <Content Include="app\css\nv.d3.css" />

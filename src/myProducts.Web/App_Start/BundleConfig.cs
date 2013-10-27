@@ -28,7 +28,10 @@ namespace MyProducts.Web.App_Start
                 );
 
             bundles.Add(new StyleBundle("~/app/css/common")
-                .Include("~/app/css/bootstrap*")
+                .Include("~/app/css/bootstrap.css")
+                .Include("~/app/css/tweak-bootstrap.css")
+                .Include("~/app/css/bootstrap-responsive.css")
+                .Include("~/app/css/bootstrap-switch.css")
                 .Include("~/app/css/toastr.css")
                 .Include("~/app/css/ng-grid.css")
                 .Include("~/app/css/nv.d3.css")
