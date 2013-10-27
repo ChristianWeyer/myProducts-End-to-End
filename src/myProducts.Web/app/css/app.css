@@ -23,6 +23,7 @@ h2 {
 }
 
 .nav-collapse {
+    background: white;
     z-index: 1000;
 }
 .disable-select {
