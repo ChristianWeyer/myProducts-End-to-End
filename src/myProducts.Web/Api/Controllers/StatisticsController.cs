@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Http;
 
 namespace MyProducts.Web.Api.Controllers
@@ -54,13 +55,13 @@ namespace MyProducts.Web.Api.Controllers
                 {
                     new
                         {
-                            name = "Total Sales",
-                            data = new[]{56000, 63000, 74000}
+                            key = "Total Sales",
+                            values = new[]{new dynamic[]{"A", 56000}, new dynamic[]{"B", 63000}, new dynamic[]{"C", 74000}}
                         },
                     new
                         {
-                            name = "Discounted Sales",
-                            data = new[]{52000, 34000, 23000}
+                            key = "Discounted Sales",
+                            values = new[]{new dynamic[]{"D", 52000}, new dynamic[]{"E", 34000}, new dynamic[]{"F", 23000}}
                         }
                 };
 

@@ -6,11 +6,7 @@
             method: "GET",
             url: ttTools.baseUrl + "api/statistics/distribution"
         }).then(function (data) {
-            $scope.pieSeries = [{
-                type: "pie",
-                startAngle: 150,
-                data: data.data
-            }];
+            $scope.pieSeries = data.data;
         });
 
         $http({
@@ -19,4 +15,22 @@
         }).then(function (data) {
             $scope.columnSeries = data.data;
         });
+
+        $scope.pieX = function () {
+            return function (d) {
+                return d.category;
+            };
+        };
+
+        $scope.pieY = function () {
+            return function (d) {
+                return d.value;
+            };
+        };
+
+        $scope.pieDescription = function () {
+            return function (d) {
+                return d.category;
+            };
+        };
     }]);

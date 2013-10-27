@@ -3,10 +3,32 @@
 <br />
 <div class="row-fluid">
     <div class="span6">
-        <div kendo-chart k-series="pieSeries" k-series-colors='["#b4dbeb", "#8cc7e0", "#7a94c6", "#174356", "#0c242e", "#839bc0"]' k-legend="{ position: 'bottom' }" k-tooltip="{ visible: true, format: '{0}%'}" tt-chart-auto-resize></div>
+        <nvd3-pie-chart
+            data="pieSeries"
+            id="pieChart1"
+            margin="{left:0,top:0,bottom:0,right:0}"
+            x="pieX()"
+            y="pieY()"
+            showlabels="true"
+            pielabelsoutside="true"
+            showvalues="true"
+            labeltype="percent"
+            showlegend="true"
+            height="350">
+            <svg height="350"></svg>
+        </nvd3-pie-chart>
     </div>
+
+
     <div class="span5">
-        <div kendo-chart k-series="columnSeries" k-series-colors='["#b4dbeb", "#8cc7e0"]' k-legend="{ position: 'bottom' }" k-tooltip="{ visible: true, format: '{0}'}" tt-chart-auto-resize></div>
+        <nvd3-multi-bar-chart
+            data="columnSeries"
+            id="barChart1"
+            margin="{left:60,top:5,bottom:20,right:10}"
+            height="350">
+            <svg height="350"></svg>
+        </nvd3-multi-bar-chart>
     </div>
+    
     <div class="span1"></div>
 </div>
