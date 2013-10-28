@@ -1,5 +1,7 @@
     app.controller("NavigationController", ["$http", "$scope", "$translate", "personalization",
         function ($http, $scope, $translate, personalization) {
+            $scope.isCollapsed = true;
+            
             $scope.currentLanguage = $translate.preferredLanguage() || $translate.proposedLanguage();
             
             $scope.$on(tt.personalization.dataLoaded, function () {

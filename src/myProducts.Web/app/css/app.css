@@ -9,7 +9,6 @@ html {
 
 body {
     height: 100%;
-    width: 100%;
     overflow: scroll;
 }
 
@@ -26,6 +25,7 @@ h2 {
     background: white;
     z-index: 1000;
 }
+
 .disable-select {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -107,7 +107,7 @@ h2 {
 }
 
 .carouselImages {
-    width: 400px;
+    width: 300px;
     text-align: center;
 }
 
@@ -135,10 +135,6 @@ h2 {
         float: right;
     }
 
-/*#ng-view {
-    position: relative;
-}*/
-
 .dialog-underline {
     text-decoration: none;
     font-weight: bold;
@@ -150,34 +146,7 @@ h2 {
     background-color: transparent !important;
 }
 
-/* Animation: slide in/out */
-.animation.ng-enter,
-.animation.ng-leave {
-    -webkit-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -moz-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -ms-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -o-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-}
-
-.animation.ng-enter {
-    left: 100%;
-}
-
-    .animation.ng-enter.ng-enter-active {
-        left: 0;
-    }
-
-.animation.ng-leave {
-    left: 0;
-}
-
-    .animation.ng-leave.ng-leave-active {
-        left: -100%;
-    }
-
-
-/* Another animation: fade in/out */
+/* Animation: fade in/out */
 .view-container {
     position: relative;
 }

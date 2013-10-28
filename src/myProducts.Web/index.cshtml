@@ -24,22 +24,19 @@
     <div class="navbar navbar-fixed-top" ng-controller="NavigationController" bs-navbar>
         <div class="navbar-inner">
             <div class="container-fluid">
-                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <button type="button" class="btn btn-navbar" ng-click="isCollapsed=!isCollapsed">
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </button>
                 <span class="brand">
                     <img src="app/images/logo.png" /><br />
                     <a href="#" class="brand" translate="INDEX_TITLE"></a>
                 </span>
 
-                <div class="nav-collapse collapse">
+                <div class="nav-collapse" collapse="isCollapsed">
                     <ul class="nav nav-pills">
                         <li ng-repeat="ni in navigationItems" data-match-route='{{ ni.MatchPattern }}'>
-                            <a ng-if="ni.DisplayText" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
+                            <a ng-show="ni.DisplayText" ng-click="isCollapsed=true" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
                         </li>
-
                         <li data-match-route="/info"><a href="#/info">Info</a></li>
                     </ul>
 
