@@ -99,24 +99,6 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
             }
         }, false);
 
-        var oldOpen = XMLHttpRequest.prototype.open;
-        XMLHttpRequest.prototype.open = function (method, url, async, user, pass) {
-            if (url.indexOf("/signalr") === -1) {
-                this.addEventListener("readystatechange", function () {
-                    if (this.readyState === 1) {
-                        theSpinner.spin(getSpinner());
-                    }
-                    ;
-                    if (this.readyState === 4) {
-                        theSpinner.stop();
-                    }
-                    ;
-                }, false);
-            }
-
-            oldOpen.call(this, method, url, async, user, pass);
-        };
-
         $rootScope.$on("$locationChangeStart", function () {
             if (!$rootScope.tt.authentication.userLoggedIn) {
                 $rootScope.$broadcast(tt.authentication.authenticationRequired);

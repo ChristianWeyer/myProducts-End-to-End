@@ -269,7 +269,7 @@
     <Content Include="app\js\lib\angular-route.js" />
     <Content Include="app\js\lib\angular-strap.js" />
     <Content Include="app\js\lib\angular-touch.js" />
-    <Content Include="app\js\lib\angular-.js" />
+    <Content Include="app\js\lib\angular.js" />
     <Content Include="app\js\lib\angularjs-nvd3-directives.js" />
     <Content Include="app\js\lib\bootstrap-filestyle.js" />
     <Content Include="app\js\lib\bootstrap-switch.js" />
