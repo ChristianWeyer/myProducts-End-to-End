@@ -24,7 +24,7 @@
     <div class="navbar navbar-fixed-top" ng-controller="NavigationController" bs-navbar>
         <div class="navbar-inner">
             <div class="container-fluid">
-                <button type="button" class="btn btn-navbar" ng-click="isCollapsed=!isCollapsed">
+                <button type="button" class="btn btn-navbar" ng-click="nav.isCollapsed=!nav.isCollapsed">
                     <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </button>
                 <span class="brand">
@@ -32,10 +32,10 @@
                     <a href="#" class="brand" translate="INDEX_TITLE"></a>
                 </span>
 
-                <div class="nav-collapse" collapse="isCollapsed">
+                <div class="nav-collapse" collapse="nav.isCollapsed">
                     <ul class="nav nav-pills">
                         <li ng-repeat="ni in navigationItems" data-match-route='{{ ni.MatchPattern }}'>
-                            <a ng-show="ni.DisplayText" ng-click="isCollapsed=true" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
+                            <a ng-show="ni.DisplayText" ng-click="nav.isCollapsed=true" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
                         </li>
                         <li data-match-route="/info"><a href="#/info">Info</a></li>
                     </ul>
