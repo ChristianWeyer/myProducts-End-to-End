@@ -1,14 +1,13 @@
 ﻿app.factory("articlesApi", ["$http", "$q", "$angularCacheFactory", function ($http, $q, $angularCacheFactory) {
-    var dataCache = $angularCacheFactory('dataCache', {
-    });
+    var articlesCache = $angularCacheFactory("articlesCache", {});
 
     var service = {
-        getArticlesPaged: function (pageSize, page, searchText) {
+        getArticlesPaged: function (pageSize, page, searchText, force) {
             var deferred = $q.defer();
             var cacheKey = "articles_" + pageSize + "_" + page;
             
-            if (!searchText && dataCache.get(cacheKey)) {
-                deferred.resolve(dataCache.get(cacheKey));
+            if (!force && (!searchText && articlesCache.get(cacheKey))) {
+                deferred.resolve(articlesCache.get(cacheKey));
             } else {
                 var url = ttTools.baseUrl + "api/articles?$inlinecount=allpages&$top=" + pageSize + "&$skip=" + (page - 1) * pageSize;
                 
@@ -20,7 +19,7 @@
                     method: "GET",
                     url: url
                 }).success(function(response) {
-                    dataCache.put(cacheKey, response);
+                    articlesCache.put(cacheKey, response);
                     deferred.resolve(response);
                 }).error(function (response) {
                     deferred.reject(response);
@@ -30,6 +29,10 @@
             return deferred.promise;
         },
 
+        dataChanged: function() {
+            articlesCache.removeAll();
+        },
+        
         getArticleDetails: function (id) {
             return $http({
                 method: "GET",
@@ -37,19 +40,11 @@
             });
         },
 
-        saveArticle: function (artikel) {
-            return $http({
-                method: "POST",
-                url: ttTools.baseUrl + "api/articles/" + artikel.Id,
-                data: artikel
-            });
-        },
-
         saveArticleWithImage: function (artikel, image) {
             return $http({
                 method: "POST",
                 url: "api/articles",
-                headers: { "Content-Type": false },
+                headers: { "Content-Type": undefined },
                 transformRequest: function (data) {
                     var formData = new FormData();
                     formData.append("model", angular.toJson(data.model));

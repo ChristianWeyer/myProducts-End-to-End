@@ -25,7 +25,10 @@
             }
 
             $scope.save = function () {
-                articlesApi.saveArticleWithImage($scope.artikel, $scope.image.file)
+                var file = null;
+                if ($scope.image) file = $scope.image.file;
+                
+                articlesApi.saveArticleWithImage($scope.artikel, file)
                     .success(function () {
                         toast.pop({
                             title: $translate("POPUP_SUCCESS"),

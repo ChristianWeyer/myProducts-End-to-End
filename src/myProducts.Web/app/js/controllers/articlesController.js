@@ -12,18 +12,26 @@ app.lazy.controller("ArticlesController",
                 columnDefs: [{ field: 'Name', displayName: 'Name' }, { field: 'Code', displayName: 'Code' }, { cellTemplate: "app/views/gridCellTemplate.html", width: "90px" }]
             };
 
-            $scope.getPagedData = function (searchText) {
-                return articlesApi.getArticlesPaged($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, searchText)
+            $scope.getFilteredData = function (searchText) {
+                return articlesApi.getArticlesPaged($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, searchText, false)
                     .then(function (data) {
                         $scope.articlesData = data.Items;
                         $scope.totalServerItems = data.Count;
-                        
+
                         return data.Items;
+                    });
+            };
+            
+            $scope.getPagedData = function (force) {
+                return articlesApi.getArticlesPaged($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, "", force)
+                    .then(function (data) {
+                        $scope.articlesData = data.Items;
+                        $scope.totalServerItems = data.Count;
                     });
             };
 
             ttTools.logger.info("Loading articles...");
-            $scope.getPagedData();
+            $scope.getPagedData(true);
 
             $scope.$watch("pagingOptions", function (newVal, oldVal) {
                 if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage) {
@@ -37,7 +45,7 @@ app.lazy.controller("ArticlesController",
             };
 
             $scope.$on(tt.signalr.subscribe + "articleChange", function () {
-                $scope.getPagedData();
+                $scope.getPagedData(true);
             });
 
             $scope.getArticleDetails = function (id) {
@@ -51,7 +59,7 @@ app.lazy.controller("ArticlesController",
             $scope.deleteArticle = function (id) {
                 articlesApi.deleteArticle(id)
                     .success(function () {
-                        $scope.getPagedData();
+                        $scope.getPagedData(true);
 
                         toast.pop({
                             title: $translate("POPUP_SUCCESS"),

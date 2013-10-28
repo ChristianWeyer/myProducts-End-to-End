@@ -62,7 +62,8 @@ namespace MyProducts.Web.Api.Controllers
         [PerfItFilter(Name = "Articles.GetById", Description = "Gets one item", Counters = new[] { CounterTypes.TotalNoOfOperations, CounterTypes.AverageTimeTaken })]
         public ArticleDetailDto Get(string id)
         {
-            throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = "WTF?!?!?!" });
+            // For demos:
+            //throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = "WTF?!?!?!" });
 
             Guid guid;
 
@@ -97,7 +98,7 @@ namespace MyProducts.Web.Api.Controllers
         [InvalidateCacheOutput("GetById")]
         public async Task<HttpResponseMessage> Post()
         {
-            if (!Request.Content.IsMimeMultipartContent())
+            if (!Request.Content.IsMimeMultipartContent("form-data"))
             {
                 throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
             }
