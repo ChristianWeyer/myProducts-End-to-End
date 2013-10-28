@@ -1,4 +1,4 @@
-﻿app.register.controller("ArticleDetailsController",
+﻿app.lazy.controller("ArticleDetailsController",
     ["$scope", "$routeParams", "articlesApi", "toast", "$location", "dialog", "$translate",
         function ($scope, $routeParams, articlesApi, toast, $location, dialog, $translate) {
 

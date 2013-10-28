@@ -1,3 +1,3 @@
-app.register.controller("AdminController", ["$scope", function ($scope) {
+app.lazy.controller("AdminController", ["$scope", function ($scope) {
 
 }]);

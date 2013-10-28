@@ -262,6 +262,7 @@
     <Content Include="app\js\controllers\statisticsController.js" />
     <Content Include="app\js\lib\angular-animate.js" />
     <Content Include="app\js\lib\angular-bootstrap-switch.js" />
+    <Content Include="app\js\lib\angular-cache-2.0.0-rc.1.js" />
     <Content Include="app\js\lib\angular-carousel.js" />
     <Content Include="app\js\lib\angular-cookies.js" />
     <Content Include="app\js\lib\angular-mobile.js" />

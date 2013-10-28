@@ -1,4 +1,4 @@
-﻿var app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "ng-scrollable", "angular-carousel", "frapontillo.bootstrap-switch", "ngStorage", "imageupload", "ngGrid", "nvd3ChartDirectives"]);
+﻿var app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "ng-scrollable", "angular-carousel", "frapontillo.bootstrap-switch", "ngStorage", "imageupload", "ngGrid", "nvd3ChartDirectives", "jmdobry.angular-cache"]);
 
 app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide",
     function ($routeProvider, $locationProvider, $translateProvider, $httpProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
@@ -6,7 +6,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         ttTools.initLogger(ttTools.baseUrl + "api/log");
         ttTools.logger.info("Configuring myApp...");
 
-        app.register =
+        app.lazy =
         {
             controller: $controllerProvider.register,
             directive: $compileProvider.directive,

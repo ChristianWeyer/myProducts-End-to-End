@@ -1,15 +1,33 @@
-﻿app.factory("articlesApi", ["$http", function ($http) {
+﻿app.factory("articlesApi", ["$http", "$q", "$angularCacheFactory", function ($http, $q, $angularCacheFactory) {
+    var dataCache = $angularCacheFactory('dataCache', {
+    });
+
     var service = {
         getArticlesPaged: function (pageSize, page, searchText) {
-            var url = ttTools.baseUrl + "api/articles?$inlinecount=allpages&$top=" + pageSize + "&$skip=" + (page - 1) * pageSize;
-            if (searchText) {
-                url += "&$filter=substringof('" + searchText.toLowerCase() + "',tolower(Name))";
-            }
+            var deferred = $q.defer();
+            var cacheKey = "articles_" + pageSize + "_" + page;
             
-            return $http({
-                method: "GET",
-                url: url
-            });
+            if (dataCache.get(cacheKey)) {
+                deferred.resolve(dataCache.get(cacheKey));
+            } else {
+                var url = ttTools.baseUrl + "api/articles?$inlinecount=allpages&$top=" + pageSize + "&$skip=" + (page - 1) * pageSize;
+                
+                if (searchText) {
+                    url += "&$filter=substringof('" + searchText.toLowerCase() + "',tolower(Name))";
+                }
+
+                $http({
+                    method: "GET",
+                    url: url
+                }).success(function(response) {
+                    dataCache.put(cacheKey, response);
+                    deferred.resolve(response);
+                }).error(function (response) {
+                    deferred.reject(response);
+                });
+            }
+
+            return deferred.promise;
         },
 
         getArticleDetails: function (id) {

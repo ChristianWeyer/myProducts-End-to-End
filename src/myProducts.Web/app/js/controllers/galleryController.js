@@ -1,4 +1,4 @@
-app.register.controller("GalleryController", ["$scope", "$http", function ($scope, $http) {
+app.lazy.controller("GalleryController", ["$scope", "$http", function ($scope, $http) {
 
     $scope.loadImages = function () {
         $http({

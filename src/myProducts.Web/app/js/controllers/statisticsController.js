@@ -1,4 +1,4 @@
-﻿app.register.controller("StatisticsController",
+﻿app.lazy.controller("StatisticsController",
     ["$scope", "$http", "$timeout", function ($scope, $http, $timeout) {
         ttTools.logger.info("Freakin' cool stats!");
 

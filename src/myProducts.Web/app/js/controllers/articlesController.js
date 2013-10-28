@@ -1,4 +1,4 @@
-app.register.controller("ArticlesController",
+app.lazy.controller("ArticlesController",
     ["$scope", "$location", "articlesApi", "dataPush", "toast", "dialog", "$translate", "personalization",
         function ($scope, $location, articlesApi, dataPush, toast, dialog, $translate, personalization) {
             $scope.pagingOptions = { pageSizes: [10], pageSize: 10, currentPage: 1 };
@@ -14,7 +14,7 @@ app.register.controller("ArticlesController",
 
             $scope.getPagedData = function (searchText) {
                 return articlesApi.getArticlesPaged($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, searchText)
-                    .success(function (data) {
+                    .then(function (data) {
                         $scope.articlesData = data.Items;
                         $scope.totalServerItems = data.Count;
                     });
