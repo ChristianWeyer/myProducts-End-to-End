@@ -89,11 +89,10 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
                     headerText: 'App Update',
                     bodyText: $translate("APP_UPDATE_BODY"),
                     closeButtonText: $translate("COMMON_NO"),
-                    actionButtonText: $translate("COMMON_YES"),
-                    callback: function () {
-                        window.location.reload();
-                        console.log('CACHE: App will be updated...');
-                    }
+                    actionButtonText: $translate("COMMON_YES")
+                }).then(function (result) {
+                    window.location.reload();
+                    console.log('CACHE: App will be updated...');
                 }));
             } else {
                 console.log('CACHE: Manifest didn\'t change.');

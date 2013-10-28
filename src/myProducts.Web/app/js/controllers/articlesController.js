@@ -17,6 +17,8 @@ app.lazy.controller("ArticlesController",
                     .then(function (data) {
                         $scope.articlesData = data.Items;
                         $scope.totalServerItems = data.Count;
+                        
+                        return data.Items;
                     });
             };
 

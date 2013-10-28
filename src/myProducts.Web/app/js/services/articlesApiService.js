@@ -7,7 +7,7 @@
             var deferred = $q.defer();
             var cacheKey = "articles_" + pageSize + "_" + page;
             
-            if (dataCache.get(cacheKey)) {
+            if (!searchText && dataCache.get(cacheKey)) {
                 deferred.resolve(dataCache.get(cacheKey));
             } else {
                 var url = ttTools.baseUrl + "api/articles?$inlinecount=allpages&$top=" + pageSize + "&$skip=" + (page - 1) * pageSize;

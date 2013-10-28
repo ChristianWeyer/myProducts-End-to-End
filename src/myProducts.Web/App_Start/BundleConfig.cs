@@ -15,7 +15,7 @@ namespace MyProducts.Web.App_Start
                 .Include("~/app/js/lib/d3.v3.js")
                 .Include("~/app/js/lib/nv.d3.js")
                 .Include("~/app/js/lib/angular*")
-                .Include("~/app/js/lib/ui-bootstrap-tpls-0.5.0.js")
+                .Include("~/app/js/lib/ui-bootstrap*")
                 .Include("~/app/js/lib/jquery.signalR*")
                 .Include("~/app/js/lib/lawnchair-0.6.1.js")
                 .Include("~/app/js/lib/log4javascript.js")

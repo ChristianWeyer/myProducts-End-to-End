@@ -10,14 +10,15 @@
         data-ng-click="dialogOptions.close()">
         {{ dialogOptions.closeButtonText }}</button>
     <button class="btn btn-primary"
-        data-ng-click="dialogOptions.callback();">
+        data-ng-click="dialogOptions.ok();">
         {{ dialogOptions.actionButtonText }}</button>
 
 </div>
 <div class="modal-header" ng-if="dialogOptions.detailsText">
     <span ng-if="dialogOptions.collapsed" ng-click="dialogOptions.uncollapse()"><i class="icon-chevron-down pull-left"></i></span>
     <span ng-if="!dialogOptions.collapsed" ng-click="dialogOptions.collapse()"><i class="icon-chevron-up pull-left"></i></span>
-    <br/>
+    
+
     <div ng-if="!dialogOptions.collapsed" class="container-fluid">
         <div class="well">
             <p>{{ dialogOptions.detailsText }}</p> 

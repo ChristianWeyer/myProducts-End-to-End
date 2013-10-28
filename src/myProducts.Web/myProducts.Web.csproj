@@ -287,7 +287,7 @@
     <Content Include="app\js\lib\script.js" />
     <Content Include="app\js\lib\spin.js" />
     <Content Include="app\js\lib\toastr.js" />
-    <Content Include="app\js\lib\ui-bootstrap-tpls-0.5.0.js" />
+    <Content Include="app\js\lib\ui-bootstrap-tpls-0.6.0.js" />
     <Content Include="app\js\services\networkStatusService.js" />
     <Content Include="app\js\services\logPushService.js" />
     <Content Include="app\js\services\dialogService.js" />

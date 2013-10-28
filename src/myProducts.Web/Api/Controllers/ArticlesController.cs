@@ -62,6 +62,8 @@ namespace MyProducts.Web.Api.Controllers
         [PerfItFilter(Name = "Articles.GetById", Description = "Gets one item", Counters = new[] { CounterTypes.TotalNoOfOperations, CounterTypes.AverageTimeTaken })]
         public ArticleDetailDto Get(string id)
         {
+            throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = "WTF?!?!?!" });
+
             Guid guid;
 
             if (!Guid.TryParse(id, out guid))

@@ -3,7 +3,7 @@
 <div>
     <div>
         <span translate="OVERVIEW_FILTER"></span>
-        <input type="text" ng-model="selected" typeahead="article for article in getPagedData($viewValue)">
+        <input type="text" ng-model="selected" typeahead="article.Name for article in getPagedData($viewValue)">
 
         <i ng-if="capabilities.has('AddArticle')" class="btn btn-primary icon-plus pull-right" ng-click="addArticle()"></i>
     </div>
