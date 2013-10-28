@@ -21,9 +21,9 @@
     @System.Web.Optimization.Styles.Render("~/app/css/app")
 </head>
 <body class="ng-cloak">
-    <div class="navbar navbar-fixed-top" ng-controller="NavigationController" bs-navbar>
+    <div class="navbar navbar-fixed-top" bs-navbar>
         <div class="navbar-inner">
-            <div class="container-fluid">
+            <div class="container-fluid" ng-controller="NavigationController">
                 <button type="button" class="btn btn-navbar" ng-click="nav.isCollapsed=!nav.isCollapsed">
                     <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </button>
