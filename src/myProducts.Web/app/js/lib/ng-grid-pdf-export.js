@@ -1,4 +1,4 @@
-function ngGridPdfExportPlugin (options) {
+function ngGridPdfExportPlugin(options) {
     var self = this;
     self.grid = null;
     self.scope = null;
@@ -13,10 +13,10 @@ function ngGridPdfExportPlugin (options) {
         if (!options.inhibitButton) {
             var fp = grid.$root.find(".ngFooterPanel");
             var pdfDataLinkPrevious = grid.$root.find('.ngFooterPanel .pdf-data-link-span');
-            if (pdfDataLinkPrevious != null) {pdfDataLinkPrevious.remove() ; }
-            var pdfDataLinkHtml = '<div class="pdf-data-link"><button class="pdf-data-link-span">PDF Export</button></div>';
+            if (pdfDataLinkPrevious != null) { pdfDataLinkPrevious.remove(); }
+            var pdfDataLinkHtml = '<div class="pdf-data-link"><button id="exportPdf" class="pdf-data-link-span">PDF Export</button></div>';
             fp.append(pdfDataLinkHtml);
-            fp.on('click', function() {
+            $(document).on('click', '#exportPdf', function () {
                 self.createPDF();
             });
         }
@@ -29,7 +29,7 @@ function ngGridPdfExportPlugin (options) {
 
         angular.forEach(self.scope.columns, function (col) {
             if (col.visible) {
-                headers.push({name: col.field, prompt:col.displayName, width: col.width * (185 / gridWidth)});
+                headers.push({ name: col.field, prompt: col.displayName, width: col.width * (185 / gridWidth) });
             }
         });
 
@@ -38,7 +38,7 @@ function ngGridPdfExportPlugin (options) {
         });
 
         var doc = new jsPDF();
-        doc.table(data, headers, {printHeaders: true, autoSize: false, autoStretch: false});
+        doc.table(data, headers, { printHeaders: true, autoSize: false, autoStretch: false });
         doc.output('dataurlnewwindow');
     };
 }
