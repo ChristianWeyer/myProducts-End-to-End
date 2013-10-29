@@ -2,18 +2,27 @@ app.lazy.controller("ArticlesController",
     ["$scope", "$location", "articlesApi", "dataPush", "toast", "dialog", "$translate", "personalization",
         function ($scope, $location, articlesApi, dataPush, toast, dialog, $translate, personalization) {
             $scope.pagingOptions = { pageSizes: [10], pageSize: 10, currentPage: 1 };
+            $scope.filterOptions = {
+                filterText: "",
+                useExternalFilter: true
+            };
             $scope.gridOptions = {
                 data: "articlesData",
                 enablePaging: true,
                 showFooter: true,
                 totalServerItems: "totalServerItems",
                 pagingOptions: $scope.pagingOptions,
+                filterOptions: $scope.filterOptions,
+                showFilter: true,
                 multiSelect: false,
                 columnDefs: [{ field: 'Name', displayName: 'Name' }, { field: 'Code', displayName: 'Code' }, { cellTemplate: "app/views/gridCellTemplate.html", width: "90px" }]
             };
 
             $scope.getFilteredData = function (searchText) {
-                return articlesApi.getArticlesPaged($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, searchText, false)
+                var search = searchText;
+                if ($scope.gridOptions.$gridScope.filterText) search = $scope.gridOptions.$gridScope.filterText;
+                
+                return articlesApi.getArticlesPaged($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, search, false)
                     .then(function (data) {
                         $scope.articlesData = data.Items;
                         $scope.totalServerItems = data.Count;
@@ -21,7 +30,7 @@ app.lazy.controller("ArticlesController",
                         return data.Items;
                     });
             };
-            
+
             $scope.getPagedData = function (force) {
                 return articlesApi.getArticlesPaged($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, "", force)
                     .then(function (data) {
@@ -33,6 +42,12 @@ app.lazy.controller("ArticlesController",
             ttTools.logger.info("Loading articles...");
             $scope.getPagedData(true);
 
+            $scope.$watch("gridOptions.$gridScope.filterText", function (newVal, oldVal) {
+                if (newVal !== oldVal) {
+                    $scope.getFilteredData();
+                }
+            }, true);
+            
             $scope.$watch("pagingOptions", function (newVal, oldVal) {
                 if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage) {
                     $scope.getPagedData();
