@@ -6,13 +6,9 @@
             <label for="searchtext" translate="OVERVIEW_FILTER"></label>
             <input type="text" id="searchtext" ng-model="selectedFilteredArticle" typeahead="article.Name for article in getFilteredData($viewValue)">
             <i class="btn btn-success icon-refresh" ng-click="getPagedData(true)"></i>
-
+            <i ng-if="capabilities.has('AddArticle')" class="btn btn-primary icon-plus pull-right" ng-click="addArticle()"></i>
         </div>
-
     </form>
-    <div>
-        <i ng-if="capabilities.has('AddArticle')" class="btn btn-primary icon-plus" ng-click="addArticle()"></i>
-    </div>
     <hr />
     <div class="gridStyle" ng-grid="gridOptions"></div>
 </div>
