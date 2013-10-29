@@ -1,5 +1,5 @@
 ﻿app.factory("dataPush", ["hubProxy", "$rootScope", "settings", function (hubProxy, $rootScope, settings) {
-    var hub = hubProxy(ttTools.baseUrl + "signalr", "clientNotificationHub");
+    var hub = hubProxy(ttTools.baseUrl, "clientNotificationHub");
     hub.on("articleChange");
 
     if (settings.enablePush) {

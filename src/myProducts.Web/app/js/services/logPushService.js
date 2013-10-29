@@ -1,5 +1,5 @@
 ﻿app.factory("logPush", ["hubProxy", "$rootScope", "settings", function (hubProxy, $rootScope, settings) {
-    var hub = hubProxy(ttTools.baseUrl + "signalr", "logHub");
+    var hub = hubProxy(ttTools.baseUrl, "logHub");
     hub.on("sendLogEvent");
 
     if (settings.enablePush) {
