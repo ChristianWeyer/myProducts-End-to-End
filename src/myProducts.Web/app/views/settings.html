@@ -11,6 +11,12 @@
                     <input id="pushCheckbox" bs-switch switch-on-label="{{ 'SETTINGS_YES' | translate }}" switch-off-label="{{ 'SETTINGS_NO' | translate }}" ng-model="enablePush">
                 </div>
             </div>
+            <div class="control-group">
+                <label class="control-label" for="pdfExportCheckbox" translate="SETTINGS_PDFEXPORT"></label>
+                <div class="controls">
+                    <input id="pdfExportCheckbox" bs-switch switch-on-label="{{ 'SETTINGS_YES' | translate }}" switch-off-label="{{ 'SETTINGS_NO' | translate }}" ng-model="enablePdfExport">
+                </div>
+            </div>
         </fieldset>
     </form>
 </div>

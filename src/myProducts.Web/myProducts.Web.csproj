@@ -278,8 +278,10 @@
     <Content Include="app\js\lib\imageupload.js" />
     <Content Include="app\js\lib\iscroll.js" />
     <Content Include="app\js\lib\jquery-2.0.1.js" />
+    <Content Include="app\js\lib\jspdf.source.js" />
     <Content Include="app\js\lib\lawnchair-0.6.1.js" />
     <Content Include="app\js\lib\log4javascript.js" />
+    <Content Include="app\js\lib\ng-grid-pdf-export.js" />
     <Content Include="app\js\lib\ng-grid.js" />
     <Content Include="app\js\lib\ng-scrollable.js" />
     <Content Include="app\js\lib\ngStorage.js" />
@@ -400,9 +402,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="PerfItInstaller.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="PerfItInstaller.cs" />
     <Compile Include="PerfItInstaller.Designer.cs">
       <DependentUpon>PerfItInstaller.cs</DependentUpon>
     </Compile>

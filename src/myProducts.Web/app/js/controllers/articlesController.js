@@ -1,6 +1,6 @@
 app.lazy.controller("ArticlesController",
-    ["$scope", "$location", "articlesApi", "dataPush", "toast", "dialog", "$translate", "personalization",
-        function ($scope, $location, articlesApi, dataPush, toast, dialog, $translate, personalization) {
+    ["$scope", "$location", "articlesApi", "dataPush", "toast", "dialog", "$translate", "personalization", "settings",
+        function ($scope, $location, articlesApi, dataPush, toast, dialog, $translate, personalization, settings) {
             $scope.pagingOptions = { pageSizes: [10], pageSize: 10, currentPage: 1 };
             $scope.filterOptions = {
                 filterText: "",
@@ -18,10 +18,14 @@ app.lazy.controller("ArticlesController",
                 columnDefs: [{ field: 'Name', displayName: 'Name' }, { field: 'Code', displayName: 'Code' }, { cellTemplate: "app/views/gridCellTemplate.html", width: "90px" }]
             };
 
+            if (settings.enablePdfExport) {
+                $scope.gridOptions.plugins = [new ngGridPdfExportPlugin({})];
+            }
+
             $scope.getFilteredData = function (searchText) {
                 var search = searchText;
                 if ($scope.gridOptions.$gridScope.filterText) search = $scope.gridOptions.$gridScope.filterText;
-                
+
                 return articlesApi.getArticlesPaged($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, search, false)
                     .then(function (data) {
                         $scope.articlesData = data.Items;
@@ -47,7 +51,7 @@ app.lazy.controller("ArticlesController",
                     $scope.getFilteredData();
                 }
             }, true);
-            
+
             $scope.$watch("pagingOptions", function (newVal, oldVal) {
                 if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage) {
                     $scope.getPagedData();

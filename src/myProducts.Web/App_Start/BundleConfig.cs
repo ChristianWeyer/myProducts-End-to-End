@@ -25,7 +25,9 @@ namespace MyProducts.Web.App_Start
                 .Include("~/app/js/lib/ng-scrollable.js")
                 .Include("~/app/js/lib/ngStorage.js")
                 .Include("~/app/js/lib/imageupload.js")
+                .Include("~/app/js/lib/jspdf.source.js")
                 .Include("~/app/js/lib/ng-grid.js")
+                .Include("~/app/js/lib/ng-grid-pdf-export.js")
                 .Include("~/app/js/lib/fastclick.js")
                 );
 

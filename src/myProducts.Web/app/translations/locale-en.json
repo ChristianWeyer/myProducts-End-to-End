@@ -45,6 +45,7 @@
   "SETTINGS_YES": "Yes",
   "SETTINGS_NO": "No",
   "SETTINGS_PUSH": "Enable push communication:",
+  "SETTINGS_PDFEXPORT": "Enable experimental (simple) PDF export:",
 
   "POPUP_SUCCESS": "Success",
   "POPUP_ERROR": "Error",

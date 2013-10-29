@@ -46,6 +46,7 @@ tt.translations.de = {
     "SETTINGS_YES": "Ja",
     "SETTINGS_NO": "Nein",
     "SETTINGS_PUSH": "Push-Kommunikation:",
+    "SETTINGS_PDFEXPORT": "PDF-Export (sehr einfach; experimentell):",
     
     "POPUP_SUCCESS": "Erfolg",
     "POPUP_ERROR": "Fehler",
