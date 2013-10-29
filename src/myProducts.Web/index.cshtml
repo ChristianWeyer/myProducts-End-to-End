@@ -37,23 +37,23 @@
                         <li ng-repeat="ni in navigationItems" data-match-route='{{ ni.MatchPattern }}'>
                             <a ng-show="ni.DisplayText" ng-click="nav.isCollapsed=true" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
                         </li>
-                        <li data-match-route="/info"><a href="#/info">Info</a></li>
+                        <li data-match-route="/info"><a ng-click="nav.isCollapsed=true" href="#/info">Info</a></li>
                     </ul>
 
                     <ul class="nav nav-pills pull-right">
-                        <li data-match-route="/settings"><a href="#/settings" translate="INDEX_SETTINGS"></a></li>
+                        <li data-match-route="/settings"><a ng-click="nav.isCollapsed=true" href="#/settings" translate="INDEX_SETTINGS"></a></li>
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle"><i class="icon-align-justify"></i>&nbsp;<span translate="COMMON_LANG"></span></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="" ng-click="changeLanguage('de')">
+                                    <a href="" ng-click="nav.isCollapsed=true;changeLanguage('de');">
                                         <img src="app/images/lang_de_t.png">
                                         <span translate="COMMON_DE"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" ng-click="changeLanguage('en')">
+                                    <a href="" ng-click="nav.isCollapsed=true;changeLanguage('en')">
                                         <img src="app/images/lang_en_t.png">
                                         <span translate="COMMON_EN"></span>
                                     </a>
@@ -68,7 +68,7 @@
 
     <div class="container-fluid view-container">
         <div id="spinner" style="position: fixed; top: 50%; left: 50%"></div>
-        <div ng-view id="ng-view" class="view-frame"></div>
+        <div ng-view id="ng-view"></div>
         <br />
         <br />
     </div>
