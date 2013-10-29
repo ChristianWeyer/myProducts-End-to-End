@@ -3,6 +3,7 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd ${DIR} || exit
 
+echo "Pulling from GitHub"
 ## Get latest from GitHub
 cd ..
 git pull origin master
@@ -34,7 +35,7 @@ cp ../../src/myProducts.Web/main.js .
 cp ../node-webkit-sharedsource/* .
 
 ## Download generated index.html page
-echo GETting index.html
+echo "GETting index.html"
 curl -k https://windows8vm.local/ngmd/ > index.html
 perl -pi -w -e 's/\/ngmd\///g;' index.html
 
@@ -42,12 +43,12 @@ perl -pi -w -e 's/\/ngmd\///g;' index.html
 zip -qr ../out/app.nw *
 
 ## Build for node-webkit
-echo Building for Mac
+echo "Building for Mac"
 cp -r ../node-webkit-osx/ ../out/mac
 cp -r ../out/app.nw ../out/mac/node-webkit.app/Contents/Resources/
 mv ../out/mac/node-webkit.app "../out/mac/myProducts.app"
 
-echo Building for Windows
+echo "Building for Windows"
 cp -r ../node-webkit-win32/ ../out/windows
 cat ../out/windows/nw.exe ../out/app.nw > "../out/windows/myProducts.exe"
 rm ../out/windows/nw.exe
@@ -64,7 +65,7 @@ rm -rf myProducts/www
 cp -r ../tmp/ myProducts/www
 cp -r ../phonegap-sharedsource/ myProducts/
 
-echo Creating PhoneGap projects
+echo "Creating PhoneGap projects"
 
 cd myProducts
 
@@ -78,7 +79,7 @@ cordova platform add android
 cp -r ../../phonegap-ios/ ./platforms/ios/myProducts
 cp ./www/config.xml ./platforms/ios/myProducts
 
-echo Building for iOS
+echo "Building for iOS"
 cordova build ios
 
 cd platforms/ios/build/device/
@@ -88,7 +89,7 @@ cd ../../../..
 ## Build Android
 cp -r ../../phonegap-android/ ./platforms/android/
 
-echo Building for Android
+echo "Building for Android"
 cordova build android
 
 cd platforms/android/bin/
