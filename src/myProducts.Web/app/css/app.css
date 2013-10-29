@@ -43,6 +43,10 @@ h2 {
     background-color: rgba(180, 207, 213, 0.46);
 }
 
+.pdf-data-link {
+    margin-top: 7px;    
+}
+
 .form-horizontal input.ng-invalid.ng-dirty {
     background-color: #FA787E;
 }

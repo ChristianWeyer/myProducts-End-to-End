@@ -14,7 +14,7 @@ function ngGridPdfExportPlugin (options) {
             var fp = grid.$root.find(".ngFooterPanel");
             var pdfDataLinkPrevious = grid.$root.find('.ngFooterPanel .pdf-data-link-span');
             if (pdfDataLinkPrevious != null) {pdfDataLinkPrevious.remove() ; }
-            var pdfDataLinkHtml = '<button class="pdf-data-link-span">PDF Export</button>' ;
+            var pdfDataLinkHtml = '<div class="pdf-data-link"><button class="pdf-data-link-span">PDF Export</button></div>';
             fp.append(pdfDataLinkHtml);
             fp.on('click', function() {
                 self.createPDF();
