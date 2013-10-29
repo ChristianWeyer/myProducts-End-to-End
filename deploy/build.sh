@@ -3,6 +3,11 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd ${DIR} || exit
 
+## Get latest from GitHub
+cd ..
+git pull origin master
+cd ${DIR}
+
 echo "Cleaning up"
 ## Delete temp directories
 rm -rf tmp
@@ -88,6 +93,8 @@ cordova build android
 
 cd platforms/android/bin/
 cp myProducts-debug.apk ../../../../../out/android/
+
+#adb install myProducts-debug.apk
 
 ## Copy for web deployment
 cd ${DIR}
