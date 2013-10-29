@@ -6,6 +6,3 @@ tt.personalization = {
 tt.networkstatus = {
     onlineChanged: "tt:networkstatus:onlinechanged"
 };
-tt.settings = {
-    enablePushChanged: "tt:settings:enablepushchanged"
-};
