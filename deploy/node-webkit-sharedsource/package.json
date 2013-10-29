@@ -11,8 +11,5 @@
     "position": "mouse",
     "min_width": 1024,
     "min_height": 700
-  },
-  "webkit": {
-    "plugin": true
   }
 }
