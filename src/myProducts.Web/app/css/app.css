@@ -39,6 +39,10 @@ h2 {
     height: 390px;
 }
 
+.ngFooterPanel {
+    background-color: rgba(180, 207, 213, 0.46);
+}
+
 .form-horizontal input.ng-invalid.ng-dirty {
     background-color: #FA787E;
 }
