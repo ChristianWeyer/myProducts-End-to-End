@@ -1,5 +1,5 @@
     app.controller("SettingsController", ["$scope", "$rootScope", "settings", function ($scope, $rootScope, settings) {
-        $scope.settings = $scope.settings || {};
+        $scope.settings = {};
         $scope.settings.enablePush = settings.enablePush;
         $scope.settings.enablePdfExport = settings.enablePdfExport;
         

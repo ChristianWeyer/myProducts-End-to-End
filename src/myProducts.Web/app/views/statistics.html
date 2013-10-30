@@ -5,11 +5,11 @@
     <br/>
     <div class="span6">
         <nvd3-pie-chart
-            data="pieSeries"
+            data="statistics.pieSeries"
             id="pieChart1"
             margin="{left:0,top:0,bottom:0,right:0}"
-            x="pieX()"
-            y="pieY()"
+            x="statistics.pieX()"
+            y="statistics.pieY()"
             showLabels="true"
             pieLabelsOutside="true"
             showValues="true"
@@ -26,7 +26,7 @@
 
     <div class="span5">
         <nvd3-multi-bar-chart
-            data="columnSeries"
+            data="statistics.columnSeries"
             id="barChart1"
             margin="{left:60,top:5,bottom:20,right:10}"
             height="350">

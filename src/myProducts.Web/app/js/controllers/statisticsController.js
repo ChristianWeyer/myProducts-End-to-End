@@ -1,34 +1,36 @@
 ﻿app.lazy.controller("StatisticsController",
-    ["$scope", "$http", "$timeout", function ($scope, $http, $timeout) {
+    ["$scope", "$http", function ($scope, $http) {
+        $scope.statistics = {};
+        
         ttTools.logger.info("Freakin' cool stats!");
 
         $http({
             method: "GET",
             url: ttTools.baseUrl + "api/statistics/distribution"
         }).then(function (data) {
-            $scope.pieSeries = data.data;
+            $scope.statistics.pieSeries = data.data;
         });
 
         $http({
             method: "GET",
             url: ttTools.baseUrl + "api/statistics/sales"
         }).then(function (data) {
-            $scope.columnSeries = data.data;
+            $scope.statistics.columnSeries = data.data;
         });
 
-        $scope.pieX = function () {
+        $scope.statistics.pieX = function () {
             return function (d) {
                 return d.category;
             };
         };
 
-        $scope.pieY = function () {
+        $scope.statistics.pieY = function () {
             return function (d) {
                 return d.value;
             };
         };
 
-        $scope.pieDescription = function () {
+        $scope.statistics.pieDescription = function () {
             return function (d) {
                 return d.category;
             };

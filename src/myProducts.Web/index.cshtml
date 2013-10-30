@@ -24,7 +24,7 @@
     <div class="navbar navbar-fixed-top" bs-navbar>
         <div class="navbar-inner">
             <div class="container-fluid" ng-controller="NavigationController">
-                <button type="button" class="btn btn-navbar" ng-click="nav.isCollapsed=!nav.isCollapsed">
+                <button type="button" class="btn btn-navbar" ng-click="navigation.isCollapsed=!navigation.isCollapsed">
                     <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </button>
                 <span class="brand">
@@ -32,28 +32,28 @@
                     <a href="#" class="brand" translate="INDEX_TITLE"></a>
                 </span>
 
-                <div class="nav-collapse" collapse="nav.isCollapsed">
+                <div class="nav-collapse" collapse="navigation.isCollapsed">
                     <ul class="nav nav-pills">
-                        <li ng-repeat="ni in navigationItems" data-match-route='{{ ni.MatchPattern }}'>
-                            <a ng-show="ni.DisplayText" ng-click="nav.isCollapsed=true" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
+                        <li ng-repeat="ni in navigation.navigationItems" data-match-route='{{ ni.MatchPattern }}'>
+                            <a ng-show="ni.DisplayText" ng-click="navigation.isCollapsed=true" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
                         </li>
-                        <li data-match-route="/info"><a ng-click="nav.isCollapsed=true" href="#/info">Info</a></li>
+                        <li data-match-route="/info"><a ng-click="navigation.isCollapsed=true" href="#/info">Info</a></li>
                     </ul>
 
                     <ul class="nav nav-pills pull-right">
-                        <li data-match-route="/settings"><a ng-click="nav.isCollapsed=true" href="#/settings" translate="INDEX_SETTINGS"></a></li>
+                        <li data-match-route="/settings"><a ng-click="navigation.isCollapsed=true" href="#/settings" translate="INDEX_SETTINGS"></a></li>
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle"><i class="icon-align-justify"></i>&nbsp;<span translate="COMMON_LANG"></span></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="" ng-click="nav.isCollapsed=true;changeLanguage('de');">
+                                    <a href="" ng-click="navigation.isCollapsed=true; navigation.changeLanguage('de');">
                                         <img src="app/images/lang_de_t.png">
                                         <span translate="COMMON_DE"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" ng-click="nav.isCollapsed=true;changeLanguage('en')">
+                                    <a href="" ng-click="navigation.isCollapsed=true; navigation.changeLanguage('en')">
                                         <img src="app/images/lang_en_t.png">
                                         <span translate="COMMON_EN"></span>
                                     </a>
@@ -75,14 +75,14 @@
 
     <footer id="footer">
         <div class="container-fluid" ng-controller="StatusController">
-            <img ng-if="isOnline" src="app/images/online.png" />
-            <img ng-if="!isOnline" src="app/images/offline.png" />
+            <img ng-if="status.isOnline" src="app/images/online.png" />
+            <img ng-if="!status.isOnline" src="app/images/offline.png" />
 
             <span>&nbsp;
                     <span ng-if="tt.authentication.userLoggedIn">
-                        <a href="" ng-click="logout();">
+                        <a href="" ng-click="status.logout();">
                             <i class="icon-user"></i>
-                            <strong>{{ userName }}</strong>
+                            <strong>{{ status.userName }}</strong>
                         </a>
                     </span>
                 <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">

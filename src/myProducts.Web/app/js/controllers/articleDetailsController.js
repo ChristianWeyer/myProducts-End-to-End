@@ -1,15 +1,16 @@
 ﻿app.lazy.controller("ArticleDetailsController",
     ["$scope", "$routeParams", "articlesApi", "toast", "$location", "dialog", "$translate",
         function ($scope, $routeParams, articlesApi, toast, $location, dialog, $translate) {
+            $scope.articedetails = {};
 
             if ($routeParams.id !== "new") {
                 ttTools.logger.info("Getting article details...");
 
-                $scope.editMode = true;
+                $scope.articedetails.editMode = true;
 
                 articlesApi.getArticleDetails($routeParams.id)
                     .success(function (data) {
-                        $scope.artikel = data;
+                        $scope.articedetails.article = data;
                     })
                     .error(function (data) {
                         ttTools.logger.error("Server error", data);
@@ -24,11 +25,11 @@
                     });
             }
 
-            $scope.save = function () {
+            $scope.articedetails.save = function () {
                 var file = null;
-                if ($scope.image) file = $scope.image.file;
+                if ($scope.articedetails.image) file = $scope.articedetails.image.file;
                 
-                articlesApi.saveArticleWithImage($scope.artikel, file)
+                articlesApi.saveArticleWithImage($scope.articedetails.article, file)
                     .success(function () {
                         toast.pop({
                             title: $translate("POPUP_SUCCESS"),

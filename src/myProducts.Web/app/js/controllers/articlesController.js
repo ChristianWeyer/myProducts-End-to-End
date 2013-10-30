@@ -1,84 +1,85 @@
 app.lazy.controller("ArticlesController",
     ["$scope", "$location", "articlesApi", "dataPush", "toast", "dialog", "$translate", "personalization", "settings",
         function ($scope, $location, articlesApi, dataPush, toast, dialog, $translate, personalization, settings) {
-            $scope.pagingOptions = { pageSizes: [10], pageSize: 10, currentPage: 1 };
-            $scope.filterOptions = {
+            $scope.capabilities = personalization.data.UiClaims.Capabilities;
+            $scope.capabilities.has = function (key) {
+                return $scope.capabilities.indexOf(key) > -1;
+            };
+
+            $scope.articles = {};
+            $scope.articles.pagingOptions = { pageSizes: [10], pageSize: 10, currentPage: 1 };
+            $scope.articles.filterOptions = {
                 filterText: "",
                 useExternalFilter: true
             };
-            $scope.gridOptions = {
-                data: "articlesData",
+            $scope.articles.gridOptions = {
+                data: "articles.articlesData",
                 enablePaging: true,
                 showFooter: true,
-                totalServerItems: "totalServerItems",
-                pagingOptions: $scope.pagingOptions,
-                filterOptions: $scope.filterOptions,
+                totalServerItems: "articles.totalServerItems",
+                pagingOptions: $scope.articles.pagingOptions,
+                filterOptions: $scope.articles.filterOptions,
                 showFilter: true,
                 multiSelect: false,
                 columnDefs: [{ field: 'Name', displayName: 'Name' }, { field: 'Code', displayName: 'Code' }, { cellTemplate: "app/views/gridCellTemplate.html", width: "90px" }]
             };
 
             if (settings.enablePdfExport) {
-                $scope.gridOptions.plugins = [new ngGridPdfExportPlugin({})];
+                $scope.articles.gridOptions.plugins = [new ngGridPdfExportPlugin({})];
             }
 
-            $scope.getFilteredData = function (searchText) {
+            $scope.articles.getFilteredData = function (searchText) {
                 var search = searchText;
-                if ($scope.gridOptions.$gridScope.filterText) search = $scope.gridOptions.$gridScope.filterText;
+                if ($scope.articles.gridOptions.$gridScope.filterText) search = $scope.articles.gridOptions.$gridScope.filterText;
 
-                return articlesApi.getArticlesPaged($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, search, false)
+                return articlesApi.getArticlesPaged($scope.articles.pagingOptions.pageSize, $scope.articles.pagingOptions.currentPage, search, false)
                     .then(function (data) {
-                        $scope.articlesData = data.Items;
-                        $scope.totalServerItems = data.Count;
+                        $scope.articles.articlesData = data.Items;
+                        $scope.articles.totalServerItems = data.Count;
 
                         return data.Items;
                     });
             };
 
-            $scope.getPagedData = function (force) {
-                return articlesApi.getArticlesPaged($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, "", force)
+            $scope.articles.getPagedData = function (force) {
+                return articlesApi.getArticlesPaged($scope.articles.pagingOptions.pageSize, $scope.articles.pagingOptions.currentPage, "", force)
                     .then(function (data) {
-                        $scope.articlesData = data.Items;
-                        $scope.totalServerItems = data.Count;
+                        $scope.articles.articlesData = data.Items;
+                        $scope.articles.totalServerItems = data.Count;
                     });
             };
 
             ttTools.logger.info("Loading articles...");
-            $scope.getPagedData(false);
+            $scope.articles.getPagedData(false);
 
-            $scope.$watch("gridOptions.$gridScope.filterText", function (newVal, oldVal) {
+            $scope.$watch("articles.gridOptions.$gridScope.filterText", function (newVal, oldVal) {
                 if (newVal !== oldVal) {
-                    $scope.getFilteredData();
+                    $scope.articles.getFilteredData();
                 }
             }, true);
 
-            $scope.$watch("pagingOptions", function (newVal, oldVal) {
+            $scope.$watch("articles.pagingOptions", function (newVal, oldVal) {
                 if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage) {
-                    $scope.getPagedData();
+                    $scope.articles.getPagedData();
                 }
             }, true);
-
-            $scope.capabilities = personalization.data.UiClaims.Capabilities;
-            $scope.capabilities.has = function (key) {
-                return $scope.capabilities.indexOf(key) > -1;
-            };
 
             $scope.$on(tt.signalr.subscribe + "articleChange", function () {
-                $scope.getPagedData(true);
+                $scope.articles.getPagedData(true);
             });
 
-            $scope.getArticleDetails = function (id) {
+            $scope.articles.getArticleDetails = function (id) {
                 $location.path("/articledetails/" + id);
             };
 
-            $scope.addArticle = function () {
+            $scope.articles.addArticle = function () {
                 $location.path("/articledetails/new");
             };
 
-            $scope.deleteArticle = function (id) {
+            $scope.articles.deleteArticle = function (id) {
                 articlesApi.deleteArticle(id)
                     .success(function () {
-                        $scope.getPagedData(true);
+                        $scope.articles.getPagedData(true);
 
                         toast.pop({
                             title: $translate("POPUP_SUCCESS"),

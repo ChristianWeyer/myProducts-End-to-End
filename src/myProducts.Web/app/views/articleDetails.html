@@ -4,25 +4,25 @@
     <div class="control-group" ng-class="{ error: form.name.$invalid }">
         <label class="control-label" for="name">Name</label>
         <div class="controls">
-            <input type="text" required ng-model="artikel.Name" id="name">
+            <input type="text" required ng-model="articedetails.article.Name" id="name">
         </div>
     </div>
     
     <div class="control-group" ng-class="{ error: form.code.$invalid }">
         <label class="control-label" for="code">Code</label>
         <div class="controls">
-            <input type="text" required ng-model="artikel.Code" id="code">
+            <input type="text" required ng-model="articedetails.article.Code" id="code">
         </div>
     </div>
 
     <div>
-        <textarea type="text" rows="7" cols="20" ng-model="artikel.Description" />
-        <img ng-if="editMode" alt="Product image" class="img" src="app/images/default.png" ng-src="{{ artikel.ImageUrl | baseUrl }}" />
-        <span ng-show="!editMode">
-            <img ng-show="image" ng-src="{{ image.resized.dataURL }}" type="{{ image.file.type }}" />
+        <textarea type="text" rows="7" cols="20" ng-model="articedetails.article.Description" />
+        <img ng-if="articedetails.editMode" alt="Product image" class="img" src="app/images/default.png" ng-src="{{ articedetails.article.ImageUrl | baseUrl }}" />
+        <span ng-show="!articedetails.editMode">
+            <img ng-show="articedetails.image" ng-src="{{ articedetails.image.resized.dataURL }}" type="{{ articedetails.image.file.type }}" />
             <br />
             <br />
-            <input type="file" accept="image/*" image="image" resize-max-width="400" resize-quality="0.9" button-text="{{ 'DETAILS_SELECTIMAGE' | translate }}" />
+            <input type="file" accept="image/*" image="articedetails.image" resize-max-width="400" resize-quality="0.9" button-text="{{ 'DETAILS_SELECTIMAGE' | translate }}" />
         </span>
     </div>
 

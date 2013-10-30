@@ -1,20 +1,20 @@
     app.controller("NavigationController", ["$http", "$scope", "$translate", "personalization",
         function ($http, $scope, $translate, personalization) {
-            $scope.nav = $scope.nav || {};
-            $scope.nav.isCollapsed = true;
+            $scope.navigation = {};
+            $scope.navigation.isCollapsed = true;
             
-            $scope.currentLanguage = $translate.preferredLanguage() || $translate.proposedLanguage();
+            $scope.navigation.currentLanguage = $translate.preferredLanguage() || $translate.proposedLanguage();
             
             $scope.$on(tt.personalization.dataLoaded, function () {
-                $scope.navigationItems = personalization.data.Features;
+                $scope.navigation.navigationItems = personalization.data.Features;
             });
 
             $scope.$on(tt.authentication.logoutConfirmed, function () {
-                $scope.navigationItems = null;
+                $scope.navigation.navigationItems = null;
             });
             
-            $scope.changeLanguage = function (langKey) {
-                $scope.currentLanguage = langKey;
+            $scope.navigation.changeLanguage = function (langKey) {
+                $scope.navigation.currentLanguage = langKey;
                 $translate.uses(langKey);
             };
         }]);
