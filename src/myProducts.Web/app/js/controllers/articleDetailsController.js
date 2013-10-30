@@ -26,8 +26,7 @@
             }
 
             $scope.articedetails.save = function () {
-                var file = null;
-                if ($scope.articedetails.image) file = $scope.articedetails.image.file;
+                var file = $scope.articedetails.image ? $scope.articedetails.image.file : null;
                 
                 articlesApi.saveArticleWithImage($scope.articedetails.article, file)
                     .success(function () {

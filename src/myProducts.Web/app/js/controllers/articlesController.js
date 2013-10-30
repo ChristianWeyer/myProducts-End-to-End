@@ -29,8 +29,7 @@ app.lazy.controller("ArticlesController",
             }
 
             $scope.articles.getFilteredData = function (searchText) {
-                var search = searchText;
-                if ($scope.articles.gridOptions.$gridScope.filterText) search = $scope.articles.gridOptions.$gridScope.filterText;
+                var search = $scope.articles.gridOptions.$gridScope.filterText ? $scope.articles.gridOptions.$gridScope.filterText : searchText;
 
                 return articlesApi.getArticlesPaged($scope.articles.pagingOptions.pageSize, $scope.articles.pagingOptions.currentPage, search, false)
                     .then(function (data) {
