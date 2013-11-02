@@ -350,6 +350,7 @@
     </Content>
     <Content Include="app\translations\locale-en.json" />
     <Content Include="index.cshtml" />
+    <Content Include="manifest.cshtml" />
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
