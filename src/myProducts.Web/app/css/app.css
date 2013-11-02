@@ -22,7 +22,7 @@ h2 {
 }
 
 .nav-collapse {
-    background: white;
+    background: rgb(235, 235, 235);
     z-index: 1000;
 }
 
