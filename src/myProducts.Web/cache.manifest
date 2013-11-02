@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-#0.002
+#0.003
 
 CACHE:
 ./main.js
@@ -15,9 +15,6 @@ CACHE:
 ./app/css/toastr.css
 ./app/css/tweak-bootstrap.css
 
-./app/font/fontawesome-webfont.eot
-./app/font/fontawesome-webfont.svg
-./app/font/fontawesome-webfont.ttf
 ./app/font/fontawesome-webfont.woff
 
 ./app/images/ajax-loader.gif
