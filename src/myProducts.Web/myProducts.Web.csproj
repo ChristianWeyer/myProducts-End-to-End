@@ -328,7 +328,6 @@
     <Content Include="app\views\articleDetails.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\articles.html" />
-    <Content Include="cache.manifest" />
     <Content Include="Global.asax" />
     <Content Include="app\font\fontawesome-webfont.eot" />
     <Content Include="app\font\fontawesome-webfont.ttf" />
