@@ -19,7 +19,6 @@ CACHE:
 ./app/font/fontawesome-webfont.svg
 ./app/font/fontawesome-webfont.ttf
 ./app/font/fontawesome-webfont.woff
-./app/font/FontAwesome.otf
 
 ./app/images/ajax-loader.gif
 ./app/images/apple-touch-startup-image-1024x748.png
