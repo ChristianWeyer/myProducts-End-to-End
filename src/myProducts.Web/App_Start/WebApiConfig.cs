@@ -67,8 +67,6 @@ namespace MyProducts.Web.App_Start
 
             config.MessageHandlers.Insert(0, new CompressionHandler());
             //config.MessageHandlers.Add(new PerfItDelegatingHandler(config, "myProducts application services"));
-
-            config.EnsureInitialized();
         }
     }
 }
