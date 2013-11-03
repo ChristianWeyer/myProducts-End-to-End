@@ -21,17 +21,6 @@ h2 {
     margin-bottom: 10px;
 }
 
-.startText {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    text-align: center;
-    margin-top: -50px;
-    margin-left: -120px;
-    text-transform: uppercase;
-    color: rgb(212,212,212);
-}
-
 .nav-collapse {
     background: rgb(235, 235, 235);
     z-index: 1000;
