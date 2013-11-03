@@ -25,6 +25,7 @@ $script.ready("app", function () {
         "services/networkStatusService",
         "services/settingsService",
 
+        "controllers/startController",
         "controllers/navigationController",
         "controllers/loginController",
         "controllers/infoController",

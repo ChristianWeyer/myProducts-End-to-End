@@ -18,6 +18,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         routeResolverProvider.routeConfig.setBaseDirectories("app/views/", "app/js/controllers/");
 
         $routeProvider
+            .when("/", { templateUrl: "app/views/start.html", controller: "StartController" })
             .when("/info", { templateUrl: "app/views/info.html", controller: "InfoController" })
             .when("/settings", { templateUrl: "app/views/settings.html", controller: "SettingsController" })
             .when("/login", { templateUrl: "app/views/login.html", controller: "LoginController" });

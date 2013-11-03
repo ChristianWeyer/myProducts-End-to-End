@@ -254,6 +254,7 @@
     <Content Include="app\images\logo.png" />
     <Content Include="app\css\app.css" />
     <Content Include="app\js\constants.js" />
+    <Content Include="app\js\controllers\startController.js" />
     <Content Include="app\js\controllers\adminController.js" />
     <Content Include="app\js\controllers\settingsController.js" />
     <Content Include="app\js\controllers\galleryController.js" />
@@ -298,6 +299,7 @@
     <Content Include="app\js\services\personalizationService.js" />
     <Content Include="app\font\fontawesome-webfont.svg" />
     <Content Include="app\js\services\settingsService.js" />
+    <Content Include="app\views\start.html" />
     <Content Include="app\views\admin.html" />
     <Content Include="app\views\gallery.html" />
     <Content Include="app\views\gridCellTemplate.html" />
