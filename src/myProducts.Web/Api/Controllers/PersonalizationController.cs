@@ -27,7 +27,7 @@ namespace MyProducts.Web.Api.Controllers
 
         private IEnumerable<FeatureItem> GetFeatures(IPrincipal principal)
         {
-            var module0 = new FeatureItem { Module = "Articles", DisplayText = "INDEX_ARTICLES", Url = "/articles", MatchPattern = "(/|/article.*)", Users = new List<string> { "cw", "bob" } };
+            var module0 = new FeatureItem { Module = "Articles", DisplayText = "INDEX_ARTICLES", Url = "/articles", MatchPattern = "(/article.*)", Users = new List<string> { "cw", "bob" } };
             var module1 = new FeatureItem { Module = "ArticleDetails", Url = "/articledetails/:id", Users = new List<string> { "cw", "bob" } };
             var module2 = new FeatureItem { Module = "Gallery", DisplayText = "INDEX_GALLERY", Url = "/gallery", MatchPattern = "/gallery", Users = new List<string> { "cw" } };
             var module3 = new FeatureItem { Module = "Admin", DisplayText = "INDEX_ADMIN", Url = "/admin", MatchPattern = "/admin", Users = new List<string> { "cw" } };

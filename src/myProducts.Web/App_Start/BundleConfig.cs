@@ -32,6 +32,8 @@ namespace MyProducts.Web.App_Start
                 );
 
             bundles.Add(new StyleBundle("~/app/css/common")
+                .Include("~/app/css/modern.css")
+                .Include("~/app/css/modern-responsive.css")
                 .Include("~/app/css/bootstrap.css")
                 .Include("~/app/css/tweak-bootstrap.css")
                 .Include("~/app/css/bootstrap-responsive.css")
