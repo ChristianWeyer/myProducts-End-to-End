@@ -4,30 +4,30 @@
     <div class="control-group" ng-class="{ error: form.name.$invalid }">
         <label class="control-label" for="name">Name</label>
         <div class="controls">
-            <input type="text" required ng-model="articedetails.article.Name" id="name">
+            <input type="text" required ng-model="articledetails.article.Name" id="name">
         </div>
     </div>
     
     <div class="control-group" ng-class="{ error: form.code.$invalid }">
         <label class="control-label" for="code">Code</label>
         <div class="controls">
-            <input type="text" required ng-model="articedetails.article.Code" id="code">
+            <input type="text" required ng-model="articledetails.article.Code" id="code">
         </div>
     </div>
 
     <div>
-        <textarea type="text" rows="7" cols="20" ng-model="articedetails.article.Description" />
-        <img ng-if="articedetails.editMode" alt="Product image" class="img" src="app/images/default.png" ng-src="{{ articedetails.article.ImageUrl | baseUrl }}" />
-        <span ng-show="!articedetails.editMode">
-            <img ng-show="articedetails.image" ng-src="{{ articedetails.image.resized.dataURL }}" type="{{ articedetails.image.file.type }}" />
+        <textarea type="text" rows="7" cols="20" ng-model="articledetails.article.Description" />
+        <img ng-if="articledetails.editMode" alt="Product image" class="img" src="app/images/default.png" ng-src="{{ articledetails.article.ImageUrl | baseUrl }}" />
+        <span ng-show="!articledetails.editMode">
+            <img ng-show="articledetails.image" ng-src="{{ articledetails.image.resized.dataURL }}" type="{{ articledetails.image.file.type }}" />
             <br />
             <br />
-            <input type="file" accept="image/*" image="articedetails.image" resize-max-width="400" resize-quality="0.9" button-text="{{ 'DETAILS_SELECTIMAGE' | translate }}" />
+            <input type="file" accept="image/*" image="articledetails.image" resize-max-width="400" resize-quality="0.9" button-text="{{ 'DETAILS_SELECTIMAGE' | translate }}" />
         </span>
     </div>
 
     <div class="form-actions">
-        <button ng-click="save()" ng-disabled="form.$invalid" class="btn btn-primary" translate="COMMON_SAVE"></button>
+        <button ng-click="articledetails.save()" ng-disabled="form.$invalid" class="btn btn-primary" translate="COMMON_SAVE"></button>
         <a href="#/articles" class="btn" translate="COMMON_CANCEL"></a>
     </div>
 </form>
