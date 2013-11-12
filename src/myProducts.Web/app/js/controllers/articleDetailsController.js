@@ -38,7 +38,7 @@
                         articlesApi.dataChanged();
                         $location.path('/articles');
                     })
-                    .error(function (data) {
+                    .error(function (data, status, headers, config) {
                         ttTools.logger.error("Server error", data);
 
                         dialog.showModalDialog({}, {
