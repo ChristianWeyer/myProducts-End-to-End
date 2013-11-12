@@ -35,6 +35,7 @@
                             body: $translate("POPUP_SAVED"),
                             type: "success"
                         });
+                        articlesApi.dataChanged();
                         $location.path('/articles');
                     })
                     .error(function (data) {

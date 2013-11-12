@@ -2,6 +2,8 @@
     var articlesCache = $angularCacheFactory("articlesCache", {});
 
     var service = {
+        toBeForced: false,
+        
         getArticlesPaged: function (pageSize, page, searchText, force) {
             var deferred = $q.defer();
             var cacheKey = "articles_" + pageSize + "_" + page;
@@ -31,6 +33,7 @@
 
         dataChanged: function() {
             articlesCache.removeAll();
+            this.toBeForced = true;
         },
         
         getArticleDetails: function (id) {
@@ -43,7 +46,7 @@
         saveArticleWithImage: function (artikel, image) {
             return $http({
                 method: "POST",
-                url: "api/articles",
+                url: ttTools.baseUrl + "api/articles",
                 headers: { "Content-Type": undefined },
                 transformRequest: function (data) {
                     var formData = new FormData();

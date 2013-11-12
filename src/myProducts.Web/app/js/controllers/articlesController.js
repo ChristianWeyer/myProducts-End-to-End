@@ -49,7 +49,7 @@ app.lazy.controller("ArticlesController",
             };
 
             ttTools.logger.info("Loading articles...");
-            $scope.articles.getPagedData(false);
+            $scope.articles.getPagedData(articlesApi.toBeForced);
 
             $scope.$watch("articles.gridOptions.$gridScope.filterText", function (newVal, oldVal) {
                 if (newVal !== oldVal) {
