@@ -1,6 +1,6 @@
 app.lazy.controller("ArticlesController",
-    ["$scope", "$location", "articlesApi", "dataPush", "toast", "dialog", "$translate", "personalization", "settings",
-        function ($scope, $location, articlesApi, dataPush, toast, dialog, $translate, personalization, settings) {
+    ["$scope", "$location", "articlesApi", "dataPush", "subscribePrefix", "toast", "dialog", "$translate", "personalization", "settings",
+        function ($scope, $location, articlesApi, dataPush, subscribePrefix, toast, dialog, $translate, personalization, settings) {
             $scope.capabilities = personalization.data.UiClaims.Capabilities;
             $scope.capabilities.has = function (key) {
                 return $scope.capabilities.indexOf(key) > -1;
@@ -64,7 +64,7 @@ app.lazy.controller("ArticlesController",
                 }
             }, true);
 
-            $scope.$on(tt.signalr.subscribe + "articleChange", function () {
+            $scope.$on(subscribePrefix + "articleChange", function () {
                 $scope.articles.getPagedData(true);
             });
 

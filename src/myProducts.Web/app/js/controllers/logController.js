@@ -1,9 +1,9 @@
-app.lazy.controller("LogController", ["$scope", "logPush", function ($scope, logPush) {
+app.lazy.controller("LogController", ["$scope", "logPush", "subscribePrefix", function ($scope, logPush, subscribePrefix) {
     $scope.log = {};
     
     $scope.log.entries = [];
 
-    $scope.$on(tt.signalr.subscribe + "sendLogEvent", function (event, data) {
-        $scope.$apply($scope.log.entries.push(data));
+    $scope.$on(subscribePrefix + "sendLogEvent", function (event, data) {
+        $scope.log.entries.push(data);
     });
 }]);
