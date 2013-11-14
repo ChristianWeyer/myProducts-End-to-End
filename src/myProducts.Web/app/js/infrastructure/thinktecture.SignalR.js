@@ -2,7 +2,7 @@
 tt.signalr = {
     subscribe: "tt:signalr:subscribe:"
 };
-
+    
 angular.module("tt.SignalR", ["ng"]).
     factory("hubProxy", ["$rootScope", function ($rootScope) {
         function signalRHubProxyFactory(serverUrl, hubName) {
