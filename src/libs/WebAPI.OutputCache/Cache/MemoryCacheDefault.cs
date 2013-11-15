@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.ObjectModel;
 using System.Runtime.Caching;
 
 namespace WebAPI.OutputCache.Cache

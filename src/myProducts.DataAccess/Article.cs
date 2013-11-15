@@ -2,9 +2,8 @@
 
 namespace MyProducts.DataAccess
 {
-    public class Article
+    public class Article : EntityBase
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
         public string Description { get; set; }

@@ -1,12 +1,10 @@
-﻿using System;
+﻿using PerfIt.Handlers;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading;
 using System.Web.Http;
-using PerfIt.Handlers;
 
 namespace PerfIt
 {

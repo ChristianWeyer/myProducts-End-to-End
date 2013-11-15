@@ -3,7 +3,6 @@ using Microsoft.AspNet.SignalR;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Storage;
 using MyProducts.Web.Api.Hubs;
-using PerfIt;
 using Serilog;
 using System;
 using System.IdentityModel.Services;

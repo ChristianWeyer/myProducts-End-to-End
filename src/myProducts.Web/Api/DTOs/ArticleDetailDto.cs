@@ -1,10 +1,7 @@
-﻿using System;
-
-namespace MyProducts.Web.Api.DTOs
+﻿namespace MyProducts.Web.Api.DTOs
 {
-    public class ArticleDetailDto
+    public class ArticleDetailDto : DtoBase
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
         public string Description { get; set; }

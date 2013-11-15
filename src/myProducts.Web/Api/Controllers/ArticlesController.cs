@@ -1,13 +1,12 @@
-﻿using Microsoft.AspNet.SignalR;
+﻿using AutoMapper.QueryableExtensions;
+using Microsoft.AspNet.SignalR;
 using MyProducts.DataAccess;
 using MyProducts.Web.Api.DTOs;
 using MyProducts.Web.Api.Hubs;
-using MyProducts.Web.Api.Validation;
 using Newtonsoft.Json;
 using PerfIt;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -22,11 +21,9 @@ using WebAPI.OutputCache;
 namespace MyProducts.Web.Api.Controllers
 {
     [ApiExceptionFilter]
-    [ValidationResponseFilter]
     public class ArticlesController : ApiController
     {
         private readonly ProductsContext productsContext;
-        private const string imagesFolder = "images";
 
         public ArticlesController()
         {
@@ -39,16 +36,7 @@ namespace MyProducts.Web.Api.Controllers
         {
             var settings = new ODataQuerySettings { PageSize = 10, EnsureStableOrdering = false };
 
-            var artikelQuery =
-                from a in productsContext.Articles.AsNoTracking()
-                orderby a.Id
-                select new ArticleDto()
-                {
-                    Id = a.Id,
-                    Code = a.Code,
-                    Name = a.Name
-                };
-
+            var artikelQuery = productsContext.Articles.AsNoTracking().Project().To<ArticleDto>().OrderBy(a => a.Id);
             var results = options.ApplyTo(artikelQuery, settings);
 
             return new PageResult<ArticleDto>(
@@ -63,8 +51,8 @@ namespace MyProducts.Web.Api.Controllers
         public ArticleDetailDto Get(string id)
         {
             // For demos:
-            //throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = "WTF?!?!?!" });
-
+            //throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = "Ooops?!?!?!" });
+            
             Guid guid;
 
             if (!Guid.TryParse(id, out guid))
@@ -72,19 +60,8 @@ namespace MyProducts.Web.Api.Controllers
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
 
-            var query =
-                from artikel in productsContext.Articles.AsNoTracking()
-                where artikel.Id == guid
-                select new ArticleDetailDto
-                    {
-                        Id = artikel.Id,
-                        Code = artikel.Code,
-                        Name = artikel.Name,
-                        Description = artikel.Description,
-                        ImageUrl = imagesFolder + "/" + artikel.ImageUrl
-                    };
-
-            var artikelDetails = query.FirstOrDefault();
+            var artikelQuery = productsContext.Articles.AsNoTracking().Project().To<ArticleDetailDto>().Where(a => a.Id == guid);
+            var artikelDetails = artikelQuery.SingleOrDefault();
 
             if (artikelDetails == null)
             {
@@ -103,7 +80,7 @@ namespace MyProducts.Web.Api.Controllers
                 throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
             }
 
-            var uploadImagesFolder = HttpContext.Current.Server.MapPath("../" + imagesFolder);
+            var uploadImagesFolder = HttpContext.Current.Server.MapPath("../" + Constants.ImagesFolder);
             var provider = new MultipartFormDataStreamProvider(uploadImagesFolder);
             var postResult = await Request.Content.ReadAsMultipartAsync(provider);
 
@@ -119,24 +96,8 @@ namespace MyProducts.Web.Api.Controllers
                 throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = "No valid model" });
             }
 
-            var entity = new Article
-                {
-                    Id = value.Id,
-                    Code = value.Code,
-                    Name = value.Name,
-                    Description = value.Description
-                };
-
-            if (entity.Id == Guid.Empty)
-            {
-                entity.Id = Guid.NewGuid();
-                productsContext.Entry(entity).State = EntityState.Added;
-            }
-            else
-            {
-                productsContext.Entry(entity).State = EntityState.Modified;
-                productsContext.Entry(entity).Property(e => e.ImageUrl).IsModified = false;
-            }
+            var entity = value.Map();
+            productsContext.SetEntityState(entity, "ImageUrl");
 
             var imageUrl = entity.Id.ToString() + ".jpg";
             entity.ImageUrl = imageUrl;
@@ -159,7 +120,7 @@ namespace MyProducts.Web.Api.Controllers
         [InvalidateCacheOutput("GetById")]
         public void Delete(string id)
         {
-            productsContext.Entry(new Article { Id = Guid.Parse(id) }).State = EntityState.Deleted;
+            productsContext.SetDeleted<Article>(Guid.Parse(id));
             productsContext.SaveChanges();
 
             var hub = GlobalHost.ConnectionManager.GetHubContext<ClientNotificationHub>();

@@ -1,4 +1,5 @@
-﻿using MyProducts.Web.App_Start;
+﻿using MyProducts.Web.Api;
+using MyProducts.Web.App_Start;
 using System;
 using System.Web.Http;
 using System.Web.Optimization;
@@ -11,6 +12,8 @@ namespace MyProducts.Web
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
             BundleConfig.Register(BundleTable.Bundles);
+
+            DataMapper.Configure();
         }
     }
 }
