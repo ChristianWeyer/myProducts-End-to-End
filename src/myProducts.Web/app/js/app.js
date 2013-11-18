@@ -26,6 +26,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         $provide.factory('$routeProviderService', function () {
             return $routeProvider;
         });
+        
         $provide.factory('routeResolverProviderService', function () {
             return routeResolverProvider;
         });
