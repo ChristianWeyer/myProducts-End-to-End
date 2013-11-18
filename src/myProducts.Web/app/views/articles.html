@@ -14,13 +14,13 @@
     <table ng-show="articles.articlesData" class="table table-striped">
         <thead>
             <tr>
-                <th>Name</th>
+                <th style="width: 40%">Name</th>
                 <th>Code</th>
                 <th style="width: 90px"></th>
             </tr>
         </thead>
         <tr ng-repeat="a in articles.articlesData">
-            <td>{{ a.Name }}</td>
+            <td style="width: 40%">{{ a.Name }}</td>
             <td>{{ a.Code }}</td>
             <td style="width: 90px">
                 <i class="btn icon-edit" ng-click="articles.getArticleDetails(a.Id)"></i>&nbsp;
