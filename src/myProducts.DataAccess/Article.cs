@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace MyProducts.DataAccess
 {
     public class Article : EntityBase

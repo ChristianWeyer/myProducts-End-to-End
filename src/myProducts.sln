@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{D16EC645-0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfIt", "libs\PerfIt\PerfIt.csproj", "{D5C2F6DB-26E7-415C-89E9-97B4C83E09AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.SelfHost", "myProducts.SelfHost\myProducts.SelfHost.csproj", "{97046BCF-227C-4F65-9374-733FDBDBE1F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D5C2F6DB-26E7-415C-89E9-97B4C83E09AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5C2F6DB-26E7-415C-89E9-97B4C83E09AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5C2F6DB-26E7-415C-89E9-97B4C83E09AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97046BCF-227C-4F65-9374-733FDBDBE1F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97046BCF-227C-4F65-9374-733FDBDBE1F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97046BCF-227C-4F65-9374-733FDBDBE1F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97046BCF-227C-4F65-9374-733FDBDBE1F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
