@@ -1,6 +1,6 @@
 app.lazy.controller("ArticlesController",
-    ["$scope", "$location", "articlesApi", "dataPush", "subscribePrefix", "toast", "dialog", "$translate", "personalization", "settings",
-        function ($scope, $location, articlesApi, dataPush, subscribePrefix, toast, dialog, $translate, personalization, settings) {
+    ["$scope", "$location", "articlesApi", "dataPush", "subscribePrefix", "toast", "dialog", "$translate", "personalization",
+        function ($scope, $location, articlesApi, dataPush, subscribePrefix, toast, dialog, $translate, personalization) {
             $scope.capabilities = personalization.data.UiClaims.Capabilities;
             $scope.capabilities.has = function (key) {
                 return $scope.capabilities.indexOf(key) > -1;
@@ -8,28 +8,9 @@ app.lazy.controller("ArticlesController",
 
             $scope.articles = {};
             $scope.articles.pagingOptions = { pageSizes: [10], pageSize: 10, currentPage: 1 };
-            $scope.articles.filterOptions = {
-                filterText: "",
-                useExternalFilter: true
-            };
-            $scope.articles.gridOptions = {
-                data: "articles.articlesData",
-                enablePaging: true,
-                showFooter: true,
-                totalServerItems: "articles.totalServerItems",
-                pagingOptions: $scope.articles.pagingOptions,
-                filterOptions: $scope.articles.filterOptions,
-                showFilter: true,
-                multiSelect: false,
-                columnDefs: [{ field: 'Name', displayName: 'Name' }, { field: 'Code', displayName: 'Code' }, { cellTemplate: "app/views/gridCellTemplate.html", width: "90px" }]
-            };
-
-            if (settings.enablePdfExport) {
-                $scope.articles.gridOptions.plugins = [new ngGridPdfExportPlugin({})];
-            }
 
             $scope.articles.getFilteredData = function (searchText) {
-                var search = $scope.articles.gridOptions.$gridScope.filterText ? $scope.articles.gridOptions.$gridScope.filterText : searchText;
+                var search = searchText;
 
                 return articlesApi.getArticlesPaged($scope.articles.pagingOptions.pageSize, $scope.articles.pagingOptions.currentPage, search, false)
                     .then(function (data) {
@@ -49,14 +30,8 @@ app.lazy.controller("ArticlesController",
             };
 
             ttTools.logger.info("Loading articles...");
-            
-            $scope.articles.getPagedData(articlesApi.toBeForced);
 
-            $scope.$watch("articles.gridOptions.$gridScope.filterText", function (newVal, oldVal) {
-                if (newVal !== oldVal) {
-                    $scope.articles.getFilteredData();
-                }
-            }, true);
+            $scope.articles.getPagedData(articlesApi.toBeForced);
 
             $scope.$watch("articles.pagingOptions", function (newVal, oldVal) {
                 if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage) {

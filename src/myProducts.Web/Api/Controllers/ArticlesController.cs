@@ -1,4 +1,5 @@
-﻿using AutoMapper.QueryableExtensions;
+﻿using System.Security.Claims;
+using AutoMapper.QueryableExtensions;
 using Microsoft.AspNet.SignalR;
 using MyProducts.DataAccess;
 using MyProducts.Web.Api.DTOs;
@@ -53,6 +54,7 @@ namespace MyProducts.Web.Api.Controllers
             // For demos:
             //throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = "Ooops?!?!?!" });
             
+
             Guid guid;
 
             if (!Guid.TryParse(id, out guid))

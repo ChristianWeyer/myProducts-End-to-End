@@ -10,5 +10,24 @@
         </div>
     </form>
     <hr />
-    <div class="gridStyle" ng-grid="articles.gridOptions"></div>
+
+    <table ng-if="articles.articlesData" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th style="width: 15%"></th>
+            </tr>
+        </thead>
+        <tr ng-repeat="a in articles.articlesData">
+            <td>{{ a.Name }}</td>
+            <td>{{ a.Code }}</td>
+            <td style="width: 15%">
+                <i class="btn icon-edit" ng-click="articles.getArticleDetails(a.Id)"></i>&nbsp;
+                <i class="btn icon-trash" ng-click="articles.deleteArticle(a.Id)"></i>
+            </td>
+        </tr>
+    </table>
+    
+    <pagination ng-if="articles.articlesData" boundary-links="true" total-items="articles.totalServerItems" max-size="10" items-per-page="articles.pagingOptions.pageSize" page="articles.pagingOptions.currentPage" class="pagination-small" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
 </div>
