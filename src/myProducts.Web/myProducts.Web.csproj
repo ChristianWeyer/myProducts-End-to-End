@@ -241,7 +241,6 @@
     <Content Include="app\css\modern.css" />
     <Content Include="app\css\tweak-bootstrap.css" />
     <Content Include="app\css\font-awesome.css" />
-    <Content Include="app\css\ng-grid.css" />
     <Content Include="app\css\nv.d3.css" />
     <Content Include="app\css\toastr.css" />
     <Content Include="app\images\default.png" />

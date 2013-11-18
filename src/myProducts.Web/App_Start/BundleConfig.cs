@@ -37,7 +37,6 @@ namespace MyProducts.Web.App_Start
                 .Include("~/app/css/bootstrap-responsive.css")
                 .Include("~/app/css/bootstrap-switch.css")
                 .Include("~/app/css/toastr.css")
-                .Include("~/app/css/ng-grid.css")
                 .Include("~/app/css/nv.d3.css")
                 .Include("~/app/css/font-awesome.css")
                 .Include("~/app/css/angular-carousel.css")
