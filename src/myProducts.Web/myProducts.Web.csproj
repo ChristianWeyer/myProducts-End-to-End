@@ -308,7 +308,6 @@
     <Content Include="app\views\start.html" />
     <Content Include="app\views\admin.html" />
     <Content Include="app\views\gallery.html" />
-    <Content Include="app\views\gridCellTemplate.html" />
     <Content Include="app\views\log.html" />
     <Content Include="app\views\settings.html" />
     <Content Include="app\views\statistics.html" />
