@@ -15,14 +15,14 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Description</th>
-                <th style="width: 15%"></th>
+                <th>Code</th>
+                <th style="width: 90px"></th>
             </tr>
         </thead>
         <tr ng-repeat="a in articles.articlesData">
             <td>{{ a.Name }}</td>
             <td>{{ a.Code }}</td>
-            <td style="width: 15%">
+            <td style="width: 90px">
                 <i class="btn icon-edit" ng-click="articles.getArticleDetails(a.Id)"></i>&nbsp;
                 <i class="btn icon-trash" ng-click="articles.deleteArticle(a.Id)"></i>
             </td>
