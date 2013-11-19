@@ -2,7 +2,7 @@
 using Microsoft.AspNet.SignalR;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Storage;
-using MyProducts.Web.Api.Hubs;
+using MyProducts.Services.Hubs;
 using Serilog;
 using System;
 using System.IdentityModel.Services;

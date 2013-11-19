@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 
-namespace MyProducts.Web.Api.Controllers
+namespace MyProducts.Services.Controllers
 {
     [RoutePrefix("api/statistics")]
     public class StatisticsController : ApiController

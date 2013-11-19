@@ -1,8 +1,9 @@
-﻿using MyProducts.Web.Api.DTOs;
+﻿using MyProducts.Services.DTOs;
+using MyProducts.Web.Api.DTOs;
 using Serilog;
 using System.Web.Http;
 
-namespace MyProducts.Web.Api.Controllers
+namespace MyProducts.Services.Controllers
 {
     [AllowAnonymous]
     public class LogController : ApiController

@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using MyProducts.DataAccess;
+using MyProducts.Services.DTOs;
 using MyProducts.Web.Api.DTOs;
 using System.Linq;
 
-namespace MyProducts.Web.Api
+namespace MyProducts.Services
 {
     public static class DataMapper
     {

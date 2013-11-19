@@ -1,4 +1,6 @@
-﻿namespace MyProducts.Web.Api.DTOs
+﻿using MyProducts.Web.Api.DTOs;
+
+namespace MyProducts.Services.DTOs
 {
     public class ArticleDetailUpdateDto : DtoBase
     {

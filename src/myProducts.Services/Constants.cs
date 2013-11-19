@@ -1,5 +1,5 @@
 ﻿
-namespace MyProducts.Web.Api
+namespace MyProducts.Services
 {
     public class Constants
     {

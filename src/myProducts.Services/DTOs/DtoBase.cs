@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyProducts.Web.Api.DTOs
+namespace MyProducts.Services.DTOs
 {
     public class DtoBase
     {

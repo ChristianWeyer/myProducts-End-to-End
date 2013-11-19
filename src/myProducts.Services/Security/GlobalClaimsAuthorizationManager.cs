@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace MyProducts.Web.Api.Security
+namespace MyProducts.Services.Security
 {
     public class GlobalClaimsAuthorizationManager : ClaimsAuthorizationManager
     {

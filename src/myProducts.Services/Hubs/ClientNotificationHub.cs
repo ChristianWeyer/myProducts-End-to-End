@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR;
 
-namespace MyProducts.Web.Api.Hubs
+namespace MyProducts.Services.Hubs
 {
     public class ClientNotificationHub : Hub
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Http;
 
-namespace MyProducts.Web.Api.Controllers
+namespace MyProducts.Services.Controllers
 {
     public class ImagesController : ApiController
     {
