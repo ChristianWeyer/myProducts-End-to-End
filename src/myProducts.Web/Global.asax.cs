@@ -15,6 +15,7 @@ namespace MyProducts.Web
             DataMapper.Configure(); 
             
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            SecurityConfig.Register(GlobalConfiguration.Configuration);
             BundleConfig.Register(BundleTable.Bundles);
         }
     }

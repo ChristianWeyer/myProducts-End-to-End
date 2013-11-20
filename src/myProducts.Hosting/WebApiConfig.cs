@@ -12,8 +12,7 @@ namespace MyProducts.Hosting
     {
         public static void Register(HttpConfiguration config)
         {
-            config.IncludeErrorDetailPolicy =
-                IncludeErrorDetailPolicy.Always;
+            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always; // ONLY for debugging
             config.EnableSystemDiagnosticsTracing();
 
             config.Formatters.Clear();
@@ -26,25 +25,6 @@ namespace MyProducts.Hosting
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional });
-
-            var authNConfig = new AuthenticationConfiguration
-            {
-                RequireSsl = true,
-                EnableSessionToken = true,
-                SessionToken = new SessionTokenConfiguration()
-                {
-                    DefaultTokenLifetime = TimeSpan.FromHours(24),
-                    SigningKey = Convert.FromBase64String("V5cgP0Bzx4goMmOrFKUIPqUWRNmgpoH8IxXQ92M2T0E=")
-                },
-                SendWwwAuthenticateResponseHeaders = false,
-                ClaimsAuthenticationManager = FederatedAuthentication.FederationConfiguration.IdentityConfiguration.ClaimsAuthenticationManager
-            };
-
-            authNConfig.AddBasicAuthentication(
-                (un, pw) => un == pw); // this is the super complex basic authentication validation logic :)
-
-            config.MessageHandlers.Add(new AuthenticationHandler(authNConfig));
-            config.Filters.Add(new ClaimsAuthorizeAttribute());
 
             config.MessageHandlers.Insert(0, new CompressionHandler());
             //config.MessageHandlers.Add(new PerfItDelegatingHandler(config, "myProducts application services"));

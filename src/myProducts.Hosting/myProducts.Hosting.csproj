@@ -115,6 +115,7 @@
     <Compile Include="LogHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OwinStartup.cs" />
+    <Compile Include="SecurityConfig.cs" />
     <Compile Include="WebApiConfig.cs" />
   </ItemGroup>
   <ItemGroup>
