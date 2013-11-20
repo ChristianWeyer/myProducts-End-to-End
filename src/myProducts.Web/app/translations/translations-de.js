@@ -14,7 +14,6 @@ tt.translations.de = {
     "INDEX_GALLERY": "Galerie",
     "INDEX_INFO": "Über",
     "INDEX_SETTINGS": "Einstellungen",
-    "INDEX_ADMIN": "Admin",
     "INDEX_LOGS": "Logs",
     "INDEX_STATS": "Statistiken",
     "INDEX_LOGIN": "Anmelden",
@@ -34,9 +33,6 @@ tt.translations.de = {
     "ABOUT_TITLE": "Über diese Anwendung",
     "ABOUT_BODY": "Eine auf HTML5-basierende Produktverwaltung.",
     "ABOUT_CONTACT": "Für Fragen & Feedback: christian.weyer@thinktecture.com",
-    
-    "ADMIN_TITLE": "Administration",
-    "ADMIN_BODY": "Wichtige Verwaltungswerzeuge.",
     
     "LOGS_TITLE": "Log-Daten (über Server)",
 

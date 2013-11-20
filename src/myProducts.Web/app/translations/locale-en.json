@@ -13,7 +13,6 @@
   "INDEX_GALLERY": "Gallery",
   "INDEX_INFO": "About",
   "INDEX_SETTINGS": "Settings",
-  "INDEX_ADMIN": "Admin",
   "INDEX_LOGS": "Logs",
   "INDEX_STATS": "Statistics",
   "INDEX_LOGIN": "Log in",
@@ -33,10 +32,7 @@
   "ABOUT_TITLE": "About this application",
   "ABOUT_BODY": "Our super awesome products management application...",
   "ABOUT_CONTACT": "Questions & feedback: christian.weyer@thinktecture.com",
-    
-  "ADMIN_TITLE": "Admin",
-  "ADMIN_BODY": "Essential management tools.",
-    
+ 
   "LOGS_TITLE": "Log data entries (via server)",
 
   "STATS_TITLE": "Stats",

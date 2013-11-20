@@ -16,6 +16,7 @@ namespace MyProducts.Hosting
             {
                 var setting = CloudConfigurationManager.GetSetting("StorageConnectionString");
                 var storage = CloudStorageAccount.Parse(setting);
+
                 logConfig.WriteTo.AzureTableStorage(storage);
             }
             catch
