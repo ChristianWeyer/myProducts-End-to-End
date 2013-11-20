@@ -1,5 +1,4 @@
 ﻿using MyProducts.Services.DTOs;
-using MyProducts.Web.Api.DTOs;
 using Serilog;
 using System.Web.Http;
 

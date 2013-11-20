@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration.Install;
-using System.ServiceProcess;
 using System.Reflection;
+using System.ServiceProcess;
 
 namespace MyProducts.SelfHost
 {

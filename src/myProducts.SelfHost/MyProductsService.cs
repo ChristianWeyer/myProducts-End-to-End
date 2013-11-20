@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.Owin.Hosting;
+using System;
 using System.ServiceProcess;
-using Microsoft.Owin.Hosting;
 
 namespace MyProducts.SelfHost
 {
@@ -15,7 +15,7 @@ namespace MyProducts.SelfHost
 
         protected override void OnStart(string[] args)
         {
-            _webApiServer = WebApp.Start<WebApiStartup>(Properties.Settings.Default.BaseUrl);
+            _webApiServer = WebApp.Start<WebApiStartup>("");
         }
 
         protected override void OnStop()

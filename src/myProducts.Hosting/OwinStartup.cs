@@ -2,9 +2,9 @@
 using Owin;
 using System;
 
-namespace MyProducts.Web.App_Start
+namespace MyProducts.Hosting
 {
-    public class Startup
+    public class OwinStartup
     {
         public void Configuration(IAppBuilder builder)
         {

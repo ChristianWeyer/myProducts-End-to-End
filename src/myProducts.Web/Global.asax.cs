@@ -1,4 +1,5 @@
-﻿using MyProducts.Services;
+﻿using MyProducts.Hosting;
+using MyProducts.Services;
 using MyProducts.Web.App_Start;
 using System;
 using System.Web.Http;

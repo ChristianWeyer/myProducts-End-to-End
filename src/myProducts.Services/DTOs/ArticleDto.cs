@@ -1,5 +1,4 @@
 ﻿
-using MyProducts.Web.Api.DTOs;
 
 namespace MyProducts.Services.DTOs
 {

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.SelfHost", "myPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Services", "myProducts.Services\myProducts.Services.csproj", "{59D93108-6C96-496E-A91D-B723B16B23ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Hosting", "myProducts.Hosting\myProducts.Hosting.csproj", "{3A55D123-F887-4CFD-99E7-B1A9FBD32C36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{59D93108-6C96-496E-A91D-B723B16B23ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59D93108-6C96-496E-A91D-B723B16B23ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59D93108-6C96-496E-A91D-B723B16B23ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A55D123-F887-4CFD-99E7-B1A9FBD32C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A55D123-F887-4CFD-99E7-B1A9FBD32C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A55D123-F887-4CFD-99E7-B1A9FBD32C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A55D123-F887-4CFD-99E7-B1A9FBD32C36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

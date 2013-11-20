@@ -1,4 +1,5 @@
 ﻿using Owin;
+using System.Web.Http;
 
 namespace MyProducts.SelfHost
 {
@@ -12,7 +13,7 @@ namespace MyProducts.SelfHost
                 opts.WithPhysicalPath("app");
             });
 
-            builder.UseWebApi(config);
+            builder.UseWebApi(new HttpConfiguration());
         }
     }
 }

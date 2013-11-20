@@ -1,9 +1,4 @@
 ﻿using Fabrik.Common.WebAPI;
-using Microsoft.AspNet.SignalR;
-using Microsoft.WindowsAzure;
-using Microsoft.WindowsAzure.Storage;
-using MyProducts.Services.Hubs;
-using Serilog;
 using System;
 using System.IdentityModel.Services;
 using System.Net.Http.Formatting;
@@ -11,25 +6,12 @@ using System.Web.Http;
 using Thinktecture.IdentityModel.Authorization.WebApi;
 using Thinktecture.IdentityModel.Tokens.Http;
 
-namespace MyProducts.Web.App_Start
+namespace MyProducts.Hosting
 {
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
         {
-            var logConfig = new LoggerConfiguration()
-                .WriteTo.SignalR(GlobalHost.ConnectionManager.GetHubContext<LogHub>());
-               
-            try
-            {
-                var setting = CloudConfigurationManager.GetSetting("StorageConnectionString");
-                var storage = CloudStorageAccount.Parse(setting);
-                logConfig.WriteTo.AzureTableStorage(storage);
-            }
-            catch{}
-
-            Log.Logger = logConfig.CreateLogger();;
-
             config.IncludeErrorDetailPolicy =
                 IncludeErrorDetailPolicy.Always;
             config.EnableSystemDiagnosticsTracing();

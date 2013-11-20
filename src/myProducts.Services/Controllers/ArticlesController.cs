@@ -3,7 +3,6 @@ using Microsoft.AspNet.SignalR;
 using MyProducts.DataAccess;
 using MyProducts.Services.DTOs;
 using MyProducts.Services.Hubs;
-using MyProducts.Web.Api.DTOs;
 using Newtonsoft.Json;
 using PerfIt;
 using System;
@@ -13,6 +12,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.OData;
 using System.Web.Http.OData.Query;
@@ -81,7 +81,7 @@ namespace MyProducts.Services.Controllers
                 throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
             }
 
-            var uploadImagesFolder = ""; // HttpContext.Current.Server.MapPath("../" + Constants.ImagesFolder);
+            var uploadImagesFolder = HttpContext.Current.Server.MapPath("../" + Constants.ImagesFolder);
             var provider = new MultipartFormDataStreamProvider(uploadImagesFolder);
             var postResult = await Request.Content.ReadAsMultipartAsync(provider);
 

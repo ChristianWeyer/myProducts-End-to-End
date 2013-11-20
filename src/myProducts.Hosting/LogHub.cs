@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR;
 
-namespace MyProducts.Services.Hubs
+namespace MyProducts.Hosting
 {
     public class LogHub : Hub
     {
