@@ -46,7 +46,7 @@ namespace MyProducts.SelfHost
         {
             service.InteractiveStart(args);
 
-            Console.WriteLine("SQLnSAP Management Service läuft...");
+            Console.WriteLine("myProducts Service running.");
             Console.WriteLine("Press Enter to Quit...");
             Console.ReadLine();
 
