@@ -7,7 +7,7 @@ namespace MyProducts.SelfHost
 {
     partial class MyProductsService : ServiceBase
     {
-        private static IDisposable _webApiServer;
+        private static IDisposable server;
 
         public MyProductsService()
         {
@@ -16,14 +16,14 @@ namespace MyProducts.SelfHost
 
         protected override void OnStart(string[] args)
         {
-            _webApiServer = WebApp.Start<SelfHostStartup>(Settings.Default.BaseUrl);
+            server = WebApp.Start<SelfHostStartup>(Settings.Default.BaseUrl);
         }
 
         protected override void OnStop()
         {
-            if (_webApiServer != null)
+            if (server != null)
             {
-                _webApiServer.Dispose();
+                server.Dispose();
             }
         }
 
