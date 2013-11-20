@@ -7,7 +7,7 @@ namespace MyProducts.Hosting
 {
     public static class LoggingConfig
     {
-        private static void Configure()
+        public static void Configure()
         {
             var logConfig = new LoggerConfiguration()
                 .WriteTo.SignalR(GlobalHost.ConnectionManager.GetHubContext<LogHub>());

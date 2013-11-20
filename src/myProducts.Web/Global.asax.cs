@@ -11,10 +11,11 @@ namespace MyProducts.Web
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+            LoggingConfig.Configure();
+            DataMapper.Configure(); 
+            
             GlobalConfiguration.Configure(WebApiConfig.Register);
             BundleConfig.Register(BundleTable.Bundles);
-
-            DataMapper.Configure();
         }
     }
 }
