@@ -49,6 +49,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.0.1\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.0.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
@@ -90,8 +101,13 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -118,14 +134,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
-    <Compile Include="ProjectInstaller.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="ProjectInstaller.cs" />
     <Compile Include="ProjectInstaller.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MyProductsService.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="MyProductsService.cs" />
     <Compile Include="MyProductsService.Designer.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -135,6 +147,26 @@
     <Compile Include="SelfHostStartup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\myProducts.Web\app\font\fontawesome-webfont.eot">
+      <Link>client\app\font\fontawesome-webfont.eot</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\font\fontawesome-webfont.ttf">
+      <Link>client\app\font\fontawesome-webfont.ttf</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\font\fontawesome-webfont.woff">
+      <Link>client\app\font\fontawesome-webfont.woff</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\font\FontAwesome.otf">
+      <Link>client\app\font\FontAwesome.otf</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\translations\locale-en.json">
+      <Link>client\app\translations\locale-en.json</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -143,7 +175,416 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="data\ProductsDemo.sdf" />
+    <Content Include="..\myProducts.Web\app\css\angular-carousel.css">
+      <Link>client\app\css\angular-carousel.css</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\css\app.css">
+      <Link>client\app\css\app.css</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\css\bootstrap-responsive.css">
+      <Link>client\app\css\bootstrap-responsive.css</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\css\bootstrap-switch.css">
+      <Link>client\app\css\bootstrap-switch.css</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\css\bootstrap.css">
+      <Link>client\app\css\bootstrap.css</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\css\font-awesome.css">
+      <Link>client\app\css\font-awesome.css</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\css\modern-responsive.css">
+      <Link>client\app\css\modern-responsive.css</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\css\modern.css">
+      <Link>client\app\css\modern.css</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\css\nv.d3.css">
+      <Link>client\app\css\nv.d3.css</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\css\toastr.css">
+      <Link>client\app\css\toastr.css</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\css\tweak-bootstrap.css">
+      <Link>client\app\css\tweak-bootstrap.css</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\font\fontawesome-webfont.svg">
+      <Link>client\app\font\fontawesome-webfont.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\ajax-loader.gif">
+      <Link>client\app\images\ajax-loader.gif</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\apple-touch-icon.png">
+      <Link>client\app\images\apple-touch-icon.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\apple-touch-startup-image-1024x748.png">
+      <Link>client\app\images\apple-touch-startup-image-1024x748.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\apple-touch-startup-image-2048x1496.png">
+      <Link>client\app\images\apple-touch-startup-image-2048x1496.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\default.png">
+      <Link>client\app\images\default.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\emergency_stop.png">
+      <Link>client\app\images\emergency_stop.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\glyphicons-halflings-white.png">
+      <Link>client\app\images\glyphicons-halflings-white.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\glyphicons-halflings.png">
+      <Link>client\app\images\glyphicons-halflings.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\lang_de.png">
+      <Link>client\app\images\lang_de.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\lang_de_t.png">
+      <Link>client\app\images\lang_de_t.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\lang_en.png">
+      <Link>client\app\images\lang_en.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\lang_en_t.png">
+      <Link>client\app\images\lang_en_t.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\logo.png">
+      <Link>client\app\images\logo.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\offline.png">
+      <Link>client\app\images\offline.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\online.png">
+      <Link>client\app\images\online.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\images\user.png">
+      <Link>client\app\images\user.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\app.js">
+      <Link>client\app\js\app.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\constants.js">
+      <Link>client\app\js\constants.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\controllers\articleDetailsController.js">
+      <Link>client\app\js\controllers\articleDetailsController.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\controllers\articlesController.js">
+      <Link>client\app\js\controllers\articlesController.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\controllers\galleryController.js">
+      <Link>client\app\js\controllers\galleryController.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\controllers\infoController.js">
+      <Link>client\app\js\controllers\infoController.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\controllers\logController.js">
+      <Link>client\app\js\controllers\logController.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\controllers\loginController.js">
+      <Link>client\app\js\controllers\loginController.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\controllers\navigationController.js">
+      <Link>client\app\js\controllers\navigationController.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\controllers\settingsController.js">
+      <Link>client\app\js\controllers\settingsController.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\controllers\startController.js">
+      <Link>client\app\js\controllers\startController.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\controllers\statisticsController.js">
+      <Link>client\app\js\controllers\statisticsController.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\controllers\statusController.js">
+      <Link>client\app\js\controllers\statusController.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\infrastructure\baseUrlFilter.js">
+      <Link>client\app\js\infrastructure\baseUrlFilter.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\infrastructure\thinktecture.Authentication.js">
+      <Link>client\app\js\infrastructure\thinktecture.Authentication.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\infrastructure\thinktecture.SignalR.js">
+      <Link>client\app\js\infrastructure\thinktecture.SignalR.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\infrastructure\tools.js">
+      <Link>client\app\js\infrastructure\tools.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular-animate.js">
+      <Link>client\app\js\lib\angular-animate.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular-bootstrap-switch.js">
+      <Link>client\app\js\lib\angular-bootstrap-switch.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular-cache-2.0.0-rc.1.js">
+      <Link>client\app\js\lib\angular-cache-2.0.0-rc.1.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular-carousel.js">
+      <Link>client\app\js\lib\angular-carousel.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular-cookies.js">
+      <Link>client\app\js\lib\angular-cookies.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular-mobile.js">
+      <Link>client\app\js\lib\angular-mobile.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular-route.js">
+      <Link>client\app\js\lib\angular-route.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular-strap.js">
+      <Link>client\app\js\lib\angular-strap.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular-touch.js">
+      <Link>client\app\js\lib\angular-touch.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular-translate-.js">
+      <Link>client\app\js\lib\angular-translate-.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular-translate-loader-static-files.js">
+      <Link>client\app\js\lib\angular-translate-loader-static-files.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular-translate-loader-url.js">
+      <Link>client\app\js\lib\angular-translate-loader-url.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular-translate-storage-cookie.js">
+      <Link>client\app\js\lib\angular-translate-storage-cookie.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular-translate-storage-local.js">
+      <Link>client\app\js\lib\angular-translate-storage-local.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular.js">
+      <Link>client\app\js\lib\angular.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angularjs-nvd3-directives.js">
+      <Link>client\app\js\lib\angularjs-nvd3-directives.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\bootstrap-.js">
+      <Link>client\app\js\lib\bootstrap-.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\bootstrap-filestyle.js">
+      <Link>client\app\js\lib\bootstrap-filestyle.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\bootstrap-switch.js">
+      <Link>client\app\js\lib\bootstrap-switch.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\d3.v3.js">
+      <Link>client\app\js\lib\d3.v3.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\fastclick.js">
+      <Link>client\app\js\lib\fastclick.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\imageupload.js">
+      <Link>client\app\js\lib\imageupload.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\iscroll.js">
+      <Link>client\app\js\lib\iscroll.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\jquery-2.0.1.js">
+      <Link>client\app\js\lib\jquery-2.0.1.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\jquery.signalR-2.0.0.js">
+      <Link>client\app\js\lib\jquery.signalR-2.0.0.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\jspdf.source.js">
+      <Link>client\app\js\lib\jspdf.source.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\lawnchair-0.6.1.js">
+      <Link>client\app\js\lib\lawnchair-0.6.1.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\log4javascript.js">
+      <Link>client\app\js\lib\log4javascript.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\ng-scrollable.js">
+      <Link>client\app\js\lib\ng-scrollable.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\ngStorage.js">
+      <Link>client\app\js\lib\ngStorage.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\nv.d3.js">
+      <Link>client\app\js\lib\nv.d3.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\script.js">
+      <Link>client\app\js\lib\script.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\spin.js">
+      <Link>client\app\js\lib\spin.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\toastr.js">
+      <Link>client\app\js\lib\toastr.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\ui-bootstrap-tpls-0.6.0.js">
+      <Link>client\app\js\lib\ui-bootstrap-tpls-0.6.0.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\main.js">
+      <Link>client\app\js\main.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\services\articlesApiService.js">
+      <Link>client\app\js\services\articlesApiService.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\services\dataPushService.js">
+      <Link>client\app\js\services\dataPushService.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\services\dialogService.js">
+      <Link>client\app\js\services\dialogService.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\services\logPushService.js">
+      <Link>client\app\js\services\logPushService.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\services\networkStatusService.js">
+      <Link>client\app\js\services\networkStatusService.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\services\personalizationService.js">
+      <Link>client\app\js\services\personalizationService.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\services\routeResolverService.js">
+      <Link>client\app\js\services\routeResolverService.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\services\settingsService.js">
+      <Link>client\app\js\services\settingsService.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\services\toastService.js">
+      <Link>client\app\js\services\toastService.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\translations\translations-de.js">
+      <Link>client\app\translations\translations-de.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\views\articleDetails.html">
+      <Link>client\app\views\articleDetails.html</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\views\articles.html">
+      <Link>client\app\views\articles.html</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\views\dialog.html">
+      <Link>client\app\views\dialog.html</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\views\gallery.html">
+      <Link>client\app\views\gallery.html</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\views\info.html">
+      <Link>client\app\views\info.html</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\views\log.html">
+      <Link>client\app\views\log.html</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\views\login.html">
+      <Link>client\app\views\login.html</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\views\settings.html">
+      <Link>client\app\views\settings.html</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\views\start.html">
+      <Link>client\app\views\start.html</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\views\statistics.html">
+      <Link>client\app\views\statistics.html</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="client\index.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\ProductsDemo.sdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -179,6 +620,13 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

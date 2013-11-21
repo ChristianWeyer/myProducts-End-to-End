@@ -11,8 +11,9 @@ namespace MyProducts.SelfHost
         {
             builder.UseFileServer(opts =>
             {
-                opts.WithRequestPath("/app");
-                opts.WithPhysicalPath(@"..\myProducts.Web\app");
+                opts.WithRequestPath("");
+                opts.WithPhysicalPath("client");
+                opts.WithDefaultFileNames("index.html");
             });
 
             LoggingConfig.Configure();
