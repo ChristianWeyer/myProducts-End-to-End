@@ -1,4 +1,4 @@
-curl -k https://localhost/ngmd > index.html
+curl -k https://localhost/ngmd/ > index.html
 
 ssr -f index.html -a -s "/ngmd/" -r "/"
 
