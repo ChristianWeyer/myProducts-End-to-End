@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.DataAccess", "myProducts.DataAccess\myProducts.DataAccess.csproj", "{82EEAA96-8E08-4820-9914-0738CB1C3317}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Model", "myProducts.DataAccess\myProducts.Model.csproj", "{82EEAA96-8E08-4820-9914-0738CB1C3317}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Web", "myProducts.Web\myProducts.Web.csproj", "{7B2C0D1F-37D9-4E8B-91FE-3CE33B1DA822}"
 EndProject

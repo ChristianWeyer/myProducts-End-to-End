@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 
-namespace MyProducts.DataAccess
+namespace MyProducts.Model
 {
     public static class DbContextExtensions
     {

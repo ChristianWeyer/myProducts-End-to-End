@@ -7,8 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace myProducts.Web.TestData
+namespace MyProducts.Web.TestData
 {
+    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
@@ -25,5 +26,6 @@ namespace myProducts.Web.TestData
         }
     
         public DbSet<Products> Products { get; set; }
+        public DbSet<Categories> Categories { get; set; }
     }
 }

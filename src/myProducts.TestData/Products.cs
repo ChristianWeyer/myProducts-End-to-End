@@ -7,10 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace myProducts.Web.TestData
+namespace MyProducts.Web.TestData
 {
     using System;
-
+    using System.Collections.Generic;
+    
     public partial class Products
     {
         public int ProductID { get; set; }
@@ -23,5 +24,7 @@ namespace myProducts.Web.TestData
         public Nullable<short> UnitsOnOrder { get; set; }
         public Nullable<short> ReorderLevel { get; set; }
         public bool Discontinued { get; set; }
+    
+        public virtual Categories Categories { get; set; }
     }
 }

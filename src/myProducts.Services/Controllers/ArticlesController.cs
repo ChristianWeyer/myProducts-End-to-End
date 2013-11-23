@@ -1,6 +1,6 @@
 ﻿using AutoMapper.QueryableExtensions;
 using Microsoft.AspNet.SignalR;
-using MyProducts.DataAccess;
+using MyProducts.Model;
 using MyProducts.Services.DTOs;
 using MyProducts.Services.Hubs;
 using Newtonsoft.Json;
@@ -53,7 +53,6 @@ namespace MyProducts.Services.Controllers
             // For demos:
             //throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = "Ooops?!?!?!" });
             
-
             Guid guid;
 
             if (!Guid.TryParse(id, out guid))
@@ -61,7 +60,10 @@ namespace MyProducts.Services.Controllers
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
 
-            var artikelQuery = productsContext.Articles.AsNoTracking().Project().To<ArticleDetailDto>().Where(a => a.Id == guid);
+            var artikelQuery = productsContext.Articles.Include("Categories").AsNoTracking()
+                .Project().To<ArticleDetailDto>()
+                .Where(a => a.Id == guid);
+
             var artikelDetails = artikelQuery.SingleOrDefault();
 
             if (artikelDetails == null)

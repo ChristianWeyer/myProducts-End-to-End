@@ -312,7 +312,6 @@
     <Content Include="app\views\log.html" />
     <Content Include="app\views\settings.html" />
     <Content Include="app\views\statistics.html" />
-    <Content Include="App_Data\ProductsDemo.sdf" />
     <Content Include="app\js\app.js" />
     <Content Include="app\js\controllers\articlesController.js" />
     <Content Include="app\js\controllers\articleDetailsController.js" />
@@ -337,6 +336,7 @@
     <Content Include="app\views\articleDetails.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\articles.html" />
+    <Content Include="App_Data\ProductsDemo.sdf" />
     <Content Include="Global.asax" />
     <Content Include="app\font\fontawesome-webfont.eot" />
     <Content Include="app\font\fontawesome-webfont.ttf" />
@@ -407,9 +407,9 @@
       <Project>{d5c2f6db-26e7-415c-89e9-97b4c83e09ab}</Project>
       <Name>PerfIt</Name>
     </ProjectReference>
-    <ProjectReference Include="..\myProducts.DataAccess\myProducts.DataAccess.csproj">
+    <ProjectReference Include="..\myProducts.DataAccess\myProducts.Model.csproj">
       <Project>{82eeaa96-8e08-4820-9914-0738cb1c3317}</Project>
-      <Name>myProducts.DataAccess</Name>
+      <Name>myProducts.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\libs\WebAPI.OutputCache\WebAPI.OutputCache.csproj">
       <Project>{4f32dc89-081b-4264-92f8-f3371a088eb4}</Project>

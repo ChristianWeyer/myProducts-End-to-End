@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace MyProducts.DataAccess
+namespace MyProducts.Model
 {
     public class ProductsContext : DbContext
     {
@@ -14,5 +14,6 @@ namespace MyProducts.DataAccess
         }
 
         public DbSet<Article> Articles { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

@@ -110,6 +110,7 @@
     <Compile Include="ApiExceptionFilterAttribute.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Controllers\PersonalizationController.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="DTOs\ArticleDetailDto.cs" />
     <Compile Include="DTOs\ArticleDetailUpdateDto.cs" />
     <Compile Include="DTOs\ArticleDto.cs" />
+    <Compile Include="DTOs\CategoryDto.cs" />
     <Compile Include="DTOs\DtoBase.cs" />
     <Compile Include="DTOs\LogData.cs" />
     <Compile Include="DTOs\Personalization\Features.cs" />
@@ -141,9 +143,9 @@
       <Project>{4f32dc89-081b-4264-92f8-f3371a088eb4}</Project>
       <Name>WebAPI.OutputCache</Name>
     </ProjectReference>
-    <ProjectReference Include="..\myProducts.DataAccess\myProducts.DataAccess.csproj">
+    <ProjectReference Include="..\myProducts.DataAccess\myProducts.Model.csproj">
       <Project>{82eeaa96-8e08-4820-9914-0738cb1c3317}</Project>
-      <Name>myProducts.DataAccess</Name>
+      <Name>myProducts.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

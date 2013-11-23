@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyProducts.DataAccess
+namespace MyProducts.Model
 {
     public class EntityBase
     {

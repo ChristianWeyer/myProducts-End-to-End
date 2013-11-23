@@ -1,8 +1,10 @@
-﻿using FizzWare.NBuilder;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using FizzWare.NBuilder;
 using FizzWare.NBuilder.Implementation;
 using FizzWare.NBuilder.PropertyNaming;
-using myProducts.Web.TestData;
-using MyProducts.DataAccess;
+using MyProducts.Model;
+using MyProducts.Web.TestData;
 using System;
 using System.Linq;
 
@@ -10,6 +12,8 @@ namespace MyProducts.TestData
 {
     class Program
     {
+        private static Dictionary<int, Category> categoryStore = new Dictionary<int, Category>();
+
         static void Main(string[] args)
         {
             //CreateSampleData();
@@ -17,8 +21,9 @@ namespace MyProducts.TestData
             {
                 using (var nw = new northwindEntities())
                 {
-                    var products = from p in nw.Products
+                    var products = from p in nw.Products.Include("Categories")
                                    select p;
+                    var x = products.ToList();
 
                     using (var ngmd = new ProductsContext())
                     {
@@ -28,24 +33,48 @@ namespace MyProducts.TestData
                         {
                             var imageNumber = rnd.Next(0, 6);
                             var ngArticle = new Article
+                                {
+                                    Id = Guid.NewGuid(),
+                                    Name = product.ProductName,
+                                    Code = product.QuantityPerUnit,
+                                    Description =
+                                        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+                                    ImageUrl = String.Format("{0}.jpg", imageNumber),
+                                    Categories = new List<Category>()
+                                };
+
+                            Category cat;
+                            var catId = product.Categories.CategoryID;
+
+                            if (categoryStore.ContainsKey(catId))
                             {
-                                Id = Guid.NewGuid(),
-                                Name = product.ProductName,
-                                Code = product.QuantityPerUnit,
-                                Description =
-                                    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-                                ImageUrl = String.Format("{0}.jpg", imageNumber)
-                            };
+                                cat = categoryStore[catId];
+                                ngmd.Entry(cat).State = EntityState.Unchanged;
+                            }
+                            else
+                            {
+                                var guid = Guid.NewGuid();
+                                cat = new Category
+                                {
+                                    Name = product.Categories.CategoryName,
+                                    Description = product.Categories.Description,
+                                    Id = guid
+                                };
+                                categoryStore.Add(catId, cat);
+                                ngmd.Categories.Add(cat);
+
+                                ngmd.SaveChanges();
+                            }
+
+                            ngArticle.Categories.Add(cat);
 
                             ngmd.Articles.Add(ngArticle);
-                        }
 
-                        ngmd.SaveChanges();
+                            ngmd.SaveChanges();
+                        }
                     }
                 }
             }
-
-            
         }
 
         private static void CreateSampleData()

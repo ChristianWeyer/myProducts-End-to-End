@@ -7,8 +7,8 @@
     <ProjectGuid>{82EEAA96-8E08-4820-9914-0738CB1C3317}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MyProducts.DataAccess</RootNamespace>
-    <AssemblyName>MyProducts.DataAccess</AssemblyName>
+    <RootNamespace>MyProducts.Model</RootNamespace>
+    <AssemblyName>MyProducts.Model</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Article.cs" />
+    <Compile Include="Category.cs" />
     <Compile Include="DbContextExtensions.cs" />
     <Compile Include="EntityBase.cs" />
     <Compile Include="ProductsContext.cs" />

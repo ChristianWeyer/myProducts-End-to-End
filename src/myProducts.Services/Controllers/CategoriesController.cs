@@ -1,25 +1,25 @@
 ﻿using System.Linq;
 using System.Web.Http;
+using AutoMapper.QueryableExtensions;
 using MyProducts.Model;
+using MyProducts.Services.DTOs;
 
 namespace MyProducts.Services.Controllers
 {
-    public class ImagesController : ApiController
+    public class CategoriesController : ApiController
     {
         private readonly ProductsContext productsContext;
-        private const string imagesFolder = "images";
 
-        public ImagesController()
+        public CategoriesController()
         {
             productsContext = new ProductsContext();
         }
 
-        [Queryable]
-        public IQueryable<string> Get()
+        public IQueryable<CategoryDto> Get()
         {
-            var todos = productsContext.Articles.Select(a => imagesFolder + "/" + a.ImageUrl).Distinct();
+            var categories = productsContext.Categories.AsNoTracking().Project().To<CategoryDto>().Distinct().OrderBy(a => a.Name);
 
-            return todos;
+            return categories;
         }
 
         protected override void Dispose(bool disposing)
