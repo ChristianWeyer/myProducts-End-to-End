@@ -3,8 +3,6 @@ using System;
 using System.IdentityModel.Services;
 using System.Net.Http.Formatting;
 using System.Web.Http;
-using Thinktecture.IdentityModel.Authorization.WebApi;
-using Thinktecture.IdentityModel.Tokens.Http;
 
 namespace MyProducts.Hosting
 {

@@ -15,6 +15,11 @@ namespace MyProducts.SelfHost
                 opts.WithPhysicalPath("client");
                 opts.WithDefaultFileNames("index.html");
             });
+            builder.UseFileServer(opts =>
+            {
+                opts.WithRequestPath("/images");
+                opts.WithPhysicalPath(@"client\images");
+            });
 
             LoggingConfig.Configure();
             DataMapper.Configure();

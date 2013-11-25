@@ -1,8 +1,8 @@
 using System;
 using System.IdentityModel.Services;
 using System.Web.Http;
-using Thinktecture.IdentityModel.Authorization.WebApi;
-using Thinktecture.IdentityModel.Tokens.Http;
+using Thinktecture.IdentityModel.WebApi;
+using Thinktecture.IdentityModel.WebApi.Authentication.Handler;
 
 namespace MyProducts.Hosting
 {
