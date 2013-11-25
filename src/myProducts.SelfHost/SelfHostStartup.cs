@@ -24,7 +24,6 @@ namespace MyProducts.SelfHost
             SecurityConfig.Register(webApiConfig);
             builder.UseWebApi(webApiConfig);
 
-            // TODO: load assemblies with hubs...
             builder.MapSignalR();
         }
     }
