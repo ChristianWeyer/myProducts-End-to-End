@@ -1,5 +1,6 @@
 ﻿using AutoMapper.QueryableExtensions;
 using Microsoft.AspNet.SignalR;
+using MyProducts.Hosting;
 using MyProducts.Model;
 using MyProducts.Services.DTOs;
 using MyProducts.Services.Hubs;
@@ -83,7 +84,7 @@ namespace MyProducts.Services.Controllers
                 throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
             }
 
-            var uploadImagesFolder = HttpContext.Current.Server.MapPath("../" + Constants.ImagesFolder);
+            var uploadImagesFolder = PathHelper.MapPath(Constants.ImagesFolder);
             var provider = new MultipartFormDataStreamProvider(uploadImagesFolder);
             var postResult = await Request.Content.ReadAsMultipartAsync(provider);
 

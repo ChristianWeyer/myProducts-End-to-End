@@ -11,7 +11,7 @@ namespace MyProducts.Hosting
         public static void Register(HttpConfiguration config)
         {
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always; // ONLY for debugging
-            config.EnableSystemDiagnosticsTracing();
+            //config.EnableSystemDiagnosticsTracing();
 
             config.Formatters.Clear();
             config.Formatters.Add(new JsonMediaTypeFormatter());
