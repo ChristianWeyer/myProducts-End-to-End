@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MyProducts.Model
 {
@@ -9,6 +10,7 @@ namespace MyProducts.Model
         public string Description { get; set; }
         public string ImageUrl { get; set; }
 
-        public IList<Category> Categories { get; set; }
+        public Category Category { get; set; }
+        public Guid CategoryId { get; set; }
     }
 }

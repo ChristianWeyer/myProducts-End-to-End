@@ -10,6 +10,6 @@ namespace MyProducts.Services.DTOs
         public string Description { get; set; }
         public string ImageUrl { get; set; }
 
-        public List<CategoryDto> Categories { get; set; }
+        public CategoryDto Category { get; set; }
     }
 }

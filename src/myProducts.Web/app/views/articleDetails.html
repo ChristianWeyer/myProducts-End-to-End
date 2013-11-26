@@ -23,7 +23,7 @@
                     <td tooltip="{{ c.Description }}">{{ c.Name }}</td>
                 </tr>
             </table>-->
-            <select ng-model="articledetails.article.Categories[0]" ng-options="c as c.Name for c in articledetails.categories track by c.Id"></select>
+            <select ng-model="articledetails.article.Category" ng-options="c as c.Name for c in articledetails.categories track by c.Id"></select>
         </div>
     </div>
 

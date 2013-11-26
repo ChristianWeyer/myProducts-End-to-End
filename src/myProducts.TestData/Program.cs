@@ -39,8 +39,7 @@ namespace MyProducts.TestData
                                     Code = product.QuantityPerUnit,
                                     Description =
                                         "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-                                    ImageUrl = String.Format("{0}.jpg", imageNumber),
-                                    Categories = new List<Category>()
+                                    ImageUrl = String.Format("{0}.jpg", imageNumber)
                                 };
 
                             Category cat;
@@ -66,8 +65,8 @@ namespace MyProducts.TestData
                                 ngmd.SaveChanges();
                             }
 
-                            ngArticle.Categories.Add(cat);
-
+                            ngArticle.Category = cat;
+                            
                             ngmd.Articles.Add(ngArticle);
 
                             ngmd.SaveChanges();

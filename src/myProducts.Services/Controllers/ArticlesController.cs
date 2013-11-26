@@ -102,8 +102,7 @@ namespace MyProducts.Services.Controllers
             }
 
             var entity = value.Map();
-            productsContext.AttachByIdValue(entity, ProductChildTypes);
-            productsContext.SetEntityState(entity, "ImageUrl");
+            productsContext.AttachByIdValue(entity, ProductChildTypes, "ImageUrl");
 
             var imageUrl = entity.Id.ToString() + ".jpg";
             entity.ImageUrl = imageUrl;

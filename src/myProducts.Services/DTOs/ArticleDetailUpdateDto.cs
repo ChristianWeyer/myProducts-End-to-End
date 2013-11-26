@@ -8,6 +8,6 @@ namespace MyProducts.Services.DTOs
         public string Code { get; set; }
         public string Description { get; set; }
 
-        public List<CategoryDto> Categories { get; set; }
+        public CategoryDto Category { get; set; }
     }
 }

@@ -172,6 +172,10 @@
       <Link>client\app\font\FontAwesome.otf</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\myProducts.Web\app\js\services\categoriesService.js">
+      <Link>client\app\js\services\categoriesService.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\myProducts.Web\app\translations\locale-en.json">
       <Link>client\app\translations\locale-en.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

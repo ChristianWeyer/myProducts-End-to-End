@@ -12,7 +12,6 @@
                 articlesApi.getArticleDetails($routeParams.id)
                     .success(function (data) {
                         $scope.articledetails.article = data;
-                        $scope.articledetails.selectedCategory = $scope.articledetails.article.Categories[0];
                     })
                     .error(function (data) {
                         ttTools.logger.error("Server error", data);
