@@ -1,7 +1,7 @@
 ﻿using Microsoft.Owin.Hosting;
+using MyProducts.SelfHost.Properties;
 using System;
 using System.ServiceProcess;
-using MyProducts.SelfHost.Properties;
 
 namespace MyProducts.SelfHost
 {

@@ -1,5 +1,4 @@
 ﻿
-using System.Collections.Generic;
 namespace MyProducts.Services.DTOs
 {
     public class ArticleDetailUpdateDto : DtoBase

@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
-using FizzWare.NBuilder;
+﻿using FizzWare.NBuilder;
 using FizzWare.NBuilder.Implementation;
 using FizzWare.NBuilder.PropertyNaming;
 using MyProducts.Model;
 using MyProducts.Web.TestData;
 using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace MyProducts.TestData

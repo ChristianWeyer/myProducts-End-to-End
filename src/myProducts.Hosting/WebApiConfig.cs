@@ -1,6 +1,4 @@
 ﻿using Fabrik.Common.WebAPI;
-using System;
-using System.IdentityModel.Services;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 

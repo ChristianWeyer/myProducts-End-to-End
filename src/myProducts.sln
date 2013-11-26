@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Model", "myProducts.DataAccess\myProducts.Model.csproj", "{82EEAA96-8E08-4820-9914-0738CB1C3317}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Web", "myProducts.Web\myProducts.Web.csproj", "{7B2C0D1F-37D9-4E8B-91FE-3CE33B1DA822}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.TestData", "myProducts.TestData\myProducts.TestData.csproj", "{E24817BB-5AD6-4B27-B75B-1D3824EA88FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.DataGenerator", "myProducts.TestData\myProducts.DataGenerator.csproj", "{E24817BB-5AD6-4B27-B75B-1D3824EA88FB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.OutputCache", "libs\WebAPI.OutputCache\WebAPI.OutputCache.csproj", "{4F32DC89-081B-4264-92F8-F3371A088EB4}"
 EndProject
@@ -18,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Hosting", "myProducts.Hosting\myProducts.Hosting.csproj", "{3A55D123-F887-4CFD-99E7-B1A9FBD32C36}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.SelfHost", "myProducts.SelfHost\myProducts.SelfHost.csproj", "{97046BCF-227C-4F65-9374-733FDBDBE1F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Tests", "myProducts.Tests\myProducts.Tests.csproj", "{E50EAD59-DA89-4D16-841F-E685C431C762}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,10 @@ Global
 		{97046BCF-227C-4F65-9374-733FDBDBE1F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97046BCF-227C-4F65-9374-733FDBDBE1F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97046BCF-227C-4F65-9374-733FDBDBE1F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E50EAD59-DA89-4D16-841F-E685C431C762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E50EAD59-DA89-4D16-841F-E685C431C762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E50EAD59-DA89-4D16-841F-E685C431C762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E50EAD59-DA89-4D16-841F-E685C431C762}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

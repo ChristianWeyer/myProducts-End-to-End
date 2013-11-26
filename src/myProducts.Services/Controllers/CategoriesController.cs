@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using System.Web.Http;
-using AutoMapper.QueryableExtensions;
+﻿using AutoMapper.QueryableExtensions;
 using MyProducts.Model;
 using MyProducts.Services.DTOs;
+using System.Linq;
+using System.Web.Http;
 
 namespace MyProducts.Services.Controllers
 {

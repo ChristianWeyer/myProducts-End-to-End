@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using MyProducts.Model;
+using System.Linq;
 using System.Web.Http;
-using MyProducts.Model;
 
 namespace MyProducts.Services.Controllers
 {
