@@ -296,6 +296,7 @@
     <Content Include="app\js\services\networkStatusService.js" />
     <Content Include="app\js\services\logPushService.js" />
     <Content Include="app\js\services\dialogService.js" />
+    <Content Include="app\js\services\categoriesService.js" />
     <Content Include="app\js\services\routeResolverService.js" />
     <Content Include="app\js\services\personalizationService.js" />
     <Content Include="app\font\fontawesome-webfont.svg" />

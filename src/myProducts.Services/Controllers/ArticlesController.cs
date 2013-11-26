@@ -25,6 +25,7 @@ namespace MyProducts.Services.Controllers
     public class ArticlesController : ApiController
     {
         private readonly ProductsContext productsContext;
+        private static readonly HashSet<Type> ProductChildTypes = new HashSet<Type>() { typeof(Category) };
 
         public ArticlesController()
         {
@@ -53,7 +54,7 @@ namespace MyProducts.Services.Controllers
         {
             // For demos:
             //throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = "Ooops?!?!?!" });
-            
+
             Guid guid;
 
             if (!Guid.TryParse(id, out guid))
@@ -101,6 +102,7 @@ namespace MyProducts.Services.Controllers
             }
 
             var entity = value.Map();
+            productsContext.AttachByIdValue(entity, ProductChildTypes);
             productsContext.SetEntityState(entity, "ImageUrl");
 
             var imageUrl = entity.Id.ToString() + ".jpg";

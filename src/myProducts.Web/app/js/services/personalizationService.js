@@ -1,3 +1,5 @@
 ﻿app.factory("personalization", function () {
-    return tt.personalization;
+    var personalizationData = {};
+
+    return personalizationData;
 });

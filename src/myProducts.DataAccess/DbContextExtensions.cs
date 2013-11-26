@@ -30,8 +30,6 @@ namespace MyProducts.Model
         public static void AttachByIdValue<TEntity>(this DbContext context, TEntity rootEntity, HashSet<Type> childTypes)
             where TEntity : EntityBase
         {
-            context.Set<TEntity>().Add(rootEntity);
-
             if (rootEntity.Id != Guid.Empty)
             {
                 context.Entry(rootEntity).State = EntityState.Modified;
@@ -39,7 +37,8 @@ namespace MyProducts.Model
 
             foreach (var entry in context.ChangeTracker.Entries<EntityBase>())
             {
-                if (entry.State == EntityState.Added && entry.Entity != rootEntity)
+                //if (entry.State == EntityState.Added && entry.Entity != rootEntity)
+                if (entry.Entity != rootEntity)
                 {
                     if (childTypes == null || childTypes.Count == 0)
                     {

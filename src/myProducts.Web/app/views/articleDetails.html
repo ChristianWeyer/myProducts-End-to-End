@@ -18,11 +18,12 @@
     <div class="control-group">
         <label class="control-label" for="cats">Categories</label>
         <div class="controls">
-            <table id="cats" style="width: 220px" class="table table-striped">
+            <!--<table id="cats" style="width: 220px" class="table table-striped">
                 <tr ng-repeat="c in articledetails.article.Categories">
                     <td tooltip="{{ c.Description }}">{{ c.Name }}</td>
                 </tr>
-            </table>
+            </table>-->
+            <select ng-model="articledetails.article.Categories[0]" ng-options="c as c.Name for c in articledetails.categories track by c.Id"></select>
         </div>
     </div>
 

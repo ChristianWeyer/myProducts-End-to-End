@@ -23,11 +23,11 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
             .when("/settings", { templateUrl: "app/views/settings.html", controller: "SettingsController" })
             .when("/login", { templateUrl: "app/views/login.html", controller: "LoginController" });
 
-        $provide.factory('$routeProviderService', function () {
+        $provide.factory("$routeProviderService", function () {
             return $routeProvider;
         });
         
-        $provide.factory('routeResolverProviderService', function () {
+        $provide.factory("routeResolverProviderService", function () {
             return routeResolverProvider;
         });
 
@@ -48,8 +48,8 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         $httpProvider.defaults.transformRequest.push(transformRequest);
     }]);
 
-app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "toast", "dialog", "$route", "$routeProviderService", "routeResolverProviderService",
-    function ($http, $templateCache, $rootScope, $location, $translate, toast, dialog, $route, $routeProviderService, routeResolverProviderService) {
+app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "toast", "dialog", "$route", "$routeProviderService", "routeResolverProviderService", "personalization", "categories",
+    function ($http, $templateCache, $rootScope, $location, $translate, toast, dialog, $route, $routeProviderService, routeResolverProviderService, personalization, categories) {
 
         window.addEventListener("online", function () {
             $rootScope.$apply($rootScope.$broadcast(tt.networkstatus.onlineChanged, true));
@@ -66,7 +66,12 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
             .success(function (data) {
                 theSpinner.spin(getSpinner());
 
-                tt.personalization.data = data;
+                $http({ method: "GET", url: ttTools.baseUrl + "api/categories" })
+                .success(function (data) {
+                    categories.data = data;
+                });
+
+                personalization.data = data;
                 var route = routeResolverProviderService.route;
 
                 angular.forEach(data.Features, function (value, key) {
@@ -82,22 +87,22 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
 
         // TODO: what about unloading!?
 
-        window.applicationCache.addEventListener('updateready', function (ev) {
+        window.applicationCache.addEventListener("updateready", function (ev) {
             if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-                console.log('CACHE: Browser downloaded a new app cache manifest.');
+                console.log("CACHE: Browser downloaded a new app cache manifest.");
                 window.applicationCache.swapCache();
 
                 $rootScope.$apply(dialog.showModalDialog({}, {
-                    headerText: 'App Update',
+                    headerText: "App Update",
                     bodyText: $translate("APP_UPDATE_BODY"),
                     closeButtonText: $translate("COMMON_NO"),
                     actionButtonText: $translate("COMMON_YES")
                 }).then(function (result) {
                     window.location.reload();
-                    console.log('CACHE: App will be updated...');
+                    console.log("CACHE: App will be updated...");
                 }));
             } else {
-                console.log('CACHE: Manifest didn\'t change.');
+                console.log("CACHE: Manifest didn\'t change.");
             }
         }, false);
 

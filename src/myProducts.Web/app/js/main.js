@@ -22,6 +22,7 @@ $script.ready("app", function () {
         "services/dialogService",
         "services/articlesApiService",
         "services/personalizationService",
+        "services/categoriesService",
         "services/networkStatusService",
         "services/settingsService",
 

@@ -1,7 +1,8 @@
 ﻿app.lazy.controller("ArticleDetailsController",
-    ["$scope", "$routeParams", "articlesApi", "toast", "$location", "dialog", "$translate",
-        function ($scope, $routeParams, articlesApi, toast, $location, dialog, $translate) {
+    ["$scope", "$routeParams", "articlesApi", "toast", "$location", "dialog", "$translate", "categories",
+        function ($scope, $routeParams, articlesApi, toast, $location, dialog, $translate, categories) {
             $scope.articledetails = {};
+            $scope.articledetails.categories = categories.data;
 
             if ($routeParams.id !== "new") {
                 ttTools.logger.info("Getting article details...");
@@ -11,6 +12,7 @@
                 articlesApi.getArticleDetails($routeParams.id)
                     .success(function (data) {
                         $scope.articledetails.article = data;
+                        $scope.articledetails.selectedCategory = $scope.articledetails.article.Categories[0];
                     })
                     .error(function (data) {
                         ttTools.logger.error("Server error", data);
