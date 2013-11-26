@@ -2,8 +2,10 @@
 using MyProducts.Services.DTOs;
 using Newtonsoft.Json;
 using System;
+using System.IO;
 using System.Net.Http;
 using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Http.OData;
 
@@ -51,7 +53,7 @@ namespace MyProducts.Tests
         }
 
         [TestMethod]
-        public async Task Test_AddNewArticle()
+        public async Task Test_AddNewArticle_WithoutImage()
         {
             client.SetBasicAuthentication("cw", "cw");
 
@@ -68,6 +70,40 @@ namespace MyProducts.Tests
 
             var response = await client.PostAsync("articles", content);
             response.EnsureSuccessStatusCode();
+        }
+
+        [TestMethod]
+        public async Task Test_AddNewArticle_WitImage()
+        {
+            client.SetBasicAuthentication("cw", "cw");
+
+            var article = new ArticleDetailUpdateDto
+            {
+                Name = "From Test With Image",
+                Description = "Bar",
+                Code = "Y",
+                Category = new CategoryDto { Id = Guid.Parse("5040ab6b-34f3-4121-a126-5cade8959beb") }
+            };
+
+            var content = new MultipartFormDataContent();
+            content.Add(new ObjectContent<ArticleDetailUpdateDto>(article, new JsonMediaTypeFormatter()), "model");
+            content.Add(CreateFileContent(File.OpenRead("pic.jpg"), "image.jpg", "image/jpeg"));
+
+            var response = await client.PostAsync("articles", content);
+            response.EnsureSuccessStatusCode();
+        }
+
+        private StreamContent CreateFileContent(Stream stream, string fileName, string contentType)
+        {
+            var fileContent = new StreamContent(stream);
+            fileContent.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data")
+            {
+                Name = "\"files\"",
+                FileName = "\"" + fileName + "\""
+            };
+            fileContent.Headers.ContentType = new MediaTypeHeaderValue(contentType);
+
+            return fileContent;
         }
     }
 }
