@@ -59,7 +59,7 @@ app.lazy.controller("ArticlesController",
                         toast.pop({
                             title: $translate("POPUP_SUCCESS"),
                             body: $translate("POPUP_DELETED"),
-                            type: "success"
+                            type: "info"
                         });
                     })
                     .error(function (data) {
