@@ -8,7 +8,7 @@ using System.Web.Http.OData;
 namespace MyProducts.Tests
 {
     [TestClass]
-    public class ArticlesControllerTests
+    public class ArticlesClientTests
     {
         private HttpClient client;
 
@@ -22,6 +22,15 @@ namespace MyProducts.Tests
         [TestMethod]
         public async Task Test_GetArticles_Without_Credentials()
         {
+            var result = await client.GetAsync("articles");
+
+            Assert.IsTrue(result.StatusCode == System.Net.HttpStatusCode.Unauthorized);
+        }
+
+        [TestMethod]
+        public async Task Test_GetArticles_With_Invalid_Credentials()
+        {
+            client.SetBasicAuthentication("cw", "foo");
             var result = await client.GetAsync("articles");
 
             Assert.IsTrue(result.StatusCode == System.Net.HttpStatusCode.Unauthorized);
