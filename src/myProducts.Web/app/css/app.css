@@ -10,7 +10,7 @@ html {
 body {
     height: 100%;
     overflow: scroll;
-    background-color: #F0F0F0
+    background-color: #F0F0F0;
 }
 
 h1 {
@@ -130,12 +130,12 @@ h2 {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #7096C7;
+    background: #8B9EB6;
     padding: 1em;
 }
 
     #footer a {
-        color: white;
+        color: rgb(202, 211, 216);
         text-decoration: none;
     }
 
