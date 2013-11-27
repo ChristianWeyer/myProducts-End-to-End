@@ -13,6 +13,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Controllers;
 using System.Web.Http.OData;
 using System.Web.Http.OData.Query;
 using WebAPI.OutputCache;
@@ -82,7 +83,7 @@ namespace MyProducts.Services.Controllers
             {
                 throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
             }
-
+            
             var uploadImagesFolder = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, Constants.ImagesFolder);
             var provider = new MultipartFormDataStreamProvider(uploadImagesFolder);
             var postResult = await Request.Content.ReadAsMultipartAsync(provider);
@@ -92,14 +93,16 @@ namespace MyProducts.Services.Controllers
                 throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = "No valid model" });
             }
 
-            var value = JsonConvert.DeserializeObject<ArticleDetailUpdateDto>(postResult.FormData["model"]);
+            var articleDto = JsonConvert.DeserializeObject<ArticleDetailUpdateDto>(postResult.FormData["model"]);
 
-            if (value == null)
+            if (articleDto == null)
             {
                 throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = "No valid model" });
             }
 
-            var entity = value.Map();
+            this.ValidateModel(articleDto);
+
+            var entity = articleDto.Map();
             productsContext.AttachByIdValue(entity, ProductChildTypes, "ImageUrl");
 
             var imageUrl = entity.Id.ToString() + ".jpg";

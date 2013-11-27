@@ -123,6 +123,7 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Controllers\ApiControllerExtensions.cs" />
     <Compile Include="Controllers\PersonalizationController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="DataMapper.cs" />
