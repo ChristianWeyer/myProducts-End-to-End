@@ -11,11 +11,6 @@ namespace MyProducts.Web
     {
         protected void Application_Start(object sender, EventArgs e)
         {
-            LoggingConfig.Configure();
-            DataMapper.Configure(); 
-            
-            GlobalConfiguration.Configure(WebApiConfig.Register);
-            SecurityConfig.Register(GlobalConfiguration.Configuration);
             BundleConfig.Register(BundleTable.Bundles);
         }
     }

@@ -1,6 +1,5 @@
 ﻿using AutoMapper.QueryableExtensions;
 using Microsoft.AspNet.SignalR;
-using MyProducts.Hosting;
 using MyProducts.Model;
 using MyProducts.Services.DTOs;
 using MyProducts.Services.Hubs;

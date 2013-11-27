@@ -1,4 +1,5 @@
 ﻿using Microsoft.Owin.Hosting;
+using MyProducts.Hosting;
 using MyProducts.SelfHost.Properties;
 using System;
 using System.ServiceProcess;
