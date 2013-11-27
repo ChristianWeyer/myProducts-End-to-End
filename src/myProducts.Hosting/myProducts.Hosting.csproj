@@ -124,7 +124,6 @@
   <ItemGroup>
     <Compile Include="LoggingConfig.cs" />
     <Compile Include="LogHub.cs" />
-    <Compile Include="PathHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OwinStartup.cs" />
     <Compile Include="SecurityConfig.cs" />

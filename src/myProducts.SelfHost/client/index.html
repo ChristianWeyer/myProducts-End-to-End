@@ -94,7 +94,7 @@
                     <span ng-if="tt.authentication.userLoggedIn">
                         <a href="" ng-click="status.logout();">
                             <i class="icon-user"></i>
-                            <strong>{{ status.userName }}</strong>
+                            {{ status.userName }}
                         </a>
                     </span>
                 <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">

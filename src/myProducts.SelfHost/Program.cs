@@ -34,7 +34,7 @@ namespace MyProducts.SelfHost
                             break;
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // TODO: logging...
                     throw;

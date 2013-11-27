@@ -181,27 +181,27 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\myProducts.Web\images\0.jpg">
-      <Link>client\images\0.jpg</Link>
+      <Link>images\0.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\myProducts.Web\images\1.jpg">
-      <Link>client\images\1.jpg</Link>
+      <Link>images\1.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\myProducts.Web\images\2.jpg">
-      <Link>client\images\2.jpg</Link>
+      <Link>images\2.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\myProducts.Web\images\3.jpg">
-      <Link>client\images\3.jpg</Link>
+      <Link>images\3.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\myProducts.Web\images\4.jpg">
-      <Link>client\images\4.jpg</Link>
+      <Link>images\4.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\myProducts.Web\images\5.jpg">
-      <Link>client\images\5.jpg</Link>
+      <Link>images\5.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="data\ProductsDemo.sdf">
