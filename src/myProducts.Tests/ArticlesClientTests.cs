@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyProducts.Services.DTOs;
-using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Net.Http;

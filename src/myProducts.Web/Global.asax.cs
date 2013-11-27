@@ -1,8 +1,5 @@
-﻿using MyProducts.Hosting;
-using MyProducts.Services;
-using MyProducts.Web.App_Start;
+﻿using MyProducts.Web.App_Start;
 using System;
-using System.Web.Http;
 using System.Web.Optimization;
 
 namespace MyProducts.Web

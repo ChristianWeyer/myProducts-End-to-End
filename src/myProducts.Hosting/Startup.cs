@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNet.SignalR;
-using Microsoft.Owin;
-using MyProducts.Hosting;
 using MyProducts.Services;
 using Owin;
 using System;
