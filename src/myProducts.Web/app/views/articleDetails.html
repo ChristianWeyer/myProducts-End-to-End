@@ -4,7 +4,8 @@
     <div class="control-group" ng-class="{ error: form.name.$invalid }">
         <label class="control-label" for="name">Name</label>
         <div class="controls">
-            <input type="text" required ng-model="articledetails.article.Name" id="name">
+            <input type="text" required ng-model="articledetails.article.Name" name="name" id="name" server-validate="data.Name">
+            <div class="has-error" ng-repeat="errorMessage in form.name.$error.server">{{ errorMessage }}</div>
         </div>
     </div>
 
@@ -18,11 +19,6 @@
     <div class="control-group">
         <label class="control-label" for="cats">Categories</label>
         <div class="controls">
-            <!--<table id="cats" style="width: 220px" class="table table-striped">
-                <tr ng-repeat="c in articledetails.article.Categories">
-                    <td tooltip="{{ c.Description }}">{{ c.Name }}</td>
-                </tr>
-            </table>-->
             <select ng-model="articledetails.article.Category" ng-options="c as c.Name for c in articledetails.categories track by c.Id"></select>
         </div>
     </div>

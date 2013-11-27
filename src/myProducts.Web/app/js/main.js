@@ -14,6 +14,7 @@ $script.ready("app", function () {
         "infrastructure/thinktecture.Authentication",
         "infrastructure/thinktecture.SignalR",
         "infrastructure/baseUrlFilter",
+        "infrastructure/serverValidationDirective",
 
         "services/routeResolverService",
         "services/toastService",

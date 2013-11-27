@@ -40,6 +40,8 @@
                         $location.path('/articles');
                     })
                     .error(function (data, status, headers, config) {
+                        $scope.modelState = data.ModelState;
+
                         // something strange happens when running in node-webkit... ugly workaround for now.
                         if (status !== 404) {
                             ttTools.logger.error("Server error", data);
