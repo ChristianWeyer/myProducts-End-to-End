@@ -1,13 +1,13 @@
-﻿var services = angular.module('routeResolverServices', []);
+﻿var services = angular.module("routeResolverServices", []);
 
-services.provider('routeResolver', function () {
+services.provider("routeResolver", function () {
     this.$get = function () {
         return this;
     };
 
     this.routeConfig = function () {
-        var viewsDirectory = '/app/views/',
-            controllersDirectory = '/app/controllers/',
+        var viewsDirectory = "/app/views/",
+            controllersDirectory = "/app/controllers/",
 
         setBaseDirectories = function (viewsDir, controllersDir) {
             viewsDirectory = viewsDir;
@@ -31,15 +31,15 @@ services.provider('routeResolver', function () {
 
     this.route = function (routeConfig) {
         var resolve = function (baseName, path) {
-            if (!path) path = '';
+            if (!path) path = "";
             var lowercaseBaseName = ttTools.lowercaseFirstLetter(baseName);
 
             var routeDef = {};
-            routeDef.templateUrl = routeConfig.getViewsDirectory() + path + lowercaseBaseName + '.html';
-            routeDef.controller = baseName + 'Controller';
+            routeDef.templateUrl = routeConfig.getViewsDirectory() + path + lowercaseBaseName + ".html";
+            routeDef.controller = baseName + "Controller";
             routeDef.resolve = {
-                load: ['$q', '$rootScope', function ($q, $rootScope) {
-                    var dependencies = [routeConfig.getControllersDirectory() + path + lowercaseBaseName + 'Controller.js'];
+                load: ["$q", "$rootScope", function ($q, $rootScope) {
+                    var dependencies = [routeConfig.getControllersDirectory() + path + lowercaseBaseName + "Controller.js"];
                     return resolveDependencies($q, $rootScope, dependencies);
                 }]
             };

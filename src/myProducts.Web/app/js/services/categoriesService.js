@@ -1,5 +1,5 @@
-﻿app.factory("categories", function () {
-    var categories = {};
+﻿app.factory("categories", ["$localStorage", function ($localStorage) {
+    var categories = $localStorage.categories = $localStorage.categories || {};
 
     return categories;
-});
+}]);

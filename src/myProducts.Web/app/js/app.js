@@ -26,7 +26,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         $provide.factory("$routeProviderService", function () {
             return $routeProvider;
         });
-        
+
         $provide.factory("routeResolverProviderService", function () {
             return routeResolverProvider;
         });
@@ -66,10 +66,12 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
             .success(function (data) {
                 theSpinner.spin(getSpinner());
 
-                $http({ method: "GET", url: ttTools.baseUrl + "api/categories" })
-                .success(function (data) {
-                    categories.data = data;
-                });
+                if (!categories.data) {
+                    $http({ method: "GET", url: ttTools.baseUrl + "api/categories" })
+                    .success(function (data) {
+                        categories.data = data;
+                    });
+                }
 
                 personalization.data = data;
                 var route = routeResolverProviderService.route;
