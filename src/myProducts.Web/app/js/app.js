@@ -40,6 +40,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         $translateProvider.useLocalStorage();
 
         $httpProvider.responseInterceptors.push("loadingIndicatorInterceptor");
+
         var transformRequest = function (data) {
             theSpinner.spin(getSpinner());
 
@@ -57,6 +58,11 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
         window.addEventListener("offline", function () {
             $rootScope.$apply($rootScope.$broadcast(tt.networkstatus.onlineChanged, false));
         }, true);
+
+        $http.defaults.headers.common["Accept-Language"] = $translate.uses();
+        $rootScope.$on("$translateChangeSuccess", function () {
+            $http.defaults.headers.common["Accept-Language"] = $translate.uses();
+        });
 
         var viewsDir = routeResolverProviderService.routeConfig.getViewsDirectory();
         $http.get(viewsDir + "info.html", { cache: $templateCache });
