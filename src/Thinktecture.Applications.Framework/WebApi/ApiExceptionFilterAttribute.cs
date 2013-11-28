@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http.Filters;
 
-namespace MyProducts.Framework.Filters
+namespace Thinktecture.Applications.Framework.WebApi
 {
     public class ApiExceptionFilterAttribute : ExceptionFilterAttribute
     {

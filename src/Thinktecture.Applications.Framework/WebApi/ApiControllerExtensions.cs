@@ -7,7 +7,7 @@ using System.Threading;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 
-namespace MyProducts.Framework.Controllers
+namespace Thinktecture.Applications.Framework.WebApi
 {
     public static class ApiControllerExtensions
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyProducts.Model
+namespace Thinktecture.Applications.Framework.Entities
 {
     public class EntityBase
     {

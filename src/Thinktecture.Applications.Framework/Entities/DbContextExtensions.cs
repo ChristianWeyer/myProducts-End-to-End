@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
 
-namespace MyProducts.Model
+namespace Thinktecture.Applications.Framework.Entities
 {
     public static class DbContextExtensions
     {
@@ -64,6 +64,23 @@ namespace MyProducts.Model
                         }
                     }
                 }
+            }
+        }
+
+        public static void ApplyStateChanges(this DbContext context)
+        {
+            foreach (var entry in context.ChangeTracker.Entries<IDataWithState>())
+            {
+                var stateInfo = entry.Entity;
+                entry.State = StateMapper.ConvertState(stateInfo.State);
+            }
+        }
+
+        public static void ResetState(this DbContext context)
+        {
+            foreach (var entry in context.ChangeTracker.Entries<IDataWithState>())
+            {
+                entry.Entity.State = DataState.Unchanged;
             }
         }
     }

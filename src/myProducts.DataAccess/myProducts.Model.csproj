@@ -54,8 +54,6 @@
   <ItemGroup>
     <Compile Include="Article.cs" />
     <Compile Include="Category.cs" />
-    <Compile Include="DbContextExtensions.cs" />
-    <Compile Include="EntityBase.cs" />
     <Compile Include="ProductsContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -64,6 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Thinktecture.Applications.Framework\Thinktecture.Applications.Framework.csproj">
+      <Project>{ea925276-3b76-4178-99ab-fea985e6aa5b}</Project>
+      <Name>Thinktecture.Applications.Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

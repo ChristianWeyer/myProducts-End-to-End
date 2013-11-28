@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace MyProducts.Framework.ModelMetadata
+namespace Thinktecture.Applications.Framework.WebApi.ModelMetadata
 {
     public static class ReflectionExtensions
     {

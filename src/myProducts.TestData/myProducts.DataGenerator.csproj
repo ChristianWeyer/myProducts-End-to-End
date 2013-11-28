@@ -129,6 +129,10 @@
       <Project>{82EEAA96-8E08-4820-9914-0738CB1C3317}</Project>
       <Name>myProducts.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Thinktecture.Applications.Framework\Thinktecture.Applications.Framework.csproj">
+      <Project>{ea925276-3b76-4178-99ab-fea985e6aa5b}</Project>
+      <Name>Thinktecture.Applications.Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyProducts.Framework.ModelMetadata
+namespace Thinktecture.Applications.Framework.WebApi.ModelMetadata
 {
     public class MetadataConventionsAttribute : Attribute
     {

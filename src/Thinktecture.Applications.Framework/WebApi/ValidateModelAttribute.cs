@@ -7,7 +7,7 @@ using System.Threading;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
-namespace MyProducts.Framework.Filters
+namespace Thinktecture.Applications.Framework.WebApi
 {
     public class ValidateModelAttribute : ActionFilterAttribute
     {

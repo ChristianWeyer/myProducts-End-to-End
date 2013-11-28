@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CE8925FC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Resources", "myProducts.Resources\myProducts.Resources.csproj", "{7C373040-6D5A-4874-B38F-909CAC45B429}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Framework", "myProducts.Framework\myProducts.Framework.csproj", "{383C1245-2059-4478-816B-F8DD33B34A8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinktecture.Applications.Framework", "Thinktecture.Applications.Framework\Thinktecture.Applications.Framework.csproj", "{EA925276-3B76-4178-99AB-FEA985E6AA5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,10 +75,10 @@ Global
 		{7C373040-6D5A-4874-B38F-909CAC45B429}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C373040-6D5A-4874-B38F-909CAC45B429}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C373040-6D5A-4874-B38F-909CAC45B429}.Release|Any CPU.Build.0 = Release|Any CPU
-		{383C1245-2059-4478-816B-F8DD33B34A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{383C1245-2059-4478-816B-F8DD33B34A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{383C1245-2059-4478-816B-F8DD33B34A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{383C1245-2059-4478-816B-F8DD33B34A8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA925276-3B76-4178-99AB-FEA985E6AA5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA925276-3B76-4178-99AB-FEA985E6AA5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA925276-3B76-4178-99AB-FEA985E6AA5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA925276-3B76-4178-99AB-FEA985E6AA5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

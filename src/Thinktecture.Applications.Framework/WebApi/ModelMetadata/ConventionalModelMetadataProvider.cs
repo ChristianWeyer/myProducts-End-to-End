@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web.Http.Metadata.Providers;
 
-namespace MyProducts.Framework.ModelMetadata
+namespace Thinktecture.Applications.Framework.WebApi.ModelMetadata
 {
     public class ConventionalModelMetadataProvider : DataAnnotationsModelMetadataProvider
     {

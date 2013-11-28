@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Thinktecture.Applications.Framework.Entities;
 
 namespace MyProducts.Model
 {

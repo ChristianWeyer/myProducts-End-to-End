@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace MyProducts.Framework.ModelMetadata
+namespace Thinktecture.Applications.Framework.WebApi.ModelMetadata
 {
     public static class EnumerableExtensions
     {

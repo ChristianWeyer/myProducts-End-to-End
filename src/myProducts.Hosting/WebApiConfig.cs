@@ -1,9 +1,9 @@
 ﻿using Fabrik.Common.WebAPI;
-using MyProducts.Framework.ModelMetadata;
 using MyProducts.Resources;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using System.Web.Http.Metadata;
+using Thinktecture.Applications.Framework.WebApi.ModelMetadata;
 
 namespace MyProducts.Hosting
 {

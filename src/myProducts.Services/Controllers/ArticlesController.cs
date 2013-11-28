@@ -1,7 +1,5 @@
 ﻿using AutoMapper.QueryableExtensions;
 using Microsoft.AspNet.SignalR;
-using MyProducts.Framework.Controllers;
-using MyProducts.Framework.Filters;
 using MyProducts.Model;
 using MyProducts.Services.DTOs;
 using MyProducts.Services.Hubs;
@@ -17,6 +15,8 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.OData;
 using System.Web.Http.OData.Query;
+using Thinktecture.Applications.Framework.Entities;
+using Thinktecture.Applications.Framework.WebApi;
 using WebAPI.OutputCache;
 
 namespace MyProducts.Services.Controllers

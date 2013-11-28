@@ -1,4 +1,5 @@
 ﻿using System;
+using Thinktecture.Applications.Framework.Entities;
 
 namespace MyProducts.Model
 {

@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("myProducts.Framework")]
+[assembly: AssemblyTitle("Thinktecture.Applications.Framework")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("myProducts.Framework")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCompany("thinktecture")]
+[assembly: AssemblyProduct("Todo.Interfaces")]
+[assembly: AssemblyCopyright("Copyright ©  thinktecture 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c175c1d8-c75a-4a46-8f5b-12fd98fc5a29")]
+[assembly: Guid("5c92a410-b7ff-49d8-bcc2-1c43c2b55c43")]
 
 // Version information for an assembly consists of the following four values:
 //
