@@ -81,7 +81,7 @@ namespace MyProducts.Services.Controllers
             {
                 throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
             }
-            
+
             var uploadImagesFolder = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, Constants.ImagesFolder);
             var provider = new MultipartFormDataStreamProvider(uploadImagesFolder);
             var postResult = await Request.Content.ReadAsMultipartAsync(provider);
