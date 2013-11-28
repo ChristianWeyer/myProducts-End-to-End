@@ -42,25 +42,27 @@
                     .error(function (data, status, headers, config) {
                         $scope.modelState = data.ModelState;
 
-                        // something strange happens when running in node-webkit... ugly workaround for now.
-                        if (status !== 404) {
-                            ttTools.logger.error("Server error", data);
+                        if (status !== 422) {
+                            // something strange happens when running in node-webkit... ugly workaround for now.
+                            if (status !== 404) {
+                                ttTools.logger.error("Server error", data);
 
-                            dialog.showModalDialog({}, {
-                                headerText: $translate("COMMON_ERROR"),
-                                bodyText: $translate("DETAILS_ERROR"),
-                                closeButtonText: $translate("COMMON_CLOSE"),
-                                actionButtonText: $translate("COMMON_OK"),
-                                detailsText: JSON.stringify(data)
-                            });
-                        } else {
-                            toast.pop({
-                                title: $translate("POPUP_SUCCESS"),
-                                body: $translate("POPUP_SAVED"),
-                                type: "success"
-                            });
-                            articlesApi.dataChanged();
-                            $location.path('/articles');
+                                dialog.showModalDialog({}, {
+                                    headerText: $translate("COMMON_ERROR"),
+                                    bodyText: $translate("DETAILS_ERROR"),
+                                    closeButtonText: $translate("COMMON_CLOSE"),
+                                    actionButtonText: $translate("COMMON_OK"),
+                                    detailsText: JSON.stringify(data)
+                                });
+                            } else {
+                                toast.pop({
+                                    title: $translate("POPUP_SUCCESS"),
+                                    body: $translate("POPUP_SAVED"),
+                                    type: "success"
+                                });
+                                articlesApi.dataChanged();
+                                $location.path('/articles');
+                            }
                         }
                     });
             };

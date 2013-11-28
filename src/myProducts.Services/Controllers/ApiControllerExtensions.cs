@@ -17,7 +17,7 @@ namespace MyProducts.Services.Controllers
 
             if (!validator.Validate(model, typeof(TModel), metadataProvider, actionContext, "data"))
             {
-                throw new HttpResponseException(controller.Request.CreateErrorResponse(HttpStatusCode.BadRequest, actionContext.ModelState));
+                throw new HttpResponseException(controller.Request.CreateErrorResponse((HttpStatusCode)422, actionContext.ModelState));
             }
         }
     }

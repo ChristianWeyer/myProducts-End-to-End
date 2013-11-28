@@ -137,6 +137,13 @@
     <Compile Include="DTOs\Personalization\PersonalizationData.cs" />
     <Compile Include="DTOs\Personalization\UiClaimsData.cs" />
     <Compile Include="Hubs\ClientNotificationHub.cs" />
+    <Compile Include="ModelMetadataExtensions\AttributeExtensions.cs" />
+    <Compile Include="ModelMetadataExtensions\ConventionalModelMetadataProvider.cs" />
+    <Compile Include="ModelMetadataExtensions\DisplayAttributeExtensions.cs" />
+    <Compile Include="ModelMetadataExtensions\EnumerableExtensions.cs" />
+    <Compile Include="ModelMetadataExtensions\MetadataConventionsAttribute.cs" />
+    <Compile Include="ModelMetadataExtensions\ReflectionExtensions.cs" />
+    <Compile Include="ModelMetadataExtensions\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\GlobalClaimsAuthenticationManager.cs" />
     <Compile Include="Security\GlobalClaimsAuthorizationManager.cs" />

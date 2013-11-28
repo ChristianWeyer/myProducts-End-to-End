@@ -1,6 +1,9 @@
 ﻿using Fabrik.Common.WebAPI;
+using ModelMetadataExtensions;
+using MyProducts.Services;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using System.Web.Http.Metadata;
 
 namespace MyProducts.Hosting
 {
@@ -24,6 +27,9 @@ namespace MyProducts.Hosting
 
             config.MessageHandlers.Insert(0, new CompressionHandler());
             //config.MessageHandlers.Add(new PerfItDelegatingHandler(config, "myProducts application services"));
+
+            config.Services.Replace(typeof(ModelMetadataProvider), 
+                new ConventionalModelMetadataProvider(false, typeof(ValidationResources)));
         }
     }
 }

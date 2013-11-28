@@ -141,6 +141,11 @@
     <Compile Include="SecurityConfig.cs" />
     <Compile Include="SelfHostStartup.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ValidationResources.Designer.cs">
+      <DependentUpon>ValidationResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="WebApiConfig.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +156,12 @@
       <Project>{59d93108-6c96-496e-a91d-b723b16b23ed}</Project>
       <Name>myProducts.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ValidationResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
