@@ -61,7 +61,7 @@ namespace MyProducts.Hosting {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OUCH!!!.
+        ///   Looks up a localized string similar to The name needs to be at least 5 characters long..
         /// </summary>
         internal static string ArticleDetailUpdateDto_Name_MinLength {
             get {

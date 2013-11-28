@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArticleDetailUpdateDto_Name_MinLength" xml:space="preserve">
-    <value>OUCH!!!</value>
+    <value>The name needs to be at least 5 characters long.</value>
   </data>
 </root>
