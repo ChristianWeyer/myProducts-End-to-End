@@ -44,7 +44,7 @@
 
                         if (status !== 422) {
                             // something strange happens when running in node-webkit... ugly workaround for now.
-                            if (status !== 404) {
+                            //if (status !== 404) {
                                 ttTools.logger.error("Server error", data);
 
                                 dialog.showModalDialog({}, {
@@ -54,15 +54,15 @@
                                     actionButtonText: $translate("COMMON_OK"),
                                     detailsText: JSON.stringify(data)
                                 });
-                            } else {
-                                toast.pop({
-                                    title: $translate("POPUP_SUCCESS"),
-                                    body: $translate("POPUP_SAVED"),
-                                    type: "success"
-                                });
-                                articlesApi.dataChanged();
-                                $location.path('/articles');
-                            }
+                            //} else {
+                            //    toast.pop({
+                            //        title: $translate("POPUP_SUCCESS"),
+                            //        body: $translate("POPUP_SAVED"),
+                            //        type: "success"
+                            //    });
+                            //    articlesApi.dataChanged();
+                            //    $location.path('/articles');
+                            //}
                         }
                     });
             };
