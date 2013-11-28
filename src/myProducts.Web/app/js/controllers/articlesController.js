@@ -55,6 +55,7 @@ app.lazy.controller("ArticlesController",
                 articlesApi.deleteArticle(id)
                     .success(function () {
                         $scope.articles.getPagedData(true);
+                        $scope.articles.selectedFilteredArticle = null;
 
                         toast.pop({
                             title: $translate("POPUP_SUCCESS"),

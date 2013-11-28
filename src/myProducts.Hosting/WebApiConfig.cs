@@ -1,6 +1,6 @@
 ﻿using Fabrik.Common.WebAPI;
-using ModelMetadataExtensions;
-using MyProducts.Services;
+using MyProducts.Framework.ModelMetadata;
+using MyProducts.Resources;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using System.Web.Http.Metadata;

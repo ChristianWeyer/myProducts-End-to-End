@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace ModelMetadataExtensions
+namespace MyProducts.Framework.ModelMetadata
 {
     public static class AttributeExtensions
     {

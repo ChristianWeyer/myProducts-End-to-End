@@ -1,13 +1,13 @@
-﻿using System.Net;
-using System;
+﻿using System;
+using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Web.Http;
 using System.Web.Http.Controllers;
-using System.Globalization;
-using System.Threading;
 
-namespace MyProducts.Services.Controllers
+namespace MyProducts.Framework.Controllers
 {
     public static class ApiControllerExtensions
     {

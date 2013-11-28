@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ModelMetadataExtensions
+namespace MyProducts.Framework.ModelMetadata
 {
     public class MetadataConventionsAttribute : Attribute
     {

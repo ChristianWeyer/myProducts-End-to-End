@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Specialized;
 
-namespace ModelMetadataExtensions
+namespace MyProducts.Framework.ModelMetadata
 {
     public static class StringExtensions
     {

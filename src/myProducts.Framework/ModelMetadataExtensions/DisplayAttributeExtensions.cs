@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ModelMetadataExtensions
+namespace MyProducts.Framework.ModelMetadata
 {
     public static class DisplayAttributeExtensions
     {

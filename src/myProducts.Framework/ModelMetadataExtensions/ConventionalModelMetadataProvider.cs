@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
-using System.Web.Http.Metadata;
-using System.Web.Http.Metadata.Providers;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web.Http.Metadata.Providers;
 
-namespace ModelMetadataExtensions
+namespace MyProducts.Framework.ModelMetadata
 {
     public class ConventionalModelMetadataProvider : DataAnnotationsModelMetadataProvider
     {

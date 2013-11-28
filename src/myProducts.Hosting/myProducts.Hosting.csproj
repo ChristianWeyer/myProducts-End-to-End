@@ -141,28 +141,24 @@
     <Compile Include="SecurityConfig.cs" />
     <Compile Include="SelfHostStartup.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ValidationResources.Designer.cs">
-      <DependentUpon>ValidationResources.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="WebApiConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\myProducts.Framework\myProducts.Framework.csproj">
+      <Project>{383c1245-2059-4478-816b-f8dd33b34a8d}</Project>
+      <Name>myProducts.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\myProducts.Resources\myProducts.Resources.csproj">
+      <Project>{7c373040-6d5a-4874-b38f-909cac45b429}</Project>
+      <Name>myProducts.Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\myProducts.Services\myProducts.Services.csproj">
       <Project>{59d93108-6c96-496e-a91d-b723b16b23ed}</Project>
       <Name>myProducts.Services</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="ValidationResources.de.resx" />
-    <EmbeddedResource Include="ValidationResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ValidationResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
