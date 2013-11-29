@@ -23,7 +23,7 @@ namespace Thinktecture.Applications.Framework.WebApi
                     Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(culture);
                 }
 
-                actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.BadRequest, actionContext.ModelState);
+                actionContext.Response = actionContext.Request.CreateErrorResponse((HttpStatusCode)422, actionContext.ModelState);
             }
         }
     }

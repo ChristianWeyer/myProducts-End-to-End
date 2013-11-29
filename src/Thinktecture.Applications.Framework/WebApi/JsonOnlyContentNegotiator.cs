@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 
 namespace Thinktecture.Applications.Framework.WebApi
 {
-    public class JsonContentNegotiator : IContentNegotiator
+    public class JsonOnlyContentNegotiator : IContentNegotiator
     {
         public ContentNegotiationResult Negotiate(Type type, HttpRequestMessage request, IEnumerable<MediaTypeFormatter> formatters)
         {

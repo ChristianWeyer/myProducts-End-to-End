@@ -3,7 +3,9 @@ using MyProducts.Resources;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using System.Web.Http.Metadata;
+using Thinktecture.Applications.Framework.WebApi;
 using Thinktecture.Applications.Framework.WebApi.ModelMetadata;
+using WebApiContrib.Formatting;
 
 namespace MyProducts.Hosting
 {
@@ -14,8 +16,11 @@ namespace MyProducts.Hosting
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always; // ONLY for debugging
             //config.EnableSystemDiagnosticsTracing();
 
+            //config.Services.Replace(typeof(IContentNegotiator), new JsonOnlyContentNegotiator());
+
             config.Formatters.Clear();
             config.Formatters.Add(new JsonMediaTypeFormatter());
+            config.Formatters.Add(new ProtoBufFormatter());
 
             config.EnableQuerySupport();
 
