@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Resources", "myP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinktecture.Applications.Framework", "Thinktecture.Applications.Framework\Thinktecture.Applications.Framework.csproj", "{EA925276-3B76-4178-99AB-FEA985E6AA5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.WarmupHelper", "myProducts.WarmupHelper\myProducts.WarmupHelper.csproj", "{BD5CC424-1C2E-4AB0-9A1F-628AA2CCE7DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{EA925276-3B76-4178-99AB-FEA985E6AA5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA925276-3B76-4178-99AB-FEA985E6AA5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA925276-3B76-4178-99AB-FEA985E6AA5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD5CC424-1C2E-4AB0-9A1F-628AA2CCE7DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD5CC424-1C2E-4AB0-9A1F-628AA2CCE7DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD5CC424-1C2E-4AB0-9A1F-628AA2CCE7DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD5CC424-1C2E-4AB0-9A1F-628AA2CCE7DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +92,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E50EAD59-DA89-4D16-841F-E685C431C762} = {CE8925FC-4049-4DEF-BB3E-5F1557B22C20}
 		{E24817BB-5AD6-4B27-B75B-1D3824EA88FB} = {CE8925FC-4049-4DEF-BB3E-5F1557B22C20}
+		{BD5CC424-1C2E-4AB0-9A1F-628AA2CCE7DA} = {CE8925FC-4049-4DEF-BB3E-5F1557B22C20}
 		{4F32DC89-081B-4264-92F8-F3371A088EB4} = {D16EC645-05E7-4628-876E-E0E1356CC97E}
 		{D5C2F6DB-26E7-415C-89E9-97B4C83E09AB} = {D16EC645-05E7-4628-876E-E0E1356CC97E}
 	EndGlobalSection

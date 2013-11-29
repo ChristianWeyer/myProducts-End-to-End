@@ -22,7 +22,7 @@ using WebAPI.OutputCache;
 namespace MyProducts.Services.Controllers
 {
     [ApiExceptionFilter]
-    public class ArticlesController : ApiController
+    public class ArticlesController : HubApiController<ClientNotificationHub>
     {
         private readonly ProductsContext productsContext;
         private static readonly HashSet<Type> ProductChildTypes = new HashSet<Type>() { typeof(Category) };
@@ -114,8 +114,9 @@ namespace MyProducts.Services.Controllers
                 File.Move(fileData.LocalFileName, Path.Combine(uploadImagesFolder, imageUrl));
             }
 
-            var hub = GlobalHost.ConnectionManager.GetHubContext<ClientNotificationHub>();
-            hub.Clients.All.articleChange();
+            //var hub = GlobalHost.ConnectionManager.GetHubContext<ClientNotificationHub>();
+            //hub.Clients.All.articleChange();
+            Hub.Clients.All.articleChange();
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
