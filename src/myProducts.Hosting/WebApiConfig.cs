@@ -4,6 +4,7 @@ using System.Net.Http.Formatting;
 using System.Web.Http;
 using System.Web.Http.Metadata;
 using Thinktecture.Applications.Framework.WebApi;
+using Thinktecture.Applications.Framework.WebApi.Debugging;
 using Thinktecture.Applications.Framework.WebApi.ModelMetadata;
 using WebApiContrib.Formatting;
 
@@ -31,6 +32,7 @@ namespace MyProducts.Hosting
                 defaults: new { id = RouteParameter.Optional });
 
             config.MessageHandlers.Insert(0, new CompressionHandler());
+            config.MessageHandlers.Add(new ConsoleLoggingHandler());
             //config.MessageHandlers.Add(new PerfItDelegatingHandler(config, "myProducts application services"));
 
             config.Services.Replace(typeof(ModelMetadataProvider), 
