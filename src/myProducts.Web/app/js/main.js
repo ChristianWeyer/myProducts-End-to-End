@@ -1,4 +1,4 @@
-﻿$script.path("app/js/");
+﻿//$script.path("app/js/");
 
 $script(
     [
@@ -36,7 +36,7 @@ $script.ready("app", function () {
     ], "bundle");
 
     $script.ready("bundle", function () {
-        $script.path('');
-        angular.bootstrap(document, ['myApp']);
+        $script.path("");
+        angular.bootstrap(document, ["myApp"]);
     });
 });

@@ -5,6 +5,10 @@
             
             $scope.navigation.currentLanguage = $translate.preferredLanguage() || $translate.proposedLanguage();
             
+            $scope.navigation.openLeft = function () {
+                $scope.sideMenuController.toggleLeft();
+            };
+
             $scope.$on(tt.personalization.dataLoaded, function () {
                 $scope.navigation.navigationItems = personalization.data.Features;
             });

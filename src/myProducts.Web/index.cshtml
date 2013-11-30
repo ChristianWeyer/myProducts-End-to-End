@@ -99,11 +99,12 @@
 
     @System.Web.Optimization.Scripts.Render("~/app/js-lib")
 
-    <script src="app/js/main.js"></script>
     <script>
         $(function () {
             FastClick.attach(document.body);
+            $script.path("app/js/");
         });
     </script>
+    <script src="app/js/main.js"></script>
 </body>
 </html>

@@ -1,7 +1,8 @@
-﻿var app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "ng-scrollable", "angular-carousel", "frapontillo.bootstrap-switch", "ngStorage", "imageupload", "nvd3ChartDirectives", "jmdobry.angular-cache"]);
+﻿var app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "angular-carousel", "frapontillo.bootstrap-switch", "ngStorage", "imageupload", "nvd3ChartDirectives", "jmdobry.angular-cache", "ionic"]);
 
 app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide",
     function ($routeProvider, $locationProvider, $translateProvider, $httpProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
+        var mobile = window.location.pathname.indexOf("mobile/") > -1;
 
         ttTools.initLogger(ttTools.baseUrl + "api/log");
         ttTools.logger.info("Configuring myApp...");
@@ -15,13 +16,21 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
             service: $provide.service
         };
 
-        routeResolverProvider.routeConfig.setBaseDirectories("app/views/", "app/js/controllers/");
+        var routeBaseUrl = "app/";
+        var relativePath = "";
+
+        if(mobile) {
+            routeBaseUrl = "";
+            relativePath = "../";
+        }
+
+        routeResolverProvider.routeConfig.setBaseDirectories(routeBaseUrl + "views/", relativePath + "app/js/controllers/");
 
         $routeProvider
-            .when("/", { templateUrl: "app/views/start.html", controller: "StartController" })
-            .when("/info", { templateUrl: "app/views/info.html", controller: "InfoController" })
-            .when("/settings", { templateUrl: "app/views/settings.html", controller: "SettingsController" })
-            .when("/login", { templateUrl: "app/views/login.html", controller: "LoginController" });
+            .when("/", { templateUrl: routeBaseUrl + "views/start.html", controller: "StartController" })
+            .when("/info", { templateUrl: routeBaseUrl + "views/info.html", controller: "InfoController" })
+            .when("/settings", { templateUrl: routeBaseUrl + "views/settings.html", controller: "SettingsController" })
+            .when("/login", { templateUrl: routeBaseUrl + "views/login.html", controller: "LoginController" });
 
         $provide.factory("$routeProviderService", function () {
             return $routeProvider;
@@ -33,10 +42,10 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
 
         $translateProvider.translations("de", tt.translations.de);
         $translateProvider.useStaticFilesLoader({
-            prefix: "app/translations/locale-",
+            prefix: relativePath + "app/translations/locale-",
             suffix: ".json"
         });
-        $translateProvider.preferredLanguage("de");
+        $translateProvider.preferredLanguage("en");
         $translateProvider.useLocalStorage();
 
         $httpProvider.responseInterceptors.push("loadingIndicatorInterceptor");

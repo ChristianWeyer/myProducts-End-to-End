@@ -22,11 +22,12 @@ namespace MyProducts.Web.App_Start
                 .Include("~/app/js/lib/lawnchair-0.6.1.js")
                 .Include("~/app/js/lib/log4javascript.js")
                 .Include("~/app/js/lib/iscroll.js")
-                .Include("~/app/js/lib/ng-scrollable.js")
                 .Include("~/app/js/lib/ngStorage.js")
                 .Include("~/app/js/lib/imageupload.js")
                 .Include("~/app/js/lib/jspdf.source.js")
                 .Include("~/app/js/lib/fastclick.js")
+                .Include("~/app/js/lib/ionic.js")
+                .Include("~/app/js/lib/ionic-angular.js")
                 );
 
             bundles.Add(new StyleBundle("~/app/css/common")
