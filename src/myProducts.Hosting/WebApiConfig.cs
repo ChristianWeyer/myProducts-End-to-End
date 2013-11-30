@@ -17,7 +17,7 @@ namespace MyProducts.Hosting
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always; // ONLY for debugging
             //config.EnableSystemDiagnosticsTracing();
 
-            //config.Services.Replace(typeof(IContentNegotiator), new JsonOnlyContentNegotiator());
+            config.Services.Replace(typeof(IContentNegotiator), new JsonOnlyContentNegotiator());
 
             config.Formatters.Clear();
             config.Formatters.Add(new JsonMediaTypeFormatter());
@@ -32,7 +32,7 @@ namespace MyProducts.Hosting
                 defaults: new { id = RouteParameter.Optional });
 
             config.MessageHandlers.Insert(0, new CompressionHandler());
-            config.MessageHandlers.Add(new ConsoleLoggingHandler());
+            //config.MessageHandlers.Add(new ConsoleLoggingHandler());
             //config.MessageHandlers.Add(new PerfItDelegatingHandler(config, "myProducts application services"));
 
             config.Services.Replace(typeof(ModelMetadataProvider), 
