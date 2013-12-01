@@ -175,6 +175,18 @@
       <Link>client\app\js\infrastructure\serverValidationDirective.js</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\angular-sanitize.js">
+      <Link>client\app\js\lib\angular-sanitize.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\ionic-angular.js">
+      <Link>client\app\js\lib\ionic-angular.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\lib\ionic.js">
+      <Link>client\app\js\lib\ionic.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\myProducts.Web\app\js\services\categoriesService.js">
       <Link>client\app\js\services\categoriesService.js</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -14,5 +14,6 @@ app.controller("StatusController", ["$scope", "networkStatus", "personalization"
 
         $scope.status.logout = function () {
             tokenAuthentication.logout();
+            $scope.status.userName = "";
         };
     }]);

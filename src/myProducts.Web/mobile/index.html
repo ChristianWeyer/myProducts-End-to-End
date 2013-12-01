@@ -33,6 +33,11 @@
                             {{ ni.DisplayText }}
                         </a>
                     </ul>
+                    <ul class="list">
+                        <a ng-controller="StatusController" ng-click="status.logout();" class="item item-calm">
+                            {{ status.userName }}
+                        </a>
+                    </ul>
                 </content>
             </side-menu>
         </side-menus>
