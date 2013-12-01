@@ -1,14 +1,20 @@
 ﻿<div class="list">
     <label class="item item-input item-stacked-label">
         <span class="input-label">Name</span>
-        <input type="text" placeholder="Article name">
+        <input type="text" placeholder="Article name" ng-model="articledetails.article.Name">
     </label>
     <label class="item item-input item-stacked-label">
         <span class="input-label">Code</span>
-        <input type="text" placeholder="Article code">
+        <input type="text" placeholder="Article code" ng-model="articledetails.article.Code">
     </label>
     <label class="item item-input item-stacked-label">
         <span class="input-label">Description</span>
-        <input type="text" placeholder="Description of the article">
+        <input type="text" placeholder="Description of the article" ng-model="articledetails.article.Description">
     </label>
+    <br />
+    <img ng-if="articledetails.editMode" alt="Product image" class="img" src="app/images/default.png" ng-src="{{ articledetails.article.ImageUrl | baseUrl }}" />
+    <br />
+    <a class="button button-block button-positive" href="#/articles">
+        Back
+    </a>
 </div>

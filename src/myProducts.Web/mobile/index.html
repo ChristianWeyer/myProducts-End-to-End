@@ -5,8 +5,9 @@
 
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="css/ionic.css">
+    <link href="../app/css/app.css" rel="stylesheet" />
 </head>
-<body>
+<body class="ng-cloak">
     <div ng-controller="NavigationController">
         <side-menus>
             <pane side-menu-content>
@@ -15,7 +16,7 @@
                     <h1 class="title">myProducts</h1>
                 </header>
 
-                <content has-header="true" has-tabs="true" padding="true" overflow-scroll="true">
+                <content has-header="true" has-tabs="true" overflow-scroll="true">
                     <ng-view class="padding">
                     </ng-view>
                 </content>
@@ -29,7 +30,7 @@
                 </header>
                 <content has-header="true">
                     <ul class="list">
-                        <a ng-show="ni.DisplayText" ng-href="#{{ ni.Url }}" class="item" ng-repeat="ni in navigation.navigationItems" translate>
+                        <a ng-show="ni.DisplayText" ng-href="#{{ ni.Url }}" ng-click="navigation.openLeft()" class="item" ng-repeat="ni in navigation.navigationItems" translate>
                             {{ ni.DisplayText }}
                         </a>
                     </ul>
