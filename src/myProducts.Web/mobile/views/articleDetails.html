@@ -1,4 +1,8 @@
 ﻿<div class="list">
+    <a class="button button-clear button-dark" href="#/articles">
+        <i class="icon ion-chevron-left"></i> Back
+    </a>
+    <br /><br />
     <label class="item item-input item-stacked-label">
         <span class="input-label">Name</span>
         <input type="text" placeholder="Article name" ng-model="articledetails.article.Name">
@@ -12,9 +16,5 @@
         <input type="text" placeholder="Description of the article" ng-model="articledetails.article.Description">
     </label>
     <br />
-    <img ng-if="articledetails.editMode" alt="Product image" class="img" src="app/images/default.png" ng-src="{{ articledetails.article.ImageUrl | baseUrl }}" />
-    <br />
-    <a class="button button-block button-positive" href="#/articles">
-        Back
-    </a>
+    <img ng-if="articledetails.editMode" alt="Product image" class="img" src="../app/images/default.png" ng-src="{{ articledetails.article.ImageUrl | baseUrl }}" />
 </div>

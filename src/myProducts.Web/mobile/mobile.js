@@ -1,6 +1,6 @@
 ﻿var mobileApp = {
     initialize: function () {
-        if(!document.URL.match(/^https?:/)){
+        if (!document.URL.match(/^https?:/)) {
             this.bindEvents();
         }
     },
@@ -16,8 +16,6 @@
 
     onDeviceReady: function () {
         //alert("onDeviceReady");
-        angular.element(document).ready(function () {
-            StatusBar.overlaysWebView(false);
-        });
+        StatusBar.overlaysWebView(false);
     }
 };
