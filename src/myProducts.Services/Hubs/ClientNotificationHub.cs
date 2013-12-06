@@ -2,6 +2,7 @@
 
 namespace MyProducts.Services.Hubs
 {
+    //[Authorize]
     public class ClientNotificationHub : Hub
     {
     }

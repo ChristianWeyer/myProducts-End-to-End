@@ -34,10 +34,11 @@ namespace MyProducts.Services.Controllers
 
         [CacheOutput(ServerTimeSpan = 3600)]
         [PerfItFilter(Name = "Articles.GetAll", Description = "Gets all items", Counters = new[] { CounterTypes.TotalNoOfOperations, CounterTypes.AverageTimeTaken })]
+        //[Queryable(AllowedQueryOptions = AllowedQueryOptions.InlineCount | AllowedQueryOptions.Skip | AllowedQueryOptions.Top)]
         public PageResult<ArticleDto> Get(ODataQueryOptions<ArticleDto> options)
         {
             var settings = new ODataQuerySettings { PageSize = 10, EnsureStableOrdering = false };
-
+            
             var artikelQuery = productsContext.Articles.AsNoTracking().Project().To<ArticleDto>().OrderBy(a => a.Id);
             var results = options.ApplyTo(artikelQuery, settings);
 
@@ -48,7 +49,6 @@ namespace MyProducts.Services.Controllers
         }
 
         [CacheOutput(ServerTimeSpan = 3600)]
-        [ActionName("GetById")]
         [PerfItFilter(Name = "Articles.GetById", Description = "Gets one item", Counters = new[] { CounterTypes.TotalNoOfOperations, CounterTypes.AverageTimeTaken })]
         public ArticleDetailDto Get(string id)
         {

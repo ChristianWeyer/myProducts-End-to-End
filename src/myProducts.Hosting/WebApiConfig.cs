@@ -21,9 +21,9 @@ namespace MyProducts.Hosting
 
             config.Formatters.Clear();
             config.Formatters.Add(new JsonMediaTypeFormatter());
-            config.Formatters.Add(new ProtoBufFormatter());
+            //config.Formatters.Add(new ProtoBufFormatter());
 
-            config.EnableQuerySupport();
+            //config.EnableQuerySupport();
 
             config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute(
