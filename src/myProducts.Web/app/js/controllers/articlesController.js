@@ -63,7 +63,7 @@ app.lazy.controller("ArticlesController",
                             type: "info"
                         });
                     })
-                    .error(function (data) {
+                    .error(function (data, status, headers, config) {
                         // something strange happens when running in node-webkit... ugly workaround for now.
                         if (status !== 404) {
                             ttTools.logger.error("Server error", data);
