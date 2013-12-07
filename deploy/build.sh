@@ -31,7 +31,6 @@ cd tmp
 cp -r ../../src/myProducts.Web/app .
 cp -r ../../src/myProducts.Web/images .
 #cp ../../src/myProducts.Web/index.html .
-cp ../../src/myProducts.Web/main.js .
 cp ../node-webkit-sharedsource/* .
 
 ## Download generated index.html page

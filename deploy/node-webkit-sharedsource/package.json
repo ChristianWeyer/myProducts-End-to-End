@@ -5,11 +5,12 @@
   "main": "index.html",
   "window": {
     "title": "my Products",
-    "toolbar": true,
+    "toolbar": false,
     "width": 1024,
-    "height": 700,
+    "height": 750,
     "position": "mouse",
     "min_width": 1024,
-    "min_height": 700
+    "min_height": 750,
+    "icon": "app/images/apple-touch-icon.png"
   }
 }
