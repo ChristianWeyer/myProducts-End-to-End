@@ -357,6 +357,7 @@
     <Content Include="mobile\fonts\ionicons.svg" />
     <Content Include="mobile\index.html" />
     <Content Include="mobile\views\gallery.html" />
+    <Content Include="mobile\views\settings.html" />
     <Content Include="mobile\views\info.html" />
     <Content Include="mobile\views\statistics.html" />
     <Content Include="mobile\views\log.html" />

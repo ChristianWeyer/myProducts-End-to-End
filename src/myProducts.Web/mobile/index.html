@@ -35,6 +35,11 @@
                         </a>
                     </ul>
                     <ul class="list">
+                        <a href="#/settings" ng-click="navigation.openLeft()" class="item">
+                            Settings
+                        </a>
+                    </ul>
+                    <ul class="list">
                         <a ng-controller="StatusController" ng-click="status.logout();navigation.openLeft()" class="item item-calm">
                             {{ status.userName }}
                         </a>
