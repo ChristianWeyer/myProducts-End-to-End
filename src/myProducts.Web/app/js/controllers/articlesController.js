@@ -64,24 +64,15 @@ app.lazy.controller("ArticlesController",
                         });
                     })
                     .error(function (data, status, headers, config) {
-                        // something strange happens when running in node-webkit... ugly workaround for now.
-                        if (status !== 404) {
-                            ttTools.logger.error("Server error", data);
+                        ttTools.logger.error("Server error", data);
 
-                            dialog.showModalDialog({}, {
-                                headerText: $translate("COMMON_ERROR"),
-                                bodyText: $translate("DETAILS_ERROR"),
-                                closeButtonText: $translate("COMMON_CLOSE"),
-                                actionButtonText: $translate("COMMON_OK"),
-                                detailsText: JSON.stringify(data)
-                            });
-                        } else {
-                            toast.pop({
-                                title: $translate("POPUP_SUCCESS"),
-                                body: $translate("POPUP_DELETED"),
-                                type: "info"
-                            });
-                        }
+                        dialog.showModalDialog({}, {
+                            headerText: $translate("COMMON_ERROR"),
+                            bodyText: $translate("DETAILS_ERROR"),
+                            closeButtonText: $translate("COMMON_CLOSE"),
+                            actionButtonText: $translate("COMMON_OK"),
+                            detailsText: JSON.stringify(data)
+                        });
                     });
             };
         }]);
