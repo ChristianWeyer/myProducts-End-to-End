@@ -52,6 +52,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
 
         var transformRequest = function (data) {
             theSpinner.spin(getSpinner());
+            console.log("Spinner STARTED");
 
             return data;
         };
@@ -159,12 +160,14 @@ app.factory("loadingIndicatorInterceptor", function ($q) {
         return promise.then(
             function (response) {
                 theSpinner.stop();
+                console.log("Spinner STOPPED");
 
                 return response;
             },
             function (response) {
                 theSpinner.stop();
 
+                console.log("Spinner STOPPED");
                 return $q.reject(response);
             });
     };
