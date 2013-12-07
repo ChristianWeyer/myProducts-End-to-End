@@ -347,6 +347,7 @@
     <Content Include="images\0.jpg" />
     <Content Include="app\js\main.js" />
     <Content Include="app\js\lib\jquery.signalR-2.0.0.js" />
+    <Content Include="mobile\css\app.css" />
     <Content Include="mobile\mobile.js" />
     <Content Include="mobile\views\articleDetails.html" />
     <Content Include="mobile\views\articles.html" />
