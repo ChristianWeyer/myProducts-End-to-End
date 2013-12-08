@@ -28,6 +28,7 @@ namespace MyProducts.Web.App_Start
                 .Include("~/app/js/lib/fastclick.js")
                 .Include("~/app/js/lib/ionic.js")
                 .Include("~/app/js/lib/ionic-angular.js")
+                .Include("~/app/js/lib/loading-bar.js")
                 );
 
             bundles.Add(new StyleBundle("~/app/css/common")
@@ -41,6 +42,7 @@ namespace MyProducts.Web.App_Start
                 .Include("~/app/css/nv.d3.css")
                 .Include("~/app/css/font-awesome.css")
                 .Include("~/app/css/angular-carousel.css")
+                .Include("~/app/css/loading-bar.css")
                 );
             bundles.Add(new StyleBundle("~/app/css/app")
                 .Include("~/app/css/app.css")

@@ -12,20 +12,28 @@ namespace myProducts.WarmupHelper
     {
         static void Main(string[] args)
         {
-            var client = new HttpClient();
-            client.BaseAddress = new Uri("https://windows8vm/ngmd/api/");
-            client.SetBasicAuthentication("cw", "cw");
+            var localClient = new HttpClient();
+            localClient.BaseAddress = new Uri("https://windows8vm/ngmd/api/");
+            localClient.SetBasicAuthentication("cw", "cw");
+
+            var cloudClient = new HttpClient();
+            cloudClient.BaseAddress = new Uri("https://demo.christianweyer.net/api/");
+            cloudClient.SetBasicAuthentication("cw", "cw");
 
             while (true)
             {
                 Console.WriteLine("Calling 'personalization'");
-                client.GetAsync("personalization");
+                localClient.GetAsync("personalization");
+                cloudClient.GetAsync("personalization");
                 Console.WriteLine("Calling 'articles'");
-                client.GetAsync("articles");
+                localClient.GetAsync("articles");
+                cloudClient.GetAsync("articles");
                 Console.WriteLine("Calling 'images'");
-                client.GetAsync("images");
+                localClient.GetAsync("images");
+                cloudClient.GetAsync("images");
                 Console.WriteLine("Calling 'statistics'");
-                client.GetAsync("statistics");
+                localClient.GetAsync("statistics");
+                cloudClient.GetAsync("statistics");
 
                 Thread.Sleep(10000);
             }

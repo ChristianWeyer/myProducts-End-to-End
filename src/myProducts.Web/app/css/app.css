@@ -27,6 +27,15 @@ h2 {
     z-index: 1000;
 }
 
+
+#loading-bar .bar {
+  background: #FF6600;
+  height:5px;
+}
+#loading-bar .peg {
+  box-shadow: 0 0 10px #2c3e50, 0 0 5px #2c3e50;
+}
+
 .disable-select {
     -webkit-user-select: none;
     -moz-user-select: none;
