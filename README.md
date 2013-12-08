@@ -1,6 +1,6 @@
-ngMasterDetail
-==============
+myProducts - End-to-end
+=======================
 
-A sample secure master-detail application (with products data) with AngularJS, ASP.NET Web API, SignalR, thinktecture IdentityModel.
+A sample secure master-detail application (with products data). Built on AngularJS, ASP.NET Web API, SignalR, Entity Framework and thinktecture IdentityModel.
 
-Includes apps for Windows, MacOSX, Android, iOS.
+Includes installable/runnable apps for Windows, MacOSX, Android, iOS.
