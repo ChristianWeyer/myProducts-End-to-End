@@ -234,6 +234,7 @@
     <Content Include="app\css\bootstrap-responsive.css" />
     <Content Include="app\css\bootstrap-switch.css" />
     <Content Include="app\css\bootstrap.css" />
+    <Content Include="app\css\loading-bar.css" />
     <Content Include="app\css\modern-responsive.css" />
     <Content Include="app\css\modern.css" />
     <Content Include="app\css\tweak-bootstrap.css" />
@@ -289,6 +290,7 @@
     <Content Include="app\js\lib\jquery-2.0.1.js" />
     <Content Include="app\js\lib\jspdf.source.js" />
     <Content Include="app\js\lib\lawnchair-0.6.1.js" />
+    <Content Include="app\js\lib\loading-bar.js" />
     <Content Include="app\js\lib\log4javascript.js" />
     <Content Include="app\js\lib\ngStorage.js" />
     <Content Include="app\js\lib\nv.d3.js" />

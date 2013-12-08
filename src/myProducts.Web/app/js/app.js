@@ -1,7 +1,9 @@
-﻿var app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "angular-carousel", "frapontillo.bootstrap-switch", "ngStorage", "imageupload", "nvd3ChartDirectives", "jmdobry.angular-cache", "ionic"]);
+﻿var app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "angular-carousel", "frapontillo.bootstrap-switch", "ngStorage", "imageupload", "nvd3ChartDirectives", "jmdobry.angular-cache", "ionic", "chieffancypants.loadingBar"]);
 
-app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide",
-    function ($routeProvider, $locationProvider, $translateProvider, $httpProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
+app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide", "cfpLoadingBarProvider",
+    function ($routeProvider, $locationProvider, $translateProvider, $httpProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, cfpLoadingBarProvider) {
+        cfpLoadingBarProvider.includeSpinner = false;
+
         var mobile = window.location.pathname.indexOf("mobile/") > -1;
 
         ttTools.initLogger(ttTools.baseUrl + "api/log");
@@ -19,7 +21,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         var routeBaseUrl = "app/";
         var relativePath = "";
 
-        if(mobile) {
+        if (mobile) {
             routeBaseUrl = "";
             relativePath = "../";
         }
@@ -47,16 +49,6 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         });
         $translateProvider.preferredLanguage("en");
         $translateProvider.useLocalStorage();
-
-        $httpProvider.responseInterceptors.push("loadingIndicatorInterceptor");
-
-        var transformRequest = function (data) {
-            theSpinner.spin(getSpinner());
-            console.log("Spinner STARTED");
-
-            return data;
-        };
-        $httpProvider.defaults.transformRequest.push(transformRequest);
     }]);
 
 app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "toast", "dialog", "$route", "$routeProviderService", "routeResolverProviderService", "personalization", "categories",
@@ -80,8 +72,6 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
         $rootScope.$on(tt.authentication.loggedIn, function () {
             $http({ method: "GET", url: ttTools.baseUrl + "api/personalization" })
             .success(function (data) {
-                theSpinner.spin(getSpinner());
-
                 if (!categories.data) {
                     $http({ method: "GET", url: ttTools.baseUrl + "api/categories" })
                     .success(function (data) {
@@ -98,8 +88,6 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
 
                 $rootScope.$broadcast(tt.personalization.dataLoaded);
                 $route.reload();
-
-                theSpinner.stop();
             });
         });
 
@@ -154,39 +142,3 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
             $location.path("/login");
         });
     }]);
-
-app.factory("loadingIndicatorInterceptor", function ($q) {
-    return function (promise) {
-        return promise.then(
-            function (response) {
-                theSpinner.stop();
-                console.log("Spinner STOPPED");
-
-                return response;
-            },
-            function (response) {
-                theSpinner.stop();
-
-                console.log("Spinner STOPPED");
-                return $q.reject(response);
-            });
-    };
-});
-
-var theSpinner = new Spinner({
-    lines: 12,
-    length: 20,
-    width: 2,
-    radius: 10,
-    color: '#000',
-    speed: 1,
-    trail: 100,
-    shadow: true,
-    top: "auto",
-    left: "auto"
-});
-
-function getSpinner() {
-    var sp = document.getElementById("spinner");
-    return sp;
-}
