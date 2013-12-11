@@ -10,15 +10,18 @@ namespace MyProducts.Services.Controllers
     {
         public PersonalizationData GetPersonalizationData()
         {
+            var user = this.RequestContext.Principal;
+            var id = user.Identity;
+
             var persData = new PersonalizationData
                 {
-                    Features = GetFeatures(User).ToList(),
+                    Features = GetFeatures(user).ToList(),
                     UiClaims = new UiClaimsData
                         {
-                            UserName = User.Identity.Name,
-                            Capabilities = GetCapabilities(User),
-                            Constraints = GetConstraints(User),
-                            NameValueClaims = GetNameValueClaims(User)
+                            UserName = user.Identity.Name,
+                            Capabilities = GetCapabilities(user),
+                            Constraints = GetConstraints(user),
+                            NameValueClaims = GetNameValueClaims(user)
                         }
                 };
 

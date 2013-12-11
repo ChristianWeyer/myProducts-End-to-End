@@ -15,7 +15,8 @@ namespace MyProducts.Hosting
 
             var webApiConfig = new HttpConfiguration();
             WebApiConfig.Register(webApiConfig);
-            SecurityConfig.Register(webApiConfig);
+            SecurityConfig.Register(app, webApiConfig);
+
             app.UseWebApi(webApiConfig);
 
             GlobalHost.Configuration.ConnectionTimeout = TimeSpan.FromSeconds(1);

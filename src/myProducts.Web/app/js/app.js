@@ -5,7 +5,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         cfpLoadingBarProvider.includeSpinner = false;
 
         //tokenAuthenticationProvider.setStorage("private");
-        tokenAuthenticationProvider.setUrl("api/controller/token");
+        tokenAuthenticationProvider.setUrl("token");
 
         var mobile = window.location.pathname.indexOf("mobile/") > -1;
 

@@ -42,17 +42,33 @@ tt.authentication.module.provider("tokenAuthentication", {
             var auth = "Basic " + tt.Base64.encode(username + ":" + password);
 
             $http = $http || $injector.get("$http");
-            $http.defaults.headers.common["Authorization"] = auth;
+            //$http.defaults.headers.common["Authorization"] = auth;
+            var postData = $.param({ grant_type: "password", username: username, password: password });
 
-            return $http.get(that.url)
-                .success(function (tokenData) {
-                    username = "";
-                    password = "";
-                    auth = "";
+            return $http({
+                method: "POST",
+                url: that.url,
+                data: postData,
+                headers: { "Content-Type": "application/x-www-form-urlencoded" }
+            })
+            .success(function (tokenData) {
+                username = "";
+                password = "";
+                auth = "";
 
-                    setToken(tokenData);
-                    authenticationSuccess();
-                });
+                setToken(tokenData);
+                authenticationSuccess();
+            });
+
+            //return $http.get(that.url)
+            //    .success(function (tokenData) {
+            //        username = "";
+            //        password = "";
+            //        auth = "";
+
+            //        setToken(tokenData);
+            //        authenticationSuccess();
+            //    });
         }
 
         function logout() {
@@ -97,7 +113,7 @@ tt.authentication.module.provider("tokenAuthentication", {
                 tokenData.expiration = expiration;
             }
 
-            var sessionTokenValue = "Session " + tokenData.access_token;
+            var sessionTokenValue = "Bearer " + tokenData.access_token;
 
             $http = $http || $injector.get("$http");
             $http.defaults.headers.common["Authorization"] = sessionTokenValue;
