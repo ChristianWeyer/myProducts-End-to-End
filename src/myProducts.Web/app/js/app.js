@@ -115,12 +115,11 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
             }
         }, false);
 
-        $rootScope.$on("$locationChangeStart", function () {
+        $rootScope.$on("$routeChangeStart", function () {
             if (!$rootScope.tt.authentication.userLoggedIn) {
                 $rootScope.$broadcast(tt.authentication.authenticationRequired);
             }
         });
-
         $rootScope.$on(tt.authentication.authenticationRequired, function () {
             $location.path("/login");
         });
@@ -143,11 +142,5 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
         });
         $rootScope.$on(tt.authentication.logoutConfirmed, function () {
             $location.path("/login");
-        });
-
-        $rootScope.$on("$routeChangeStart", function (event, next, current) {
-            if (!$rootScope.tt.authentication.userLoggedIn) {
-                $location.path("/login")
-            }
         });
     }]);
