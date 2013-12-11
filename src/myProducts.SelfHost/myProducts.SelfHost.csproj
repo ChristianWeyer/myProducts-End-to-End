@@ -514,10 +514,6 @@
       <Link>client\app\js\lib\jspdf.source.js</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\myProducts.Web\app\js\lib\lawnchair-0.6.1.js">
-      <Link>client\app\js\lib\lawnchair-0.6.1.js</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\myProducts.Web\app\js\lib\log4javascript.js">
       <Link>client\app\js\lib\log4javascript.js</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

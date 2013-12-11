@@ -19,7 +19,6 @@ namespace MyProducts.Web.App_Start
                 .Include("~/app/js/lib/angularjs*")
                 .Include("~/app/js/lib/ui-bootstrap*")
                 .Include("~/app/js/lib/jquery.signalR*")
-                .Include("~/app/js/lib/lawnchair-0.6.1.js")
                 .Include("~/app/js/lib/log4javascript.js")
                 .Include("~/app/js/lib/iscroll.js")
                 .Include("~/app/js/lib/ngStorage.js")

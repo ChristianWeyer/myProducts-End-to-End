@@ -9,103 +9,122 @@ tt.authentication = {
 
 tt.authentication.module = angular.module("tt.Authentication", ["ng"]);
 
-tt.authentication.module.factory("tokenAuthentication", ["$rootScope", "$injector", "$q", function ($rootScope, $injector, $q) {
-    var $http;
-    var store = new Lawnchair({ adapter: "dom", table: "authenticationToken" }, function () { });
-    var key = "tt:authentication:authNToken";
+tt.authentication.module.provider("tokenAuthentication", {
+    storage: null,
+    url: null,
 
-    $rootScope.tt = $rootScope.tt || {}; $rootScope.tt.authentication = $rootScope.tt.authentication || {};
-    $rootScope.tt.authentication.userLoggedIn = false;
+    setStorage: function(s) {
+        this.storage = s;
+    },
 
-    checkForValidToken();
+    setUrl: function(u) {
+        this.url = u;
+    },
 
-    function login(baseUrl, username, password) {
-        var auth = "Basic " + tt.Base64.encode(username + ":" + password);
+    $get: ["$rootScope", "$injector", "$q", function ($rootScope, $injector, $q) {
+        var $http;
+        var key = "tt:authentication:authNToken";
+        var store;
+        var that = this;
 
-        $http = $http || $injector.get("$http");
-        $http.defaults.headers.common["Authorization"] = auth;
-
-        return $http.get(baseUrl + "api/controller/token")
-            .success(function (tokenData) {
-                username = "";
-                password = "";
-                auth = "";
-
-                setToken(tokenData);
-                authenticationSuccess();
-            });
-    }
-
-    function logout() {
-        store.nuke();
+        if (this.storage == "private") {
+            store = sessionStorage;
+        } else {
+            store = localStorage;
+        }
+        
+        $rootScope.tt = $rootScope.tt || {}; $rootScope.tt.authentication = $rootScope.tt.authentication || {};
         $rootScope.tt.authentication.userLoggedIn = false;
-        $rootScope.$broadcast(tt.authentication.logoutConfirmed);
-    }
 
-    function authenticationSuccess() {
-        $rootScope.tt.authentication.userLoggedIn = true;
-        $rootScope.$broadcast(tt.authentication.loggedIn);
-        $rootScope.$broadcast(tt.authentication.loginConfirmed);
-    }
+        checkForValidToken();
 
-    function checkForValidToken() {
-        getToken().then(function (tokenData) {
+        function login(username, password) {
+            var auth = "Basic " + tt.Base64.encode(username + ":" + password);
+
+            $http = $http || $injector.get("$http");
+            $http.defaults.headers.common["Authorization"] = auth;
+
+            return $http.get(that.url)
+                .success(function (tokenData) {
+                    username = "";
+                    password = "";
+                    auth = "";
+
+                    setToken(tokenData);
+                    authenticationSuccess();
+                });
+        }
+
+        function logout() {
+            store.removeItem(key);
             $rootScope.tt.authentication.userLoggedIn = false;
+            $rootScope.$broadcast(tt.authentication.logoutConfirmed);
+        }
 
-            if (!tokenData) {
-                $rootScope.$broadcast(tt.authentication.authenticationRequired);
+        function authenticationSuccess() {
+            $rootScope.tt.authentication.userLoggedIn = true;
+            $rootScope.$broadcast(tt.authentication.loggedIn);
+            $rootScope.$broadcast(tt.authentication.loginConfirmed);
+        }
 
-                return false;
-            } else {
-                if (new Date().getTime() > tokenData.token.expiration) {
+        function checkForValidToken() {
+            getToken().then(function (tokenData) {
+                $rootScope.tt.authentication.userLoggedIn = false;
+
+                if (!tokenData) {
                     $rootScope.$broadcast(tt.authentication.authenticationRequired);
 
                     return false;
                 } else {
-                    setToken(tokenData.token);
-                    $rootScope.tt.authentication.userLoggedIn = true;
-                    $rootScope.$broadcast(tt.authentication.loggedIn);
+                    if (new Date().getTime() > tokenData.expiration) {
+                        $rootScope.$broadcast(tt.authentication.authenticationRequired);
 
-                    return true;
+                        return false;
+                    } else {
+                        setToken(tokenData);
+                        $rootScope.tt.authentication.userLoggedIn = true;
+                        $rootScope.$broadcast(tt.authentication.loggedIn);
+
+                        return true;
+                    }
                 }
-            }
-        });
-    }
-
-    function setToken(tokenData) {
-        if (!tokenData.expiration) {
-            var expiration = new Date().getTime() + (tokenData.expires_in - 500) * 1000;
-            tokenData.expiration = expiration;
+            });
         }
 
-        var sessionTokenValue = "Session " + tokenData.access_token;
+        function setToken(tokenData) {
+            if (!tokenData.expiration) {
+                var expiration = new Date().getTime() + (tokenData.expires_in - 500) * 1000;
+                tokenData.expiration = expiration;
+            }
 
-        $http = $http || $injector.get("$http");
-        $http.defaults.headers.common["Authorization"] = sessionTokenValue;
+            var sessionTokenValue = "Session " + tokenData.access_token;
 
-        $(document).ajaxSend(function (event, xhr) {
-            xhr.setRequestHeader("Authorization", sessionTokenValue);
-        });
+            $http = $http || $injector.get("$http");
+            $http.defaults.headers.common["Authorization"] = sessionTokenValue;
 
-        store.save({ key: key, token: tokenData }, "");
-    }
+            $(document).ajaxSend(function (event, xhr) {
+                xhr.setRequestHeader("Authorization", sessionTokenValue);
+            });
 
-    function getToken() {
-        var deferred = $q.defer();
+            store.setItem(key, JSON.stringify(tokenData));
+        }
 
-        store.get(key, function (token) {
+        function getToken() {
+            var deferred = $q.defer();
+
+            var token = JSON.parse(store.getItem(key));
             deferred.resolve(token);
-        });
 
-        return deferred.promise;
-    }
+            return deferred.promise;
+        }
 
-    return {
-        login: login,
-        logout: logout,
-        checkForValidToken: checkForValidToken
-    };
-}]);
+        return {
+            login: login,
+            logout: logout,
+            checkForValidToken: checkForValidToken
+        };
+    }]
+});
 
 tt.authentication.module.config(["$httpProvider", function ($httpProvider) {
     var interceptor = ["$rootScope", "$q", "tokenAuthentication", function ($rootScope, $q, tokenAuthentication) {

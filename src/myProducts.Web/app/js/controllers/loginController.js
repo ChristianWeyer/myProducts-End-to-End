@@ -6,15 +6,15 @@ app.controller("LoginController",
         $scope.login.password = "";
 
         $scope.login.submit = function () {
-            tokenAuthentication.login(ttTools.baseUrl, $scope.login.username, $scope.login.password)
-            .error(function (data, status, headers, config) {
-                if (status !== 401) {
-                    toast.pop({
-                        title: "Login",
-                        body: "Status: " + status,
-                        type: "error"
-                    })
-                };
-            });
+            tokenAuthentication.login($scope.login.username, $scope.login.password)
+                .error(function (data, status, headers, config) {
+                    if (status !== 401) {
+                        toast.pop({
+                            title: "Login",
+                            body: "Status: " + status,
+                            type: "error"
+                        })
+                    };
+                });
         };
     }]);
