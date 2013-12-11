@@ -13,11 +13,11 @@ tt.authentication.module.provider("tokenAuthentication", {
     storage: null,
     url: null,
 
-    setStorage: function(s) {
+    setStorage: function (s) {
         this.storage = s;
     },
 
-    setUrl: function(u) {
+    setUrl: function (u) {
         this.url = u;
     },
 
@@ -32,7 +32,7 @@ tt.authentication.module.provider("tokenAuthentication", {
         } else {
             store = localStorage;
         }
-        
+
         $rootScope.tt = $rootScope.tt || {}; $rootScope.tt.authentication = $rootScope.tt.authentication || {};
         $rootScope.tt.authentication.userLoggedIn = false;
 
@@ -128,22 +128,6 @@ tt.authentication.module.provider("tokenAuthentication", {
 
 tt.authentication.module.config(["$httpProvider", function ($httpProvider) {
     var interceptor = ["$rootScope", "$q", "tokenAuthentication", function ($rootScope, $q, tokenAuthentication) {
-        $.ajaxPrefilter(function (options) {
-            var thatError = options.error;
-
-            options.error = function (thisXhr, textStatus, errorThrown) {
-                if (thisXhr.status === 401) {
-                    checkAuthenticationFailureStatus($.Deferred());
-                }
-
-                if (thatError) {
-                    return thatError(thisXhr, textStatus, errorThrown);
-                } else {
-                    return null;
-                }
-            };
-        });
-
         function success(response) {
             return response;
         }
