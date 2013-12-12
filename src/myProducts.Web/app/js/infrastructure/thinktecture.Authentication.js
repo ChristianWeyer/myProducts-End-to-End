@@ -27,7 +27,7 @@ tt.authentication.module.provider("tokenAuthentication", {
         var store;
         var that = this;
 
-        if (this.storage == "private") {
+        if (this.storage === "private") {
             store = sessionStorage;
         } else {
             store = localStorage;
