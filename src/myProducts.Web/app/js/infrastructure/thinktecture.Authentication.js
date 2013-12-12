@@ -39,8 +39,6 @@ tt.authentication.module.provider("tokenAuthentication", {
         checkForValidToken();
 
         function login(username, password) {
-            var auth = "Basic " + tt.Base64.encode(username + ":" + password);
-
             $http = $http || $injector.get("$http");
             var postData = $.param({ grant_type: "password", username: username, password: password });
 

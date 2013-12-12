@@ -17,12 +17,10 @@ namespace MyProducts.Hosting
 
             var webApiConfig = new HttpConfiguration();
             WebApiConfig.Register(webApiConfig);
-            
             app.UseWebApi(webApiConfig);
 
             GlobalHost.Configuration.ConnectionTimeout = TimeSpan.FromSeconds(1);
             GlobalHost.Configuration.LongPollDelay = TimeSpan.FromMilliseconds(5000);
-
             app.MapSignalR();
         }
     }
