@@ -105,10 +105,6 @@ tt.authentication.module.provider("tokenAuthentication", {
             $http = $http || $injector.get("$http");
             $http.defaults.headers.common["Authorization"] = sessionTokenValue;
 
-            $(document).ajaxSend(function (event, xhr) {
-                xhr.setRequestHeader("Authorization", sessionTokenValue);
-            });
-
             store.setItem(key, JSON.stringify(tokenData));
         }
 
