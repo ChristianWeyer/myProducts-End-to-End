@@ -13,10 +13,11 @@ namespace MyProducts.Hosting
             LoggingConfig.Configure();
             DataMapper.Configure();
 
+            SecurityConfig.Register(app);
+
             var webApiConfig = new HttpConfiguration();
             WebApiConfig.Register(webApiConfig);
-            SecurityConfig.Register(app, webApiConfig);
-
+            
             app.UseWebApi(webApiConfig);
 
             GlobalHost.Configuration.ConnectionTimeout = TimeSpan.FromSeconds(1);

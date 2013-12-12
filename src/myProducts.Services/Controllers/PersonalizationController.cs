@@ -11,8 +11,7 @@ namespace MyProducts.Services.Controllers
         public PersonalizationData GetPersonalizationData()
         {
             var user = this.RequestContext.Principal;
-            var id = user.Identity;
-
+ 
             var persData = new PersonalizationData
                 {
                     Features = GetFeatures(user).ToList(),

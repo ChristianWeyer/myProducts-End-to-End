@@ -24,7 +24,8 @@ namespace MyProducts.Hosting
             }
 
             var id = new ClaimsIdentity(context.Options.AuthenticationType);
- 
+            id.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
+           
             context.Validated(id);
         }
     }
