@@ -18,6 +18,14 @@ app.lazy.controller("ArticlesController",
                         $scope.articles.totalServerItems = data.Count;
 
                         return data.Items;
+                    }, function (data) {
+                        dialog.showModalDialog({}, {
+                            headerText: $translate("COMMON_ERROR"),
+                            bodyText: $translate("DETAILS_ERROR"),
+                            closeButtonText: $translate("COMMON_CLOSE"),
+                            actionButtonText: $translate("COMMON_OK"),
+                            detailsText: JSON.stringify(data)
+                        });
                     });
             };
 
@@ -26,6 +34,14 @@ app.lazy.controller("ArticlesController",
                     .then(function (data) {
                         $scope.articles.articlesData = data.Items;
                         $scope.articles.totalServerItems = data.Count;
+                    }, function (data) {
+                        dialog.showModalDialog({}, {
+                            headerText: $translate("COMMON_ERROR"),
+                            bodyText: $translate("DETAILS_ERROR"),
+                            closeButtonText: $translate("COMMON_CLOSE"),
+                            actionButtonText: $translate("COMMON_OK"),
+                            detailsText: JSON.stringify(data)
+                        });
                     });
             };
 
