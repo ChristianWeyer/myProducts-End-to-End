@@ -5,7 +5,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         cfpLoadingBarProvider.includeSpinner = false;
 
         //tokenAuthenticationProvider.setStorage("private");
-        tokenAuthenticationProvider.setUrl("token");
+        tokenAuthenticationProvider.setUrl(ttTools.baseUrl + "token");
 
         var mobile = window.location.pathname.indexOf("mobile/") > -1;
 

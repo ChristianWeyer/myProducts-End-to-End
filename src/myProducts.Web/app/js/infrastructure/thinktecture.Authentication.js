@@ -140,7 +140,7 @@ tt.authentication.module.factory("tokenAuthenticationHttpInterceptor", function 
 
     return {
         "responseError": function (rejection) {
-            if (response.status === 401) {
+            if (rejection.status === 401) {
                 checkAuthenticationFailureStatus($q.defer());
             }
 
