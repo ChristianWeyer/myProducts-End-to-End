@@ -2,10 +2,6 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
-using System.IdentityModel.Services;
-using System.Web.Http;
-using Thinktecture.IdentityModel.WebApi;
-using Thinktecture.IdentityModel.WebApi.Authentication.Handler;
 
 namespace MyProducts.Hosting
 {

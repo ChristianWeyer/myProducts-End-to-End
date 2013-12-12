@@ -4,10 +4,8 @@ using System.Net.Http.Formatting;
 using System.Web.Http;
 using System.Web.Http.Metadata;
 using Thinktecture.Applications.Framework.WebApi;
-using Thinktecture.Applications.Framework.WebApi.Debugging;
 using Thinktecture.Applications.Framework.WebApi.ModelMetadata;
 using Thinktecture.IdentityModel.WebApi;
-using WebApiContrib.Formatting;
 
 namespace MyProducts.Hosting
 {

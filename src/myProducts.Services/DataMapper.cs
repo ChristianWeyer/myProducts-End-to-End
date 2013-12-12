@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MyProducts.Model;
 using MyProducts.Services.DTOs;
-using System.Linq;
 using Thinktecture.Applications.Framework;
 
 namespace MyProducts.Services

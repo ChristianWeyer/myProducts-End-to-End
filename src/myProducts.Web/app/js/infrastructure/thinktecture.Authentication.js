@@ -42,7 +42,6 @@ tt.authentication.module.provider("tokenAuthentication", {
             var auth = "Basic " + tt.Base64.encode(username + ":" + password);
 
             $http = $http || $injector.get("$http");
-            //$http.defaults.headers.common["Authorization"] = auth;
             var postData = $.param({ grant_type: "password", username: username, password: password });
 
             return $http({
@@ -59,16 +58,6 @@ tt.authentication.module.provider("tokenAuthentication", {
                 setToken(tokenData);
                 authenticationSuccess();
             });
-
-            //return $http.get(that.url)
-            //    .success(function (tokenData) {
-            //        username = "";
-            //        password = "";
-            //        auth = "";
-
-            //        setToken(tokenData);
-            //        authenticationSuccess();
-            //    });
         }
 
         function logout() {
