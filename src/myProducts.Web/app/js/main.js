@@ -1,6 +1,4 @@
-﻿//$script.path("app/js/");
-
-$script(
+﻿$script(
     [
         "../translations/translations-de",
         "constants",
@@ -11,8 +9,8 @@ $script.ready("app", function () {
     $script(
     [
         "infrastructure/tools",
-        "infrastructure/thinktecture.Authentication",
-        "infrastructure/thinktecture.SignalR",
+        "infrastructure/thinktecture.ng.Authentication",
+        "infrastructure/thinktecture.ng.SignalR",
         "infrastructure/baseUrlFilter",
         "infrastructure/serverValidationDirective",
 

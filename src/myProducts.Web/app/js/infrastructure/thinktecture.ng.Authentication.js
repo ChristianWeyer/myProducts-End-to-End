@@ -1,3 +1,6 @@
+
+// version 0.1
+
 var tt = window.tt || {}; tt.authentication = {};
 tt.authentication = {
     authenticationRequired: "tt:authentication:authNRequired",

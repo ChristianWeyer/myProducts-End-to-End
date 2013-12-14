@@ -272,6 +272,7 @@
     <Content Include="app\js\controllers\logController.js" />
     <Content Include="app\js\controllers\statisticsController.js" />
     <Content Include="app\js\infrastructure\serverValidationDirective.js" />
+    <Content Include="app\js\infrastructure\thinktecture.ng.SignalR.js" />
     <Content Include="app\js\lib\angular-animate.js" />
     <Content Include="app\js\lib\angular-bootstrap-switch.js" />
     <Content Include="app\js\lib\angular-cache-2.0.0-rc.1.js" />
@@ -330,8 +331,7 @@
     <Content Include="app\js\infrastructure\tools.js" />
     <Content Include="app\js\infrastructure\baseUrlFilter.js" />
     <Content Include="app\js\controllers\loginController.js" />
-    <Content Include="app\js\infrastructure\thinktecture.Authentication.js" />
-    <Content Include="app\js\infrastructure\thinktecture.SignalR.js" />
+    <Content Include="app\js\infrastructure\thinktecture.ng.Authentication.js" />
     <Content Include="app\js\services\toastService.js" />
     <Content Include="app\js\services\articlesApiService.js" />
     <Content Include="app\views\dialog.html" />
