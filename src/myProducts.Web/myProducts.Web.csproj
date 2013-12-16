@@ -359,7 +359,6 @@
     <Content Include="mobile\views\articleDetails.html" />
     <Content Include="mobile\views\articles.html" />
     <Content Include="mobile\css\ionic.css" />
-    <Content Include="mobile\css\ionic.min.css" />
     <Content Include="mobile\css\themes\ionic-ios7.css" />
     <Content Include="mobile\css\themes\ionic-ios7.min.css" />
     <Content Include="mobile\fonts\ionicons.svg" />
