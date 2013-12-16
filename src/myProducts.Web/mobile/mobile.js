@@ -15,6 +15,5 @@
     },
 
     onDeviceReady: function () {
-        //alert("onDeviceReady");
     }
 };
