@@ -14,7 +14,14 @@ ttTools.getBaseUrl = function () {
         return ttTools.cloudUrl;
     }
     else {
-        return window.location.protocol + "//" + window.location.host + "/" + window.location.pathname.split("/")[1] + "/";
+        var p = window.location.pathname.split("/");
+        var u = window.location.protocol + "//" + window.location.host + "/";
+
+        if (p.length > 1) {
+            return u + "/" + p[1] + "/";
+        }
+
+        return u;
     }
 };
 
