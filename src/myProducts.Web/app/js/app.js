@@ -7,7 +7,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         //tokenAuthenticationProvider.setStorage("private");
         tokenAuthenticationProvider.setUrl(ttTools.baseUrl + "token");
 
-        var mobile = window.location.pathname.indexOf("mobile/") > -1;
+        var mobile = window.location.pathname.indexOf("/mobile") > -1;
 
         ttTools.initLogger(ttTools.baseUrl + "api/log");
         ttTools.logger.info("Configuring myApp...");
@@ -22,14 +22,12 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         };
 
         var routeBaseUrl = "app/";
-        var relativePath = "";
-
+      
         if (mobile) {
-            routeBaseUrl = "";
-            relativePath = "../";
+            routeBaseUrl = "mobile/";
         }
 
-        routeResolverProvider.routeConfig.setBaseDirectories(routeBaseUrl + "views/", relativePath + "app/js/controllers/");
+        routeResolverProvider.routeConfig.setBaseDirectories(routeBaseUrl + "views/", "app/js/controllers/");
 
         $routeProvider
             .when("/", { templateUrl: routeBaseUrl + "views/start.html", controller: "StartController" })
@@ -47,7 +45,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
 
         $translateProvider.translations("de", tt.translations.de);
         $translateProvider.useStaticFilesLoader({
-            prefix: relativePath + "app/translations/locale-",
+            prefix: "app/translations/locale-",
             suffix: ".json"
         });
         $translateProvider.preferredLanguage("en");
