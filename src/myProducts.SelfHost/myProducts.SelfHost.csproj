@@ -51,14 +51,15 @@
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServerCompact">
-      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.0.1\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.0.2\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -174,6 +175,14 @@
     <Content Include="..\myProducts.Web\app\js\infrastructure\serverValidationDirective.js">
       <Link>client\app\js\infrastructure\serverValidationDirective.js</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\infrastructure\thinktecture.ng.Authentication.js">
+      <Link>client\app\js\infrastructure\thinktecture.ng.Authentication.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\myProducts.Web\app\js\infrastructure\thinktecture.ng.SignalR.js">
+      <Link>client\app\js\infrastructure\thinktecture.ng.SignalR.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\myProducts.Web\app\js\lib\angular-sanitize.js">
       <Link>client\app\js\lib\angular-sanitize.js</Link>
@@ -396,14 +405,6 @@
     </Content>
     <Content Include="..\myProducts.Web\app\js\infrastructure\baseUrlFilter.js">
       <Link>client\app\js\infrastructure\baseUrlFilter.js</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\myProducts.Web\app\js\infrastructure\thinktecture.Authentication.js">
-      <Link>client\app\js\infrastructure\thinktecture.Authentication.js</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\myProducts.Web\app\js\infrastructure\thinktecture.SignalR.js">
-      <Link>client\app\js\infrastructure\thinktecture.SignalR.js</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\myProducts.Web\app\js\infrastructure\tools.js">
