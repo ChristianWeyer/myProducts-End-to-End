@@ -1,157 +1,98 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>myProducts</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <link rel="apple-touch-icon" href="app/images/apple-touch-icon.png" />
-    <link href="app/images/apple-touch-startup-image-1024x748.png"
-        media="(device-width: 768px) and (device-height: 1024px)
-         and (orientation: landscape)
-         and (-webkit-device-pixel-ratio: 1)"
-        rel="apple-touch-startup-image">
-    <link href="app/images/apple-touch-startup-image-2048x1496.png"
-        media="(device-width: 768px) and (device-height: 1024px)
-         and (orientation: landscape)
-         and (-webkit-device-pixel-ratio: 2)"
-        rel="apple-touch-startup-image">
-    <link href="/app/css/modern.css" rel="stylesheet"/>
-<link href="/app/css/modern-responsive.css" rel="stylesheet"/>
-<link href="/app/css/bootstrap.css" rel="stylesheet"/>
-<link href="/app/css/tweak-bootstrap.css" rel="stylesheet"/>
-<link href="/app/css/bootstrap-responsive.css" rel="stylesheet"/>
-<link href="/app/css/bootstrap-switch.css" rel="stylesheet"/>
-<link href="/app/css/toastr.css" rel="stylesheet"/>
-<link href="/app/css/nv.d3.css" rel="stylesheet"/>
-<link href="/app/css/font-awesome.css" rel="stylesheet"/>
-<link href="/app/css/angular-carousel.css" rel="stylesheet"/>
-<link href="/app/css/loading-bar.css" rel="stylesheet"/>
-
-    <link href="/app/css/app.css" rel="stylesheet"/>
-
-</head>
-<body class="ng-cloak">
-    <div class="navbar navbar-fixed-top" bs-navbar>
-        <div class="navbar-inner">
-            <div class="container-fluid" ng-controller="NavigationController">
-                <button type="button" class="btn btn-navbar" ng-click="navigation.isCollapsed=!navigation.isCollapsed">
-                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                </button>
-                <span class="brand">
-                    <img src="app/images/logo.png" /><br />
-                    <a href="#" data-match-route="/" class="brand" translate="INDEX_TITLE"></a>
-                </span>
-
-                <div class="nav-collapse" collapse="navigation.isCollapsed">
-                    <ul class="nav nav-pills">
-                        <li ng-repeat="ni in navigation.navigationItems" data-match-route='{{ ni.MatchPattern }}'>
-                            <a ng-show="ni.DisplayText" ng-click="navigation.isCollapsed=true" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
-                        </li>
-                        <li data-match-route="/info"><a ng-click="navigation.isCollapsed=true" href="#/info">Info</a></li>
-                    </ul>
-
-                    <ul class="nav nav-pills pull-right">
-                        <li data-match-route="/settings"><a ng-click="navigation.isCollapsed=true" href="#/settings" translate="INDEX_SETTINGS"></a></li>
-
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle"><i class="icon-align-justify"></i>&nbsp;<span translate="COMMON_LANG"></span></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="" ng-click="navigation.isCollapsed=true; navigation.changeLanguage('de');">
-                                        <img src="app/images/lang_de_t.png">
-                                        <span translate="COMMON_DE"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" ng-click="navigation.isCollapsed=true; navigation.changeLanguage('en')">
-                                        <img src="app/images/lang_en_t.png">
-                                        <span translate="COMMON_EN"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid" style="position:relative">
-        <div ng-view id="ng-view"></div>
-        <br />
-    </div>
-
-    <footer id="footer">
-        <div class="container-fluid" ng-controller="StatusController">
-            <img ng-if="status.isOnline" src="app/images/online.png" />
-            <img ng-if="!status.isOnline" src="app/images/offline.png" />
-
-            <span>&nbsp;
-                    <span ng-if="tt.authentication.userLoggedIn">
-                        <a href="" ng-click="status.logout();">
-                            <i class="icon-user"></i>
-                            {{ status.userName }}
-                        </a>
-                    </span>
-                <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
-                    <a href="#/login" translate="INDEX_LOGIN"></a>
-                </span>
-            </span>
-
-            <a href="http://www.thinktecture.com" target="_blank" class="cloud-link">
-                <span class="icon-cloud">&nbsp;</span>thinktecture
-            </a>
-        </div>
-    </footer>
-
-    <script src="/app/js/lib/jquery-2.0.1.js"></script>
-<script src="/app/js/lib/script.js"></script>
-<script src="/app/js/lib/toastr.js"></script>
-<script src="/app/js/lib/spin.js"></script>
-<script src="/app/js/lib/bootstrap-.js"></script>
-<script src="/app/js/lib/bootstrap-filestyle.js"></script>
-<script src="/app/js/lib/bootstrap-switch.js"></script>
-<script src="/app/js/lib/d3.v3.js"></script>
-<script src="/app/js/lib/nv.d3.js"></script>
-<script src="/app/js/lib/angular.js"></script>
-<script src="/app/js/lib/angular-animate.js"></script>
-<script src="/app/js/lib/angular-bootstrap-switch.js"></script>
-<script src="/app/js/lib/angular-cache-2.0.0-rc.1.js"></script>
-<script src="/app/js/lib/angular-carousel.js"></script>
-<script src="/app/js/lib/angular-cookies.js"></script>
-<script src="/app/js/lib/angular-mobile.js"></script>
-<script src="/app/js/lib/angular-route.js"></script>
-<script src="/app/js/lib/angular-sanitize.js"></script>
-<script src="/app/js/lib/angular-strap.js"></script>
-<script src="/app/js/lib/angular-touch.js"></script>
-<script src="/app/js/lib/angular-translate-.js"></script>
-<script src="/app/js/lib/angular-translate-loader-static-files.js"></script>
-<script src="/app/js/lib/angular-translate-loader-url.js"></script>
-<script src="/app/js/lib/angular-translate-storage-cookie.js"></script>
-<script src="/app/js/lib/angular-translate-storage-local.js"></script>
-<script src="/app/js/lib/angularjs-nvd3-directives.js"></script>
-<script src="/app/js/lib/ui-bootstrap-tpls-0.6.0.js"></script>
-<script src="/app/js/lib/jquery.signalR-2.0.0.js"></script>
-<script src="/app/js/lib/log4javascript.js"></script>
-<script src="/app/js/lib/iscroll.js"></script>
-<script src="/app/js/lib/ngStorage.js"></script>
-<script src="/app/js/lib/imageupload.js"></script>
-<script src="/app/js/lib/jspdf.source.js"></script>
-<script src="/app/js/lib/fastclick.js"></script>
-<script src="/app/js/lib/ionic.js"></script>
-<script src="/app/js/lib/ionic-angular.js"></script>
-<script src="/app/js/lib/loading-bar.js"></script>
-
-
-    <script>
-        $(function () {
-            FastClick.attach(document.body);
-            $script.path("app/js/");
-        });
-    </script>
-    <script src="app/js/main.js"></script>
-</body>
-</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<title>IIS 8.5 Detailed Error - 403.14 - Forbidden</title> 
+<style type="text/css"> 
+<!-- 
+body{margin:0;font-size:.7em;font-family:Verdana,Arial,Helvetica,sans-serif;} 
+code{margin:0;color:#006600;font-size:1.1em;font-weight:bold;} 
+.config_source code{font-size:.8em;color:#000000;} 
+pre{margin:0;font-size:1.4em;word-wrap:break-word;} 
+ul,ol{margin:10px 0 10px 5px;} 
+ul.first,ol.first{margin-top:5px;} 
+fieldset{padding:0 15px 10px 15px;word-break:break-all;} 
+.summary-container fieldset{padding-bottom:5px;margin-top:4px;} 
+legend.no-expand-all{padding:2px 15px 4px 10px;margin:0 0 0 -12px;} 
+legend{color:#333333;;margin:4px 0 8px -12px;_margin-top:0px; 
+font-weight:bold;font-size:1em;} 
+a:link,a:visited{color:#007EFF;font-weight:bold;} 
+a:hover{text-decoration:none;} 
+h1{font-size:2.4em;margin:0;color:#FFF;} 
+h2{font-size:1.7em;margin:0;color:#CC0000;} 
+h3{font-size:1.4em;margin:10px 0 0 0;color:#CC0000;} 
+h4{font-size:1.2em;margin:10px 0 5px 0; 
+}#header{width:96%;margin:0 0 0 0;padding:6px 2% 6px 2%;font-family:"trebuchet MS",Verdana,sans-serif; 
+ color:#FFF;background-color:#5C87B2; 
+}#content{margin:0 0 0 2%;position:relative;} 
+.summary-container,.content-container{background:#FFF;width:96%;margin-top:8px;padding:10px;position:relative;} 
+.content-container p{margin:0 0 10px 0; 
+}#details-left{width:35%;float:left;margin-right:2%; 
+}#details-right{width:63%;float:left;overflow:hidden; 
+}#server_version{width:96%;_height:1px;min-height:1px;margin:0 0 5px 0;padding:11px 2% 8px 2%;color:#FFFFFF; 
+ background-color:#5A7FA5;border-bottom:1px solid #C1CFDD;border-top:1px solid #4A6C8E;font-weight:normal; 
+ font-size:1em;color:#FFF;text-align:right; 
+}#server_version p{margin:5px 0;} 
+table{margin:4px 0 4px 0;width:100%;border:none;} 
+td,th{vertical-align:top;padding:3px 0;text-align:left;font-weight:normal;border:none;} 
+th{width:30%;text-align:right;padding-right:2%;font-weight:bold;} 
+thead th{background-color:#ebebeb;width:25%; 
+}#details-right th{width:20%;} 
+table tr.alt td,table tr.alt th{} 
+.highlight-code{color:#CC0000;font-weight:bold;font-style:italic;} 
+.clear{clear:both;} 
+.preferred{padding:0 5px 2px 5px;font-weight:normal;background:#006633;color:#FFF;font-size:.8em;} 
+--> 
+</style> 
+ 
+</head> 
+<body> 
+<div id="content"> 
+<div class="content-container"> 
+  <h3>HTTP Error 403.14 - Forbidden</h3> 
+  <h4>The Web server is configured to not list the contents of this directory.</h4> 
+</div> 
+<div class="content-container"> 
+ <fieldset><h4>Most likely causes:</h4> 
+  <ul> 	<li>A default document is not configured for the requested URL, and directory browsing is not enabled on the server.</li> </ul> 
+ </fieldset> 
+</div> 
+<div class="content-container"> 
+ <fieldset><h4>Things you can try:</h4> 
+  <ul> 	<li>If you do not want to enable directory browsing, ensure that a default document is configured and that the file exists.</li> 	<li>           Enable directory browsing using IIS Manager.           <ol> 			<li>Open IIS Manager.</li> 			<li>In the Features view, double-click Directory Browsing.</li> 			<li>On the Directory Browsing page, in the Actions pane, click Enable.</li> 		</ol> 	</li> 	<li>Verify that the configuration/system.webServer/directoryBrowse@enabled attribute is set to true in the site or application configuration file.</li> </ul> 
+ </fieldset> 
+</div> 
+ 
+<div class="content-container"> 
+ <fieldset><h4>Detailed Error Information:</h4> 
+  <div id="details-left"> 
+   <table border="0" cellpadding="0" cellspacing="0"> 
+    <tr class="alt"><th>Module</th><td>&nbsp;&nbsp;&nbsp;DirectoryListingModule</td></tr> 
+    <tr><th>Notification</th><td>&nbsp;&nbsp;&nbsp;ExecuteRequestHandler</td></tr> 
+    <tr class="alt"><th>Handler</th><td>&nbsp;&nbsp;&nbsp;StaticFile</td></tr> 
+    <tr><th>Error Code</th><td>&nbsp;&nbsp;&nbsp;0x00000000</td></tr> 
+     
+   </table> 
+  </div> 
+  <div id="details-right"> 
+   <table border="0" cellpadding="0" cellspacing="0"> 
+    <tr class="alt"><th>Requested URL</th><td>&nbsp;&nbsp;&nbsp;https://localhost:443/</td></tr> 
+    <tr><th>Physical Path</th><td>&nbsp;&nbsp;&nbsp;C:\Users\Christian\Documents\GitHub\ngMasterDetail\src\myProducts.Web\</td></tr> 
+    <tr class="alt"><th>Logon Method</th><td>&nbsp;&nbsp;&nbsp;Anonymous</td></tr> 
+    <tr><th>Logon User</th><td>&nbsp;&nbsp;&nbsp;Anonymous</td></tr> 
+     
+   </table> 
+   <div class="clear"></div> 
+  </div> 
+ </fieldset> 
+</div> 
+ 
+<div class="content-container"> 
+ <fieldset><h4>More Information:</h4> 
+  This error occurs when a document is not specified in the URL, no default document is specified for the Web site or application, and directory listing is not enabled for the Web site or application. This setting may be disabled on purpose to secure the contents of the server. 
+  <p><a href="http://go.microsoft.com/fwlink/?LinkID=62293&amp;IIS70Error=403,14,0x00000000,9600">View more information &raquo;</a></p> 
+   
+ </fieldset> 
+</div> 
+</div> 
+</body> 
+</html> 

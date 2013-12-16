@@ -378,7 +378,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="app\translations\locale-en.json" />
-    <Content Include="index.cshtml" />
+    <Content Include="app\index.cshtml" />
     <Content Include="manifest.cshtml" />
     <Content Include="mobile\fonts\ionicons.eot" />
     <Content Include="mobile\fonts\ionicons.ttf" />
