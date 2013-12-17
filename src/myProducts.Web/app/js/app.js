@@ -19,19 +19,19 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
             service: $provide.service
         };
 
-        var routeBaseUrl = "app/";
+        var viewBaseUrl = "app/";
       
         if (ttMobile) {
-            routeBaseUrl = "mobile/";
+            viewBaseUrl = "mobile/";
         }
 
-        routeResolverProvider.routeConfig.setBaseDirectories(routeBaseUrl + "views/", "app/js/controllers/");
+        routeResolverProvider.routeConfig.setBaseDirectories(viewBaseUrl + "views/", "app/js/controllers/");
 
         $routeProvider
-            .when("/", { templateUrl: routeBaseUrl + "views/start.html", controller: "StartController" })
-            .when("/info", { templateUrl: routeBaseUrl + "views/info.html", controller: "InfoController" })
-            .when("/settings", { templateUrl: routeBaseUrl + "views/settings.html", controller: "SettingsController" })
-            .when("/login", { templateUrl: routeBaseUrl + "views/login.html", controller: "LoginController" });
+            .when("/", { templateUrl: viewBaseUrl + "views/start.html", controller: "StartController" })
+            .when("/info", { templateUrl: viewBaseUrl + "views/info.html", controller: "InfoController" })
+            .when("/settings", { templateUrl: viewBaseUrl + "views/settings.html", controller: "SettingsController" })
+            .when("/login", { templateUrl: viewBaseUrl + "views/login.html", controller: "LoginController" });
 
         $provide.factory("$routeProviderService", function () {
             return $routeProvider;
