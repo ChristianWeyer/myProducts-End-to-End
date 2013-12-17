@@ -21,7 +21,8 @@ namespace MyProducts.Hosting
 
             var id = new ClaimsIdentity(context.Options.AuthenticationType);
             id.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
-           
+            id.AddClaim(new Claim("urn:tt:app", true.ToString()));
+
             context.Validated(id);
         }
     }

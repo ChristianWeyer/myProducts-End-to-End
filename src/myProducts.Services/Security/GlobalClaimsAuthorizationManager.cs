@@ -1,4 +1,6 @@
-﻿using System.Security.Claims;
+﻿using System;
+using System.Security.Claims;
+using Thinktecture.IdentityModel.Extensions;
 
 namespace MyProducts.Services.Security
 {
@@ -8,8 +10,16 @@ namespace MyProducts.Services.Security
         {
             if (ClaimsPrincipal.Current.Identity.IsAuthenticated)
             {
-                // NOTE: Add custom logic here
-                return base.CheckAccess(context);
+                var ttApp = ClaimsPrincipal.Current.FindFirst("urn:tt:app");
+
+                if(ttApp != null && Convert.ToBoolean(ttApp.Value) == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
 
             return false;

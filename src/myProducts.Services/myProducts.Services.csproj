@@ -147,7 +147,6 @@
     <Compile Include="DTOs\Personalization\UiClaimsData.cs" />
     <Compile Include="Hubs\ClientNotificationHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\GlobalClaimsAuthenticationManager.cs" />
     <Compile Include="Security\GlobalClaimsAuthorizationManager.cs" />
   </ItemGroup>
   <ItemGroup>
