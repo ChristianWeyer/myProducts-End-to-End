@@ -7,8 +7,6 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         //tokenAuthenticationProvider.setStorage("private");
         tokenAuthenticationProvider.setUrl(ttTools.baseUrl + "token");
 
-        var mobile = window.location.pathname.indexOf("/mobile") > -1;
-
         ttTools.initLogger(ttTools.baseUrl + "api/log");
         ttTools.logger.info("Configuring myApp...");
 
@@ -23,7 +21,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
 
         var routeBaseUrl = "app/";
       
-        if (mobile) {
+        if (ttMobile) {
             routeBaseUrl = "mobile/";
         }
 

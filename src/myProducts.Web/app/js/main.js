@@ -1,4 +1,6 @@
-﻿$script(
+﻿$script.path("app/js/");
+
+$script(
     [
         "../translations/translations-de",
         "constants",
