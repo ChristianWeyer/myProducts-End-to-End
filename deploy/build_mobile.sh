@@ -29,13 +29,13 @@ mkdir out/web
 cd ${DIR}
 cd tmp
 cp -r ../../src/myProducts.Web/app .
+cp -r ../../src/myProducts.Web/mobile .
 cp -r ../../src/myProducts.Web/images .
-#cp ../../src/myProducts.Web/index.html .
 cp ../node-webkit-sharedsource/* .
 
 ## Download generated index.html page
 echo "GETting index.html"
-curl -k https://windows8vm.local/ngmd/app > index.html
+curl -k https://windows8vm.local/ngmd/mobile > index.html
 perl -pi -w -e 's/\/ngmd\///g;' index.html
 
 ## ZIP directory into .nw for node-webkit
