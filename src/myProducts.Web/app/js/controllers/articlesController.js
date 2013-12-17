@@ -34,6 +34,7 @@ app.lazy.controller("ArticlesController",
                     .then(function (data) {
                         $scope.articles.articlesData = data.Items;
                         $scope.articles.totalServerItems = data.Count;
+                        $scope.$broadcast("scroll.refreshComplete");
                     }, function (data) {
                         dialog.showModalDialog({}, {
                             headerText: $translate("COMMON_ERROR"),
