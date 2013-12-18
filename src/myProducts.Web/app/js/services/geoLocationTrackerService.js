@@ -11,7 +11,10 @@
                     if (onSuccess) {
                         console.log("###GEOLOC: " + JSON.stringify(args));
 
-                        $http.post("api/geolocation", args);
+                        $http.post(ttTools.baseUrl + "api/geolocation", {
+                            data: args,
+                            ignoreLoadingBar: true
+                        });
 
                         $rootScope.$apply(function () {
                             onSuccess.apply(that, args);

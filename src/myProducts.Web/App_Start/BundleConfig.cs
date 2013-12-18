@@ -28,7 +28,9 @@ namespace MyProducts.Web.App_Start
                 .Include("~/app/js/lib/ionic.js")
                 .Include("~/app/js/lib/ionic-angular.js")
                 .Include("~/app/js/lib/loading-bar.js")
-                );
+                .Include("~/app/js/lib/phonegap-ready.js")
+                .Include("~/app/js/lib/phonegap-geolocation.js")
+            );
 
             bundles.Add(new StyleBundle("~/app/css/common")
                 .Include("~/app/css/modern.css")

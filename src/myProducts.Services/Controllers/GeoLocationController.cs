@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using Microsoft.AspNet.SignalR;
+using MyProducts.Services.Hubs;
+using System.Web.Http;
 
 namespace MyProducts.Services.Controllers
 {
@@ -7,7 +9,8 @@ namespace MyProducts.Services.Controllers
     {
         public void Post(dynamic loc)
         {
-            
+            var hub = GlobalHost.ConnectionManager.GetHubContext<LogHub>();
+            hub.Clients.All.sendLogEvent(loc);
         }
     }
 }

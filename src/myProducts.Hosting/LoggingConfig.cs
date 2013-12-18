@@ -1,6 +1,7 @@
 using Microsoft.AspNet.SignalR;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Storage;
+using MyProducts.Services.Hubs;
 using Serilog;
 
 namespace MyProducts.Hosting
