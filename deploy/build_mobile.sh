@@ -74,6 +74,8 @@ cordova platform add android
 ### Windows 8...
 #cordova platform add windows8
 
+cordova plugin add org.apache.cordova.geolocation
+
 ## Build for iOS
 cp -r ../../phonegap-ios/ ./platforms/ios/myProducts
 cp ./www/config.xml ./platforms/ios/myProducts
