@@ -1,10 +1,16 @@
 ﻿app.factory("GeoLocationTracker", function ($rootScope, $http, $timeout, phonegapReady) {
-    var promise;
+    var watchId;
 
     var location = {
         startSendPosition: phonegapReady(function (timeout, onSuccess, onError, options) {
             var poller = function () {
-                navigator.geolocation.getCurrentPosition(function () {
+                var gpsOptions = {
+                    enableHighAccuracy: true,
+                    timeout: timeout,
+                    maximumAge: 1000
+                };
+
+                watchId = navigator.geolocation.watchPosition(function () {
                     var that = this;
                     var args = arguments;
 
@@ -25,22 +31,23 @@
                     var args = arguments;
 
                     if (onError) {
-                        console.log("###GEOLOC: Error");
+                        console.log("###GEOLOC: Error" + JSON.stringify(args));
 
                         $rootScope.$apply(function () {
                             onError.apply(that, args);
                         });
                     }
-                }, options);
+                }, gpsOptions);
 
-                promise = $timeout(poller, timeout);
+                //promise = $timeout(poller, timeout);
             };
 
             poller();
         }),
 
         stopSendPosition: function () {
-            $timeout.cancel(promise);
+            //$timeout.cancel(promise);
+            navigator.geolocation.clearWatch(watchId);
         }
     }
 
