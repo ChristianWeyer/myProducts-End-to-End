@@ -1,4 +1,4 @@
-﻿app.service("dialog", ["$modal", function ($modal) {
+﻿app.service("dialog", function () {
         var modalDefaults = {
             backdrop: true,
             keyboard: true,
@@ -50,4 +50,4 @@
 
             return $modal.open(tempModalDefaults).result;
         };
-    }]);
+    });

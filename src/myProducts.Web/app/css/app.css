@@ -22,6 +22,18 @@ h2 {
     margin-bottom: 10px;
 }
 
+.slide-box {
+    background-color: white;
+}
+
+.slide-box-slide {
+    background-color: white;
+}
+
+.slide-box-pager {
+    color: #000;
+}
+
 .nav-collapse {
     background: rgb(235, 235, 235);
     z-index: 1000;
@@ -29,11 +41,12 @@ h2 {
 
 
 #loading-bar .bar {
-  background: #FF6600;
-  height:5px;
+    background: #FF6600;
+    height: 5px;
 }
+
 #loading-bar .peg {
-  box-shadow: 0 0 10px #2c3e50, 0 0 5px #2c3e50;
+    box-shadow: 0 0 10px #2c3e50, 0 0 5px #2c3e50;
 }
 
 .disable-select {

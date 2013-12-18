@@ -95,11 +95,14 @@
         </div>
     </footer>
 
+    <script>
+        ttMobile = false;
+    </script>
+
     @System.Web.Optimization.Scripts.Render("~/app/js-lib")
 
     <script>
         $(function () {
-            ttMobile = false;
             FastClick.attach(document.body);
         });
     </script>

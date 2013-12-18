@@ -1,10 +1,15 @@
-﻿var app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "angular-carousel", "frapontillo.bootstrap-switch", "ngStorage", "imageupload", "nvd3ChartDirectives", "jmdobry.angular-cache", "ionic", "chieffancypants.loadingBar"]);
+﻿var app;
+
+if (ttMobile) {
+    app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "ngStorage", "nvd3ChartDirectives", "jmdobry.angular-cache", "ionic", "chieffancypants.loadingBar"]);
+} else {
+    app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "angular-carousel", "frapontillo.bootstrap-switch", "ngStorage", "imageupload", "nvd3ChartDirectives", "jmdobry.angular-cache", "chieffancypants.loadingBar"]);
+}
 
 app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide", "cfpLoadingBarProvider", "tokenAuthenticationProvider",
     function ($routeProvider, $locationProvider, $translateProvider, $httpProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, cfpLoadingBarProvider, tokenAuthenticationProvider) {
         cfpLoadingBarProvider.includeSpinner = false;
 
-        //tokenAuthenticationProvider.setStorage("private");
         tokenAuthenticationProvider.setUrl(ttTools.baseUrl + "token");
 
         ttTools.initLogger(ttTools.baseUrl + "api/log");
@@ -20,7 +25,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         };
 
         var viewBaseUrl = "app/";
-      
+
         if (ttMobile) {
             viewBaseUrl = "mobile/";
         }

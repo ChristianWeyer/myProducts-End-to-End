@@ -369,8 +369,6 @@
     <Content Include="mobile\views\log.html" />
     <Content Include="mobile\views\start.html" />
     <Content Include="mobile\views\login.html" />
-    <Content Include="Scripts\jquery.signalR-2.0.1.js" />
-    <Content Include="Scripts\jquery.signalR-2.0.1.min.js" />
     <Content Include="tests\angular-mocks.js" />
     <Content Include="tests\jasmine.js" />
     <Content Include="tests\loginControllerTests.js" />
