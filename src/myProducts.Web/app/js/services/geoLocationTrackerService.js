@@ -38,15 +38,12 @@
                         });
                     }
                 }, gpsOptions);
-
-                //promise = $timeout(poller, timeout);
             };
 
             poller();
         }),
 
         stopSendPosition: function () {
-            //$timeout.cancel(promise);
             navigator.geolocation.clearWatch(watchId);
         }
     }
