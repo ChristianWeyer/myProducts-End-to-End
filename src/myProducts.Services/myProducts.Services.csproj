@@ -132,6 +132,7 @@
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
+    <Compile Include="Controllers\GeoLocationController.cs" />
     <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Controllers\PersonalizationController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
