@@ -3,6 +3,7 @@
 
     var location = {
         startSendPosition: phonegapReady(function (onSuccess, onError, options) {
+            alert("!!!");
             var poller = function () {
                 navigator.geolocation.getCurrentPosition(function () {
                     var that = this;
@@ -11,7 +12,7 @@
                     if (onSuccess) {
                         console.log("###GEOLOC: " + JSON.stringify(args));
 
-                        $http.post("api/geolocation", agrs);
+                        $http.post("api/geolocation", args);
 
                         $rootScope.$apply(function () {
                             onSuccess.apply(that, args);
