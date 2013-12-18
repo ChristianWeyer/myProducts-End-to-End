@@ -87,7 +87,7 @@ angular.module('chieffancypants.loadingBar', [])
         'request': function(config) {
           // Check to make sure this request hasn't already been cached and that
           // the requester didn't explicitly ask us to ignore this request:
-          if (!config.data.ignoreLoadingBar && !isCached(config)) {
+          if ((config.data && !config.data.ignoreLoadingBar) && !isCached(config)) {
             if (reqsTotal === 0) {
               cfpLoadingBar.start();
             }
