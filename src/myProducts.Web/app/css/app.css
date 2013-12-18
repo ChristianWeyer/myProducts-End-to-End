@@ -31,6 +31,7 @@ h2 {
 }
 
 .slider-pager {
+    bottom: auto;
     top: 15px;
 }
 
