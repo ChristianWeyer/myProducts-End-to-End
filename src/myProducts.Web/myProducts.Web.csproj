@@ -301,10 +301,13 @@
     <Content Include="app\js\lib\log4javascript.js" />
     <Content Include="app\js\lib\ngStorage.js" />
     <Content Include="app\js\lib\nv.d3.js" />
+    <Content Include="app\js\lib\phonegap-geolocation.js" />
+    <Content Include="app\js\lib\phonegap-ready.js" />
     <Content Include="app\js\lib\script.js" />
     <Content Include="app\js\lib\spin.js" />
     <Content Include="app\js\lib\toastr.js" />
     <Content Include="app\js\lib\ui-bootstrap-tpls-0.6.0.js" />
+    <Content Include="app\js\services\geoLocationTrackerService.js" />
     <Content Include="app\js\services\networkStatusService.js" />
     <Content Include="app\js\services\logPushService.js" />
     <Content Include="app\js\services\dialogService.js" />

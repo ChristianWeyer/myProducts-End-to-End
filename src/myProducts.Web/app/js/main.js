@@ -26,6 +26,7 @@ $script.ready("app", function () {
         "services/categoriesService",
         "services/networkStatusService",
         "services/settingsService",
+        "services/geoLocationTrackerService",
 
         "controllers/startController",
         "controllers/navigationController",
