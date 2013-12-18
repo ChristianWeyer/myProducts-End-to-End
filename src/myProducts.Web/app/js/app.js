@@ -57,7 +57,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
 
 app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "toast", "dialog", "$route", "$routeProviderService", "routeResolverProviderService", "personalization", "categories", "GeoLocationTracker",
     function ($http, $templateCache, $rootScope, $location, $translate, toast, dialog, $route, $routeProviderService, routeResolverProviderService, personalization, categories, GeoLocationTracker) {
-        GeoLocationTracker.startSendPosition();
+        GeoLocationTracker.startSendPosition(10000, function (pos) { });
 
         window.addEventListener("online", function () {
             $rootScope.$apply($rootScope.$broadcast(tt.networkstatus.onlineChanged, true));

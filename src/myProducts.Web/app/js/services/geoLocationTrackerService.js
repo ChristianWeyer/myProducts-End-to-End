@@ -2,8 +2,7 @@
     var promise;
 
     var location = {
-        startSendPosition: phonegapReady(function (onSuccess, onError, options) {
-            alert("!!!");
+        startSendPosition: phonegapReady(function (timeout, onSuccess, onError, options) {
             var poller = function () {
                 navigator.geolocation.getCurrentPosition(function () {
                     var that = this;
@@ -31,8 +30,10 @@
                     }
                 }, options);
 
+                promise = $timeout(poller, timeout);
             };
-            promise = $timeout(poller, 5000);
+
+            poller();
         }),
 
         stopSendPosition: function () {
