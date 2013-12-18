@@ -1,10 +1,10 @@
 ﻿<content class="padding" on-refresh="articles.getPagedData(true)">
     <refresher></refresher>
 
-    <h3>Articles</h3>
-
-    <slide-box on-slide-changed="alert(index)">
+    <slide-box padded on-slide-changed="alert(index)">
         <slide>
+            <br />
+            <h3>Articles</h3>
             <div class="list">
                 <a class="item" ng-click="articles.getArticleDetails(a.Id)" ng-repeat="a in articles.articlesData">
                     <h2>{{ a.Name }}</h2>

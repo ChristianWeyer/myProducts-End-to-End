@@ -22,23 +22,22 @@ h2 {
     margin-bottom: 10px;
 }
 
-.slide-box {
+.slider {
     background-color: white;
 }
 
-.slide-box-slide {
+.slider-slide {
     background-color: white;
 }
 
-.slide-box-pager {
-    color: #000;
+.slider-pager {
+    top: 15px;
 }
 
 .nav-collapse {
     background: rgb(235, 235, 235);
     z-index: 1000;
 }
-
 
 #loading-bar .bar {
     background: #FF6600;
