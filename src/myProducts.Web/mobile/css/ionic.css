@@ -3082,6 +3082,7 @@ img {
 }
 
 body, .ionic-body {
+    -webkit-touch-callout: none;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
     -webkit-backface-visibility: hidden;

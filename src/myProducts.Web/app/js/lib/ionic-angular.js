@@ -19,12 +19,79 @@
  */
 angular.module('ionic.service', ['ionic.service.platform', 'ionic.service.actionSheet', 'ionic.service.gesture', 'ionic.service.loading', 'ionic.service.modal', 'ionic.service.popup', 'ionic.service.templateLoad']);
 
+// UI specific services and delegates
+angular.module('ionic.ui.service', ['ionic.ui.service.scrollDelegate', ]);
+
 angular.module('ionic.ui', ['ionic.ui.content', 'ionic.ui.scroll', 'ionic.ui.tabs', 'ionic.ui.navRouter', 'ionic.ui.header', 'ionic.ui.sideMenu', 'ionic.ui.slideBox', 'ionic.ui.list', 'ionic.ui.checkbox', 'ionic.ui.toggle', 'ionic.ui.radio']);
 
-angular.module('ionic', ['ionic.service', 'ionic.ui',
+
+angular.module('ionic', ['ionic.service', 'ionic.ui.service', 'ionic.ui',
 
 // Angular deps
 'ngAnimate', 'ngRoute', 'ngTouch', 'ngSanitize']);;
+(function () {
+    'use strict';
+
+    angular.module('ionic.ui.service.scrollDelegate', [])
+
+        .factory('ScrollDelegate', ['$rootScope', function ($rootScope) {
+            return {
+                /**
+                 * Trigger a scroll-to-top event on child scrollers.
+                 */
+                scrollTop: function (animate) {
+                    $rootScope.$broadcast('scroll.scrollTop', animate);
+                },
+                tapScrollToTop: function (element) {
+                    var _this = this;
+
+                    ionic.on('tap', function (e) {
+                        var el = element[0];
+                        var bounds = el.getBoundingClientRect();
+
+                        if (ionic.DomUtil.rectContains(e.gesture.touches[0].pageX, e.gesture.touches[0].pageY, bounds.left, bounds.top, bounds.left + bounds.width, bounds.top + 20)) {
+                            _this.scrollTop();
+                        }
+                    }, element[0]);
+                },
+                /**
+                 * Register a scope for scroll event handling.
+                 * $scope {Scope} the scope to register and listen for events
+                 */
+                register: function ($scope, $element) {
+                    $element.bind('scroll', function (e) {
+                        $scope.onScroll({
+                            event: e,
+                            scrollTop: e.detail ? e.detail.scrollTop : e.originalEvent ? e.originalEvent.detail.scrollTop : 0,
+                            scrollLeft: e.detail ? e.detail.scrollLeft : e.originalEvent ? e.originalEvent.detail.scrollLeft : 0
+                        });
+                    });
+
+                    $scope.$parent.$on('scroll.resize', function (e) {
+                        // Run the resize after this digest
+                        $timeout(function () {
+                            $scope.$parent.scrollView && $scope.$parent.scrollView.resize();
+                        });
+                    });
+
+                    // Called to stop refreshing on the scroll view
+                    $scope.$parent.$on('scroll.refreshComplete', function (e) {
+                        $scope.$parent.scrollView && $scope.$parent.scrollView.finishPullToRefresh();
+                    });
+
+                    /**
+                     * Called to scroll to the top of the content
+                     *
+                     * @param animate {boolean} whether to animate or just snap
+                     */
+                    $scope.$parent.$on('scroll.scrollTop', function (e, animate) {
+                        $scope.$parent.scrollView && $scope.$parent.scrollView.scrollTo(0, 0, animate === false ? false : true);
+                    });
+                }
+            };
+        }]);
+
+})(ionic);;
 angular.module('ionic.service.actionSheet', ['ionic.service.templateLoad', 'ionic.ui.actionSheet', 'ngAnimate'])
 
     .factory('ActionSheet', ['$rootScope', '$document', '$compile', '$animate', '$timeout', 'TemplateLoader',
@@ -455,8 +522,17 @@ angular.module('ionic.service.templateLoad', [])
 
     angular.module('ionic.ui.header', ['ngAnimate'])
 
+        .directive('barHeader', ['ScrollDelegate', function (ScrollDelegate) {
+            return {
+                restrict: 'C',
+                link: function ($scope, $element, $attr) {
+                    // We want to scroll to top when the top of this element is clicked
+                    ScrollDelegate.tapScrollToTop($element);
+                }
+            };
+        }])
 
-        .directive('headerBar', function () {
+        .directive('headerBar', [function (ScrollDelegate) {
             return {
                 restrict: 'E',
                 replace: true,
@@ -508,7 +584,7 @@ angular.module('ionic.service.templateLoad', [])
                     });
                 }
             };
-        })
+        }])
 
         .directive('footerBar', function () {
             return {
@@ -583,7 +659,7 @@ angular.module('ionic.service.templateLoad', [])
 (function () {
     'use strict';
 
-    angular.module('ionic.ui.content', [])
+    angular.module('ionic.ui.content', ['ionic.ui.service'])
 
     /**
      * Panel is a simple 100% width and height, fixed panel. It's meant for content to be
@@ -599,7 +675,7 @@ angular.module('ionic.service.templateLoad', [])
 
     // The content directive is a core scrollable content area
     // that is part of many View hierarchies
-    .directive('content', ['$parse', '$timeout', function ($parse, $timeout) {
+    .directive('content', ['$parse', '$timeout', 'ScrollDelegate', function ($parse, $timeout, ScrollDelegate) {
         return {
             restrict: 'E',
             replace: true,
@@ -703,29 +779,13 @@ angular.module('ionic.service.templateLoad', [])
                                 });
                             }
 
-                            $element.bind('scroll', function (e) {
-                                $scope.onScroll({
-                                    event: e,
-                                    scrollTop: e.detail ? e.detail.scrollTop : e.originalEvent ? e.originalEvent.detail.scrollTop : 0,
-                                    scrollLeft: e.detail ? e.detail.scrollLeft : e.originalEvent ? e.originalEvent.detail.scrollLeft : 0
-                                });
-                            });
+                            // Register for scroll delegate event handling
+                            ScrollDelegate.register($scope, $element);
 
-                            $scope.$parent.$on('scroll.resize', function (e) {
-                                // Run the resize after this digest
-                                $timeout(function () {
-                                    sv && sv.resize();
-                                });
-                            });
-
-                            $scope.$parent.$on('scroll.refreshComplete', function (e) {
-                                sv && sv.finishPullToRefresh();
-                            });
 
                             // Let child scopes access this 
                             $scope.$parent.scrollView = sv;
                         });
-
 
 
                     }
@@ -1665,7 +1725,7 @@ angular.module('ionic.service.templateLoad', [])
 
                         var dragFn = function (e) {
                             if ($scope.dragContent) {
-                                if (defaultPrevented) {
+                                if (defaultPrevented || e.gesture.srcEvent.defaultPrevented) {
                                     return;
                                 }
                                 isDragging = true;
@@ -1794,15 +1854,22 @@ angular.module('ionic.service.templateLoad', [])
             transclude: true,
             scope: {
                 doesContinue: '@',
+                slideInterval: '@',
                 showPager: '@',
+                disableScroll: '@',
                 onSlideChanged: '&'
             },
             controller: ['$scope', '$element', function ($scope, $element) {
                 var _this = this;
 
+                var continuous = $scope.$eval($scope.doesContinue) === true;
+                var slideInterval = continuous ? $scope.$eval($scope.slideInterval) || 4000 : 0;
+
                 var slider = new ionic.views.Slider({
                     el: $element[0],
-                    continuous: $scope.$eval($scope.doesContinue) === true,
+                    auto: slideInterval,
+                    disableScroll: ($scope.$eval($scope.disableScroll) === true) || false,
+                    continuous: continuous,
                     slidesChanged: function () {
                         $scope.currentSlide = slider.getPos();
 
@@ -1833,7 +1900,11 @@ angular.module('ionic.service.templateLoad', [])
                     slider.slide(index);
                 });
 
-                $scope.slideBox = slider;
+                $scope.$parent.slideBox = slider;
+
+                this.getNumSlides = function () {
+                    return slider.getNumSlides();
+                };
 
                 $timeout(function () {
                     slider.load();
@@ -1859,13 +1930,11 @@ angular.module('ionic.service.templateLoad', [])
         .directive('slide', function () {
             return {
                 restrict: 'E',
-                replace: true,
                 require: '^slideBox',
-                transclude: true,
-                template: '<div class="slider-slide" ng-transclude></div>',
-                compile: function (element, attr, transclude) {
-                    return function ($scope, $element, $attr, slideBoxCtrl) { };
-                }
+                compile: function (element, attr) {
+                    element.addClass('slider-slide');
+                    return function ($scope, $element, $attr) { };
+                },
             };
         })
 
@@ -1889,7 +1958,7 @@ angular.module('ionic.service.templateLoad', [])
                     };
 
                     $scope.numSlides = function () {
-                        return new Array($scope.slideBox.getNumSlides());
+                        return new Array(slideBox.getNumSlides());
                     };
 
                     $scope.$watch('currentSlide', function (v) {
