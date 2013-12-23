@@ -22,6 +22,17 @@ h2 {
     margin-bottom: 10px;
 }
 
+.bar.bar-positive {
+    background-color: #A7A396;
+    border-color: #5E5E5E;
+}
+
+.item.item-calm {
+    color: white;
+    background-color: #999999;
+    border-color: #414141;
+}
+
 .slider {
     background-color: white;
 }
