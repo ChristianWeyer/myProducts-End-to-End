@@ -1,0 +1,35 @@
+﻿[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.bar.bar-positive {
+    background-color: #8B887E;
+    border-color: #776854;
+}
+
+.item.item-calm {
+    color: white;
+    background-color: #999999;
+    border-color: #414141;
+}
+
+.button.button-positive {
+    background-color: #929FB4;
+    border-color: #C5C6C9;
+}
+
+#loading-bar .bar {
+    background: #e08549;
+    height: 5px;
+}
+
+#loading-bar .peg {
+    box-shadow: 0 0 10px #2c3e50, 0 0 5px #2c3e50;
+}
+
+.disable-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

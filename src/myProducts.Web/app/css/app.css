@@ -22,17 +22,6 @@ h2 {
     margin-bottom: 10px;
 }
 
-.bar.bar-positive {
-    background-color: #A7A396;
-    border-color: #5E5E5E;
-}
-
-.item.item-calm {
-    color: white;
-    background-color: #999999;
-    border-color: #414141;
-}
-
 .slider {
     background-color: white;
 }
@@ -67,18 +56,8 @@ h2 {
     user-select: none;
 }
 
-.gridStyle {
-    border: 1px solid rgb(212,212,212);
-    width: 100%;
-    height: 390px;
-}
-
 .ngFooterPanel {
     background-color: rgba(180, 207, 213, 0.46);
-}
-
-.pdf-data-link {
-    margin-top: 7px;
 }
 
 .form-horizontal input.ng-invalid.ng-dirty {
