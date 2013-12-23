@@ -27,6 +27,19 @@
     box-shadow: 0 0 10px #2c3e50, 0 0 5px #2c3e50;
 }
 
+.slider {
+    background-color: white;
+}
+
+.slider-slide {
+    background-color: white;
+}
+
+.slider-pager {
+    bottom: auto;
+    top: 15px;
+}
+
 .disable-select {
     -webkit-user-select: none;
     -moz-user-select: none;
