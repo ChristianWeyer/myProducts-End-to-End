@@ -25,7 +25,7 @@ namespace MyProducts.Services.Controllers
     public class ArticlesController : HubApiController<ClientNotificationHub>
     {
         private readonly ProductsContext productsContext;
-        private static readonly HashSet<Type> ProductChildTypes = new HashSet<Type>() { typeof(Category) };
+        private static readonly HashSet<Type> ProductChildTypes = new HashSet<Type> { typeof(Category) };
 
         public ArticlesController()
         {

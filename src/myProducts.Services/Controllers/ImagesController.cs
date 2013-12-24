@@ -36,11 +36,10 @@ namespace MyProducts.Services.Controllers
             //    throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = "No valid ID" });
             //}
 
-            var imagesFolder = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, Constants.ImagesFolder);
-            var stream = new FileStream(Path.Combine(imagesFolder, String.Format("{0}.jpg", id)), FileMode.Open);
+            var folder = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, Constants.ImagesFolder);
+            var stream = new FileStream(Path.Combine(folder, String.Format("{0}.jpg", id)), FileMode.Open);
 
-            var response = new HttpResponseMessage(HttpStatusCode.OK);
-            response.Content = new StreamContent(stream);
+            var response = new HttpResponseMessage(HttpStatusCode.OK) { Content = new StreamContent(stream) };
             response.Content.Headers.ContentType = new MediaTypeHeaderValue("image/jpg");
 
             return response;

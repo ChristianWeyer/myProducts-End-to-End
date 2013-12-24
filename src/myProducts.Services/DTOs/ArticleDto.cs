@@ -1,6 +1,4 @@
-﻿
-
-namespace MyProducts.Services.DTOs
+﻿namespace MyProducts.Services.DTOs
 {
     public class ArticleDto : DtoBase
     {

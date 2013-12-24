@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Security.Claims;
-using Thinktecture.IdentityModel.Extensions;
 
 namespace MyProducts.Services.Security
 {
@@ -12,14 +11,7 @@ namespace MyProducts.Services.Security
             {
                 var ttApp = ClaimsPrincipal.Current.FindFirst("urn:tt:app");
 
-                if(ttApp != null && Convert.ToBoolean(ttApp.Value) == true)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return ttApp != null && Convert.ToBoolean(ttApp.Value);
             }
 
             return false;

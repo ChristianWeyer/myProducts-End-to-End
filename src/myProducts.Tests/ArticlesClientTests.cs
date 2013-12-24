@@ -44,7 +44,7 @@ namespace MyProducts.Tests
         {
             client.SetBasicAuthentication("cw", "cw");
             var result = await client.GetAsync("articles");
-            var response = result.EnsureSuccessStatusCode();
+            result.EnsureSuccessStatusCode();
 
             var articles = await result.Content.ReadAsAsync<PageResult<ArticleDto>>();
 

@@ -10,7 +10,7 @@ namespace MyProducts.Services.Controllers
     {
         public PersonalizationData GetPersonalizationData()
         {
-            var user = this.RequestContext.Principal;
+            var user = RequestContext.Principal;
  
             var persData = new PersonalizationData
                 {
@@ -73,7 +73,7 @@ namespace MyProducts.Services.Controllers
                 };
             }
 
-            return new Capabilities { };
+            return new Capabilities();
         }
 
         private NameValueClaims GetNameValueClaims(IPrincipal principal)

@@ -1,5 +1,5 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+
 namespace MyProducts.Services.DTOs
 {
     public class ArticleDetailUpdateDto : DtoBase
