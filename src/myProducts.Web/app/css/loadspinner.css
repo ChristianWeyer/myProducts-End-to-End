@@ -1,4 +1,19 @@
-﻿.spinner {
+﻿#loading-area {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 200px;
+    right: 0;
+    margin: auto auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.spinner {
     margin: 100px auto 0;
     width: 70px;
     text-align: center;
