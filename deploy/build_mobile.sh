@@ -76,6 +76,7 @@ cordova platform add android
 
 cordova plugin add org.apache.cordova.device
 cordova plugin add org.apache.cordova.geolocation
+cordova plugin add org.apache.cordova.splashscreen
 
 ## Build for iOS
 cp -r ../../phonegap-ios/ ./platforms/ios/myProducts
