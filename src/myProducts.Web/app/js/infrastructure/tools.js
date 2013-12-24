@@ -37,9 +37,9 @@ ttTools.lowercaseFirstLetter = function (string) {
 
 ttTools.startHub = function (hub) {
     if (ttTools.iOS()) {
-        hub.start({ transport: "longPolling" });
+        return hub.start({ transport: "longPolling" });
     } else {
-        hub.start();
+        return hub.start();
     }
 };
 

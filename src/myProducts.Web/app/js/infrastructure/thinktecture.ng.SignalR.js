@@ -2,6 +2,7 @@
 // version 0.1
 
 angular.module("tt.SignalR", ["ng"]).value("subscribePrefix", "tt.signalr:subscribe");
+
 angular.module("tt.SignalR").factory("hubProxy", ["$rootScope", "subscribePrefix", function ($rootScope, subscribePrefix) {
     function signalRHubProxyFactory(serverUrl, hubName) {
         var connection = $.hubConnection(serverUrl);

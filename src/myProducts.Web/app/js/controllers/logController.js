@@ -1,4 +1,4 @@
-app.lazy.controller("LogController", ["$scope", "logPush", "subscribePrefix", function ($scope, logPush, subscribePrefix) {
+app.lazy.controller("LogController", ["$scope", "subscribePrefix", function ($scope, subscribePrefix) {
     $scope.log = {};
     
     $scope.log.entries = [];

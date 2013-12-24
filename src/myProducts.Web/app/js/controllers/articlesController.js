@@ -1,6 +1,6 @@
 app.lazy.controller("ArticlesController",
-    ["$scope", "$location", "articlesApi", "dataPush", "subscribePrefix", "toast", "dialog", "$translate", "personalization",
-        function ($scope, $location, articlesApi, dataPush, subscribePrefix, toast, dialog, $translate, personalization) {
+    ["$scope", "$location", "articlesApi", "subscribePrefix", "toast", "dialog", "$translate", "personalization",
+        function ($scope, $location, articlesApi, subscribePrefix, toast, dialog, $translate, personalization) {
             $scope.capabilities = personalization.data.UiClaims.Capabilities;
             $scope.capabilities.has = function (key) {
                 return $scope.capabilities.indexOf(key) > -1;
