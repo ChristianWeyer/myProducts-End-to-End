@@ -145,4 +145,6 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
         $rootScope.$on(tt.authentication.logoutConfirmed, function () {
             $location.path("/login");
         });
+
+        $rootScope.ttAppLoaded = true;
     }]);

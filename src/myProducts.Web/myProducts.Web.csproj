@@ -242,6 +242,7 @@
     <Content Include="app\css\bootstrap-switch.css" />
     <Content Include="app\css\bootstrap.css" />
     <Content Include="app\css\loading-bar.css" />
+    <Content Include="app\css\loadspinner.css" />
     <Content Include="app\css\modern-responsive.css" />
     <Content Include="app\css\modern.css" />
     <Content Include="app\css\tweak-bootstrap.css" />

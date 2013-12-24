@@ -47,6 +47,7 @@ namespace MyProducts.Web.App_Start
                 );
             bundles.Add(new StyleBundle("~/app/css/app")
                 .Include("~/app/css/app.css")
+                .Include("~/app/css/loadspinner.css")
                 );
         }
     }
