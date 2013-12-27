@@ -44,10 +44,22 @@
                             {{ ni.DisplayText }}
                         </a>
                     </ul>
+                    
+                    <ul class="list">
+                        <a class="item" href="" ng-click="navigation.openLeft(); navigation.changeLanguage('de');">
+                            <img src="app/images/lang_de_t.png">
+                            <span translate="COMMON_DE"></span>
+                        </a>
+                        <a class="item" href="" ng-click="navigation.openLeft(); navigation.changeLanguage('en')">
+                            <img src="app/images/lang_en_t.png">
+                            <span translate="COMMON_EN"></span>
+                        </a>     
+                    </ul>
                     <ul class="list">
                         <a href="#/settings" ng-click="navigation.openLeft()" class="item" translate="INDEX_SETTINGS">
                         </a>
                     </ul>
+
                     <ul class="list">
                         <a ng-controller="StatusController" ng-click="status.logout();navigation.openLeft()" class="item item-calm">
                             {{ status.userName }}
