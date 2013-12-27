@@ -25,13 +25,14 @@
     }
 
 #loading-bar .bar {
-    background: #e08549;
-    height: 5px;
+    background: #d08959;
+    height: 3px;
+    border: none;
 }
 
-#loading-bar .peg {
+/*#loading-bar .peg {
     box-shadow: 0 0 10px #2c3e50, 0 0 5px #2c3e50;
-}
+}*/
 
 .slider {
     background-color: white;
