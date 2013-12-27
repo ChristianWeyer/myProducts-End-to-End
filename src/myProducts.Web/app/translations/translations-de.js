@@ -29,6 +29,10 @@ tt.translations.de = {
     "DETAILS_TITLE": "Artikel-Details",
     "DETAILS_SELECTIMAGE": "Passendes Bild...",
     "DETAILS_ERROR": "Artikeldaten konnten nicht geladen werden (siehe Details).",
+    "DETAILS_NAME": "Name",
+    "DETAILS_CODE": "Code",
+    "DETAILS_DESCRIPTION": "Beschreibung",
+    "DETAILS_CATEGORIES": "Kategorien",
 
     "ABOUT_TITLE": "Über diese Anwendung",
     "ABOUT_BODY": "Eine auf HTML5-basierende Produktverwaltung.",
@@ -41,9 +45,10 @@ tt.translations.de = {
     "SETTINGS_TITLE": "Einstellungen",
     "SETTINGS_YES": "Ja",
     "SETTINGS_NO": "Nein",
-    "SETTINGS_PUSH": "Push-Kommunikation:",
-    "SETTINGS_PDFEXPORT": "PDF-Export (sehr einfach; experimentell):",
-    
+    "SETTINGS_PUSH": "Push-Kommunikation",
+    "SETTINGS_PDFEXPORT": "PDF-Export (sehr einfach; experimentell)",
+    "SETTINGS_SENDPOS": "Position übermitteln",
+
     "POPUP_SUCCESS": "Erfolg",
     "POPUP_ERROR": "Fehler",
     "POPUP_SAVED": "Gespeichert.",

@@ -28,6 +28,10 @@
   "DETAILS_TITLE": "Article details",
   "DETAILS_SELECTIMAGE": "Select image...",
   "DETAILS_ERROR": "Article data could not be loaded (see details).",
+  "DETAILS_NAME": "Name",
+  "DETAILS_CODE": "Code",
+  "DETAILS_DESCRIPTION": "Description",
+  "DETAILS_CATEGORIES": "Categories",
 
   "ABOUT_TITLE": "About this application",
   "ABOUT_BODY": "Our super awesome products management application...",
@@ -40,8 +44,9 @@
   "SETTINGS_TITLE": "Settings",
   "SETTINGS_YES": "Yes",
   "SETTINGS_NO": "No",
-  "SETTINGS_PUSH": "Enable push communication:",
-  "SETTINGS_PDFEXPORT": "Enable experimental (simple) PDF export:",
+  "SETTINGS_PUSH": "Enable push communication",
+  "SETTINGS_PDFEXPORT": "Enable experimental (simple) PDF export",
+  "SETTINGS_SENDPOS": "Send position",
 
   "POPUP_SUCCESS": "Success",
   "POPUP_ERROR": "Error",

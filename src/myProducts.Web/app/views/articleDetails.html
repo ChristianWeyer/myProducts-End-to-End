@@ -2,7 +2,7 @@
 
 <form name="form" novalidate class="form-horizontal">
     <div class="control-group" ng-class="{ error: form.name.$invalid }">
-        <label class="control-label" for="name">Name</label>
+        <label class="control-label" for="name" translate="DETAILS_NAME"></label>
         <div class="controls">
             <input type="text" required ng-model="articledetails.article.Name" name="name" server-validate="data.Name">
             <span class="help-inline alert alert-error" ng-repeat="errorMessage in form.name.$error.server">{{ errorMessage }}</span>
@@ -10,14 +10,14 @@
     </div>
 
     <div class="control-group" ng-class="{ error: form.code.$invalid }">
-        <label class="control-label" for="code">Code</label>
+        <label class="control-label" for="code" translate="DETAILS_CODE"></label>
         <div class="controls">
             <input type="text" required ng-model="articledetails.article.Code" name="code">
         </div>
     </div>
 
     <div class="control-group">
-        <label class="control-label" for="cats">Categories</label>
+        <label class="control-label" for="cats" translate="DETAILS_CATEGORIES"></label>
         <div class="controls">
             <select name="categories" ng-model="articledetails.article.Category" ng-options="c as c.Name for c in articledetails.categories track by c.Id"></select>
         </div>
