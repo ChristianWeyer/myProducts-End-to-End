@@ -89,6 +89,7 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
 
                 angular.forEach(data.Features, function (value, key) {
                     $routeProviderService.when(value.Url, route.resolve(value.Module));
+                    $http.get(viewsDir + value.Module.toLowerCase() + ".html", { cache: $templateCache });
                 });
 
                 $rootScope.$broadcast(tt.personalization.dataLoaded);
