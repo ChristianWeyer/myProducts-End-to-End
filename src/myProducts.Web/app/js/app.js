@@ -8,6 +8,8 @@ if (ttMobile) {
 
 app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide", "cfpLoadingBarProvider", "tokenAuthenticationProvider",
     function ($routeProvider, $locationProvider, $translateProvider, $httpProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, cfpLoadingBarProvider, tokenAuthenticationProvider) {
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|file|ms-appx):/);
+
         cfpLoadingBarProvider.includeSpinner = false;
 
         tokenAuthenticationProvider.setUrl(ttTools.baseUrl + "token");
