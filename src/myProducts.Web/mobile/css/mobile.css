@@ -5,6 +5,7 @@
 .bar.bar-positive {
     background-color: #8B887E;
     border-color: #776854;
+    background-image: none;
 }
 
 .item.item-calm {
@@ -17,6 +18,11 @@
     background-color: #929FB4;
     border-color: #C5C6C9;
 }
+
+    .button.button-positive.active, .button.button-positive:active {
+        background-color: #999999;
+        border-color: #C5C6C9;
+    }
 
 #loading-bar .bar {
     background: #e08549;
