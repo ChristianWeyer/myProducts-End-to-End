@@ -40,12 +40,17 @@
 
 .slider-slide {
     background-color: white;
-    text-align: center;
 }
 
 .slider-pager {
     bottom: auto;
     top: 15px;
+}
+
+.gallerySlide {
+    text-align: center;
+    padding-top: 50px;
+    width: 200px;
 }
 
 .disable-select {

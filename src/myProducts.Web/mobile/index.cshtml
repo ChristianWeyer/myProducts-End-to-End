@@ -5,9 +5,11 @@
     <title>myProducts</title>
 
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="mobile/css/ionic.css">
-    <link href="mobile/css/mobile.css" rel="stylesheet" />
+    <link href="app/css/modern.css" rel="stylesheet">
+    <link href="app/css/modern-responsive.css" rel="stylesheet">
     <link href="app/css/loadspinner.css" rel="stylesheet" />
+    <link href="mobile/css/ionic.css" rel="stylesheet">
+    <link href="mobile/css/mobile.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -44,7 +46,7 @@
                             {{ ni.DisplayText }}
                         </a>
                     </ul>
-                    
+
                     <ul class="list">
                         <a class="item" href="" ng-click="navigation.openLeft(); navigation.changeLanguage('de');">
                             <img src="app/images/lang_de_t.png">
@@ -53,7 +55,7 @@
                         <a class="item" href="" ng-click="navigation.openLeft(); navigation.changeLanguage('en')">
                             <img src="app/images/lang_en_t.png">
                             <span translate="COMMON_EN"></span>
-                        </a>     
+                        </a>
                     </ul>
                     <ul class="list">
                         <a href="#/settings" ng-click="navigation.openLeft()" class="item" translate="INDEX_SETTINGS">
