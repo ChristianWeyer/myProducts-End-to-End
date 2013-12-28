@@ -3,7 +3,7 @@ tt.translations.de = {
     "APP_UPDATE_BODY": "Neue Version vorhanden - jetzt laden?",
 
     "LOGIN_TITLE": "Anmeldung",
-    "LOGIN_USERNAME": "Benutzername",
+    "LOGIN_USERNAME": "Benutzer",
     "LOGIN_PASSWORD": "Passwort",
     "LOGIN_BUTTON_LOGIN": "Anmelden",
     "LOGIN_SUCCESS": "Anmeldung erfolgreich.",
