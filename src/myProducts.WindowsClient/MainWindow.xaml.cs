@@ -20,7 +20,7 @@ namespace myProducts.WindowsClient
 
             var browserSettings = new BrowserSettings
             {
-                FileAccessFromFileUrlsAllowed = true,
+                //FileAccessFromFileUrlsAllowed = true,
                 UniversalAccessFromFileUrlsAllowed = true
             };
 
