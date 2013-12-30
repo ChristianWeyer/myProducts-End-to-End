@@ -106,6 +106,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(SolutionDir)myProducts.Web\app\*.*" "$(TargetDir)client\app\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\images\*.*" "$(TargetDir)client\images\" /E /I /F /Y
 
 cd $(SolutionDir)tools
 build_index.html.bat
