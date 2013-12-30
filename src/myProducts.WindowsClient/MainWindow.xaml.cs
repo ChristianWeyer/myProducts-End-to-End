@@ -18,9 +18,10 @@ namespace myProducts.WindowsClient
         {
             InitializeComponent();
 
+            CEF.Initialize(new Settings { CachePath = @".\cachepath" });
+
             var browserSettings = new BrowserSettings
             {
-                //FileAccessFromFileUrlsAllowed = true,
                 UniversalAccessFromFileUrlsAllowed = true
             };
 
