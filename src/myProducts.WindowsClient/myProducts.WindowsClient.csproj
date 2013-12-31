@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\CEFSharp\</OutputPath>
+    <OutputPath>..\ClientBuild\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -28,7 +28,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\CEFSharp\</OutputPath>
+    <OutputPath>..\ClientBuild\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -105,7 +105,9 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(SolutionDir)myProducts.Web\app\*.*" "$(TargetDir)client\app\" /E /I /F /Y
+    <PostBuildEvent>xcopy "$(SolutionDir)CEFSharp\*.*" "$(TargetDir)\" /E /I /F /Y
+
+xcopy "$(SolutionDir)myProducts.Web\app\*.*" "$(TargetDir)client\app\" /E /I /F /Y
 xcopy "$(SolutionDir)myProducts.Web\images\*.*" "$(TargetDir)client\images\" /E /I /F /Y
 
 cd $(SolutionDir)tools

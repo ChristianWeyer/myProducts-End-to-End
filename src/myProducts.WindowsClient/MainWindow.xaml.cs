@@ -11,7 +11,7 @@ namespace myProducts.WindowsClient
     /// </summary>
     public partial class MainWindow : Window
     {
-        private WebView webView;
+        private readonly WebView webView;
         private bool loaded;
 
         public MainWindow()

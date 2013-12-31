@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>myProducts</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="apple-touch-icon" href="app/images/apple-touch-icon.png" />
+    <link href="app/images/apple-touch-startup-image-1024x748.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 1)"
+          rel="apple-touch-startup-image">
+    <link href="app/images/apple-touch-startup-image-2048x1496.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image">
+    <link href="app/css/modern.css" rel="stylesheet"/>
+<link href="app/css/modern-responsive.css" rel="stylesheet"/>
+<link href="app/css/bootstrap.css" rel="stylesheet"/>
+<link href="app/css/tweak-bootstrap.css" rel="stylesheet"/>
+<link href="app/css/bootstrap-responsive.css" rel="stylesheet"/>
+<link href="app/css/bootstrap-switch.css" rel="stylesheet"/>
+<link href="app/css/toastr.css" rel="stylesheet"/>
+<link href="app/css/nv.d3.css" rel="stylesheet"/>
+<link href="app/css/font-awesome.css" rel="stylesheet"/>
+<link href="app/css/angular-carousel.css" rel="stylesheet"/>
+<link href="app/css/loading-bar.css" rel="stylesheet"/>
+
+    <link href="app/css/app.css" rel="stylesheet"/>
+<link href="app/css/loadspinner.css" rel="stylesheet"/>
+
+</head>
+<body>
+    <div id="loading-area" ng-if="!ttAppLoaded">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <div ng-cloak>
+        <div class="navbar navbar-fixed-top" bs-navbar>
+            <div class="navbar-inner">
+                <div class="container-fluid" ng-controller="NavigationController">
+                    <button type="button" class="btn btn-navbar" ng-click="navigation.isCollapsed=!navigation.isCollapsed">
+                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <span class="brand">
+                        <img src="app/images/logo.png" /><br />
+                        <a href="#" data-match-route="/" class="brand" translate="INDEX_TITLE"></a>
+                    </span>
+
+                    <div class="nav-collapse" collapse="navigation.isCollapsed">
+                        <ul class="nav nav-pills">
+                            <li ng-repeat="ni in navigation.navigationItems" data-match-route='{{ ni.MatchPattern }}'>
+                                <a ng-show="ni.DisplayText" ng-click="navigation.isCollapsed=true" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
+                            </li>
+                            <li data-match-route="/info"><a ng-click="navigation.isCollapsed=true" href="#/info">Info</a></li>
+                        </ul>
+
+                        <ul class="nav nav-pills pull-right">
+                            <li data-match-route="/settings"><a ng-click="navigation.isCollapsed=true" href="#/settings" translate="INDEX_SETTINGS"></a></li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle"><i class="icon-align-justify"></i>&nbsp;<span translate="COMMON_LANG"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="" ng-click="navigation.isCollapsed=true; navigation.changeLanguage('de');">
+                                            <img src="app/images/lang_de_t.png">
+                                            <span translate="COMMON_DE"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" ng-click="navigation.isCollapsed=true; navigation.changeLanguage('en')">
+                                            <img src="app/images/lang_en_t.png">
+                                            <span translate="COMMON_EN"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid" style="position:relative">
+            <div ng-view id="ng-view"></div>
+            <br />
+        </div>
+
+        <footer id="footer">
+            <div class="container-fluid" ng-controller="StatusController">
+                <img ng-if="status.isOnline" src="app/images/online.png" />
+                <img ng-if="!status.isOnline" src="app/images/offline.png" />
+
+                <span>
+                    &nbsp;
+                    <span ng-if="tt.authentication.userLoggedIn">
+                        <a href="" ng-click="status.logout();">
+                            <i class="icon-user"></i>
+                            {{ status.userName }}
+                        </a>
+                    </span>
+                    <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
+                        <a href="#/login" translate="INDEX_LOGIN"></a>
+                    </span>
+                </span>
+
+                <a href="http://www.thinktecture.com" target="_blank" class="cloud-link">
+                    <span class="icon-cloud">&nbsp;</span>thinktecture
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        ttMobile = false;
+    </script>
+
+    <script src="app/js/lib/jquery-2.0.1.js"></script>
+<script src="app/js/lib/script.js"></script>
+<script src="app/js/lib/toastr.js"></script>
+<script src="app/js/lib/spin.js"></script>
+<script src="app/js/lib/bootstrap-.js"></script>
+<script src="app/js/lib/bootstrap-filestyle.js"></script>
+<script src="app/js/lib/bootstrap-switch.js"></script>
+<script src="app/js/lib/d3.v3.js"></script>
+<script src="app/js/lib/nv.d3.js"></script>
+<script src="app/js/lib/angular.js"></script>
+<script src="app/js/lib/angular-animate.js"></script>
+<script src="app/js/lib/angular-bootstrap-switch.js"></script>
+<script src="app/js/lib/angular-cache-2.0.0-rc.1.js"></script>
+<script src="app/js/lib/angular-carousel.js"></script>
+<script src="app/js/lib/angular-cookies.js"></script>
+<script src="app/js/lib/angular-mobile.js"></script>
+<script src="app/js/lib/angular-route.js"></script>
+<script src="app/js/lib/angular-sanitize.js"></script>
+<script src="app/js/lib/angular-strap.js"></script>
+<script src="app/js/lib/angular-touch.js"></script>
+<script src="app/js/lib/angular-translate-.js"></script>
+<script src="app/js/lib/angular-translate-loader-static-files.js"></script>
+<script src="app/js/lib/angular-translate-loader-url.js"></script>
+<script src="app/js/lib/angular-translate-storage-cookie.js"></script>
+<script src="app/js/lib/angular-translate-storage-local.js"></script>
+<script src="app/js/lib/angularjs-nvd3-directives.js"></script>
+<script src="app/js/lib/ui-bootstrap-tpls-0.6.0.js"></script>
+<script src="app/js/lib/jquery.signalR-2.0.0.js"></script>
+<script src="app/js/lib/log4javascript.js"></script>
+<script src="app/js/lib/iscroll.js"></script>
+<script src="app/js/lib/ngStorage.js"></script>
+<script src="app/js/lib/imageupload.js"></script>
+<script src="app/js/lib/jspdf.source.js"></script>
+<script src="app/js/lib/fastclick.js"></script>
+<script src="app/js/lib/ionic.js"></script>
+<script src="app/js/lib/ionic-angular.js"></script>
+<script src="app/js/lib/loading-bar.js"></script>
+<script src="app/js/lib/phonegap-ready.js"></script>
+<script src="app/js/lib/phonegap-geolocation.js"></script>
+
+
+    <script>
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
+
+    <script src="app/js/main.js"></script>
+</body>
+</html>
