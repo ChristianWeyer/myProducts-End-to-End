@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Input;
 using CefSharp;
 using CefSharp.Wpf;
 using System.Windows;
+using Thinktecture.Applications.Framework;
 
 namespace myProducts.WindowsClient
 {
@@ -34,25 +34,27 @@ namespace myProducts.WindowsClient
 			CefSharpContainer.Children.Add(webView);
 		}
 
-		void webView_LoadCompleted(object sender, CefSharp.LoadCompletedEventArgs url)
+		private void webView_LoadCompleted(object sender, LoadCompletedEventArgs e)
 		{
 			loaded = true;
 		}
 
-		private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+		private void Window_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (loaded)
 			{
-				if (e.Key == Key.I && (Keyboard.Modifiers & (ModifierKeys.Control | ModifierKeys.Shift)) == (ModifierKeys.Control | ModifierKeys.Shift))
+				if (e.Key == Key.I && 
+                    (Keyboard.Modifiers & (ModifierKeys.Control | ModifierKeys.Shift)) == (ModifierKeys.Control | ModifierKeys.Shift))
 				{
 					webView.ShowDevTools();
 				}
-				if (e.Key == Key.J && (Keyboard.Modifiers & (ModifierKeys.Control | ModifierKeys.Shift)) == (ModifierKeys.Control | ModifierKeys.Shift))
-				{
-					dynamic data = webView.EvaluateScript("getSampleData()");
-					MessageBox.Show(data["Firstname"] + " " + data["Lastname"], "From JavaScript");
-				}
 			}
 		}
+
+	    private void CallJS(object sender, RoutedEventArgs e)
+	    {
+            dynamic data = webView.EvaluateScript("getSampleData()").ToDynamic();
+            MessageBox.Show(data.Firstname + " " + data.Lastname, "From JavaScript");
+        }
 	}
 }

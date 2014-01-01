@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperExtensions.cs" />
+    <Compile Include="DynamicDictionary.cs" />
     <Compile Include="Entities\DbContextExtensions.cs" />
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="WebApi\Debugging\ConsoleLoggingHandler.cs" />
