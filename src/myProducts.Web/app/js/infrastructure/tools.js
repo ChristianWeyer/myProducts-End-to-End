@@ -100,11 +100,13 @@ ttTools.JsonAppender = function (url) {
     };
 };
 
-function getSampleData() {
+ttTools.getSampleData = function () {
     var data = {};
     data.Id = 42;
     data.Firstname = "Christian";
     data.Lastname = "Weyer";
+    data.Address = {};
+    data.Address.City = "Neustadt";
 
     return data;
 }

@@ -105,7 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperExtensions.cs" />
-    <Compile Include="DynamicDictionary.cs" />
+    <Compile Include="DictionaryExtensions.cs" />
     <Compile Include="Entities\DbContextExtensions.cs" />
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="WebApi\Debugging\ConsoleLoggingHandler.cs" />
@@ -132,7 +132,6 @@
     <Compile Include="WebApi\ValidateModelAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

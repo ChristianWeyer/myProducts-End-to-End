@@ -53,7 +53,7 @@ namespace myProducts.WindowsClient
 
 	    private void CallJS(object sender, RoutedEventArgs e)
 	    {
-            dynamic data = webView.EvaluateScript("getSampleData()").ToDynamic();
+            dynamic data = webView.EvaluateScript("ttTools.getSampleData()").ToDynamic();
             MessageBox.Show(data.Firstname + " " + data.Lastname, "From JavaScript");
         }
 	}
