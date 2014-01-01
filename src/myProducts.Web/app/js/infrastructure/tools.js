@@ -101,12 +101,19 @@ ttTools.JsonAppender = function (url) {
 };
 
 ttTools.getSampleData = function () {
-    var data = {};
-    data.Id = 42;
-    data.Firstname = "Christian";
-    data.Lastname = "Weyer";
-    data.Address = {};
-    data.Address.City = "Neustadt";
+    var injector = angular.element(document.body).injector();
+    var articlesApiService = injector.get("articlesApi");
 
-    return data;
+    articlesApiService.getArticlesPaged(10, 1).then(function(resultData) {
+        window.cefCallback.sampleDataResult(resultData);
+    });
+
+    //var data = {};
+    //data.Id = 42;
+    //data.Firstname = "Christian";
+    //data.Lastname = "Weyer";
+    //data.Address = {};
+    //data.Address.City = "Neustadt";
+
+    //return data;
 }

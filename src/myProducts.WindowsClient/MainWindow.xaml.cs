@@ -30,6 +30,7 @@ namespace myProducts.WindowsClient
 
 			webView = new WebView(urlToNavigate, browserSettings);
 			webView.LoadCompleted += webView_LoadCompleted;
+            webView.RegisterJsObject("cefCallback", new CefBridge());
 
 			CefSharpContainer.Children.Add(webView);
 		}
@@ -53,8 +54,16 @@ namespace myProducts.WindowsClient
 
 	    private void CallJS(object sender, RoutedEventArgs e)
 	    {
-            dynamic data = webView.EvaluateScript("ttTools.getSampleData()").ToDynamic();
-            MessageBox.Show(data.Firstname + " " + data.Lastname, "From JavaScript");
+	        webView.ExecuteScript("ttTools.getSampleData()");
         }
 	}
+
+    public class CefBridge
+    {
+        public void SampleDataResult(object result)
+        {
+            dynamic data = result.ToDynamic();
+            MessageBox.Show("Total articles: " + data.Count, "From JavaScript");
+        }
+    }
 }
