@@ -2,7 +2,10 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="myProducts Browser" Height="719.057" Width="1212.42" KeyDown="Window_KeyDown">
-    <Grid Name="cefSharpContainer">
-
+    
+    <Grid>
+        <Grid Name="CefSharpContainer">
+            
+        </Grid>
     </Grid>
 </Window>

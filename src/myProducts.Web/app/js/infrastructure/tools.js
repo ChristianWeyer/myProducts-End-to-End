@@ -99,3 +99,12 @@ ttTools.JsonAppender = function (url) {
         });
     };
 };
+
+function getSampleData() {
+    var data = {};
+    data.Id = 42;
+    data.Firstname = "Christian";
+    data.Lastname = "Weyer";
+
+    return data;
+}
