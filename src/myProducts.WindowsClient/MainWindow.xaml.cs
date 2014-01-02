@@ -30,7 +30,7 @@ namespace myProducts.WindowsClient
 
 			webView = new WebView(urlToNavigate, browserSettings);
 			webView.LoadCompleted += webView_LoadCompleted;
-            webView.RegisterJsObject("cefCallback", new CefBridge());
+			webView.RegisterJsObject("cefCallback", new CefBridge());
 
 			CefSharpContainer.Children.Add(webView);
 		}
@@ -45,25 +45,25 @@ namespace myProducts.WindowsClient
 			if (loaded)
 			{
 				if (e.Key == Key.I && 
-                    (Keyboard.Modifiers & (ModifierKeys.Control | ModifierKeys.Shift)) == (ModifierKeys.Control | ModifierKeys.Shift))
+					(Keyboard.Modifiers & (ModifierKeys.Control | ModifierKeys.Shift)) == (ModifierKeys.Control | ModifierKeys.Shift))
 				{
 					webView.ShowDevTools();
 				}
 			}
 		}
 
-	    private void CallJS(object sender, RoutedEventArgs e)
-	    {
-	        webView.ExecuteScript("ttTools.getSampleData()");
-        }
+		private void GetSampleDataFromJavaScript(object sender, RoutedEventArgs e)
+		{
+			webView.ExecuteScript("ttTools.getSampleData()");
+		}
 	}
 
-    public class CefBridge
-    {
-        public void SampleDataResult(object result)
-        {
-            dynamic data = result.ToDynamic();
-            MessageBox.Show("Total articles: " + data.Count, "From JavaScript");
-        }
-    }
+	public class CefBridge
+	{
+		public void SampleDataResult(object result)
+		{
+			dynamic data = result.ToDynamic();
+			MessageBox.Show("Total articles: " + data.Count, "From JavaScript in Chromium");
+		}
+	}
 }

@@ -13,7 +13,7 @@
             <MenuItem Header="_File" />
             <MenuItem Header="_Edit" />
             <MenuItem Header="_Tools">
-                <MenuItem Header="Call JS" Click="CallJS" />
+                <MenuItem Header="Call JS" Click="GetSampleDataFromJavaScript" />
             </MenuItem>
             <MenuItem Header="_View" />
             <MenuItem Header="_Window" />
