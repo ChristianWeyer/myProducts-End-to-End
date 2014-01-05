@@ -54,16 +54,6 @@ rm ../out/windows/nw.exe
 
 rm ../out/app.nw
 
-## Build for Windows8
-echo "Building for Windows 8"
-
-cp -r ../windows8/projectTemplate/ ../out/windows8
-cp -r . ../out/windows8
-cp -r ../windows8/replacement/ ../out/windows8/app/js
-cat "../windows8/projectFile/myProducts.WindowsStore.jsproj_PART1" > "../out/windows8/myProducts.WindowsStore.jsproj"
-find . -type f|sed 's/\//\\/'g |sed 's/.\\/<Content Include="/' |sed 's/$/" \/>/' |grep -v '\." /' |grep -v "DS_Store" |grep -v ".idea" |perl -pe 's/\015/\015\012/g' >> "../out/windows8/myProducts.WindowsStore.jsproj"
-cat "../windows8/projectFile/myProducts.WindowsStore.jsproj_PART2" >> "../out/windows8/myProducts.WindowsStore.jsproj"
-
 ## Create phonegap project
 cd ${DIR}
 cd phonegap_tmp
@@ -80,6 +70,9 @@ cd myProducts
 
 cordova platform add ios
 cordova platform add android
+
+### Windows 8...
+#cordova platform add windows8
 
 ## Build for iOS
 cp -r ../../phonegap-ios/ ./platforms/ios/myProducts
