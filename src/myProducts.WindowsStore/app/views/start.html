@@ -1,0 +1,16 @@
+﻿<div class="metrouicss" ng-cloak>
+    <a ng-repeat="ni in start.navigationItems" ng-href="#{{ ni.Url }}">
+        <div class="tile" ng-class="{{start.classes[$index % start.classes.length]}}">
+            <div class="brand">
+                <div class="name" translate>{{ ni.DisplayText }}</div>
+            </div>
+        </div>
+    </a>
+    <a href="#/info">
+        <div class="tile bg-color-lighten">
+            <div class="brand">
+                <div class="name" style="color: black">Info</div>
+            </div>
+        </div>
+    </a>
+</div>

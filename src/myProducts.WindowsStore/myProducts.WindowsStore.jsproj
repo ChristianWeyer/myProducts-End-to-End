@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x86">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x86">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>e13ffc9f-c6ab-46dd-b7f1-67d8aa45dbbb</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0'">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).Default.props" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).props" />
+  <PropertyGroup>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <RequiredPlatformVersion>8.1</RequiredPlatformVersion>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <PackageCertificateKeyFile>myProducts.WindowsStore_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppxManifest Include="package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="myProducts.WindowsStore_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.WinJS.2.0, Version=1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\css\angular-carousel.css" />
+    <Content Include="app\css\app.css" />
+    <Content Include="app\css\bootstrap-responsive.css" />
+    <Content Include="app\css\bootstrap-switch.css" />
+    <Content Include="app\css\bootstrap.css" />
+    <Content Include="app\css\font-awesome.css" />
+    <Content Include="app\css\loading-bar.css" />
+    <Content Include="app\css\loadspinner.css" />
+    <Content Include="app\css\modern-responsive.css" />
+    <Content Include="app\css\modern.css" />
+    <Content Include="app\css\nv.d3.css" />
+    <Content Include="app\css\toastr.css" />
+    <Content Include="app\css\tweak-bootstrap.css" />
+    <Content Include="app\font\fontawesome-webfont.eot" />
+    <Content Include="app\font\fontawesome-webfont.svg" />
+    <Content Include="app\font\fontawesome-webfont.ttf" />
+    <Content Include="app\font\fontawesome-webfont.woff" />
+    <Content Include="app\font\FontAwesome.otf" />
+    <Content Include="app\images\ajax-loader.gif" />
+    <Content Include="app\images\apple-touch-icon.png" />
+    <Content Include="app\images\apple-touch-startup-image-1024x748.png" />
+    <Content Include="app\images\apple-touch-startup-image-2048x1496.png" />
+    <Content Include="app\images\default.png" />
+    <Content Include="app\images\emergency_stop.png" />
+    <Content Include="app\images\glyphicons-halflings-white.png" />
+    <Content Include="app\images\glyphicons-halflings.png" />
+    <Content Include="app\images\lang_de.png" />
+    <Content Include="app\images\lang_de_t.png" />
+    <Content Include="app\images\lang_en.png" />
+    <Content Include="app\images\lang_en_t.png" />
+    <Content Include="app\images\logo.png" />
+    <Content Include="app\images\offline.png" />
+    <Content Include="app\images\online.png" />
+    <Content Include="app\images\user.png" />
+    <Content Include="app\index.cshtml" />
+    <Content Include="app\js\app.js" />
+    <Content Include="app\js\constants.js" />
+    <Content Include="app\js\controllers\articleDetailsController.js" />
+    <Content Include="app\js\controllers\articlesController.js" />
+    <Content Include="app\js\controllers\galleryController.js" />
+    <Content Include="app\js\controllers\infoController.js" />
+    <Content Include="app\js\controllers\logController.js" />
+    <Content Include="app\js\controllers\loginController.js" />
+    <Content Include="app\js\controllers\navigationController.js" />
+    <Content Include="app\js\controllers\settingsController.js" />
+    <Content Include="app\js\controllers\startController.js" />
+    <Content Include="app\js\controllers\statisticsController.js" />
+    <Content Include="app\js\controllers\statusController.js" />
+    <Content Include="app\js\infrastructure\baseUrlFilter.js" />
+    <Content Include="app\js\infrastructure\serverValidationDirective.js" />
+    <Content Include="app\js\infrastructure\thinktecture.ng.Authentication.js" />
+    <Content Include="app\js\infrastructure\thinktecture.ng.SignalR.js" />
+    <Content Include="app\js\infrastructure\tools.js" />
+    <Content Include="app\js\lib\angular-animate.js" />
+    <Content Include="app\js\lib\angular-bootstrap-switch.js" />
+    <Content Include="app\js\lib\angular-cache-2.0.0-rc.1.js" />
+    <Content Include="app\js\lib\angular-carousel.js" />
+    <Content Include="app\js\lib\angular-cookies.js" />
+    <Content Include="app\js\lib\angular-mobile.js" />
+    <Content Include="app\js\lib\angular-route.js" />
+    <Content Include="app\js\lib\angular-sanitize.js" />
+    <Content Include="app\js\lib\angular-strap.js" />
+    <Content Include="app\js\lib\angular-touch.js" />
+    <Content Include="app\js\lib\angular-translate-.js" />
+    <Content Include="app\js\lib\angular-translate-loader-static-files.js" />
+    <Content Include="app\js\lib\angular-translate-loader-url.js" />
+    <Content Include="app\js\lib\angular-translate-storage-cookie.js" />
+    <Content Include="app\js\lib\angular-translate-storage-local.js" />
+    <Content Include="app\js\lib\angular.js" />
+    <Content Include="app\js\lib\angularjs-nvd3-directives.js" />
+    <Content Include="app\js\lib\bootstrap-.js" />
+    <Content Include="app\js\lib\bootstrap-filestyle.js" />
+    <Content Include="app\js\lib\bootstrap-switch.js" />
+    <Content Include="app\js\lib\d3.v3.js" />
+    <Content Include="app\js\lib\fastclick.js" />
+    <Content Include="app\js\lib\imageupload.js" />
+    <Content Include="app\js\lib\ionic-angular.js" />
+    <Content Include="app\js\lib\ionic.js" />
+    <Content Include="app\js\lib\iscroll.js" />
+    <Content Include="app\js\lib\jquery-2.0.1.js" />
+    <Content Include="app\js\lib\jquery.signalR-2.0.0.js" />
+    <Content Include="app\js\lib\jspdf.source.js" />
+    <Content Include="app\js\lib\loading-bar.js" />
+    <Content Include="app\js\lib\log4javascript.js" />
+    <Content Include="app\js\lib\ngStorage.js" />
+    <Content Include="app\js\lib\nv.d3.js" />
+    <Content Include="app\js\lib\phonegap-geolocation.js" />
+    <Content Include="app\js\lib\phonegap-ready.js" />
+    <Content Include="app\js\lib\script.js" />
+    <Content Include="app\js\lib\spin.js" />
+    <Content Include="app\js\lib\toastr.js" />
+    <Content Include="app\js\lib\ui-bootstrap-tpls-0.6.0.js" />
+    <Content Include="app\js\main.js" />
+    <Content Include="app\js\services\articlesApiService.js" />
+    <Content Include="app\js\services\categoriesService.js" />
+    <Content Include="app\js\services\dataPushService.js" />
+    <Content Include="app\js\services\dialogService.js" />
+    <Content Include="app\js\services\geoLocationTrackerService.js" />
+    <Content Include="app\js\services\logPushService.js" />
+    <Content Include="app\js\services\networkStatusService.js" />
+    <Content Include="app\js\services\personalizationService.js" />
+    <Content Include="app\js\services\routeResolverService.js" />
+    <Content Include="app\js\services\settingsService.js" />
+    <Content Include="app\js\services\toastService.js" />
+    <Content Include="app\translations\locale-en.json" />
+    <Content Include="app\translations\translations-de.js" />
+    <Content Include="app\views\articleDetails.html" />
+    <Content Include="app\views\articles.html" />
+    <Content Include="app\views\dialog.html" />
+    <Content Include="app\views\gallery.html" />
+    <Content Include="app\views\info.html" />
+    <Content Include="app\views\log.html" />
+    <Content Include="app\views\login.html" />
+    <Content Include="app\views\settings.html" />
+    <Content Include="app\views\start.html" />
+    <Content Include="app\views\statistics.html" />
+    <Content Include="assets\win8-splash-1116x540.png" />
+    <Content Include="assets\win8-splash-620x300.png" />
+    <Content Include="assets\win8-splash-868x420.png" />
+    <Content Include="images\0.jpg" />
+    <Content Include="images\1.jpg" />
+    <Content Include="images\2.jpg" />
+    <Content Include="images\3.jpg" />
+    <Content Include="images\4.jpg" />
+    <Content Include="images\5.jpg" />
+    <Content Include="images\splashscreen.scale-100.png" />
+    <Content Include="images\splashscreen.scale-140.png" />
+    <Content Include="images\splashscreen.scale-180.png" />
+    <Content Include="index.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
+  <!-- To modify your build process, add your task inside one of the targets below then uncomment
+       that target and the DisableFastUpToDateCheck PropertyGroup. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <PropertyGroup>
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
+  -->
+</Project>
