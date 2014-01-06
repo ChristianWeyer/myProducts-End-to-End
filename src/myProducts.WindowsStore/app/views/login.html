@@ -1,0 +1,36 @@
+﻿<br/>
+<br/>
+<div class="disable-select">
+    <div class="modal-body">
+        <div class="center span7 well">
+            <div class="tab-content">
+                <div class="tab-pane active in" id="login">
+                    <form name="form" novalidate class="form-horizontal">
+                        <fieldset>
+                            <div id="legend">
+                                <legend class="" translate="LOGIN_TITLE"></legend>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="username" translate="LOGIN_USERNAME"></label>
+                                <div class="controls">
+                                    <input type="text" required ng-model="login.username" id="username" name="username" placeholder="" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="password" translate="LOGIN_PASSWORD"></label>
+                                <div class="controls">
+                                    <input type="password" required ng-model="login.password" id="password" name="password" placeholder="" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button ng-click="login.submit()" ng-disabled="form.$invalid" class="btn btn-success" translate="LOGIN_BUTTON_LOGIN"></button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
