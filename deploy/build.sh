@@ -6,7 +6,7 @@ cd ${DIR} || exit
 echo "Pulling from GitHub"
 ## Get latest from GitHub
 cd ..
-git pull origin Win8
+git pull origin master
 cd ${DIR}
 
 echo "Cleaning up"
