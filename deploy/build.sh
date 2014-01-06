@@ -63,8 +63,9 @@ rm ../out/windows8/package.json
 rm ../out/windows8/app/index.cshtml
 cp -r ../windows8/replacement/ ../out/windows8
 cat "../windows8/projectFile/myProducts.WindowsStore.jsproj_PART1" > "../out/windows8/myProducts.WindowsStore.jsproj"
-find . -type f|sed 's/\//\\/'g |sed 's/.\\/<Content Include="/' |sed 's/$/" \/>/' |grep -v '\." /' |grep -v "DS_Store" |grep -v ".idea" |perl -pe 's/\015/\015\012/g' >> "../out/windows8/myProducts.WindowsStore.jsproj"
-cat "../windows8/projectFile/myProducts.WindowsStore.jsproj_PART2" >> "../out/windows8/myProducts.WindowsStore.jsproj"
+cd ../out/windows8
+find . -type f|sed 's/\//\\/'g |sed 's/.\\/<Content Include="/' |sed 's/$/" \/>/' |grep -v '\." /' |grep -v ".DS_Store" |grep -v ".appxmanifest" |grep -v ".jsproj" |perl -pe 's/\015/\015\012/g' >> "./myProducts.WindowsStore.jsproj"
+cat "../../windows8/projectFile/myProducts.WindowsStore.jsproj_PART2" >> "./myProducts.WindowsStore.jsproj"
 
 ## Create phonegap project
 cd ${DIR}
