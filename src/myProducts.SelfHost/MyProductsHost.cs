@@ -5,7 +5,7 @@ using System;
 
 namespace MyProducts.SelfHost
 {
-    partial class MyProductsService
+    public class MyProductsHost
     {
         private static IDisposable server;
 

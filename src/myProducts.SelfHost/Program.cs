@@ -8,9 +8,9 @@ namespace MyProducts.SelfHost
         {
             HostFactory.Run(x =>
             {
-                x.Service<MyProductsService>(s =>
+                x.Service<MyProductsHost>(s =>
                 {
-                    s.ConstructUsing(name => new MyProductsService());
+                    s.ConstructUsing(name => new MyProductsHost());
                     s.WhenStarted(tc => tc.OnStart());
                     s.WhenStopped(tc => tc.OnStop());
                 });
