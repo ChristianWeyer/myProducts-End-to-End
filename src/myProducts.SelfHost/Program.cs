@@ -1,7 +1,4 @@
-﻿using System;
-using System.Configuration.Install;
-using System.Reflection;
-using System.ServiceProcess;
+﻿using Topshelf;
 
 namespace MyProducts.SelfHost
 {
@@ -9,48 +6,20 @@ namespace MyProducts.SelfHost
     {
         static void Main(string[] args)
         {
-            var service = new MyProductsService();
-
-            if (args.Length == 0)
+            HostFactory.Run(x =>
             {
-                ServiceBase.Run(service);
-            }
-            else
-            {
-                var arg = args[0];
-
-                try
+                x.Service<MyProductsService>(s =>
                 {
-                    switch (arg)
-                    {
-                        case "--console":
-                            RunInteractive(service, args);
-                            break;
-                        case "--install":
-                            ManagedInstallerClass.InstallHelper(new[] { Assembly.GetExecutingAssembly().Location });
-                            break;
-                        case "--uninstall":
-                            ManagedInstallerClass.InstallHelper(new[] { "/u", Assembly.GetExecutingAssembly().Location });
-                            break;
-                    }
-                }
-                catch (Exception)
-                {
-                    // TODO: logging...
-                    throw;
-                }
-            }
-        }
+                    s.ConstructUsing(name => new MyProductsService());
+                    s.WhenStarted(tc => tc.OnStart());
+                    s.WhenStopped(tc => tc.OnStop());
+                });
+                x.RunAsNetworkService();
 
-        private static void RunInteractive(MyProductsService service, string[] args)
-        {
-            service.InteractiveStart(args);
-
-            Console.WriteLine("myProducts Service running.");
-            Console.WriteLine("Press Enter to Quit...");
-            Console.ReadLine();
-
-            service.InteractiveStop();
+                x.SetDescription("Thinktecture myProducts Server");
+                x.SetDisplayName("myProducts Server");
+                x.SetServiceName("myProductsServer");
+            });     
         }
     }
 }
