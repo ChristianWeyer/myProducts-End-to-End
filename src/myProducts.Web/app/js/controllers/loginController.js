@@ -1,5 +1,10 @@
-app.controller("LoginController",
-    ["$scope", "tokenAuthentication", "toast", function ($scope, tokenAuthentication, toast) {
+(function () {
+    /**
+     * @param $scope
+     * @param tokenAuthentication
+     * @param {$app.Toast} toast
+     */
+    function Controller($scope, tokenAuthentication, toast) {
         $scope.login = {};
 
         $scope.login.username = "";
@@ -17,4 +22,7 @@ app.controller("LoginController",
                     };
                 });
         };
-    }]);
+    };
+
+    app.controller("LoginController", ["$scope", "tokenAuthentication", "toast", Controller]);
+})();

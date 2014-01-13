@@ -1,5 +1,11 @@
-app.controller("NavigationController", ["$http", "$scope", "$translate", "personalization",
-    function ($http, $scope, $translate, personalization) {
+(function () {
+    /**
+     * @param $http
+     * @param $scope
+     * @param $translate
+     * @param {$app.Personalization} personalization
+     */
+    function Controller($http, $scope, $translate, personalization) {
         $scope.navigation = {};
         $scope.navigation.isCollapsed = true;
 
@@ -21,4 +27,7 @@ app.controller("NavigationController", ["$http", "$scope", "$translate", "person
             $scope.navigation.currentLanguage = langKey;
             $translate.uses(langKey);
         };
-    }]);
+    };
+
+    app.controller("NavigationController", ["$http", "$scope", "$translate", "personalization", Controller]);
+})();

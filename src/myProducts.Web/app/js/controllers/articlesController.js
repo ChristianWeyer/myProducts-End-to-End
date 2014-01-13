@@ -4,8 +4,8 @@
      * @param $location
      * @param {$app.ArticlesApi} articlesApi
      * @param subscribePrefix
-     * @param toast
-     * @param dialog
+     * @param {$app.Toast} toast
+     * @param {$app.Dialog} dialog
      * @param $translate
      * @param {$app.Personalization} personalization
      */

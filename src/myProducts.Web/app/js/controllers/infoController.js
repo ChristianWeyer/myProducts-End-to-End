@@ -1,3 +1,11 @@
-app.controller("InfoController", ["$scope", "$http", function ($scope, $http) {
+(function () {
+    /**
+     * @param $scope
+     * @param $http
+     */
+    function Controller($scope, $http) {
 
-}]);
+    };
+
+    app.controller("InfoController", ["$scope", "$http", Controller]);
+})();
