@@ -1,7 +1,11 @@
-﻿app.factory("networkStatus", function () {
-    return {
-        isOnline: function () {
+﻿(function () {
+    /**
+     */
+    $app.NetworkStatus = function () {
+        this.isOnline = function () {
             return navigator.onLine;
-        }
+        };
     };
-});
+
+    app.service("networkStatus", $app.NetworkStatus);
+})();

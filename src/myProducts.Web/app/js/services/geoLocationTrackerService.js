@@ -1,19 +1,25 @@
-﻿app.factory("GeoLocationTracker", function ($rootScope, $http, $timeout, phonegapReady) {
-    var watchId;
-    var enabled;
+﻿(function () {
+    /**
+     * @param $rootScope
+     * @param $http
+     * @param $timeout
+     * @param phonegapReady
+     */
+    $app.GeoLocationTracker = function ($rootScope, $http, $timeout, phonegapReady) {
+        var watchId;
+        var enabled;
 
-    $rootScope.$on("settings.sendPosition", function (evt, enable) {
-        if (enable) {
-            location.startSendPosition(10000, function (pos) { });
-            enabled = true;
-        } else {
-            location.stopSendPosition();
-            enabled = false;
-        }
-    });
+        $rootScope.$on("settings.sendPosition", function (evt, enable) {
+            if (enable) {
+                location.startSendPosition(10000, function (pos) { });
+                enabled = true;
+            } else {
+                location.stopSendPosition();
+                enabled = false;
+            }
+        });
 
-    var location = {
-        startSendPosition: phonegapReady(function (timeout, onSuccess, onError, options) {
+        this.startSendPosition = phonegapReady(function (timeout, onSuccess, onError, options) {
             if (enabled) {
                 var poller = function () {
                     var gpsOptions = {
@@ -54,12 +60,12 @@
 
                 poller();
             }
-        }),
+        });
 
-        stopSendPosition: function () {
+        this.stopSendPosition = function () {
             navigator.geolocation.clearWatch(watchId);
-        }
-    }
+        };
+    };
 
-    return location;
-});
+    app.service("geoLocationTracker", ["$rootScope", "$http", "$timeout", "phonegapReady", $app.GeoLocationTracker]);
+})();

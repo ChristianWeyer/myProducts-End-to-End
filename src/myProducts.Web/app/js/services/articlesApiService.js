@@ -1,18 +1,23 @@
-﻿app.factory("articlesApi", ["$http", "$q", "$angularCacheFactory", function ($http, $q, $angularCacheFactory) {
-    var articlesCache = $angularCacheFactory("articlesCache", {});
+﻿(function () {
+    /**
+     * @param $http
+     * @param $q
+     * @param $angularCacheFactory
+     */
+    $app.ArticlesApi = function ($http, $q, $angularCacheFactory) {
+        var articlesCache = $angularCacheFactory("articlesCache", {});
 
-    var service = {
-        toBeForced: false,
-        
-        getArticlesPaged: function (pageSize, page, searchText, force) {
+        this.toBeForced = false;
+
+        this.getArticlesPaged = function (pageSize, page, searchText, force) {
             var deferred = $q.defer();
             var cacheKey = "articles_" + pageSize + "_" + page;
-            
+
             if (!force && (!searchText && articlesCache.get(cacheKey))) {
                 deferred.resolve(articlesCache.get(cacheKey));
             } else {
                 var url = ttTools.baseUrl + "api/articles?$inlinecount=allpages&$top=" + pageSize + "&$skip=" + (page - 1) * pageSize;
-                
+
                 if (searchText) {
                     url += "&$filter=substringof('" + searchText.toLowerCase() + "',tolower(Name))";
                 }
@@ -20,7 +25,7 @@
                 $http({
                     method: "GET",
                     url: url
-                }).success(function(response) {
+                }).success(function (response) {
                     articlesCache.put(cacheKey, response);
                     deferred.resolve(response);
                 }).error(function (response) {
@@ -29,21 +34,21 @@
             }
 
             return deferred.promise;
-        },
+        };
 
-        dataChanged: function() {
+        this.dataChanged = function () {
             articlesCache.removeAll();
             this.toBeForced = true;
-        },
-        
-        getArticleDetails: function (id) {
+        };
+
+        this.getArticleDetails = function (id) {
             return $http({
                 method: "GET",
                 url: ttTools.baseUrl + "api/articles/" + id
             });
-        },
+        };
 
-        saveArticleWithImage: function (artikel, image) {
+        this.saveArticleWithImage = function (artikel, image) {
             return $http({
                 method: "POST",
                 url: ttTools.baseUrl + "api/articles",
@@ -60,15 +65,15 @@
                 },
                 data: { model: artikel, file: image }
             });
-        },
+        };
 
-        deleteArticle: function (id) {
+        this.deleteArticle = function (id) {
             return $http({
                 method: "DELETE",
                 url: ttTools.baseUrl + "api/articles/" + id
             });
-        }
+        };
     };
 
-    return service;
-}]);
+    app.service("articlesApi", ["$http", "$q", "$angularCacheFactory", $app.ArticlesApi]);
+})();

@@ -1,5 +1,12 @@
-﻿app.factory("settings", ["$localStorage", function ($localStorage) {
-    var settings = $localStorage.applicationSettings = $localStorage.applicationSettings || {};
+﻿(function () {
+    /**
+     * @param $localStorage
+     */
+    $app.Settings = function ($localStorage) {
+        var lsSettings = $localStorage.applicationSettings = $localStorage.applicationSettings || {};
 
-    return settings;
-}]);
+        return lsSettings;
+    };
+
+    app.factory("settings", ["$localStorage", $app.Settings]);
+})();

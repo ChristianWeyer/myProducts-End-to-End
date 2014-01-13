@@ -1,4 +1,5 @@
-﻿var app;
+﻿window.$app = window.$app || {};
+var app;
 
 if (ttMobile) {
     app = angular.module("myApp", ["ngRoute", "ngTouch", "ngAnimate", "tt.SignalR", "tt.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "ngStorage", "nvd3ChartDirectives", "jmdobry.angular-cache", "ionic", "chieffancypants.loadingBar", "btford.phonegap.ready", "btford.phonegap.geolocation"]);
@@ -57,9 +58,9 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         $translateProvider.useLocalStorage();
     }]);
 
-app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "toast", "dialog", "$route", "$routeProviderService", "routeResolverProviderService", "personalization", "categories", "GeoLocationTracker", "dataPush", "logPush",
-    function ($http, $templateCache, $rootScope, $location, $translate, toast, dialog, $route, $routeProviderService, routeResolverProviderService, personalization, categories, GeoLocationTracker, dataPush, logPush) {
-        GeoLocationTracker.startSendPosition(10000, function (pos) { });
+app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "toast", "dialog", "$route", "$routeProviderService", "routeResolverProviderService", "personalization", "categories", "geoLocationTracker", "dataPush", "logPush",
+    function ($http, $templateCache, $rootScope, $location, $translate, toast, dialog, $route, $routeProviderService, routeResolverProviderService, personalization, categories, geoLocationTracker, dataPush, logPush) {
+        geoLocationTracker.startSendPosition(10000, function (pos) { });
 
         window.addEventListener("online", function () {
             $rootScope.$apply($rootScope.$broadcast(tt.networkstatus.onlineChanged, true));

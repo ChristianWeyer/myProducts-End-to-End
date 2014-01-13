@@ -1,7 +1,12 @@
-app.controller("StatusController", ["$scope", "networkStatus", "personalization", "tokenAuthentication",
-    function ($scope, networkStatus, personalization, tokenAuthentication) {
+(function() {
+    /**
+     * @param $scope
+     * @param {$app.NetworkStatus} networkStatus
+     * @param {$app.Personalization} personalization
+     * @param tokenAuthentication
+     */
+    function Controller($scope, networkStatus, personalization, tokenAuthentication) {
         $scope.status = {};
-
         $scope.status.isOnline = networkStatus.isOnline();
 
         $scope.$on(tt.personalization.dataLoaded, function () {
@@ -16,4 +21,7 @@ app.controller("StatusController", ["$scope", "networkStatus", "personalization"
             tokenAuthentication.logout();
             $scope.status.userName = "";
         };
-    }]);
+    }
+
+    app.controller("StatusController", ["$scope", "networkStatus", "personalization", "tokenAuthentication", Controller]);
+})();

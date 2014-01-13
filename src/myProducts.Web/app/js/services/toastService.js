@@ -1,23 +1,28 @@
-﻿app.factory("toast", ["$rootScope", function ($rootScope) {
-    var queue = [], currentMessage = {};
-    toastr.options.timeOut = 2000;
+﻿(function () {
+    /**
+     * @param $rootScope
+     */
+    $app.Toast = function ($rootScope) {
+        var queue = [], currentMessage = {};
+        toastr.options.timeOut = 2000;
 
-    $rootScope.$on("$routeChangeSuccess", function () {
-        if (queue.length > 0)
-            currentMessage = queue.shift();
-        else
-            currentMessage = {};
-    });
+        $rootScope.$on("$routeChangeSuccess", function () {
+            if (queue.length > 0)
+                currentMessage = queue.shift();
+            else
+                currentMessage = {};
+        });
 
-    return {
-        set: function (message) {
+        this.set = function (message) {
             var msg = message;
             queue.push(msg);
-        },
-        get: function (message) {
+        };
+
+        this.get = function (message) {
             return currentMessage;
-        },
-        pop: function (message) {
+        };
+
+        this.pop = function (message) {
             switch (message.type) {
                 case "success":
                     toastr.success(message.body, message.title);
@@ -32,6 +37,8 @@
                     toastr.error(message.body, message.title);
                     break;
             }
-        }
+        };
     };
-}]);
+
+    app.service("toast", ["$rootScope", $app.Toast]);
+})();

@@ -1,5 +1,12 @@
-﻿app.factory("personalization", ["$localStorage", function ($localStorage) {
-    var personalization = $localStorage.personalization = $localStorage.personalization || {};
+﻿(function () {
+    /**
+     * @param $localStorage
+     */
+    $app.Personalization = function ($localStorage) {
+        var lsPersonalization = $localStorage.personalization = $localStorage.personalization || {};
 
-    return personalization;
-}]);
+        return lsPersonalization;
+    };
+
+    app.factory("personalization", ["$localStorage", $app.Personalization]);
+})();
