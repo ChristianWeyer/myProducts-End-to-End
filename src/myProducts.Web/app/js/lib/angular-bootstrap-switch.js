@@ -1,23 +1,24 @@
 /**
  * angular-bootstrap-switch
- * @version v0.1.1 - 2013-09-24
+ * @version v0.2.1 - 2013-12-31
  * @author Francesco Pontillo (francescopontillo@gmail.com)
  * @link https://github.com/frapontillo/angular-bootstrap-switch
  * @license Apache License 2.0
 **/
 
 'use strict';
-angular.module('frapontillo.bootstrap-switch', []).directive('bsSwitch', [
+// Source: common/module.js
+angular.module('frapontillo.bootstrap-switch', []);
+// Source: dist/.temp/directives/bsSwitch.js
+angular.module('frapontillo.bootstrap-switch').directive('bsSwitch', [
   '$timeout',
   function ($timeout) {
     return {
-      template: '<div class="make-switch" data-on-label="{{switchOnLabel}}" data-off-label="{{switchOffLabel}}" ' + 'data-text-label="{{switchLabel}}" data-icon-label="{{switchIcon}}" ' + 'data-animated="{{switchAnimate}}" ng-class="switch {{getSizeClass()}}">' + '  <input type="{{switchType}}" ng-model="ngModel"/>' + '</div>',
       restrict: 'EA',
+      require: 'ngModel',
+      template: '<input>',
       replace: true,
-      transclude: true,
       scope: {
-        ngModel: '=',
-        switchType: '@',
         switchActive: '@',
         switchSize: '@',
         switchOn: '@',
@@ -28,37 +29,18 @@ angular.module('frapontillo.bootstrap-switch', []).directive('bsSwitch', [
         switchIcon: '@',
         switchAnimate: '@'
       },
-      link: function postLink(scope, element, attrs) {
-        var setDefaults = function () {
-          if (!scope.ngModel) {
-            scope.ngModel = false;
-          }
-          if (!scope.switchType) {
-            scope.switchType = 'checkbox';
-          }
-          if (scope.switchActive === undefined) {
-            scope.switchActive = true;
-          }
-          if (!scope.switchOnLabel) {
-            scope.switchOnLabel = 'Yes';
-          }
-          if (!scope.switchOffLabel) {
-            scope.switchOffLabel = 'No';
-          }
-        };
+      link: function link(scope, element, attrs, controller) {
         var listenToModel = function () {
-          scope.$watch('ngModel', function (newValue) {
+          controller.$formatters.push(function (newValue) {
             if (newValue !== undefined) {
-              element.bootstrapSwitch('setState', newValue || false);
+              $timeout(function () {
+                element.bootstrapSwitch('setState', newValue || false, true);
+              });
             }
           });
           scope.$watch('switchActive', function (newValue) {
-            element.bootstrapSwitch('setActive', newValue || true);
-          });
-          scope.$watch('switchType', function (newValue) {
-            if (!newValue) {
-              scope.switchType = 'checkbox';
-            }
+            var active = newValue === true || newValue === 'true' || !newValue;
+            element.bootstrapSwitch('setDisabled', !active);
           });
           scope.$watch('switchOnLabel', function (newValue) {
             element.bootstrapSwitch('setOnLabel', newValue || 'Yes');
@@ -81,7 +63,7 @@ angular.module('frapontillo.bootstrap-switch', []).directive('bsSwitch', [
             element.bootstrapSwitch('setSizeClass', scope.getSizeClass(newValue));
           });
           scope.$watch('switchLabel', function (newValue) {
-            element.bootstrapSwitch('setTextLabel', newValue || '');
+            element.bootstrapSwitch('setTextLabel', newValue);
           });
           scope.$watch('switchIcon', function (newValue) {
             element.bootstrapSwitch('setTextIcon', newValue);
@@ -89,25 +71,22 @@ angular.module('frapontillo.bootstrap-switch', []).directive('bsSwitch', [
         };
         var listenToView = function () {
           element.on('switch-change', function (e, data) {
-            var value = data.value;
-            if (value !== scope.ngModel) {
-              scope.$apply(function () {
-                scope.ngModel = value;
-              });
-            }
+            scope.$apply(function () {
+              controller.$setViewValue(data.value);
+            });
           });
         };
         scope.getSizeClass = function () {
           return attrs.switchSize ? 'switch-' + attrs.switchSize : '';
         };
+        listenToModel();
+        listenToView();
+        element.bootstrapSwitch();
+        $timeout(function () {
+          element.bootstrapSwitch('setState', controller.$modelValue || false, true);
+        });
         scope.$on('$destroy', function () {
           element.bootstrapSwitch('destroy');
-        });
-        $timeout(function () {
-          setDefaults();
-          element.bootstrapSwitch();
-          listenToView();
-          listenToModel();
         });
       }
     };
