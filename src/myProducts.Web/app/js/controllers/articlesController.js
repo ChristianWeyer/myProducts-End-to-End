@@ -60,8 +60,12 @@
         $scope.articles.getPagedData(articlesApi.toBeForced);
 
         $scope.$watch("articles.pagingOptions", function (newVal, oldVal) {
-            if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage && newVal.currentPage > 0) {
-                $scope.articles.getPagedData();
+            if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage) {
+                if (newVal.currentPage < 1) {
+                    $scope.articles.pagingOptions.currentPage = 1;
+                } else {
+                    $scope.articles.getPagedData();
+                }
             }
         }, true);
 
@@ -69,7 +73,7 @@
             $scope.articles.getPagedData(true);
         });
 
-        $scope.swipeLeft = function() {
+        $scope.swipeLeft = function () {
             $scope.articles.pagingOptions.currentPage = $scope.articles.pagingOptions.currentPage + 1;
         };
 
