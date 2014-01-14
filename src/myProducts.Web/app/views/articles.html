@@ -10,24 +10,25 @@
         </div>
     </form>
     <hr />
-
-    <table ng-show="articles.articlesData" class="table table-striped">
-        <thead>
-            <tr>
-                <th style="width: 40%">Name</th>
-                <th>Code</th>
-                <th style="width: 90px"></th>
-            </tr>
-        </thead>
-        <tr ng-repeat="a in articles.articlesData">
-            <td style="width: 40%" ng-click="articles.getArticleDetails(a.Id)">{{ a.Name }}</td>
-            <td ng-click="articles.getArticleDetails(a.Id)">{{ a.Code }}</td>
-            <td style="width: 90px">
-                <i class="btn btn-success icon-edit" ng-click="articles.getArticleDetails(a.Id)"></i>
-                <i class="btn btn-danger icon-trash" ng-click="articles.deleteArticle(a.Id)"></i>
-            </td>
-        </tr>
-    </table>
     
+    <div ng-swipe-right="swipeRight()" ng-swipe-left="swipeLeft()">
+        <table ng-show="articles.articlesData" class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 40%">Name</th>
+                    <th>Code</th>
+                    <th style="width: 90px"></th>
+                </tr>
+            </thead>
+            <tr ng-repeat="a in articles.articlesData">
+                <td style="width: 40%" ng-click="articles.getArticleDetails(a.Id)">{{ a.Name }}</td>
+                <td ng-click="articles.getArticleDetails(a.Id)">{{ a.Code }}</td>
+                <td style="width: 90px">
+                    <i class="btn btn-success icon-edit" ng-click="articles.getArticleDetails(a.Id)"></i>
+                    <i class="btn btn-danger icon-trash" ng-click="articles.deleteArticle(a.Id)"></i>
+                </td>
+            </tr>
+        </table>
+    </div>
     <pagination ng-show="articles.articlesData" boundary-links="true" total-items="articles.totalServerItems" max-size="10" items-per-page="articles.pagingOptions.pageSize" page="articles.pagingOptions.currentPage" class="pagination-centered" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
 </div>

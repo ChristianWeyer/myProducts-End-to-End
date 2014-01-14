@@ -60,7 +60,7 @@
         $scope.articles.getPagedData(articlesApi.toBeForced);
 
         $scope.$watch("articles.pagingOptions", function (newVal, oldVal) {
-            if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage) {
+            if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage && newVal.currentPage > 0) {
                 $scope.articles.getPagedData();
             }
         }, true);
@@ -68,6 +68,14 @@
         $scope.$on(subscribePrefix + "articleChange", function () {
             $scope.articles.getPagedData(true);
         });
+
+        $scope.swipeLeft = function() {
+            $scope.articles.pagingOptions.currentPage = $scope.articles.pagingOptions.currentPage + 1;
+        };
+
+        $scope.swipeRight = function () {
+            $scope.articles.pagingOptions.currentPage = $scope.articles.pagingOptions.currentPage - 1;
+        };
 
         $scope.articles.getArticleDetails = function (id) {
             $location.path("/articledetails/" + id);
