@@ -295,9 +295,7 @@
     <Content Include="app\js\lib\imageupload.js" />
     <Content Include="app\js\lib\ionic-angular.js" />
     <Content Include="app\js\lib\ionic.js" />
-    <Content Include="app\js\lib\iscroll.js" />
     <Content Include="app\js\lib\jquery-2.0.1.js" />
-    <Content Include="app\js\lib\jspdf.source.js" />
     <Content Include="app\js\lib\loading-bar.js" />
     <Content Include="app\js\lib\log4javascript.js" />
     <Content Include="app\js\lib\ngStorage.js" />
