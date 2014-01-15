@@ -359,6 +359,7 @@
     <Content Include="images\0.jpg" />
     <Content Include="app\js\main.js" />
     <Content Include="app\js\lib\jquery.signalR-2.0.0.js" />
+    <Content Include="index.html" />
     <Content Include="mobile\css\mobile.css" />
     <Content Include="mobile\images\thinktecture_logo.png" />
     <Content Include="mobile\mobile.js" />
