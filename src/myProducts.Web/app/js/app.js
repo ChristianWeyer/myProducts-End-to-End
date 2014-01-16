@@ -126,6 +126,7 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
                 $rootScope.$broadcast(tt.authentication.authenticationRequired);
             }
         });
+
         $rootScope.$on(tt.authentication.authenticationRequired, function () {
             $location.path("/login");
         });
@@ -152,3 +153,21 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
 
         $rootScope.ttAppLoaded = true;
     }]);
+
+app.animation(".reveal-animation", function () {
+    return {
+        enter: function (element, done) {
+            element.css("display", "none");
+            element.fadeIn(500, done);
+            return function () {
+                element.stop();
+            };
+        },
+        leave: function (element, done) {
+            element.fadeOut(500, done);
+            return function () {
+                element.stop();
+            };
+        }
+    };
+});

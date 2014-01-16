@@ -26,6 +26,11 @@ h2 {
     margin-bottom: 10px;
 }
 
+.reveal-animation {
+    position: absolute;
+    width: 97%;  
+}
+
 .slider {
     background-color: white;
 }
