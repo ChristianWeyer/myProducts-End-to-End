@@ -367,9 +367,9 @@
     <Content Include="mobile\views\log.html" />
     <Content Include="mobile\views\start.html" />
     <Content Include="mobile\views\login.html" />
-    <Content Include="tests\angular-mocks.js" />
-    <Content Include="tests\jasmine.js" />
-    <Content Include="tests\loginControllerTests.js" />
+    <Content Include="test\angular-mocks.js" />
+    <Content Include="test\basic\mySpec.js" />
+    <Content Include="test\setup.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
