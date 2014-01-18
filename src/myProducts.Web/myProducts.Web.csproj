@@ -270,7 +270,7 @@
     <Content Include="app\js\infrastructure\thinktecture.ng.SignalR.js" />
     <Content Include="app\js\lib\angular-animate.js" />
     <Content Include="app\js\lib\angular-bootstrap-switch.js" />
-    <Content Include="app\js\lib\angular-cache-2.0.0-rc.1.js" />
+    <Content Include="app\js\lib\angular-cache.js" />
     <Content Include="app\js\lib\angular-carousel.js" />
     <Content Include="app\js\lib\angular-cookies.js" />
     <Content Include="app\js\lib\angular-mobile.js" />
@@ -295,7 +295,6 @@
     <Content Include="app\js\lib\phonegap-geolocation.js" />
     <Content Include="app\js\lib\phonegap-ready.js" />
     <Content Include="app\js\lib\script.js" />
-    <Content Include="app\js\lib\spin.js" />
     <Content Include="app\js\lib\toastr.js" />
     <Content Include="app\js\lib\ui-bootstrap-tpls-0.6.0.js" />
     <Content Include="app\js\services\geoLocationTrackerService.js" />
