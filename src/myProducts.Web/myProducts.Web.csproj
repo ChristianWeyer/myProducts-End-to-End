@@ -230,6 +230,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="app\css\angular-carousel.css" />
+    <Content Include="app\css\app-responsive.css" />
     <Content Include="app\css\bootstrap-responsive.css" />
     <Content Include="app\css\bootstrap-switch.css" />
     <Content Include="app\css\bootstrap.css" />

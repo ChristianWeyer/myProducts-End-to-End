@@ -43,6 +43,7 @@ namespace MyProducts.Web
                 );
             bundles.Add(new StyleBundle("~/app/css/app")
                 .Include("~/app/css/app.css")
+                .Include("~/app/css/app-responsive.css")
                 .Include("~/app/css/loadspinner.css")
                 );
         }

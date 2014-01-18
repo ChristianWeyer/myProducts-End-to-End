@@ -1,0 +1,9 @@
+﻿/* Override Bootstrap Responsive CSS fixed navbar */
+@media (max-width: 979px) {
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+      position: fixed;
+      margin-left: 0px;
+      margin-right: 0px;
+  }
+}
