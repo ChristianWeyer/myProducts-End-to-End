@@ -6,10 +6,6 @@
             <label for="searchtext" translate="OVERVIEW_FILTER"></label>
             <input type="text" id="searchtext" ng-model="articles.selectedFilteredArticle" typeahead="article.Name for article in articles.getFilteredData($viewValue)">
             <i class="btn btn-success icon-refresh" ng-click="articles.getPagedData(true)"></i>
-            <div>
-                <br/>
-                <i ng-if="capabilities.has('AddArticle')" class="btn btn-primary icon-plus" ng-click="articles.addArticle()"></i>
-            </div>
         </div>
     </form>
     <hr />
@@ -20,7 +16,9 @@
                 <tr>
                     <th style="width: 40%">Name</th>
                     <th>Code</th>
-                    <th style="width: 90px"></th>
+                    <th style="width: 90px">
+                        <i ng-if="capabilities.has('AddArticle')" class="btn btn-primary icon-plus" ng-click="articles.addArticle()"></i>
+                    </th>
                 </tr>
             </thead>
             <tr ng-repeat="a in articles.articlesData track by $index">
