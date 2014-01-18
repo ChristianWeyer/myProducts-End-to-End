@@ -26,8 +26,8 @@
     <div>
         <textarea type="text" rows="7" cols="20" ng-model="articledetails.article.Description" />
         <img ng-if="articledetails.editMode" alt="Product image" class="img" src="app/images/default.png" ng-src="{{ articledetails.article.ImageUrl | baseUrl }}" />
-        <span ng-show="!articledetails.editMode">
-            <img ng-show="articledetails.image" ng-src="{{ articledetails.image.resized.dataURL }}" type="{{ articledetails.image.file.type }}" />
+        <span ng-if="!articledetails.editMode">
+            <img ng-if="articledetails.image" ng-src="{{ articledetails.image.resized.dataURL }}" type="{{ articledetails.image.file.type }}" />
             <br />
             <br />
             <input type="file" accept="image/*" image="articledetails.image" resize-max-width="400" resize-quality="0.9" button-text="{{ 'DETAILS_SELECTIMAGE' | translate }}" />

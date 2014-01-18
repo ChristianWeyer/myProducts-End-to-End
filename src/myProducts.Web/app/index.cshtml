@@ -43,7 +43,7 @@
 
                     <div class="nav-collapse" collapse="navigation.isCollapsed">
                         <ul class="nav nav-pills">
-                            <li ng-repeat="ni in navigation.navigationItems" data-match-route='{{ ni.MatchPattern }}'>
+                            <li ng-repeat="ni in navigation.navigationItems track by $index" data-match-route='{{ ni.MatchPattern }}'>
                                 <a ng-show="ni.DisplayText" ng-click="navigation.isCollapsed=true" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
                             </li>
                             <li data-match-route="/info"><a ng-click="navigation.isCollapsed=true" href="#/info">Info</a></li>
