@@ -24,6 +24,7 @@ namespace MyProducts.Web
                 .Include("~/app/js/lib/imageupload.js")
                 .Include("~/app/js/lib/fastclick.js")
                 .Include("~/app/js/lib/loading-bar.js")
+                .Include("~/cordova.js")
                 .Include("~/app/js/lib/phonegap-ready.js")
                 .Include("~/app/js/lib/phonegap-geolocation.js")
             );
