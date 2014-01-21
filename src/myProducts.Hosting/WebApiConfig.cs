@@ -26,7 +26,7 @@ namespace MyProducts.Hosting
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional });
 
-            config.Filters.Add(new ClaimsAuthorizeAttribute());
+            config.Filters.Add(new ResourceActionAuthorizeAttribute());
 
             config.MessageHandlers.Insert(0, new CompressionHandler());
             //config.MessageHandlers.Add(new PerfItDelegatingHandler(config, "myProducts application services"));

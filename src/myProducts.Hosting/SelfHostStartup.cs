@@ -1,4 +1,7 @@
-﻿using Owin;
+﻿using Microsoft.Owin;
+using Microsoft.Owin.FileSystems;
+using Microsoft.Owin.StaticFiles;
+using Owin;
 
 namespace MyProducts.Hosting
 {
@@ -6,17 +9,22 @@ namespace MyProducts.Hosting
     {
         public void Configuration(IAppBuilder app)
         {
-            app.UseFileServer(opts =>
+            var clientOptions = new FileServerOptions
             {
-                opts.WithRequestPath("");
-                opts.WithPhysicalPath("client");
-                opts.WithDefaultFileNames("index.html");
-            });
-            app.UseFileServer(opts =>
+                RequestPath = new PathString(""),
+                FileSystem = new PhysicalFileSystem("client"),
+                EnableDefaultFiles = true
+            };
+            clientOptions.DefaultFilesOptions.DefaultFileNames.Add("index.html");
+
+            var imagesOptions = new FileServerOptions
             {
-                opts.WithRequestPath("/images");
-                opts.WithPhysicalPath("images");
-            });
+                RequestPath = new PathString("/images"),
+                FileSystem = new PhysicalFileSystem("images"),
+            };
+
+            app.UseFileServer(clientOptions);
+            app.UseFileServer(imagesOptions);
 
             var startup = new Startup();
             startup.Configuration(app);

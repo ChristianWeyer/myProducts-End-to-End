@@ -4,7 +4,7 @@ using System.Dynamic;
 
 namespace Thinktecture.Applications.Framework
 {
-    public static class DictionaryExtensions
+    public static class DictionaryDynamicExtensions
     {
         public static ExpandoObject ToDynamic(this object dictionary)
         {
