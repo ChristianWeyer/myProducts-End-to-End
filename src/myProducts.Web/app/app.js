@@ -33,13 +33,13 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
             viewBaseUrl = "mobile/";
         }
 
-        routeResolverProvider.routeConfig.setBaseDirectories(viewBaseUrl + "views/", "app/js/controllers/");
+        routeResolverProvider.routeConfig.setDirectory(viewBaseUrl);
 
         $routeProvider
-            .when("/", { templateUrl: viewBaseUrl + "views/start.html", controller: "StartController" })
-            .when("/info", { templateUrl: viewBaseUrl + "views/info.html", controller: "InfoController" })
-            .when("/settings", { templateUrl: viewBaseUrl + "views/settings.html", controller: "SettingsController" })
-            .when("/login", { templateUrl: viewBaseUrl + "views/login.html", controller: "LoginController" });
+            .when("/", { templateUrl: viewBaseUrl + "start/start.html", controller: "StartController" })
+            .when("/info", { templateUrl: viewBaseUrl + "info/info.html", controller: "InfoController" })
+            .when("/settings", { templateUrl: viewBaseUrl + "settings/settings.html", controller: "SettingsController" })
+            .when("/login", { templateUrl: viewBaseUrl + "login/login.html", controller: "LoginController" });
 
         $provide.factory("$routeProviderService", function () {
             return $routeProvider;
@@ -74,8 +74,8 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
             $http.defaults.headers.common["Accept-Language"] = $translate.uses();
         });
 
-        var viewsDir = routeResolverProviderService.routeConfig.getViewsDirectory();
-        $http.get(viewsDir + "info.html", { cache: $templateCache });
+        var viewsDir = routeResolverProviderService.routeConfig.getDirectory();
+        $http.get(viewsDir + "info/info.html", { cache: $templateCache });
 
         $rootScope.$on(tt.authentication.loggedIn, function () {
             $http({ method: "GET", url: ttTools.baseUrl + "api/personalization" })
@@ -92,7 +92,7 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
 
                 angular.forEach(data.Features, function (value, key) {
                     $routeProviderService.when(value.Url, route.resolve(value.Module));
-                    $http.get(viewsDir + value.Module.toLowerCase() + ".html", { cache: $templateCache });
+                    $http.get(viewsDir + value.Module.toLowerCase() + "/" + value.Module.toLowerCase() + ".html", { cache: $templateCache });
                 });
 
                 $rootScope.$broadcast(tt.personalization.dataLoaded);

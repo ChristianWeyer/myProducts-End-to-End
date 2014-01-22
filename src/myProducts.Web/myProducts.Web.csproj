@@ -231,6 +231,8 @@
       <Link>AutoMapper.Net4.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="app\articleDetails\articleDetails.html" />
+    <Content Include="app\articleDetails\articleDetailsController.js" />
     <Content Include="app\content\css\angular-carousel.css" />
     <Content Include="app\content\css\app-responsive.css" />
     <Content Include="app\content\css\bootstrap-responsive.css" />
@@ -267,7 +269,7 @@
     <Content Include="app\gallery\galleryController.js" />
     <Content Include="app\shell\statusController.js" />
     <Content Include="app\info\infoController.js" />
-    <Content Include="app\logs\logController.js" />
+    <Content Include="app\log\logController.js" />
     <Content Include="app\statistics\statisticsController.js" />
     <Content Include="app\_infrastructure\serverValidationDirective.js" />
     <Content Include="app\_infrastructure\thinktecture.ng.SignalR.js" />
@@ -302,7 +304,7 @@
     <Content Include="app\_lib\ui-bootstrap-tpls-0.6.0.js" />
     <Content Include="app\_infrastructure\geoLocationTrackerService.js" />
     <Content Include="app\shell\networkStatusService.js" />
-    <Content Include="app\logs\logPushService.js" />
+    <Content Include="app\log\logPushService.js" />
     <Content Include="app\_infrastructure\dialogService.js" />
     <Content Include="app\articles\categoriesService.js" />
     <Content Include="app\_infrastructure\routeResolverService.js" />
@@ -311,12 +313,11 @@
     <Content Include="app\settings\settingsService.js" />
     <Content Include="app\start\start.html" />
     <Content Include="app\gallery\gallery.html" />
-    <Content Include="app\logs\log.html" />
+    <Content Include="app\log\log.html" />
     <Content Include="app\settings\settings.html" />
     <Content Include="app\statistics\statistics.html" />
     <Content Include="app\app.js" />
     <Content Include="app\articles\articlesController.js" />
-    <Content Include="app\articles\articleDetailsController.js" />
     <Content Include="app\shell\navigationController.js" />
     <Content Include="app\translations\translations-de.js" />
     <Content Include="app\_lib\angular-translate-loader-static-files.js" />
@@ -334,7 +335,6 @@
     <Content Include="app\articles\articlesApiService.js" />
     <Content Include="app\_infrastructure\dialog.html" />
     <Content Include="app\info\info.html" />
-    <Content Include="app\articles\articleDetails.html" />
     <Content Include="app\login\login.html" />
     <Content Include="app\articles\articles.html" />
     <Content Include="App_Data\MyProducts.Services.XML" />

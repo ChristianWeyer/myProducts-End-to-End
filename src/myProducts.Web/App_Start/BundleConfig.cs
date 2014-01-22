@@ -30,7 +30,7 @@ namespace MyProducts.Web
             );
 
             bundles.Add(new StyleBundle("~/app/css/common")
-                .Include("~/app/contetn/css/modern.css")
+                .Include("~/app/content/css/modern.css")
                 .Include("~/app/content/css/modern-responsive.css")
                 .Include("~/app/content/css/bootstrap.css")
                 .Include("~/app/content/css/tweak-bootstrap.css")

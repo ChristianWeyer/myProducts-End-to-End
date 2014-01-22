@@ -1,60 +1,52 @@
 ﻿(function () {
     /**
      */
-    var RouteResolver = function() {
-        this.$get = function() {
+    var RouteResolver = function () {
+        this.$get = function () {
             return this;
         };
 
-        this.routeConfig = function() {
-            var viewsDirectory = "/app/views/",
-                controllersDirectory = "/app/controllers/",
+        this.routeConfig = function () {
+            var baseDir = "app/";
 
-                setBaseDirectories = function(viewsDir, controllersDir) {
-                    viewsDirectory = viewsDir;
-                    controllersDirectory = controllersDir;
-                },
-
-                getViewsDirectory = function() {
-                    return viewsDirectory;
-                },
-
-                getControllersDirectory = function() {
-                    return controllersDirectory;
-                };
+            setDirectory = function (dir) {
+                baseDir = dir;
+            },
+            getDirectory = function () {
+                return baseDir;
+            };
 
             return {
-                setBaseDirectories: setBaseDirectories,
-                getControllersDirectory: getControllersDirectory,
-                getViewsDirectory: getViewsDirectory
+                setDirectory: setDirectory,
+                getDirectory: getDirectory,
             };
         }();
 
-        this.route = function(routeConfig) {
-            var resolve = function(baseName, path) {
-                    if (!path) path = "";
-                    var lowercaseBaseName = ttTools.lowercaseFirstLetter(baseName);
+        this.route = function (routeConfig) {
+            var resolve = function (baseName, path) {
+                if (!path) path = "";
+                var lowercaseBaseName = ttTools.lowercaseFirstLetter(baseName);
 
-                    var routeDef = {};
-                    routeDef.templateUrl = routeConfig.getViewsDirectory() + path + lowercaseBaseName + ".html";
-                    routeDef.controller = baseName + "Controller";
-                    routeDef.resolve = {
-                        load: [
-                            "$q", "$rootScope", function($q, $rootScope) {
-                                var dependencies = [routeConfig.getControllersDirectory() + path + lowercaseBaseName + "Controller.js"];
-                                return resolveDependencies($q, $rootScope, dependencies);
-                            }
-                        ]
-                    };
+                var routeDef = {};
+                routeDef.templateUrl = routeConfig.getDirectory() + lowercaseBaseName + "/" + lowercaseBaseName + ".html";
+                routeDef.controller = baseName + "Controller";
+                routeDef.resolve = {
+                    load: [
+                        "$q", "$rootScope", function ($q, $rootScope) {
+                            var dependencies = [routeConfig.getDirectory() + lowercaseBaseName + "/" + lowercaseBaseName + "Controller.js"];
+                            return resolveDependencies($q, $rootScope, dependencies);
+                        }
+                    ]
+                };
 
-                    return routeDef;
-                },
+                return routeDef;
+            },
 
-                resolveDependencies = function($q, $rootScope, dependencies) {
+                resolveDependencies = function ($q, $rootScope, dependencies) {
                     var defer = $q.defer();
 
-                    $script(dependencies, function() {
-                        $rootScope.$apply(function() {
+                    $script(dependencies, function () {
+                        $rootScope.$apply(function () {
                             defer.resolve();
                         });
                     });

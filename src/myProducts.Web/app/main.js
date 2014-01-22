@@ -28,7 +28,7 @@ $script.ready("app", function () {
 
         "login/loginController",
 
-        "logs/logPushService",
+        "log/logPushService",
 
         "settings/settingsController",
         "settings/settingsService",
