@@ -33,7 +33,7 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
             viewBaseUrl = "mobile/";
         }
 
-        routeResolverProvider.routeConfig.setDirectory(viewBaseUrl);
+        routeResolverProvider.routeConfig.setBaseDirectories(viewBaseUrl, "app/");
 
         $routeProvider
             .when("/", { templateUrl: viewBaseUrl + "start/start.html", controller: "StartController" })
@@ -45,10 +45,6 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
             return $routeProvider;
         });
 
-        $provide.factory("routeResolverProviderService", function () {
-            return routeResolverProvider;
-        });
-
         $translateProvider.translations("de", tt.translations.de);
         $translateProvider.useStaticFilesLoader({
             prefix: "app/translations/locale-",
@@ -58,8 +54,8 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         $translateProvider.useLocalStorage();
     }]);
 
-app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "toast", "dialog", "$route", "$routeProviderService", "routeResolverProviderService", "personalization", "categories", "geoLocationTracker", "articlesPush", "logPush",
-    function ($http, $templateCache, $rootScope, $location, $translate, toast, dialog, $route, $routeProviderService, routeResolverProviderService, personalization, categories, geoLocationTracker, articlesPush, logPush) {
+app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "toast", "dialog", "$route", "$routeProviderService", "routeResolver", "personalization", "categories", "geoLocationTracker", "articlesPush", "logPush",
+    function ($http, $templateCache, $rootScope, $location, $translate, toast, dialog, $route, $routeProviderService, routeResolver, personalization, categories, geoLocationTracker, articlesPush, logPush) {
         geoLocationTracker.startSendPosition(10000, function (pos) { });
 
         window.addEventListener("online", function () {
@@ -74,7 +70,7 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
             $http.defaults.headers.common["Accept-Language"] = $translate.uses();
         });
 
-        var viewsDir = routeResolverProviderService.routeConfig.getDirectory();
+        var viewsDir = routeResolver.routeConfig.getViewsDirectory();
         $http.get(viewsDir + "info/info.html", { cache: $templateCache });
 
         $rootScope.$on(tt.authentication.loggedIn, function () {
@@ -88,7 +84,7 @@ app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "to
                 }
 
                 personalization.data = data;
-                var route = routeResolverProviderService.route;
+                var route = routeResolver.route;
 
                 angular.forEach(data.Features, function (value, key) {
                     $routeProviderService.when(value.Url, route.resolve(value.Module));

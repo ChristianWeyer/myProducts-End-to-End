@@ -7,18 +7,26 @@
         };
 
         this.routeConfig = function () {
-            var baseDir = "app/";
+            var viewsDirectory = "app/",
+                controllersDirectory = "app/",
 
-            setDirectory = function (dir) {
-                baseDir = dir;
-            },
-            getDirectory = function () {
-                return baseDir;
-            };
+                setBaseDirectories = function (viewsDir, controllersDir) {
+                    viewsDirectory = viewsDir;
+                    controllersDirectory = controllersDir;
+                },
+
+                getViewsDirectory = function () {
+                    return viewsDirectory;
+                },
+
+                getControllersDirectory = function () {
+                    return controllersDirectory;
+                };
 
             return {
-                setDirectory: setDirectory,
-                getDirectory: getDirectory,
+                setBaseDirectories: setBaseDirectories,
+                getControllersDirectory: getControllersDirectory,
+                getViewsDirectory: getViewsDirectory
             };
         }();
 
@@ -28,12 +36,12 @@
                 var lowercaseBaseName = ttTools.lowercaseFirstLetter(baseName);
 
                 var routeDef = {};
-                routeDef.templateUrl = routeConfig.getDirectory() + lowercaseBaseName + "/" + lowercaseBaseName + ".html";
+                routeDef.templateUrl = routeConfig.getViewsDirectory() + lowercaseBaseName + "/" + lowercaseBaseName + ".html";
                 routeDef.controller = baseName + "Controller";
                 routeDef.resolve = {
                     load: [
                         "$q", "$rootScope", function ($q, $rootScope) {
-                            var dependencies = [routeConfig.getDirectory() + lowercaseBaseName + "/" + lowercaseBaseName + "Controller.js"];
+                            var dependencies = [routeConfig.getControllersDirectory() + lowercaseBaseName + "/" + lowercaseBaseName + "Controller.js"];
                             return resolveDependencies($q, $rootScope, dependencies);
                         }
                     ]
