@@ -58,8 +58,8 @@ app.config(["$routeProvider", "$locationProvider", "$translateProvider", "$httpP
         $translateProvider.useLocalStorage();
     }]);
 
-app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "toast", "dialog", "$route", "$routeProviderService", "routeResolverProviderService", "personalization", "categories", "geoLocationTracker", "dataPush", "logPush",
-    function ($http, $templateCache, $rootScope, $location, $translate, toast, dialog, $route, $routeProviderService, routeResolverProviderService, personalization, categories, geoLocationTracker, dataPush, logPush) {
+app.run(["$http", "$templateCache", "$rootScope", "$location", "$translate", "toast", "dialog", "$route", "$routeProviderService", "routeResolverProviderService", "personalization", "categories", "geoLocationTracker", "articlesPush", "logPush",
+    function ($http, $templateCache, $rootScope, $location, $translate, toast, dialog, $route, $routeProviderService, routeResolverProviderService, personalization, categories, geoLocationTracker, articlesPush, logPush) {
         geoLocationTracker.startSendPosition(10000, function (pos) { });
 
         window.addEventListener("online", function () {

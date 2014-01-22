@@ -4,7 +4,7 @@
      * @param $rootScope
      * @param {$app.Settings} settings
      */
-    $app.DataPush = function (hubProxy, $rootScope, settings) {
+    $app.ArticlesPush = function (hubProxy, $rootScope, settings) {
         var hub = hubProxy(ttTools.baseUrl, "clientNotificationHub");
         hub.on("articleChange");
 
@@ -30,5 +30,5 @@
         return hub;
     };
 
-    app.factory("dataPush", ["hubProxy", "$rootScope", "settings", $app.DataPush]);
+    app.factory("articlesPush", ["hubProxy", "$rootScope", "settings", $app.ArticlesPush]);
 })();

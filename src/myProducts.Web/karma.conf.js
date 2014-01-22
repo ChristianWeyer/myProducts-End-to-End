@@ -14,19 +14,10 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'app/js/lib/angular.js',
-      'app/js/lib/angular-*.js',
-      'app/js/lib/ui-*.js',
+      'app/_lib/angular.js',
+      'app/_lib/angular-*.js',
+      'app/_lib/ui-*.js',
       // ...
-      'app/js/infrastructure/thinktecture.*.js',
-      'app/js/services/routeResolverService.js',
-      'app/js/lib/jquery*.js',
-        'app/js/lib/ionic.js',
-      'app/js/lib/*.js',
-      'test/angular-mocks.js',
-      'test/setup.js',
-      'app/js/app.js',
-      'test/**/*Spec.js'
     ],
 
 
