@@ -1,8 +1,8 @@
-﻿using System;
-using System.Windows.Input;
-using CefSharp;
+﻿using CefSharp;
 using CefSharp.Wpf;
+using System;
 using System.Windows;
+using System.Windows.Input;
 using Thinktecture.Applications.Framework;
 
 namespace myProducts.WindowsClient

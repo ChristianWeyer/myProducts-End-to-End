@@ -8,6 +8,8 @@ namespace MyProducts.Hosting
 {
     public class Startup
     {
+        public static HttpConfiguration HttpConfiguration { get; private set; }
+
         public void Configuration(IAppBuilder app)
         {
             LoggingConfig.Configure();
@@ -15,9 +17,9 @@ namespace MyProducts.Hosting
 
             SecurityConfig.Register(app);
 
-            var webApiConfig = new HttpConfiguration();
-            WebApiConfig.Register(webApiConfig);
-            app.UseWebApi(webApiConfig);
+            HttpConfiguration = new HttpConfiguration();
+            WebApiConfig.Register(HttpConfiguration);
+            app.UseWebApi(HttpConfiguration);
 
             GlobalHost.Configuration.ConnectionTimeout = TimeSpan.FromSeconds(1);
             GlobalHost.Configuration.LongPollDelay = TimeSpan.FromMilliseconds(5000);

@@ -19,7 +19,7 @@ namespace MyProducts.SelfHost
                 x.SetDescription("Thinktecture myProducts Server");
                 x.SetDisplayName("myProducts Server");
                 x.SetServiceName("myProductsServer");
-            });     
+            });
         }
     }
 }
