@@ -5,11 +5,11 @@
     <title>myProducts</title>
 
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href="app/css/modern.css" rel="stylesheet">
-    <link href="app/css/modern-responsive.css" rel="stylesheet">
-    <link href="app/css/loadspinner.css" rel="stylesheet" />
-    <link href="mobile/css/ionic.css" rel="stylesheet">
-    <link href="mobile/css/mobile.css" rel="stylesheet" />
+    <link href="app/content/css/modern.css" rel="stylesheet">
+    <link href="app/content/css/modern-responsive.css" rel="stylesheet">
+    <link href="app/content/css/loadspinner.css" rel="stylesheet" />
+    <link href="mobile/content/css/ionic.css" rel="stylesheet">
+    <link href="mobile/content/css/mobile.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -35,7 +35,7 @@
             </pane>
             <div class="bar bar-footer bar-stable">
                 <div class="title">
-                    <img src="mobile/images/thinktecture_logo.png" />
+                    <img src="mobile/content/images/thinktecture_logo.png" />
                 </div>
             </div>
             <side-menu side="left">
@@ -51,11 +51,11 @@
 
                     <ul class="list">
                         <a class="item" ng-click="navigation.openLeft(); navigation.changeLanguage('de');">
-                            <img src="app/images/lang_de_t.png">
+                            <img src="app/content/images/lang_de_t.png">
                             <span translate="COMMON_DE"></span>
                         </a>
                         <a class="item" ng-click="navigation.openLeft(); navigation.changeLanguage('en')">
-                            <img src="app/images/lang_en_t.png">
+                            <img src="app/content/images/lang_en_t.png">
                             <span translate="COMMON_EN"></span>
                         </a>
                     </ul>
@@ -78,54 +78,54 @@
         ttMobile = true;
     </script>
 
-    <script src="app/js/lib/jquery-2.0.1.js"></script>
-    <script src="app/js/lib/script.js"></script>
-    <script src="app/js/lib/angular.js"></script>
-    <script src="app/js/lib/angular-cookies.js"></script>
-    <script src="app/js/lib/angular-route.js"></script>
-    <script src="app/js/lib/angular-animate.js"></script>
-    <script src="app/js/lib/angular-touch.js"></script>
-    <script src="app/js/lib/angular-sanitize.js"></script>
-    <script src="app/js/lib/ionic.js"></script>
-    <script src="app/js/lib/ionic-angular.js"></script>
+    <script src="app/_lib/jquery-2.0.1.js"></script>
+    <script src="app/_lib/script.js"></script>
+    <script src="app/_lib/angular.js"></script>
+    <script src="app/_lib/angular-cookies.js"></script>
+    <script src="app/_lib/angular-route.js"></script>
+    <script src="app/_lib/angular-animate.js"></script>
+    <script src="app/_lib/angular-touch.js"></script>
+    <script src="app/_lib/angular-sanitize.js"></script>
+    <script src="app/_lib/ionic.js"></script>
+    <script src="app/_lib/ionic-angular.js"></script>
 
-    <script src="app/js/lib/jquery.signalR-2.0.0.js"></script>
-    <script src="app/js/lib/toastr.js"></script>
-    <script src="app/js/lib/ngStorage.js"></script>
-    <script src="app/js/lib/angular-cache.js"></script>
-    <script src="app/js/lib/angular-translate-.js"></script>
-    <script src="app/js/lib/angular-translate-loader-static-files.js"></script>
-    <script src="app/js/lib/angular-translate-loader-url.js"></script>
-    <script src="app/js/lib/angular-translate-storage-cookie.js"></script>
-    <script src="app/js/lib/angular-translate-storage-local.js"></script>
-    <script src="app/js/lib/angular-mobile.js"></script>
-    <script src="app/js/lib/d3.v3.js"></script>
-    <script src="app/js/lib/nv.d3.js"></script>
-    <script src="app/js/lib/angularjs-nvd3-directives.js"></script>
-    <script src="app/js/lib/log4javascript.js"></script>
-    <script src="app/js/lib/loading-bar.js"></script>
-    <script src="app/js/lib/ui-bootstrap-tpls-0.6.0.js"></script>
+    <script src="app/_lib/jquery.signalR-2.0.0.js"></script>
+    <script src="app/_lib/toastr.js"></script>
+    <script src="app/_lib/ngStorage.js"></script>
+    <script src="app/_lib/angular-cache.js"></script>
+    <script src="app/_lib/angular-translate-.js"></script>
+    <script src="app/_lib/angular-translate-loader-static-files.js"></script>
+    <script src="app/_lib/angular-translate-loader-url.js"></script>
+    <script src="app/_lib/angular-translate-storage-cookie.js"></script>
+    <script src="app/_lib/angular-translate-storage-local.js"></script>
+    <script src="app/_lib/angular-mobile.js"></script>
+    <script src="app/_lib/d3.v3.js"></script>
+    <script src="app/_lib/nv.d3.js"></script>
+    <script src="app/_lib/angularjs-nvd3-directives.js"></script>
+    <script src="app/_lib/log4javascript.js"></script>
+    <script src="app/_lib/loading-bar.js"></script>
+    <script src="app/_lib/ui-bootstrap-tpls-0.6.0.js"></script>
 
-    <script src="app/js/infrastructure/thinktecture.ng.Authentication.js"></script>
-    <script src="app/js/infrastructure/thinktecture.ng.SignalR.js"></script>
-    <script src="app/js/infrastructure/tools.js"></script>
-    <script src="app/js/constants.js"></script>
+    <script src="app/_infrastructure/thinktecture.ng.Authentication.js"></script>
+    <script src="app/_infrastructure/thinktecture.ng.SignalR.js"></script>
+    <script src="app/_infrastructure/tools.js"></script>
+    <script src="app/constants.js"></script>
     <script src="app/translations/translations-de.js"></script>
-    <script src="app/js/app.js"></script>
+    <script src="app/app.js"></script>
 
-    <script src="app/js/controllers/navigationController.js"></script>
-    <script src="app/js/controllers/loginController.js"></script>
+    <script src="app/shell/navigationController.js"></script>
+    <script src="app/login/loginController.js"></script>
 
-    <script src="app/js/services/routeResolverService.js"></script>
-    <script src="app/js/services/toastService.js"></script>
-    <script src="app/js/services/personalizationService.js"></script>
-    <script src="app/js/services/categoriesService.js"></script>
-    <script src="app/js/services/articlesApiService.js"></script>
-    <script src="app/js/services/dialogService.js"></script>
+    <script src="app/_infrastructure/routeResolverService.js"></script>
+    <script src="app/_infrastructure/toastService.js"></script>
+    <script src="app/shell/personalizationService.js"></script>
+    <script src="app/articles/categoriesService.js"></script>
+    <script src="app/articles/articlesApiService.js"></script>
+    <script src="app/_infrastructure/dialogService.js"></script>
 
     <script src="cordova.js"></script>
-    <script src="app/js/lib/phonegap-ready.js"></script>
-    <script src="app/js/lib/phonegap-geolocation.js"></script>
+    <script src="app/_lib/phonegap-ready.js"></script>
+    <script src="app/_lib/phonegap-geolocation.js"></script>
     <script src="mobile/mobile.js"></script>
 
     <script>
@@ -134,6 +134,6 @@
         });
     </script>
 
-    <script src="app/js/main.js"></script>
+    <script src="app/main.js"></script>
 </body>
 </html>
