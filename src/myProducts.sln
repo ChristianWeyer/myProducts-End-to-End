@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Model", "myProducts.DataAccess\myProducts.Model.csproj", "{82EEAA96-8E08-4820-9914-0738CB1C3317}"
 EndProject
@@ -36,6 +36,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{8C013A3A-4D93-4DAE-9FEE-03BAE245B5A3}"
 EndProject
 Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "myProducts.WindowsStoreClient", "myProducts.WindowsStoreClient\myProducts.WindowsStoreClient.jsproj", "{AA7DDFE2-3667-4337-85FA-54008C1AA8F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D9850E38-5CE8-49CC-A3E8-18E93F6932D0}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
