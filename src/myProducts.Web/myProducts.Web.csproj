@@ -308,7 +308,7 @@
     <Content Include="app\articles\categoriesService.js" />
     <Content Include="app\_infrastructure\routeResolverService.js" />
     <Content Include="app\shell\personalizationService.js" />
-    <Content Include="app\content\font\fontawesome-webfont.svg" />
+    <Content Include="app\font\fontawesome-webfont.svg" />
     <Content Include="app\settings\settingsService.js" />
     <Content Include="app\start\start.html" />
     <Content Include="app\gallery\gallery.html" />
@@ -341,10 +341,10 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="cordova.js" />
     <Content Include="Global.asax" />
-    <Content Include="app\content\font\fontawesome-webfont.eot" />
-    <Content Include="app\content\font\fontawesome-webfont.ttf" />
-    <Content Include="app\content\font\fontawesome-webfont.woff" />
-    <Content Include="app\content\font\FontAwesome.otf" />
+    <Content Include="app\font\fontawesome-webfont.eot" />
+    <Content Include="app\font\fontawesome-webfont.ttf" />
+    <Content Include="app\font\fontawesome-webfont.woff" />
+    <Content Include="app\font\FontAwesome.otf" />
     <Content Include="images\1.jpg" />
     <Content Include="images\2.jpg" />
     <Content Include="images\3.jpg" />
