@@ -1,5 +1,9 @@
-﻿
-// version 0.1
+﻿//
+// Thinktecture SignalR hubs clint module for AngularJS.
+// Uses Microsoft's jQuery SignalR plugin. Dependency on SignalR version 2.0.2:
+// https://github.com/SignalR/SignalR/releases/tag/2.0.2
+// Version 0.2.0 - Jan 25, 2014.
+//
 
 angular.module("tt.SignalR", ["ng"]).value("subscribePrefix", "tt.signalr:subscribe");
 
