@@ -13,7 +13,7 @@ tt.authentication = {
     logoutConfirmed: "tt:authentication:logoutConfirmed"
 };
 
-tt.authentication.module = angular.module("tt.Authentication", ["ng"]);
+tt.authentication.module = angular.module("Thinktecture.Authentication", ["ng"]);
 
 tt.authentication.module.provider("tokenAuthentication", {
     storage: null,

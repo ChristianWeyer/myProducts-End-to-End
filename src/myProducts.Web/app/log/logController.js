@@ -1,14 +1,14 @@
 (function () {
     /**
      * @param $scope
-     * @param subscribePrefix
+     * @param signalRSubscribe
      */
-    function Controller($scope, subscribePrefix) {
+    function Controller($scope, signalRSubscribe) {
         $scope.log = {};
 
         $scope.log.entries = [];
 
-        $scope.$on(subscribePrefix + "sendLogEvent", function (event, data) {
+        $scope.$on(signalRSubscribe + "sendLogEvent", function (event, data) {
             $scope.log.entries.push(data);
         });
     };

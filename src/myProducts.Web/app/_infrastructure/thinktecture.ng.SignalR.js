@@ -5,9 +5,9 @@
 // Version 0.2.0 - Jan 25, 2014.
 //
 
-angular.module("tt.SignalR", ["ng"]).value("subscribePrefix", "tt.signalr:subscribe");
+angular.module("Thinktecture.SignalR", ["ng"]).value("signalRSubscribe", "tt.signalr:subscribe");
 
-angular.module("tt.SignalR").factory("hubProxy", ["$rootScope", "subscribePrefix", function ($rootScope, subscribePrefix) {
+angular.module("Thinktecture.SignalR").factory("signalRHubProxy", ["$rootScope", "signalRSubscribe", function ($rootScope, subscribePrefix) {
     function signalRHubProxyFactory(serverUrl, hubName) {
         var connection = $.hubConnection(serverUrl);
         connection.logging = true;

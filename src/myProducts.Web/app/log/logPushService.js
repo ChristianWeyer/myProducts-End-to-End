@@ -1,11 +1,11 @@
 ﻿(function () {
     /**
-     * @param hubProxy
+     * @param signalRHubProxy
      * @param $rootScope
      * @param {$app.Settings} settings
      */
-    $app.LogPush = function (hubProxy, $rootScope, settings) {
-        var hub = hubProxy(ttTools.baseUrl, "logHub");
+    $app.LogPush = function (signalRHubProxy, $rootScope, settings) {
+        var hub = signalRHubProxy(ttTools.baseUrl, "logHub");
         hub.on("sendLogEvent");
 
         if (settings.enablePush) {
@@ -30,5 +30,5 @@
         return hub;
     };
 
-    app.factory("logPush", ["hubProxy", "$rootScope", "settings", $app.LogPush]);
+    app.factory("logPush", ["signalRHubProxy", "$rootScope", "settings", $app.LogPush]);
 })();

@@ -3,13 +3,13 @@
      * @param $scope
      * @param $location
      * @param {$app.ArticlesApi} articlesApi
-     * @param subscribePrefix
+     * @param signalRSubscribe
      * @param {$app.Toast} toast
      * @param {$app.Dialog} dialog
      * @param $translate
      * @param {$app.Personalization} personalization
      */
-    function Controller($scope, $location, articlesApi, subscribePrefix, toast, dialog, $translate, personalization) {
+    function Controller($scope, $location, articlesApi, signalRSubscribe, toast, dialog, $translate, personalization) {
         $scope.capabilities = personalization.data.UiClaims.Capabilities;
         $scope.capabilities.has = function (key) {
             return $scope.capabilities.indexOf(key) > -1;
@@ -69,7 +69,7 @@
             }
         }, true);
 
-        $scope.$on(subscribePrefix + "articleChange", function () {
+        $scope.$on(signalRSubscribe + "articleChange", function () {
             $scope.articles.getPagedData(true);
         });
 
