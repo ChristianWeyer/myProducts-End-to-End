@@ -245,6 +245,7 @@
     <Content Include="app\content\css\font-awesome.css" />
     <Content Include="app\content\css\nv.d3.css" />
     <Content Include="app\content\css\toastr.css" />
+    <Content Include="app\content\font\fontawesome-webfont.svg" />
     <Content Include="app\content\images\default.png" />
     <Content Include="app\content\images\emergency_stop.png" />
     <Content Include="app\content\images\offline.png" />
@@ -404,6 +405,10 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="app\content\font\fontawesome-webfont.eot" />
+    <Content Include="app\content\font\fontawesome-webfont.ttf" />
+    <Content Include="app\content\font\fontawesome-webfont.woff" />
+    <Content Include="app\content\font\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />

@@ -115,5 +115,5 @@
         };
     };
 
-    app.lazy.controller("ArticlesController", ["$scope", "$location", "articlesApi", "subscribePrefix", "toast", "dialog", "$translate", "personalization", Controller]);
+    app.lazy.controller("ArticlesController", ["$scope", "$location", "articlesApi", "signalRSubscribe", "toast", "dialog", "$translate", "personalization", Controller]);
 })();

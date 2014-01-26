@@ -13,5 +13,5 @@
         });
     };
 
-    app.lazy.controller("LogController", ["$scope", "subscribePrefix", Controller]);
+    app.lazy.controller("LogController", ["$scope", "signalRSubscribe", Controller]);
 })();
