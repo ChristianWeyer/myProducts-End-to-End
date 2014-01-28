@@ -50,12 +50,9 @@ h2 {
 }
 
 #loading-bar .bar {
-    background: #FF6600;
-    height: 5px;
-}
-
-#loading-bar .peg {
-    box-shadow: 0 0 10px #2c3e50, 0 0 5px #2c3e50;
+    background: #d08959;
+    height: 4px;
+    border: none;
 }
 
 .disable-select {

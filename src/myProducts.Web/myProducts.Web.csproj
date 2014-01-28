@@ -364,7 +364,7 @@
     <Content Include="mobile\content\css\themes\ionic-ios7.css" />
     <Content Include="mobile\content\fonts\ionicons.svg" />
     <Content Include="mobile\index.cshtml" />
-    <Content Include="mobile\_infrastructure\dialog.html" />
+    <Content Include="mobile\infrastructure\dialog.html" />
     <Content Include="mobile\gallery\gallery.html" />
     <Content Include="mobile\settings\settings.html" />
     <Content Include="mobile\info\info.html" />
