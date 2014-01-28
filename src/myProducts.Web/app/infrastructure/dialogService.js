@@ -18,7 +18,7 @@
             backdrop: true,
             keyboard: true,
             modalFade: true,
-            templateUrl: "app/_infrastructure/dialog.html"
+            templateUrl: "app/infrastructure/dialog.html"
         };
 
         var modalOptions = {
@@ -72,7 +72,7 @@
                 };
                 mobileScope.dialogOptions = tempModalOptions;
 
-                $modal.fromTemplateUrl("mobile/_infrastructure/dialog.html", function (modal) {
+                $modal.fromTemplateUrl("mobile/infrastructure/dialog.html", function (modal) {
                     mobileScope.modal = modal;
                     mobileScope.modal.show();
                 }, {

@@ -18,7 +18,7 @@
                             title: "Login",
                             body: "Status: " + status,
                             type: "error"
-                        })
+                        });
                     };
                 });
         };

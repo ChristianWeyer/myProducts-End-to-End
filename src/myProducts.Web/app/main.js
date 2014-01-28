@@ -10,15 +10,15 @@ $script(
 $script.ready("app", function () {
     $script(
     [
-        "_infrastructure/tools",
-        "_infrastructure/thinktecture.ng.Authentication",
-        "_infrastructure/thinktecture.ng.SignalR",
-        "_infrastructure/baseUrlFilter",
-        "_infrastructure/serverValidationDirective",
-        "_infrastructure/routeResolverService",
-        "_infrastructure/toastService",
-        "_infrastructure/dialogService",
-        "_infrastructure/geoLocationTrackerService",
+        "infrastructure/tools",
+        "infrastructure/thinktecture.ng.Authentication",
+        "infrastructure/thinktecture.ng.SignalR",
+        "infrastructure/baseUrlFilter",
+        "infrastructure/serverValidationDirective",
+        "infrastructure/routeResolverService",
+        "infrastructure/toastService",
+        "infrastructure/dialogService",
+        "infrastructure/geoLocationTrackerService",
 
         "articles/articlesApiService",
         "articles/articlesPushService",
