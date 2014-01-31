@@ -292,7 +292,6 @@
     <Content Include="app\0lib\imageupload.js" />
     <Content Include="app\0lib\ionic-angular.js" />
     <Content Include="app\0lib\ionic.js" />
-    <Content Include="app\0lib\jquery-2.0.1.js" />
     <Content Include="app\0lib\loading-bar.js" />
     <Content Include="app\0lib\log4javascript.js" />
     <Content Include="app\0lib\ngStorage.js" />
@@ -353,7 +352,6 @@
     <Content Include="images\5.jpg" />
     <Content Include="images\0.jpg" />
     <Content Include="app\main.js" />
-    <Content Include="app\0lib\jquery.signalR-2.0.0.js" />
     <Content Include="index.html" />
     <Content Include="mobile\content\css\mobile.css" />
     <Content Include="mobile\content\images\thinktecture_logo.png" />

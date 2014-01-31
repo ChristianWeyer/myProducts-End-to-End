@@ -8,7 +8,7 @@ namespace MyProducts.Web
         {
             bundles.Add(new ScriptBundle("~/app/js-lib")
                 .Include("~/app/0lib/script.js")
-                .Include("~/app/0lib/jquery-2.0.1.js")
+                .Include("~/app/0lib/jquery-*")
                 .Include("~/app/0lib/toastr.js")
                 .Include("~/app/0lib/spin.js")
                 .Include("~/app/0lib/bootstrap*")
