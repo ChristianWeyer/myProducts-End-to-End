@@ -87,6 +87,7 @@ app.run(["$stateProviderService", "$state", "$http", "$templateCache", "$rootSco
             $http.defaults.headers.common["Accept-Language"] = $translate.uses();
         });
 
+        var currentPath = $location.path(); //.replace(/[^a-zA-Z,.!?\d\s:]/gi, '');
         var viewsDir = routeResolver.routeConfig.getViewsDirectory();
         $http.get(viewsDir + "info/info.html", { cache: $templateCache });
 
@@ -109,7 +110,7 @@ app.run(["$stateProviderService", "$state", "$http", "$templateCache", "$rootSco
                 });
 
                 $rootScope.$broadcast(tt.personalization.dataLoaded);
-                $state.reload();
+                $location.path(currentPath);
             });
         });
 
