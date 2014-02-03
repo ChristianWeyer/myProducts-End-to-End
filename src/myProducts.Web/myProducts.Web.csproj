@@ -281,7 +281,6 @@
     <Content Include="app\0lib\angular-cache.js" />
     <Content Include="app\0lib\angular-carousel.js" />
     <Content Include="app\0lib\angular-cookies.js" />
-    <Content Include="app\0lib\angular-route.js" />
     <Content Include="app\0lib\angular-sanitize.js" />
     <Content Include="app\0lib\angular-strap.js" />
     <Content Include="app\0lib\angular-touch.js" />

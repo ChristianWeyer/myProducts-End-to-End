@@ -37,22 +37,22 @@ app.config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$trans
 
         $urlRouterProvider.otherwise("/");
         $stateProvider
-          .state('info', {
+          .state("info", {
               url: "/info",
               templateUrl: viewBaseUrl + "info/info.html",
               controller: "InfoController"
           })
-          .state('settings', {
+          .state("settings", {
               url: "/settings",
               templateUrl: viewBaseUrl + "settings/settings.html",
               controller: "SettingsController"
           })
-          .state('login', {
+          .state("login", {
               url: "/login",
               templateUrl: viewBaseUrl + "login/login.html",
               controller: "LoginController"
           })
-          .state('start', {
+          .state("start", {
               url: "/",
               templateUrl: viewBaseUrl + "start/start.html",
               controller: "StartController"
@@ -110,7 +110,7 @@ app.run(["$stateProviderService", "$state", "$http", "$templateCache", "$rootSco
                 });
 
                 $rootScope.$broadcast(tt.personalization.dataLoaded);
-                $location.path(currentPath);
+                //$location.path(currentPath);
             });
         });
 
@@ -134,12 +134,6 @@ app.run(["$stateProviderService", "$state", "$http", "$templateCache", "$rootSco
                 console.log("CACHE: Manifest didn\'t change.");
             }
         }, false);
-
-        $rootScope.$on("$routeChangeStart", function () {
-            if (!$rootScope.tt.authentication.userLoggedIn) {
-                $rootScope.$broadcast(tt.authentication.authenticationRequired);
-            }
-        });
 
         $rootScope.$on(tt.authentication.authenticationRequired, function () {
             $location.path("/login");

@@ -1,7 +1,7 @@
 //
 // Thinktecture token-based authentication module for AngularJS.
 // Implements OAuth2 resource owner password flow.
-// Version 0.2.0 - Jan 25, 2014.
+// Version 0.2.1 - Feb 3, 2014.
 //
 
 var tt = window.tt || {}; tt.authentication = {};
@@ -42,6 +42,17 @@ tt.authentication.module.provider("tokenAuthentication", {
         $rootScope.tt = $rootScope.tt || {}; $rootScope.tt.authentication = $rootScope.tt.authentication || {};
         $rootScope.tt.authentication.userLoggedIn = false;
 
+        $rootScope.$on("$routeChangeStart", function () {
+            if (!$rootScope.tt.authentication.userLoggedIn) {
+                $rootScope.$broadcast(tt.authentication.authenticationRequired);
+            }
+        });
+        $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
+            if (!$rootScope.tt.authentication.userLoggedIn) {
+                $rootScope.$broadcast(tt.authentication.authenticationRequired);
+            }
+        });
+
         checkForValidToken();
 
         function login(username, password) {
@@ -57,7 +68,6 @@ tt.authentication.module.provider("tokenAuthentication", {
             .success(function (tokenData) {
                 username = "";
                 password = "";
-                auth = "";
 
                 setToken(tokenData);
                 authenticationSuccess();
