@@ -10,7 +10,7 @@
         try {
             $modal = $injector.get("$modal");
         } catch (e) {
-            $modal = $injector.get("Modal");
+            $modal = $injector.get("$ionicModal");
             mobile = true;
         }
 

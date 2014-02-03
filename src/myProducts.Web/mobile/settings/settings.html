@@ -2,14 +2,12 @@
     <h3 translate="SETTINGS_TITLE"></h3>
 
     <ul class="list">
-        <li class="item item-toggle">
+        <toggle ng-model="settings.enablePush">
             <span translate="SETTINGS_PUSH"></span>
-            <toggle ng-model="settings.enablePush"></toggle>
-        </li>
-
-        <li class="item item-toggle">
+        </toggle>
+        
+        <toggle ng-model="settings.sendPosition">
             <span translate="SETTINGS_SENDPOS"></span>
-            <toggle ng-model="settings.sendPosition"></toggle>
-        </li>
+        </toggle>
     </ul>
 </div>

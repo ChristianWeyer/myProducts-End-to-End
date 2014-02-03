@@ -2,7 +2,7 @@
 
     /**
          * @param $scope
-         * @param $routeParams
+         * @param $stateParams
          * @param {$app.ArticlesApi} articlesApi
          * @param {$app.Toast} toast
          * @param $location
@@ -10,16 +10,18 @@
          * @param $translate
          * @param {$app.Categories} categories
          */
-    function Controller($scope, $routeParams, articlesApi, toast, $location, dialog, $translate, categories) {
+    function Controller($scope, $stateParams, articlesApi, toast, $location, dialog, $translate, categories) {
         $scope.articledetails = {};
         $scope.articledetails.categories = categories.data;
 
-        if ($routeParams.id !== "new") {
+        var articleId = $stateParams.id;
+
+        if (articleId !== "new") {
             ttTools.logger.info("Getting article details...");
 
             $scope.articledetails.editMode = true;
 
-            articlesApi.getArticleDetails($routeParams.id)
+            articlesApi.getArticleDetails(articleId)
                 .success(function (data) {
                     $scope.articledetails.article = data;
                 })
@@ -67,5 +69,5 @@
         };
     };
 
-    app.lazy.controller("ArticleDetailsController", ["$scope", "$routeParams", "articlesApi", "toast", "$location", "dialog", "$translate", "categories", Controller]);
+    app.lazy.controller("ArticleDetailsController", ["$scope", "$stateParams", "articlesApi", "toast", "$location", "dialog", "$translate", "categories", Controller]);
 })();
