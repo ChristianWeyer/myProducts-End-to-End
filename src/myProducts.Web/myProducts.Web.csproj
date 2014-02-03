@@ -232,6 +232,7 @@
       <Link>AutoMapper.Net4.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="app\0lib\angular-ui-router.js" />
     <Content Include="app\articleDetails\articleDetails.html" />
     <Content Include="app\articleDetails\articleDetailsController.js" />
     <Content Include="app\content\css\angular-carousel.css" />
