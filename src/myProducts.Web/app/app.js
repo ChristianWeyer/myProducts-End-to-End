@@ -105,8 +105,12 @@ app.run(["$stateProviderService", "$state", "$http", "$templateCache", "$rootSco
                 var route = routeResolver.route;
 
                 angular.forEach(data.Features, function (value, key) {
-                    $stateProviderService.state(value.Module.toLowerCase(), route.resolve(value));
-                    $http.get(viewsDir + value.Module.toLowerCase() + "/" + value.Module.toLowerCase() + ".html", { cache: $templateCache });
+                    // TODO: check how to add states only when not yet in $state - this is too dirty
+                    try {
+                        $stateProviderService.state(value.Module.toLowerCase(), route.resolve(value));
+                        $http.get(viewsDir + value.Module.toLowerCase() + "/" + value.Module.toLowerCase() + ".html", { cache: $templateCache });
+                    } catch (e) {
+                    } 
                 });
 
                 $rootScope.$broadcast(tt.personalization.dataLoaded);
