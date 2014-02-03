@@ -31,13 +31,17 @@
         }();
 
         this.route = function (routeConfig) {
-            var resolve = function (baseName, path) {
-                if (!path) path = "";
-                var lowercaseBaseName = ttTools.lowercaseFirstLetter(baseName);
+            var resolve = function (moduleConfig /*baseName, path*/) {
+                if (!moduleConfig.Path) moduleConfig.Path = "";
+                var lowercaseBaseName = ttTools.lowercaseFirstLetter(moduleConfig.Module);
 
                 var routeDef = {};
+                routeDef.url = moduleConfig.Url,
                 routeDef.templateUrl = routeConfig.getViewsDirectory() + lowercaseBaseName + "/" + lowercaseBaseName + ".html";
-                routeDef.controller = baseName + "Controller";
+                //routeDef.controller = moduleConfig.Module + "Controller";
+                routeDef.controllerProvider = function ($stateParams) {
+                    return moduleConfig.Module + "Controller";
+                };
                 routeDef.resolve = {
                     load: [
                         "$q", "$rootScope", function ($q, $rootScope) {

@@ -7,8 +7,8 @@ if (ttMobile) {
     app = angular.module("myApp", ["ui.router", "ngTouch", "ngAnimate", "$strap.directives", "ui.bootstrap", "Thinktecture.SignalR", "Thinktecture.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "angular-carousel", "frapontillo.bootstrap-switch", "ngStorage", "imageupload", "nvd3ChartDirectives", "jmdobry.angular-cache", "chieffancypants.loadingBar", "btford.phonegap.ready", "btford.phonegap.geolocation"]);
 }
 
-app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", "$translateProvider", "$httpProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide", "cfpLoadingBarProvider", "tokenAuthenticationProvider",
-    function ($stateProvider, $urlRouterProvider, $routeProvider, $locationProvider, $translateProvider, $httpProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, cfpLoadingBarProvider, tokenAuthenticationProvider) {
+app.config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$translateProvider", "$httpProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide", "cfpLoadingBarProvider", "tokenAuthenticationProvider",
+    function ($urlRouterProvider, $stateProvider, $locationProvider, $translateProvider, $httpProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, cfpLoadingBarProvider, tokenAuthenticationProvider) {
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|ghttps?|ms-appx|x-wmapp0):/);
 
         cfpLoadingBarProvider.includeSpinner = false;
@@ -18,11 +18,22 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", "$trans
         ttTools.initLogger(ttTools.baseUrl + "api/log");
         ttTools.logger.info("Configuring myApp...");
 
+        app.lazy =
+        {
+            controller: $controllerProvider.register,
+            directive: $compileProvider.directive,
+            filter: $filterProvider.register,
+            factory: $provide.factory,
+            service: $provide.service
+        };
+
         var viewBaseUrl = "app/";
 
         if (ttMobile) {
             viewBaseUrl = "mobile/";
         }
+
+        routeResolverProvider.routeConfig.setBaseDirectories(viewBaseUrl, "app/");
 
         $urlRouterProvider.otherwise("/");
         $stateProvider
@@ -60,8 +71,8 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", "$trans
         $translateProvider.useLocalStorage();
     }]);
 
-app.run(["$stateProviderService", "$http", "$templateCache", "$rootScope", "$location", "$translate", "toast", "dialog", "$route", "personalization", "categories", "geoLocationTracker", "articlesPush", "logPush",
-    function ($stateProviderService, $http, $templateCache, $rootScope, $location, $translate, toast, dialog, $route, personalization, categories, geoLocationTracker, articlesPush, logPush) {
+app.run(["$stateProviderService", "$state", "$http", "$templateCache", "$rootScope", "$location", "$translate", "toast", "dialog", "routeResolver", "personalization", "categories", "geoLocationTracker", "articlesPush", "logPush",
+    function ($stateProviderService, $state, $http, $templateCache, $rootScope, $location, $translate, toast, dialog, routeResolver, personalization, categories, geoLocationTracker, articlesPush, logPush) {
         geoLocationTracker.startSendPosition(10000, function (pos) { });
 
         window.addEventListener("online", function () {
@@ -76,6 +87,7 @@ app.run(["$stateProviderService", "$http", "$templateCache", "$rootScope", "$loc
             $http.defaults.headers.common["Accept-Language"] = $translate.uses();
         });
 
+        var viewsDir = routeResolver.routeConfig.getViewsDirectory();
         $http.get(viewsDir + "info/info.html", { cache: $templateCache });
 
         $rootScope.$on(tt.authentication.loggedIn, function () {
@@ -89,24 +101,15 @@ app.run(["$stateProviderService", "$http", "$templateCache", "$rootScope", "$loc
                 }
 
                 personalization.data = data;
-                
-                angular.forEach(data.Features, function (value, key) {
-                    var viewUrl = viewsDir + value.Module.toLowerCase() + "/" + value.Module.toLowerCase() + ".html";
+                var route = routeResolver.route;
 
-                    $stateProviderService.state('dynamicController', {
-                        url: value.Url,
-                        template: viewUrl,
-                        controllerProvider: function ($stateParams) {
-                            ctrlName = value.Module + "Controller";
-                            return ctrlName;
-                        }
-                    });
-                    //$routeProviderService.when(value.Url, route.resolve(value.Module));
+                angular.forEach(data.Features, function (value, key) {
+                    $stateProviderService.state(value.Module.toLowerCase(), route.resolve(value));
                     $http.get(viewsDir + value.Module.toLowerCase() + "/" + value.Module.toLowerCase() + ".html", { cache: $templateCache });
                 });
 
                 $rootScope.$broadcast(tt.personalization.dataLoaded);
-                //$route.reload();
+                $state.reload();
             });
         });
 
