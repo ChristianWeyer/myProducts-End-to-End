@@ -26,9 +26,13 @@ h2 {
     margin-bottom: 10px;
 }
 
+.svg {
+    height: auto;
+}
+
 .reveal-animation {
     position: absolute;
-    width: 97%;  
+    width: 97%;
 }
 
 .slider {
