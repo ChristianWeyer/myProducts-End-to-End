@@ -1,6 +1,7 @@
 ﻿using MyProducts.Web.Api.DTOs.Personalization;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Principal;
 using System.Web.Http;
 
@@ -11,7 +12,8 @@ namespace MyProducts.Services.Controllers
         public PersonalizationData GetPersonalizationData()
         {
             var user = RequestContext.Principal;
- 
+            var x = user as ClaimsPrincipal;
+            
             var persData = new PersonalizationData
                 {
                     Features = GetFeatures(user).ToList(),

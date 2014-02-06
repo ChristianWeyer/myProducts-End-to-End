@@ -37,6 +37,8 @@ namespace MyProducts.Services.Controllers
         //[Queryable(AllowedQueryOptions = AllowedQueryOptions.InlineCount | AllowedQueryOptions.Skip | AllowedQueryOptions.Top)]
         public PageResult<ArticleDto> Get(ODataQueryOptions<ArticleDto> options)
         {
+         
+
             var settings = new ODataQuerySettings { PageSize = 10, EnsureStableOrdering = false };
             
             var artikelQuery = productsContext.Articles.AsNoTracking().Project().To<ArticleDto>().OrderBy(a => a.Id);

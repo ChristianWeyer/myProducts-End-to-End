@@ -13,6 +13,7 @@ namespace MyProducts.Hosting
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
+            // TODO: real authN - this is for demo only ;)
             if (context.UserName != context.Password)
             {
                 context.Rejected();
