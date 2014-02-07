@@ -163,6 +163,12 @@ app.run(["$stateProviderService", "$state", "$http", "$templateCache", "$rootSco
             $location.path("/login");
         });
 
+        $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
+            if (!$rootScope.tt.authentication.userLoggedIn) {
+                $rootScope.$broadcast(tt.authentication.authenticationRequired);
+            }
+        });
+
         $rootScope.ttAppLoaded = true;
     }]);
 
