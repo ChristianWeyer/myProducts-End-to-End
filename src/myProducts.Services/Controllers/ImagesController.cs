@@ -1,4 +1,5 @@
-﻿using MyProducts.Model;
+﻿using System.Threading.Tasks;
+using MyProducts.Model;
 using System;
 using System.IO;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace MyProducts.Services.Controllers
         public IQueryable<string> Get()
         {
             var todos = productsContext.Articles.Select(a => imagesFolder + "/" + a.ImageUrl).Distinct();
-
+            
             return todos;
         }
 

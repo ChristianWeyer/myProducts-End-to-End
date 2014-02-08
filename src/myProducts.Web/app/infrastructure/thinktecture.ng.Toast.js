@@ -1,8 +1,11 @@
-﻿(function () {
+﻿var tt = window.tt || {}; tt.toast = {};
+tt.toast.module = angular.module("Thinktecture.Toast", ["ng"]);
+
+(function () {
     /**
      * @param $rootScope
      */
-    $app.Toast = function ($rootScope) {
+    var toast = function ($rootScope) {
         var queue = [], currentMessage = {};
         toastr.options.timeOut = 2000;
 
@@ -40,5 +43,5 @@
         };
     };
 
-    app.service("toast", ["$rootScope", $app.Toast]);
+    tt.toast.module.service("toast", ["$rootScope", toast]);
 })();

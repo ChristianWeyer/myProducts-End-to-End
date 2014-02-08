@@ -9,6 +9,8 @@ namespace MyProducts.Hosting
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
             context.Validated();
+
+            await Task.FromResult(0);
         }
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
@@ -17,6 +19,8 @@ namespace MyProducts.Hosting
             if (context.UserName != context.Password)
             {
                 context.Rejected();
+
+                await Task.FromResult(0);
                 return;
             }
 
@@ -25,6 +29,8 @@ namespace MyProducts.Hosting
             id.AddClaim(new Claim("urn:tt:app", true.ToString()));
 
             context.Validated(id);
+
+            await Task.FromResult(0);
         }
     }
 }

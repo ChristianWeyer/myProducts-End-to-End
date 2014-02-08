@@ -1,9 +1,12 @@
-﻿(function () {
+﻿var tt = window.tt || {}; tt.dialog = {};
+tt.dialog.module = angular.module("Thinktecture.Dialog", ["ng"]);
+
+(function () {
     /**
      * @param $injector
      * @param $rootScope
      */
-    $app.Dialog = function ($injector, $rootScope) {
+    var dialog = function ($injector, $rootScope) {
         var mobile = false;
         var $modal;
 
@@ -82,5 +85,5 @@
         };
     };
 
-    app.service("dialog", ["$injector", "$rootScope", $app.Dialog]);
+    tt.dialog.module.service("dialog", ["$injector", "$rootScope", dialog]);
 })();

@@ -16,8 +16,8 @@ $script.ready("app", function () {
         "infrastructure/baseUrlFilter",
         "infrastructure/serverValidationDirective",
         "infrastructure/routeResolverService",
-        "infrastructure/toastService",
-        "infrastructure/dialogService",
+        "infrastructure/thinktecture.ng.Toast",
+        "infrastructure/thinktecture.ng.Dialog",
         "infrastructure/geoLocationTrackerService",
 
         "articles/articlesApiService",

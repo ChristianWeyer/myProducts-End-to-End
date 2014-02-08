@@ -305,7 +305,7 @@
     <Content Include="app\infrastructure\geoLocationTrackerService.js" />
     <Content Include="app\shell\networkStatusService.js" />
     <Content Include="app\log\logPushService.js" />
-    <Content Include="app\infrastructure\dialogService.js" />
+    <Content Include="app\infrastructure\thinktecture.ng.Dialog.js" />
     <Content Include="app\articles\categoriesService.js" />
     <Content Include="app\infrastructure\routeResolverService.js" />
     <Content Include="app\shell\personalizationService.js" />
@@ -331,7 +331,7 @@
     <Content Include="app\infrastructure\baseUrlFilter.js" />
     <Content Include="app\login\loginController.js" />
     <Content Include="app\infrastructure\thinktecture.ng.Authentication.js" />
-    <Content Include="app\infrastructure\toastService.js" />
+    <Content Include="app\infrastructure\thinktecture.ng.Toast.js" />
     <Content Include="app\articles\articlesApiService.js" />
     <Content Include="app\infrastructure\dialog.html" />
     <Content Include="app\info\info.html" />
