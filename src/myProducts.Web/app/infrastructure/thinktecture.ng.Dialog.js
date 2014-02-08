@@ -1,4 +1,6 @@
-﻿var tt = window.tt || {}; tt.dialog = {};
+﻿// TODO: Provide set functions to allow setting the template paths
+
+var tt = window.tt || {}; tt.dialog = {};
 tt.dialog.module = angular.module("Thinktecture.Dialog", ["ng"]);
 
 (function () {
