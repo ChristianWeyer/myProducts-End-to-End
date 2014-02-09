@@ -25,13 +25,9 @@
     }
 
 #loading-bar .bar {
-    height: 0.2px;
+    height: 1px;
     border: none;
 }
-
-/*#loading-bar .peg {
-    box-shadow: 0 0 10px #2c3e50, 0 0 5px #2c3e50;
-}*/
 
 .slider {
     background-color: white;
