@@ -1,6 +1,6 @@
 ﻿<h3 translate="OVERVIEW_TITLE"></h3>
 
-<div>
+<div style="width: 98%">
     <form id="searchTextForm" class="form-inline">
         <div class="row-fluid">
             <label for="searchtext" translate="OVERVIEW_FILTER"></label>
@@ -14,7 +14,7 @@
         <table ng-if="articles.articlesData" class="table table-striped">
             <thead>
                 <tr>
-                    <th style="width: 40%">Name</th>
+                    <th>Name</th>
                     <th>Code</th>
                     <th style="width: 90px">
                         <i ng-if="capabilities.has('AddArticle')" class="btn btn-primary icon-plus" ng-click="articles.addArticle()"></i>
@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tr ng-repeat="a in articles.articlesData track by $index">
-                <td style="width: 40%" ng-click="articles.getArticleDetails(a.Id)">{{ a.Name }}</td>
+                <td ng-click="articles.getArticleDetails(a.Id)">{{ a.Name }}</td>
                 <td ng-click="articles.getArticleDetails(a.Id)">{{ a.Code }}</td>
                 <td style="width: 90px">
                     <i class="btn btn-success icon-edit" ng-click="articles.getArticleDetails(a.Id)"></i>
