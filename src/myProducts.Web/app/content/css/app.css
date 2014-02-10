@@ -175,3 +175,22 @@ h2 {
     color: #000 !important;
     background-color: transparent !important;
 }
+
+.slide-animation {
+  width: 100%;
+  position: absolute;
+}
+
+.slide-animation.ng-enter {
+  animation: slideInRight 0.8s;
+  -webkit-animation: slideInRight 0.8s;
+  -moz-animation: slideInRight 0.8s;
+  -ms-animation: slideInRight 0.8s;
+}
+
+.slide-animation.ng-leave {
+  animation: slideOutLeft 0.8s;
+  -webkit-animation: slideOutLeft 0.8s;
+  -moz-animation: slideOutLeft 0.8s;
+  -ms-animation: slideOutLeft 0.8s;
+}

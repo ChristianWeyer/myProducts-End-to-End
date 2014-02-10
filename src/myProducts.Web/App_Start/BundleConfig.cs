@@ -41,12 +41,14 @@ namespace MyProducts.Web
                 .Include("~/app/content/css/font-awesome.css")
                 .Include("~/app/content/css/angular-carousel.css")
                 .Include("~/app/content/css/loading-bar.css")
-                );
+                .Include("~/app/content/css/animate.css")
+            );
+
             bundles.Add(new StyleBundle("~/app/css/app")
                 .Include("~/app/content/css/app.css")
                 .Include("~/app/content/css/app-responsive.css")
                 .Include("~/app/content/css/loadspinner.css")
-                );
+            );
         }
     }
 }
