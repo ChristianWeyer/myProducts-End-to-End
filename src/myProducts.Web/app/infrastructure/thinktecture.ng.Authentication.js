@@ -2,7 +2,7 @@
 // Thinktecture token-based authentication module for AngularJS.
 // Implements OAuth2 resource owner password flow.
 // Uses jQuery.
-// Version 0.2.3 - Feb 7, 2014.
+// Version 0.2.4 - Feb 20, 2014.
 //
 
 var tt = window.tt || {}; tt.authentication = {};
@@ -66,6 +66,10 @@ tt.authentication.module.provider("tokenAuthentication", {
 
         function logout() {
             store.removeItem(key);
+
+            $http = $http || $injector.get("$http");
+            delete $http.defaults.headers.common["Authorization"];
+
             $rootScope.tt.authentication.userLoggedIn = false;
             $rootScope.$broadcast(tt.authentication.logoutConfirmed);
         }
