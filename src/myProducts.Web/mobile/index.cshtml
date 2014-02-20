@@ -22,28 +22,28 @@
         </div>
     </div>
     <div ng-controller="NavigationController" ng-cloak>
-        <side-menus>
-            <pane side-menu-content>
+        <ion-side-menus>
+            <ion-pane ion-side-menu-content>
                 <header class="bar bar-header bar-positive">
                     <button class="button button-icon" ng-click="navigation.openLeft()"><i class="icon ion-navicon"></i></button>
                     <h1 class="title">myProducts</h1>
                 </header>
 
-                <content has-header="true" has-tabs="true" overflow-scroll="true">
-                    <nav-view class="padding">
-                    </nav-view>
-                </content>
-            </pane>
+                <ion-content has-header="true" has-tabs="true" overflow-scroll="true">
+                    <ion-nav-view class="padding">
+                    </ion-nav-view>
+                </ion-content>
+            </ion-pane>
             <div class="bar bar-footer bar-stable">
                 <div class="title">
                     <img src="mobile/content/images/thinktecture_logo.png" />
                 </div>
             </div>
-            <side-menu side="left">
+            <ion-side-menu side="left">
                 <header class="bar bar-header bar-dark">
                     <h1 class="title">Menu</h1>
                 </header>
-                <content has-header="true">
+                <ion-content has-header="true">
                     <ul class="list">
                         <a ng-show="ni.DisplayText" ng-href="#{{ ni.Url }}" ng-click="navigation.openLeft()" class="item" ng-repeat="ni in navigation.navigationItems" translate>
                             {{ ni.DisplayText }}
@@ -70,9 +70,9 @@
                             {{ status.userName }}
                         </a>
                     </ul>
-                </content>
-            </side-menu>
-        </side-menus>
+                </ion-content>
+            </ion-side-menu>
+        </ion-side-menus>
     </div>
 
     <script>

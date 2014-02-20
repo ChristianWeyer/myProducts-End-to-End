@@ -1,8 +1,8 @@
-﻿<content class="padding" on-refresh="articles.getPagedData(true)">
-    <refresher></refresher>
+﻿<ion-content class="padding" on-refresh="articles.getPagedData(true)">
+    <ion-refresher></ion-refresher>
 
-    <slide-box padded on-slide-changed="articles.getPagedData(true)">
-        <slide>
+    <ion-slide-box padded on-slide-changed="articles.getPagedData(true)">
+        <ion-slide>
             <br />
             <h3 translate="OVERVIEW_TITLE"></h3>
 
@@ -12,7 +12,7 @@
                     <p>{{ a.Code }}</p>
                 </a>
             </div>
-        </slide>
+        </ion-slide>
         <slide></slide>
-    </slide-box>
-</content>
+    </ion-slide-box>
+</ion-content>
