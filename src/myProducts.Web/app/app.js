@@ -110,7 +110,7 @@ app.run(["$stateProviderService", "$state", "$http", "$templateCache", "$rootSco
                         $stateProviderService.state(value.Module.toLowerCase(), route.resolve(value));
                         $http.get(viewsDir + value.Module.toLowerCase() + "/" + value.Module.toLowerCase() + ".html", { cache: $templateCache });
                     } catch (e) {
-                    } 
+                    }
                 });
 
                 $rootScope.$broadcast(tt.personalization.dataLoaded);

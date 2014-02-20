@@ -1,28 +1,9 @@
 ﻿<div class="content padding">
     <h3 translate="GALLERY_TITLE"></h3>
 
-    <ion-slide-box>
-        <!--<slide ng-repeat="image in gallery.productImages" style="width: 200px;"style="padding-top: 45px; width: 200px;">
+    <ion-slide-box slides-refresh="gallery.productImages">
+        <ion-slide ng-repeat="image in gallery.productImages" class="gallerySlide">
             <img ng-src="{{ image }}" />
-        </slide>-->
-
-        <ion-slide class="gallerySlide">
-            <img src="images/0.jpg" />
-        </ion-slide>
-        <ion-slide class="gallerySlide">
-            <img src="images/1.jpg" />
-        </ion-slide>
-        <ion-slide class="gallerySlide">
-            <img src="images/2.jpg" />
-        </ion-slide>
-        <ion-slide class="gallerySlide">
-            <img src="images/3.jpg" />
-        </ion-slide>
-        <ion-slide class="gallerySlide">
-            <img src="images/4.jpg" />
-        </ion-slide>
-        <ion-slide class="gallerySlide">
-            <img src="images/5.jpg" />
         </ion-slide>
     </ion-slide-box>
 </div>

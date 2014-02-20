@@ -38,7 +38,9 @@ $script.ready("app", function () {
         "shell/personalizationService",
         "shell/statusController",
 
-        "start/startController"
+        "start/startController",
+
+         "../mobile/gallery/refreshSlidesDirective"
     ], "bundle");
 
     $script.ready("bundle", function () {
