@@ -1,4 +1,5 @@
 ﻿using Fabrik.Common.WebAPI;
+using Microsoft.Owin.Security.OAuth;
 using MyProducts.Resources;
 using System.Net.Http.Formatting;
 using System.Web.Http;
@@ -15,8 +16,10 @@ namespace MyProducts.Hosting
         {
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always; // ONLY for debugging
 
-            config.Services.Replace(typeof(IContentNegotiator), new JsonOnlyContentNegotiator());
+            config.SuppressDefaultHostAuthentication();
+            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
+            config.Services.Replace(typeof(IContentNegotiator), new JsonOnlyContentNegotiator());
             config.Formatters.Clear();
             config.Formatters.Add(new JsonMediaTypeFormatter());
 
