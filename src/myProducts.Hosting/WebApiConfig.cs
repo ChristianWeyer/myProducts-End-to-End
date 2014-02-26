@@ -14,7 +14,7 @@ namespace MyProducts.Hosting
     {
         public static void Register(HttpConfiguration config)
         {
-            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always; // ONLY for debugging
+            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always; // TODO: ONLY for debugging
 
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
