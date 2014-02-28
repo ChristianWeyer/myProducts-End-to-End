@@ -7,7 +7,7 @@ using Thinktecture.Applications.Framework.Entities;
 
 namespace Thinktecture.Applications.Framework.Repository
 {
-    public abstract class GenericRepository<TDbContext, TEntity> :
+    public abstract class GenericEntityFrameworkRepository<TDbContext, TEntity> :
         IGenericRepository<TEntity>
         where TEntity : class, IDataWithState
         where TDbContext : DbContext, new()

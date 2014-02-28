@@ -121,7 +121,7 @@
     <Compile Include="WebApi\AsyncQueryableAttribute.cs" />
     <Compile Include="Entities\DataState.cs" />
     <Compile Include="WebApi\InlineCountQueryableAttribute.cs" />
-    <Compile Include="Repository\GenericRepository.cs" />
+    <Compile Include="Repository\GenericEntityFrameworkRepository.cs" />
     <Compile Include="WebApi\HubApiController.cs" />
     <Compile Include="Repository\IGenericRepository.cs" />
     <Compile Include="Entities\IDataWithState.cs" />
