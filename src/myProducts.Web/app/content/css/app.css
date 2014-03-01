@@ -1,12 +1,4 @@
-﻿[ng-cloak].splash {
-    display: block !important;
-}
-
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-    display: none !important;
-}
-
-html {
+﻿html {
     height: 100%;
     width: 100%;
 }
