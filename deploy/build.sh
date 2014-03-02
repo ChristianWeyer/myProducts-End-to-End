@@ -36,7 +36,7 @@ cp ../node-webkit-sharedsource/* .
 
 ## Download generated index.html page
 echo "GETting index.html"
-curl -k https://windows8vm.local/ngmd/app > index.html
+curl -k https://windows8vm/ngmd/app > index.html
 perl -pi -w -e 's/\/ngmd\///g;' index.html
 
 ## ZIP directory into .nw for node-webkit
@@ -94,7 +94,7 @@ cp ./www/config.xml ./platforms/ios/myProducts
 echo "Building for iOS"
 cordova build ios
 
-cd platforms/ios/build/device/
+cd platforms/ios/build/emulator/
 mv myProducts.app "../../../../../../out/ios/myProducts.app"
 cd ../../../..
 
@@ -104,7 +104,7 @@ cp -r ../../phonegap-android/ ./platforms/android/
 echo "Building for Android"
 cordova build android
 
-cd platforms/android/bin/
+cd platforms/android/ant-build/
 cp myProducts-debug.apk ../../../../../out/android/
 
 #adb install myProducts-debug.apk
