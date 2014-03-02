@@ -38,13 +38,18 @@
                 });
         };
 
+        $scope.articles.getMoreData = function () {
+            var itemsPage = $scope.articles.pagingOptions.currentPage;
+            articlesApi.getArticlesPaged($scope.articles.pagingOptions.pageSize,  itemsPage += 1, "", false);
+
+            $scope.$broadcast("scroll.infiniteScrollComplete");
+        };
+
         $scope.articles.getPagedData = function (force) {
             return articlesApi.getArticlesPaged($scope.articles.pagingOptions.pageSize, $scope.articles.pagingOptions.currentPage, "", force)
                 .then(function (data) {
                     $scope.articles.articlesData = data.Items;
                     $scope.articles.totalServerItems = data.Count;
-
-                    $scope.$broadcast("scroll.refreshComplete");
                 }, function (data) {
                     dialog.showModalDialog({}, {
                         headerText: $translate("COMMON_ERROR"),
@@ -116,5 +121,6 @@
         };
     };
 
-    app.lazy.controller("ArticlesController", ["$scope", "$location", "articlesApi", "signalRSubscribe", "toast", "dialog", "$translate", "personalization", Controller]);
+    app.lazy.controller("ArticlesController",
+        ["$scope", "$location", "articlesApi", "signalRSubscribe", "toast", "dialog", "$translate", "personalization", Controller]);
 })();

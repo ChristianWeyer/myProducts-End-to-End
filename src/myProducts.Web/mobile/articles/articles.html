@@ -1,18 +1,13 @@
-﻿<ion-content class="padding" on-refresh="articles.getPagedData(true)">
-    <ion-refresher></ion-refresher>
+﻿<ion-content class="padding" on-infinite-scroll="articles.getMoreData()">
+    <!--<ion-infinite-scroll></ion-infinite-scroll>-->
 
-    <ion-slide-box padded on-slide-changed="articles.getPagedData(true)">
-        <ion-slide>
-            <br />
-            <h3 translate="OVERVIEW_TITLE"></h3>
+    <br />
+    <h3 translate="OVERVIEW_TITLE"></h3>
 
-            <div class="list">
-                <a class="item" ng-click="articles.getArticleDetails(a.Id)" ng-repeat="a in articles.articlesData track by $index">
-                    <h2>{{ a.Name }}</h2>
-                    <p>{{ a.Code }}</p>
-                </a>
-            </div>
-        </ion-slide>
-        <slide></slide>
-    </ion-slide-box>
+    <div class="list">
+        <a class="item" ng-click="articles.getArticleDetails(a.Id)" ng-repeat="a in articles.articlesData track by $index">
+            <h2>{{ a.Name }}</h2>
+            <p>{{ a.Code }}</p>
+        </a>
+    </div>
 </ion-content>
