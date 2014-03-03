@@ -11,6 +11,10 @@
     padding-left: 10px;
 }
 
+.paddedSearchBox {
+    padding-bottom: 25px;
+}
+
 .bar.bar-positive {
     background-color: #8B887E;
     border-color: #776854;

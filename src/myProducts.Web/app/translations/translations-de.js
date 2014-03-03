@@ -19,9 +19,11 @@ tt.translations.de = {
     "INDEX_LOGIN": "Anmelden",
     "INDEX_LOGOUT": "Abmelden",
     "INDEX_USERNAME": "Benutzer",
-    
+
     "OVERVIEW_TITLE": "Überblick",
     "OVERVIEW_FILTER": "Artikel-Name-Filterung:",
+    "OVERVIEW_SEARCH_PLACEHOLDER": "Nach Artikeln suchen...",
+    "OVERVIEW_SEARCH_BUTTON": "Suchen",
 
     "GALLERY_TITLE": "Produktbilder",
     "GALLERY_BODY": "Wischen Sie durch die Bilder.",

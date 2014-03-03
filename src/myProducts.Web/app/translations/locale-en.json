@@ -21,6 +21,8 @@
 
   "OVERVIEW_TITLE": "Overview",
   "OVERVIEW_FILTER": "Filter by article name:",
+  "OVERVIEW_SEARCH_PLACEHOLDER": "Search for articles...",
+  "OVERVIEW_SEARCH_BUTTON": "Search",
 
   "GALLERY_TITLE": "Product images",
   "GALLERY_BODY": "Swipe through the images gallery.",
