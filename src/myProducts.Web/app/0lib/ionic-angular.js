@@ -2,7 +2,7 @@
  * Copyright 2014 Drifty Co.
  * http://drifty.com/
  *
- * Ionic, v0.9.26
+ * Ionic, v0.10.0-alpha-1003
  * A powerful HTML5 mobile app framework.
  * http://ionicframework.com/
  *
@@ -16,6 +16,7 @@
  * Create a wrapping module to ease having to include too many
  * modules.
  */
+
 angular.module('ionic.service', [
   'ionic.service.bind',
   'ionic.service.platform',
@@ -1331,22 +1332,6 @@ angular.module('ionic.service.view', ['ui.router', 'ionic.service.platform'])
 
 }]);
 ;
-angular.module('ionic.ui.navAnimation', [])
-.directive('ionNavAnimation', function() {
-  return {
-    restrict: 'A',
-    require: '^?ionNavView',
-    link: function($scope, $element, $attrs, navViewCtrl) {
-      if (!navViewCtrl) {
-        return;
-      }
-      ionic.on('tap', function() {
-        navViewCtrl.setNextAnimation($attrs.ionNavAnimation);
-      }, $element[0]);
-    }
-  };
-});
-;
 (function() {
 'use strict';
 
@@ -1450,12 +1435,12 @@ angular.module('ionic.ui.header', ['ngAnimate', 'ngSanitize'])
 
       $scope.headerBarView = hb;
 
-      $scope.$watch('leftButtons', function(val) {
+      $scope.$watchCollection('leftButtons', function(val) {
         // Resize the title since the buttons have changed
         hb.align();
       });
 
-      $scope.$watch('rightButtons', function(val) {
+      $scope.$watchCollection('rightButtons', function(val) {
         // Resize the title since the buttons have changed
         hb.align();
       });
@@ -1946,6 +1931,22 @@ angular.module('ionic.ui.loading', [])
 
 })();
 ;
+angular.module('ionic.ui.navAnimation', [])
+.directive('ionNavAnimation', function() {
+  return {
+    restrict: 'A',
+    require: '^?ionNavView',
+    link: function($scope, $element, $attrs, navViewCtrl) {
+      if (!navViewCtrl) {
+        return;
+      }
+      ionic.on('tap', function() {
+        navViewCtrl.setNextAnimation($attrs.ionNavAnimation);
+      }, $element[0]);
+    }
+  };
+});
+;
 (function(ionic) {
 'use strict';
 
@@ -2201,11 +2202,13 @@ angular.module('ionic.ui.sideMenu', ['ionic.service.gesture', 'ionic.service.vie
         var isDragging = false;
 
         // Listen for taps on the content to close the menu
-        /*
-        ionic.on('tap', function(e) {
-          sideMenuCtrl.close();
-        }, $element[0]);
-        */
+        function contentTap(e) {
+          if(sideMenuCtrl.getOpenAmount() !== 0) {
+            sideMenuCtrl.close();
+            e.gesture.srcEvent.preventDefault();
+          }
+        }
+        ionic.on('tap', contentTap, $element[0]);
 
         var dragFn = function(e) {
           if($scope.dragContent) {
@@ -2275,6 +2278,7 @@ angular.module('ionic.ui.sideMenu', ['ionic.service.gesture', 'ionic.service.vie
           $ionicGesture.off(dragUpGesture, 'dragup', dragFn);
           $ionicGesture.off(dragDownGesture, 'dragdown', dragFn);
           $ionicGesture.off(releaseGesture, 'release', dragReleaseFn);
+          ionic.off('tap', contentTap, $element[0]);
         });
       };
     }

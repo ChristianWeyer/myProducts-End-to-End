@@ -16,7 +16,8 @@
         };
 
         $scope.articles = {};
-        $scope.articles.pagingOptions = { pageSizes: [10], pageSize: 10, currentPage: 1 };
+        $scope.articles.pagingOptions = { pageSizes: [10], pageSize: 10, currentPage: 1, moreCurrentPage: 1 };
+        $scope.articles.articlesData = [];
 
         $scope.articles.getFilteredData = function (searchText) {
             var search = searchText;
@@ -39,10 +40,21 @@
         };
 
         $scope.articles.getMoreData = function () {
-            var itemsPage = $scope.articles.pagingOptions.currentPage;
-            articlesApi.getArticlesPaged($scope.articles.pagingOptions.pageSize,  itemsPage += 1, "", false);
+            articlesApi.getArticlesPaged($scope.articles.pagingOptions.pageSize, $scope.articles.pagingOptions.moreCurrentPage += 1, "", true)
+                .then(function (data) {
+                    $scope.articles.articlesData.push.apply($scope.articles.articlesData, data.Items);
+                    $scope.articles.totalServerItems = data.Count;
 
-            $scope.$broadcast("scroll.infiniteScrollComplete");
+                    $scope.$broadcast("scroll.infiniteScrollComplete");
+                }, function (data) {
+                    dialog.showModalDialog({}, {
+                        headerText: $translate("COMMON_ERROR"),
+                        bodyText: $translate("DETAILS_ERROR"),
+                        closeButtonText: $translate("COMMON_CLOSE"),
+                        actionButtonText: $translate("COMMON_OK"),
+                        detailsText: JSON.stringify(data)
+                    });
+                });
         };
 
         $scope.articles.getPagedData = function (force) {

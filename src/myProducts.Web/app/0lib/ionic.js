@@ -2,7 +2,7 @@
  * Copyright 2014 Drifty Co.
  * http://drifty.com/
  *
- * Ionic, v0.9.26
+ * Ionic, v0.10.0-alpha-1003
  * A powerful HTML5 mobile app framework.
  * http://ionicframework.com/
  *
@@ -18,7 +18,7 @@
 window.ionic = {
   controllers: {},
   views: {},
-  version: '0.9.26'
+  version: '0.10.0-alpha-1003'
 };
 ;
 (function(ionic) {
@@ -1865,7 +1865,7 @@ window.ionic = {
 
           if(this.isAndroid() && version < 4.4) {
             this.grade = (version < 4 ? 'c' : 'b');
-          } 
+          }
         }
       }
     },
@@ -1961,10 +1961,10 @@ window.ionic = {
 
     showStatusBar: function(val) {
       // Only useful when run within cordova
-      this.showStatusBar = val;
+      this._showStatusBar = val;
       this.ready(function(){
         // run this only when or if the platform (cordova) is ready
-        if(ionic.Platform.showStatusBar) {
+        if(ionic.Platform._showStatusBar) {
           // they do not want it to be full screen
           StatusBar.show();
           document.body.classList.remove('status-bar-hide');
@@ -2004,7 +2004,7 @@ window.ionic = {
   // setup listeners to know when the device is ready to go
   function onWindowLoad() {
     if(ionic.Platform.isCordova()) {
-      // the window and scripts are fully loaded, and a cordova/phonegap 
+      // the window and scripts are fully loaded, and a cordova/phonegap
       // object exists then let's listen for the deviceready
       document.addEventListener("deviceready", onPlatformReady, false);
     } else {
@@ -2038,15 +2038,27 @@ window.ionic = {
   ionic.CSS = {};
 
   (function() {
-    var keys = ['webkitTransform', 'transform', '-webkit-transform', 'webkit-transform',
+
+    // transform
+    var i, keys = ['webkitTransform', 'transform', '-webkit-transform', 'webkit-transform',
                 '-moz-transform', 'moz-transform', 'MozTransform', 'mozTransform'];
 
-    for(var i = 0; i < keys.length; i++) {
+    for(i = 0; i < keys.length; i++) {
       if(document.documentElement.style[keys[i]] !== undefined) {
         ionic.CSS.TRANSFORM = keys[i];
         break;
       }
     }
+
+    // transition
+    keys = ['webkitTransition', 'mozTransition', 'transition'];
+    for(i = 0; i < keys.length; i++) {
+      if(document.documentElement.style[keys[i]] !== undefined) {
+        ionic.CSS.TRANSITION = keys[i];
+        break;
+      }
+    }
+
   })();
 
   // classList polyfill for them older Androids
@@ -2062,12 +2074,12 @@ window.ionic = {
             for(x=0; x<arguments.length; x++) {
               fn(classes, classes.indexOf(arguments[x]), arguments[x]);
             }
-            
+
             self.className = classes.join(" ");
           };
         }
 
-        return {                    
+        return {
           add: update(function(classes, index, value) {
             ~index || classes.push(value);
           }),
@@ -2096,7 +2108,7 @@ window.ionic = {
   // polyfill use to simulate native "tap"
   ionic.tapElement = function(target, e) {
     // simulate a normal click by running the element's click method then focus on it
-    
+
     var ele = target.control || target;
 
     if(ele.disabled) return;
@@ -4663,7 +4675,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       var childNodes = this.el.childNodes;
       var leftWidth = 0;
       var rightWidth = 0;
-      var isCountingRightWidth = true;
+      var isCountingRightWidth = false;
 
       // Compute how wide the left children are
       // Skip all titles (there may still be two titles, one leaving the dom)
@@ -4671,7 +4683,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       for(i = 0; i < childNodes.length; i++) {
         c = childNodes[i];
         if (c.tagName && c.tagName.toLowerCase() == 'h1') {
-          isCountingRightWidth = false;
+          isCountingRightWidth = true;
           continue;
         }
 
@@ -4705,12 +4717,12 @@ ionic.views.Scroll = ionic.views.View.inherit({
           }
         }
       } else if(this.alignTitle == 'left') {
-        titleEl.classList.add('titleEl-left');
+        titleEl.classList.add('title-left');
         if(leftWidth > 0) {
           titleEl.style.left = (leftWidth + 15) + 'px';
         }
       } else if(this.alignTitle == 'right') {
-        titleEl.classList.add('titleEl-right');
+        titleEl.classList.add('title-right');
         if(rightWidth > 0) {
           titleEl.style.right = (rightWidth + 15) + 'px';
         }
@@ -4814,7 +4826,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       }
 
       this._currentDrag.content.style[ionic.CSS.TRANSFORM] = 'translate3d(' + newX + 'px, 0, 0)';
-      this._currentDrag.content.style.webkitTransition = 'none';
+      this._currentDrag.content.style[ionic.CSS.TRANSITION] = 'none';
     }
   });
 
@@ -4864,7 +4876,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       } else {
         _this._currentDrag.content.style[ionic.CSS.TRANSFORM] = 'translate3d(' + restingPoint + 'px, 0, 0)';
       }
-      _this._currentDrag.content.style[ionic.CSS.TRANSFORM] = '';
+      _this._currentDrag.content.style[ionic.CSS.TRANSITION] = '';
 
 
       // Kill the current drag
@@ -6573,7 +6585,7 @@ ionic.controllers.NavController = ionic.controllers.ViewController.inherit({
       this.right = options.right;
       this.content = options.content;
       this.dragThresholdX = options.dragThresholdX || 10;
-        
+
       this._rightShowing = false;
       this._leftShowing = false;
       this._isDragging = false;
@@ -6590,7 +6602,7 @@ ionic.controllers.NavController = ionic.controllers.ViewController.inherit({
     },
     /**
      * Set the content view controller if not passed in the constructor options.
-     * 
+     *
      * @param {object} content
      */
     setContent: function(content) {
@@ -6705,17 +6717,19 @@ ionic.controllers.NavController = ionic.controllers.ViewController.inherit({
       if((this._leftShowing && amount > maxLeft) || (this._rightShowing && amount < -maxRight)) {
         return;
       }
-      
+
       this.content.setTranslateX(amount);
 
       if(amount >= 0) {
         this._leftShowing = true;
         this._rightShowing = false;
 
-        // Push the z-index of the right menu down
-        this.right && this.right.pushDown && this.right.pushDown();
-        // Bring the z-index of the left menu up
-        this.left && this.left.bringUp && this.left.bringUp();
+        if(amount > 0) {
+          // Push the z-index of the right menu down
+          this.right && this.right.pushDown && this.right.pushDown();
+          // Bring the z-index of the left menu up
+          this.left && this.left.bringUp && this.left.bringUp();
+        }
       } else {
         this._rightShowing = true;
         this._leftShowing = false;
@@ -6729,7 +6743,7 @@ ionic.controllers.NavController = ionic.controllers.ViewController.inherit({
 
     /**
      * Given an event object, find the final resting position of this side
-     * menu. For example, if the user "throws" the content to the right and 
+     * menu. For example, if the user "throws" the content to the right and
      * releases the touch, the left menu should snap open (animated, of course).
      *
      * @param {Event} e the gesture event to use for snapping
@@ -6750,7 +6764,7 @@ ionic.controllers.NavController = ionic.controllers.ViewController.inherit({
       var velocityX = e.gesture.velocityX;
       var direction = e.gesture.direction;
 
-      // Less than half, going left 
+      // Less than half, going left
       //if(ratio > 0 && ratio < 0.5 && direction == 'left' && velocityX < velocityThreshold) {
       //this.openPercentage(0);
       //}
@@ -6774,17 +6788,17 @@ ionic.controllers.NavController = ionic.controllers.ViewController.inherit({
       else if(ratio < 0.5 && direction == 'right' && velocityX < velocityThreshold) {
         this.openPercentage(-100);
       }
-      
+
       // Going right, more than half, or quickly (snap open)
       else if(direction == 'right' && ratio >= 0 && (ratio >= 0.5 || velocityX > velocityThreshold)) {
         this.openPercentage(100);
       }
-      
+
       // Going left, more than half, or quickly (span open)
       else if(direction == 'left' && ratio <= 0 && (ratio <= -0.5 || velocityX > velocityThreshold)) {
         this.openPercentage(-100);
       }
-      
+
       // Snap back for safety
       else {
         this.openPercentage(0);

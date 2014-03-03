@@ -1,12 +1,15 @@
-﻿<div class="content padding" on-infinite-scroll="articles.getMoreData()">
-    <!--<ion-infinite-scroll></ion-infinite-scroll>-->
+﻿<ion-content infinite-scroll-distance="20%" on-infinite-scroll="articles.getMoreData()">
 
-    <h3 translate="OVERVIEW_TITLE"></h3>
+    <h3 class="padding-horizontal padding30" translate="OVERVIEW_TITLE"></h3>
 
-    <div class="list">
-        <a class="item" ng-click="articles.getArticleDetails(a.Id)" ng-repeat="a in articles.articlesData track by $index">
-            <h2>{{ a.Name }}</h2>
-            <p>{{ a.Code }}</p>
-        </a>
-    </div>
-</div>
+    <ion-list>
+        <ion-item ng-repeat="article in articles.articlesData track by $index"
+                  item="article"
+                  ng-click="articles.getArticleDetails(a.Id)">
+            <h2>{{ article.Name }}</h2>
+            <p>{{ article.Code }}</p>
+        </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll></ion-infinite-scroll>
+</ion-content>
