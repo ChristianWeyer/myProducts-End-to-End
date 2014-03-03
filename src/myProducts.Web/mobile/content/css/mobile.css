@@ -29,6 +29,14 @@
     border: none;
 }
 
+#loading-bar .peg {
+  -webkit-transform: rotate(3deg) translate(0px, -8px);
+  -moz-transform: rotate(3deg) translate(0px, -8px);
+  -ms-transform: rotate(3deg) translate(0px, -8px);
+  -o-transform: rotate(3deg) translate(0px, -8px);
+  transform: rotate(3deg) translate(0px, -8px);
+}
+
 .slider {
     background-color: white;
 }
