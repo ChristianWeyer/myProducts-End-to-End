@@ -2,6 +2,15 @@
     display: none !important;
 }
 
+.clear-search {
+    font-size: 18px;
+}
+
+.my-padding {
+    padding-top: 30px;
+    padding-left: 10px;
+}
+
 .bar.bar-positive {
     background-color: #8B887E;
     border-color: #776854;
@@ -30,11 +39,11 @@
 }
 
 #loading-bar .peg {
-  -webkit-transform: rotate(3deg) translate(0px, -8px);
-  -moz-transform: rotate(3deg) translate(0px, -8px);
-  -ms-transform: rotate(3deg) translate(0px, -8px);
-  -o-transform: rotate(3deg) translate(0px, -8px);
-  transform: rotate(3deg) translate(0px, -8px);
+    -webkit-transform: rotate(3deg) translate(0px, -8px);
+    -moz-transform: rotate(3deg) translate(0px, -8px);
+    -ms-transform: rotate(3deg) translate(0px, -8px);
+    -o-transform: rotate(3deg) translate(0px, -8px);
+    transform: rotate(3deg) translate(0px, -8px);
 }
 
 .slider {
