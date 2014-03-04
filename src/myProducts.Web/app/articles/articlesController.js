@@ -18,7 +18,7 @@
         $scope.articles = {};
         $scope.articles.pagingOptions = { pageSizes: [10], pageSize: 10, currentPage: 1, moreCurrentPage: 1 };
         $scope.articles.articlesData = [];
-        
+
         $scope.articles.getFilteredData = function (searchText) {
             var search = searchText;
 
@@ -29,13 +29,7 @@
 
                     return data.Items;
                 }, function (data) {
-                    dialog.showModalDialog({}, {
-                        headerText: $translate("COMMON_ERROR"),
-                        bodyText: $translate("DETAILS_ERROR"),
-                        closeButtonText: $translate("COMMON_CLOSE"),
-                        actionButtonText: $translate("COMMON_OK"),
-                        detailsText: JSON.stringify(data)
-                    });
+                    showError(data);
                 });
         };
 
@@ -47,13 +41,7 @@
 
                     $scope.$broadcast("scroll.infiniteScrollComplete");
                 }, function (data) {
-                    dialog.showModalDialog({}, {
-                        headerText: $translate("COMMON_ERROR"),
-                        bodyText: $translate("DETAILS_ERROR"),
-                        closeButtonText: $translate("COMMON_CLOSE"),
-                        actionButtonText: $translate("COMMON_OK"),
-                        detailsText: JSON.stringify(data)
-                    });
+                    showError(data);
                 });
         };
 
@@ -63,13 +51,7 @@
                     $scope.articles.articlesData = data.Items;
                     $scope.articles.totalServerItems = data.Count;
                 }, function (data) {
-                    dialog.showModalDialog({}, {
-                        headerText: $translate("COMMON_ERROR"),
-                        bodyText: $translate("DETAILS_ERROR"),
-                        closeButtonText: $translate("COMMON_CLOSE"),
-                        actionButtonText: $translate("COMMON_OK"),
-                        detailsText: JSON.stringify(data)
-                    });
+                    showError(data);
                 });
         };
 
@@ -121,15 +103,18 @@
                 })
                 .error(function (data, status, headers, config) {
                     ttTools.logger.error("Server error", data);
-
-                    dialog.showModalDialog({}, {
-                        headerText: $translate("COMMON_ERROR"),
-                        bodyText: $translate("DETAILS_ERROR"),
-                        closeButtonText: $translate("COMMON_CLOSE"),
-                        actionButtonText: $translate("COMMON_OK"),
-                        detailsText: JSON.stringify(data)
-                    });
+                    showError(data);
                 });
+        };
+
+        function showError(data) {
+            dialog.showModalDialog({}, {
+                headerText: $translate("COMMON_ERROR"),
+                bodyText: $translate("DETAILS_ERROR"),
+                closeButtonText: $translate("COMMON_CLOSE"),
+                actionButtonText: $translate("COMMON_OK"),
+                detailsText: JSON.stringify(data)
+            });
         };
     };
 
