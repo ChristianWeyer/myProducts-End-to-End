@@ -10,16 +10,26 @@ using System.Web.Http;
 
 namespace MyProducts.Services.Controllers
 {
+    /// <summary>
+    /// Web API for product images.
+    /// </summary>
     public class ImagesController : ApiController
     {
         private readonly ProductsContext productsContext;
         private const string imagesFolder = "images";
 
+        /// <summary>
+        ///  Default constructor
+        /// </summary>
         public ImagesController()
         {
             productsContext = new ProductsContext();
         }
 
+        /// <summary>
+        /// List product images URLs.
+        /// </summary>
+        /// <returns></returns>
         [Queryable]
         public IQueryable<string> Get()
         {
@@ -28,15 +38,13 @@ namespace MyProducts.Services.Controllers
             return todos;
         }
 
+        /// <summary>
+        /// Get an image (JPG) by ID.
+        /// </summary>
+        /// <param name="id">Image ID</param>
+        /// <returns>Raw JPG image data</returns>
         public HttpResponseMessage Get(string id)
         {
-            //Guid parsedGuid;
-
-            //if (!Guid.TryParse(id, out parsedGuid))
-            //{
-            //    throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = "No valid ID" });
-            //}
-
             var folder = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, Constants.ImagesFolder);
             var stream = new FileStream(Path.Combine(folder, String.Format("{0}.jpg", id)), FileMode.Open);
 

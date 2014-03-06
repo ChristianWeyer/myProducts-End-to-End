@@ -22,20 +22,30 @@ using WebAPI.OutputCache;
 
 namespace MyProducts.Services.Controllers
 {
+    /// <summary>
+    /// Web API to manage product articles data. Offers Hub functionality to call into clients via SignalR.
+    /// </summary>
     [ApiExceptionFilter]
     public class ArticlesController : HubApiController<ClientNotificationHub>
     {
         private readonly ProductsContext productsContext;
         private static readonly HashSet<Type> ProductChildTypes = new HashSet<Type> { typeof(Category) };
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public ArticlesController()
         {
             productsContext = new ProductsContext();
         }
 
+        /// <summary>
+        /// List articles based on OData query syntax filter.
+        /// </summary>
+        /// <param name="options">OData query options</param>
+        /// <returns>A paged result list of article data</returns>
         [CacheOutput(ServerTimeSpan = 3600)]
         [PerfItFilter(Name = "Articles.GetAll", Description = "Gets all items", Counters = new[] { CounterTypes.TotalNoOfOperations, CounterTypes.AverageTimeTaken })]
-        //[Queryable(AllowedQueryOptions = AllowedQueryOptions.InlineCount | AllowedQueryOptions.Skip | AllowedQueryOptions.Top)]
         public PageResult<ArticleDto> Get(ODataQueryOptions<ArticleDto> options)
         {
             var settings = new ODataQuerySettings { PageSize = 10, EnsureStableOrdering = false };
@@ -49,6 +59,11 @@ namespace MyProducts.Services.Controllers
                     Request.GetInlineCount());
         }
 
+        /// <summary>
+        /// Get a single article by ID.
+        /// </summary>
+        /// <param name="id">Article ID</param>
+        /// <returns>Article details</returns>
         [CacheOutput(ServerTimeSpan = 3600)]
         [PerfItFilter(Name = "Articles.GetById", Description = "Gets one item", Counters = new[] { CounterTypes.TotalNoOfOperations, CounterTypes.AverageTimeTaken })]
         public ArticleDetailDto Get(string id)
@@ -76,6 +91,10 @@ namespace MyProducts.Services.Controllers
             return artikelDetails;
         }
 
+        /// <summary>
+        /// Save a new or existing item article - with or without image data.
+        /// </summary>
+        /// <returns>Nothing, only HTTP status codes</returns>
         [InvalidateCacheOutput("Get")]
         [InvalidateCacheOutput("GetById")]
         public async Task<HttpResponseMessage> Post()
@@ -117,13 +136,15 @@ namespace MyProducts.Services.Controllers
                 File.Move(fileData.LocalFileName, Path.Combine(uploadImagesFolder, imageUrl));
             }
 
-            //var hub = GlobalHost.ConnectionManager.GetHubContext<ClientNotificationHub>();
-            //hub.Clients.All.articleChange();
             Hub.Clients.All.articleChange();
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
+        /// <summary>
+        /// Delete a given article by ID.
+        /// </summary>
+        /// <param name="id">Article ID</param>
         [InvalidateCacheOutput("Get")]
         [InvalidateCacheOutput("GetById")]
         public void Delete(string id)

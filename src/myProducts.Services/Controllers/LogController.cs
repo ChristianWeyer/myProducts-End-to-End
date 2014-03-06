@@ -4,9 +4,16 @@ using System.Web.Http;
 
 namespace MyProducts.Services.Controllers
 {
+    /// <summary>
+    /// Web API to provide logging data from clients.
+    /// </summary>
     [AllowAnonymous]
     public class LogController : ApiController
     {
+        /// <summary>
+        /// Send log data.
+        /// </summary>
+        /// <param name="logData">Data to log</param>
         public void Post(LogData logData)
         {
             switch (logData.Level)

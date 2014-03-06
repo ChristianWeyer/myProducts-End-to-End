@@ -7,8 +7,15 @@ using System.Web.Http;
 
 namespace MyProducts.Services.Controllers
 {
+    /// <summary>
+    /// Web API to deliver personalized application features and UI claims based on incoming user identity.
+    /// </summary>
     public class PersonalizationController : ApiController
     {
+        /// <summary>
+        /// Get application personalization information based on the icnoming user.
+        /// </summary>
+        /// <returns></returns>
         public PersonalizationData GetPersonalizationData()
         {
             var user = RequestContext.Principal;

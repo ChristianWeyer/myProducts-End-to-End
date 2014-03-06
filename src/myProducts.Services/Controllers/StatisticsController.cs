@@ -3,9 +3,16 @@ using System.Web.Http;
 
 namespace MyProducts.Services.Controllers
 {
+    /// <summary>
+    /// Web API for delivering statistics data.
+    /// </summary>
     [RoutePrefix("api/statistics")]
     public class StatisticsController : ApiController
     {
+        /// <summary>
+        /// Get sample distribution statistics data.
+        /// </summary>
+        /// <returns></returns>
         [Route("distribution")]
         public dynamic GetDistribution()
         {
@@ -46,7 +53,10 @@ namespace MyProducts.Services.Controllers
             return data;
         }
 
-
+        /// <summary>
+        /// Get sample sales statistics data.
+        /// </summary>
+        /// <returns></returns>
         [Route("sales")]
         public dynamic GetSales()
         {
