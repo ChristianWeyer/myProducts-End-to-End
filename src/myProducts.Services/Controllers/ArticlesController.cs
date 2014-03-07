@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using AutoMapper.QueryableExtensions;
+﻿using AutoMapper.QueryableExtensions;
 using Microsoft.AspNet.SignalR;
 using MyProducts.Model;
 using MyProducts.Services.DTOs;
