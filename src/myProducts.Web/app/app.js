@@ -71,8 +71,8 @@ app.config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$trans
         $translateProvider.useLocalStorage();
     }]);
 
-app.run(["$stateProviderService", "$state", "$http", "$templateCache", "$rootScope", "$location", "$translate", "toast", "dialog", "routeResolver", "personalization", "categories", "geoLocationTracker", "articlesPush", "logPush",
-    function ($stateProviderService, $state, $http, $templateCache, $rootScope, $location, $translate, toast, dialog, routeResolver, personalization, categories, geoLocationTracker, articlesPush, logPush) {
+app.run(["$localStorage", "$stateProviderService", "$state", "$http", "$templateCache", "$rootScope", "$location", "$translate", "toast", "dialog", "routeResolver", "personalization", "categories", "geoLocationTracker", "articlesPush", "logPush",
+    function ($localStorage, $stateProviderService, $state, $http, $templateCache, $rootScope, $location, $translate, toast, dialog, routeResolver, personalization, categories, geoLocationTracker, articlesPush, logPush) {
         geoLocationTracker.startSendPosition(10000, function (pos) { });
 
         window.addEventListener("online", function () {
@@ -160,6 +160,7 @@ app.run(["$stateProviderService", "$state", "$http", "$templateCache", "$rootSco
             });
         });
         $rootScope.$on(tt.authentication.logoutConfirmed, function () {
+            $localStorage.$reset();
             $location.path("/login");
         });
 
