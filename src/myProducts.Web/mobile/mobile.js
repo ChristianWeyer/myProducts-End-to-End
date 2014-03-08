@@ -17,5 +17,6 @@ var mobileApp = {
     },
 
     onDeviceReady: function () {
+        navigator.splashscreen.hide();
     }
 };

@@ -15,11 +15,10 @@
     padding-bottom: 25px;
 }
 
-/*.bar.bar-positive {
-    background-color: #8B887E;
-    border-color: #776854;
-    background-image: none;
-}*/
+.bar.bar-positive {
+    background-color: #929FB4;
+    border-color: #C5C6C9;
+}
 
 .item.item-calm {
     color: white;
