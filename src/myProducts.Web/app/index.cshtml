@@ -19,19 +19,19 @@
          and (-webkit-device-pixel-ratio: 2)"
           rel="apple-touch-startup-image">
 
+    <style>
+        [ng-cloak].splash {
+            display: block !important;
+        }
+
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+
     @System.Web.Optimization.Styles.Render("~/app/css/common")
     @System.Web.Optimization.Styles.Render("~/app/css/app")
 </head>
-
-<style>
-    [ng-cloak].splash {
-        display: block !important;
-    }
-
-    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-        display: none !important;
-    }
-</style>
 
 <body>
     <div id="loading-area" ng-if="!ttAppLoaded">
