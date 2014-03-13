@@ -11,6 +11,7 @@ namespace MyProducts.Hosting
             context.Validated();
 
             await Task.FromResult(0);
+            return;
         }
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
@@ -31,6 +32,7 @@ namespace MyProducts.Hosting
             context.Validated(id);
 
             await Task.FromResult(0);
+            return;
         }
     }
 }

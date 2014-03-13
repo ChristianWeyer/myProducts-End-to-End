@@ -6,6 +6,8 @@
 //
 
 var tt = window.tt || {}; tt.authentication = {};
+
+// The following events are available to be subscribed to in the application:
 tt.authentication = {
     authenticationRequired: "tt:authentication:authNRequired",
     loginConfirmed: "tt:authentication:loginConfirmed",
