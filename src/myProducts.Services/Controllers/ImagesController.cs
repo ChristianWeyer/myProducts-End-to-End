@@ -54,6 +54,10 @@ namespace MyProducts.Services.Controllers
             return response;
         }
 
+        /// <summary>
+        /// Dispose DB context.
+        /// </summary>
+        /// <param name="disposing"></param>
         protected override void Dispose(bool disposing)
         {
             productsContext.Dispose();

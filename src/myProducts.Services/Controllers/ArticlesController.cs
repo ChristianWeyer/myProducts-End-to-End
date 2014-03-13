@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using PerfIt;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -76,7 +77,8 @@ namespace MyProducts.Services.Controllers
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
 
-            var artikelQuery = productsContext.Articles.Include("Categories").AsNoTracking()
+            var artikelQuery = productsContext.Articles
+                .Include(a => a.Category).AsNoTracking()
                 .Project().To<ArticleDetailDto>()
                 .Where(a => a.Id == guid);
 
@@ -155,6 +157,10 @@ namespace MyProducts.Services.Controllers
             hub.Clients.All.articleChange();
         }
 
+        /// <summary>
+        /// Dispose DB context.
+        /// </summary>
+        /// <param name="disposing"></param>
         protected override void Dispose(bool disposing)
         {
             productsContext.Dispose();
