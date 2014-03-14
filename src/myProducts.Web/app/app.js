@@ -120,25 +120,6 @@ app.run(["$localStorage", "$stateProviderService", "$state", "$http", "$template
 
         // TODO: what about unloading!?
 
-        window.applicationCache.addEventListener("updateready", function (ev) {
-            if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-                console.log("CACHE: Browser downloaded a new app cache manifest.");
-                window.applicationCache.swapCache();
-
-                $rootScope.$apply(dialog.showModalDialog({}, {
-                    headerText: "App Update",
-                    bodyText: $translate("APP_UPDATE_BODY"),
-                    closeButtonText: $translate("COMMON_NO"),
-                    actionButtonText: $translate("COMMON_YES")
-                }).then(function (result) {
-                    window.location.reload();
-                    console.log("CACHE: App will be updated...");
-                }));
-            } else {
-                console.log("CACHE: Manifest didn\'t change.");
-            }
-        }, false);
-
         $rootScope.$on(tt.authentication.authenticationRequired, function () {
             $location.path("/login");
         });

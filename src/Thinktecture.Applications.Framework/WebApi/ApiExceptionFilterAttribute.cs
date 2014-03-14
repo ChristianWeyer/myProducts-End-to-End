@@ -15,7 +15,7 @@ namespace Thinktecture.Applications.Framework.WebApi
             {
                 var message = string.IsNullOrEmpty(argumentException.Message)
                                   ? "An exception occurred"
-                                  : argumentException.Message;
+                                  : argumentException.ToString();
 
                 actionExecutedContext.Response =
                     actionExecutedContext.Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
