@@ -358,6 +358,7 @@
     <Content Include="mobile\content\css\mobile.css" />
     <Content Include="mobile\content\images\thinktecture_logo.png" />
     <Content Include="mobile\gallery\refreshSlidesDirective.js" />
+    <Content Include="mobile\login\fixViewportDirective.js" />
     <Content Include="mobile\mobile.js" />
     <Content Include="mobile\articleDetails\articleDetails.html" />
     <Content Include="mobile\articles\articles.html" />

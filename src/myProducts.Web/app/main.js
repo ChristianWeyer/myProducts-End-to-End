@@ -40,7 +40,8 @@ $script.ready("app", function () {
 
         "start/startController",
 
-         "../mobile/gallery/refreshSlidesDirective"
+         "../mobile/gallery/refreshSlidesDirective",
+         "../mobile/login/fixViewportDirective"
     ], "bundle");
 
     $script.ready("bundle", function () {
