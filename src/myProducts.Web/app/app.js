@@ -36,6 +36,7 @@ app.config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$trans
         routeResolverProvider.routeConfig.setBaseDirectories(viewBaseUrl, "app/");
 
         $urlRouterProvider.otherwise("/");
+
         $stateProvider
           .state("info", {
               url: "/info",

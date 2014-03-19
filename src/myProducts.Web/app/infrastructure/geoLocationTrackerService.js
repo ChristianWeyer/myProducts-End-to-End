@@ -9,7 +9,7 @@
         var watchId;
         var enabled;
 
-        $rootScope.$on("settings.sendPosition", function (evt, enable) {
+        $rootScope.$on("settings.sendPositionChanged", function (evt, enable) {
             if (enable) {
                 location.startSendPosition(10000, function (pos) { });
                 enabled = true;
