@@ -1,15 +1,13 @@
-﻿<ion-content infinite-scroll-distance="70%" on-infinite-scroll="articles.getMoreData()">
-
+﻿<ion-content>
     <h3 class="my-padding" translate="OVERVIEW_TITLE"></h3>
-    
+
     <div id="search-box" class="bar bar-header item-input-inset paddedSearchBox">
         <div class="item-input-wrapper">
             <i class="icon ion-ios7-search placeholder-icon"></i>
             <input type="search" ng-model="articles.searchText">
             <i class="clear-search icon ion-ios7-close-empty" ng-click="articles.searchText='';articles.getPagedData(true)"></i>
         </div>
-        <button class="button button-clear" ng-click="articles.getFilteredData(articles.searchText)" translate="OVERVIEW_SEARCH_BUTTON">
-        </button>
+        <button class="button button-clear" ng-click="articles.getFilteredData(articles.searchText)" translate="OVERVIEW_SEARCH_BUTTON"></button>
     </div>
 
     <ion-list>
@@ -21,5 +19,7 @@
         </ion-item>
     </ion-list>
 
-    <ion-infinite-scroll></ion-infinite-scroll>
+    <ion-infinite-scroll on-infinite="articles.getMoreData()"
+                         distance="5%">
+    </ion-infinite-scroll>
 </ion-content>
