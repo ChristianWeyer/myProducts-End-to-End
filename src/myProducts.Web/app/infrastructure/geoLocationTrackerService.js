@@ -12,11 +12,11 @@
 
         $rootScope.$on("settings.sendPositionChanged", function (evt, enable) {
             if (enable) {
-                location.startSendPosition(10000, function (pos) { });
                 enabled = true;
+                location.startSendPosition(10000, function (pos) { });
             } else {
-                location.stopSendPosition();
                 enabled = false;
+                location.stopSendPosition();
             }
         });
 
