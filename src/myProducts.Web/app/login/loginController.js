@@ -4,7 +4,7 @@
      * @param tokenAuthentication
      * @param {$app.Toast} toast
      */
-    function Controller($scope, tokenAuthentication, toast) {
+    function Controller($scope, tokenAuthentication, dialog, $translate) {
         $scope.login = {};
 
         $scope.login.username = "";
@@ -13,16 +13,17 @@
         $scope.login.submit = function () {
             tokenAuthentication.login($scope.login.username, $scope.login.password)
                 .error(function (data, status, headers, config) {
-                    if (status !== 401) {
-                        toast.pop({
-                            title: "Login",
-                            body: "Status: " + status,
-                            type: "error"
+                    if (status === 400) {
+                        dialog.showModalDialog({}, {
+                            headerText: $translate("COMMON_ERROR"),
+                            bodyText: $translate("LOGIN_FAILED"),
+                            closeButtonText: $translate("COMMON_CLOSE"),
+                            actionButtonText: $translate("COMMON_OK")
                         });
                     };
                 });
         };
     };
 
-    app.controller("LoginController", ["$scope", "tokenAuthentication", "toast", Controller]);
+    app.controller("LoginController", ["$scope", "tokenAuthentication", "dialog", "$translate", Controller]);
 })();
