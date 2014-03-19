@@ -29,7 +29,6 @@
                         maximumAge: 1000
                     };
 
-                    // TODO: error handling (undefined)
                     watchId = navigator.geolocation.watchPosition(function () {
                         var that = this;
                         var args = arguments;
