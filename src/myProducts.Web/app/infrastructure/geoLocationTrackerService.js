@@ -8,6 +8,7 @@
     $app.GeoLocationTracker = function ($rootScope, $http, $timeout, phonegapReady) {
         var watchId;
         var enabled;
+        var location = {};
 
         $rootScope.$on("settings.sendPositionChanged", function (evt, enable) {
             if (enable) {
@@ -19,7 +20,7 @@
             }
         });
 
-        this.startSendPosition = phonegapReady(function (timeout, onSuccess, onError, options) {
+        location.startSendPosition = phonegapReady(function (timeout, onSuccess, onError, options) {
             if (enabled) {
                 var poller = function () {
                     var gpsOptions = {
@@ -63,10 +64,12 @@
             }
         });
 
-        this.stopSendPosition = function () {
+        location.stopSendPosition = function () {
             navigator.geolocation.clearWatch(watchId);
         };
+
+        return location;
     };
 
-    app.service("geoLocationTracker", ["$rootScope", "$http", "$timeout", "phonegapReady", $app.GeoLocationTracker]);
+    app.factory("geoLocationTracker", ["$rootScope", "$http", "$timeout", "phonegapReady", $app.GeoLocationTracker]);
 })();
