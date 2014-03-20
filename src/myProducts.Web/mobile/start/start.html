@@ -1,13 +1,13 @@
 ﻿<div class="content padding">
     <div class="metrouicss" ng-cloak>
-        <a ng-repeat="ni in start.navigationItems" ng-href="#{{ ni.Url }}">
+        <a ng-repeat="ni in start.navigationItems" ng-href="#{{ ni.Url }}" class="reveal-animation">
             <div class="tile" ng-class="{{start.classes[$index % start.classes.length]}}">
                 <div class="brand">
                     <div class="name" translate>{{ ni.DisplayText }}</div>
                 </div>
             </div>
         </a>
-        <a href="#/info">
+        <a href="#/info" class="reveal-animation">
             <div class="tile bg-color-lighten">
                 <div class="brand">
                     <div class="name" style="color: black">Info</div>
