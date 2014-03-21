@@ -1,9 +1,8 @@
-using MyProducts.Hosting;
-using MyProducts.Web.Areas.HelpPage.ModelDescriptions;
-using MyProducts.Web.Areas.HelpPage.Models;
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
+using MyProducts.Web.Areas.HelpPage.ModelDescriptions;
+using MyProducts.Web.Areas.HelpPage.Models;
 
 namespace MyProducts.Web.Areas.HelpPage.Controllers
 {
@@ -15,7 +14,7 @@ namespace MyProducts.Web.Areas.HelpPage.Controllers
         private const string ErrorViewName = "Error";
 
         public HelpController()
-            : this(Startup.HttpConfiguration)
+            : this(GlobalConfiguration.Configuration)
         {
         }
 
