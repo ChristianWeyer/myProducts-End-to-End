@@ -3,7 +3,6 @@ using MyProducts.Services;
 using Owin;
 using System;
 using System.Web.Http;
-
 namespace MyProducts.Hosting
 {
     public class Startup
@@ -16,7 +15,7 @@ namespace MyProducts.Hosting
             DataMapper.Configure();
 
             SecurityConfig.Register(app);
-
+            
             HttpConfiguration = new HttpConfiguration();
             WebApiConfig.Register(HttpConfiguration);
             app.UseWebApi(HttpConfiguration);

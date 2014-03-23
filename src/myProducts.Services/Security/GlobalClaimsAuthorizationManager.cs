@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 using System.Security.Claims;
 
 namespace MyProducts.Services.Security
@@ -9,9 +9,19 @@ namespace MyProducts.Services.Security
         {
             if (ClaimsPrincipal.Current.Identity.IsAuthenticated)
             {
-                var ttApp = ClaimsPrincipal.Current.FindFirst("urn:tt:app");
+                if (!ClaimsPrincipal.Current.HasClaim(ApplicationClaimTypes.Default, ApplicationClaimsValues.Present))
+                {
+                    return false;
+                }
 
-                return ttApp != null && Convert.ToBoolean(ttApp.Value);
+                if (context.Action.FirstOrDefault(ac => ac.Value == "Save") != null &&
+                    context.Resource.FirstOrDefault(rc => rc.Value == "Article") != null &&
+                    !ClaimsPrincipal.Current.HasClaim(ApplicationClaimTypes.Maintenance, ApplicationClaimsValues.Editor))
+                {
+                    return false;
+                }
+
+                return true;
             }
 
             return false;

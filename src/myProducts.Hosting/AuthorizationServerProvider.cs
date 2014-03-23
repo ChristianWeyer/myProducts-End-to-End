@@ -1,6 +1,8 @@
-﻿using Microsoft.Owin.Security.OAuth;
+﻿using System.IdentityModel.Selectors;
+using Microsoft.Owin.Security.OAuth;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using MyProducts.Services.Security;
 
 namespace MyProducts.Hosting
 {
@@ -11,7 +13,6 @@ namespace MyProducts.Hosting
             context.Validated();
 
             await Task.FromResult(0);
-            return;
         }
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
@@ -27,12 +28,17 @@ namespace MyProducts.Hosting
 
             var id = new ClaimsIdentity(context.Options.AuthenticationType);
             id.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
-            id.AddClaim(new Claim("urn:tt:app", true.ToString()));
+            id.AddClaim(new Claim(ApplicationClaimTypes.Default, ApplicationClaimsValues.Present));
+
+            // TODO: Again, hard-coded dempo scenario
+            if (context.UserName == "cw")
+            {
+                id.AddClaim(new Claim(ApplicationClaimTypes.Maintenance, ApplicationClaimsValues.Editor));
+            }
 
             context.Validated(id);
 
             await Task.FromResult(0);
-            return;
         }
     }
 }

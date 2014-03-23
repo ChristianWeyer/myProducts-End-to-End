@@ -99,7 +99,7 @@ namespace MyProducts.Services.Controllers
         /// <returns>Nothing, only HTTP status codes</returns>
         [InvalidateCacheOutput("Get")]
         [InvalidateCacheOutput("GetById")]
-        [ResourceActionAuthorize("save", "article")]
+        [ResourceActionAuthorize("Save", "Article")]
         public async Task<HttpResponseMessage> Post()
         {
             if (!Request.Content.IsMimeMultipartContent("form-data"))
