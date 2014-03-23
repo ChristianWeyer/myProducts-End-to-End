@@ -1,8 +1,8 @@
 //
 // Thinktecture token-based authentication module for AngularJS.
 // Implements OAuth2 resource owner password flow.
-// Uses jQuery.
-// Version 0.2.4 - Feb 20, 2014.
+// Has a dependency on jQuery.
+// Version 0.3.0 - Mar 23, 2014.
 //
 
 var tt = window.tt || {}; tt.authentication = {};
@@ -15,6 +15,8 @@ tt.authentication = {
     loggedIn: "tt:authentication:loggedIn",
     logoutConfirmed: "tt:authentication:logoutConfirmed"
 };
+
+// This flag indicates that the user is logged in: $rootScope.tt.authentication.userLoggedIn
 
 tt.authentication.module = angular.module("Thinktecture.Authentication", ["ng"]);
 
@@ -83,27 +85,31 @@ tt.authentication.module.provider("tokenAuthentication", {
         }
 
         function checkForValidToken() {
+            var deferred = $q.defer();
+
             getToken().then(function (tokenData) {
                 $rootScope.tt.authentication.userLoggedIn = false;
 
                 if (!tokenData) {
                     $rootScope.$broadcast(tt.authentication.authenticationRequired);
 
-                    return false;
+                    deferred.reject(false);
                 } else {
                     if (new Date().getTime() > tokenData.expiration) {
                         $rootScope.$broadcast(tt.authentication.authenticationRequired);
 
-                        return false;
+                        deferred.reject(false);
                     } else {
                         setToken(tokenData);
                         $rootScope.tt.authentication.userLoggedIn = true;
                         $rootScope.$broadcast(tt.authentication.loggedIn);
 
-                        return true;
+                        deferred.resolve(true);
                     }
                 }
             });
+
+            return deferred.promise;
         }
 
         function setToken(tokenData) {
@@ -141,11 +147,12 @@ tt.authentication.module.factory("tokenAuthenticationHttpInterceptor", function 
     function checkAuthenticationFailureStatus(deferred) {
         $rootScope.tt.authentication.userLoggedIn = false;
 
-        if (tokenAuthentication.checkForValidToken()) {
-            $rootScope.$broadcast(tt.authentication.authenticationRequired);
-        } else {
-            $rootScope.$broadcast(tt.authentication.loginFailed);
-        }
+        tokenAuthentication.checkForValidToken()
+            .then(function (data) {
+            },
+            function (error) {
+                $rootScope.$broadcast(tt.authentication.authenticationRequired);
+            });
 
         return deferred.promise;
     }
@@ -154,6 +161,8 @@ tt.authentication.module.factory("tokenAuthenticationHttpInterceptor", function 
         "responseError": function (rejection) {
             if (rejection.status === 401) {
                 checkAuthenticationFailureStatus($q.defer());
+            } else if (rejection.status === 400) {
+                $rootScope.$broadcast(tt.authentication.loginFailed);
             }
 
             return $q.reject(rejection);

@@ -48,6 +48,7 @@
                         body: $translate("POPUP_SAVED"),
                         type: "success"
                     });
+
                     articlesApi.dataChanged();
                     $location.path('/articles');
                 })
@@ -59,7 +60,7 @@
 
                         dialog.showModalDialog({}, {
                             headerText: $translate("COMMON_ERROR"),
-                            bodyText: $translate("DETAILS_ERROR"),
+                            bodyText: $translate("DETAILS_SAVE_ERROR"),
                             closeButtonText: $translate("COMMON_CLOSE"),
                             actionButtonText: $translate("COMMON_OK"),
                             detailsText: JSON.stringify(data)

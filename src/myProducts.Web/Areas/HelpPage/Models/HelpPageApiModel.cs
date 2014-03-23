@@ -1,8 +1,8 @@
+using MyProducts.Web.Areas.HelpPage.ModelDescriptions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using MyProducts.Web.Areas.HelpPage.ModelDescriptions;
 
 namespace MyProducts.Web.Areas.HelpPage.Models
 {

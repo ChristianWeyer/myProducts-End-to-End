@@ -31,6 +31,7 @@ tt.translations.de = {
     "DETAILS_TITLE": "Artikel-Details",
     "DETAILS_SELECTIMAGE": "Passendes Bild...",
     "DETAILS_ERROR": "Artikeldaten konnten nicht geladen werden (siehe Details).",
+    "DETAILS_SAVE_ERROR": "Artikeldaten konnten nicht gespeichert werden (siehe Details).",
     "DETAILS_NAME": "Name",
     "DETAILS_CODE": "Code",
     "DETAILS_DESCRIPTION": "Beschreibung",

@@ -1,8 +1,7 @@
-﻿using System.IdentityModel.Selectors;
-using Microsoft.Owin.Security.OAuth;
+﻿using Microsoft.Owin.Security.OAuth;
+using MyProducts.Services.Security;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using MyProducts.Services.Security;
 
 namespace MyProducts.Hosting
 {
