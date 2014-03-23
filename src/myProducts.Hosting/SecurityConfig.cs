@@ -1,4 +1,5 @@
 using Microsoft.Owin;
+using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
@@ -15,7 +16,7 @@ namespace MyProducts.Hosting
                 AccessTokenExpireTimeSpan = TimeSpan.FromHours(24),
                 Provider = new AuthorizationServerProvider()
             });
-            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions{ AuthenticationMode = AuthenticationMode.Passive });
         }
     }
 }
