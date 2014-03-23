@@ -5,13 +5,13 @@
      * @param $translate
      * @param {$app.Personalization} personalization
      */
-    function Controller($http, $scope, $translate, personalization) {
+    function Controller($http, $scope, $translate, personalization, tokenAuthentication) {
         $scope.navigation = {};
         $scope.navigation.isCollapsed = true;
 
         $scope.navigation.currentLanguage = $translate.preferredLanguage() || $translate.proposedLanguage();
 
-        $scope.navigation.openLeft = function () {
+        $scope.navigation.toggleMenu = function () {
             $scope.sideMenuController.toggleLeft();
         };
 
@@ -27,7 +27,11 @@
             $scope.navigation.currentLanguage = langKey;
             $translate.uses(langKey);
         };
+
+        $scope.navigation.logout = function() {
+            tokenAuthentication.logout();
+        };
     };
 
-    app.controller("NavigationController", ["$http", "$scope", "$translate", "personalization", Controller]);
+    app.controller("NavigationController", ["$http", "$scope", "$translate", "personalization", "tokenAuthentication", Controller]);
 })();

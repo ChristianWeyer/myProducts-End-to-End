@@ -35,7 +35,7 @@
         <ion-side-menus>
             <ion-pane ion-side-menu-content>
                 <header class="bar bar-header bar-dark">
-                    <button class="button button-icon" ng-click="navigation.openLeft()"><i class="icon ion-navicon"></i></button>
+                    <button class="button button-icon" ng-click="navigation.toggleMenu()"><i class="icon ion-navicon"></i></button>
                     <h1 class="title">myProducts</h1>
                     <a href="#/start" class="button button-icon"><i class="icon ion-home"></i></a>
                 </header>
@@ -52,35 +52,31 @@
             </div>
             <ion-side-menu side="left">
                 <header class="bar bar-header bar-positive">
+                    <a ng-if="tt.authentication.userLoggedIn" ng-click="navigation.toggleMenu();navigation.logout()" class="button button-icon"><i class="icon ion-log-out"></i></a>
                     <h1 class="title">Menu</h1>
                 </header>
                 <ion-content has-header="true">
-                    <ul class="list">
-                        <a ng-show="ni.DisplayText" ng-href="#{{ ni.Url }}" ng-click="navigation.openLeft()" class="item" ng-repeat="ni in navigation.navigationItems" translate>
+                    <ul ng-if="navigation.navigationItems" class="list">
+                        <a ng-if="ni.DisplayText" ng-repeat="ni in navigation.navigationItems" ng-href="#{{ ni.Url }}" ng-click="navigation.toggleMenu()" class="item" translate>
                             {{ ni.DisplayText }}
                         </a>
                     </ul>
 
                     <ul class="list">
-                        <a class="item" ng-click="navigation.openLeft(); navigation.changeLanguage('de');">
+                        <a class="item" ng-click="navigation.toggleMenu(); navigation.changeLanguage('de')">
                             <img src="app/content/images/lang_de_t.png">
                             <span translate="COMMON_DE"></span>
                         </a>
-                        <a class="item" ng-click="navigation.openLeft(); navigation.changeLanguage('en')">
+                        <a class="item" ng-click="navigation.toggleMenu(); navigation.changeLanguage('en')">
                             <img src="app/content/images/lang_en_t.png">
                             <span translate="COMMON_EN"></span>
                         </a>
                     </ul>
                     <ul class="list">
-                        <a href="#/settings" ng-click="navigation.openLeft()" class="item" translate="INDEX_SETTINGS">
+                        <a href="#/settings" ng-click="navigation.toggleMenu()" class="item" translate="INDEX_SETTINGS">
                         </a>
                     </ul>
 
-                    <ul class="list">
-                        <a ng-controller="StatusController" ng-click="status.logout();navigation.openLeft()" class="item item-calm">
-                            {{ status.userName }}
-                        </a>
-                    </ul>
                     <br /><br /><br />
                 </ion-content>
             </ion-side-menu>

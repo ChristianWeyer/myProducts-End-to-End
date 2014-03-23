@@ -18,6 +18,7 @@ using System.Web.Http.OData;
 using System.Web.Http.OData.Query;
 using Thinktecture.Applications.Framework.Entities;
 using Thinktecture.Applications.Framework.WebApi;
+using Thinktecture.IdentityModel.WebApi;
 using WebAPI.OutputCache;
 
 namespace MyProducts.Services.Controllers
@@ -98,6 +99,7 @@ namespace MyProducts.Services.Controllers
         /// <returns>Nothing, only HTTP status codes</returns>
         [InvalidateCacheOutput("Get")]
         [InvalidateCacheOutput("GetById")]
+        [ResourceActionAuthorize("save", "article")]
         public async Task<HttpResponseMessage> Post()
         {
             if (!Request.Content.IsMimeMultipartContent("form-data"))

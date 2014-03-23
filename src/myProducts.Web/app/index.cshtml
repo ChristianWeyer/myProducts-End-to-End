@@ -41,10 +41,10 @@
             <div class="bounce3"></div>
         </div>
     </div>
-    <div id="mainContainer" ng-cloak>
+    <div id="mainContainer" ng-controller="NavigationController" ng-cloak>
         <div class="navbar navbar-fixed-top" style="position:fixed" bs-navbar>
             <div class="navbar-inner">
-                <div class="container-fluid" ng-controller="NavigationController">
+                <div class="container-fluid">
                     <button type="button" class="btn btn-navbar" ng-click="navigation.isCollapsed=!navigation.isCollapsed">
                         <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
@@ -98,15 +98,11 @@
                 <img ng-if="!status.isOnline" src="app/content/images/offline.png" />
 
                 <span>
-                    &nbsp;
-                    <span ng-if="tt.authentication.userLoggedIn">
-                        <a href="" ng-click="status.logout();">
-                            <i class="icon-user"></i>
-                            {{ status.userName }}
-                        </a>
-                    </span>
                     <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
                         <a href="#/login" translate="INDEX_LOGIN"></a>
+                    </span>
+                    <span ng-if="tt.authentication.userLoggedIn">
+                        <a href="" ng-click="navigation.logout()" translate="INDEX_LOGOUT"></a>
                     </span>
                 </span>
 
