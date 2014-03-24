@@ -35,6 +35,7 @@
 #loading-bar .bar {
     height: 1px;
     border: none;
+    padding: 3px;
 }
 
 #loading-bar .peg {
