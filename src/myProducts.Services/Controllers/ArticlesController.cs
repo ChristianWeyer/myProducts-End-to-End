@@ -18,6 +18,7 @@ using System.Web.Http.OData;
 using System.Web.Http.OData.Query;
 using Thinktecture.Applications.Framework.Entities;
 using Thinktecture.Applications.Framework.WebApi;
+using Thinktecture.IdentityModel;
 using Thinktecture.IdentityModel.WebApi;
 using WebAPI.OutputCache;
 
@@ -106,6 +107,8 @@ namespace MyProducts.Services.Controllers
             {
                 throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
             }
+
+            //var hasAccess = ClaimsAuthorization.CheckAccess("Save", "Article");
 
             var uploadImagesFolder = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, Constants.ImagesFolder);
             var provider = new MultipartFormDataStreamProvider(uploadImagesFolder);
