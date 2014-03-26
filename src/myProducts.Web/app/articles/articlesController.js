@@ -57,6 +57,7 @@
 
         ttTools.logger.info("Loading articles...");
 
+
         $scope.articles.getPagedData(articlesApi.toBeForced);
 
         $scope.$watch("articles.pagingOptions", function (newVal, oldVal) {
