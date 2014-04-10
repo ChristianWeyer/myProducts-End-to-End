@@ -70,7 +70,7 @@ perl -e 's/\xef\xbb\xbf//;' -pi~ "./myProducts.WindowsStore.jsproj"
 ## Create phonegap project
 cd ${DIR}
 cd phonegap_tmp
-cordova create myProducts com.tt.ngmd myProducts
+cordova create myProducts com.tt.apps.ngmd myProducts
 rm -rf myProducts/www
 
 ## Copy existing application elements
@@ -99,7 +99,8 @@ mv myProducts.app "../../../../../../out/ios/myProducts.app"
 cd ../../../..
 
 ## Build Android
-cp -r ../../phonegap-android/ ./platforms/android/
+cp -r ../../phonegap-android/ ./platforms/android
+cp ./www/config.xml ./platforms/android
 
 echo "Building for Android"
 cordova build android
