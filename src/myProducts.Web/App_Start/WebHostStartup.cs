@@ -1,4 +1,5 @@
-﻿using MyProducts.Hosting;
+﻿using System.Web.Optimization;
+using MyProducts.Hosting;
 using Owin;
 using System.Web.Mvc;
 
@@ -12,6 +13,7 @@ namespace MyProducts.Web
             startup.Configuration(app);
 
             AreaRegistration.RegisterAllAreas();
+            BundleConfig.Register(BundleTable.Bundles);
         }
     }
 }
