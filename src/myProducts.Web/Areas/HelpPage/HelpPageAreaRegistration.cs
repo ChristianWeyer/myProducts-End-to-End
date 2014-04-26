@@ -18,7 +18,7 @@ namespace MyProducts.Web.Areas.HelpPage
         {
             context.MapRoute(
                 "HelpPage_Default",
-                "Help/{action}/{apiId}",
+                "docs/{action}/{apiId}",
                 new { controller = "Help", action = "Index", apiId = UrlParameter.Optional });
 
             HelpPageConfig.Register(Startup.HttpConfiguration);
