@@ -16,6 +16,7 @@ namespace MyProducts.Hosting
                 EnableDefaultFiles = true
             };
             clientOptions.DefaultFilesOptions.DefaultFileNames.Add("index.html");
+            clientOptions.StaticFileOptions.ServeUnknownFileTypes = true;
 
             var imagesOptions = new FileServerOptions
             {

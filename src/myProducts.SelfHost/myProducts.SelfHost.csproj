@@ -221,6 +221,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(SolutionDir)myProducts.Web\app\*.*" "$(TargetDir)client\app\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\mobile\*.*" "$(TargetDir)client\mobile\" /E /I /F /Y
 
 cd $(SolutionDir)tools
 build_index.html.bat
