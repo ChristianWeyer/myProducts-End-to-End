@@ -1,4 +1,7 @@
-﻿using Fabrik.Common.WebAPI;
+﻿using System.Reflection;
+using Autofac;
+using Autofac.Integration.WebApi;
+using Fabrik.Common.WebAPI;
 using Microsoft.Owin.Security.OAuth;
 using MyProducts.Resources;
 using System.Net.Http.Formatting;
@@ -36,6 +39,22 @@ namespace MyProducts.Hosting
 
             config.Services.Replace(typeof(ModelMetadataProvider), 
                 new ConventionalModelMetadataProvider(false, typeof(ValidationResources)));
+
+            var resolver = ConfigureContainer();
+            config.DependencyResolver = resolver;
+        }
+
+        private static AutofacWebApiDependencyResolver ConfigureContainer()
+        {
+            var builder = new ContainerBuilder();
+
+            var webApiAssembly = Assembly.Load("MyProducts.Services");
+            builder.RegisterApiControllers(webApiAssembly);
+
+            var container = builder.Build();
+            var resolver = new AutofacWebApiDependencyResolver(container);
+
+            return resolver;
         }
     }
 }
