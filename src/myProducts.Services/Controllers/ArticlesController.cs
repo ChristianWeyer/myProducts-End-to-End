@@ -51,8 +51,8 @@ namespace MyProducts.Services.Controllers
         public PageResult<ArticleDto> Get(ODataQueryOptions<ArticleDto> options)
         {
             var settings = new ODataQuerySettings { PageSize = 10, EnsureStableOrdering = false };
-            
-            var artikelQuery = productsContext.Articles.AsNoTracking().Project().To<ArticleDto>().OrderBy(a => a.Id);
+
+            var artikelQuery = productsContext.Articles.OrderBy(a => a.Id).AsNoTracking().Project().To<ArticleDto>();
             var results = options.ApplyTo(artikelQuery, settings);
 
             return new PageResult<ArticleDto>(
@@ -79,10 +79,9 @@ namespace MyProducts.Services.Controllers
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
 
-            var artikelQuery = productsContext.Articles
+            var artikelQuery = productsContext.Articles.Where(a => a.Id == guid)
                 .Include(a => a.Category).AsNoTracking()
-                .Project().To<ArticleDetailDto>()
-                .Where(a => a.Id == guid);
+                .Project().To<ArticleDetailDto>();
 
             var artikelDetails = artikelQuery.SingleOrDefault();
 
