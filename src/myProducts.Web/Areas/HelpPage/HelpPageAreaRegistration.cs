@@ -1,5 +1,6 @@
 using System.Web.Http;
 using System.Web.Mvc;
+using MyProducts.Hosting;
 
 namespace MyProducts.Web.Areas.HelpPage
 {
@@ -20,7 +21,7 @@ namespace MyProducts.Web.Areas.HelpPage
                 "Help/{action}/{apiId}",
                 new { controller = "Help", action = "Index", apiId = UrlParameter.Optional });
 
-            HelpPageConfig.Register(GlobalConfiguration.Configuration);
+            HelpPageConfig.Register(Startup.HttpConfiguration);
         }
     }
 }
