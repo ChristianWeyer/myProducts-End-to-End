@@ -104,7 +104,7 @@
         </member>
         <member name="M:MyProducts.Services.Controllers.GeoLocationController.Post(System.Object)">
             <summary>
-            Post a dynamic data structure with geo location data. Currently not persisted but sent out to clients via logging Hub
+            Post a dynamic data structure with geo location data.
             </summary>
             <param name="loc"></param>
         </member>

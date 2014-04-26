@@ -1,16 +1,14 @@
-﻿using Microsoft.Owin.Security.OAuth;
-using MyProducts.Services.Security;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.Owin.Security.OAuth;
 
-namespace MyProducts.Hosting
+namespace MyProducts.Security
 {
     public class AuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
             context.Validated();
-
             await Task.FromResult(0);
         }
 
@@ -20,8 +18,8 @@ namespace MyProducts.Hosting
             if (context.UserName != context.Password)
             {
                 context.Rejected();
-
                 await Task.FromResult(0);
+
                 return;
             }
 
@@ -36,7 +34,6 @@ namespace MyProducts.Hosting
             }
 
             context.Validated(id);
-
             await Task.FromResult(0);
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace MyProducts.Services.Security
+﻿namespace MyProducts.Security
 {
     public static class ApplicationClaimTypes
     {

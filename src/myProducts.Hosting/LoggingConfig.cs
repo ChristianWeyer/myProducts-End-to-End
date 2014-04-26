@@ -1,7 +1,6 @@
 using Microsoft.AspNet.SignalR;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Storage;
-using MyProducts.Services.Hubs;
 using Serilog;
 
 namespace MyProducts.Hosting
@@ -11,7 +10,7 @@ namespace MyProducts.Hosting
         public static void Configure()
         {
             var logConfig = new LoggerConfiguration()
-                .WriteTo.SignalR(GlobalHost.ConnectionManager.GetHubContext<LogHub>());
+                .WriteTo.SignalR(GlobalHost.ConnectionManager.GetHubContext<LoggingHub>());
 
             try
             {

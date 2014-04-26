@@ -5,9 +5,9 @@ using Thinktecture.Applications.Framework;
 
 namespace MyProducts.Services
 {
-    public static class DataMapper
+    public class DataMapperProfile : Profile
     {
-        public static void Configure()
+        protected override void Configure()
         {
             Mapper.CreateMap<Article, ArticleDetailDto>()
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => Constants.ImagesFolder + "/" + src.ImageUrl))
@@ -21,7 +21,10 @@ namespace MyProducts.Services
 
             Mapper.AssertConfigurationIsValid();
         }
+    }
 
+    public static class DataMapper
+    {
         public static ArticleDetailDto MapDetails(this Article entity)
         {
             return Mapper.Map<ArticleDetailDto>(entity);

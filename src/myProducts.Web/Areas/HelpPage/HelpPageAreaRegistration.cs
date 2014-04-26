@@ -1,6 +1,5 @@
-using System.Web.Http;
-using System.Web.Mvc;
 using MyProducts.Hosting;
+using System.Web.Mvc;
 
 namespace MyProducts.Web.Areas.HelpPage
 {

@@ -1,6 +1,7 @@
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
+using MyProducts.Security;
 using Owin;
 using System;
 

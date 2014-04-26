@@ -1,7 +1,7 @@
-﻿using System.Web.Optimization;
-using MyProducts.Hosting;
+﻿using MyProducts.Hosting;
 using Owin;
 using System.Web.Mvc;
+using System.Web.Optimization;
 
 namespace MyProducts.Web
 {

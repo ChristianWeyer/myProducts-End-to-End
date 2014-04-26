@@ -153,11 +153,7 @@
     <Compile Include="DTOs\Personalization\PersonalizationData.cs" />
     <Compile Include="DTOs\Personalization\UiClaimsData.cs" />
     <Compile Include="Hubs\ClientNotificationHub.cs" />
-    <Compile Include="Hubs\LogHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\ApplicationClaimsValues.cs" />
-    <Compile Include="Security\ApplicationClaimTypes.cs" />
-    <Compile Include="Security\GlobalClaimsAuthorizationManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNet.SignalR;
-using MyProducts.Services.Hubs;
-using System.Web.Http;
+﻿using System.Web.Http;
+using Serilog;
 
 namespace MyProducts.Services.Controllers
 {
@@ -11,13 +10,12 @@ namespace MyProducts.Services.Controllers
     public class GeoLocationController : ApiController
     {
         /// <summary>
-        /// Post a dynamic data structure with geo location data. Currently not persisted but sent out to clients via logging Hub
+        /// Post a dynamic data structure with geo location data.
         /// </summary>
         /// <param name="loc"></param>
         public void Post(dynamic loc)
         {
-            var hub = GlobalHost.ConnectionManager.GetHubContext<LogHub>();
-            hub.Clients.All.sendLogEvent(loc);
+            Log.Logger.Information("ngmd: {@Location}", loc);
         }
     }
 }

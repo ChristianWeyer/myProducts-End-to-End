@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Security.Claims;
 
-namespace MyProducts.Services.Security
+namespace MyProducts.Security
 {
     public class GlobalClaimsAuthorizationManager : ClaimsAuthorizationManager
     {

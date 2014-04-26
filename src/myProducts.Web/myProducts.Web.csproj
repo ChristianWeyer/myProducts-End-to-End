@@ -497,6 +497,10 @@
       <Project>{3A55D123-F887-4CFD-99E7-B1A9FBD32C36}</Project>
       <Name>myProducts.Hosting</Name>
     </ProjectReference>
+    <ProjectReference Include="..\myProducts.Security\myProducts.Security.csproj">
+      <Project>{7d45675f-5ac2-4423-873c-3d7ee6c31326}</Project>
+      <Name>myProducts.Security</Name>
+    </ProjectReference>
     <ProjectReference Include="..\myProducts.Services\myProducts.Services.csproj">
       <Project>{59d93108-6c96-496e-a91d-b723b16b23ed}</Project>
       <Name>myProducts.Services</Name>

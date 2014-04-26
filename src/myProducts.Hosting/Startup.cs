@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNet.SignalR;
-using MyProducts.Services;
+﻿using Bootstrap;
+using Bootstrap.AutoMapper;
+using Microsoft.AspNet.SignalR;
 using Owin;
 using System;
 using System.Web.Http;
+
 namespace MyProducts.Hosting
 {
     public class Startup
@@ -11,9 +13,9 @@ namespace MyProducts.Hosting
 
         public void Configuration(IAppBuilder app)
         {
+            Bootstrapper.With.AutoMapper().Start();
             LoggingConfig.Configure();
-            DataMapper.Configure();
-
+            
             SecurityConfig.Register(app);
             
             HttpConfiguration = new HttpConfiguration();

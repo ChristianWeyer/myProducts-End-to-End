@@ -1,10 +1,10 @@
-﻿using System.Reflection;
-using Autofac;
+﻿using Autofac;
 using Autofac.Integration.WebApi;
 using Fabrik.Common.WebAPI;
 using Microsoft.Owin.Security.OAuth;
 using MyProducts.Resources;
 using System.Net.Http.Formatting;
+using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Metadata;
 using Thinktecture.Applications.Framework.WebApi;
@@ -17,7 +17,7 @@ namespace MyProducts.Hosting
     {
         public static void Register(HttpConfiguration config)
         {
-            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always; // TODO: ONLY for debugging
+            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.LocalOnly;
 
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
