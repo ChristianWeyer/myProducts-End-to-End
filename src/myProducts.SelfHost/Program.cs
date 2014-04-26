@@ -1,4 +1,5 @@
-﻿using Topshelf;
+﻿using System;
+using Topshelf;
 
 namespace MyProducts.SelfHost
 {
@@ -20,6 +21,8 @@ namespace MyProducts.SelfHost
                 x.SetDisplayName("myProducts Server");
                 x.SetServiceName("myProductsServer");
             });
+
+            Console.ReadLine();
         }
     }
 }

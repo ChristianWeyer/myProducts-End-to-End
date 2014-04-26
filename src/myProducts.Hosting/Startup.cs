@@ -12,10 +12,7 @@ namespace MyProducts.Hosting
         public static HttpConfiguration HttpConfiguration { get; private set; }
 
         public void Configuration(IAppBuilder app)
-        {
-            Bootstrapper.With.AutoMapper().Start();
-            LoggingConfig.Configure();
-            
+        {            
             SecurityConfig.Register(app);
             
             HttpConfiguration = new HttpConfiguration();
@@ -25,6 +22,9 @@ namespace MyProducts.Hosting
             GlobalHost.Configuration.ConnectionTimeout = TimeSpan.FromSeconds(1);
             GlobalHost.Configuration.LongPollDelay = TimeSpan.FromMilliseconds(5000);
             app.MapSignalR();
+
+            LoggingConfig.Configure();
+            Bootstrapper.With.AutoMapper().Start();
         }
     }
 }
