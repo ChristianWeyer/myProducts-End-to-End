@@ -485,9 +485,17 @@
       <Project>{4f32dc89-081b-4264-92f8-f3371a088eb4}</Project>
       <Name>WebAPI.OutputCache</Name>
     </ProjectReference>
+    <ProjectReference Include="..\myProducts.DataAccess\myProducts.Model.csproj">
+      <Project>{82eeaa96-8e08-4820-9914-0738cb1c3317}</Project>
+      <Name>myProducts.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\myProducts.Hosting\myProducts.Hosting.csproj">
       <Project>{3A55D123-F887-4CFD-99E7-B1A9FBD32C36}</Project>
       <Name>myProducts.Hosting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\myProducts.Services\myProducts.Services.csproj">
+      <Project>{59d93108-6c96-496e-a91d-b723b16b23ed}</Project>
+      <Name>myProducts.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
