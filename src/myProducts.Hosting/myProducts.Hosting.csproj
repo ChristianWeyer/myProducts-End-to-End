@@ -206,6 +206,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IocConfiguration.cs" />
     <Compile Include="LoggingConfig.cs" />
     <Compile Include="LoggingHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

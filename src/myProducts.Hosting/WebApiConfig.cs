@@ -1,4 +1,7 @@
-﻿using Autofac;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Autofac;
 using Autofac.Integration.WebApi;
 using Fabrik.Common.WebAPI;
 using Microsoft.Owin.Security.OAuth;
@@ -37,24 +40,11 @@ namespace MyProducts.Hosting
             config.MessageHandlers.Insert(0, new CompressionHandler());
             //config.MessageHandlers.Add(new PerfItDelegatingHandler(config, "myProducts application services"));
 
-            config.Services.Replace(typeof(ModelMetadataProvider), 
+            config.Services.Replace(typeof(ModelMetadataProvider),
                 new ConventionalModelMetadataProvider(false, typeof(ValidationResources)));
 
-            var resolver = ConfigureContainer();
+            var resolver = IocConfiguration.ConfigureContainerForWebApi();
             config.DependencyResolver = resolver;
-        }
-
-        private static AutofacWebApiDependencyResolver ConfigureContainer()
-        {
-            var builder = new ContainerBuilder();
-
-            var webApiAssembly = Assembly.Load("MyProducts.Services");
-            builder.RegisterApiControllers(webApiAssembly);
-
-            var container = builder.Build();
-            var resolver = new AutofacWebApiDependencyResolver(container);
-
-            return resolver;
         }
     }
 }
