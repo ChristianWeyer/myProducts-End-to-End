@@ -1,13 +1,7 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using Autofac;
-using Autofac.Integration.WebApi;
-using Fabrik.Common.WebAPI;
+﻿using Fabrik.Common.WebAPI;
 using Microsoft.Owin.Security.OAuth;
 using MyProducts.Resources;
 using System.Net.Http.Formatting;
-using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Metadata;
 using Thinktecture.Applications.Framework.WebApi;

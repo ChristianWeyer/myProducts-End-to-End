@@ -4,18 +4,21 @@ using System.Reflection;
 using Autofac;
 using Autofac.Integration.WebApi;
 
-static internal class IocConfiguration
+namespace MyProducts.Hosting
 {
-    internal static AutofacWebApiDependencyResolver ConfigureContainerForWebApi()
+    static internal class IocConfiguration
     {
-        var builder = new ContainerBuilder();
+        internal static AutofacWebApiDependencyResolver ConfigureContainerForWebApi()
+        {
+            var builder = new ContainerBuilder();
 
-        var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        builder.RegisterApiControllers(Directory.GetFiles(path, "*Services.dll").Select(Assembly.LoadFile).ToArray());
+            var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            builder.RegisterApiControllers(Directory.GetFiles(path, "*Services.dll").Select(Assembly.LoadFile).ToArray());
 
-        var container = builder.Build();
-        var resolver = new AutofacWebApiDependencyResolver(container);
+            var container = builder.Build();
+            var resolver = new AutofacWebApiDependencyResolver(container);
 
-        return resolver;
+            return resolver;
+        }
     }
 }
