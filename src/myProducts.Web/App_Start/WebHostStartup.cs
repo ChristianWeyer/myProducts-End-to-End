@@ -10,7 +10,7 @@ namespace MyProducts.Web
     {
         public void Configuration(IAppBuilder app)
         {
-            AppDomain.CurrentDomain.AssemblyResolve += DynamicAssemblyResolver.AssemblyResolveHandler;
+            AppDomain.CurrentDomain.AssemblyResolve += DynamicAssemblyResolver.WebAssemblyResolveHandler;
 
             var startup = new Startup();
             startup.Configuration(app);

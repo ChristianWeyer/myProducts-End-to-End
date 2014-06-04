@@ -8,11 +8,25 @@ namespace MyProducts.Hosting
     {
         public static Assembly AssemblyResolveHandler(object sender, ResolveEventArgs e)
         {
+            var assemblyDetail = e.Name.Split(',');
+
+            return ResolveHandler(assemblyDetail[0], String.Empty);
+        }
+
+        public static Assembly WebAssemblyResolveHandler(object sender, ResolveEventArgs e)
+        {
+            var assemblyDetail = e.Name.Split(',');
+
+            return ResolveHandler(assemblyDetail[0], "bin");
+        }
+
+        private static Assembly ResolveHandler(string assemblyName, string path)
+        {            
+            var assemblyBasePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+
             try
             {
-                string[] assemblyDetail = e.Name.Split(',');
-                string assemblyBasePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                Assembly assembly = Assembly.LoadFrom(assemblyBasePath + @"\" + assemblyDetail[0] + ".dll");
+                var assembly = Assembly.LoadFrom(Path.Combine(Path.Combine(assemblyBasePath, path), assemblyName + ".dll"));
 
                 return assembly;
             }

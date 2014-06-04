@@ -1,6 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Reflection;
 using MyProducts.Hosting;
 using Topshelf;
 
@@ -10,7 +8,7 @@ namespace MyProducts.SelfHost
     {
         static void Main(string[] args)
         {
-            //AppDomain.CurrentDomain.AssemblyResolve += DynamicAssemblyResolver.AssemblyResolveHandler;
+            AppDomain.CurrentDomain.AssemblyResolve += DynamicAssemblyResolver.AssemblyResolveHandler;
 
             HostFactory.Run(x =>
             {
