@@ -8,7 +8,7 @@ namespace MyProducts.SelfHost
     {
         static void Main(string[] args)
         {
-            AppDomain.CurrentDomain.AssemblyResolve += DynamicAssemblyResolver.AssemblyResolveHandler;
+            //AppDomain.CurrentDomain.AssemblyResolve += DynamicAssemblyResolver.AssemblyResolveHandler;
 
             HostFactory.Run(x =>
             {
