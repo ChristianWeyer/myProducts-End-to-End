@@ -17,7 +17,6 @@ namespace MyProducts.Web
 
             AreaRegistration.RegisterAllAreas();
             BundleConfig.Register(BundleTable.Bundles);
-            SwaggerConfig.Register();
         }
     }
 }

@@ -1,13 +1,12 @@
-using MyProducts.Hosting;
-using Swashbuckle.Application;
+using System.Web.Http;
 
-namespace MyProducts.Web
+namespace MyProducts.Hosting
 {
     public class SwaggerConfig
     {
-        public static void Register()
+        public static void Register(HttpConfiguration config)
         {
-            Swashbuckle.Bootstrapper.Init(Startup.HttpConfiguration);
+            Swashbuckle.Bootstrapper.Init(config);
 
             // NOTE: If you want to customize the generated swagger or UI, use SwaggerSpecConfig and/or SwaggerUiConfig here ...
         }

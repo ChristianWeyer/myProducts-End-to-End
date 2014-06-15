@@ -25,6 +25,8 @@ namespace MyProducts.Hosting
 
             LoggingConfig.Configure();
             Bootstrapper.With.AutoMapper().Start();
+
+            SwaggerConfig.Register(HttpConfiguration);
         }
     }
 }
