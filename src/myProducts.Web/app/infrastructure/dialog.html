@@ -6,7 +6,7 @@
     <p>{{ dialogOptions.bodyText }}</p>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn"
+    <button type="button" class="btn btn-default"
         data-ng-click="dialogOptions.close()">
         {{ dialogOptions.closeButtonText }}</button>
     <button class="btn btn-primary"
@@ -15,8 +15,8 @@
 
 </div>
 <div class="modal-header" ng-if="dialogOptions.detailsText">
-    <span ng-if="dialogOptions.collapsed" ng-click="dialogOptions.uncollapse()"><i class="icon-chevron-down pull-left"></i></span>
-    <span ng-if="!dialogOptions.collapsed" ng-click="dialogOptions.collapse()"><i class="icon-chevron-up pull-left"></i></span>
+    <span ng-if="dialogOptions.collapsed" ng-click="dialogOptions.uncollapse()"><i class="glyphicon glyphicon-chevron-down pull-left"></i></span>
+    <span ng-if="!dialogOptions.collapsed" ng-click="dialogOptions.collapse()"><i class="glyphicon glyphicon-chevron-up pull-left"></i></span>
     
 
     <div ng-if="!dialogOptions.collapsed" class="container-fluid">
