@@ -152,13 +152,13 @@ h3 {
 }
 .navbar-nav > li > a:hover {
     text-decoration: none;
-    font-weight: bold;
     border-radius: 0px;
     border-bottom-width: 4px;
     border-bottom-style: solid;
     border-bottom-color: lightblue;
     color: #000 !important;
     background-color: transparent !important;
+    text-shadow:1px 0 0 black;
 }
 .navbar-nav > li > a {
     border-radius: 0px;
