@@ -12,18 +12,15 @@ cd ${DIR}
 echo "Cleaning up"
 ## Delete temp directories
 rm -rf tmp
-rm -rf out
-rm -rf phonegap_tmp
+rm -rf out_mobile
+rm -rf phonegap_mobile_tmp
 
 ## Create temp directories
 mkdir tmp
-mkdir phonegap_tmp
-mkdir out
-mkdir out/android
-mkdir out/iOS
-mkdir out/windows
-mkdir out/mac
-mkdir out/web
+mkdir phonegap_mobile_tmp
+mkdir out_mobile
+mkdir out_mobile/android
+mkdir out_mobile/iOS
 
 ## Copy existing source
 cd ${DIR}
@@ -35,28 +32,12 @@ cp ../node-webkit-sharedsource/* .
 
 ## Download generated index.html page
 echo "GETting index.html"
-curl -k https://windows8vm/ngmd/mobile > index.html
+curl -k https://windows8vm.local/ngmd/mobile > index.html
 perl -pi -w -e 's/\/ngmd\///g;' index.html
-
-## ZIP directory into .nw for node-webkit
-zip -qr ../out/app.nw *
-
-## Build for node-webkit
-echo "Building for Mac"
-cp -r ../node-webkit-osx/ ../out/mac
-cp -r ../out/app.nw ../out/mac/node-webkit.app/Contents/Resources/
-mv ../out/mac/node-webkit.app "../out/mac/myProducts.app"
-
-echo "Building for Windows"
-cp -r ../node-webkit-win32/ ../out/windows
-cat ../out/windows/nw.exe ../out/app.nw > "../out/windows/myProducts.exe"
-rm ../out/windows/nw.exe
-
-rm ../out/app.nw
 
 ## Create phonegap project
 cd ${DIR}
-cd phonegap_tmp
+cd phonegap_mobile_tmp
 cordova create myProducts com.tt.ngmd myProducts
 rm -rf myProducts/www
 
@@ -77,9 +58,6 @@ cordova plugin add org.apache.cordova.splashscreen
 cordova plugin add org.apache.cordova.statusbar
 cordova plugin add org.apache.cordova.console
 
-### Windows 8...
-#cordova platform add windows8
-
 ## Build for iOS
 cp -r ../../phonegap-ios/ ./platforms/ios/myProducts
 cp ./www/config.xml ./platforms/ios/myProducts
@@ -88,7 +66,7 @@ echo "Building for iOS"
 cordova build ios
 
 cd platforms/ios/build/emulator/
-mv myProducts.app "../../../../../../out/ios/myProducts.app"
+mv myProducts.app "../../../../../../out_mobile/ios/myProducts.app"
 cd ../../../..
 
 ## Build Android
@@ -98,14 +76,7 @@ echo "Building for Android"
 cordova build android
 
 cd platforms/android/ant-build/
-cp myProducts-debug.apk ../../../../../out/android/
-
-#adb install myProducts-debug.apk
-
-## Copy for web deployment
-cd ${DIR}
-cp -r tmp/ out/web/
-rm out/web/package.json
+cp myProducts-debug.apk ../../../../../out_mobile/android/
 
 ## Remove tmp directory
 cd ${DIR}
