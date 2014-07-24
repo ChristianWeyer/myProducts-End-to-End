@@ -27,6 +27,8 @@ namespace MyProducts.Hosting
             Bootstrapper.With.AutoMapper().Start();
 
             SwaggerConfig.Register(HttpConfiguration);
+
+            app.UseFakeHeader();
         }
     }
 }

@@ -1,14 +1,11 @@
 ﻿<h3 translate="SETTINGS_TITLE"></h3>
 <div>
     <form class="form-horizontal">
-        <fieldset>
-            <legend></legend>
-            <div class="form-group">
-                <label class="control-label" for="pushCheckbox" translate="SETTINGS_PUSH"></label>
-                <div class="controls">
-                    <input type="checkbox" id="pushCheckbox" bs-switch switch-on-label="{{ 'SETTINGS_YES' | translate }}" switch-off-label="{{ 'SETTINGS_NO' | translate }}" ng-model="settings.enablePush">
-                </div>
+        <div class="form-group">
+            <label for="pushCheckbox" class="col-md-2 control-label" translate="SETTINGS_PUSH"></label>
+            <div class="col-md-10">
+                <input type="checkbox" class="form-control" id="pushCheckbox" bs-switch switch-on-label="{{ 'SETTINGS_YES' | translate }}" switch-off-label="{{ 'SETTINGS_NO' | translate }}" ng-model="settings.enablePush">
             </div>
-        </fieldset>
+        </div>
     </form>
 </div>

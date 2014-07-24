@@ -1,5 +1,4 @@
 ﻿using System;
-using MyProducts.Hosting;
 using Topshelf;
 
 namespace MyProducts.SelfHost

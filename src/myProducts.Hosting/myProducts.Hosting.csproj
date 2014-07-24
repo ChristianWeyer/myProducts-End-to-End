@@ -218,6 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DynamicAssemblyResolver.cs" />
+    <Compile Include="FakeHeaderMiddleware.cs" />
     <Compile Include="IocConfiguration.cs" />
     <Compile Include="LoggingConfig.cs" />
     <Compile Include="LoggingHub.cs" />

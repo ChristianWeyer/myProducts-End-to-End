@@ -26,7 +26,7 @@ namespace MyProducts.Security
             var id = new ClaimsIdentity(context.Options.AuthenticationType);
             id.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
             id.AddClaim(new Claim(ApplicationClaimTypes.Default, ApplicationClaimsValues.Present));
-
+            
             // TODO: Again, hard-coded demo scenario!
             if (context.UserName == "cw")
             {
