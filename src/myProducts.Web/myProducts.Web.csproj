@@ -242,7 +242,6 @@
     <Content Include="app\content\css\angular-carousel.css" />
     <Content Include="app\content\css\animate.css" />
     <Content Include="app\content\css\app-responsive.css" />
-    <Content Include="app\content\css\bootstrap-responsive.css" />
     <Content Include="app\content\css\bootstrap-switch.css" />
     <Content Include="app\content\css\bootstrap.css" />
     <Content Include="app\content\css\loading-bar.css" />
