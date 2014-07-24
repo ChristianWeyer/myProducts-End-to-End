@@ -272,6 +272,7 @@
     <Content Include="app\content\images\logo.png" />
     <Content Include="app\content\css\app.css" />
     <Content Include="app\constants.js" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\start\startController.js" />
     <Content Include="app\settings\settingsController.js" />
     <Content Include="app\gallery\galleryController.js" />
@@ -380,9 +381,6 @@
     <Content Include="app\content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="app\content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="app\content\fonts\glyphicons-halflings-regular.woff" />
-    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
-    <Content Include="Scripts\jquery-2.1.1.js" />
-    <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="_test\angular-mocks.js" />
     <Content Include="_test\basic\mySpec.js" />
     <Content Include="_test\setup.js" />
@@ -414,8 +412,10 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
-    <Content Include="Scripts\jquery-2.1.1.min.map" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
