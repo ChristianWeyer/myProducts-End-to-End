@@ -47,10 +47,10 @@ h3 {
     top: 15px;
 }
 
-.nav-collapse {
+/*.nav-collapse {
     background: rgb(235, 235, 235);
     z-index: 1000;
-}
+}*/
 
 #loading-bar .bar {
     height: 4px;
@@ -80,13 +80,6 @@ h3 {
     float: none;
     margin-left: auto;
     margin-right: auto;
-}
-
-.navbar .brand {
-    max-height: 40px;
-    overflow: visible;
-    padding-top: 10px;
-    padding-bottom: 0;
 }
 
 .navbar .container-fluid {
@@ -232,64 +225,22 @@ h3 {
   -ms-animation: slideOutLeft 0.8s;
 }
 
-.inner {
-  min-height: 40px;
-  background-color: #fafafa;
-  background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f2f2f2));
-  background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
-  background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
-  background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
-  border: 1px solid #d4d4d4;
-  /*-webkit-border-radius: 4px;*/
-  /*-moz-border-radius: 4px;*/
-  /*border-radius: 4px;*/
-  /*-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);*/
-  /*-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);*/
-  /*box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);*/
-  *zoom: 1;
-
-  border-width: 0 0 1px;
-
-  padding-left: 0;
-  padding-right: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-
-  -webkit-box-shadow: 0 1px 10px rgba(0,0,0,.1);
-  -moz-box-shadow: 0 1px 10px rgba(0,0,0,.1);
-  box-shadow: 0 1px 10px rgba(0,0,0,.1);
-}
-.inner:before,
-.inner:after {
-  display: table;
-  content: "";
-  line-height: 0;
-}
-.inner:after {
-    clear: both;
-}
-.navbar-collapse.collapse
-{
-    background-color:transparent;
+.navbar-collapse.collapsing {
+    background-color:rgb(235, 235, 235);
+    z-index: 1000;
 }
 .navbar-collapse.in {
    background-color:rgb(235, 235, 235);
+   z-index: 1000;
 }
-.navbar-brand
-{
-    float: left;
-    display: block;
-    padding: 10px 20px 10px;
-    margin-left: -20px;
-    font-size: 20px;
-    font-weight: 200;
-    color: #777777;
-    text-shadow: 0 1px 0 #ffffff;
+
+.navbar-brand {
+    max-height: 40px;
+    overflow: visible;
+    padding-top: 10px;
+    padding-bottom: 0;
 }
+
 .form-actions {
     padding: 19px 20px 20px;
     margin-top: 20px;
