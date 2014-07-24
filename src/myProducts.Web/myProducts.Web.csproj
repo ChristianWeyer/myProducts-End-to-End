@@ -253,7 +253,7 @@
     <Content Include="app\content\css\font-awesome.css" />
     <Content Include="app\content\css\nv.d3.css" />
     <Content Include="app\content\css\toastr.css" />
-    <Content Include="app\content\font\fontawesome-webfont.svg" />
+    <Content Include="app\content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\content\images\default.png" />
     <Content Include="app\content\images\emergency_stop.png" />
     <Content Include="app\content\images\offline.png" />
@@ -306,7 +306,7 @@
     <Content Include="app\0lib\phonegap-ready.js" />
     <Content Include="app\0lib\script.js" />
     <Content Include="app\0lib\toastr.js" />
-    <Content Include="app\0lib\ui-bootstrap-tpls-0.6.0.js" />
+    <Content Include="app\0lib\ui-bootstrap-tpls-0.11.0.js" />
     <Content Include="app\infrastructure\geoLocationTrackerService.js" />
     <Content Include="app\shell\networkStatusService.js" />
     <Content Include="app\log\logPushService.js" />
@@ -377,6 +377,9 @@
     <Content Include="mobile\start\start.html" />
     <Content Include="mobile\login\login.html" />
     <Content Include="app\0lib\jquery-2.1.0.js" />
+    <Content Include="app\content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -391,10 +394,6 @@
     <Content Include="mobile\content\fonts\ionicons.eot" />
     <Content Include="mobile\content\fonts\ionicons.ttf" />
     <Content Include="mobile\content\fonts\ionicons.woff" />
-    <Content Include="app\content\font\fontawesome-webfont.eot" />
-    <Content Include="app\content\font\fontawesome-webfont.ttf" />
-    <Content Include="app\content\font\fontawesome-webfont.woff" />
-    <Content Include="app\content\font\FontAwesome.otf" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
