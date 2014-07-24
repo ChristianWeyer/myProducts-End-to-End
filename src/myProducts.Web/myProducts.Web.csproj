@@ -235,6 +235,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\0lib\angular-nvd3.js" />
     <Content Include="app\0lib\angular-ui-router.js" />
     <Content Include="app\0lib\jquery.signalR-2.0.3.js" />
     <Content Include="app\articleDetails\articleDetails.html" />
@@ -290,7 +291,6 @@
     <Content Include="app\0lib\angular-strap.js" />
     <Content Include="app\0lib\angular-touch.js" />
     <Content Include="app\0lib\angular.js" />
-    <Content Include="app\0lib\angularjs-nvd3-directives.js" />
     <Content Include="app\0lib\bootstrap-filestyle.js" />
     <Content Include="app\0lib\bootstrap-switch.js" />
     <Content Include="app\0lib\bootstrap-.js" />

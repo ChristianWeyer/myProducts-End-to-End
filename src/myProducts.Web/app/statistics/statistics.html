@@ -4,7 +4,8 @@
 <div class="row">
     <br />
     <div class="col-md-6">
-        <nvd3-pie-chart data="statistics.pieSeries"
+        <nvd3 options="statistics.pieOptions" data="statistics.pieSeries"></nvd3>
+        <!--<nvd3-pie-chart data="statistics.pieSeries"
                         id="pieChart1"
                         margin="{left:5,top:0,bottom:0,right:0}"
                         x="statistics.pieX()"
@@ -20,11 +21,12 @@
                         height="350"
                         width="600">
             <svg></svg>
-        </nvd3-pie-chart>
+        </nvd3-pie-chart>-->
     </div>
 
     <div class="col-md-5">
-        <nvd3-multi-bar-chart data="statistics.columnSeries"
+        <nvd3 options="statistics.columnOptions" data="statistics.columnSeries"></nvd3>
+        <!--<nvd3-multi-bar-chart data="statistics.columnSeries"
                               id="barChart1"
                               showxaxis="true"
                               showlegend="true"
@@ -32,7 +34,7 @@
                               height="350"
                               width="600">
             <svg></svg>
-        </nvd3-multi-bar-chart>
+        </nvd3-multi-bar-chart>-->
     </div>
 
     <div class="col-md-1">

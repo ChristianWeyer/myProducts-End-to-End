@@ -65,12 +65,12 @@ namespace MyProducts.Services.Controllers
                     new
                         {
                             key = "Total Sales",
-                            values = new[]{new dynamic[]{"A", 56000}, new dynamic[]{"B", 63000}, new dynamic[]{"C", 74000}}
+                            values = new[]{new {label = "A", value =56000}, new {label="B", value=63000}, new {label="C", value=74000}}
                         },
                     new
                         {
                             key = "Discounted Sales",
-                            values = new[]{new dynamic[]{"D", 52000}, new dynamic[]{"E", 34000}, new dynamic[]{"F", 23000}}
+                            values = new[]{new {label = "D", value = 52000}, new {label = "E", value = 34000}, new {label = "F", value = 23000}}
                         }
                 };
 
