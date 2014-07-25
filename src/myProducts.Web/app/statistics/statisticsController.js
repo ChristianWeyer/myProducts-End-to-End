@@ -26,6 +26,7 @@
             chart: {
                 type: 'pieChart',
                 donut: true,
+                donutRatio:0.3,
                 height: 400,
                 x: function (d) { return d.category; },
                 y: function (d) { return d.value; },
@@ -50,7 +51,7 @@
                 height: 400,
                 x: function (d) { return d.label; },
                 y: function (d) { return d.value; },
-                showControls: true,
+                showControls: false,
                 showValues: true,
                 transitionDuration: 500
             }
