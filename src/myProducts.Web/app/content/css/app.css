@@ -21,8 +21,8 @@ h2 {
 h1,
 h2,
 h3 {
-  line-height: 40px;
-  font-weight:bold;
+    line-height: 40px;
+    font-weight: bold;
 }
 
 .svg {
@@ -87,16 +87,16 @@ h3 {
 }
 
 .navbar .nav > li > a {
-  float: none;
-  padding: 10px 15px 10px;
-  color: #777777;
-  text-decoration: none;
-  text-shadow: 0 1px 0 #ffffff;
-  padding: 2em 15px 10px;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-right: 2px;
-  line-height: 14px;
+    float: none;
+    padding: 10px 15px 10px;
+    color: #777777;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #ffffff;
+    padding: 2em 15px 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    line-height: 14px;
 }
 
 .nav-pills > .active > a,
@@ -143,6 +143,7 @@ h3 {
     -moz-box-shadow: inset 0 3px 8px rgba(0,0,0,.125);
     box-shadow: inset 0 3px 8px rgba(0,0,0,.125);
 }
+
 .navbar-nav > li > a:hover {
     text-decoration: none;
     border-radius: 0px;
@@ -151,8 +152,9 @@ h3 {
     border-bottom-color: lightblue;
     color: #000 !important;
     background-color: transparent !important;
-    text-shadow:1px 0 0 black;
+    text-shadow: 1px 0 0 black;
 }
+
 .navbar-nav > li > a {
     border-radius: 0px;
 }
@@ -181,9 +183,9 @@ h3 {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #B1BDCC;
+    background: #D5D9DF;
     padding: 1em;
-    z-index:3;
+    z-index: 3;
 }
 
     #footer a {
@@ -207,31 +209,32 @@ h3 {
 }
 
 .slide-animation {
-  width: 100%;
-  position: absolute;
+    width: 100%;
+    position: absolute;
 }
 
-.slide-animation.ng-enter {
-  animation: slideInRight 0.8s;
-  -webkit-animation: slideInRight 0.8s;
-  -moz-animation: slideInRight 0.8s;
-  -ms-animation: slideInRight 0.8s;
-}
+    .slide-animation.ng-enter {
+        animation: slideInRight 0.8s;
+        -webkit-animation: slideInRight 0.8s;
+        -moz-animation: slideInRight 0.8s;
+        -ms-animation: slideInRight 0.8s;
+    }
 
-.slide-animation.ng-leave {
-  animation: slideOutLeft 0.8s;
-  -webkit-animation: slideOutLeft 0.8s;
-  -moz-animation: slideOutLeft 0.8s;
-  -ms-animation: slideOutLeft 0.8s;
-}
+    .slide-animation.ng-leave {
+        animation: slideOutLeft 0.8s;
+        -webkit-animation: slideOutLeft 0.8s;
+        -moz-animation: slideOutLeft 0.8s;
+        -ms-animation: slideOutLeft 0.8s;
+    }
 
 .navbar-collapse.collapsing {
-    background-color:rgb(235, 235, 235);
+    background-color: rgb(235, 235, 235);
     z-index: 1000;
 }
+
 .navbar-collapse.in {
-   background-color:rgb(235, 235, 235);
-   z-index: 1000;
+    background-color: rgb(235, 235, 235);
+    z-index: 1000;
 }
 
 .navbar-brand {
@@ -247,4 +250,101 @@ h3 {
     margin-bottom: 20px;
     background-color: #f5f5f5;
     border-top: 1px solid #e5e5e5;
+}
+
+/* login */
+.login-container {
+    position: relative;
+    width: 300px;
+    margin: 80px auto;
+    padding: 20px 40px 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+    .login-container::before, .login-container::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 3.5px;
+        left: 0;
+        background: #fff;
+        z-index: -1;
+        -webkit-transform: rotateZ(4deg);
+        -moz-transform: rotateZ(4deg);
+        -ms-transform: rotateZ(4deg);
+        border: 1px solid #ccc;
+    }
+
+    .login-container::after {
+        top: 5px;
+        z-index: -2;
+        -webkit-transform: rotateZ(-2deg);
+        -moz-transform: rotateZ(-2deg);
+        -ms-transform: rotateZ(-2deg);
+    }
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto 30px;
+    border-radius: 100%;
+    border: 2px solid #aaa;
+    background-size: cover;
+    background-image: url(../images/logo.png);
+}
+
+.form-box input {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    height: 40px;
+    border: 1px solid #ccc;
+    ;
+    background: #fafafa;
+    transition: 0.2s ease-in-out;
+}
+
+    .form-box input:focus {
+        outline: 0;
+        background: #eee;
+    }
+
+    .form-box input[type="text"] {
+        border-radius: 5px 5px 0 0;
+    }
+
+    .form-box input[type="password"] {
+        border-radius: 0 0 5px 5px;
+        border-top: 0;
+    }
+
+.form-box button.login {
+    margin-top: 15px;
+    padding: 10px 20px;
+}
+
+/* end login */
+
+.green-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+    background: #079319;
+}
+.red-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+    background: #e80000;
 }
