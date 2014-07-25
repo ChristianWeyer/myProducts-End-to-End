@@ -95,7 +95,7 @@
                 <div class="container-fluid" ng-controller="StatusController">
                     <img ng-if="status.isOnline" src="app/content/images/online.png" />
                     <img ng-if="!status.isOnline" src="app/content/images/offline.png" />
-
+                    &nbsp;
                     <span>
                         <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
                             <a href="#/login" translate="INDEX_LOGIN"></a>

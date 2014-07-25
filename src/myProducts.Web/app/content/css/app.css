@@ -152,7 +152,6 @@ h3 {
     border-bottom-color: lightblue;
     color: #000 !important;
     background-color: transparent !important;
-    text-shadow: 1px 0 0 black;
 }
 
 .navbar-nav > li > a {
@@ -302,7 +301,6 @@ h3 {
     text-align: center;
     height: 40px;
     border: 1px solid #ccc;
-    ;
     background: #fafafa;
     transition: 0.2s ease-in-out;
 }
