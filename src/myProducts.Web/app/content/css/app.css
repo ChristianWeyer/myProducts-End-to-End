@@ -292,7 +292,7 @@ h3 {
     border-radius: 100%;
     border: 2px solid #aaa;
     background-size: cover;
-    background-image: url(../images/logo.png);
+    background-image: url("../images/logo.png");
 }
 
 .form-box input {
