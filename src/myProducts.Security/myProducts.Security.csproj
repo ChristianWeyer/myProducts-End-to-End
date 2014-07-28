@@ -61,6 +61,7 @@
     <Compile Include="ApplicationClaimsValues.cs" />
     <Compile Include="ApplicationClaimTypes.cs" />
     <Compile Include="AuthorizationServerProvider.cs" />
+    <Compile Include="EnhancedAuthenticationProvider.cs" />
     <Compile Include="GlobalClaimsAuthorizationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

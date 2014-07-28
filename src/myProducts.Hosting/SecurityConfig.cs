@@ -17,7 +17,11 @@ namespace MyProducts.Hosting
                 AccessTokenExpireTimeSpan = TimeSpan.FromHours(24),
                 Provider = new AuthorizationServerProvider()
             });
-            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions{ AuthenticationMode = AuthenticationMode.Passive });
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
+            {
+                Provider = new EnhancedAuthenticationProvider(),
+                AuthenticationMode = AuthenticationMode.Passive
+            });
         }
     }
 }
