@@ -29,7 +29,7 @@ namespace MyProducts.Web
                 .Include("~/app/0lib/phonegap-geolocation.js")
             );
 
-            bundles.Add(new Bundle("~/app/css/common")
+            bundles.Add(new Bundle("~/app/content/css/common")
                 .Include("~/app/content/css/modern.css")
                 .Include("~/app/content/css/modern-responsive.css")
                 .Include("~/app/content/css/bootstrap.css")
@@ -44,7 +44,7 @@ namespace MyProducts.Web
                 .Include("~/app/content/css/animate.css")
             );
 
-            bundles.Add(new Bundle("~/app/css/app")
+            bundles.Add(new Bundle("~/app/content/css/app")
                 .Include("~/app/content/css/app.css")
                 .Include("~/app/content/css/app-responsive.css")
                 .Include("~/app/content/css/loadspinner.css")
