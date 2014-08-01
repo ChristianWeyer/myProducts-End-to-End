@@ -242,13 +242,13 @@
     <Content Include="app\articleDetails\articleDetailsController.js" />
     <Content Include="libs\50_AngularStuff\angular-carousel.css" />
     <Content Include="libs\12_Animate\animate.css" />
-    <Content Include="libs\99_appInit\app-responsive.css" />
+    <Content Include="libs\99_appInit\30\app-responsive.css" />
     <Content Include="libs\22_BootstrapStuff\bootstrap-switch.css" />
     <Content Include="libs\20_Bootstrap\bootstrap.css" />
     <Content Include="libs\50_AngularStuff\loading-bar.css" />
-    <Content Include="libs\23_Modern\modern-responsive.css" />
-    <Content Include="libs\23_Modern\modern.css" />
-    <Content Include="libs\99_appInit\tweak-bootstrap.css" />
+    <Content Include="libs\23_Modern\20\modern-responsive.css" />
+    <Content Include="libs\23_Modern\10\modern.css" />
+    <Content Include="libs\99_appInit\10\tweak-bootstrap.css" />
     <Content Include="libs\13_FontAwesome\font-awesome.css" />
     <Content Include="libs\25_d3\nv.d3.css" />
     <Content Include="libs\15_Toastr\toastr.css" />
@@ -269,7 +269,7 @@
     <Content Include="assets\images\lang_en.png" />
     <Content Include="assets\images\lang_en_t.png" />
     <Content Include="assets\images\logo.png" />
-    <Content Include="libs\99_appInit\x_app.css" />
+    <Content Include="libs\99_appInit\20\app.css" />
     <Content Include="app\constants.js" />
     <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\start\startController.js" />
@@ -320,7 +320,7 @@
     <Content Include="app\log\log.html" />
     <Content Include="app\settings\settings.html" />
     <Content Include="app\statistics\statistics.html" />
-    <Content Include="libs\99_appInit\app.js" />
+    <Content Include="libs\99_appInit\20\app.js" />
     <Content Include="app\articles\articlesController.js" />
     <Content Include="app\shell\navigationController.js" />
     <Content Include="app\translations\translations-de.js" />
