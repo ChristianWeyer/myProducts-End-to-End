@@ -246,8 +246,8 @@
     <Content Include="libs\22_BootstrapStuff\bootstrap-switch.css" />
     <Content Include="libs\20_Bootstrap\bootstrap.css" />
     <Content Include="libs\50_AngularStuff\loading-bar.css" />
-    <Content Include="libs\23_Modern\20\modern-responsive.css" />
-    <Content Include="libs\23_Modern\10\modern.css" />
+    <Content Include="libs\17_Modern\20\modern-responsive.css" />
+    <Content Include="libs\17_Modern\10\modern.css" />
     <Content Include="libs\99_appInit\10\tweak-bootstrap.css" />
     <Content Include="libs\13_FontAwesome\font-awesome.css" />
     <Content Include="libs\25_d3\nv.d3.css" />
