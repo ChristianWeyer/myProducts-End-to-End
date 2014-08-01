@@ -269,7 +269,7 @@
     <Content Include="assets\images\lang_en.png" />
     <Content Include="assets\images\lang_en_t.png" />
     <Content Include="assets\images\logo.png" />
-    <Content Include="libs\99_appInit\app.css" />
+    <Content Include="libs\99_appInit\x_app.css" />
     <Content Include="app\constants.js" />
     <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\start\startController.js" />
@@ -356,7 +356,7 @@
     <Content Include="images\5.jpg" />
     <Content Include="images\0.jpg" />
     <Content Include="app\main.js" />
-    <Content Include="_index.html" />
+    <Content Include="index.html" />
     <Content Include="mobile\content\css\mobile.css" />
     <Content Include="mobile\content\images\thinktecture_logo.png" />
     <Content Include="mobile\gallery\refreshSlidesDirective.js" />
