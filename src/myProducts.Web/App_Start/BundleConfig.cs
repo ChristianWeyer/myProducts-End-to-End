@@ -19,8 +19,8 @@ namespace MyProducts.Web
             bundles.Add(new Bundle("~/mobile/mobile/css")
                .IncludeDirectory("~/libs/17_Modern", "*.css", true)
                .Include("~/mobile/50_AngularStuff/loading-bar.css")
-               .Include("~/mobile/css/ionic.css")
-               .Include("~/mobile/css/mobile.css")
+               .Include("~/mobile/assets/ionic.css")
+               .Include("~/mobile/assets/mobile.css")
                );
 
             bundles.Add(new Bundle("~/mobile/js")
