@@ -8,12 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <link rel="apple-touch-icon" href="content/images/apple-touch-icon.png" />
-    <link href="app/content/images/apple-touch-startup-image-1024x748.png"
+    <link href="assets/images/apple-touch-startup-image-1024x748.png"
           media="(device-width: 768px) and (device-height: 1024px)
          and (orientation: landscape)
          and (-webkit-device-pixel-ratio: 1)"
           rel="apple-touch-startup-image">
-    <link href="app/content/images/apple-touch-startup-image-2048x1496.png"
+    <link href="assets/images/apple-touch-startup-image-2048x1496.png"
           media="(device-width: 768px) and (device-height: 1024px)
          and (orientation: landscape)
          and (-webkit-device-pixel-ratio: 2)"
@@ -29,8 +29,7 @@
         }
     </style>
 
-    @System.Web.Optimization.Styles.Render("~/app/content/css/common")
-    @System.Web.Optimization.Styles.Render("~/app/content/css/app")
+    @System.Web.Optimization.Styles.Render("~/app/app/css")
 </head>
 
 <body>
@@ -50,7 +49,7 @@
                             <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                         </button>
                         <span class="navbar-brand">
-                            <img src="app/content/images/logo.png" /><br />
+                            <img src="assets/images/logo.png" /><br />
                             <span style="font-size: 0.75em"><a href="#" data-match-route="/">myProducts</a></span>
                         </span>
                     </div>
@@ -70,13 +69,13 @@
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a ng-click="navigation.isCollapsed=true; navigation.changeLanguage('de');">
-                                            <img src="app/content/images/lang_de_t.png">
+                                            <img src="assets/images/lang_de_t.png">
                                             <span translate="COMMON_DE"></span>
                                         </a>
                                     </li>
                                     <li>
                                         <a ng-click="navigation.isCollapsed=true; navigation.changeLanguage('en')">
-                                            <img src="app/content/images/lang_en_t.png">
+                                            <img src="assets/images/lang_en_t.png">
                                             <span translate="COMMON_EN"></span>
                                         </a>
                                     </li>
@@ -93,8 +92,8 @@
 
             <footer id="footer">
                 <div class="container-fluid" ng-controller="StatusController">
-                    <img ng-if="status.isOnline" src="app/content/images/online.png" />
-                    <img ng-if="!status.isOnline" src="app/content/images/offline.png" />
+                    <img ng-if="status.isOnline" src="assets/images/online.png" />
+                    <img ng-if="!status.isOnline" src="assets/images/offline.png" />
                     &nbsp;
                     <span>
                         <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
@@ -116,7 +115,7 @@
             ttMobile = false;
         </script>
 
-        @System.Web.Optimization.Scripts.Render("~/app/js-lib")
+        @System.Web.Optimization.Scripts.Render("~/app/js")
 
         <script>
             $(function () {

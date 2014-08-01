@@ -4,7 +4,7 @@ $script(
     [
         "translations/translations-de",
         "constants",
-        "app"
+        "../libs/99_appInit/20/app"
     ], "app");
 
 $script.ready("app", function () {

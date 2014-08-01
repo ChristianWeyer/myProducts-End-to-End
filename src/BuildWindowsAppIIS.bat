@@ -1,0 +1,1 @@
+powershell.exe -executionpolicy bypass -file .\BuildWindowsApp.ps1 -ProjectName "myProductsApp" -ProjectFolder "myProducts.Web" -AppName "com.tt.myproducts" -IncludeWinJS "false" -UseIIS "https://windows8vm/ngmd/app"
