@@ -7,6 +7,7 @@ namespace MyProducts.Web
         public static void Register(BundleCollection bundles)
         {
             bundles.IgnoreList.Ignore("main.js");
+            bundles.IgnoreList.Ignore("app.js");
 
             bundles.Add(new Bundle("~/app/css")
                .IncludeDirectory("~/libs", "*.css", true)
