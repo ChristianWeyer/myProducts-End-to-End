@@ -8,7 +8,7 @@ namespace MyProducts.Web
         {
             bundles.IgnoreList.Ignore("app.js");
 
-            bundles.Add(new Bundle("~/app/css")
+            bundles.Add(new Bundle("~/app/app/css")
                .IncludeDirectory("~/libs", "*.css", true)
                );
 
@@ -16,9 +16,11 @@ namespace MyProducts.Web
                 .IncludeDirectory("~/libs", "*.js", true)
                 );
 
-            bundles.Add(new Bundle("~/mobile/css")
-               .Include("~/mobile/content/css/ionic.css")
-               .Include("~/mobile/content/css/mobile.css")
+            bundles.Add(new Bundle("~/mobile/mobile/css")
+               .IncludeDirectory("~/libs/17_Modern", "*.css", true)
+               .Include("~/mobile/50_AngularStuff/loading-bar.css")
+               .Include("~/mobile/css/ionic.css")
+               .Include("~/mobile/css/mobile.css")
                );
 
             bundles.Add(new Bundle("~/mobile/js")

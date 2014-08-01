@@ -357,15 +357,15 @@
     <Content Include="images\0.jpg" />
     <Content Include="app\main.js" />
     <Content Include="index.html" />
-    <Content Include="mobile\content\css\mobile.css" />
-    <Content Include="mobile\content\images\thinktecture_logo.png" />
+    <Content Include="mobile\css\mobile.css" />
+    <Content Include="mobile\images\thinktecture_logo.png" />
     <Content Include="mobile\gallery\refreshSlidesDirective.js" />
     <Content Include="mobile\login\fixViewportDirective.js" />
     <Content Include="mobile\mobile.js" />
     <Content Include="mobile\articleDetails\articleDetails.html" />
     <Content Include="mobile\articles\articles.html" />
-    <Content Include="mobile\content\css\ionic.css" />
-    <Content Include="mobile\content\fonts\ionicons.svg" />
+    <Content Include="mobile\css\ionic.css" />
+    <Content Include="mobile\fonts\ionicons.svg" />
     <Content Include="mobile\index.cshtml" />
     <Content Include="mobile\infrastructure\dialog.html" />
     <Content Include="mobile\gallery\gallery.html" />
@@ -387,9 +387,9 @@
     </Content>
     <Content Include="app\translations\locale-en.json" />
     <Content Include="app\index.cshtml" />
-    <Content Include="mobile\content\fonts\ionicons.eot" />
-    <Content Include="mobile\content\fonts\ionicons.ttf" />
-    <Content Include="mobile\content\fonts\ionicons.woff" />
+    <Content Include="mobile\fonts\ionicons.eot" />
+    <Content Include="mobile\fonts\ionicons.ttf" />
+    <Content Include="mobile\fonts\ionicons.woff" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
