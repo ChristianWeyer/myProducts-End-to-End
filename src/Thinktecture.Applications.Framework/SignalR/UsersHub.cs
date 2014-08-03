@@ -50,7 +50,7 @@ namespace Thinktecture.Applications.Framework.SignalR
             return base.OnConnected();
         }
 
-        public override Task OnDisconnected()
+        public override Task OnDisconnected(bool stopCalled)
         {
             var userName = Context.User.Identity.Name;
             var connectionId = Context.ConnectionId;
@@ -71,8 +71,7 @@ namespace Thinktecture.Applications.Framework.SignalR
                     }
                 }
             }
-
-            return base.OnDisconnected();
+            return base.OnDisconnected(stopCalled);
         }
     }
 }
