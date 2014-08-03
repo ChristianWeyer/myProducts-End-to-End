@@ -1,4 +1,6 @@
 (function () {
+    "use strict";
+
     /**
      * @param $scope
      * @param $rootScope
@@ -19,5 +21,5 @@
         });
     };
 
-    app.controller("SettingsController", ["$scope", "$rootScope", "settings", Controller]);
+    app.controller("settingsController", ["$scope", "$rootScope", "settings", Controller]);
 })();

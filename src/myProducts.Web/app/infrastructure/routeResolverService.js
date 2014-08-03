@@ -1,4 +1,6 @@
 ﻿(function () {
+    "use strict";
+
     /**
      */
     var RouteResolver = function () {
@@ -40,7 +42,7 @@
                 routeDef.templateUrl = routeConfig.getViewsDirectory() + lowercaseBaseName + "/" + lowercaseBaseName + ".html";
                 //routeDef.controller = moduleConfig.Module + "Controller";
                 routeDef.controllerProvider = function ($stateParams) {
-                    return moduleConfig.Module + "Controller";
+                    return lowercaseBaseName + "Controller";
                 };
                 routeDef.resolve = {
                     load: [

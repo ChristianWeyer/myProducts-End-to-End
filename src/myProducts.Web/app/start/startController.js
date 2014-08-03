@@ -1,4 +1,6 @@
-(function() {
+(function () {
+    "use strict";
+
     /**
      * @param $scope
      * @param {$app.Personalization} personalization
@@ -23,5 +25,5 @@
 
     };
 
-    app.controller("StartController", ["$scope", "personalization", Controller]);
+    app.controller("startController", ["$scope", "personalization", Controller]);
 })();

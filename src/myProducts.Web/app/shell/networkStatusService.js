@@ -1,4 +1,6 @@
 ﻿(function () {
+    "use strict";
+
     /**
      */
     $app.NetworkStatus = function () {

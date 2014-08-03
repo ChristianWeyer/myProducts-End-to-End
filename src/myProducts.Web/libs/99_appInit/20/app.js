@@ -41,22 +41,22 @@ app.config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$trans
           .state("info", {
               url: "/info",
               templateUrl: viewBaseUrl + "info/info.html",
-              controller: "InfoController"
+              controller: "infoController"
           })
           .state("settings", {
               url: "/settings",
               templateUrl: viewBaseUrl + "settings/settings.html",
-              controller: "SettingsController"
+              controller: "settingsController"
           })
           .state("login", {
               url: "/login",
               templateUrl: viewBaseUrl + "login/login.html",
-              controller: "LoginController"
+              controller: "loginController"
           })
           .state("start", {
               url: "/",
               templateUrl: viewBaseUrl + "start/start.html",
-              controller: "StartController"
+              controller: "startController"
           });
 
         $provide.factory("$stateProviderService", function () {

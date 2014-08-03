@@ -41,7 +41,7 @@
                 <div class="bounce3"></div>
             </div>
         </div>
-        <div id="mainContainer" ng-controller="NavigationController" ng-cloak>
+        <div id="mainContainer" ng-controller="navigationController" ng-cloak>
             <div class="navbar navbar-default navbar-fixed-top" style="position:fixed" bs-navbar>
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -91,7 +91,7 @@
             </div>
 
             <footer id="footer">
-                <div class="container-fluid" ng-controller="StatusController">
+                <div class="container-fluid" ng-controller="statusController">
                     <img ng-if="status.isOnline" src="assets/images/online.png" />
                     <img ng-if="!status.isOnline" src="assets/images/offline.png" />
                     &nbsp;

@@ -1,4 +1,6 @@
 ﻿(function () {
+    "use strict";
+
     /**
      * @param signalRHubProxy
      * @param $rootScope

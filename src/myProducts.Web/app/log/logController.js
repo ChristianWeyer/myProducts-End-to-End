@@ -1,4 +1,6 @@
 (function () {
+    "use strict";
+
     /**
      * @param $scope
      * @param signalRSubscribe
@@ -13,5 +15,5 @@
         });
     };
 
-    app.lazy.controller("LogController", ["$scope", "signalRSubscribe", Controller]);
+    app.lazy.controller("logController", ["$scope", "signalRSubscribe", Controller]);
 })();

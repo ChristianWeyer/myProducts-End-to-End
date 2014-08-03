@@ -1,4 +1,6 @@
 (function () {
+    "use strict";
+
     /**
      * @param $scope
      * @param $location
@@ -119,6 +121,6 @@
         };
     };
 
-    app.lazy.controller("ArticlesController",
+    app.lazy.controller("articlesController",
         ["$scope", "$location", "articlesApi", "signalRSubscribe", "toast", "dialog", "$translate", "personalization", Controller]);
 })();

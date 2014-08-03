@@ -1,4 +1,6 @@
 (function () {
+    "use strict";
+
     /**
      * @param $http
      * @param $scope
@@ -33,5 +35,5 @@
         };
     };
 
-    app.controller("NavigationController", ["$http", "$scope", "$translate", "personalization", "tokenAuthentication", Controller]);
+    app.controller("navigationController", ["$http", "$scope", "$translate", "personalization", "tokenAuthentication", Controller]);
 })();

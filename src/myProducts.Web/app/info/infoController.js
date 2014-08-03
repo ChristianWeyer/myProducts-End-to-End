@@ -1,4 +1,6 @@
 (function () {
+    "use strict";
+
     /**
      * @param $scope
      * @param $http
@@ -7,5 +9,5 @@
 
     };
 
-    app.controller("InfoController", ["$scope", "$http", Controller]);
+    app.controller("infoController", ["$scope", "$http", Controller]);
 })();

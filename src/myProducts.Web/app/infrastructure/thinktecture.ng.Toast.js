@@ -2,6 +2,8 @@
 tt.toast.module = angular.module("Thinktecture.Toast", ["ng"]);
 
 (function () {
+    "use strict";
+
     /**
      * @param $rootScope
      */

@@ -1,4 +1,6 @@
 ﻿(function () {
+    "use strict";
+
     /**
      * @param $scope
      * @param $http
@@ -58,5 +60,5 @@
         };
     };
 
-    app.lazy.controller("StatisticsController", ["$scope", "$http", Controller]);
+    app.lazy.controller("statisticsController", ["$scope", "$http", Controller]);
 })();

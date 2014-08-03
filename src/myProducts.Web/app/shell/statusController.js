@@ -1,4 +1,6 @@
-(function() {
+(function () {
+    "use strict";
+
     /**
      * @param $scope
      * @param {$app.NetworkStatus} networkStatus
@@ -14,5 +16,5 @@
         });
     }
 
-    app.controller("StatusController", ["$scope", "networkStatus", Controller]);
+    app.controller("statusController", ["$scope", "networkStatus", Controller]);
 })();

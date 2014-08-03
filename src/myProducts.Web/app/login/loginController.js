@@ -1,4 +1,6 @@
 (function () {
+    "use strict";
+
     /**
      * @param $scope
      * @param tokenAuthentication
@@ -25,5 +27,5 @@
         };
     };
 
-    app.controller("LoginController", ["$scope", "tokenAuthentication", "dialog", "$translate", Controller]);
+    app.controller("loginController", ["$scope", "tokenAuthentication", "dialog", "$translate", Controller]);
 })();

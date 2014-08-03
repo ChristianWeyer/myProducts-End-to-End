@@ -1,4 +1,6 @@
 (function () {
+    "use strict";
+
     /**
      * @param $scope
      * @param $http
@@ -19,5 +21,5 @@
         $scope.gallery.loadImages();
     };
 
-    app.lazy.controller("GalleryController", ["$scope", "$http", Controller]);
+    app.lazy.controller("galleryController", ["$scope", "$http", Controller]);
 })();

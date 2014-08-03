@@ -1,4 +1,6 @@
-﻿(function() {
+﻿(function () {
+    "use strict";
+
     /**
      * @param $localStorage
      */
