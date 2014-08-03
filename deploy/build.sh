@@ -30,8 +30,9 @@ mkdir out/web
 cd ${DIR}
 cd tmp
 cp -r ../../src/myProducts.Web/app .
-cp -r ../../src/myProducts.Web/images .
-#cp ../../src/myProducts.Web/index.html .
+cp -r ../../src/myProducts.Web/libs .
+cp -r ../../src/myProducts.Web/assets .
+
 cp ../node-webkit-sharedsource/* .
 
 ## Download generated index.html page

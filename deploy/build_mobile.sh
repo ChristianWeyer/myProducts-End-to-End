@@ -27,7 +27,9 @@ cd ${DIR}
 cd tmp
 cp -r ../../src/myProducts.Web/app .
 cp -r ../../src/myProducts.Web/mobile .
-cp -r ../../src/myProducts.Web/images .
+cp -r ../../src/myProducts.Web/libs .
+cp -r ../../src/myProducts.Web/assets .
+
 cp ../node-webkit-sharedsource/* .
 
 ## Download generated index.html page
