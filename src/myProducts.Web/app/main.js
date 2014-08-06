@@ -24,21 +24,21 @@ $script.ready("app", function () {
         "articles/articlesPushService",
         "articles/categoriesService",
 
-        "info/infoController",
+        "info/info",
 
-        "login/loginController",
+        "login/login",
 
         "log/logPushService",
 
-        "settings/settingsController",
+        "settings/settings",
         "settings/settingsService",
 
-        "shell/navigationController",
+        "shell/navigation",
         "shell/networkStatusService",
         "shell/personalizationService",
-        "shell/statusController",
+        "shell/status",
 
-        "start/startController",
+        "start/start",
 
          "../mobile/gallery/refreshSlidesDirective",
          "../mobile/login/fixViewportDirective"

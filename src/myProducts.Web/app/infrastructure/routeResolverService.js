@@ -40,14 +40,13 @@
                 var routeDef = {};
                 routeDef.url = moduleConfig.Url,
                 routeDef.templateUrl = routeConfig.getViewsDirectory() + lowercaseBaseName + "/" + lowercaseBaseName + ".html";
-                //routeDef.controller = moduleConfig.Module + "Controller";
                 routeDef.controllerProvider = function ($stateParams) {
                     return lowercaseBaseName + "Controller";
                 };
                 routeDef.resolve = {
                     load: [
                         "$q", "$rootScope", function ($q, $rootScope) {
-                            var dependencies = [routeConfig.getControllersDirectory() + lowercaseBaseName + "/" + lowercaseBaseName + "Controller.js"];
+                            var dependencies = [routeConfig.getControllersDirectory() + lowercaseBaseName + "/" + lowercaseBaseName + ".js"];
                             return resolveDependencies($q, $rootScope, dependencies);
                         }
                     ]
