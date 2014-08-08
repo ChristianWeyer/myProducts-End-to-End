@@ -223,16 +223,18 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(SolutionDir)myProducts.Web\app\*.*" "$(TargetDir)client\app\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\assets\*.*" "$(TargetDir)client\assets\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\libs\*.*" "$(TargetDir)client\libs\" /E /I /F /Y
 xcopy "$(SolutionDir)myProducts.Web\mobile\*.*" "$(TargetDir)client\mobile\" /E /I /F /Y
 
 cd $(SolutionDir)tools
 build_index.html.bat
 cd $(ProjectDir)
 
-      if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
-      xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
-      if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
-      xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"
+if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"
 </PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
