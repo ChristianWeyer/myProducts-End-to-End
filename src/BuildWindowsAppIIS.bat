@@ -1,1 +1,1 @@
-powershell.exe -executionpolicy bypass -file .\BuildWindowsApp.ps1 -ProjectName "myProductsWin8" -ProjectFolder "myProducts.Web" -BuildFolder "Win8Build" -AppName "com.thinktecture.myproducts" -IncludeWinJS "false" -UseIIS "http://localhost/ngmd/app"
+powershell.exe -executionpolicy bypass -file .\BuildWindowsApp.ps1 -ProjectName "myProductsWin8" -ProjectFolder "myProducts.Web" -BuildFolder "Win8Build" -AppName "com.thinktecture.myproducts" -IncludeWinJS "false" -Url "http://localhost/ngmd/app"

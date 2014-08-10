@@ -4,7 +4,7 @@
         [string] $AppName,
         [string] $BuildFolder,
         [string] $IncludeWinJS,
-        [string] $UseIIS = "false"
+        [string] $Url = "false"
     )
 
 [string] $TemplateFolder = "CordovaTemplate"
@@ -48,7 +48,7 @@ Copy-Item -Path .\$ProjectFolder\appServices -Filter *.* -Destination .\$BuildFo
 # Wechsel in den Projektordner
 cd $ProjectFolder
 
-if($UseIIS.Equals("false")) {
+if($Url.Equals("false")) {
     # Node-Pakete installieren
     Write-Host "--Install Node packages"
     npm install
@@ -66,16 +66,16 @@ if($UseIIS.Equals("false")) {
 }
 else {
     # Index.html vom Server laden
-    $URI = $UseIIS -as [System.URI] 
+    $URI = $Url -as [System.URI] 
     Write-Host "--Get index.html from server."
-    curl -Uri $UseIIS -OutFile _index.html
+    curl -Uri $Url -OutFile _index.html
 }
 
 # Verschieben der index.html
 Write-Host "--Move index.html" 
 Move-Item -Path _index.html -Destination .\..\$BuildFolder\www\index.html -Force
 
-if($UseIIS.Equals("false")) {
+if($Url.Equals("false")) {
     # Nodemon stoppen
     Write-Host "--Stop webserver"
     Stop-Process -Name node -Force
@@ -178,7 +178,7 @@ if($IncludeWinJS.Equals("true"))
         }
 
     } | ForEach-Object {
-        if($UseIIS.Equals("false")){
+        if($Url.Equals("false")){
             $_
         }
         else
