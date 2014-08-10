@@ -8,8 +8,9 @@ namespace MyProducts.Web
         {
             bundles.IgnoreList.Ignore("app.js");
 
-            bundles.Add(new Bundle("~/app/app/css")
+            bundles.Add(new Bundle("~/app/css")
                .IncludeDirectory("~/libs", "*.css", true)
+               .IncludeDirectory("~/assets", "*.css", true)
                );
 
             bundles.Add(new Bundle("~/app/js")

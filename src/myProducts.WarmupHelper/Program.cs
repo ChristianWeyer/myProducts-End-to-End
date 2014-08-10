@@ -21,8 +21,8 @@ namespace myProducts.WarmupHelper
 
         private static async void CallServices()
         {
-            var localClient = new HttpClient { BaseAddress = new Uri("https://windows8vm/ngmd/") };
-            var localToken = GetToken("https://windows8vm/ngmd/token");
+            var localClient = new HttpClient { BaseAddress = new Uri("https://windows8vm") };
+            var localToken = GetToken("https://windows8vmtoken");
             localClient.SetBearerToken(localToken.AccessToken);
 
             var cloudClient = new HttpClient { BaseAddress = new Uri("https://demo.christianweyer.net/") };

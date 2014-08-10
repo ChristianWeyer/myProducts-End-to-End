@@ -236,19 +236,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="libs\50_AngularStuff\angular-nvd3.js" />
     <Content Include="libs\50_AngularStuff\angular-ui-router.js" />
     <Content Include="app\articleDetails\articleDetails.html" />
     <Content Include="app\articleDetails\articleDetails.js" />
     <Content Include="libs\50_AngularStuff\angular-carousel.css" />
     <Content Include="libs\12_Animate\animate.css" />
-    <Content Include="libs\99_appInit\30\app-responsive.css" />
     <Content Include="libs\22_BootstrapStuff\bootstrap-switch.css" />
     <Content Include="libs\20_Bootstrap\bootstrap.css" />
     <Content Include="libs\50_AngularStuff\loading-bar.css" />
     <Content Include="libs\17_Modern\20\modern-responsive.css" />
     <Content Include="libs\17_Modern\10\modern.css" />
-    <Content Include="libs\99_appInit\10\tweak-bootstrap.css" />
+    <Content Include="libs\99_appInit\tweak-bootstrap.css" />
     <Content Include="libs\13_FontAwesome\font-awesome.css" />
     <Content Include="libs\25_d3\nv.d3.css" />
     <Content Include="libs\15_Toastr\toastr.css" />
@@ -269,7 +269,7 @@
     <Content Include="assets\images\lang_en.png" />
     <Content Include="assets\images\lang_en_t.png" />
     <Content Include="assets\images\logo.png" />
-    <Content Include="libs\99_appInit\20\app.css" />
+    <Content Include="assets\app.css" />
     <Content Include="app\constants.js" />
     <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\start\start.js" />
@@ -320,7 +320,7 @@
     <Content Include="app\log\log.html" />
     <Content Include="app\settings\settings.html" />
     <Content Include="app\statistics\statistics.html" />
-    <Content Include="libs\99_appInit\20\app.js" />
+    <Content Include="libs\99_appInit\appInit.js" />
     <Content Include="app\articles\articles.js" />
     <Content Include="app\shell\navigation.js" />
     <Content Include="app\translations\translations-de.js" />
@@ -413,6 +413,9 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
@@ -462,9 +465,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="PerfItInstaller.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="PerfItInstaller.cs" />
     <Compile Include="PerfItInstaller.Designer.cs">
       <DependentUpon>PerfItInstaller.cs</DependentUpon>
     </Compile>

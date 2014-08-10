@@ -1,0 +1,358 @@
+﻿/* Override Bootstrap Responsive CSS fixed navbar */
+@media (max-width: 979px) {
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+      position: fixed;
+      margin-left: 0px;
+      margin-right: 0px;
+  }
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    overflow: scroll;
+    background-color: #F0F0F0;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 40px;
+    font-weight: bold;
+}
+
+.svg {
+    height: auto;
+}
+
+.reveal-animation {
+    position: absolute;
+    width: 97%;
+}
+
+.slider {
+    background-color: white;
+}
+
+.slider-slide {
+    background-color: white;
+}
+
+.slider-pager {
+    bottom: auto;
+    top: 15px;
+}
+
+/*.nav-collapse {
+    background: rgb(235, 235, 235);
+    z-index: 1000;
+}*/
+
+#loading-bar .bar {
+    height: 4px;
+    border: none;
+}
+
+.disable-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ngFooterPanel {
+    background-color: rgba(180, 207, 213, 0.46);
+}
+
+.form-horizontal input.ng-invalid.ng-dirty {
+    background-color: #FA787E;
+}
+
+.form-horizontal input.ng-valid.ng-dirty {
+    background-color: #78FA89;
+}
+
+.center {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar .container-fluid {
+    height: 5em;
+}
+
+.navbar .nav > li > a {
+    float: none;
+    padding: 10px 15px 10px;
+    color: #777777;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #ffffff;
+    padding: 2em 15px 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    line-height: 14px;
+}
+
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0px;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: #FF6600;
+    color: #000 !important;
+    background-color: transparent !important;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle,
+.navbar .nav li.dropdown.active > .dropdown-toggle,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle,
+.nav-pills > li > a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0px;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: lightblue;
+    color: #000 !important;
+    background-color: transparent !important;
+}
+
+.nav-pills > li > a {
+    border-radius: 0px;
+}
+
+.navbar-nav > .active > a,
+.navbar-nav > .active > a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0px;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: #FF6600;
+    color: #000 !important;
+    background-color: transparent !important;
+    webkit-box-shadow: inset 0 3px 8px rgba(0,0,0,.125);
+    -moz-box-shadow: inset 0 3px 8px rgba(0,0,0,.125);
+    box-shadow: inset 0 3px 8px rgba(0,0,0,.125);
+}
+
+.navbar-nav > li > a:hover {
+    text-decoration: none;
+    border-radius: 0px;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: lightblue;
+    color: #000 !important;
+    background-color: transparent !important;
+}
+
+.navbar-nav > li > a {
+    border-radius: 0px;
+}
+
+.language-icon {
+    cursor: pointer;
+}
+
+.rn-carousel-container {
+    margin: 0 auto;
+}
+
+.carouselImages {
+    width: 290px;
+    height: 250px;
+    text-align: center;
+}
+
+.carouselImage {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #D5D9DF;
+    padding: 1em;
+    z-index: 3;
+}
+
+    #footer a {
+        color: rgb(124, 149, 162);
+        text-decoration: none;
+    }
+
+    #footer .cloud-link {
+        float: right;
+    }
+
+.dialog-underline {
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0px;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: red;
+    color: #000 !important;
+    background-color: transparent !important;
+}
+
+.slide-animation {
+    width: 100%;
+    position: absolute;
+}
+
+    .slide-animation.ng-enter {
+        animation: slideInRight 0.8s;
+        -webkit-animation: slideInRight 0.8s;
+        -moz-animation: slideInRight 0.8s;
+        -ms-animation: slideInRight 0.8s;
+    }
+
+    .slide-animation.ng-leave {
+        animation: slideOutLeft 0.8s;
+        -webkit-animation: slideOutLeft 0.8s;
+        -moz-animation: slideOutLeft 0.8s;
+        -ms-animation: slideOutLeft 0.8s;
+    }
+
+.navbar-collapse.collapsing {
+    background-color: rgb(235, 235, 235);
+    z-index: 1000;
+}
+
+.navbar-collapse.in {
+    background-color: rgb(235, 235, 235);
+    z-index: 1000;
+}
+
+.navbar-brand {
+    max-height: 40px;
+    overflow: visible;
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+
+.form-actions {
+    padding: 19px 20px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #e5e5e5;
+}
+
+/* login */
+.login-container {
+    position: relative;
+    width: 300px;
+    margin: 80px auto;
+    padding: 20px 40px 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+    .login-container::before, .login-container::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 3.5px;
+        left: 0;
+        background: #fff;
+        z-index: -1;
+        -webkit-transform: rotateZ(4deg);
+        -moz-transform: rotateZ(4deg);
+        -ms-transform: rotateZ(4deg);
+        border: 1px solid #ccc;
+    }
+
+    .login-container::after {
+        top: 5px;
+        z-index: -2;
+        -webkit-transform: rotateZ(-2deg);
+        -moz-transform: rotateZ(-2deg);
+        -ms-transform: rotateZ(-2deg);
+    }
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto 30px;
+    border-radius: 100%;
+    border: 2px solid #aaa;
+    background-size: cover;
+    background-image: url(" ../assets/images/logo.png");
+}
+
+.form-box input {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    height: 40px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    transition: 0.2s ease-in-out;
+}
+
+    .form-box input:focus {
+        outline: 0;
+        background: #eee;
+    }
+
+    .form-box input[type="text"] {
+        border-radius: 5px 5px 0 0;
+    }
+
+    .form-box input[type="password"] {
+        border-radius: 0 0 5px 5px;
+        border-top: 0;
+    }
+
+.form-box button.login {
+    margin-top: 15px;
+    padding: 10px 20px;
+}
+
+/* end login */
+
+.green-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+    background: #079319;
+}
+.red-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+    background: #e80000;
+}

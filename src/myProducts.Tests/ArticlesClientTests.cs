@@ -19,7 +19,7 @@ namespace MyProducts.Tests
         public void Init()
         {
             client = new HttpClient();
-            client.BaseAddress = new Uri("https://windows8vm/ngmd/api/");
+            client.BaseAddress = new Uri("https://windows8vmapi/");
         }
 
         [TestMethod]
