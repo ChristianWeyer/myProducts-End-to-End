@@ -50,7 +50,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Security", "myPr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosts", "Hosts", "{FD9799AD-DC7D-4366-8E67-E6CC63BC41D4}"
 EndProject
-Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "CordovaApp", "myProducts.Windows8\CordovaApp.jsproj", "{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}"
+Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "myProducts.Windows8", "myProducts.Windows8\myProducts.Windows8.jsproj", "{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
