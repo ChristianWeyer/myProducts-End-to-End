@@ -22,7 +22,6 @@ mkdir out
 mkdir out/android
 mkdir out/iOS
 mkdir out/windows
-mkdir out/windows8
 mkdir out/mac
 mkdir out/web
 
@@ -55,19 +54,6 @@ cat ../out/windows/nw.exe ../out/app.nw > "../out/windows/myProducts.exe"
 rm ../out/windows/nw.exe
 rm ../out/app.nw
 
-## Build for Windows8
-echo "Building for Windows 8"
-cp -r ../windows8/projectTemplate/ ../out/windows8
-cp -r . ../out/windows8
-rm ../out/windows8/package.json
-rm ../out/windows8/app/index.cshtml
-cp -r ../windows8/replacement/ ../out/windows8
-cat "../windows8/projectFile/myProducts.WindowsStore.jsproj_PART1" > "../out/windows8/myProducts.WindowsStore.jsproj"
-cd ../out/windows8
-find . -type f|sed 's/\//\\/'g |sed 's/.\\/<Content Include="/' |sed 's/$/" \/>/' |grep -v '\." /' |grep -v ".DS_Store" |grep -v ".appxmanifest" |grep -v ".jsproj" |grep -v ".pfx" >> "./myProducts.WindowsStore.jsproj"
-cat "../../windows8/projectFile/myProducts.WindowsStore.jsproj_PART2" >> "./myProducts.WindowsStore.jsproj"
-perl -e 's/\xef\xbb\xbf//;' -pi~ "./myProducts.WindowsStore.jsproj"
-
 ## Create phonegap project
 cd ${DIR}
 cd phonegap_tmp
@@ -84,9 +70,6 @@ cd myProducts
 
 cordova platform add ios
 cordova platform add android
-
-### Windows 8...
-#cordova platform add windows8
 
 ## Build for iOS
 cp -r ../../phonegap-ios/ ./platforms/ios/myProducts

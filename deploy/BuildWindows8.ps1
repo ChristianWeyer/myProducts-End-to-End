@@ -7,6 +7,7 @@
         [string] $Url = "false"
     )
 
+[string] $RootFolder = Get-Location
 [string] $TemplateFolder = "CordovaTemplate"
 
 # Build-Verzeichnis löschen
@@ -15,7 +16,7 @@ Remove-Item .\$BuildFolder -Force -Recurse
 
 # Anlegen des Build-Verzeichnisses
 Write-Host "--Create new build directory."
-New-Item -ItemType Directory -Force -Path build
+New-Item -ItemType Directory -Force -Path .\$BuildFolder
 
 # Cordova-Template-Ordner löschen
 Write-Host "--Delete old Cordova folder."
@@ -32,11 +33,11 @@ Write-Host "--Add Windows 8 platform"
 cordova platform add windows8
 
 # Wieder ins Root-Verzeichnis des Skriptes springen
-cd ..
+cd $RootFolder
 
 # Kopieren des Plattform-Verzeichnisses in den Build-Ordner
 Write-Host "--Copy Project template to build directory"
-Copy-Item -Path .\$TemplateFolder\platforms\windows8 -Filter *.* -Destination .\$BuildFolder -Recurse -Force -ErrorAction SilentlyContinue
+Copy-Item -Path .\$TemplateFolder\platforms\windows8\* -Filter *.* -Destination .\$BuildFolder -Recurse -Force -ErrorAction SilentlyContinue
 
 # Kopieren der Projektdaten in das Build-Verzeichnis
 Write-Host "--Copy app files"
@@ -45,43 +46,14 @@ Copy-Item -Path .\$ProjectFolder\assets -Filter *.* -Destination .\$BuildFolder\
 Copy-Item -Path .\$ProjectFolder\libs -Filter *.* -Destination .\$BuildFolder\www -Recurse -Force -ErrorAction SilentlyContinue 
 Copy-Item -Path .\$ProjectFolder\appServices -Filter *.* -Destination .\$BuildFolder\www -Recurse -Force -ErrorAction SilentlyContinue 
 
-# Wechsel in den Projektordner
-cd $ProjectFolder
-
-if($Url.Equals("false")) {
-    # Node-Pakete installieren
-    Write-Host "--Install Node packages"
-    npm install
-
-    # Nodemon starten
-    Write-Host "--Start webserver."
-    Start-Process -FilePath nodemon -ArgumentList "app.js"
-
-    # Timeout, damit der Server starten kann
-    timeout 5
-    
-    # Index.html vom Server laden
-    Write-Host "--Get index.html from server."
-    curl -Uri http://localhost:8090 -OutFile _index.html
-}
-else {
-    # Index.html vom Server laden
-    $URI = $Url -as [System.URI] 
-    Write-Host "--Get index.html from server."
-    curl -Uri $Url -OutFile _index.html
-}
+# Index.html vom Server laden
+$URI = $Url -as [System.URI] 
+Write-Host "--Get index.html from server."
+curl -Uri $Url -OutFile _index.html
 
 # Verschieben der index.html
 Write-Host "--Move index.html" 
-Move-Item -Path _index.html -Destination .\..\$BuildFolder\www\index.html -Force
-
-if($Url.Equals("false")) {
-    # Nodemon stoppen
-    Write-Host "--Stop webserver"
-    Stop-Process -Name node -Force
-}
-# Root Verzeichnis
-cd ..
+Move-Item -Path _index.html -Destination .\$BuildFolder\www\index.html -Force
 
 # Wechsel ins Windows 8 Verzeichnis
 cd $BuildFolder
@@ -101,6 +73,7 @@ Set-Content $JQueryFileSearchResult.FullName
 # Visual Studio Projekt auf Windows 8.1 upgraden
 Write-Host "--Upgrade Visual Studio Project to Windows 8.1"
 $WindowsProjectFileSearch = Get-ChildItem -Filter *.jsproj -Recurse
+(Get-Content -Path $WindowsProjectFileSearch.FullName) | 
 ForEach-Object {
     $_ -creplace 'ToolsVersion="4.0"', 'ToolsVersion="12.0"'
 } |
@@ -192,7 +165,7 @@ if($IncludeWinJS.Equals("true"))
     Move-Item -Path $TempFile -Destination $IndexFileSearch.FullName
 }
 
-cd ..
+cd $RootFolder
 Remove-Item .\$TemplateFolder -Force -Recurse -ErrorAction SilentlyContinue
 
 Write-Host "--Done!"
