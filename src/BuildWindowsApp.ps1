@@ -2,11 +2,12 @@
         [string] $ProjectName,
         [string] $ProjectFolder,
         [string] $AppName,
+        [string] $BuildFolder,
         [string] $IncludeWinJS,
         [string] $UseIIS = "false"
     )
+
 [string] $TemplateFolder = "CordovaTemplate"
-[string] $BuildFolder = "build"
 
 # Build-Verzeichnis löschen
 Write-Host "--Delete old build directory."
@@ -39,10 +40,10 @@ Copy-Item -Path .\$TemplateFolder\platforms\windows8 -Filter *.* -Destination .\
 
 # Kopieren der Projektdaten in das Build-Verzeichnis
 Write-Host "--Copy app files"
-Copy-Item -Path .\$ProjectFolder\app -Filter *.* -Destination .\$BuildFolder\windows8\www -Recurse -Force -ErrorAction SilentlyContinue 
-Copy-Item -Path .\$ProjectFolder\assets -Filter *.* -Destination .\$BuildFolder\windows8\www -Recurse -Force -ErrorAction SilentlyContinue 
-Copy-Item -Path .\$ProjectFolder\libs -Filter *.* -Destination .\$BuildFolder\windows8\www -Recurse -Force -ErrorAction SilentlyContinue 
-Copy-Item -Path .\$ProjectFolder\appServices -Filter *.* -Destination .\$BuildFolder\windows8\www -Recurse -Force -ErrorAction SilentlyContinue 
+Copy-Item -Path .\$ProjectFolder\app -Filter *.* -Destination .\$BuildFolder\www -Recurse -Force -ErrorAction SilentlyContinue 
+Copy-Item -Path .\$ProjectFolder\assets -Filter *.* -Destination .\$BuildFolder\www -Recurse -Force -ErrorAction SilentlyContinue 
+Copy-Item -Path .\$ProjectFolder\libs -Filter *.* -Destination .\$BuildFolder\www -Recurse -Force -ErrorAction SilentlyContinue 
+Copy-Item -Path .\$ProjectFolder\appServices -Filter *.* -Destination .\$BuildFolder\www -Recurse -Force -ErrorAction SilentlyContinue 
 
 # Wechsel in den Projektordner
 cd $ProjectFolder
@@ -61,18 +62,18 @@ if($UseIIS.Equals("false")) {
     
     # Index.html vom Server laden
     Write-Host "--Get index.html from server."
-    curl -Uri http://localhost:8090 -OutFile index.html
+    curl -Uri http://localhost:8090 -OutFile _index.html
 }
 else {
     # Index.html vom Server laden
     $URI = $UseIIS -as [System.URI] 
     Write-Host "--Get index.html from server."
-    curl -Uri $UseIIS -OutFile index.html
+    curl -Uri $UseIIS -OutFile _index.html
 }
 
 # Verschieben der index.html
 Write-Host "--Move index.html" 
-Move-Item -Path index.html -Destination .\..\build\windows8\www\index.html -Force
+Move-Item -Path _index.html -Destination .\..\$BuildFolder\www\index.html -Force
 
 if($UseIIS.Equals("false")) {
     # Nodemon stoppen
@@ -83,7 +84,7 @@ if($UseIIS.Equals("false")) {
 cd ..
 
 # Wechsel ins Windows 8 Verzeichnis
-cd $BuildFolder\windows8
+cd $BuildFolder
 
 # Modifiziere kritsiche AngularJS-Stellen
 Write-Host "--Update AngularJS"
@@ -100,7 +101,6 @@ Set-Content $JQueryFileSearchResult.FullName
 # Visual Studio Projekt auf Windows 8.1 upgraden
 Write-Host "--Upgrade Visual Studio Project to Windows 8.1"
 $WindowsProjectFileSearch = Get-ChildItem -Filter *.jsproj -Recurse
-(Get-Content -Path $WindowsProjectFileSearch.FullName) |
 ForEach-Object {
     $_ -creplace 'ToolsVersion="4.0"', 'ToolsVersion="12.0"'
 } |
@@ -191,5 +191,8 @@ if($IncludeWinJS.Equals("true"))
     Remove-Item $IndexFileSearch.FullName
     Move-Item -Path $TempFile -Destination $IndexFileSearch.FullName
 }
+
+cd ..
+Remove-Item .\$TemplateFolder -Force -Recurse -ErrorAction SilentlyContinue
 
 Write-Host "--Done!"
