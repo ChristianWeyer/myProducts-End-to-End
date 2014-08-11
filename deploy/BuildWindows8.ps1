@@ -1,10 +1,10 @@
 ﻿param(
-        [string] $ProjectName,
-        [string] $ProjectFolder,
-        [string] $AppName,
-        [string] $BuildFolder,
-        [string] $IncludeWinJS,
-        [string] $Url = "false"
+        [string] $ProjectName = "myProductsApp",
+        [string] $ProjectFolder = "..\src\myProducts.Web",
+        [string] $AppName = "com.tt.myp",
+        [string] $BuildFolder = "out/windows8",
+        [string] $IncludeWinJS = "false",
+        [string] $Url = "http://localhost/ngmd/app"
     )
 
 [string] $RootFolder = Get-Location
@@ -132,13 +132,14 @@ ForEach-Object {
 Set-Content $WindowsProjectFileSearch.FullName
 
 # Einfügen der WinJS-Referencen in die index.html
-if($IncludeWinJS.Equals("true"))
-{
-    Write-Host "--Update index.html"
-    $IndexFileSearch = Get-ChildItem -Path www -Filter index.html
-    $TempFile = $IndexFileSearch.FullName + "_temp"
-    Get-Content -Path $IndexFileSearch.FullName | ForEach-Object {
+Write-Host "--Update index.html"
+$IndexFileSearch = Get-ChildItem -Path www -Filter index.html
+$TempFile = $IndexFileSearch.FullName + "_temp"
 
+Get-Content -Path $IndexFileSearch.FullName | ForEach-Object {
+    $PathToReplace = ""
+    
+    if($IncludeWinJS.Equals("true")) {
         if($_ -cmatch "</head>") {
             $WinJSReferences = '<script type="text/javascript" src="//Microsoft.WinJS.2.0/js/base.js"></script>';
             $WinJSReferences +='<script type="text/javascript" src="//Microsoft.WinJS.2.0/js/ui.js"></script>';
@@ -146,24 +147,18 @@ if($IncludeWinJS.Equals("true"))
             $WinJSReferences += "</head>`r`n";
             $_ -creplace "</head>", $WinJSReferences
         }
-        else {
-            $_
-        }
+    }    
 
-    } | ForEach-Object {
-        if($Url.Equals("false")){
-            $_
-        }
-        else
-        {
-            $r = "" + $URI.LocalPath + "/"
-            $_ -replace $r , ""
-        }
-    } |
-    Set-Content $TempFile -Force
-    Remove-Item $IndexFileSearch.FullName
-    Move-Item -Path $TempFile -Destination $IndexFileSearch.FullName
-}
+    for ($i=0; $i -lt $URI.Segments.length - 1; $i++) {
+	    $PathToReplace = $PathToReplace + $URI.Segments[$i]
+    }
+
+    $_ -replace $PathToReplace, ""
+} | 
+Set-Content $TempFile -Force
+
+Remove-Item $IndexFileSearch.FullName
+Move-Item -Path $TempFile -Destination $IndexFileSearch.FullName
 
 cd $RootFolder
 Remove-Item .\$TemplateFolder -Force -Recurse -ErrorAction SilentlyContinue
