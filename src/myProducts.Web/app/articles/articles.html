@@ -14,7 +14,7 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Code</th>
+                    <th class ="hidden-sm">Code</th>
                     <th style="width: 100px">
                         <i ng-if="capabilities.has('AddArticle')" class="btn btn-primary glyphicon glyphicon-plus" style="font-size: 0.75em;" ng-click="articles.addArticle()"></i>
                     </th>
@@ -22,7 +22,7 @@
             </thead>
             <tr ng-repeat="a in articles.articlesData track by $index">
                 <td ng-click="articles.getArticleDetails(a.Id)">{{ a.Name }}</td>
-                <td ng-click="articles.getArticleDetails(a.Id)">{{ a.Code }}</td>
+                <td class="hidden-sm" ng-click="articles.getArticleDetails(a.Id)">{{ a.Code }}</td>
                 <td style="width: 90px">
                     <i class="btn btn-success glyphicon glyphicon-edit" style="font-size: 0.6em;" ng-click="articles.getArticleDetails(a.Id)"></i>
                     <i class="btn btn-danger glyphicon glyphicon-trash" style="font-size: 0.6em;" ng-click="articles.deleteArticle(a.Id)"></i>
