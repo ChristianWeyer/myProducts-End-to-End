@@ -1,4 +1,5 @@
-﻿using MyProducts.Model;
+﻿using System.Web.Http.OData;
+using MyProducts.Model;
 using System;
 using System.IO;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace MyProducts.Services.Controllers
         /// List product images URLs.
         /// </summary>
         /// <returns></returns>
-        [Queryable]
+        [EnableQuery]
         public IQueryable<string> Get()
         {
             var todos = productsContext.Articles.Select(a => imagesFolder + "/" + a.ImageUrl).Distinct();

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,6 +9,7 @@ using System.Runtime.Serialization;
 using System.Web.Http;
 using System.Web.Http.Description;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace MyProducts.Web.Areas.HelpPage.ModelDescriptions
 {
