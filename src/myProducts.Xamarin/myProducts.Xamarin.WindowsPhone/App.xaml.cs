@@ -53,12 +53,6 @@ namespace myProducts.Xamarin.WindowsPhone
 
 		}
 
-		// Code to execute when a contract activation such as a file open or save picker returns 
-		// with the picked file or other return values
-		private void Application_ContractActivated(object sender, Windows.ApplicationModel.Activation.IActivatedEventArgs e)
-		{
-		}
-
 		// Code to execute when the application is launching (eg, from Start)
 		// This code will not execute when the application is reactivated
 		private void Application_Launching(object sender, LaunchingEventArgs e)
@@ -125,9 +119,6 @@ namespace myProducts.Xamarin.WindowsPhone
 			// Handle reset requests for clearing the backstack
 			RootFrame.Navigated += CheckForResetNavigation;
 
-			// Handle contract activation such as a file open or save picker
-			PhoneApplicationService.Current.ContractActivated += Application_ContractActivated;
-
 			// Ensure we don't initialize again
 			phoneApplicationInitialized = true;
 		}
@@ -168,23 +159,5 @@ namespace myProducts.Xamarin.WindowsPhone
 		}
 
 		#endregion
-
-		// Initialize the app's font and flow direction as defined in its localized resource strings.
-		//
-		// To ensure that the font of your application is aligned with its supported languages and that the
-		// FlowDirection for each of those languages follows its traditional direction, ResourceLanguage
-		// and ResourceFlowDirection should be initialized in each resx file to match these values with that
-		// file's culture. For example:
-		//
-		// AppResources.es-ES.resx
-		//    ResourceLanguage's value should be "es-ES"
-		//    ResourceFlowDirection's value should be "LeftToRight"
-		//
-		// AppResources.ar-SA.resx
-		//     ResourceLanguage's value should be "ar-SA"
-		//     ResourceFlowDirection's value should be "RightToLeft"
-		//
-		// For more info on localizing Windows Phone apps see http://go.microsoft.com/fwlink/?LinkId=262072.
-		//
 	}
 }
