@@ -91,21 +91,17 @@
 
         <footer id="footer">
             <div class="container-fluid" ng-controller="statusController">
-                <img ng-if="status.isOnline" src="assets/images/online.png" />
-                <img ng-if="!status.isOnline" src="assets/images/offline.png" />
-                &nbsp;
-                <span>
+                <div ng-if="!status.isOnline" class="circle-red pull-left"></div>
+                <div ng-if="status.isOnline" class="circle-green pull-left"></div>
+                
+                <span class="pull-right">
                     <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
                         <a href="#/login" translate="INDEX_LOGIN"></a>
                     </span>
                     <span ng-if="tt.authentication.userLoggedIn">
-                        <a href="" ng-click="navigation.logout()" translate="INDEX_LOGOUT"></a>
+                        <a href="" ng-click="navigation.logout()"><i class="fa fa-sign-out" style="color: white"></i></a>
                     </span>
                 </span>
-
-                <a href="http://www.thinktecture.com" target="_blank" class="cloud-link">
-                    <span class="glyphicon glyphicon-cloud">&nbsp;</span>
-                </a>
             </div>
         </footer>
 
