@@ -4,6 +4,8 @@ using System.Linq;
 
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using myProducts.Xamarin.Views.Pages;
+using Xamarin.Forms;
 
 namespace myProducts.Xamarin.iOS
 {
@@ -28,8 +30,10 @@ namespace myProducts.Xamarin.iOS
 			// create a new window instance based on the screen size
 			window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-			// If you have defined a view, add it here:
-			// window.RootViewController  = navigationController;
+			Forms.Init();
+
+			var mainPage = PageLocator.MainPage;
+			window.RootViewController = new NavigationPage(mainPage).CreateViewController();
 
 			// make the window visible
 			window.MakeKeyAndVisible();
