@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using myProducts.Xamarin.Views.Components;
+using myProducts.Xamarin.Views.Extensions;
+using Xamarin.Forms;
 
 namespace myProducts.Xamarin.Views.Pages
 {
@@ -13,9 +15,35 @@ namespace myProducts.Xamarin.Views.Pages
 		private void CreateUI()
 // ReSharper restore InconsistentNaming
 		{
-			Content = new Label()
+			this.SetDefaultPadding();
+
+			Content = new StackLayout()
 			{
-				Text = "Hello World!"
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+
+				Children =
+				{
+					new Label()
+					{
+						Text = "User login",
+						Font = Font.SystemFontOfSize(NamedSize.Large),
+					},
+					new Entry()
+					{
+						Placeholder = "Username",
+					},
+					new Entry()
+					{
+						Placeholder = "Password",
+						IsPassword = true,
+					},
+					new Button()
+					{
+						Text = "Log in",
+					},
+					new Footer(),
+				}
 			};
 		}
 	}
