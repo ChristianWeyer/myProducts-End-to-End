@@ -1,4 +1,5 @@
-﻿using myProducts.Xamarin.Views.Components;
+﻿using myProducts.Xamarin.Contracts.Locale;
+using myProducts.Xamarin.Views.Components;
 using myProducts.Xamarin.Views.Extensions;
 using Xamarin.Forms;
 
@@ -6,8 +7,11 @@ namespace myProducts.Xamarin.Views.Pages
 {
 	public class LoginPage : ContentPage
 	{
-		public LoginPage()
+		private readonly ITranslation _translation;
+
+		public LoginPage(ITranslation translation)
 		{
+			_translation = translation;
 			CreateUI();
 		}
 
@@ -26,21 +30,21 @@ namespace myProducts.Xamarin.Views.Pages
 				{
 					new Label()
 					{
-						Text = "User login",
+						Text = _translation.UserLogin,
 						Font = Font.SystemFontOfSize(NamedSize.Large),
 					},
 					new Entry()
 					{
-						Placeholder = "Username",
+						Placeholder = _translation.UserName,
 					},
 					new Entry()
 					{
-						Placeholder = "Password",
+						Placeholder = _translation.Password,
 						IsPassword = true,
 					},
 					new Button()
 					{
-						Text = "Log in",
+						Text = _translation.LogIn,
 					},
 					new Footer(),
 				}

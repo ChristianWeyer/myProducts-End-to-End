@@ -52,6 +52,8 @@
     <Compile Include="..\..\myProducts.Services\DTOs\LogData.cs">
       <Link>DTOs\LogData.cs</Link>
     </Compile>
+    <Compile Include="Locale\ILanguageManager.cs" />
+    <Compile Include="Locale\ITranslation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
