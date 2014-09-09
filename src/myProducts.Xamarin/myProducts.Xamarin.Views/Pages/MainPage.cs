@@ -4,8 +4,13 @@ namespace myProducts.Xamarin.Views.Pages
 {
 	public class MainPage : ContentPage
 	{
+		public MainPage()
+		{
+			CreateUI();
+		}
+
 // ReSharper disable InconsistentNaming
-		protected void CreateUI()
+		private void CreateUI()
 // ReSharper restore InconsistentNaming
 		{
 			Content = new Label()
