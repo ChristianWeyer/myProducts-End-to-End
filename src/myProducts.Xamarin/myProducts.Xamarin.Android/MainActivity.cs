@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using myProducts.Xamarin.Android.Common;
 using myProducts.Xamarin.Views.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
@@ -20,8 +21,7 @@ namespace myProducts.Xamarin.Android
 
 			Forms.Init(this, bundle);
 
-			var mainPage = PageLocator.LoginPage;
-			SetPage(new NavigationPage(mainPage));
+			SetPage(new NavigationPage(ViewLocator.Instance.LoginPage));
 		}
 	}
 }

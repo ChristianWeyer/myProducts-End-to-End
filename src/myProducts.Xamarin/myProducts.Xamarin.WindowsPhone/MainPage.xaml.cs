@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using myProducts.Xamarin.Views.Pages;
+using myProducts.Xamarin.WindowsPhone.Common;
 using Xamarin.Forms;
 
 namespace myProducts.Xamarin.WindowsPhone
@@ -24,8 +25,7 @@ namespace myProducts.Xamarin.WindowsPhone
 
 			Forms.Init();
 
-			var mainPage = PageLocator.LoginPage;
-			Content = new NavigationPage(mainPage).ConvertPageToUIElement(this);
+			Content = new NavigationPage(ViewLocator.Instance.LoginPage).ConvertPageToUIElement(this);
 		}
 
 		// Sample code for building a localized ApplicationBar

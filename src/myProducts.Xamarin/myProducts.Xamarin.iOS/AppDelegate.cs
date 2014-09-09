@@ -4,6 +4,7 @@ using System.Linq;
 
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using myProducts.Xamarin.iOS.Common;
 using myProducts.Xamarin.Views.Pages;
 using Xamarin.Forms;
 
@@ -32,8 +33,7 @@ namespace myProducts.Xamarin.iOS
 
 			Forms.Init();
 
-			var mainPage = PageLocator.LoginPage;
-			window.RootViewController = new NavigationPage(mainPage).CreateViewController();
+			window.RootViewController = new NavigationPage(ViewLocator.Instance.LoginPage).CreateViewController();
 
 			// make the window visible
 			window.MakeKeyAndVisible();

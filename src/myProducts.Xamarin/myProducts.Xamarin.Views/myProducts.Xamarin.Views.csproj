@@ -35,9 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Components\Footer.cs" />
+    <Compile Include="Contracts\IViewLocator.cs" />
     <Compile Include="Extensions\PageExtensions.cs" />
     <Compile Include="Pages\LoginPage.cs" />
-    <Compile Include="Pages\PageLocator.cs" />
+    <Compile Include="Pages\BaseViewLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
