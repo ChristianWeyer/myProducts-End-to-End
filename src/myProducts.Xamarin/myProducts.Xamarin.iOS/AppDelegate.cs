@@ -32,7 +32,7 @@ namespace myProducts.Xamarin.iOS
 
 			Forms.Init();
 
-			var mainPage = PageLocator.MainPage;
+			var mainPage = PageLocator.LoginPage;
 			window.RootViewController = new NavigationPage(mainPage).CreateViewController();
 
 			// make the window visible

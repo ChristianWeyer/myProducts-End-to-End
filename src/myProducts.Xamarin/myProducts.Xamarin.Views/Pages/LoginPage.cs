@@ -4,9 +4,9 @@ using Xamarin.Forms;
 
 namespace myProducts.Xamarin.Views.Pages
 {
-	public class MainPage : ContentPage
+	public class LoginPage : ContentPage
 	{
-		public MainPage()
+		public LoginPage()
 		{
 			CreateUI();
 		}

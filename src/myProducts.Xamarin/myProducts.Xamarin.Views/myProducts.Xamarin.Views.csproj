@@ -36,7 +36,7 @@
   <ItemGroup>
     <Compile Include="Components\Footer.cs" />
     <Compile Include="Extensions\PageExtensions.cs" />
-    <Compile Include="Pages\MainPage.cs" />
+    <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\PageLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -20,7 +20,7 @@ namespace myProducts.Xamarin.Android
 
 			Forms.Init(this, bundle);
 
-			var mainPage = PageLocator.MainPage;
+			var mainPage = PageLocator.LoginPage;
 			SetPage(new NavigationPage(mainPage));
 		}
 	}

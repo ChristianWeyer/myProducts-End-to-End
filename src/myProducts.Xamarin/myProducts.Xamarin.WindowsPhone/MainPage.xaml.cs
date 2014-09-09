@@ -24,7 +24,7 @@ namespace myProducts.Xamarin.WindowsPhone
 
 			Forms.Init();
 
-			var mainPage = PageLocator.MainPage;
+			var mainPage = PageLocator.LoginPage;
 			Content = new NavigationPage(mainPage).ConvertPageToUIElement(this);
 		}
 

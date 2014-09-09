@@ -2,9 +2,9 @@
 {
 	public sealed class PageLocator
 	{
-		public static MainPage MainPage
+		public static LoginPage LoginPage
 		{
-			get { return new MainPage(); }
+			get { return new LoginPage(); }
 		}
 	}
 }
