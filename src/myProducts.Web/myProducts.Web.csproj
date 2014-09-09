@@ -236,6 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="libs\50_AngularStuff\angular-nvd3.js" />
     <Content Include="libs\50_AngularStuff\angular-ui-router.js" />
@@ -252,6 +253,7 @@
     <Content Include="libs\13_FontAwesome\font-awesome.css" />
     <Content Include="libs\25_d3\nv.d3.css" />
     <Content Include="libs\15_Toastr\toastr.css" />
+    <Content Include="libs\fonts\fontawesome-webfont.svg" />
     <Content Include="libs\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\images\default.png" />
     <Content Include="assets\images\emergency_stop.png" />
@@ -416,6 +418,14 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="libs\fonts\fontawesome-webfont.eot" />
+    <Content Include="libs\fonts\fontawesome-webfont.ttf" />
+    <Content Include="libs\fonts\fontawesome-webfont.woff" />
+    <Content Include="libs\fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />

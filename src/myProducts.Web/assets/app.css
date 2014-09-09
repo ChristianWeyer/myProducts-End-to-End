@@ -1,11 +1,27 @@
 ﻿/* Override Bootstrap Responsive CSS fixed navbar */
 @media (max-width: 979px) {
-  .navbar-fixed-top,
-  .navbar-fixed-bottom {
-      position: fixed;
-      margin-left: 0px;
-      margin-right: 0px;
-  }
+    .navbar-fixed-top,
+    .navbar-fixed-bottom {
+        position: fixed;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+.circle-red {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(210, 50, 45, 0.7);
+    margin-top: auto
+}
+
+.circle-green {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(71, 164, 71, 0.7);
+    margin-top: auto
 }
 
 html {
@@ -192,17 +208,18 @@ h3 {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #D5D9DF;
+    background: #404040;
     padding: 1em;
     z-index: 3;
 }
 
     #footer a {
-        color: rgb(124, 149, 162);
+        color: #7095C5;
         text-decoration: none;
     }
 
     #footer .cloud-link {
+        color: #7095C5;
         float: right;
     }
 
@@ -346,6 +363,7 @@ h3 {
     text-align: center;
     background: #079319;
 }
+
 .red-circle {
     width: 10px;
     height: 10px;

@@ -17,7 +17,7 @@ tt.translations.de = {
     "INDEX_LOGS": "Logs",
     "INDEX_STATS": "Statistiken",
     "INDEX_LOGIN": "Anmelden",
-    "INDEX_LOGOUT": "Abmelden",
+    "INDEX_LOGOUT": "[Abmelden]",
     "INDEX_USERNAME": "Benutzer",
 
     "OVERVIEW_TITLE": "Überblick",
