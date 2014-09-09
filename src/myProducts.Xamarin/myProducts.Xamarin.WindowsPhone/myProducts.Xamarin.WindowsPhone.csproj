@@ -156,6 +156,16 @@
       <HintPath>..\packages\Xamarin.Forms.1.2.3.6246-pre1\lib\WP80\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\myProducts.Xamarin.Contracts\myProducts.Xamarin.Contracts.csproj">
+      <Project>{a0eaad39-6dcd-4341-a41b-b398be366cb3}</Project>
+      <Name>myProducts.Xamarin.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\myProducts.Xamarin.Views\myProducts.Xamarin.Views.csproj">
+      <Project>{C41B4700-F117-4B62-AD61-AADC47030D3A}</Project>
+      <Name>myProducts.Xamarin.Views</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
