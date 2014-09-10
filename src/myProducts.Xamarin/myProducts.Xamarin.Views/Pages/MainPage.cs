@@ -1,4 +1,5 @@
-﻿using myProducts.Xamarin.Views.Components;
+﻿using myProducts.Xamarin.Contracts.Locale;
+using myProducts.Xamarin.Views.Components;
 using myProducts.Xamarin.Views.Extensions;
 using Xamarin.Forms;
 
@@ -6,8 +7,11 @@ namespace myProducts.Xamarin.Views.Pages
 {
 	public class MainPage : ContentPage
 	{
-		public MainPage()
+		private readonly ITranslation _translation;
+
+		public MainPage(ITranslation translation)
 		{
+			_translation = translation;
 			CreateUI();
 
 			this.SetDefaultPadding();
@@ -19,11 +23,11 @@ namespace myProducts.Xamarin.Views.Pages
 		{
 			var gridLayout = CreateGridLayout();
 
-			var articleBox = new MainPageHubItem("Articles", Color.Gray, new Command(() => {}));
-			var galleryBox = new MainPageHubItem("Gallery", Color.Blue, new Command(() => {}));
-			var logBox = new MainPageHubItem("Logs", Color.Aqua, new Command(() => {}));
-			var statisticBox = new MainPageHubItem("Statistics", Color.Navy, new Command(() => { }));
-			var infoBox = new MainPageHubItem("Info", Color.Teal, new Command(() => { }));
+			var articleBox = new MainPageHubItem(_translation.Articles, Color.Gray, new Command(() => {}));
+			var galleryBox = new MainPageHubItem(_translation.Gallery, Color.Blue, new Command(() => {}));
+			var logBox = new MainPageHubItem(_translation.Logs, Color.Aqua, new Command(() => {}));
+			var statisticBox = new MainPageHubItem(_translation.Statistics, Color.Navy, new Command(() => { }));
+			var infoBox = new MainPageHubItem(_translation.Info, Color.Teal, new Command(() => { }));
 
 			AddHubItemToGrid(gridLayout, articleBox, 0, 0);
 			AddHubItemToGrid(gridLayout, galleryBox, 0, 1);
