@@ -26,11 +26,11 @@ namespace myProducts.Xamarin.Views.Pages
 		{
 			var gridLayout = CreateGridLayout();
 
-			var articleBox = new MainPageHubItem(_translation.Articles, Color.Gray, new Command(async () => await Navigation.PushAsync(_viewLocator.ArticlesPage)));
-			var galleryBox = new MainPageHubItem(_translation.Gallery, Color.Blue, new Command(() => {}));
-			var logBox = new MainPageHubItem(_translation.Logs, Color.Aqua, new Command(() => {}));
-			var statisticBox = new MainPageHubItem(_translation.Statistics, Color.Navy, new Command(() => { }));
-			var infoBox = new MainPageHubItem(_translation.Info, Color.Teal, new Command(() => { }));
+			var articleBox = new MainPageHubItem(_translation.Articles, Color.White, Color.FromHex("525252"), new Command(async () => await Navigation.PushAsync(_viewLocator.ArticlesPage)));
+			var galleryBox = new MainPageHubItem(_translation.Gallery, Color.White, Color.FromHex("2d89ef"), new Command(() => {}));
+			var logBox = new MainPageHubItem(_translation.Logs, Color.White, Color.FromHex("2b5797"), new Command(() => {}));
+			var statisticBox = new MainPageHubItem(_translation.Statistics, Color.White, Color.FromHex("525252"), new Command(() => { }));
+			var infoBox = new MainPageHubItem(_translation.Info, Color.Black, Color.FromHex("d5e7ec"), new Command(() => { }));
 
 			AddHubItemToGrid(gridLayout, articleBox, 0, 0);
 			AddHubItemToGrid(gridLayout, galleryBox, 0, 1);
