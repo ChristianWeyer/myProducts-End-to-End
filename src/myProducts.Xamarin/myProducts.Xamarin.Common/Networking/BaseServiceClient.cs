@@ -9,7 +9,7 @@ namespace myProducts.Xamarin.Common.Networking
 	public class BaseServiceClient
 	{
 		private readonly ITokenManager _tokenManager;
-		private const string ServiceUrl = "https://demo.christianweyer.net/api";
+		private const string ServiceUrl = "https://demo.christianweyer.net/api/";
 
 		protected readonly HttpClient HttpClient;
 
@@ -34,9 +34,9 @@ namespace myProducts.Xamarin.Common.Networking
 		{
 			EnsureTokenIsSet();
 			var response = await HttpClient.GetAsync(endPoint);
-			var resultString = await response.Content.ReadAsStringAsync();
+			var result = await response.Content.ReadAsStringAsync();
 
-			return JsonConvert.DeserializeObject<T>(resultString);
+			return JsonConvert.DeserializeObject<T>(result);
 		}
 	}
 }
