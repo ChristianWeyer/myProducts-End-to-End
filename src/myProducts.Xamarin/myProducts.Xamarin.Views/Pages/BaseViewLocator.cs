@@ -43,6 +43,8 @@ namespace myProducts.Xamarin.Views.Pages
 		{
 			builder.RegisterType<LoginPageViewModel>()
 				.As<ILoginPageViewModel>();
+			builder.RegisterType<ArticlesPageViewModel>()
+				.As<IArticlesPageViewModel>();
 		}
 
 		private void WireServices(ContainerBuilder builder)
@@ -68,6 +70,7 @@ namespace myProducts.Xamarin.Views.Pages
 		{
 			builder.RegisterType<LoginPage>();
 			builder.RegisterType<MainPage>();
+			builder.RegisterType<ArticlesPage>();
 		}
 
 		public LoginPage LoginPage
@@ -78,6 +81,11 @@ namespace myProducts.Xamarin.Views.Pages
 		public MainPage MainPage
 		{
 			get { return _container.Resolve<MainPage>(); }
+		}
+
+		public ArticlesPage ArticlesPage
+		{
+			get { return _container.Resolve<ArticlesPage>(); }
 		}
 
 		protected abstract void WirePlatformDependentServices(ContainerBuilder builder);

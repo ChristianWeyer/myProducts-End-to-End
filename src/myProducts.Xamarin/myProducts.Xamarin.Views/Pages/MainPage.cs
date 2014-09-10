@@ -1,5 +1,6 @@
 ﻿using myProducts.Xamarin.Contracts.Locale;
 using myProducts.Xamarin.Views.Components;
+using myProducts.Xamarin.Views.Contracts;
 using myProducts.Xamarin.Views.Extensions;
 using Xamarin.Forms;
 
@@ -8,10 +9,12 @@ namespace myProducts.Xamarin.Views.Pages
 	public class MainPage : BasePage
 	{
 		private readonly ITranslation _translation;
+		private readonly IViewLocator _viewLocator;
 
-		public MainPage(ITranslation translation)
+		public MainPage(ITranslation translation, IViewLocator viewLocator)
 		{
 			_translation = translation;
+			_viewLocator = viewLocator;
 			CreateUI();
 
 			this.SetDefaultPadding();
@@ -23,7 +26,7 @@ namespace myProducts.Xamarin.Views.Pages
 		{
 			var gridLayout = CreateGridLayout();
 
-			var articleBox = new MainPageHubItem(_translation.Articles, Color.Gray, new Command(() => {}));
+			var articleBox = new MainPageHubItem(_translation.Articles, Color.Gray, new Command(async () => await Navigation.PushAsync(_viewLocator.ArticlesPage)));
 			var galleryBox = new MainPageHubItem(_translation.Gallery, Color.Blue, new Command(() => {}));
 			var logBox = new MainPageHubItem(_translation.Logs, Color.Aqua, new Command(() => {}));
 			var statisticBox = new MainPageHubItem(_translation.Statistics, Color.Navy, new Command(() => { }));

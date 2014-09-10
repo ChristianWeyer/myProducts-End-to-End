@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using myProducts.Xamarin.Views.Pages;
+using Xamarin.Forms;
 
 namespace myProducts.Xamarin.Views.Contracts
 {
@@ -7,5 +8,6 @@ namespace myProducts.Xamarin.Views.Contracts
 	{
 		LoginPage LoginPage { get; }
 		MainPage MainPage { get; }
+		ArticlesPage ArticlesPage { get; }
 	}
 }
