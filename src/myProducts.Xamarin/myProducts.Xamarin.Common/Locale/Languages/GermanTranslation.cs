@@ -38,5 +38,30 @@ namespace myProducts.Xamarin.Common.Locale.Languages
 		{
 			get { return "Anmeldung fehlgeschlagen."; }
 		}
+
+		public string Articles
+		{
+			get { return "Artikel"; }
+		}
+
+		public string Gallery
+		{
+			get { return "Galerie"; }
+		}
+
+		public string Logs
+		{
+			get { return "Logs"; }
+		}
+
+		public string Statistics
+		{
+			get { return "Statistiken"; }
+		}
+
+		public string Info
+		{
+			get { return "Info"; }
+		}
 	}
 }

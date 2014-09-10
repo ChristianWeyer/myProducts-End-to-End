@@ -17,5 +17,10 @@
 		string Password { get; }
 		string LogIn { get; }
 		string LogInNotPossible { get; }
+		string Articles { get; }
+		string Gallery { get; }
+		string Logs { get; }
+		string Statistics { get; }
+		string Info { get; }
 	}
 }
