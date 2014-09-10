@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using myProducts.Xamarin.Common.Locale;
 using myProducts.Xamarin.Common.Locale.Languages;
+using myProducts.Xamarin.Common.Networking;
+using myProducts.Xamarin.Contracts.Networking;
 using myProducts.Xamarin.Views.Contracts;
 
 namespace myProducts.Xamarin.Views.Pages
@@ -20,9 +22,17 @@ namespace myProducts.Xamarin.Views.Pages
 
 			WirePages(builder);
 			WireLanguage(builder);
+			WireServices(builder);
 			WirePlatformDependentServices(builder);
 
 			_container = builder.Build();
+		}
+
+		private void WireServices(ContainerBuilder builder)
+		{
+			builder.RegisterType<TokenManager>()
+				.As<ITokenManager>()
+				.SingleInstance();
 		}
 
 		private void WireLanguage(ContainerBuilder builder)
