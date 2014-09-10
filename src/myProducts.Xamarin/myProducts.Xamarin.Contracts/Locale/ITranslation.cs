@@ -22,5 +22,7 @@
 		string Logs { get; }
 		string Statistics { get; }
 		string Info { get; }
+		string Overview { get; }
+		string Search { get; }
 	}
 }

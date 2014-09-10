@@ -63,5 +63,15 @@ namespace myProducts.Xamarin.Common.Locale.Languages
 		{
 			get { return "Info"; }
 		}
+
+		public string Overview
+		{
+			get { return "Overview"; }
+		}
+
+		public string Search
+		{
+			get { return "Search"; }
+		}
 	}
 }
