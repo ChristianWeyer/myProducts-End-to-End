@@ -88,6 +88,16 @@ namespace myProducts.Xamarin.Views.Pages
 			get { return _container.Resolve<ArticlesPage>(); }
 		}
 
+		public ArticleDetailPage ArticleDetailPage
+		{
+			get { return _container.Resolve<ArticleDetailPage>(); }
+		}
+
+		public ArticleMasterPage ArticleMasterPage
+		{
+			get { return _container.Resolve<ArticleMasterPage>(); }
+		}
+
 		protected abstract void WirePlatformDependentServices(ContainerBuilder builder);
 	}
 }
