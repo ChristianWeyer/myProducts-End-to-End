@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace myProducts.Xamarin.Views.Pages
 {
-	public class LoginPage : ContentPage
+	public class LoginPage : BasePage
 	{
 		private readonly ILoginPageViewModel _viewModel;
 		private readonly ITranslation _translation;
@@ -41,9 +41,9 @@ namespace myProducts.Xamarin.Views.Pages
 			var errorLabel = CreateErrorLabel();
 
 			stackLayout.Children.AddRange(userLoginLabel, errorLabel, userNameEntry,
-				passwordEntry, loginButton, new Footer());
+				passwordEntry, loginButton);
 
-			Content = stackLayout;
+			SetScrollViewContent(stackLayout);
 		}
 
 		private Label CreateErrorLabel()

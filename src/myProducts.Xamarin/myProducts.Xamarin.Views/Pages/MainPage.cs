@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace myProducts.Xamarin.Views.Pages
 {
-	public class MainPage : ContentPage
+	public class MainPage : BasePage
 	{
 		private readonly ITranslation _translation;
 
@@ -35,7 +35,7 @@ namespace myProducts.Xamarin.Views.Pages
 			AddHubItemToGrid(gridLayout, statisticBox, 1, 1);
 			AddHubItemToGrid(gridLayout, infoBox, 2, 0);
 
-			Content = gridLayout;
+			SetScrollViewContent(gridLayout);
 		}
 
 		private void AddHubItemToGrid(Grid grid, MainPageHubItem item, int row, int column)

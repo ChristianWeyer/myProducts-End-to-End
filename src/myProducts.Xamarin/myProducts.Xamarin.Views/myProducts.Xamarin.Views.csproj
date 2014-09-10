@@ -40,6 +40,7 @@
     <Compile Include="Contracts\IViewLocator.cs" />
     <Compile Include="Extensions\PageExtensions.cs" />
     <Compile Include="Extensions\ViewExtensions.cs" />
+    <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\BaseViewLocator.cs" />
     <Compile Include="Pages\MainPage.cs" />
