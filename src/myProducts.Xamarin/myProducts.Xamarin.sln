@@ -4,14 +4,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Xamarin.Android", "myProducts.Xamarin.Android\myProducts.Xamarin.Android.csproj", "{46F1EEDC-087C-475E-B2CE-A82148CA1D28}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A0EAAD39-6DCD-4341-A41B-B398BE366CB3} = {A0EAAD39-6DCD-4341-A41B-B398BE366CB3}
+		{74AD7847-2789-4555-B372-876ACF747137} = {74AD7847-2789-4555-B372-876ACF747137}
+		{6F847F88-E5D2-40C7-8817-1E95679D9313} = {6F847F88-E5D2-40C7-8817-1E95679D9313}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Xamarin.iOS", "myProducts.Xamarin.iOS\myProducts.Xamarin.iOS.csproj", "{68D89E71-71C5-4C88-9B38-F6807F4F22E7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A0EAAD39-6DCD-4341-A41B-B398BE366CB3} = {A0EAAD39-6DCD-4341-A41B-B398BE366CB3}
+		{74AD7847-2789-4555-B372-876ACF747137} = {74AD7847-2789-4555-B372-876ACF747137}
+		{6F847F88-E5D2-40C7-8817-1E95679D9313} = {6F847F88-E5D2-40C7-8817-1E95679D9313}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Xamarin.Contracts", "myProducts.Xamarin.Contracts\myProducts.Xamarin.Contracts.csproj", "{A0EAAD39-6DCD-4341-A41B-B398BE366CB3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Xamarin.Views", "myProducts.Xamarin.Views\myProducts.Xamarin.Views.csproj", "{C41B4700-F117-4B62-AD61-AADC47030D3A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Xamarin.WindowsPhone", "myProducts.Xamarin.WindowsPhone\myProducts.Xamarin.WindowsPhone.csproj", "{2448CBC8-EA6D-47CD-999C-5883DC930E62}"
+	ProjectSection(ProjectDependencies) = postProject
+		{74AD7847-2789-4555-B372-876ACF747137} = {74AD7847-2789-4555-B372-876ACF747137}
+		{6F847F88-E5D2-40C7-8817-1E95679D9313} = {6F847F88-E5D2-40C7-8817-1E95679D9313}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Xamarin.Common", "myProducts.Xamarin.Common\myProducts.Xamarin.Common.csproj", "{6F847F88-E5D2-40C7-8817-1E95679D9313}"
 EndProject
