@@ -10,6 +10,7 @@ namespace myProducts.Xamarin.Common.Networking
 	{
 		private const string PagedArticlesUrlTemplate = "articles?$inlinecount=allpages&$top={0}&$skip={1}";
 		private const string SearchUrlTemplate = "&$filter=substringof('{0}',tolower(Name))";
+		private const string SingleArticleUrlTemplate = "articles/{0}";
 
 		public ArticlesServiceClient(ITokenManager tokenManager) 
 			: base(tokenManager) {}
@@ -26,6 +27,14 @@ namespace myProducts.Xamarin.Common.Networking
 
 			var response = await Get<PageResult<ArticleDto>>(requestUrl);
 			return response.Items;
+		}
+
+		public async Task<ArticleDetailDto> GetArticleBy(Guid id)
+		{
+			var requestUrl = String.Format(SingleArticleUrlTemplate, id);
+
+			var response = await Get<ArticleDetailDto>(requestUrl);
+			return response;
 		}
 	}
 }

@@ -38,6 +38,7 @@
     <Compile Include="Components\Footer.cs" />
     <Compile Include="Components\MainPageHubItem.cs" />
     <Compile Include="Contracts\IViewLocator.cs" />
+    <Compile Include="Converters\ArticleImageToUriImageSourceConverter.cs" />
     <Compile Include="Extensions\PageExtensions.cs" />
     <Compile Include="Extensions\ViewExtensions.cs" />
     <Compile Include="Pages\ArticleDetailPage.cs" />

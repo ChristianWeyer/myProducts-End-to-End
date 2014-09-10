@@ -15,6 +15,7 @@ namespace myProducts.Xamarin.Views.Pages
 	{
 		private readonly ITranslation _translation;
 		private readonly IArticleMasterPageViewModel _viewModel;
+		private ListView _listView;
 
 		public ArticleMasterPage(ITranslation translation, IArticleMasterPageViewModel viewModel)
 		{
@@ -49,7 +50,8 @@ namespace myProducts.Xamarin.Views.Pages
 
 		private ListView CreateListView()
 		{
-			var listView = new ListView()
+			
+			ListView = new ListView()
 			{
 				RowHeight = 80,
 				VerticalOptions = LayoutOptions.FillAndExpand,
@@ -87,10 +89,16 @@ namespace myProducts.Xamarin.Views.Pages
 				}),
 			};
 
-			listView.ItemAppearing += ListViewItemAppearing;
+			ListView.ItemAppearing += ListViewItemAppearing;
 
-			listView.SetBinding<IArticleMasterPageViewModel>(ListView.ItemsSourceProperty, m => m.Items);
-			return listView;
+			ListView.SetBinding<IArticleMasterPageViewModel>(ListView.ItemsSourceProperty, m => m.Items);
+			return ListView;
+		}
+
+		public ListView ListView
+		{
+			get { return _listView; }
+			private set { _listView = value; }
 		}
 
 		private async void ListViewItemAppearing(object sender, ItemVisibilityEventArgs e)

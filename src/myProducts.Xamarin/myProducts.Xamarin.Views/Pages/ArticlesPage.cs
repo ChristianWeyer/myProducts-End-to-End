@@ -1,4 +1,5 @@
-﻿using myProducts.Xamarin.Contracts.ViewModels;
+﻿using MyProducts.Services.DTOs;
+using myProducts.Xamarin.Contracts.ViewModels;
 using myProducts.Xamarin.Views.Contracts;
 using Xamarin.Forms;
 
@@ -30,7 +31,30 @@ namespace myProducts.Xamarin.Views.Pages
 
 		private ArticleMasterPage CreateMaster()
 		{
-			return _viewLocator.ArticleMasterPage;
+			var masterPage =  _viewLocator.ArticleMasterPage;
+
+			masterPage.ListView.ItemSelected += ListViewItemSelected;
+
+			return masterPage;
+		}
+
+		private async void ListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
+		{
+			var articleDetailPage = Detail as ArticleDetailPage;
+			if (articleDetailPage == null)
+			{
+				return;
+			}
+
+			var item = e.SelectedItem as ArticleDto;
+			if (item == null)
+			{
+				return;
+			}
+
+
+			await articleDetailPage.ViewModel.DownloadArticleBy(item.Id);
+			IsPresented = false;
 		}
 
 		protected override void OnAppearing()
