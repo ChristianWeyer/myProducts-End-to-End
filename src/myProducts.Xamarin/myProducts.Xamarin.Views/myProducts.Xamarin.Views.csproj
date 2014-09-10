@@ -41,6 +41,7 @@
     <Compile Include="Extensions\ViewExtensions.cs" />
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\BaseViewLocator.cs" />
+    <Compile Include="Pages\MainPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

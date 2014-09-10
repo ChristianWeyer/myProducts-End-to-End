@@ -10,5 +10,6 @@ namespace myProducts.Xamarin.Contracts.ViewModels
 		bool ErrorOccured { get; set; }
 
 		ICommand LogInCommand { get; set; }
+		ICommand NavigateToMainPageCommand { get; set; }
 	}
 }

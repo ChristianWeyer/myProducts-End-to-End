@@ -6,5 +6,6 @@ namespace myProducts.Xamarin.Views.Contracts
 	public interface IViewLocator
 	{
 		LoginPage LoginPage { get; }
+		MainPage MainPage { get; }
 	}
 }

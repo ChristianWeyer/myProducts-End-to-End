@@ -14,6 +14,7 @@ namespace myProducts.Xamarin.ViewModels
 		private string _password;
 		private ICommand _logInCommand;
 		private bool _errorOccured;
+		private ICommand _navigateToMainPageCommand;
 
 		public LoginPageViewModel(ITokenManager tokenManager)
 		{
@@ -28,6 +29,7 @@ namespace myProducts.Xamarin.ViewModels
 			{
 				await _tokenManager.RequestToken(UserName, Password);
 				ErrorOccured = false;
+				NavigateToMainPageCommand.Execute(null);
 			}
 			catch (UnauthorizedAccessException ex)
 			{
@@ -57,6 +59,12 @@ namespace myProducts.Xamarin.ViewModels
 		{
 			get { return _logInCommand; }
 			set { Set(ref _logInCommand, value); }
+		}
+
+		public ICommand NavigateToMainPageCommand
+		{
+			get { return _navigateToMainPageCommand; }
+			set { Set(ref _navigateToMainPageCommand, value); }
 		}
 	}
 }

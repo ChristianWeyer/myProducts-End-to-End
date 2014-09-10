@@ -1,6 +1,7 @@
 ﻿using myProducts.Xamarin.Contracts.Locale;
 using myProducts.Xamarin.Contracts.ViewModels;
 using myProducts.Xamarin.Views.Components;
+using myProducts.Xamarin.Views.Contracts;
 using myProducts.Xamarin.Views.Extensions;
 using Xamarin.Forms;
 
@@ -11,9 +12,10 @@ namespace myProducts.Xamarin.Views.Pages
 		private readonly ILoginPageViewModel _viewModel;
 		private readonly ITranslation _translation;
 
-		public LoginPage(ILoginPageViewModel viewModel, ITranslation translation)
+		public LoginPage(ILoginPageViewModel viewModel, ITranslation translation, IViewLocator viewLocator)
 		{
 			_viewModel = viewModel;
+			_viewModel.NavigateToMainPageCommand = new Command(async () => await Navigation.PushAsync(viewLocator.MainPage));
 			BindingContext = _viewModel;
 			
 			_translation = translation;

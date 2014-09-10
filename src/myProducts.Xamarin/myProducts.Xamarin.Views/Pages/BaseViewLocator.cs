@@ -27,8 +27,16 @@ namespace myProducts.Xamarin.Views.Pages
 			WireLanguage(builder);
 			WireServices(builder);
 			WirePlatformDependentServices(builder);
+			WireViewLocator(builder);
 
 			_container = builder.Build();
+		}
+
+		private void WireViewLocator(ContainerBuilder builder)
+		{
+			builder.Register(context => this)
+				.As<IViewLocator>()
+				.SingleInstance();
 		}
 
 		private void WireViewModels(ContainerBuilder builder)
@@ -59,11 +67,17 @@ namespace myProducts.Xamarin.Views.Pages
 		private void WirePages(ContainerBuilder builder)
 		{
 			builder.RegisterType<LoginPage>();
+			builder.RegisterType<MainPage>();
 		}
 
 		public LoginPage LoginPage
 		{
 			get { return _container.Resolve<LoginPage>(); }
+		}
+
+		public MainPage MainPage
+		{
+			get { return _container.Resolve<MainPage>(); }
 		}
 
 		protected abstract void WirePlatformDependentServices(ContainerBuilder builder);
