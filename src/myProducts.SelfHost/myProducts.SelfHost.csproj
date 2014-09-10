@@ -152,30 +152,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\myProducts.Web\images\0.jpg">
-      <Link>images\0.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\myProducts.Web\images\1.jpg">
-      <Link>images\1.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\myProducts.Web\images\2.jpg">
-      <Link>images\2.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\myProducts.Web\images\3.jpg">
-      <Link>images\3.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\myProducts.Web\images\4.jpg">
-      <Link>images\4.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\myProducts.Web\images\5.jpg">
-      <Link>images\5.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="data\ProductsDemo.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -226,6 +202,7 @@
 xcopy "$(SolutionDir)myProducts.Web\assets\*.*" "$(TargetDir)client\assets\" /E /I /F /Y
 xcopy "$(SolutionDir)myProducts.Web\libs\*.*" "$(TargetDir)client\libs\" /E /I /F /Y
 xcopy "$(SolutionDir)myProducts.Web\mobile\*.*" "$(TargetDir)client\mobile\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\images\*.*" "$(TargetDir)images\" /E /I /F /Y
 
 cd $(SolutionDir)tools
 build_index.html.bat
