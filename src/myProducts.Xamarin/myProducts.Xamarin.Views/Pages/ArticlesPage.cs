@@ -32,5 +32,10 @@ namespace myProducts.Xamarin.Views.Pages
 		{
 			return _viewLocator.ArticleMasterPage;
 		}
+
+		protected override void OnAppearing()
+		{
+			IsPresented = true;
+		}
 	}
 }
