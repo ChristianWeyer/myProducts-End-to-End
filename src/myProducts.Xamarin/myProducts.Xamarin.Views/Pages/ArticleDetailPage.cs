@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace myProducts.Xamarin.Views.Pages
 {
-	public class ArticleDetailPage : ContentPage
+	public class ArticleDetailPage : BasePage
 	{
 		private readonly ITranslation _translation;
 		private readonly IArticleDetailPageViewModel _viewModel;
@@ -40,7 +40,7 @@ namespace myProducts.Xamarin.Views.Pages
 			stackLayout.SetBinding<IArticleDetailPageViewModel>(StackLayout.BindingContextProperty, m => m.ArticleDetail);
 			stackLayout.Children.AddRange(nameBox, codeBox, descriptionBox, image);
 
-			Content = stackLayout;
+			SetScrollViewContent(stackLayout);
 		}
 
 		private StackLayout CreateNameBox()
