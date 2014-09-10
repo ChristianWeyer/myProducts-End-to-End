@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ArticleMasterPageViewModel.cs" />
     <Compile Include="BindableBase.cs" />
     <Compile Include="LoginPageViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -52,6 +53,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\myProducts.Xamarin.Common\myProducts.Xamarin.Common.csproj">
+      <Project>{6F847F88-E5D2-40C7-8817-1E95679D9313}</Project>
+      <Name>myProducts.Xamarin.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\myProducts.Xamarin.Contracts\myProducts.Xamarin.Contracts.csproj">
       <Project>{A0EAAD39-6DCD-4341-A41B-B398BE366CB3}</Project>
       <Name>myProducts.Xamarin.Contracts</Name>
