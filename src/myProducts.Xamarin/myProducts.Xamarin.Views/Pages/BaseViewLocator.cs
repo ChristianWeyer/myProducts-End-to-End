@@ -71,6 +71,8 @@ namespace myProducts.Xamarin.Views.Pages
 			builder.RegisterType<LoginPage>();
 			builder.RegisterType<MainPage>();
 			builder.RegisterType<ArticlesPage>();
+			builder.RegisterType<ArticleDetailPage>();
+			builder.RegisterType<ArticleMasterPage>();
 		}
 
 		public LoginPage LoginPage
