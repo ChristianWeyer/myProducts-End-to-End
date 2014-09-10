@@ -9,13 +9,12 @@ using myProducts.Xamarin.Contracts.ViewModels;
 
 namespace myProducts.Xamarin.ViewModels
 {
-	public class ArticleMasterPageViewModel : BindableBase, IArticleMasterPageViewModel
+	public class ArticleMasterPageViewModel : BaseViewModel, IArticleMasterPageViewModel
 	{
 		private ObservableCollection<ArticleDto> _items;
 		private readonly IArticlesServiceClient _articlesServiceClient;
 		private int _pageSize = 10;
 		private int _currentPage = 1;
-		private bool _isDownloading;
 
 		public ArticleMasterPageViewModel(IArticlesServiceClient articlesServiceClient)
 		{
@@ -28,30 +27,25 @@ namespace myProducts.Xamarin.ViewModels
 			set { Set(ref _items, value); }
 		}
 
-		public bool IsDownloading
-		{
-			get { return _isDownloading; }
-			set { Set(ref _isDownloading, value); }
-		}
 
 		public async Task DownloadPagedArticles()
 		{
-			IsDownloading = true;
+			IsBusy = true;
 			
 			var data = await _articlesServiceClient.GetPaged(_pageSize, _currentPage, String.Empty);
 			Items.AddRange(data);
-			
-			IsDownloading = false;
+
+			IsBusy = false;
 		}
 
 		public async Task DownloadMorePagedArticles()
 		{
-			IsDownloading = true;
+			IsBusy = true;
 	
 			var data = await _articlesServiceClient.GetPaged(_pageSize, ++_currentPage, String.Empty);
 			Items.AddRange(data);
 
-			IsDownloading = false;
+			IsBusy = false;
 		}
 	}
 }

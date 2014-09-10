@@ -2,7 +2,7 @@
 
 namespace myProducts.Xamarin.Contracts.ViewModels
 {
-	public interface ILoginPageViewModel
+	public interface ILoginPageViewModel : IBusyIndicator
 	{
 		/// <summary>
 		/// The actual username

@@ -40,6 +40,8 @@ namespace myProducts.Xamarin.Views.Pages
 			var loginButton = CreateLogInButton();
 			var errorLabel = CreateErrorLabel();
 
+			this.SetBinding<ILoginPageViewModel>(IsBusyProperty, m => m.IsBusy);
+
 			stackLayout.Children.AddRange(userLoginLabel, errorLabel, userNameEntry,
 				passwordEntry, loginButton);
 

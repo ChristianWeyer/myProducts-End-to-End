@@ -31,8 +31,9 @@ namespace myProducts.Xamarin.Views.Pages
 		{
 			Title = _translation.Overview;
 
+			this.SetBinding<IArticleMasterPageViewModel>(IsBusyProperty, m => m.IsBusy);
+
 			var listView = CreateListView();
-			var activityIndicator = CreateActivityIndicator();
 
 			Content = new StackLayout()
 			{
@@ -41,24 +42,9 @@ namespace myProducts.Xamarin.Views.Pages
 				Children =
 				{
 					listView,
-					activityIndicator,
 					new Footer(),
 				}
 			};
-		}
-
-		private ActivityIndicator CreateActivityIndicator()
-		{
-			var indicator = new ActivityIndicator()
-			{
-				IsRunning = true,
-				IsVisible = false,
-				VerticalOptions = LayoutOptions.End,
-				HorizontalOptions = LayoutOptions.Center
-			};
-			indicator.SetBinding<IArticleMasterPageViewModel>(ActivityIndicator.IsVisibleProperty, m => m.IsDownloading);
-
-			return indicator;
 		}
 
 		private ListView CreateListView()

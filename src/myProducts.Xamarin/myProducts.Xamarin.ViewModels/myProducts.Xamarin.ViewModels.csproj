@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ArticleMasterPageViewModel.cs" />
+    <Compile Include="BaseViewModel.cs" />
     <Compile Include="BindableBase.cs" />
     <Compile Include="LoginPageViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />

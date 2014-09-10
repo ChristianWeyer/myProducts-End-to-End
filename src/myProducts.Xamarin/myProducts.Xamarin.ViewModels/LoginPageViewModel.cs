@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace myProducts.Xamarin.ViewModels
 {
-	public class LoginPageViewModel : BindableBase, ILoginPageViewModel
+	public class LoginPageViewModel : BaseViewModel, ILoginPageViewModel
 	{
 		private readonly ITokenManager _tokenManager;
 		private string _userName;
@@ -27,13 +27,18 @@ namespace myProducts.Xamarin.ViewModels
 		{
 			try
 			{
+				IsBusy = true;
+				
 				await _tokenManager.RequestToken(UserName, Password);
 				ErrorOccured = false;
+				IsBusy = false;
+
 				NavigateToMainPageCommand.Execute(null);
 			}
 			catch (UnauthorizedAccessException ex)
 			{
 				ErrorOccured = true;
+				IsBusy = false;
 			}
 		}
 

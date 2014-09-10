@@ -58,6 +58,7 @@
     <Compile Include="Networking\ITokenManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\IArticleMasterPageViewModel.cs" />
+    <Compile Include="ViewModels\IBusyIndicator.cs" />
     <Compile Include="ViewModels\ILoginPageViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

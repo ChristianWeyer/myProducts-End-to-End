@@ -6,11 +6,9 @@ using MyProducts.Services.DTOs;
 
 namespace myProducts.Xamarin.Contracts.ViewModels
 {
-	public interface IArticleMasterPageViewModel
+	public interface IArticleMasterPageViewModel : IBusyIndicator
 	{
 		ObservableCollection<ArticleDto> Items { get; set; }
-
-		bool IsDownloading { get; set; }
 
 		Task DownloadPagedArticles();
 		Task DownloadMorePagedArticles();
