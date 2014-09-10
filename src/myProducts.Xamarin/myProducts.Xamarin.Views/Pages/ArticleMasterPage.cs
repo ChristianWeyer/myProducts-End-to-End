@@ -22,6 +22,7 @@ namespace myProducts.Xamarin.Views.Pages
 			_viewModel = viewModel;
 			BindingContext = _viewModel;
 			CreateUI();
+			this.SetDefaultPadding();
 		}
 
 // ReSharper disable InconsistentNaming
@@ -50,9 +51,12 @@ namespace myProducts.Xamarin.Views.Pages
 		{
 			var indicator = new ActivityIndicator()
 			{
-				IsRunning = false,
+				IsRunning = true,
+				IsVisible = false,
+				VerticalOptions = LayoutOptions.End,
+				HorizontalOptions = LayoutOptions.Center
 			};
-			indicator.SetBinding<IArticleMasterPageViewModel>(ActivityIndicator.IsRunningProperty, m => m.IsDownloading);
+			indicator.SetBinding<IArticleMasterPageViewModel>(ActivityIndicator.IsVisibleProperty, m => m.IsDownloading);
 
 			return indicator;
 		}
@@ -62,6 +66,8 @@ namespace myProducts.Xamarin.Views.Pages
 			var listView = new ListView()
 			{
 				RowHeight = 80,
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				HorizontalOptions = LayoutOptions.FillAndExpand,
 				ItemTemplate = new DataTemplate(() =>
 				{
 					var stackLayout = new StackLayout()
@@ -73,6 +79,7 @@ namespace myProducts.Xamarin.Views.Pages
 					var nameLabel = new Label()
 					{
 						Font = Font.SystemFontOfSize(NamedSize.Medium),
+						HorizontalOptions = LayoutOptions.FillAndExpand,
 						VerticalOptions = LayoutOptions.Start,
 					};
 					nameLabel.SetBinding<ArticleDto>(Label.TextProperty, m => m.Name);
@@ -80,6 +87,7 @@ namespace myProducts.Xamarin.Views.Pages
 					var codeLabel = new Label()
 					{
 						Font = Font.SystemFontOfSize(NamedSize.Small),
+						HorizontalOptions = LayoutOptions.FillAndExpand,
 						VerticalOptions = LayoutOptions.Start,
 					};
 					codeLabel.SetBinding<ArticleDto>(Label.TextProperty, m => m.Code);

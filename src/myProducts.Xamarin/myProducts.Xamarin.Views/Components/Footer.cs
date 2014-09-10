@@ -13,7 +13,7 @@ namespace myProducts.Xamarin.Views.Components
 		private void CreateUI()
 // ReSharper restore InconsistentNaming
 		{
-			VerticalOptions = LayoutOptions.EndAndExpand;
+			VerticalOptions = LayoutOptions.End;
 			HorizontalOptions = LayoutOptions.FillAndExpand;
 
 			Content = new Label()
