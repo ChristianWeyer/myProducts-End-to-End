@@ -24,5 +24,8 @@
 		string Info { get; }
 		string Overview { get; }
 		string Search { get; }
+		string Name { get; }
+		string Code { get; }
+		string Description { get; }
 	}
 }
