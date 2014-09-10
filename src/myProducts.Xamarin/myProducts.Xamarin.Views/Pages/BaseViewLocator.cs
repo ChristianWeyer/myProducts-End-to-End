@@ -3,6 +3,8 @@ using myProducts.Xamarin.Common.Locale;
 using myProducts.Xamarin.Common.Locale.Languages;
 using myProducts.Xamarin.Common.Networking;
 using myProducts.Xamarin.Contracts.Networking;
+using myProducts.Xamarin.Contracts.ViewModels;
+using myProducts.Xamarin.ViewModels;
 using myProducts.Xamarin.Views.Contracts;
 
 namespace myProducts.Xamarin.Views.Pages
@@ -21,11 +23,18 @@ namespace myProducts.Xamarin.Views.Pages
 			var builder = new ContainerBuilder();
 
 			WirePages(builder);
+			WireViewModels(builder);
 			WireLanguage(builder);
 			WireServices(builder);
 			WirePlatformDependentServices(builder);
 
 			_container = builder.Build();
+		}
+
+		private void WireViewModels(ContainerBuilder builder)
+		{
+			builder.RegisterType<LoginPageViewModel>()
+				.As<ILoginPageViewModel>();
 		}
 
 		private void WireServices(ContainerBuilder builder)

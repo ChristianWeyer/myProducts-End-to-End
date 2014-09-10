@@ -9,5 +9,6 @@
 		string UserName { get; }
 		string Password { get; }
 		string LogIn { get; }
+		string LogInNotPossible { get; }
 	}
 }

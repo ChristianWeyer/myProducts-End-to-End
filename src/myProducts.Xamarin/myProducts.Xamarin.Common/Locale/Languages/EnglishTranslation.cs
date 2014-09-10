@@ -33,5 +33,10 @@ namespace myProducts.Xamarin.Common.Locale.Languages
 		{
 			get { return "Log in"; }
 		}
+
+		public string LogInNotPossible
+		{
+			get { return "Login failed."; }
+		}
 	}
 }

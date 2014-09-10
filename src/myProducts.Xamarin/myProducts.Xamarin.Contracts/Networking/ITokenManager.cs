@@ -1,8 +1,10 @@
-﻿namespace myProducts.Xamarin.Contracts.Networking
+﻿using System.Threading.Tasks;
+
+namespace myProducts.Xamarin.Contracts.Networking
 {
 	public interface ITokenManager
 	{
 		string Token { get; }
-		void RequestToken(string userName, string password);
+		Task RequestToken(string userName, string password);
 	}
 }

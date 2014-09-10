@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using myProducts.Xamarin.Contracts.Networking;
 using Thinktecture.IdentityModel.Client;
 
@@ -17,10 +18,10 @@ namespace myProducts.Xamarin.Common.Networking
 			}
 		}
 
-		public void RequestToken(string userName, string password)
+		public async Task RequestToken(string userName, string password)
 		{
 			var client = new OAuth2Client(new Uri(TokenUrl));
-			var token = client.RequestResourceOwnerPasswordAsync("cw", "cw").Result;
+			var token = await client.RequestResourceOwnerPasswordAsync(userName, password);
 
 			if (token.IsError
 			    || token.IsHttpError)
