@@ -2,7 +2,14 @@
 {
 	public interface ITranslation
 	{
+		/// <summary>
+		/// Two letter iso code (e.g. "de", "en")
+		/// </summary>
 		string IsoCode { get;}
+
+		/// <summary>
+		/// Set to true, to use it as a default, if device's language is not found
+		/// </summary>
 		bool IsDefault { get; }
 
 		string UserLogin { get; }
