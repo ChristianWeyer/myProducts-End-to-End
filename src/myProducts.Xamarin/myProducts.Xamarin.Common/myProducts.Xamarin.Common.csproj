@@ -41,6 +41,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\ObserverableCollectionExtensions.cs" />
     <Compile Include="Locale\LanguageManager.cs" />
     <Compile Include="Locale\Languages\EnglishTranslation.cs" />
     <Compile Include="Locale\Languages\GermanTranslation.cs" />
