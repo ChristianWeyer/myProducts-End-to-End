@@ -235,9 +235,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ProductsDemo.sdf" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\0.jpg" />
+    <Content Include="images\1.jpg" />
+    <Content Include="images\10.jpg" />
+    <Content Include="images\11.jpg" />
+    <Content Include="images\12.jpg" />
+    <Content Include="images\13.jpg" />
+    <Content Include="images\14.jpg" />
+    <Content Include="images\15.jpg" />
+    <Content Include="images\2.jpg" />
+    <Content Include="images\3.jpg" />
+    <Content Include="images\4.jpg" />
+    <Content Include="images\5.jpg" />
+    <Content Include="images\6.jpg" />
+    <Content Include="images\7.jpg" />
+    <Content Include="images\8.jpg" />
+    <Content Include="images\9.jpg" />
     <Content Include="libs\50_AngularStuff\angular-nvd3.js" />
     <Content Include="libs\50_AngularStuff\angular-ui-router.js" />
     <Content Include="app\articleDetails\articleDetails.html" />
@@ -344,18 +361,11 @@
     <Content Include="app\login\login.html" />
     <Content Include="app\articles\articles.html" />
     <Content Include="App_Data\MyProducts.Services.XML" />
-    <Content Include="App_Data\ProductsDemo.sdf" />
     <Content Include="cordova.js" />
     <Content Include="app\font\fontawesome-webfont.eot" />
     <Content Include="app\font\fontawesome-webfont.ttf" />
     <Content Include="app\font\fontawesome-webfont.woff" />
     <Content Include="app\font\FontAwesome.otf" />
-    <Content Include="images\1.jpg" />
-    <Content Include="images\2.jpg" />
-    <Content Include="images\3.jpg" />
-    <Content Include="images\4.jpg" />
-    <Content Include="images\5.jpg" />
-    <Content Include="images\0.jpg" />
     <Content Include="app\main.js" />
     <Content Include="index.html" />
     <Content Include="mobile\assets\mobile.css" />
