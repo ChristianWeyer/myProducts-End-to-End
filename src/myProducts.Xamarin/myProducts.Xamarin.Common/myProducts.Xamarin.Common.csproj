@@ -45,6 +45,7 @@
     <Compile Include="Locale\LanguageManager.cs" />
     <Compile Include="Locale\Languages\EnglishTranslation.cs" />
     <Compile Include="Locale\Languages\GermanTranslation.cs" />
+    <Compile Include="Networking\ArticlesServiceClient.cs" />
     <Compile Include="Networking\BaseServiceClient.cs" />
     <Compile Include="Networking\PageResult.cs" />
     <Compile Include="Networking\TokenManager.cs" />
