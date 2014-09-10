@@ -43,8 +43,6 @@ namespace myProducts.Xamarin.Views.Pages
 		{
 			builder.RegisterType<LoginPageViewModel>()
 				.As<ILoginPageViewModel>();
-			builder.RegisterType<ArticlesPageViewModel>()
-				.As<IArticlesPageViewModel>();
 		}
 
 		private void WireServices(ContainerBuilder builder)
