@@ -45,6 +45,7 @@
     <Compile Include="Locale\LanguageManager.cs" />
     <Compile Include="Locale\Languages\EnglishTranslation.cs" />
     <Compile Include="Locale\Languages\GermanTranslation.cs" />
+    <Compile Include="Networking\ArticlesHub.cs" />
     <Compile Include="Networking\ArticlesServiceClient.cs" />
     <Compile Include="Networking\BaseServiceClient.cs" />
     <Compile Include="Networking\PageResult.cs" />
@@ -52,9 +53,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Client">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.1.1\lib\portable-net45+sl5+netcore45+wp8+wp81+wpa81\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\portable-net45+wp80+win8\Newtonsoft.Json.dll</HintPath>
     </Reference>

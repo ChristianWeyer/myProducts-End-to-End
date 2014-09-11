@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Locale\ILanguageManager.cs" />
     <Compile Include="Locale\ITranslation.cs" />
+    <Compile Include="Networking\IArticlesHub.cs" />
     <Compile Include="Networking\IArticlesServiceClient.cs" />
     <Compile Include="Networking\ITokenManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

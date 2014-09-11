@@ -8,8 +8,8 @@ namespace myProducts.Xamarin.Views.Components
 	{
 		private readonly string _text;
 		private readonly Color _boxColor;
-		private readonly Color _textColor;
 		private readonly ICommand _navigationCommand;
+		private readonly Color _textColor;
 		private BoxView _boxView;
 		private ContentView _label;
 
@@ -17,13 +17,15 @@ namespace myProducts.Xamarin.Views.Components
 
 		public BoxView BoxView { get { return _boxView; } }
 
-		public MainPageHubItem(string text, Color textColor, Color boxColor, ICommand navigationCommand)
+		public MainPageHubItem(string text, Color boxColor, ICommand navigationCommand) 
+			: this(text, boxColor, navigationCommand, Color.Default) {}
+
+		public MainPageHubItem(string text, Color boxColor, ICommand navigationCommand, Color textColor)
 		{
 			_text = text;
 			_boxColor = boxColor;
-			_textColor = textColor;
 			_navigationCommand = navigationCommand;
-
+			_textColor = textColor;
 			CreateUI();
 		}
 
@@ -45,7 +47,7 @@ namespace myProducts.Xamarin.Views.Components
 				Content = new Label()
 				{
 					Text = _text,
-					TextColor = _textColor
+					TextColor = _textColor,
 				}
 			};
 		}

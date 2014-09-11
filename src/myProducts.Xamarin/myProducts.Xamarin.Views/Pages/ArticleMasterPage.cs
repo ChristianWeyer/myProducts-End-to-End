@@ -11,16 +11,20 @@ using Xamarin.Forms;
 
 namespace myProducts.Xamarin.Views.Pages
 {
-	public class ArticleMasterPage : BasePage
+	public class ArticleMasterPage : ContentPage
 	{
 		private readonly ITranslation _translation;
 		private readonly IArticleMasterPageViewModel _viewModel;
+		private readonly IArticlesHub _articlesHub;
 		private ListView _listView;
 
-		public ArticleMasterPage(ITranslation translation, IArticleMasterPageViewModel viewModel)
+		public ArticleMasterPage(ITranslation translation, 
+			IArticleMasterPageViewModel viewModel,
+			IArticlesHub articlesHub)
 		{
 			_translation = translation;
 			_viewModel = viewModel;
+			_articlesHub = articlesHub;
 			BindingContext = _viewModel;
 			CreateUI();
 			this.SetDefaultPadding();
@@ -36,7 +40,16 @@ namespace myProducts.Xamarin.Views.Pages
 
 			var listView = CreateListView();
 
-			SetScrollViewContent(listView);
+			Content = new StackLayout()
+			{
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				Children =
+				{
+					listView,
+					new Footer(),
+				}
+			};
 		}
 
 		private ListView CreateListView()
@@ -106,6 +119,20 @@ namespace myProducts.Xamarin.Views.Pages
 		protected async override void OnAppearing()
 		{
 			await _viewModel.DownloadPagedArticles();
+			_articlesHub.OnArticleChanged += ArticleChanged;
+			await _articlesHub.Start();
+		}
+
+		private async void ArticleChanged()
+		{
+			_viewModel.Items.Clear();
+			await _viewModel.DownloadPagedArticles();
+		}
+
+		protected override void OnDisappearing()
+		{
+			_articlesHub.OnArticleChanged -= ArticleChanged;
+			_articlesHub.Stop();
 		}
 	}
 }
