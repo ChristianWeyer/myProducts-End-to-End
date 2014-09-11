@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using myProducts.Xamarin.Contracts.Networking;
 using Newtonsoft.Json;
@@ -18,7 +19,18 @@ namespace myProducts.Xamarin.Common.Networking
 			_tokenManager = tokenManager;
 			HttpClient = new HttpClient
 			{
-				BaseAddress = new Uri(ServiceUrl)
+				BaseAddress = new Uri(ServiceUrl),
+				DefaultRequestHeaders =
+				{
+					CacheControl = new CacheControlHeaderValue()
+					{
+						NoCache = true,
+					},
+					Pragma =
+					{
+						new NameValueHeaderValue("Pragma", "no-cache"),
+					},
+				}
 			};
 		}
 
