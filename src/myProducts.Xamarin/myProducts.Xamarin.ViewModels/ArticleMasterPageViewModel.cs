@@ -31,7 +31,8 @@ namespace myProducts.Xamarin.ViewModels
 		public async Task DownloadPagedArticles()
 		{
 			IsBusy = true;
-			
+
+			_currentPage = 1;
 			var data = await _articlesServiceClient.GetPaged(_pageSize, _currentPage, String.Empty);
 			Items.AddRange(data);
 
