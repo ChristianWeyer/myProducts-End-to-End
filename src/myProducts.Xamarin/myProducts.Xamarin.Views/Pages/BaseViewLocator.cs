@@ -60,6 +60,9 @@ namespace myProducts.Xamarin.Views.Pages
 			builder.RegisterType<ArticlesServiceClient>()
 				.As<IArticlesServiceClient>()
 				.SingleInstance();
+
+			builder.RegisterType<ArticlesHub>()
+				.As<IArticlesHub>();
 		}
 
 		private void WireLanguage(ContainerBuilder builder)
