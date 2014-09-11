@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace myProducts.Xamarin.Views.Pages
 {
-	public class ArticleMasterPage : BasePage
+	public class ArticleMasterPage : ContentPage
 	{
 		private readonly ITranslation _translation;
 		private readonly IArticleMasterPageViewModel _viewModel;
@@ -36,7 +36,16 @@ namespace myProducts.Xamarin.Views.Pages
 
 			var listView = CreateListView();
 
-			SetScrollViewContent(listView);
+			Content = new StackLayout()
+			{
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				Children =
+				{
+					listView,
+					new Footer(),
+				}
+			};
 		}
 
 		private ListView CreateListView()
