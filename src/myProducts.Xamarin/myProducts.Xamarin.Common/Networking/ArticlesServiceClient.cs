@@ -8,7 +8,7 @@ namespace myProducts.Xamarin.Common.Networking
 {
 	public class ArticlesServiceClient : BaseServiceClient, IArticlesServiceClient
 	{
-		private const string PagedArticlesUrlTemplate = "articles?$inlinecount=allpages&$top={0}&$skip={1}";
+		private const string PagedArticlesUrlTemplate = "articles?$inlinecount=allpages&$top={0}&$skip={1}&ts={2}";
 		private const string SearchUrlTemplate = "&$filter=substringof('{0}',tolower(Name))";
 		private const string SingleArticleUrlTemplate = "articles/{0}";
 
@@ -18,7 +18,8 @@ namespace myProducts.Xamarin.Common.Networking
 
 		public async Task<IEnumerable<ArticleDto>> GetPaged(int pageSize, int page, string searchText)
 		{
-			var requestUrl = String.Format(PagedArticlesUrlTemplate, pageSize, (page - 1) * pageSize);
+			// TODO: Temporary workaround for always getting actual data and not cached
+			var requestUrl = String.Format(PagedArticlesUrlTemplate, pageSize, (page - 1) * pageSize, DateTime.Now.Ticks);
 
 			if (!String.IsNullOrWhiteSpace(searchText))
 			{
