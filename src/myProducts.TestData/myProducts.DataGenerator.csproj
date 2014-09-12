@@ -84,6 +84,21 @@
     <Compile Include="Categories.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FabricsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FabricsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FabricsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FabricsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FabricsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FabricsModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="NorthwindModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -99,6 +114,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NorthwindModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>FabricsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Products.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
@@ -111,6 +129,23 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>NorthwindModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="FabricsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FabricsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="FabricsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FabricsModel.edmx</DependentUpon>
+      <LastGenOutput>FabricsModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="FabricsModel.edmx.diagram">
+      <DependentUpon>FabricsModel.edmx</DependentUpon>
+    </None>
+    <None Include="FabricsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FabricsModel.edmx</DependentUpon>
+      <LastGenOutput>FabricsModel.cs</LastGenOutput>
+    </None>
     <None Include="NorthwindModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>NorthwindModel.edmx</DependentUpon>

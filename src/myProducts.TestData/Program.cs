@@ -1,4 +1,5 @@
-﻿using FizzWare.NBuilder;
+﻿using System.Runtime.InteropServices;
+using FizzWare.NBuilder;
 using FizzWare.NBuilder.Implementation;
 using FizzWare.NBuilder.PropertyNaming;
 using MyProducts.Model;
@@ -17,37 +18,42 @@ namespace MyProducts.TestData
         static void Main(string[] args)
         {
             //CreateSampleData();
-            for (int i = 0; i < 100; i++)
+            //for (int i = 0; i < 100; i++)
+            //{
+            using (var fabrics = new FabricsEntities())
             {
                 using (var nw = new northwindEntities())
                 {
-                    var products = from p in nw.Products.Include("Categories")
-                                   select p;
-                    var x = products.ToList();
+                    var fabricProducts = from fp in fabrics.Products
+                                         select fp;
+                    var nwCategoriesList = (from c in nw.Categories
+                                       select c).ToList();
 
                     using (var ngmd = new ProductsContext())
                     {
                         var rnd = new Random();
 
-                        foreach (var product in products)
+                        foreach (var product in fabricProducts)
                         {
-                            var imageNumber = rnd.Next(0, 6);
+                            var imageNumber = rnd.Next(0, 16);
                             var ngArticle = new Article
                                 {
                                     Id = Guid.NewGuid(),
                                     Name = product.ProductName,
-                                    Code = product.QuantityPerUnit,
+                                    Code = product.Price.ToString(),
                                     Description =
                                         "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
                                     ImageUrl = String.Format("{0}.jpg", imageNumber)
                                 };
 
                             Category cat;
-                            var catId = product.Categories.CategoryID;
+                            var catRnd = new Random();
+                            var productCat = nwCategoriesList[catRnd.Next(0, 8)];
+                            var productCatId = productCat.CategoryID;
 
-                            if (categoryStore.ContainsKey(catId))
+                            if (categoryStore.ContainsKey(productCatId))
                             {
-                                cat = categoryStore[catId];
+                                cat = categoryStore[productCatId];
                                 ngmd.Entry(cat).State = EntityState.Unchanged;
                             }
                             else
@@ -55,24 +61,25 @@ namespace MyProducts.TestData
                                 var guid = Guid.NewGuid();
                                 cat = new Category
                                 {
-                                    Name = product.Categories.CategoryName,
-                                    Description = product.Categories.Description,
+                                    Name = productCat.CategoryName,
+                                    Description = productCat.Description,
                                     Id = guid
                                 };
-                                categoryStore.Add(catId, cat);
+                                categoryStore.Add(productCatId, cat);
                                 ngmd.Categories.Add(cat);
 
                                 ngmd.SaveChanges();
                             }
 
                             ngArticle.Category = cat;
-                            
+
                             ngmd.Articles.Add(ngArticle);
 
                             ngmd.SaveChanges();
                         }
                     }
                 }
+                //}
             }
         }
 
