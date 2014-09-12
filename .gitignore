@@ -290,4 +290,4 @@ pip-log.txt
 out/
 phonegap_tmp/
 deploy
-*.userprefs
+myProducts.Xamarin.userprefs

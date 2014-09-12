@@ -73,6 +73,7 @@
         }, true);
 
         $scope.$on(signalRSubscribe + "articleChange", function () {
+            $scope.articles.pagingOptions.moreCurrentPage = 1;
             $scope.articles.getPagedData(true);
         });
 
