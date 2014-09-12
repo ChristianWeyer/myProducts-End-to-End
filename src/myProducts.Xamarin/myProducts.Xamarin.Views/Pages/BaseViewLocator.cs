@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using myProducts.Xamarin.Common.i18n;
 using myProducts.Xamarin.Common.i18n.Languages;
-using myProducts.Xamarin.Common.Locale;
 using myProducts.Xamarin.Common.Services;
 using myProducts.Xamarin.Contracts.Services;
 using myProducts.Xamarin.Contracts.ViewModels;
