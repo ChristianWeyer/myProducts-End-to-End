@@ -24,9 +24,7 @@ namespace myProducts.Xamarin.Views.Pages
 			this.SetDefaultPadding();
 		}
 
-// ReSharper disable InconsistentNaming
 		private void CreateUI()
-// ReSharper restore InconsistentNaming
 		{
 			var gridLayout = CreateGridLayout();
 

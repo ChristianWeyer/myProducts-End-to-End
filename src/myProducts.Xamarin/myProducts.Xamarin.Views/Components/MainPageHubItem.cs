@@ -18,7 +18,7 @@ namespace myProducts.Xamarin.Views.Components
 		public BoxView BoxView { get { return _boxView; } }
 
 		public MainPageHubItem(string text, Color boxColor, ICommand navigationCommand) 
-			: this(text, boxColor, navigationCommand, Color.Default) {}
+			: this(text, boxColor, navigationCommand, Device.OnPlatform(Color.White, Color.White, Color.White)) {}
 
 		public MainPageHubItem(string text, Color boxColor, ICommand navigationCommand, Color textColor)
 		{
@@ -29,9 +29,7 @@ namespace myProducts.Xamarin.Views.Components
 			CreateUI();
 		}
 
-// ReSharper disable InconsistentNaming
 		private void CreateUI()
-// ReSharper restore InconsistentNaming
 		{
 			_boxView = CreateBox();
 			_label = CreateLabel();
@@ -56,6 +54,7 @@ namespace myProducts.Xamarin.Views.Components
 		{
 			return new BoxView()
 			{
+				Color = _boxColor,
 				BackgroundColor = _boxColor,
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				GestureRecognizers =

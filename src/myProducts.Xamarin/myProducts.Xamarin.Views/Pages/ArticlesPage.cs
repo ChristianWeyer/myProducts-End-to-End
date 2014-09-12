@@ -16,9 +16,7 @@ namespace myProducts.Xamarin.Views.Pages
 			CreateUI();
 		}
 
-// ReSharper disable InconsistentNaming
 		private void CreateUI()
-// ReSharper restore InconsistentNaming
 		{
 			Master = CreateMaster();
 			Detail = CreateDetail();
