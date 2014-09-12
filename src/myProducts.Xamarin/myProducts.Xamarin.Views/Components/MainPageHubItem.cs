@@ -1,5 +1,4 @@
 ﻿using System.Windows.Input;
-using myProducts.Xamarin.Views.Extensions;
 using Xamarin.Forms;
 
 namespace myProducts.Xamarin.Views.Components

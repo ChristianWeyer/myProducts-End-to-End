@@ -1,12 +1,6 @@
-﻿using System;
-using Android.App;
-using Android.Content;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+﻿using Android.App;
 using Android.OS;
 using myProducts.Xamarin.Android.Common;
-using myProducts.Xamarin.Views.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 

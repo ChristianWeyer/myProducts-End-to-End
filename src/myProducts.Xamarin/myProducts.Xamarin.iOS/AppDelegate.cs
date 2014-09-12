@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using MonoTouch.Foundation;
+﻿using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using myProducts.Xamarin.iOS.Common;
-using myProducts.Xamarin.Views.Pages;
 using Xamarin.Forms;
 
 namespace myProducts.Xamarin.iOS

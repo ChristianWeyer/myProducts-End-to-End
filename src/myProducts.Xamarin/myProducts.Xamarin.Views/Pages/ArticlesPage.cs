@@ -1,5 +1,4 @@
 ﻿using MyProducts.Services.DTOs;
-using myProducts.Xamarin.Contracts.ViewModels;
 using myProducts.Xamarin.Views.Contracts;
 using Xamarin.Forms;
 

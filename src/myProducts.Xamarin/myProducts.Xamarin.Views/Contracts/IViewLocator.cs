@@ -1,6 +1,4 @@
-﻿using Autofac;
-using myProducts.Xamarin.Views.Pages;
-using Xamarin.Forms;
+﻿using myProducts.Xamarin.Views.Pages;
 
 namespace myProducts.Xamarin.Views.Contracts
 {

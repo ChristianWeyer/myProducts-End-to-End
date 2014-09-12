@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using MyProducts.Services.DTOs;
+﻿using MyProducts.Services.DTOs;
 using myProducts.Xamarin.Contracts.i18n;
 using myProducts.Xamarin.Contracts.ViewModels;
 using myProducts.Xamarin.Views.Converters;
