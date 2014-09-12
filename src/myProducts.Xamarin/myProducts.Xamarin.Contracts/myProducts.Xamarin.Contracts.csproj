@@ -52,11 +52,11 @@
     <Compile Include="..\..\myProducts.Services\DTOs\LogData.cs">
       <Link>DTOs\LogData.cs</Link>
     </Compile>
-    <Compile Include="Locale\ILanguageManager.cs" />
-    <Compile Include="Locale\ITranslation.cs" />
-    <Compile Include="Networking\IArticlesHub.cs" />
-    <Compile Include="Networking\IArticlesServiceClient.cs" />
-    <Compile Include="Networking\ITokenManager.cs" />
+    <Compile Include="i18n\ILanguageManager.cs" />
+    <Compile Include="i18n\ITranslation.cs" />
+    <Compile Include="Services\IArticlesHubProxy.cs" />
+    <Compile Include="Services\IArticlesServiceClient.cs" />
+    <Compile Include="Services\ITokenManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\IArticleDetailPageViewModel.cs" />
     <Compile Include="ViewModels\IArticleMasterPageViewModel.cs" />

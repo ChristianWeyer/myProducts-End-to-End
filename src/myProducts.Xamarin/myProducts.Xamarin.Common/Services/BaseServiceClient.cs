@@ -2,10 +2,10 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using myProducts.Xamarin.Contracts.Networking;
+using myProducts.Xamarin.Contracts.Services;
 using Newtonsoft.Json;
 
-namespace myProducts.Xamarin.Common.Networking
+namespace myProducts.Xamarin.Common.Services
 {
 	public class BaseServiceClient
 	{

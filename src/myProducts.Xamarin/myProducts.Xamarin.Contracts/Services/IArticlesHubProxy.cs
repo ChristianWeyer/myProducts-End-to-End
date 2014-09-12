@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace myProducts.Xamarin.Contracts.Networking
+namespace myProducts.Xamarin.Contracts.Services
 {
-	public interface IArticlesHub
+	public interface IArticlesHubProxy
 	{
 		event Action OnArticleChanged;
 		Task Start();

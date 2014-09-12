@@ -1,4 +1,4 @@
-﻿namespace myProducts.Xamarin.Contracts.Locale
+﻿namespace myProducts.Xamarin.Contracts.i18n
 {
 	public interface ILanguageManager
 	{

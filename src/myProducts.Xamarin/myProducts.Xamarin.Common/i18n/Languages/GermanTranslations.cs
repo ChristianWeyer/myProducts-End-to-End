@@ -1,52 +1,52 @@
-﻿using myProducts.Xamarin.Contracts.Locale;
+﻿using myProducts.Xamarin.Contracts.i18n;
 
-namespace myProducts.Xamarin.Common.Locale.Languages
+namespace myProducts.Xamarin.Common.i18n.Languages
 {
-	public class EnglishTranslation : ITranslation
+	public class GermanTranslations : ITranslation
 	{
 		public string IsoCode
 		{
-			get { return "en"; }
+			get { return "de"; }
 		}
 
 		public bool IsDefault
 		{
-			get { return true; }
+			get { return false; }
 		}
 
 		public string UserLogin
 		{
-			get { return "User Login"; }
+			get { return "Anmeldung"; }
 		}
 
 		public string UserName
 		{
-			get { return "User name"; }
+			get { return "Benutzername"; }
 		}
 
 		public string Password
 		{
-			get { return "Password"; }
+			get { return "Passwort"; }
 		}
 
 		public string LogIn
 		{
-			get { return "Log in"; }
+			get { return "Anmelden"; }
 		}
 
 		public string LogInNotPossible
 		{
-			get { return "Login failed."; }
+			get { return "Anmeldung fehlgeschlagen."; }
 		}
 
 		public string Articles
 		{
-			get { return "Articles"; }
+			get { return "Artikel"; }
 		}
 
 		public string Gallery
 		{
-			get { return "Gallery"; }
+			get { return "Galerie"; }
 		}
 
 		public string Logs
@@ -56,7 +56,7 @@ namespace myProducts.Xamarin.Common.Locale.Languages
 
 		public string Statistics
 		{
-			get { return "Statistics"; }
+			get { return "Statistiken"; }
 		}
 
 		public string Info
@@ -66,12 +66,12 @@ namespace myProducts.Xamarin.Common.Locale.Languages
 
 		public string Overview
 		{
-			get { return "Overview"; }
+			get { return "Überblick"; }
 		}
 
 		public string Search
 		{
-			get { return "Search"; }
+			get { return "Suchen"; }
 		}
 
 		public string Name
@@ -86,7 +86,7 @@ namespace myProducts.Xamarin.Common.Locale.Languages
 
 		public string Description
 		{
-			get { return "Description"; }
+			get { return "Beschreibung"; }
 		}
 	}
 }

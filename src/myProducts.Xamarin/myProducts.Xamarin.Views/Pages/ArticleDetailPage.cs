@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using MyProducts.Services.DTOs;
-using myProducts.Xamarin.Contracts.Locale;
+using myProducts.Xamarin.Contracts.i18n;
 using myProducts.Xamarin.Contracts.ViewModels;
 using myProducts.Xamarin.Views.Converters;
 using myProducts.Xamarin.Views.Extensions;

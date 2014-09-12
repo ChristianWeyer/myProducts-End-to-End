@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using MyProducts.Services.DTOs;
-using myProducts.Xamarin.Contracts.Locale;
-using myProducts.Xamarin.Contracts.Networking;
+using myProducts.Xamarin.Contracts.i18n;
+using myProducts.Xamarin.Contracts.Services;
 using myProducts.Xamarin.Contracts.ViewModels;
 using myProducts.Xamarin.Views.Components;
 using myProducts.Xamarin.Views.Extensions;
@@ -15,12 +15,12 @@ namespace myProducts.Xamarin.Views.Pages
 	{
 		private readonly ITranslation _translation;
 		private readonly IArticleMasterPageViewModel _viewModel;
-		private readonly IArticlesHub _articlesHub;
+		private readonly IArticlesHubProxy _articlesHub;
 		private ListView _listView;
 
 		public ArticleMasterPage(ITranslation translation, 
 			IArticleMasterPageViewModel viewModel,
-			IArticlesHub articlesHub)
+			IArticlesHubProxy articlesHub)
 		{
 			_translation = translation;
 			_viewModel = viewModel;

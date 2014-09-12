@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using myProducts.Xamarin.Contracts.Networking;
+using myProducts.Xamarin.Contracts.Services;
 using Thinktecture.IdentityModel.Client;
 
-namespace myProducts.Xamarin.Common.Networking
+namespace myProducts.Xamarin.Common.Services
 {
 	public class TokenManager : ITokenManager
 	{

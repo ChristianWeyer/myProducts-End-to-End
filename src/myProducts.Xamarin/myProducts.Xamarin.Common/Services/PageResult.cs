@@ -4,19 +4,19 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace myProducts.Xamarin.Common.Networking
+namespace myProducts.Xamarin.Common.Services
 {
-	[JsonObject]
-	[DataContract]
+    //[JsonObject]
+    //[DataContract]
 	public class PageResult<T> : IEnumerable<T>, IEnumerable
 	{
-		[DataMember]
+        //[DataMember]
 		public IEnumerable<T> Items { get; set; }
 
-		[DataMember]
+        //[DataMember]
 		public long? Count { get; set; }
 
-		[DataMember]
+        //[DataMember]
 		public Uri NextPageLink { get; set; }
 
 		public PageResult(IEnumerable<T> items, Uri nextPageLink, long? count)

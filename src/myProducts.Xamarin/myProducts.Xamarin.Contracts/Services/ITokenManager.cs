@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace myProducts.Xamarin.Contracts.Networking
+namespace myProducts.Xamarin.Contracts.Services
 {
 	/// <summary>
 	/// Manages the OAuth2 token

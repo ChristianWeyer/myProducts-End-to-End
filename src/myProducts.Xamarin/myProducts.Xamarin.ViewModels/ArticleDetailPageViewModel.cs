@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MyProducts.Services.DTOs;
-using myProducts.Xamarin.Contracts.Networking;
+using myProducts.Xamarin.Contracts.Services;
 using myProducts.Xamarin.Contracts.ViewModels;
 
 namespace myProducts.Xamarin.ViewModels

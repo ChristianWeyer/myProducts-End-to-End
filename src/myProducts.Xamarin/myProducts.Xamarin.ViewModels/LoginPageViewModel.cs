@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using myProducts.Xamarin.Contracts.Networking;
+using myProducts.Xamarin.Contracts.Services;
 using myProducts.Xamarin.Contracts.ViewModels;
 using Xamarin.Forms;
 

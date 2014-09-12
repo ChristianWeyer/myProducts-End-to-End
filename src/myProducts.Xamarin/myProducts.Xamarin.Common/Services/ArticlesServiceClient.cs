@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MyProducts.Services.DTOs;
-using myProducts.Xamarin.Contracts.Networking;
+using myProducts.Xamarin.Contracts.Services;
 
-namespace myProducts.Xamarin.Common.Networking
+namespace myProducts.Xamarin.Common.Services
 {
 	public class ArticlesServiceClient : BaseServiceClient, IArticlesServiceClient
 	{

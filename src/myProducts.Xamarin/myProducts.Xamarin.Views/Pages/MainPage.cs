@@ -1,4 +1,4 @@
-﻿using myProducts.Xamarin.Contracts.Locale;
+﻿using myProducts.Xamarin.Contracts.i18n;
 using myProducts.Xamarin.Views.Components;
 using myProducts.Xamarin.Views.Contracts;
 using myProducts.Xamarin.Views.Extensions;

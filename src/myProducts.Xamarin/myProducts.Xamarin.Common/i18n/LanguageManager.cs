@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using myProducts.Xamarin.Contracts.Locale;
+using myProducts.Xamarin.Contracts.i18n;
 
-namespace myProducts.Xamarin.Common.Locale
+namespace myProducts.Xamarin.Common.i18n
 {
 	public class LanguageManager : ILanguageManager
 	{

@@ -1,8 +1,9 @@
 ﻿using Autofac;
+using myProducts.Xamarin.Common.i18n;
+using myProducts.Xamarin.Common.i18n.Languages;
 using myProducts.Xamarin.Common.Locale;
-using myProducts.Xamarin.Common.Locale.Languages;
-using myProducts.Xamarin.Common.Networking;
-using myProducts.Xamarin.Contracts.Networking;
+using myProducts.Xamarin.Common.Services;
+using myProducts.Xamarin.Contracts.Services;
 using myProducts.Xamarin.Contracts.ViewModels;
 using myProducts.Xamarin.ViewModels;
 using myProducts.Xamarin.Views.Contracts;
@@ -61,8 +62,8 @@ namespace myProducts.Xamarin.Views.Pages
 				.As<IArticlesServiceClient>()
 				.SingleInstance();
 
-			builder.RegisterType<ArticlesHub>()
-				.As<IArticlesHub>();
+			builder.RegisterType<ArticlesHubProxy>()
+				.As<IArticlesHubProxy>();
 		}
 
 		private void WireLanguage(ContainerBuilder builder)
@@ -70,8 +71,8 @@ namespace myProducts.Xamarin.Views.Pages
 			builder.Register(context =>
 			{
 				var languageManager = new LanguageManager();
-				languageManager.AddTranslation(new EnglishTranslation());
-				languageManager.AddTranslation(new GermanTranslation());
+				languageManager.AddTranslation(new EnglishTranslations());
+				languageManager.AddTranslation(new GermanTranslations());
 
 				return languageManager.GetCurrentTranslation();
 			});

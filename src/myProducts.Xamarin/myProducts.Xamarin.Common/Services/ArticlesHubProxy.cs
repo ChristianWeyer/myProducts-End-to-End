@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR.Client;
-using myProducts.Xamarin.Contracts.Networking;
+using myProducts.Xamarin.Contracts.Services;
 
-namespace myProducts.Xamarin.Common.Networking
+namespace myProducts.Xamarin.Common.Services
 {
-	public class ArticlesHub : IArticlesHub
+	public class ArticlesHubProxy : IArticlesHubProxy
 	{
 		private const string HubConnectionUrl = "https://demo.christianweyer.net";
 		private const string ProxyName = "clientNotificationHub";
@@ -14,7 +14,7 @@ namespace myProducts.Xamarin.Common.Networking
 		private readonly HubConnection _hubConnection;
 		public event Action OnArticleChanged;
 
-		public ArticlesHub()
+		public ArticlesHubProxy()
 		{
 			_hubConnection = new HubConnection(HubConnectionUrl);
 			InitializeProxy();
