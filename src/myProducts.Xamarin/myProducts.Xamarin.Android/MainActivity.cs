@@ -4,6 +4,8 @@ using myProducts.Xamarin.Android.Common;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
+[assembly: Application(Icon = "@drawable/Icon", Theme = "@android:style/Theme.Holo.Light")]
+
 namespace myProducts.Xamarin.Android
 {
 	[Activity(Label = "myProducts.Xamarin.Android", MainLauncher = true, Icon = "@drawable/icon")]

@@ -347,7 +347,7 @@ Global
 		{2448CBC8-EA6D-47CD-999C-5883DC930E62} = {D71E43FE-426A-4BC9-8B5B-AB03BD8D4B30}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = myProducts.Xamarin.iOS\myProducts.Xamarin.iOS.csproj
+		StartupItem = myProducts.Xamarin.Android\myProducts.Xamarin.Android.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
