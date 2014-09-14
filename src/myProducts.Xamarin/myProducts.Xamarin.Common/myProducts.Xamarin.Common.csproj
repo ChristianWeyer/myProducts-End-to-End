@@ -52,6 +52,7 @@
     <Compile Include="Services\ArticlesServiceClient.cs" />
     <Compile Include="Services\BaseServiceClient.cs" />
     <Compile Include="Services\PageResult.cs" />
+    <Compile Include="Services\StatisticsServiceClient.cs" />
     <Compile Include="Services\TokenManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
