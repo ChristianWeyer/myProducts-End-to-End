@@ -46,11 +46,20 @@
     <Compile Include="..\..\myProducts.Services\DTOs\CategoryDto.cs">
       <Link>DTOs\CategoryDto.cs</Link>
     </Compile>
+    <Compile Include="..\..\myProducts.Services\DTOs\DistributionDto.cs">
+      <Link>DTOs\DistributionDto.cs</Link>
+    </Compile>
     <Compile Include="..\..\myProducts.Services\DTOs\DtoBase.cs">
       <Link>DTOs\DtoBase.cs</Link>
     </Compile>
     <Compile Include="..\..\myProducts.Services\DTOs\LogData.cs">
       <Link>DTOs\LogData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\myProducts.Services\DTOs\SalesDto.cs">
+      <Link>DTOs\SalesDto.cs</Link>
+    </Compile>
+    <Compile Include="..\..\myProducts.Services\DTOs\SalesValueDto.cs">
+      <Link>DTOs\SalesValueDto.cs</Link>
     </Compile>
     <Compile Include="i18n\ILanguageManager.cs" />
     <Compile Include="i18n\ITranslation.cs" />
