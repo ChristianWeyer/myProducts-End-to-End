@@ -2,7 +2,7 @@ namespace MyProducts.Services.DTOs
 {
 	public class SalesValueDto
 	{
-		string Label { get; set; }
-		double Value { get; set; }
+		public string Label { get; set; }
+		public double Value { get; set; }
 	}
 }

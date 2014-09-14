@@ -5,7 +5,7 @@ namespace MyProducts.Services.DTOs
 {
 	public class DistributionDto
 	{
-		string Category { get; set; }
-		double Value { get; set; }
+		public string Category { get; set; }
+		public double Value { get; set; }
 	}
 }

@@ -4,7 +4,7 @@ namespace MyProducts.Services.DTOs
 {
 	public class SalesDto
 	{
-		string Key { get; set; }
-		IEnumerable<SalesValueDto> Values { get; set; } 
+		public string Key { get; set; }
+		public IEnumerable<SalesValueDto> Values { get; set; } 
 	}
 }
