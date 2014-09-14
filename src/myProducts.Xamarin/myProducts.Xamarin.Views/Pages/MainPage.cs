@@ -31,7 +31,10 @@ namespace myProducts.Xamarin.Views.Pages
 			var articleBox = new MainPageHubItem(_translation.Articles, _tileGrayColor, new Command(async () => await Navigation.PushAsync(_viewLocator.ArticlesPage)));
 			var galleryBox = new MainPageHubItem(_translation.Gallery, _tileLightBlueColor, new Command(() => {}));
 			var logBox = new MainPageHubItem(_translation.Logs, _tileDarkBlueColor, new Command(() => {}));
-			var statisticBox = new MainPageHubItem(_translation.Statistics, _tileGrayColor, new Command(() => { }));
+			var statisticBox = new MainPageHubItem(_translation.Statistics, _tileGrayColor, new Command(async () =>
+			{
+				await Navigation.PushAsync(_viewLocator.StatisticsPage);
+			}));
 			var infoBox = new MainPageHubItem(_translation.Info, _tileInfoColor, new Command(() => { }), Color.Black);
 
 			AddHubItemToGrid(gridLayout, articleBox, 0, 0);

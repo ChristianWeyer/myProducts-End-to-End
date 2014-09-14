@@ -9,5 +9,6 @@ namespace myProducts.Xamarin.Views.Contracts
 		ArticlesPage ArticlesPage { get; }
 		ArticleDetailPage ArticleDetailPage { get; }
 		ArticleMasterPage ArticleMasterPage { get; }
+		StatisticsPage StatisticsPage { get; }
 	}
 }

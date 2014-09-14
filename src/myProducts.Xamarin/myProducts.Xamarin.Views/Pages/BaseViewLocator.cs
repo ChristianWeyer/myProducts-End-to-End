@@ -90,6 +90,7 @@ namespace myProducts.Xamarin.Views.Pages
 			builder.RegisterType<ArticlesPage>();
 			builder.RegisterType<ArticleDetailPage>();
 			builder.RegisterType<ArticleMasterPage>();
+			builder.RegisterType<StatisticsPage>();
 		}
 
 		public LoginPage LoginPage
@@ -115,6 +116,11 @@ namespace myProducts.Xamarin.Views.Pages
 		public ArticleMasterPage ArticleMasterPage
 		{
 			get { return _container.Resolve<ArticleMasterPage>(); }
+		}
+
+		public StatisticsPage StatisticsPage
+		{
+			get { return _container.Resolve<StatisticsPage>(); }
 		}
 
 		protected abstract void WirePlatformDependentServices(ContainerBuilder builder);

@@ -37,6 +37,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Components\Chart.cs" />
     <Compile Include="Components\Footer.cs" />
     <Compile Include="Components\MainPageHubItem.cs" />
     <Compile Include="Contracts\IViewLocator.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\BaseViewLocator.cs" />
     <Compile Include="Pages\MainPage.cs" />
+    <Compile Include="Pages\StatisticsPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
