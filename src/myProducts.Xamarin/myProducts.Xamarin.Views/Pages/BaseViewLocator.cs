@@ -49,6 +49,9 @@ namespace myProducts.Xamarin.Views.Pages
 
 			builder.RegisterType<ArticleDetailPageViewModel>()
 				.As<IArticleDetailPageViewModel>();
+
+			builder.RegisterType<StatisticsPageViewModel>()
+				.As<IStatisticsPageViewModel>();
 		}
 
 		private void WireServices(ContainerBuilder builder)
