@@ -63,6 +63,9 @@ namespace myProducts.Xamarin.Views.Pages
 
 			builder.RegisterType<ArticlesHubProxy>()
 				.As<IArticlesHubProxy>();
+
+			builder.RegisterType<StatisticsServiceClient>()
+				.As<IStatisticsServiceClient>();
 		}
 
 		private void WireLanguage(ContainerBuilder builder)
