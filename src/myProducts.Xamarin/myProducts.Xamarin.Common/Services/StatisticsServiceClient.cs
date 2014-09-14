@@ -7,7 +7,7 @@ namespace myProducts.Xamarin.Common.Services
 {
 	public class StatisticsServiceClient : BaseServiceClient, IStatisticsServiceClient
 	{
-		private const string DistributionUrlTemplate = "statistics/distributin";
+		private const string DistributionUrlTemplate = "statistics/distribution";
 		private const string SalesUrlTemplate = "statistics/sales";
 
 		public StatisticsServiceClient(ITokenManager tokenManager) : base(tokenManager) {}
