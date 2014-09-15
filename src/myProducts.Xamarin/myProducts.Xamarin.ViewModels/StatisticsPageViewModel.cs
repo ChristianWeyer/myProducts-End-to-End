@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MyProducts.Services.DTOs;
 using myProducts.Xamarin.Contracts.Services;
@@ -65,13 +66,17 @@ namespace myProducts.Xamarin.ViewModels
 				StartAngle = 0,
 				AngleSpan = 360,
 				StrokeThickness = 2,
-				Title = "Distribution",
+				Title = "Distribution"
 			};
 
-			foreach (var distribution in data)
-			{
-				chartSerie.Slices.Add(new PieSlice(distribution.Category, distribution.Value));
-			}
+            // NOTE: this is hard-wired for now
+            var dataList = data.ToList();
+            chartSerie.Slices.Add(new PieSlice(dataList[0].Category, dataList[0].Value) { Fill = OxyColor.Parse("#1f77b4") });
+            chartSerie.Slices.Add(new PieSlice(dataList[1].Category, dataList[1].Value) { Fill = OxyColor.Parse("#aec7e8") });
+            chartSerie.Slices.Add(new PieSlice(dataList[2].Category, dataList[2].Value) { Fill = OxyColor.Parse("#ff7f0e") });
+            chartSerie.Slices.Add(new PieSlice(dataList[3].Category, dataList[3].Value) { Fill = OxyColor.Parse("#ffbb78") });
+            chartSerie.Slices.Add(new PieSlice(dataList[4].Category, dataList[4].Value) { Fill = OxyColor.Parse("#2ca02c") });
+            chartSerie.Slices.Add(new PieSlice(dataList[5].Category, dataList[5].Value) { Fill = OxyColor.Parse("#98df8a") });
 
 			model.Series.Add(chartSerie);
 
