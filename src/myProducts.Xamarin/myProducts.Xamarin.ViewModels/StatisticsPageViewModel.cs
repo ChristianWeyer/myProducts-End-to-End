@@ -58,7 +58,7 @@ namespace myProducts.Xamarin.ViewModels
 				LegendPosition = LegendPosition.TopCenter,
 				LegendOrientation = LegendOrientation.Horizontal,
 				IsLegendVisible = true,
-				LegendTextColor = Device.OnPlatform(OxyColors.Black, OxyColors.White, OxyColors.White),
+				LegendTextColor = GetDefaultTextColor(),
 			};
 
 			var chartSerie = new PieSeries
@@ -125,7 +125,7 @@ namespace myProducts.Xamarin.ViewModels
 
 		private OxyColor GetDefaultTextColor()
 		{
-			return Device.OnPlatform(OxyColors.Black, OxyColors.White, OxyColors.White);
+			return Device.OnPlatform(OxyColors.Black, OxyColors.Black, OxyColors.White);
 		}
 	}
 }
