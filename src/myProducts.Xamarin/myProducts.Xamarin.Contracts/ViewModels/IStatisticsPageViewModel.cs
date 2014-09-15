@@ -5,7 +5,7 @@ namespace myProducts.Xamarin.Contracts.ViewModels
 {
 	public interface IStatisticsPageViewModel : IBusyIndicator
 	{
-		PlotModel DistributonPlotModel { get; set; }
+		PlotModel DistributionPlotModel { get; set; }
 		PlotModel SalesPlotModel { get; set; }
 
 		Task DownloadDistributionData();

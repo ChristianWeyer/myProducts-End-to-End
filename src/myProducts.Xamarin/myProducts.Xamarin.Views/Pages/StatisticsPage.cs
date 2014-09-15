@@ -25,9 +25,6 @@ namespace myProducts.Xamarin.Views.Pages
 			var distributionChart = CreateDistributionChart();
 			var salesChart = CreateSalesChart();
 
-			distributionChart.SetBinding<IStatisticsPageViewModel>(Chart.PlotModelProperty, m => m.DistributonPlotModel);
-	//		salesChart.SetBinding<IStatisticsPageViewModel>(Chart.PlotModelProperty, m => m.SalesPlotModel);
-
 			stackLayout.Children.AddRange(distributionChart, salesChart);
 
 			SetScrollViewContent(stackLayout);
@@ -39,6 +36,7 @@ namespace myProducts.Xamarin.Views.Pages
 			{
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				VerticalOptions = LayoutOptions.FillAndExpand,
+				BindingName = "SalesPlotModel",
 			};
 		}
 
@@ -48,12 +46,17 @@ namespace myProducts.Xamarin.Views.Pages
 			{
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				VerticalOptions = LayoutOptions.FillAndExpand,
+				BindingName = "DistributionPlotModel",
 			};
 		}
 
 		private StackLayout CreateStackLayout()
 		{
-			return new StackLayout();
+			return new StackLayout()
+			{
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				VerticalOptions = LayoutOptions.FillAndExpand,
+			};
 		}
 
 		protected async override void OnAppearing()
