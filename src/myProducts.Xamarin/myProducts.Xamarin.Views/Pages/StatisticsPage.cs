@@ -1,4 +1,5 @@
-﻿using System.ServiceModel.Channels;
+﻿using System.Linq;
+using System.ServiceModel.Channels;
 using myProducts.Xamarin.Contracts.ViewModels;
 using myProducts.Xamarin.Views.Components;
 using myProducts.Xamarin.Views.Extensions;
@@ -26,28 +27,41 @@ namespace myProducts.Xamarin.Views.Pages
 			var salesChart = CreateSalesChart();
 
 			stackLayout.Children.AddRange(distributionChart, salesChart);
-
 			SetScrollViewContent(stackLayout);
 		}
 
 		private Chart CreateSalesChart()
 		{
-			return new Chart()
+			var chart =  new Chart()
 			{
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				BindingName = "SalesPlotModel",
 			};
+
+			Device.OnPlatform(Android: () =>
+			{
+				chart.HeightRequest = 250;
+			});
+
+			return chart;
 		}
 
 		private Chart CreateDistributionChart()
 		{
-			return new Chart()
+			var chart = new Chart()
 			{
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				BindingName = "DistributionPlotModel",
 			};
+
+			Device.OnPlatform(Android: () =>
+			{
+				chart.HeightRequest = 250;
+			});
+
+			return chart;
 		}
 
 		private StackLayout CreateStackLayout()
