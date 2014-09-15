@@ -78,6 +78,7 @@
     <Compile Include="Common\ViewLocator.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Rendering\ChartRenderer.cs" />
     <None Include="app.config" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +88,10 @@
     <BundleResource Include="Resources\Default-568h%402x.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\myProducts.Xamarin.Contracts\myProducts.Xamarin.Contracts.csproj">
+      <Project>{A0EAAD39-6DCD-4341-A41B-B398BE366CB3}</Project>
+      <Name>myProducts.Xamarin.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\myProducts.Xamarin.Views\myProducts.Xamarin.Views.csproj">
       <Project>{C41B4700-F117-4B62-AD61-AADC47030D3A}</Project>
       <Name>myProducts.Xamarin.Views</Name>
@@ -98,6 +103,9 @@
     </Reference>
     <Reference Include="OxyPlot">
       <HintPath>..\packages\OxyPlot.Core.2014.1.465-alpha\lib\portable-net4+sl4+wp71+win8\OxyPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.XamarinIOS">
+      <HintPath>..\Library\OxyPlot.XamarinIOS.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Net.Http" />
