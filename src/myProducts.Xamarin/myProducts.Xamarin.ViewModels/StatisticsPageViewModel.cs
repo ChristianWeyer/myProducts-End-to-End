@@ -18,6 +18,16 @@ namespace myProducts.Xamarin.ViewModels
 		private PlotModel _distributionPlotModel;
 		private PlotModel _salesPlotModel;
 
+		private readonly OxyColor[] _colorCycle =
+		{
+			OxyColor.Parse("#1f77b4"),
+			OxyColor.Parse("#aec7e8"),
+			OxyColor.Parse("#ff7f0e"),
+			OxyColor.Parse("#ffbb78"),
+			OxyColor.Parse("#2ca02c"),
+			OxyColor.Parse("#98df8a")
+		};
+
 		public StatisticsPageViewModel(IStatisticsServiceClient statisticsServiceClient)
 		{
 			_statisticsServiceClient = statisticsServiceClient;
@@ -52,7 +62,7 @@ namespace myProducts.Xamarin.ViewModels
 
 		private PlotModel CreateDistributionPlotModel(IEnumerable<DistributionDto> data)
 		{
-			var model = new PlotModel()
+			var model = new PlotModel
 			{
 				LegendPlacement = LegendPlacement.Outside,
 				LegendPosition = LegendPosition.TopCenter,
@@ -69,14 +79,15 @@ namespace myProducts.Xamarin.ViewModels
 				Title = "Distribution"
 			};
 
-            // NOTE: this is hard-wired for now
-            var dataList = data.ToList();
-            chartSerie.Slices.Add(new PieSlice(dataList[0].Category, dataList[0].Value) { Fill = OxyColor.Parse("#1f77b4") });
-            chartSerie.Slices.Add(new PieSlice(dataList[1].Category, dataList[1].Value) { Fill = OxyColor.Parse("#aec7e8") });
-            chartSerie.Slices.Add(new PieSlice(dataList[2].Category, dataList[2].Value) { Fill = OxyColor.Parse("#ff7f0e") });
-            chartSerie.Slices.Add(new PieSlice(dataList[3].Category, dataList[3].Value) { Fill = OxyColor.Parse("#ffbb78") });
-            chartSerie.Slices.Add(new PieSlice(dataList[4].Category, dataList[4].Value) { Fill = OxyColor.Parse("#2ca02c") });
-            chartSerie.Slices.Add(new PieSlice(dataList[5].Category, dataList[5].Value) { Fill = OxyColor.Parse("#98df8a") });
+			int i = 0;
+			foreach (var item in data)
+			{
+				chartSerie.Slices.Add(new PieSlice(item.Category, item.Value)
+				{
+					Fill = _colorCycle[i],
+				});
+				i = ++i % _colorCycle.Length;
+			}
 
 			model.Series.Add(chartSerie);
 
@@ -85,7 +96,7 @@ namespace myProducts.Xamarin.ViewModels
 
 		private PlotModel CreateSalesPlotModel(IEnumerable<SalesDto> data)
 		{
-			var model = new PlotModel()
+			var model = new PlotModel
 			{
 				LegendPlacement = LegendPlacement.Outside,
 				LegendPosition = LegendPosition.TopCenter,
@@ -97,7 +108,7 @@ namespace myProducts.Xamarin.ViewModels
 			int categoryIndex = 0;
 			foreach (var sale in data)
 			{
-				var columnSeries = new ColumnSeries()
+				var columnSeries = new ColumnSeries
 				{
 					Title = sale.Key,
 				};
@@ -111,7 +122,7 @@ namespace myProducts.Xamarin.ViewModels
 				categoryIndex++;
 			}
 
-			var linearAxis = new LinearAxis()
+			var linearAxis = new LinearAxis
 			{
 				Position = AxisPosition.Left,
 				AxislineColor = GetDefaultTextColor(),
