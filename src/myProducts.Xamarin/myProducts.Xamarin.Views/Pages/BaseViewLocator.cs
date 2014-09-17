@@ -101,6 +101,7 @@ namespace myProducts.Xamarin.Views.Pages
 			builder.RegisterType<ArticleMasterPage>();
 			builder.RegisterType<StatisticsPage>();
 			builder.RegisterType<BackgroundNavigationPage>();
+			builder.RegisterType<GalleryPage>();
 		}
 
 		public LoginPage LoginPage
@@ -137,6 +138,9 @@ namespace myProducts.Xamarin.Views.Pages
 		{
 			get { return _container.Resolve<BackgroundNavigationPage>(); }
 		}
+
+		public GalleryPage GalleryPage { 
+			get { return _container.Resolve<GalleryPage>(); } }
 
 		protected abstract void WirePlatformDependentServices(ContainerBuilder builder);
 	}
