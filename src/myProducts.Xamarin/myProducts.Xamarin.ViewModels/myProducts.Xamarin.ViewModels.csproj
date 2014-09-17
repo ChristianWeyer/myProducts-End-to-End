@@ -42,6 +42,7 @@
     <Compile Include="BackgroundNavigationPageViewModel.cs" />
     <Compile Include="BaseViewModel.cs" />
     <Compile Include="BindableBase.cs" />
+    <Compile Include="GalleryPageViewModel.cs" />
     <Compile Include="LoginPageViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

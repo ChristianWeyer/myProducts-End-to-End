@@ -70,6 +70,7 @@
     <Compile Include="ViewModels\IArticleMasterPageViewModel.cs" />
     <Compile Include="ViewModels\IBackgroundNavigationPageViewModel.cs" />
     <Compile Include="ViewModels\IBusyIndicator.cs" />
+    <Compile Include="ViewModels\IGalleryPageViewModel.cs" />
     <Compile Include="ViewModels\ILoginPageViewModel.cs" />
     <Compile Include="ViewModels\IStatisticsPageViewModel.cs" />
   </ItemGroup>
