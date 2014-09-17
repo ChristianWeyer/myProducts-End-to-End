@@ -112,8 +112,14 @@
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(SolutionDir)CEFSharp\*.*" "$(TargetDir)\" /E /I /F /Y
+
+cmd /x /c mkdir "$(TargetDir)client\"
+
 xcopy "$(SolutionDir)myProducts.Web\app\*.*" "$(TargetDir)client\app\" /E /I /F /Y
-xcopy "$(SolutionDir)myProducts.Web\images\*.*" "$(TargetDir)client\images\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\assets\*.*" "$(TargetDir)client\assets\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\libs\*.*" "$(TargetDir)client\libs\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\mobile\*.*" "$(TargetDir)client\mobile\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\images\*.*" "$(TargetDir)images\" /E /I /F /Y
 
 cd $(SolutionDir)tools
 build_index.html.bat
