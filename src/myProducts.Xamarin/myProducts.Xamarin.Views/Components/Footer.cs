@@ -1,4 +1,5 @@
 ﻿using System;
+using myProducts.Xamarin.Views.Extensions;
 using Xamarin.Forms;
 
 namespace myProducts.Xamarin.Views.Components
@@ -6,7 +7,6 @@ namespace myProducts.Xamarin.Views.Components
 	public class Footer : ContentView
 	{
 		private const string ThinktectureLogoFileName = "thinktecture_logo.png";
-		private const string WPAssetFolderTemplate = "Assets/{0}";
 
 		public Footer()
 		{
@@ -20,7 +20,7 @@ namespace myProducts.Xamarin.Views.Components
 
 			Content = new Image()
 			{
-				Source = Device.OnPlatform(ThinktectureLogoFileName, ThinktectureLogoFileName, String.Format(WPAssetFolderTemplate, ThinktectureLogoFileName)),
+				Source = ThinktectureLogoFileName.ToDeviceImage(),
 				HorizontalOptions = LayoutOptions.Center
 			};
 		}

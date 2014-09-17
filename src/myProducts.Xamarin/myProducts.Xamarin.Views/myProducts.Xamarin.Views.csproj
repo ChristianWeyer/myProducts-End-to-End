@@ -43,6 +43,7 @@
     <Compile Include="Contracts\IViewLocator.cs" />
     <Compile Include="Converters\ArticleImageToUriImageSourceConverter.cs" />
     <Compile Include="Extensions\PageExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\ViewExtensions.cs" />
     <Compile Include="Pages\ArticleDetailPage.cs" />
     <Compile Include="Pages\ArticleMasterPage.cs" />
