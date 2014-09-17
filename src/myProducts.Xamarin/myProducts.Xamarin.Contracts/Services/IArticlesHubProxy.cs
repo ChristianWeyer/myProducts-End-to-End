@@ -7,6 +7,6 @@ namespace myProducts.Xamarin.Contracts.Services
 	{
 		event Action OnArticleChanged;
 		Task Start();
-		void Stop();
+		Task Stop();
 	}
 }

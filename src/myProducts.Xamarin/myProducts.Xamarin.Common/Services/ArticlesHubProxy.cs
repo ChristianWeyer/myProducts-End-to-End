@@ -41,9 +41,9 @@ namespace myProducts.Xamarin.Common.Services
 			await _hubConnection.Start();
 		}
 
-		public void Stop()
+		public async Task Stop()
 		{
-			_hubConnection.Stop();
+			await Task.Run(() => _hubConnection.Stop());
 		}
 	}
 }

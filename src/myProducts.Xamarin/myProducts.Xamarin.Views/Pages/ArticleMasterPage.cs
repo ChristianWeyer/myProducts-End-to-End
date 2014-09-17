@@ -116,7 +116,10 @@ namespace myProducts.Xamarin.Views.Pages
 		{
 			await _viewModel.DownloadPagedArticles();
 			_articlesHub.OnArticleChanged += ArticleChanged;
-			await _articlesHub.Start();
+
+			// Don't await signalr connection here, since it is not necessary.
+			// It can connect while the user views the page
+		  _articlesHub.Start();
 		}
 
 		private async void ArticleChanged()
