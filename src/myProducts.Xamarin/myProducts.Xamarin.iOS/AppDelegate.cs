@@ -28,7 +28,9 @@ namespace myProducts.Xamarin.iOS
 
 			Forms.Init();
 
-			window.RootViewController = new NavigationPage(ViewLocator.Instance.LoginPage).CreateViewController();
+			var navigationPage = ViewLocator.Instance.BackgroundNavigationPage;
+			navigationPage.PushAsync(ViewLocator.Instance.LoginPage);
+			window.RootViewController = navigationPage.CreateViewController();
 
 			// make the window visible
 			window.MakeKeyAndVisible();

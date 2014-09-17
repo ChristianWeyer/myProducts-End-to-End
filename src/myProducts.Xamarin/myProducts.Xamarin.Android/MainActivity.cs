@@ -17,7 +17,9 @@ namespace myProducts.Xamarin.Android
 
 			Forms.Init(this, bundle);
 
-			SetPage(new NavigationPage(ViewLocator.Instance.LoginPage));
+			var navigationPage = ViewLocator.Instance.BackgroundNavigationPage;
+			navigationPage.PushAsync(ViewLocator.Instance.LoginPage);
+			SetPage(navigationPage);
 		}
 	}
 }
