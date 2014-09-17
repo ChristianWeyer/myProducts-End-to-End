@@ -22,5 +22,10 @@ namespace myProducts.Xamarin.Contracts.Services
 		/// <returns></returns>
 		/// <exception cref="UnauthorizedAccessException">Will throw, if credentials are wrong</exception>
 		Task RequestToken(string userName, string password);
+
+		/// <summary>
+		/// Deletes the token (aka sign out)
+		/// </summary>
+		void DeleteToken();
 	}
 }

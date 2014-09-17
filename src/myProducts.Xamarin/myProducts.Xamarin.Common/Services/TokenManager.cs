@@ -31,5 +31,10 @@ namespace myProducts.Xamarin.Common.Services
 
 			_token = token.AccessToken;
 		}
+
+		public void DeleteToken()
+		{
+			_token = String.Empty;
+		}
 	}
 }
