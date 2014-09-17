@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using myProducts.Xamarin.Contracts.Services;
 
 namespace myProducts.Xamarin.Contracts.ViewModels
 {
@@ -19,6 +20,8 @@ namespace myProducts.Xamarin.Contracts.ViewModels
 		/// </summary>
 		bool ErrorOccured { get; set; }
 
+		string Token { get; }
+
 		/// <summary>
 		/// Command to be executed when login is requested by the user
 		/// </summary>
@@ -28,5 +31,7 @@ namespace myProducts.Xamarin.Contracts.ViewModels
 		/// Command to execute when viewmodel wants to navigate to the mainpage
 		/// </summary>
 		ICommand NavigateToMainPageCommand { get; set; }
+
+		void LogOut();
 	}
 }

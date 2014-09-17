@@ -60,6 +60,11 @@ namespace myProducts.Xamarin.ViewModels
 			set { Set(ref _errorOccured, value); }
 		}
 
+		public string Token
+		{
+			get { return _tokenManager.Token; }
+		}
+
 		public ICommand LogInCommand
 		{
 			get { return _logInCommand; }
@@ -70,6 +75,11 @@ namespace myProducts.Xamarin.ViewModels
 		{
 			get { return _navigateToMainPageCommand; }
 			set { Set(ref _navigateToMainPageCommand, value); }
+		}
+
+		public void LogOut()
+		{
+			_tokenManager.DeleteToken();
 		}
 	}
 }

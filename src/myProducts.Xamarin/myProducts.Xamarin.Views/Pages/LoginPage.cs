@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using myProducts.Xamarin.Contracts.i18n;
 using myProducts.Xamarin.Contracts.ViewModels;
 using myProducts.Xamarin.Views.Contracts;
@@ -12,25 +13,25 @@ namespace myProducts.Xamarin.Views.Pages
 		private readonly ILoginPageViewModel _viewModel;
 		private readonly ITranslation _translation;
 		private readonly IViewLocator _viewLocator;
+		private bool _wasVisibleOnce;
 
 		public LoginPage(ILoginPageViewModel viewModel, ITranslation translation, IViewLocator viewLocator)
 		{
 			_viewModel = viewModel;
 			_viewModel.NavigateToMainPageCommand = new Command(async () => await NavigateToMainPage());
 			BindingContext = _viewModel;
-			
+
 			_translation = translation;
 			_viewLocator = viewLocator;
-			CreateUI();
 		}
 
 		private async Task NavigateToMainPage()
 		{
-			InstallLogoutToolbarItem();
+			ShowLogOutButton();
 			await Navigation.PushAsync(_viewLocator.MainPage);
 		}
 
-		private void InstallLogoutToolbarItem()
+		private void ShowLogOutButton()
 		{
 			var parentNavigationPage = Parent as BackgroundNavigationPage;
 			if (parentNavigationPage == null)
@@ -123,14 +124,47 @@ namespace myProducts.Xamarin.Views.Pages
 
 		protected override void OnAppearing()
 		{
-			var parent = Parent as BackgroundNavigationPage;
+			// There is currently no event for "hardware back button".
+			// So we automatically log out, if we are visible a second time.
+			// This means, that the user has used the device's back button to come here.
+			if (_wasVisibleOnce)
+			{
+				_viewModel.LogOut();
+			}
 
-			if (parent == null)
+			_wasVisibleOnce = false;
+
+			if (RedirectToMainPage())
 			{
 				return;
 			}
 
-			parent.HideLogOutButton();
+			HideLogOutButton();
+			CreateUI();
+			_wasVisibleOnce = true;
+		}
+
+		private bool RedirectToMainPage()
+		{
+			if (String.IsNullOrWhiteSpace(_viewModel.Token))
+			{
+				return false;
+			}
+
+			NavigateToMainPage();
+			return true;
+		}
+
+		private void HideLogOutButton()
+		{
+			var parentNavigationPage = Parent as BackgroundNavigationPage;
+
+			if (parentNavigationPage == null)
+			{
+				return;
+			}
+
+			parentNavigationPage.HideLogOutButton();
 		}
 	}
 }
