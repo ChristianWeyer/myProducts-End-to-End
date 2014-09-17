@@ -88,5 +88,10 @@ namespace myProducts.Xamarin.Common.i18n.Languages
 		{
 			get { return "Beschreibung"; }
 		}
+
+		public string LogOut
+		{
+			get { return "Abmelden"; }
+		}
 	}
 }

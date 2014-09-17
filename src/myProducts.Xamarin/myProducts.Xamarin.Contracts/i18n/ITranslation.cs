@@ -27,5 +27,6 @@
 		string Name { get; }
 		string Code { get; }
 		string Description { get; }
+		string LogOut { get; }
 	}
 }
