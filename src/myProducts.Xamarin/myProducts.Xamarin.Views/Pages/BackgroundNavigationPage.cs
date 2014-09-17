@@ -1,11 +1,15 @@
 ﻿using myProducts.Xamarin.Contracts.i18n;
 using myProducts.Xamarin.Contracts.ViewModels;
+using myProducts.Xamarin.Views.Extensions;
 using Xamarin.Forms;
 
 namespace myProducts.Xamarin.Views.Pages
 {
 	public class BackgroundNavigationPage : NavigationPage
 	{
+		private const string LogOutImageBlack = "logout_black.png";
+		private const string LogOutImageWhite = "logout_white.png";
+
 		private readonly IBackgroundNavigationPageViewModel _viewModel;
 		private readonly ITranslation _translation;
 		private ToolbarItem _logoutToolbarItem;
@@ -29,7 +33,9 @@ namespace myProducts.Xamarin.Views.Pages
 
 		private void CreateToolbarItem()
 		{
-			_logoutToolbarItem = new ToolbarItem(_translation.LogOut, "", async () =>
+			_logoutToolbarItem = new ToolbarItem(_translation.LogOut, 
+				Device.OnPlatform(LogOutImageBlack, LogOutImageBlack, LogOutImageWhite).ToDeviceImage(), 
+				async () =>
 			{
 				_viewModel.LogOut();
 				await Navigation.PopToRootAsync();
