@@ -5,7 +5,7 @@ namespace myProducts.Xamarin.Contracts.ViewModels
 {
 	public interface IGalleryPageViewModel : IBusyIndicator
 	{
-		ObservableCollection<string> Images { get; }
+		ObservableCollection<string> Images { get; set; }
 		Task DownloadImages();
 	}
 }

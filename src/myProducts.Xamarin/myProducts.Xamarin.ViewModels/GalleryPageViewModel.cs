@@ -19,7 +19,7 @@ namespace myProducts.Xamarin.ViewModels
 		public ObservableCollection<string> Images
 		{
 			get { return _images ?? (_images = new ObservableCollection<string>()); }
-			private set { _images = value; }
+			set { Set(ref _images, value); }
 		}
 
 		public async Task DownloadImages()
