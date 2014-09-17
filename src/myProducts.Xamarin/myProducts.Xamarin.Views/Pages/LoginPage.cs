@@ -1,4 +1,5 @@
-﻿using myProducts.Xamarin.Contracts.i18n;
+﻿using System.Threading.Tasks;
+using myProducts.Xamarin.Contracts.i18n;
 using myProducts.Xamarin.Contracts.ViewModels;
 using myProducts.Xamarin.Views.Contracts;
 using myProducts.Xamarin.Views.Extensions;
@@ -10,15 +11,34 @@ namespace myProducts.Xamarin.Views.Pages
 	{
 		private readonly ILoginPageViewModel _viewModel;
 		private readonly ITranslation _translation;
+		private readonly IViewLocator _viewLocator;
 
 		public LoginPage(ILoginPageViewModel viewModel, ITranslation translation, IViewLocator viewLocator)
 		{
 			_viewModel = viewModel;
-			_viewModel.NavigateToMainPageCommand = new Command(async () => await Navigation.PushAsync(viewLocator.MainPage));
+			_viewModel.NavigateToMainPageCommand = new Command(async () => await NavigateToMainPage());
 			BindingContext = _viewModel;
 			
 			_translation = translation;
+			_viewLocator = viewLocator;
 			CreateUI();
+		}
+
+		private async Task NavigateToMainPage()
+		{
+			InstallLogoutToolbarItem();
+			await Navigation.PushAsync(_viewLocator.MainPage);
+		}
+
+		private void InstallLogoutToolbarItem()
+		{
+			var parentNavigationPage = Parent as BackgroundNavigationPage;
+			if (parentNavigationPage == null)
+			{
+				return;
+			}
+
+			parentNavigationPage.ShowLogOutButton();
 		}
 
 		private void CreateUI()
@@ -99,6 +119,18 @@ namespace myProducts.Xamarin.Views.Pages
 				Text = _translation.UserLogin,
 				Font = Font.SystemFontOfSize(NamedSize.Large),
 			};
+		}
+
+		protected override void OnAppearing()
+		{
+			var parent = Parent as BackgroundNavigationPage;
+
+			if (parent == null)
+			{
+				return;
+			}
+
+			parent.HideLogOutButton();
 		}
 	}
 }

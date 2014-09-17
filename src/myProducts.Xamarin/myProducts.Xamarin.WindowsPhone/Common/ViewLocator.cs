@@ -13,7 +13,6 @@ namespace myProducts.Xamarin.WindowsPhone.Common
 			get { return _instance.Value; }
 		}
 
-
 		protected override void WirePlatformDependentServices(ContainerBuilder builder)
 		{
 			// Currently no platform dependent services

@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="ArticleDetailPageViewModel.cs" />
     <Compile Include="ArticleMasterPageViewModel.cs" />
+    <Compile Include="BackgroundNavigationPageViewModel.cs" />
     <Compile Include="BaseViewModel.cs" />
     <Compile Include="BindableBase.cs" />
     <Compile Include="LoginPageViewModel.cs" />

@@ -47,6 +47,7 @@
     <Compile Include="Pages\ArticleDetailPage.cs" />
     <Compile Include="Pages\ArticleMasterPage.cs" />
     <Compile Include="Pages\ArticlesPage.cs" />
+    <Compile Include="Pages\BackgroundNavigationPage.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\BaseViewLocator.cs" />

@@ -16,7 +16,9 @@ namespace myProducts.Xamarin.WindowsPhone
 
 			Forms.Init();
 
-			Content = new NavigationPage(ViewLocator.Instance.LoginPage).ConvertPageToUIElement(this);
+			var navigationPage = ViewLocator.Instance.BackgroundNavigationPage;
+			navigationPage.PushAsync(ViewLocator.Instance.LoginPage);
+			Content = navigationPage.ConvertPageToUIElement(this);
 		}
 
 		// Sample code for building a localized ApplicationBar

@@ -10,5 +10,6 @@ namespace myProducts.Xamarin.Views.Contracts
 		ArticleDetailPage ArticleDetailPage { get; }
 		ArticleMasterPage ArticleMasterPage { get; }
 		StatisticsPage StatisticsPage { get; }
+		BackgroundNavigationPage BackgroundNavigationPage { get; }
 	}
 }

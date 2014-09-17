@@ -52,6 +52,9 @@ namespace myProducts.Xamarin.Views.Pages
 
 			builder.RegisterType<StatisticsPageViewModel>()
 				.As<IStatisticsPageViewModel>();
+
+			builder.RegisterType<BackgroundNavigationPageViewModel>()
+				.As<IBackgroundNavigationPageViewModel>();
 		}
 
 		private void WireServices(ContainerBuilder builder)
@@ -91,6 +94,7 @@ namespace myProducts.Xamarin.Views.Pages
 			builder.RegisterType<ArticleDetailPage>();
 			builder.RegisterType<ArticleMasterPage>();
 			builder.RegisterType<StatisticsPage>();
+			builder.RegisterType<BackgroundNavigationPage>();
 		}
 
 		public LoginPage LoginPage
@@ -121,6 +125,11 @@ namespace myProducts.Xamarin.Views.Pages
 		public StatisticsPage StatisticsPage
 		{
 			get { return _container.Resolve<StatisticsPage>(); }
+		}
+
+		public BackgroundNavigationPage BackgroundNavigationPage
+		{
+			get { return _container.Resolve<BackgroundNavigationPage>(); }
 		}
 
 		protected abstract void WirePlatformDependentServices(ContainerBuilder builder);
