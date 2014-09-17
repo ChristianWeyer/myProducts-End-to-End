@@ -1,9 +1,14 @@
+/*!
+ * angular-translate - v2.3.0 - 2014-09-16
+ * http://github.com/PascalPrecht/angular-translate
+ * Copyright (c) 2014 ; Licensed MIT
+ */
 angular.module('pascalprecht.translate').factory('$translateStaticFilesLoader', [
   '$q',
   '$http',
   function ($q, $http) {
     return function (options) {
-      if (!options || (!options.prefix || !options.suffix)) {
+      if (!options || (!angular.isString(options.prefix) || !angular.isString(options.suffix))) {
         throw new Error('Couldn\'t load static files, no prefix or suffix specified!');
       }
       var deferred = $q.defer();

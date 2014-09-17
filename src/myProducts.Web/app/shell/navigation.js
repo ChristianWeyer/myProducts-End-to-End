@@ -27,7 +27,7 @@
 
         $scope.navigation.changeLanguage = function (langKey) {
             $scope.navigation.currentLanguage = langKey;
-            $translate.uses(langKey);
+            $translate.use(langKey);
         };
 
         $scope.navigation.logout = function() {
