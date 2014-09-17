@@ -55,6 +55,9 @@ namespace myProducts.Xamarin.Views.Pages
 
 			builder.RegisterType<BackgroundNavigationPageViewModel>()
 				.As<IBackgroundNavigationPageViewModel>();
+
+			builder.RegisterType<GalleryPageViewModel>()
+				.As<IGalleryPageViewModel>();
 		}
 
 		private void WireServices(ContainerBuilder builder)
