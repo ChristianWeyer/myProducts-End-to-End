@@ -72,6 +72,9 @@ namespace myProducts.Xamarin.Views.Pages
 
 			builder.RegisterType<StatisticsServiceClient>()
 				.As<IStatisticsServiceClient>();
+
+			builder.RegisterType<GalleryServiceClient>()
+				.As<IGalleryServiceClient>();
 		}
 
 		private void WireLanguage(ContainerBuilder builder)
