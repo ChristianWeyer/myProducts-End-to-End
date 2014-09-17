@@ -62,6 +62,7 @@
     <Compile Include="i18n\ITranslation.cs" />
     <Compile Include="Services\IArticlesHubProxy.cs" />
     <Compile Include="Services\IArticlesServiceClient.cs" />
+    <Compile Include="Services\IGalleryServiceClient.cs" />
     <Compile Include="Services\IStatisticsServiceClient.cs" />
     <Compile Include="Services\ITokenManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -51,6 +51,7 @@
     <Compile Include="Services\ArticlesHubProxy.cs" />
     <Compile Include="Services\ArticlesServiceClient.cs" />
     <Compile Include="Services\BaseServiceClient.cs" />
+    <Compile Include="Services\GalleryServiceClient.cs" />
     <Compile Include="Services\PageResult.cs" />
     <Compile Include="Services\StatisticsServiceClient.cs" />
     <Compile Include="Services\TokenManager.cs" />
