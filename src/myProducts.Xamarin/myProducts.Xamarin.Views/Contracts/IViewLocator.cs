@@ -6,7 +6,6 @@ namespace myProducts.Xamarin.Views.Contracts
 	{
 		LoginPage LoginPage { get; }
 		MainPage MainPage { get; }
-		ArticlesPage ArticlesPage { get; }
 		ArticleDetailPage ArticleDetailPage { get; }
 		ArticleMasterPage ArticleMasterPage { get; }
 		StatisticsPage StatisticsPage { get; }

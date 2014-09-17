@@ -4,6 +4,7 @@ using myProducts.Xamarin.Contracts.i18n;
 using myProducts.Xamarin.Contracts.Services;
 using myProducts.Xamarin.Contracts.ViewModels;
 using myProducts.Xamarin.Views.Components;
+using myProducts.Xamarin.Views.Contracts;
 using myProducts.Xamarin.Views.Extensions;
 using Xamarin.Forms;
 
@@ -14,15 +15,17 @@ namespace myProducts.Xamarin.Views.Pages
 		private readonly ITranslation _translation;
 		private readonly IArticleMasterPageViewModel _viewModel;
 		private readonly IArticlesHubProxy _articlesHub;
-		private ListView _listView;
+		private readonly IViewLocator _viewLocator;
 
 		public ArticleMasterPage(ITranslation translation, 
 			IArticleMasterPageViewModel viewModel,
-			IArticlesHubProxy articlesHub)
+			IArticlesHubProxy articlesHub,
+			IViewLocator viewLocator)
 		{
 			_translation = translation;
 			_viewModel = viewModel;
 			_articlesHub = articlesHub;
+			_viewLocator = viewLocator;
 			BindingContext = _viewModel;
 			CreateUI();
 			this.SetDefaultPadding();
@@ -51,7 +54,7 @@ namespace myProducts.Xamarin.Views.Pages
 		private ListView CreateListView()
 		{
 			
-			ListView = new ListView()
+			var listView = new ListView()
 			{
 				RowHeight = 80,
 				VerticalOptions = LayoutOptions.FillAndExpand,
@@ -89,16 +92,26 @@ namespace myProducts.Xamarin.Views.Pages
 				}),
 			};
 
-			ListView.ItemAppearing += ListViewItemAppearing;
+			listView.ItemAppearing += ListViewItemAppearing;
+			listView.ItemSelected += ListViewItemSelected;
+			listView.SetBinding<IArticleMasterPageViewModel>(ListView.ItemsSourceProperty, m => m.Items);
 
-			ListView.SetBinding<IArticleMasterPageViewModel>(ListView.ItemsSourceProperty, m => m.Items);
-			return ListView;
+			return listView;
 		}
 
-		public ListView ListView
+		private void ListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
 		{
-			get { return _listView; }
-			private set { _listView = value; }
+			var article = e.SelectedItem as ArticleDto;
+
+			if (article == null)
+			{
+				return;
+			}
+
+			var articleDetailPage = _viewLocator.ArticleDetailPage;
+			// We don't need to await here, since we can download while navigating to the page
+			articleDetailPage.ViewModel.DownloadArticleBy(article.Id);
+			Navigation.PushAsync(articleDetailPage);
 		}
 
 		private async void ListViewItemAppearing(object sender, ItemVisibilityEventArgs e)

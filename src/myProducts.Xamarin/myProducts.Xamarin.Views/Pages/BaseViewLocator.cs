@@ -96,7 +96,6 @@ namespace myProducts.Xamarin.Views.Pages
 		{
 			builder.RegisterType<LoginPage>();
 			builder.RegisterType<MainPage>();
-			builder.RegisterType<ArticlesPage>();
 			builder.RegisterType<ArticleDetailPage>();
 			builder.RegisterType<ArticleMasterPage>();
 			builder.RegisterType<StatisticsPage>();
@@ -112,11 +111,6 @@ namespace myProducts.Xamarin.Views.Pages
 		public MainPage MainPage
 		{
 			get { return _container.Resolve<MainPage>(); }
-		}
-
-		public ArticlesPage ArticlesPage
-		{
-			get { return _container.Resolve<ArticlesPage>(); }
 		}
 
 		public ArticleDetailPage ArticleDetailPage

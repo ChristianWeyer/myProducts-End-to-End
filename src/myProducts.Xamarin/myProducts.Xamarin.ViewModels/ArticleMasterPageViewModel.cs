@@ -26,7 +26,6 @@ namespace myProducts.Xamarin.ViewModels
 			set { Set(ref _items, value); }
 		}
 
-
 		public async Task DownloadPagedArticles()
 		{
 			IsBusy = true;

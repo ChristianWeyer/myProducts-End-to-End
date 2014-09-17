@@ -11,7 +11,6 @@ namespace myProducts.Xamarin.ViewModels
 	{
 		private readonly IArticlesServiceClient _articlesServiceClient;
 		private ArticleDetailDto _articleDetail;
-		private string _name;
 
 		public ArticleDetailPageViewModel(IArticlesServiceClient articlesServiceClient)
 		{
