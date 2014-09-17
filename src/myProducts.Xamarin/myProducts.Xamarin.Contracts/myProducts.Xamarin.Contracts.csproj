@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="i18n\ILanguageManager.cs" />
     <Compile Include="i18n\ITranslation.cs" />
+    <Compile Include="IO\IStorage.cs" />
     <Compile Include="Services\IArticlesHubProxy.cs" />
     <Compile Include="Services\IArticlesServiceClient.cs" />
     <Compile Include="Services\IGalleryServiceClient.cs" />

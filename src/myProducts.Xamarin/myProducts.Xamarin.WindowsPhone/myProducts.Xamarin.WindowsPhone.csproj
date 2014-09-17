@@ -95,6 +95,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\ViewLocator.cs" />
+    <Compile Include="IO\JsonStorage.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -183,6 +184,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\myProducts.Xamarin.Common\myProducts.Xamarin.Common.csproj">
+      <Project>{6F847F88-E5D2-40C7-8817-1E95679D9313}</Project>
+      <Name>myProducts.Xamarin.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\myProducts.Xamarin.Contracts\myProducts.Xamarin.Contracts.csproj">
       <Project>{a0eaad39-6dcd-4341-a41b-b398be366cb3}</Project>
       <Name>myProducts.Xamarin.Contracts</Name>

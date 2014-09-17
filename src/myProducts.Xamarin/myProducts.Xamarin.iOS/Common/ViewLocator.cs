@@ -1,5 +1,7 @@
 ﻿using System;
 using Autofac;
+using myProducts.Xamarin.Contracts.IO;
+using myProducts.Xamarin.iOS.IO;
 using myProducts.Xamarin.Views.Pages;
 
 namespace myProducts.Xamarin.iOS.Common
@@ -15,7 +17,8 @@ namespace myProducts.Xamarin.iOS.Common
 
 		protected override void WirePlatformDependentServices(ContainerBuilder builder)
 		{
-			// Currently no platform dependent services 
+			builder.RegisterType<JsonStorage>()
+				.As<IStorage>();
 		}
 	}
 }

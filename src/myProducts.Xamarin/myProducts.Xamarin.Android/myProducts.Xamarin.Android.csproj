@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\ViewLocator.cs" />
+    <Compile Include="IO\JsonStorage.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rendering\ChartRenderer.cs" />
@@ -105,6 +106,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\myProducts.Xamarin.Common\myProducts.Xamarin.Common.csproj">
+      <Project>{6F847F88-E5D2-40C7-8817-1E95679D9313}</Project>
+      <Name>myProducts.Xamarin.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\myProducts.Xamarin.Contracts\myProducts.Xamarin.Contracts.csproj">
       <Project>{A0EAAD39-6DCD-4341-A41B-B398BE366CB3}</Project>
       <Name>myProducts.Xamarin.Contracts</Name>
