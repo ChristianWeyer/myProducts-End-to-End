@@ -92,6 +92,8 @@
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\drawable\thinktecture_logo.png" />
+    <AndroidResource Include="Resources\drawable\logout_black.png" />
+    <AndroidResource Include="Resources\drawable\logout_white.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />

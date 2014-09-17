@@ -48,7 +48,13 @@ namespace myProducts.Xamarin.Android
 			public const int Icon = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int thinktecture_logo = 2130837505;
+			public const int logout_black = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int logout_white = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int thinktecture_logo = 2130837507;
 			
 			static Drawable()
 			{
