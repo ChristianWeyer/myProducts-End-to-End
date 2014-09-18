@@ -34,7 +34,7 @@ namespace myProducts.Xamarin.Views.Pages
 			{
 				await Navigation.PushAsync(_viewLocator.StatisticsPage);
 			}));
-			var infoBox = new MainPageHubItem(_translation.Info, _tileInfoColor, new Command(() => { }), Color.Black);
+			var infoBox = new MainPageHubItem(_translation.Info, _tileInfoColor, new Command(async () => await Navigation.PushAsync(_viewLocator.InfoPage)), Color.Black);
 
 			AddHubItemToGrid(gridLayout, articleBox, 0, 0);
 			AddHubItemToGrid(gridLayout, galleryBox, 0, 1);

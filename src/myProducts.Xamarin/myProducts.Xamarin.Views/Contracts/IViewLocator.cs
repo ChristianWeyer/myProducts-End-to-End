@@ -11,5 +11,6 @@ namespace myProducts.Xamarin.Views.Contracts
 		StatisticsPage StatisticsPage { get; }
 		BackgroundNavigationPage BackgroundNavigationPage { get; }
 		GalleryPage GalleryPage { get; }
+		InfoPage InfoPage { get; }
 	}
 }

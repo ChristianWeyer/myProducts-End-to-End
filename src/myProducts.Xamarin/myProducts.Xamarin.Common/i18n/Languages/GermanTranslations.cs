@@ -93,5 +93,32 @@ namespace myProducts.Xamarin.Common.i18n.Languages
 		{
 			get { return "Abmelden"; }
 		}
+
+		public string InfoHeadline
+		{
+			get { return "Info"; }
+		}
+
+		public string InfoText
+		{
+			get
+			{
+				return
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+					"Curabitur tincidunt dui vitae dolor congue, eget rhoncus odio auctor. " +
+					"Class aptent taciti sociosqu ad litora torquent per conubia nostra, per " +
+					"inceptos himenaeos. Nam condimentum, metus sit amet accumsan interdum, dui elit " +
+					"eleifend mauris, eget molestie ipsum sapien nec felis. Nullam posuere tristique " +
+					"ipsum, at malesuada turpis feugiat nec. Quisque vitae lacus vitae nisi malesuada " +
+					"semper. In porta, velit nec porta vulputate, leo odio fringilla nisl, quis " +
+					"iaculis magna ex ut velit. Suspendisse vel ligula at lorem vehicula fermentum. " +
+					"Mauris eget mauris sed felis tempor vestibulum. Integer aliquet leo quis tempus " +
+					"pulvinar. Suspendisse ullamcorper turpis vel sem ullamcorper, porttitor pulvinar " +
+					"nisi tincidunt. Aenean sed sapien sed dui tristique iaculis vitae sed elit. " +
+					"Nullam finibus velit turpis, a dignissim dui rutrum vel. Quisque ultrices, " +
+					"diam at condimentum lobortis, urna tortor porttitor dolor, sed bibendum enim " +
+					"sem vitae justo. Etiam malesuada pellentesque tortor, in semper magna.";
+			}
+		}
 	}
 }
