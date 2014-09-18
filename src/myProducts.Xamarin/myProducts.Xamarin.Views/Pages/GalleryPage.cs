@@ -14,6 +14,7 @@ namespace myProducts.Xamarin.Views.Pages
 		public GalleryPage(IGalleryPageViewModel viewModel)
 		{
 			_viewModel = viewModel;
+			Children.Add(new ContentPage());
 		}
 
 		protected async override void OnAppearing()
