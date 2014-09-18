@@ -30,5 +30,6 @@
 		string LogOut { get; }
 		string InfoHeadline { get; }
 		string InfoText { get; }
+		string CreatedBy { get; }
 	}
 }

@@ -120,5 +120,10 @@ namespace myProducts.Xamarin.Common.i18n.Languages
 					"sem vitae justo. Etiam malesuada pellentesque tortor, in semper magna.";
 			}
 		}
+
+		public string CreatedBy
+		{
+			get { return "Erstellt von"; }
+		}
 	}
 }
