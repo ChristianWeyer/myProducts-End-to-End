@@ -44,8 +44,6 @@ namespace myProducts.Xamarin.Views.Pages
 
 		private void CreateUI()
 		{
-			this.SetDefaultPadding();
-
 			var stackLayout = new StackLayout()
 			{
 				VerticalOptions = LayoutOptions.FillAndExpand,

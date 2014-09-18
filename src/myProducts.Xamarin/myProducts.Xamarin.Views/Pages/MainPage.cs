@@ -21,8 +21,6 @@ namespace myProducts.Xamarin.Views.Pages
 			_translation = translation;
 			_viewLocator = viewLocator;
 			CreateUI();
-
-			this.SetDefaultPadding();
 		}
 
 		private void CreateUI()

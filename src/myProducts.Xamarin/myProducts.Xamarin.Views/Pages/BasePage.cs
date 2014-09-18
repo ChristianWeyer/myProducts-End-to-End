@@ -1,4 +1,5 @@
 ﻿using myProducts.Xamarin.Views.Components;
+using myProducts.Xamarin.Views.Extensions;
 using Xamarin.Forms;
 
 namespace myProducts.Xamarin.Views.Pages
@@ -30,6 +31,8 @@ namespace myProducts.Xamarin.Views.Pages
 					new Footer()
 				},
 			};
+
+			this.SetDefaultPadding();
 		}
 
 		protected virtual void SetScrollViewContent(View content)

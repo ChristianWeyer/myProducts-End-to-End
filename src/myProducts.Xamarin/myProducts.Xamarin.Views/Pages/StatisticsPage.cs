@@ -20,8 +20,6 @@ namespace myProducts.Xamarin.Views.Pages
 
 		private void CreateUI()
 		{
-			this.SetDefaultPadding();
-
 			var stackLayout = CreateStackLayout();
 			var distributionChart = CreateDistributionChart();
 			var salesChart = CreateSalesChart();

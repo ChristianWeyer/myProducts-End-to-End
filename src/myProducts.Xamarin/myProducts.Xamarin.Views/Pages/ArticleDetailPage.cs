@@ -23,7 +23,6 @@ namespace myProducts.Xamarin.Views.Pages
 			_viewModel = viewModel;
 			BindingContext = _viewModel;
 			CreateUI();
-			this.SetDefaultPadding();
 		}
 
 		private void CreateUI()
