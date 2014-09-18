@@ -34,7 +34,8 @@ namespace myProducts.Xamarin.Views.Pages
 		private void CreateToolbarItem()
 		{
 			_logoutToolbarItem = new ToolbarItem(_translation.LogOut, 
-				Device.OnPlatform(LogOutImageBlack, LogOutImageBlack, LogOutImageWhite).ToDeviceImage(), 
+				// Currently no image for Android since it will crash
+				Device.OnPlatform(LogOutImageBlack, "", LogOutImageWhite).ToDeviceImage(), 
 				async () =>
 			{
 				_viewModel.LogOut();
