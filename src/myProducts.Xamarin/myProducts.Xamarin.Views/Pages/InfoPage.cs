@@ -30,7 +30,11 @@ namespace myProducts.Xamarin.Views.Pages
 					},
 					new Label()
 					{
-						Text = String.Format("{0} {1}", _translation.CreatedBy, "christian.weyer@thinktecture.com"),
+						Text = String.Format("{0} {1}", _translation.CreatedBy, "christian.weyer@thinktecture.com")
+					},
+					new Label()
+					{
+						Text = String.Format("Xamarin-App {0} {1}", _translation.CreatedBy.ToLower(), "manuel.rauber@thinktecture.com")
 					},
 					new Label()
 					{
