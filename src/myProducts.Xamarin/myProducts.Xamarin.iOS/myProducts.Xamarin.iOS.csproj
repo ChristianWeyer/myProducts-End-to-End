@@ -143,6 +143,12 @@
   <ItemGroup>
     <BundleResource Include="Resources\logout_white.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logout_black%402.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logout_white%402.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
