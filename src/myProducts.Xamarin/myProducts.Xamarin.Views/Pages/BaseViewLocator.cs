@@ -58,6 +58,9 @@ namespace myProducts.Xamarin.Views.Pages
 
 			builder.RegisterType<GalleryPageViewModel>()
 				.As<IGalleryPageViewModel>();
+
+			builder.RegisterType<InfoPageViewModel>()
+				.As<IInfoPageViewModel>();
 		}
 
 		private void WireServices(ContainerBuilder builder)

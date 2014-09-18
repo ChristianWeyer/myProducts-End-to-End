@@ -1,7 +1,9 @@
 ﻿using System;
 using Autofac;
 using myProducts.Xamarin.Contracts.IO;
+using myProducts.Xamarin.Contracts.Text;
 using myProducts.Xamarin.iOS.IO;
+using myProducts.Xamarin.iOS.Text;
 using myProducts.Xamarin.Views.Pages;
 
 namespace myProducts.Xamarin.iOS.Common
@@ -19,6 +21,9 @@ namespace myProducts.Xamarin.iOS.Common
 		{
 			builder.RegisterType<JsonStorage>()
 				.As<IStorage>();
+
+			builder.RegisterType<MailComposer>()
+				.As<IMailComposer>();
 		}
 	}
 }

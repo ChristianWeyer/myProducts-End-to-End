@@ -1,8 +1,10 @@
 ﻿using System;
 using Autofac;
 using myProducts.Xamarin.Contracts.IO;
+using myProducts.Xamarin.Contracts.Text;
 using myProducts.Xamarin.Views.Pages;
 using myProducts.Xamarin.WindowsPhone.IO;
+using myProducts.Xamarin.WindowsPhone.Text;
 
 namespace myProducts.Xamarin.WindowsPhone.Common
 {
@@ -19,6 +21,9 @@ namespace myProducts.Xamarin.WindowsPhone.Common
 		{
 			builder.RegisterType<JsonStorage>()
 				.As<IStorage>();
+
+			builder.RegisterType<MailComposer>()
+				.As<IMailComposer>();
 		}
 	}
 }
