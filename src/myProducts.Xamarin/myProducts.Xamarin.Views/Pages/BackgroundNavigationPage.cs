@@ -38,6 +38,7 @@ namespace myProducts.Xamarin.Views.Pages
 				async () =>
 			{
 				_viewModel.LogOut();
+				// this will currently crash the iOS app (Xamarin bug?)
 				await Navigation.PopToRootAsync();
 			});
 		}
