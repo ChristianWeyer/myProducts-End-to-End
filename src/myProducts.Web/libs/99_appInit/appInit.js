@@ -83,9 +83,9 @@ app.run(["$localStorage", "$stateProviderService", "$state", "$http", "$template
             $rootScope.$apply($rootScope.$broadcast(tt.networkstatus.onlineChanged, false));
         }, true);
 
-        $http.defaults.headers.common["Accept-Language"] = $translate.uses();
+        $http.defaults.headers.common["Accept-Language"] = $translate.proposedLanguage();
         $rootScope.$on("$translateChangeSuccess", function () {
-            $http.defaults.headers.common["Accept-Language"] = $translate.uses();
+            $http.defaults.headers.common["Accept-Language"] = $translate.proposedLanguage();
         });
 
         var currentPath = $location.path();

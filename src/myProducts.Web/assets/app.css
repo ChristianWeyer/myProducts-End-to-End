@@ -1,4 +1,8 @@
-﻿/* Override Bootstrap Responsive CSS fixed navbar */
+﻿[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+}
+
+/* Override Bootstrap Responsive CSS fixed navbar */
 @media (max-width: 979px) {
     .navbar-fixed-top,
     .navbar-fixed-bottom {

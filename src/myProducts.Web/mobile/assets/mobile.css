@@ -1,4 +1,10 @@
-﻿.clear-search {
+﻿img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clear-search {
     font-size: 18px;
 }
 
