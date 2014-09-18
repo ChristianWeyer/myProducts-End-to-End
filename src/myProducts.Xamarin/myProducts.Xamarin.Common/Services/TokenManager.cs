@@ -21,7 +21,7 @@ namespace myProducts.Xamarin.Common.Services
 
 		private const string TokenUrl = "https://demo.christianweyer.net/token";
 		private const string StorageBasePath = "TokenManager";
-		private const string StorageFileName = "Token.conf";
+		private const string StorageFileName = "Token.json";
 		private readonly IStorage _storage;
 		private string _token;
 
