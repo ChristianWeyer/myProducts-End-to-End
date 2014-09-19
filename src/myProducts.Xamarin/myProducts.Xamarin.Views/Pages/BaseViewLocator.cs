@@ -145,11 +145,6 @@ namespace myProducts.Xamarin.Views.Pages
 			get { return _container.Resolve<InfoPage>(); }
 		}
 
-		public IGalleryPageViewModel GalleryPageViewModel 
-		{
-			get { return _container.Resolve<IGalleryPageViewModel> (); }
-		}
-
 		protected abstract void WirePlatformDependentServices(ContainerBuilder builder);
 	}
 }

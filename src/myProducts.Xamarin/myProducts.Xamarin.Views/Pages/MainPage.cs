@@ -29,7 +29,7 @@ namespace myProducts.Xamarin.Views.Pages
 			var gridLayout = CreateGridLayout();
 
 			var articleBox = new MainPageHubItem(_translation.Articles, _tileGrayColor, new Command(async () => await Navigation.PushAsync(_viewLocator.ArticleMasterPage)));
-			var galleryBox = new MainPageHubItem(_translation.Gallery, _tileLightBlueColor, new Command(async () => await NavigateToGallery()));
+			var galleryBox = new MainPageHubItem(_translation.Gallery, _tileLightBlueColor, new Command(async () => await Navigation.PushAsync(_viewLocator.GalleryPage)));
 			var logBox = new MainPageHubItem(_translation.Logs, _tileDarkBlueColor, new Command(() => {}));
 			var statisticBox = new MainPageHubItem(_translation.Statistics, _tileGrayColor, new Command(async () =>
 			{
@@ -45,15 +45,7 @@ namespace myProducts.Xamarin.Views.Pages
 
 			SetScrollViewContent(gridLayout);
 		}
-
-		private async Task NavigateToGallery ()
-		{
-			var viewModel = _viewLocator.GalleryPageViewModel;
-			await viewModel.DownloadImages ();
-			var page = new GalleryPage (viewModel);
-			await Navigation.PushAsync (page);
-		}
-
+			
 		private void AddHubItemToGrid(Grid grid, MainPageHubItem item, int row, int column)
 		{
 			grid.Children.Add(item.BoxView, column, row);

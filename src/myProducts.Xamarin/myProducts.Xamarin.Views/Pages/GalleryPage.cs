@@ -14,11 +14,14 @@ namespace myProducts.Xamarin.Views.Pages
 		public GalleryPage(IGalleryPageViewModel viewModel)
 		{
 			_viewModel = viewModel;
-			CreateUI ();
+
+			this.SetBinding<IGalleryPageViewModel>(IsBusyProperty, m => m.IsBusy);
 		}
 
-		private void CreateUI()
+		protected override async void OnAppearing()
 		{
+			await _viewModel.DownloadImages ();
+
 			BatchBegin();
 
 			foreach (var image in _viewModel.Images)
@@ -49,6 +52,13 @@ namespace myProducts.Xamarin.Views.Pages
 						// Yep, footer will scroll new too, but no chance to combine carouselpage with fixed footer
 						new Footer()
 					}
+				}
+			};
+
+			page.Appearing += (object sender, EventArgs e) => {
+				var firstPage = Children[0];
+				if (firstPage.Content == null) {
+					Children.RemoveAt(0);
 				}
 			};
 
