@@ -55,13 +55,6 @@ namespace myProducts.Xamarin.Views.Pages
 				}
 			};
 
-			page.Appearing += (object sender, EventArgs e) => {
-				var firstPage = Children[0];
-				if (firstPage.Content == null) {
-					Children.RemoveAt(0);
-				}
-			};
-
 			return page;
 		}
 	}
