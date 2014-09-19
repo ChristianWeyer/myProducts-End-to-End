@@ -14,12 +14,12 @@ namespace myProducts.Xamarin.Common.Services
 		public IEnumerable<T> Items { get; set; }
 
         [DataMember]
-		public long? Count { get; set; }
+		public long Count { get; set; }
 
         [DataMember]
 		public Uri NextPageLink { get; set; }
 
-		public PageResult(IEnumerable<T> items, Uri nextPageLink, long? count)
+		public PageResult(IEnumerable<T> items, Uri nextPageLink, long count)
 		{
 			if (items == null)
 			{

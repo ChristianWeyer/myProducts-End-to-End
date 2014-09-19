@@ -1,4 +1,5 @@
 ﻿using myProducts.Xamarin.Views.Pages;
+using myProducts.Xamarin.Contracts.ViewModels;
 
 namespace myProducts.Xamarin.Views.Contracts
 {
@@ -12,5 +13,6 @@ namespace myProducts.Xamarin.Views.Contracts
 		BackgroundNavigationPage BackgroundNavigationPage { get; }
 		GalleryPage GalleryPage { get; }
 		InfoPage InfoPage { get; }
+		IGalleryPageViewModel GalleryPageViewModel { get; }
 	}
 }

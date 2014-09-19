@@ -14,24 +14,19 @@ namespace myProducts.Xamarin.Views.Pages
 		public GalleryPage(IGalleryPageViewModel viewModel)
 		{
 			_viewModel = viewModel;
-			Children.Add(new ContentPage());
+			CreateUI ();
 		}
 
-		protected async override void OnAppearing()
+		private void CreateUI()
 		{
-			await _viewModel.DownloadImages();
-
-			// We neither can bind the children nor the content property of the child pages.
-			// So we have to generate it.
-
 			BatchBegin();
-			Children.Clear();
 
 			foreach (var image in _viewModel.Images)
 			{
 				Children.Add(CreateImagePage(image));
 			}
-			BatchCommit();
+
+			BatchCommit ();
 		}
 
 		private ContentPage CreateImagePage(string image)
