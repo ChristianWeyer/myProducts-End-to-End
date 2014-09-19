@@ -92,8 +92,6 @@ cordova build android
 cd platforms/android/ant-build/
 cp myProducts-debug.apk ../../../../../out/android/
 
-#adb install myProducts-debug.apk
-
 ## Copy for web deployment
 cd ${DIR}
 cp -r tmp/ out/web/

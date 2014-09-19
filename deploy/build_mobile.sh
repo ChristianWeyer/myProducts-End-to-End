@@ -71,10 +71,24 @@ cd platforms/ios/build/emulator/
 mv myProducts.app "../../../../../../out_mobile/ios/myProducts.app"
 cd ../../../..
 
-## Build Android
+echo "Building for Android"
+
+# Tweak Android to use Crosswalk
+rm -Rf platforms/android/CordovaLib/*
+cp -a ../../phonegap-android/crosswalk-cordova/framework/* \
+    platforms/android/CordovaLib/
+cp -a ../../phonegap-android/crosswalk-cordova/VERSION platforms/android/
+
+export ANDROID_HOME=$(dirname $(dirname $(which android)))
+cd platforms/android/CordovaLib/
+android update project --subprojects --path . \
+    --target "android-19"
+ant debug
+cd ../../..
+
+## Finally build Android
 cp -r ../../phonegap-android/ ./platforms/android/
 
-echo "Building for Android"
 cordova build android
 
 cd platforms/android/ant-build/
