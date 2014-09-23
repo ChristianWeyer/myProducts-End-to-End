@@ -7,11 +7,9 @@
     "title": "my Products",
     "toolbar": false,
     "frame": true,
-    "width": 1024,
-    "height": 750,
     "position": "mouse",
-    "min_width": 1024,
-    "min_height": 750,
+    "width": 1024,
+    "height": 720,
     "icon": "app/images/apple-touch-icon.png"
   }
 }
