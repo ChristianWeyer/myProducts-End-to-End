@@ -7,8 +7,9 @@ tt.dialog.module = angular.module("Thinktecture.Dialog", ["ng"]);
     /**
      * @param $injector
      * @param $rootScope
+     * @constructor
      */
-    var dialog = function ($injector, $rootScope) {
+    function DialogService ($injector, $rootScope) {
         var mobile = false;
         var $modal;
 
@@ -23,7 +24,7 @@ tt.dialog.module = angular.module("Thinktecture.Dialog", ["ng"]);
             backdrop: true,
             keyboard: true,
             modalFade: true,
-            templateUrl: "app/infrastructure/dialog.html"
+            templateUrl: "app/appServices/dialog.html"
         };
 
         var modalOptions = {
@@ -77,7 +78,7 @@ tt.dialog.module = angular.module("Thinktecture.Dialog", ["ng"]);
                 };
                 mobileScope.dialogOptions = tempModalOptions;
 
-                $modal.fromTemplateUrl("mobile/infrastructure/dialog.html", function (modal) {
+                $modal.fromTemplateUrl("mobile/appServices/dialog.html", function (modal) {
                     mobileScope.modal = modal;
                     mobileScope.modal.show();
                 }, {
@@ -87,5 +88,5 @@ tt.dialog.module = angular.module("Thinktecture.Dialog", ["ng"]);
         };
     };
 
-    tt.dialog.module.service("dialog", ["$injector", "$rootScope", dialog]);
+    tt.dialog.module.service("dialogService", ["$injector", "$rootScope", DialogService]);
 })();

@@ -4,10 +4,11 @@
     /**
      * @param $scope
      * @param $http
+     * @constructor
      */
-    function Controller($scope, $http) {
+    function InfoController($scope, $http) {
 
     };
 
-    app.controller("infoController", ["$scope", "$http", Controller]);
+    app.controller("infoController", ["$scope", "$http", InfoController]);
 })();

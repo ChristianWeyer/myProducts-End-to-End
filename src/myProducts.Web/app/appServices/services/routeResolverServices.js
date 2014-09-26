@@ -2,8 +2,9 @@
     "use strict";
 
     /**
+     * @constructor
      */
-    var RouteResolver = function () {
+    function RouteResolver() {
         this.$get = function () {
             return this;
         };

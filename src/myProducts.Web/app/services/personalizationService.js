@@ -3,12 +3,13 @@
 
     /**
      * @param $localStorage
+     * @constructor
      */
-    $app.Personalization = function ($localStorage) {
+    function PersonalizationService ($localStorage) {
         var lsPersonalization = $localStorage.personalization = $localStorage.personalization || {};
 
         return lsPersonalization;
     };
 
-    app.factory("personalization", ["$localStorage", $app.Personalization]);
+    app.factory("personalizationService", ["$localStorage", PersonalizationService]);
 })();

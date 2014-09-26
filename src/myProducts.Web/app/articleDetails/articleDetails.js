@@ -4,16 +4,17 @@
     /**
          * @param $scope
          * @param $stateParams
-         * @param {$app.ArticlesApi} articlesApi
-         * @param {$app.Toast} toast
+         * @param {ArticlesService} articlesService
+         * @param {Toast} toastService
          * @param $location
-         * @param {$app.Dialog} dialog
+         * @param {DialogService} dialogService
          * @param $translate
-         * @param {$app.Categories} categories
+         * @param {CategoriesService} categoriesService
+         * @constructor
          */
-    function Controller($scope, $stateParams, articlesApi, toast, $location, dialog, $translate, categories) {
+    function ArticleDetailsController($scope, $stateParams, articlesService, toastService, $location, dialogService, $translate, categoriesService) {
         $scope.articledetails = {};
-        $scope.articledetails.categories = categories.data;
+        $scope.articledetails.categories = categoriesService.data;
 
         var articleId = $stateParams.id;
 
@@ -22,14 +23,14 @@
 
             $scope.articledetails.editMode = true;
 
-            articlesApi.getArticleDetails(articleId)
+            articlesService.getArticleDetails(articleId)
                 .success(function (data) {
                     $scope.articledetails.article = data;
                 })
                 .error(function (data) {
                     ttTools.logger.error("Server error", data);
 
-                    dialog.showModalDialog({}, {
+                    dialogService.showModalDialog({}, {
                         headerText: $translate("COMMON_ERROR"),
                         bodyText: $translate("DETAILS_ERROR"),
                         closeButtonText: $translate("COMMON_CLOSE"),
@@ -42,15 +43,15 @@
         $scope.articledetails.save = function () {
             var file = $scope.articledetails.image ? $scope.articledetails.image.file : null;
 
-            articlesApi.saveArticleWithImage($scope.articledetails.article, file)
+            articlesService.saveArticleWithImage($scope.articledetails.article, file)
                 .success(function () {
-                    toast.pop({
+                    toastService.pop({
                         title: $translate("POPUP_SUCCESS"),
                         body: $translate("POPUP_SAVED"),
                         type: "success"
                     });
 
-                    articlesApi.dataChanged();
+                    articlesService.dataChanged();
                     $location.path('/articles');
                 })
                 .error(function (data, status, headers, config) {
@@ -59,7 +60,7 @@
                     if (status !== 422) {
                         ttTools.logger.error("Server error", data);
 
-                        dialog.showModalDialog({}, {
+                        dialogService.showModalDialog({}, {
                             headerText: $translate("COMMON_ERROR"),
                             bodyText: $translate("DETAILS_SAVE_ERROR"),
                             closeButtonText: $translate("COMMON_CLOSE"),
@@ -71,5 +72,5 @@
         };
     };
 
-    app.lazy.controller("articleDetailsController", ["$scope", "$stateParams", "articlesApi", "toast", "$location", "dialog", "$translate", "categories", Controller]);
+    app.lazy.controller("articleDetailsController", ["$scope", "$stateParams", "articlesService", "toastService", "$location", "dialogService", "$translate", "categoriesService", ArticleDetailsController]);
 })();

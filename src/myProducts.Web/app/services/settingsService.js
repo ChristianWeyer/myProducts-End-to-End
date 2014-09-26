@@ -3,12 +3,13 @@
 
     /**
      * @param $localStorage
+     * @constructor
      */
-    $app.Settings = function ($localStorage) {
+    function SettingsService ($localStorage) {
         var lsSettings = $localStorage.applicationSettings = $localStorage.applicationSettings || {};
 
         return lsSettings;
     };
 
-    app.factory("settings", ["$localStorage", $app.Settings]);
+    app.factory("settingsService", ["$localStorage", SettingsService]);
 })();

@@ -3,18 +3,17 @@
 
     /**
      * @param $scope
-     * @param {$app.NetworkStatus} networkStatus
-     * @param {$app.Personalization} personalization
-     * @param tokenAuthentication
+     * @param {NetworkStatusService} networkStatusService
+     * @constructor
      */
-    function Controller($scope, networkStatus) {
+    function StatusController($scope, networkStatusService) {
         $scope.status = {};
-        $scope.status.isOnline = networkStatus.isOnline();
+        $scope.status.isOnline = networkStatusService.isOnline();
 
         $scope.$on(tt.networkstatus.onlineChanged, function (evt, isOnline) {
             $scope.status.isOnline = isOnline;
         });
     }
 
-    app.controller("statusController", ["$scope", "networkStatus", Controller]);
+    app.controller("statusController", ["$scope", "networkStatusService", StatusController]);
 })();

@@ -4,22 +4,23 @@
     /**
      * @param $scope
      * @param $rootScope
-     * @param {$app.Setings} settings
+     * @param {SettingsService} settingsService
+     * @constructor
      */
-    function Controller($scope, $rootScope, settings) {
+    function SettingsController($scope, $rootScope, settingsService) {
         $scope.settings = {};
-        $scope.settings.enablePush = settings.enablePush;
-        $scope.settings.sendPosition = settings.sendPosition;
+        $scope.settings.enablePush = settingsService.enablePush;
+        $scope.settings.sendPosition = settingsService.sendPosition;
 
         angular.forEach($scope.settings, function (value, key) {
-            $scope.$watch("settings." + key, function (newVal, oldVal) {
+            $scope.$watch("settingsService." + key, function (newVal, oldVal) {
                 if (newVal != oldVal) {
-                    settings[key] = newVal;
-                    $rootScope.$broadcast("settings." + key + "Changed", newVal);
+                    settingsService[key] = newVal;
+                    $rootScope.$broadcast("settingsService." + key + "Changed", newVal);
                 }
             });
         });
     };
 
-    app.controller("settingsController", ["$scope", "$rootScope", "settings", Controller]);
+    app.controller("settingsController", ["$scope", "$rootScope", "settingsService", SettingsController]);
 })();

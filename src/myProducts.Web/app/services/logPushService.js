@@ -4,13 +4,13 @@
     /**
      * @param signalRHubProxy
      * @param $rootScope
-     * @param {$app.Settings} settings
+     * @param {SettingsService} settingsService
      */
-    $app.LogPush = function (signalRHubProxy, $rootScope, settings) {
+    function LogPushService (signalRHubProxy, $rootScope, settingsService) {
         var hub = signalRHubProxy(ttTools.baseUrl, "logHub");
         hub.on("sendLogEvent");
 
-        if (settings.enablePush) {
+        if (settingsService.enablePush) {
             ttTools.startHub(hub);
         }
 
@@ -21,7 +21,7 @@
             ttTools.stopHub(hub);
         });
 
-        $rootScope.$on("settings.enablePushChanged", function (evt, enable) {
+        $rootScope.$on("settingsService.enablePushChanged", function (evt, enable) {
             if (enable) {
                 ttTools.startHub(hub);
             } else {
@@ -32,5 +32,5 @@
         return hub;
     };
 
-    app.factory("logPush", ["signalRHubProxy", "$rootScope", "settings", $app.LogPush]);
+    app.factory("logPushService", ["signalRHubProxy", "$rootScope", "settingsService", LogPushService]);
 })();

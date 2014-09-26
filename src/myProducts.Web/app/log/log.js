@@ -4,8 +4,9 @@
     /**
      * @param $scope
      * @param signalRSubscribe
+     * @constructor
      */
-    function Controller($scope, signalRSubscribe) {
+    function LogController($scope, signalRSubscribe) {
         $scope.log = {};
 
         $scope.log.entries = [];
@@ -15,5 +16,5 @@
         });
     };
 
-    app.lazy.controller("logController", ["$scope", "signalRSubscribe", Controller]);
+    app.lazy.controller("logController", ["$scope", "signalRSubscribe", LogController]);
 })();

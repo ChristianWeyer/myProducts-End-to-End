@@ -3,13 +3,14 @@
 
     /**
      * @param $scope
-     * @param {$app.Personalization} personalization
+     * @param {PersonalizationService} personalizationService
+     * @constructor
      */
-    function Controller($scope, personalization) {
+    function StartController($scope, personalizationService) {
         $scope.start = {};
         $scope.start.classes = ["", "'bg-color-blue'", "'bg-color-blueDark'"];
 
-        if (personalization.data) {
+        if (personalizationService.data) {
             $scope.start.navigationItems = getTileItems();
         }
 
@@ -18,12 +19,11 @@
         });
 
         function getTileItems() {
-            return personalization.data.Features.filter(function(value, index) {
+            return personalizationService.data.Features.filter(function(value, index) {
                 return value.DisplayText;
             });
         }
-
     };
 
-    app.controller("startController", ["$scope", "personalization", Controller]);
+    app.controller("startController", ["$scope", "personalizationService", StartController]);
 })();

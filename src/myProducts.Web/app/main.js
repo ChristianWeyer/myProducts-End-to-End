@@ -10,32 +10,31 @@ $script(
 $script.ready("app", function () {
     $script(
     [
-        "infrastructure/tools",
-        "infrastructure/thinktecture.ng.Authentication",
-        "infrastructure/thinktecture.ng.SignalR",
-        "infrastructure/baseUrlFilter",
-        "infrastructure/serverValidationDirective",
-        "infrastructure/routeResolverService",
-        "infrastructure/thinktecture.ng.Toast",
-        "infrastructure/thinktecture.ng.Dialog",
-        "infrastructure/geoLocationTrackerService",
+        "appServices/tools",
+        "appServices/services/thinktecture.ng.Authentication",
+        "appServices/services/thinktecture.ng.SignalR",
+        "appServices/filters/baseUrlFilter",
+        "appServices/directives/serverValidationDirective",
+        "appServices/services/routeResolverServices",
+        "appServices/services/thinktecture.ng.Toast",
+        "appServices/services/thinktecture.ng.Dialog",
+        "appServices/services/geoLocationTrackerService",
 
-        "articles/articlesApiService",
-        "articles/articlesPushService",
-        "articles/categoriesService",
+        "services/articlesService",
+        "services/articlesPushService",
+        "services/categoriesService",
+        "services/networkStatusService",
+        "services/personalizationService",
+        "services/logPushService",
+        "services/settingsService",
 
         "info/info",
 
         "login/login",
 
-        "log/logPushService",
-
         "settings/settings",
-        "settings/settingsService",
 
         "shell/navigation",
-        "shell/networkStatusService",
-        "shell/personalizationService",
         "shell/status",
 
         "start/start",

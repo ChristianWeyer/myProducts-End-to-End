@@ -4,8 +4,9 @@
     /**
      * @param $scope
      * @param $http
+     * @constructor
      */
-    function Controller($scope, $http) {
+    function GalleryController($scope, $http) {
         $scope.gallery = {};
 
         $scope.gallery.loadImages = function () {
@@ -21,5 +22,5 @@
         $scope.gallery.loadImages();
     };
 
-    app.lazy.controller("galleryController", ["$scope", "$http", Controller]);
+    app.lazy.controller("galleryController", ["$scope", "$http", GalleryController]);
 })();

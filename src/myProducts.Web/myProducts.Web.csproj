@@ -235,6 +235,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\appServices\dialog.html" />
+    <Content Include="app\appServices\directives\serverValidationDirective.js" />
+    <Content Include="app\appServices\filters\baseUrlFilter.js" />
+    <Content Include="app\appServices\services\geoLocationTrackerService.js" />
+    <Content Include="app\appServices\services\routeResolverServices.js" />
+    <Content Include="app\appServices\services\thinktecture.ng.Authentication.js" />
+    <Content Include="app\appServices\services\thinktecture.ng.Dialog.js" />
+    <Content Include="app\appServices\services\thinktecture.ng.SignalR.js" />
+    <Content Include="app\appServices\services\thinktecture.ng.Toast.js" />
+    <Content Include="app\appServices\tools.js" />
+    <Content Include="app\services\articlesPushService.js" />
+    <Content Include="app\services\articlesService.js" />
+    <Content Include="app\services\categoriesService.js" />
+    <Content Include="app\services\logPushService.js" />
+    <Content Include="app\services\networkStatusService.js" />
+    <Content Include="app\services\personalizationService.js" />
+    <Content Include="app\services\settingsService.js" />
     <Content Include="App_Data\ProductsDemo.sdf" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -298,8 +315,6 @@
     <Content Include="app\info\info.js" />
     <Content Include="app\log\log.js" />
     <Content Include="app\statistics\statistics.js" />
-    <Content Include="app\infrastructure\serverValidationDirective.js" />
-    <Content Include="app\infrastructure\thinktecture.ng.SignalR.js" />
     <Content Include="libs\50_AngularStuff\angular-animate.js" />
     <Content Include="libs\50_AngularStuff\angular-bootstrap-switch.js" />
     <Content Include="libs\50_AngularStuff\angular-cache.js" />
@@ -325,15 +340,7 @@
     <Content Include="libs\05_Base\script.js" />
     <Content Include="libs\15_Toastr\toastr.js" />
     <Content Include="libs\50_AngularStuff\ui-bootstrap-tpls-0.11.0.js" />
-    <Content Include="app\infrastructure\geoLocationTrackerService.js" />
-    <Content Include="app\shell\networkStatusService.js" />
-    <Content Include="app\log\logPushService.js" />
-    <Content Include="app\infrastructure\thinktecture.ng.Dialog.js" />
-    <Content Include="app\articles\categoriesService.js" />
-    <Content Include="app\infrastructure\routeResolverService.js" />
-    <Content Include="app\shell\personalizationService.js" />
     <Content Include="app\font\fontawesome-webfont.svg" />
-    <Content Include="app\settings\settingsService.js" />
     <Content Include="app\start\start.html" />
     <Content Include="app\gallery\gallery.html" />
     <Content Include="app\log\log.html" />
@@ -349,14 +356,7 @@
     <Content Include="libs\56_AngularTranslateStuff\angular-translate-storage-local.js" />
     <Content Include="libs\55_AngularTranslate\angular-translate.js" />
     <Content Include="libs\05_Base\fastclick.js" />
-    <Content Include="app\articles\articlesPushService.js" />
-    <Content Include="app\infrastructure\tools.js" />
-    <Content Include="app\infrastructure\baseUrlFilter.js" />
     <Content Include="app\login\login.js" />
-    <Content Include="app\infrastructure\thinktecture.ng.Authentication.js" />
-    <Content Include="app\infrastructure\thinktecture.ng.Toast.js" />
-    <Content Include="app\articles\articlesApiService.js" />
-    <Content Include="app\infrastructure\dialog.html" />
     <Content Include="app\info\info.html" />
     <Content Include="app\login\login.html" />
     <Content Include="app\articles\articles.html" />

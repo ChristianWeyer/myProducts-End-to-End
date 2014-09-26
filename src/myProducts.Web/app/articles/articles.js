@@ -4,15 +4,15 @@
     /**
      * @param $scope
      * @param $location
-     * @param {$app.ArticlesApi} articlesApi
+     * @param {ArticlesService} articlesService
      * @param signalRSubscribe
-     * @param {$app.Toast} toast
-     * @param {$app.Dialog} dialog
+     * @param {ToastService} toastService
+     * @param {DialogService} dialogService
      * @param $translate
-     * @param {$app.Personalization} personalization
+     * @param {PersonalizationService} personalizationService
      */
-    function Controller($scope, $location, articlesApi, signalRSubscribe, toast, dialog, $translate, personalization) {
-        $scope.capabilities = personalization.data.UiClaims.Capabilities;
+    function ArticlesController($scope, $location, articlesService, signalRSubscribe, toastService, dialogService, $translate, personalizationService) {
+        $scope.capabilities = personalizationService.data.UiClaims.Capabilities;
         $scope.capabilities.has = function (key) {
             return $scope.capabilities.indexOf(key) > -1;
         };
@@ -24,7 +24,7 @@
         $scope.articles.getFilteredData = function (searchText) {
             var search = searchText;
 
-            return articlesApi.getArticlesPaged($scope.articles.pagingOptions.pageSize, $scope.articles.pagingOptions.currentPage, search, false)
+            return articlesService.getArticlesPaged($scope.articles.pagingOptions.pageSize, $scope.articles.pagingOptions.currentPage, search, false)
                 .then(function (data) {
                     $scope.articles.articlesData = data.Items;
                     $scope.articles.totalServerItems = data.Count;
@@ -36,7 +36,7 @@
         };
 
         $scope.articles.getMoreData = function () {
-            articlesApi.getArticlesPaged($scope.articles.pagingOptions.pageSize, $scope.articles.pagingOptions.moreCurrentPage += 1, "", true)
+            articlesService.getArticlesPaged($scope.articles.pagingOptions.pageSize, $scope.articles.pagingOptions.moreCurrentPage += 1, "", true)
                 .then(function (data) {
                     $scope.articles.articlesData.push.apply($scope.articles.articlesData, data.Items);
                     $scope.articles.totalServerItems = data.Count;
@@ -48,7 +48,7 @@
         };
 
         $scope.articles.getPagedData = function (force) {
-            return articlesApi.getArticlesPaged($scope.articles.pagingOptions.pageSize, $scope.articles.pagingOptions.currentPage, "", force)
+            return articlesService.getArticlesPaged($scope.articles.pagingOptions.pageSize, $scope.articles.pagingOptions.currentPage, "", force)
                 .then(function (data) {
                     $scope.articles.articlesData = data.Items;
                     $scope.articles.totalServerItems = data.Count;
@@ -60,7 +60,7 @@
         ttTools.logger.info("Loading articles...");
 
 
-        $scope.articles.getPagedData(articlesApi.toBeForced);
+        $scope.articles.getPagedData(articlesService.toBeForced);
 
         $scope.$watch("articles.pagingOptions", function (newVal, oldVal) {
             if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage) {
@@ -94,12 +94,12 @@
         };
 
         $scope.articles.deleteArticle = function (id) {
-            articlesApi.deleteArticle(id)
+            articlesService.deleteArticle(id)
                 .success(function () {
                     $scope.articles.getPagedData(true);
                     $scope.articles.selectedFilteredArticle = null;
 
-                    toast.pop({
+                    toastService.pop({
                         title: $translate("POPUP_SUCCESS"),
                         body: $translate("POPUP_DELETED"),
                         type: "info"
@@ -123,5 +123,5 @@
     };
 
     app.lazy.controller("articlesController",
-        ["$scope", "$location", "articlesApi", "signalRSubscribe", "toast", "dialog", "$translate", "personalization", Controller]);
+        ["$scope", "$location", "articlesService", "signalRSubscribe", "toastService", "dialogService", "$translate", "personalizationService", ArticlesController]);
 })();

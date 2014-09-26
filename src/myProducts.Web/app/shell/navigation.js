@@ -5,9 +5,11 @@
      * @param $http
      * @param $scope
      * @param $translate
-     * @param {$app.Personalization} personalization
+     * @param {PersonalizationService} personalizationService
+     * @param {TokenAuthenticationService} tokenAuthenticationService
+     * @constructor
      */
-    function Controller($http, $scope, $translate, personalization, tokenAuthentication) {
+    function NavigationController($http, $scope, $translate, personalizationService, tokenAuthenticationService) {
         $scope.navigation = {};
         $scope.navigation.isCollapsed = true;
 
@@ -18,7 +20,7 @@
         };
 
         $scope.$on(tt.personalization.dataLoaded, function () {
-            $scope.navigation.navigationItems = personalization.data.Features;
+            $scope.navigation.navigationItems = personalizationService.data.Features;
         });
 
         $scope.$on(tt.authentication.logoutConfirmed, function () {
@@ -31,9 +33,9 @@
         };
 
         $scope.navigation.logout = function() {
-            tokenAuthentication.logout();
+            tokenAuthenticationService.logout();
         };
     };
 
-    app.controller("navigationController", ["$http", "$scope", "$translate", "personalization", "tokenAuthentication", Controller]);
+    app.controller("navigationController", ["$http", "$scope", "$translate", "personalizationService", "tokenAuthenticationService", NavigationController]);
 })();

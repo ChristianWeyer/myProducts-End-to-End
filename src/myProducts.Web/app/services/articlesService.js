@@ -5,8 +5,9 @@
      * @param $http
      * @param $q
      * @param $angularCacheFactory
+     * @constructor
      */
-    $app.ArticlesApi = function ($http, $q, $angularCacheFactory) {
+    function ArticlesService($http, $q, $angularCacheFactory) {
         var articlesCache = $angularCacheFactory("articlesCache", {});
 
         this.toBeForced = false;
@@ -77,5 +78,5 @@
         };
     };
 
-    app.service("articlesApi", ["$http", "$q", "$angularCacheFactory", $app.ArticlesApi]);
+    app.service("articlesService", ["$http", "$q", "$angularCacheFactory", ArticlesService]);
 })();

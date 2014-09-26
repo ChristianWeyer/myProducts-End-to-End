@@ -4,8 +4,9 @@
     /**
      * @param $scope
      * @param $http
+     * @constructor
      */
-    function Controller($scope, $http) {
+    function StatisticsController($scope, $http) {
         $scope.statistics = {};
 
         ttTools.logger.info("Freakin' cool stats!");
@@ -60,5 +61,5 @@
         };
     };
 
-    app.lazy.controller("statisticsController", ["$scope", "$http", Controller]);
+    app.lazy.controller("statisticsController", ["$scope", "$http", StatisticsController]);
 })();

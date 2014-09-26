@@ -2,12 +2,13 @@
     "use strict";
 
     /**
+     * @constructor
      */
-    $app.NetworkStatus = function () {
+    function NetworkStatusService () {
         this.isOnline = function () {
             return navigator.onLine;
         };
     };
 
-    app.service("networkStatus", $app.NetworkStatus);
+    app.service("networkStatusService", NetworkStatusService);
 })();

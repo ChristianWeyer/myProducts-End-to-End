@@ -20,7 +20,7 @@ tt.authentication = {
 
 tt.authentication.module = angular.module("Thinktecture.Authentication", ["ng"]);
 
-tt.authentication.module.provider("tokenAuthentication", {
+tt.authentication.module.provider("tokenAuthenticationService", {
     storage: null,
     url: null,
 
@@ -143,11 +143,11 @@ tt.authentication.module.provider("tokenAuthentication", {
     }]
 });
 
-tt.authentication.module.factory("tokenAuthenticationHttpInterceptor", function ($q, $rootScope, tokenAuthentication) {
+tt.authentication.module.factory("tokenAuthenticationHttpInterceptor", function ($q, $rootScope, tokenAuthenticationService) {
     function checkAuthenticationFailureStatus(deferred) {
         $rootScope.tt.authentication.userLoggedIn = false;
 
-        tokenAuthentication.checkForValidToken()
+        tokenAuthenticationService.checkForValidToken()
             .then(function (data) {
             },
             function (error) {

@@ -4,13 +4,14 @@
     /**
      * @param signalRHubProxy
      * @param $rootScope
-     * @param {$app.Settings} settings
+     * @param {SettingsService} settingsService
+     * @constructor
      */
-    $app.ArticlesPush = function (signalRHubProxy, $rootScope, settings) {
+    function ArticlesPushService (signalRHubProxy, $rootScope, settingsService) {
         var hub = signalRHubProxy(ttTools.baseUrl, "clientNotificationHub");
         hub.on("articleChange");
 
-        if (settings.enablePush) {
+        if (settingsService.enablePush) {
             ttTools.startHub(hub);
         }
 
@@ -32,5 +33,5 @@
         return hub;
     };
 
-    app.factory("articlesPush", ["signalRHubProxy", "$rootScope", "settings", $app.ArticlesPush]);
+    app.factory("articlesPushService", ["signalRHubProxy", "$rootScope", "settingsService", ArticlesPushService]);
 })();

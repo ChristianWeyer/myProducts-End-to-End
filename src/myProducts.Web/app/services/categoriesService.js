@@ -3,12 +3,13 @@
 
     /**
      * @param $localStorage
+     * @constructor
      */
-    $app.Catgories = function ($localStorage) {
+    function CatgoriesService ($localStorage) {
         var categories = $localStorage.categories = $localStorage.categories || {};
 
         return categories;
     };
 
-    app.factory("categories", ["$localStorage", $app.Catgories]);
+    app.factory("categoriesService", ["$localStorage", CatgoriesService]);
 })();

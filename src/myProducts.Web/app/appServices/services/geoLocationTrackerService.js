@@ -6,8 +6,9 @@
      * @param $http
      * @param $timeout
      * @param phonegapReady
+     * @constructor
      */
-    $app.GeoLocationTracker = function ($rootScope, $http, $timeout, phonegapReady) {
+    function GeoLocationTracker($rootScope, $http, $timeout, phonegapReady) {
         var watchId;
         var enabled;
         var location = {};
@@ -68,5 +69,5 @@
         return location;
     };
 
-    app.factory("geoLocationTracker", ["$rootScope", "$http", "$timeout", "phonegapReady", $app.GeoLocationTracker]);
+    app.factory("geoLocationTracker", ["$rootScope", "$http", "$timeout", "phonegapReady", GeoLocationTracker]);
 })();
