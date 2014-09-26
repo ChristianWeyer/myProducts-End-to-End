@@ -14,7 +14,7 @@
         $scope.login.password = "";
 
         $scope.login.submit = function () {
-            tokenAuthentication.login($scope.login.username, $scope.login.password)
+            tokenAuthenticationService.login($scope.login.username, $scope.login.password)
                 .error(function (data, status, headers, config) {
                     if (status === 400) {
                         dialogService.showModalDialog({}, {
