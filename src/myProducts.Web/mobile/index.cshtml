@@ -5,7 +5,22 @@
     <title>myProducts</title>
 
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <link href="assets/images/apple-touch-startup-image-1024x748.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 1)"
+          rel="apple-touch-startup-image">
+    <link href="assets/images/apple-touch-startup-image-2048x1496.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
     @System.Web.Optimization.Styles.Render("~/mobile/mobile/css")
+
     <style>
         [ng-cloak].splash {
             display: block !important;
@@ -80,7 +95,7 @@
     <script>
         ttMobile = true;
     </script>
-    
+
     @System.Web.Optimization.Scripts.Render("~/app/js")
     <script src="cordova.js"></script>
     @System.Web.Optimization.Scripts.Render("~/mobile/js")
@@ -92,9 +107,9 @@
     </script>
 
     <script>
-    $(function () {
-        mobileApp.initialize();
-    });
+        $(function () {
+            mobileApp.initialize();
+        });
     </script>
 
     <script src="app/main.js"></script>

@@ -254,6 +254,7 @@
     <Content Include="app\services\settingsService.js" />
     <Content Include="App_Data\ProductsDemo.sdf" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="assets\images\favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="images\0.jpg" />
@@ -486,9 +487,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="PerfItInstaller.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="PerfItInstaller.cs" />
     <Compile Include="PerfItInstaller.Designer.cs">
       <DependentUpon>PerfItInstaller.cs</DependentUpon>
     </Compile>
