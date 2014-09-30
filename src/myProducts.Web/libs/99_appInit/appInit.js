@@ -129,7 +129,7 @@ app.run(["$localStorage", "$stateProviderService", "$state", "$http", "$template
 
             toast.pop({
                 title: "Login",
-                body: $translate("LOGIN_SUCCESS"),
+                body: $translate.instant("LOGIN_SUCCESS"),
                 type: "success"
             });
         });
@@ -137,7 +137,7 @@ app.run(["$localStorage", "$stateProviderService", "$state", "$http", "$template
             $location.path("/login");
             toast.pop({
                 title: "Login",
-                body: $translate("LOGIN_FAILED"),
+                body: $translate.instant("LOGIN_FAILED"),
                 type: "error"
             });
         });

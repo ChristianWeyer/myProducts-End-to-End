@@ -69,7 +69,7 @@ namespace MyProducts.Services.Controllers
         [PerfItFilter(Name = "Articles.GetById", Description = "Gets one item", Counters = new[] { CounterTypes.TotalNoOfOperations, CounterTypes.AverageTimeTaken })]
         public ArticleDetailDto Get(string id)
         {
-            //throw new HttpResponseException(HttpStatusCode.BadRequest);
+            //throw new ApplicationException("Some weird things went wrong!");
 
             Guid guid;
 

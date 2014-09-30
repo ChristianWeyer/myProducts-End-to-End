@@ -100,8 +100,8 @@
                     $scope.articles.selectedFilteredArticle = null;
 
                     toastService.pop({
-                        title: $translate("POPUP_SUCCESS"),
-                        body: $translate("POPUP_DELETED"),
+                        title: $translate.instant("POPUP_SUCCESS"),
+                        body: $translate.instant("POPUP_DELETED"),
                         type: "info"
                     });
                 })
@@ -113,10 +113,10 @@
 
         function showError(data) {
             dialog.showModalDialog({}, {
-                headerText: $translate("COMMON_ERROR"),
-                bodyText: $translate("DETAILS_ERROR"),
-                closeButtonText: $translate("COMMON_CLOSE"),
-                actionButtonText: $translate("COMMON_OK"),
+                headerText: $translate.instant("COMMON_ERROR"),
+                bodyText: $translate.instant("DETAILS_ERROR"),
+                closeButtonText: $translate.instant("COMMON_CLOSE"),
+                actionButtonText: $translate.instant("COMMON_OK"),
                 detailsText: JSON.stringify(data)
             });
         };

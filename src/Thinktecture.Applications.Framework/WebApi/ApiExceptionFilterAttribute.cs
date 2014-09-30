@@ -17,8 +17,9 @@ namespace Thinktecture.Applications.Framework.WebApi
                                   ? "An exception occurred"
                                   : argumentException.ToString();
 
+                // 500 is the default, anyways...
                 actionExecutedContext.Response =
-                    actionExecutedContext.Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
+                    actionExecutedContext.Request.CreateErrorResponse(HttpStatusCode.InternalServerError, message);
                 actionExecutedContext.Response.Content.Headers.ContentType =
                     actionExecutedContext.Request.Content.Headers.ContentType;
             }

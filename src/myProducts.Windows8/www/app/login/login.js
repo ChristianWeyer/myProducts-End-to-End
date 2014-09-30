@@ -17,10 +17,10 @@
                 .error(function (data, status, headers, config) {
                     if (status === 400) {
                         dialogService.showModalDialog({}, {
-                            headerText: $translate("COMMON_ERROR"),
-                            bodyText: $translate("LOGIN_FAILED"),
-                            closeButtonText: $translate("COMMON_CLOSE"),
-                            actionButtonText: $translate("COMMON_OK")
+                            headerText: $translate.instant("COMMON_ERROR"),
+                            bodyText: $translate.instant("LOGIN_FAILED"),
+                            closeButtonText: $translate.instant("COMMON_CLOSE"),
+                            actionButtonText: $translate.instant("COMMON_OK")
                         });
                     };
                 });
