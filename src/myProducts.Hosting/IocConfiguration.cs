@@ -13,7 +13,7 @@ namespace MyProducts.Hosting
             var builder = new ContainerBuilder();
 
             var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            builder.RegisterApiControllers(Directory.GetFiles(path, "*Services.dll").Select(Assembly.LoadFile).ToArray());
+            builder.RegisterApiControllers(Directory.GetFiles(path, "*Services.dll").Select(Assembly.LoadFrom).ToArray());
 
             var container = builder.Build();
             var resolver = new AutofacWebApiDependencyResolver(container);
