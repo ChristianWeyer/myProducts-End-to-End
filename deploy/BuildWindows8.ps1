@@ -70,69 +70,6 @@ ForEach-Object {
 $_ -creplace '(document\.write\(.*?\))', 'MSApp.execUnsafeLocalFunction(function () {$1});'} |
 Set-Content $JQueryFileSearchResult.FullName
 
-<# 
-# Visual Studio Projekt auf Windows 8.1 upgraden
-Write-Host "--Upgrade Visual Studio Project to Windows 8.1"
-$WindowsProjectFileSearch = Get-ChildItem -Filter *.jsproj -Recurse
-(Get-Content -Path $WindowsProjectFileSearch.FullName) | 
-ForEach-Object {
-    $_ -creplace 'ToolsVersion="4.0"', 'ToolsVersion="12.0"'
-} |
-Foreach-Object {
-    $_ -creplace "<TargetPlatformVersion>8.0</TargetPlatformVersion>", "<TargetPlatformVersion>8.1</TargetPlatformVersion>"
-} |
-ForEach-Object {
-    $_ -creplace "Microsoft.WinJS.1.0", "Microsoft.WinJS.2.0"
-} | 
-ForEach-Object {
-    $_ -creplace "<VisualStudioVersion>11.0</VisualStudioVersion>", "<VisualStudioVersion>12.0</VisualStudioVersion>"
-} |
-ForEach-Object {
-    $_ -creplace '\s+<PropertyGroup Condition="''\$\(VisualStudioVersion\)'' == '''' or ''\$\(VisualStudioVersion\)'' &lt; ''11.0''">', 
-                 '<PropertyGroup Condition="''$(VisualStudioVersion)'' == '''' or ''$(VisualStudioVersion)'' &lt; ''12.0''">'
-} |
-ForEach-Object {
-    if($_ -cmatch "</Project>") {
-        $AdditionalProjectItems = "<ItemGroup>";
-        Get-ChildItem -Path "www\libs" -Filter *.* -Recurse | ForEach-Object {
-            $r = $_.FullName -creplace '(.*?www)', 'www'
-            if($r.Contains(".")) {
-                $AdditionalProjectItems += '<Content Include="'+ $r +'"></Content>'
-            }
-        } 
-        Get-ChildItem -Path "www\app" -Filter *.* -Recurse | ForEach-Object {
-            $r = $_.FullName -creplace '(.*?www)', 'www'
-            if($r.Contains(".")) {
-                $AdditionalProjectItems += '<Content Include="'+ $r +'"></Content>'
-            }
-        } 
-        Get-ChildItem -Path "www\assets" -Filter *.* -Recurse | ForEach-Object {
-            $r = $_.FullName -creplace '(.*?www)', 'www'
-            if($r.Contains(".")) {
-                $AdditionalProjectItems += '<Content Include="'+ $r +'"></Content>'
-            }
-        } 
-        Get-ChildItem -Path "www\appServices" -Filter *.* -Recurse | ForEach-Object {
-            $r = $_.FullName -creplace '(.*?www)', 'www'
-            if($r.Contains(".")) {
-                $AdditionalProjectItems += '<Content Include="'+ $r +'"></Content>'
-            }
-        }
-        $AdditionalProjectItems += "</ItemGroup>"
-        $AdditionalProjectItems += '<PropertyGroup Label="Configuration">'
-        $AdditionalProjectItems += '<MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>'
-        $AdditionalProjectItems += '</PropertyGroup>'
-        $AdditionalProjectItems += "</Project>"
-
-        $_ -creplace "</Project>", $AdditionalProjectItems
-    }
-    else{
-        $_
-    } 
-} |
-Set-Content $WindowsProjectFileSearch.FullName
-#>
-
 # Einfügen der WinJS-Referencen in die index.html
 Write-Host "--Update index.html"
 $IndexFileSearch = Get-ChildItem -Path www -Filter index.html
