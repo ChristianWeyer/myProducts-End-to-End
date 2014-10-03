@@ -30,14 +30,14 @@ cd $TemplateFolder
 
 # Windows 8 als Plattform hinzufügen
 Write-Host "--Add Windows 8 platform"
-cordova platform add windows8
+cordova platform add windows
 
 # Wieder ins Root-Verzeichnis des Skriptes springen
 cd $RootFolder
 
 # Kopieren des Plattform-Verzeichnisses in den Build-Ordner
 Write-Host "--Copy Project template to build directory"
-Copy-Item -Path .\$TemplateFolder\platforms\windows8\* -Filter *.* -Destination .\$BuildFolder -Recurse -Force -ErrorAction SilentlyContinue
+Copy-Item -Path .\$TemplateFolder\platforms\windows\* -Filter *.* -Destination .\$BuildFolder -Recurse -Force -ErrorAction SilentlyContinue
 
 # Kopieren der Projektdaten in das Build-Verzeichnis
 Write-Host "--Copy app files"
@@ -70,6 +70,7 @@ ForEach-Object {
 $_ -creplace '(document\.write\(.*?\))', 'MSApp.execUnsafeLocalFunction(function () {$1});'} |
 Set-Content $JQueryFileSearchResult.FullName
 
+<# 
 # Visual Studio Projekt auf Windows 8.1 upgraden
 Write-Host "--Upgrade Visual Studio Project to Windows 8.1"
 $WindowsProjectFileSearch = Get-ChildItem -Filter *.jsproj -Recurse
@@ -130,6 +131,7 @@ ForEach-Object {
     } 
 } |
 Set-Content $WindowsProjectFileSearch.FullName
+#>
 
 # Einfügen der WinJS-Referencen in die index.html
 Write-Host "--Update index.html"
