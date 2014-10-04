@@ -27,5 +27,5 @@
         };
     };
 
-    app.directive("serverValidate", ["$http", ServerValidateDirective]);
+    angular.module("myApp").directive("serverValidate", ["$http", ServerValidateDirective]);
 })();

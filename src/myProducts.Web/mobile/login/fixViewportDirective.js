@@ -25,5 +25,5 @@
         };
     };
 
-    app.directive("fixViewport", Directive);
+    angular.module("myApp").directive("fixViewport", Directive);
 })();

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Model", "myProducts.DataAccess\myProducts.Model.csproj", "{82EEAA96-8E08-4820-9914-0738CB1C3317}"
 EndProject
@@ -49,8 +49,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Security", "myProducts.Security\myProducts.Security.csproj", "{7D45675F-5AC2-4423-873C-3D7EE6C31326}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosts", "Hosts", "{FD9799AD-DC7D-4366-8E67-E6CC63BC41D4}"
-EndProject
-Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "myProducts.Windows8", "myProducts.Windows8\myProducts.Windows8.jsproj", "{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -204,30 +202,6 @@ Global
 		{7D45675F-5AC2-4423-873C-3D7EE6C31326}.Release|ARM.ActiveCfg = Release|Any CPU
 		{7D45675F-5AC2-4423-873C-3D7EE6C31326}.Release|x64.ActiveCfg = Release|Any CPU
 		{7D45675F-5AC2-4423-873C-3D7EE6C31326}.Release|x86.ActiveCfg = Release|Any CPU
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Debug|ARM.ActiveCfg = Debug|ARM
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Debug|ARM.Build.0 = Debug|ARM
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Debug|ARM.Deploy.0 = Debug|ARM
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Debug|x64.ActiveCfg = Debug|x64
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Debug|x64.Build.0 = Debug|x64
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Debug|x64.Deploy.0 = Debug|x64
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Debug|x86.ActiveCfg = Debug|x86
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Debug|x86.Build.0 = Debug|x86
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Debug|x86.Deploy.0 = Debug|x86
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Release|ARM.ActiveCfg = Release|ARM
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Release|ARM.Build.0 = Release|ARM
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Release|ARM.Deploy.0 = Release|ARM
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Release|x64.ActiveCfg = Release|x64
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Release|x64.Build.0 = Release|x64
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Release|x64.Deploy.0 = Release|x64
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Release|x86.ActiveCfg = Release|x86
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Release|x86.Build.0 = Release|x86
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -243,6 +217,5 @@ Global
 		{EA925276-3B76-4178-99AB-FEA985E6AA5B} = {D16EC645-05E7-4628-876E-E0E1356CC97E}
 		{BD5CC424-1C2E-4AB0-9A1F-628AA2CCE7DA} = {CE8925FC-4049-4DEF-BB3E-5F1557B22C20}
 		{B970ECB7-6F21-41E5-8923-58B57E6CCFB5} = {8C013A3A-4D93-4DAE-9FEE-03BAE245B5A3}
-		{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A} = {8C013A3A-4D93-4DAE-9FEE-03BAE245B5A3}
 	EndGlobalSection
 EndGlobal

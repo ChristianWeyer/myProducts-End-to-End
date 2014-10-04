@@ -61,5 +61,5 @@
         };
     };
 
-    app.lazy.controller("statisticsController", ["$scope", "$http", StatisticsController]);
+    angular.module("myApp").lazy.controller("statisticsController", ["$scope", "$http", StatisticsController]);
 })();

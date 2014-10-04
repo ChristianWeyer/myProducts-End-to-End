@@ -11,5 +11,5 @@
         return lsSettings;
     };
 
-    app.factory("settingsService", ["$localStorage", SettingsService]);
+    angular.module("myApp").factory("settingsService", ["$localStorage", SettingsService]);
 })();

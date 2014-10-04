@@ -37,5 +37,5 @@
         };
     };
 
-    app.controller("navigationController", ["$http", "$scope", "$translate", "personalizationService", "tokenAuthenticationService", NavigationController]);
+    angular.module("myApp").controller("navigationController", ["$http", "$scope", "$translate", "personalizationService", "tokenAuthenticationService", NavigationController]);
 })();

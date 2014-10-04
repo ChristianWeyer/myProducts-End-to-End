@@ -10,5 +10,5 @@
 
     };
 
-    app.controller("infoController", ["$scope", "$http", InfoController]);
+    appangular.module("myApp").controller("infoController", ["$scope", "$http", InfoController]);
 })();

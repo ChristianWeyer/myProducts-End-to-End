@@ -69,5 +69,5 @@
         return location;
     };
 
-    app.factory("geoLocationTracker", ["$rootScope", "$http", "$timeout", "phonegapReady", GeoLocationTracker]);
+    angular.module("myApp").factory("geoLocationTracker", ["$rootScope", "$http", "$timeout", "phonegapReady", GeoLocationTracker]);
 })();

@@ -28,5 +28,5 @@
         };
     };
 
-    app.controller("loginController", ["$scope", "tokenAuthenticationService", "dialogService", "$translate", LoginController]);
+    angular.module("myApp").controller("loginController", ["$scope", "tokenAuthenticationService", "dialogService", "$translate", LoginController]);
 })();

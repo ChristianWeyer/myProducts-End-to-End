@@ -1,13 +1,10 @@
-﻿window.$app = window.$app || {};
-var app;
-
-if (ttMobile) {
-    app = angular.module("myApp", ["ui.router", "ngTouch", "ngAnimate", "ngSanitize", "Thinktecture.Dialog", "Thinktecture.Toast", "Thinktecture.SignalR", "Thinktecture.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "ngStorage", "nvd3", "jmdobry.angular-cache", "ionic", "angular-loading-bar", "btford.phonegap.ready", "btford.phonegap.geolocation"]);
+﻿if (ttMobile) {
+    angular.module("myApp", ["ui.router", "ngTouch", "ngAnimate", "ngSanitize", "Thinktecture.Dialog", "Thinktecture.Toast", "Thinktecture.SignalR", "Thinktecture.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "ngStorage", "nvd3", "jmdobry.angular-cache", "ionic", "angular-loading-bar", "btford.phonegap.ready", "btford.phonegap.geolocation"]);
 } else {
-    app = angular.module("myApp", ["ui.router", "ngTouch", "ngAnimate", "ngSanitize", "Thinktecture.Dialog", "Thinktecture.Toast", "$strap.directives", "ui.bootstrap", "Thinktecture.SignalR", "Thinktecture.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "angular-carousel", "frapontillo.bootstrap-switch", "ngStorage", "imageupload", "nvd3", "jmdobry.angular-cache", "angular-loading-bar", "btford.phonegap.ready", "btford.phonegap.geolocation"]);
+    angular.module("myApp", ["ui.router", "ngTouch", "ngAnimate", "ngSanitize", "Thinktecture.Dialog", "Thinktecture.Toast", "$strap.directives", "ui.bootstrap", "Thinktecture.SignalR", "Thinktecture.Authentication", "ngCookies", "pascalprecht.translate", "routeResolverServices", "angular-carousel", "frapontillo.bootstrap-switch", "ngStorage", "imageupload", "nvd3", "jmdobry.angular-cache", "angular-loading-bar", "btford.phonegap.ready", "btford.phonegap.geolocation"]);
 }
 
-app.config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$translateProvider", "$httpProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide", "cfpLoadingBarProvider", "tokenAuthenticationServiceProvider",
+angular.module("myApp").config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$translateProvider", "$httpProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide", "cfpLoadingBarProvider", "tokenAuthenticationServiceProvider",
     function ($urlRouterProvider, $stateProvider, $locationProvider, $translateProvider, $httpProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, cfpLoadingBarProvider, tokenAuthenticationServiceProvider) {
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|ghttps?|ms-appx|x-wmapp0):/);
 
@@ -18,7 +15,7 @@ app.config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$trans
         ttTools.initLogger(ttTools.baseUrl + "api/log");
         ttTools.logger.info("Configuring myApp...");
 
-        app.lazy =
+        angular.module("myApp").lazy =
         {
             controller: $controllerProvider.register,
             directive: $compileProvider.directive,
@@ -72,7 +69,7 @@ app.config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$trans
         $translateProvider.useLocalStorage();
     }]);
 
-app.run(["$localStorage", "$stateProviderService", "$state", "$http", "$templateCache", "$rootScope", "$location", "$translate", "toastService", "dialogService", "routeResolver", "personalizationService", "categoriesService", "geoLocationTracker", "articlesPushService", "logPushService",
+angular.module("myApp").run(["$localStorage", "$stateProviderService", "$state", "$http", "$templateCache", "$rootScope", "$location", "$translate", "toastService", "dialogService", "routeResolver", "personalizationService", "categoriesService", "geoLocationTracker", "articlesPushService", "logPushService",
     function ($localStorage, $stateProviderService, $state, $http, $templateCache, $rootScope, $location, $translate, toast, dialog, routeResolver, personalization, categories, geoLocationTracker, articlesPush, logPush) {
         geoLocationTracker.startSendPosition(10000, function (pos) { });
 
@@ -155,7 +152,7 @@ app.run(["$localStorage", "$stateProviderService", "$state", "$http", "$template
         $rootScope.ttAppLoaded = true;
     }]);
 
-app.animation(".reveal-animation", function () {
+angular.module("myApp").animation(".reveal-animation", function () {
     return {
         enter: function (element, done) {
             element.css("display", "none");

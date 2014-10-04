@@ -25,5 +25,5 @@
         }
     };
 
-    app.controller("startController", ["$scope", "personalizationService", StartController]);
+    angular.module("myApp").controller("startController", ["$scope", "personalizationService", StartController]);
 })();

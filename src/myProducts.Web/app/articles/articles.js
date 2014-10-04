@@ -122,6 +122,6 @@
         };
     };
 
-    app.lazy.controller("articlesController",
+    angular.module("myApp").lazy.controller("articlesController",
         ["$scope", "$location", "articlesService", "signalRSubscribe", "toastService", "dialogService", "$translate", "personalizationService", ArticlesController]);
 })();

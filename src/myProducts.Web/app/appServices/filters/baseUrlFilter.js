@@ -12,5 +12,5 @@
         };
     };
 
-    app.filter("baseUrl", BaseUrlFilter);
+    angular.module("myApp").filter("baseUrl", BaseUrlFilter);
 })();
