@@ -244,17 +244,17 @@ h3 {
 }
 
     .slide-animation.ng-enter {
-        animation: slideInRight 0.8s;
-        -webkit-animation: slideInRight 0.8s;
-        -moz-animation: slideInRight 0.8s;
-        -ms-animation: slideInRight 0.8s;
+        animation: fadeInRight 0.8s;
+        -webkit-animation: fadeInRight 0.8s;
+        -moz-animation: fadeInRight 0.8s;
+        -ms-animation: fadeInRight 0.8s;
     }
 
     .slide-animation.ng-leave {
-        animation: slideOutLeft 0.8s;
-        -webkit-animation: slideOutLeft 0.8s;
-        -moz-animation: slideOutLeft 0.8s;
-        -ms-animation: slideOutLeft 0.8s;
+        animation: fadeOutLeft 0.8s;
+        -webkit-animation: fadeOutLeft 0.8s;
+        -moz-animation: fadeOutLeft 0.8s;
+        -ms-animation: fadeOutLeft 0.8s;
     }
 
 .navbar-collapse.collapsing {
