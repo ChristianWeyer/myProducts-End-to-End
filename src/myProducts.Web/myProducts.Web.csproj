@@ -566,7 +566,7 @@ copy "$(SolutionDir)build\MyProducts.Services.dll" "$(TargetDir)"
 copy "$(SolutionDir)build\MyProducts.Model.dll" "$(TargetDir)"</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>$(SolutionDir)tools\curl.exe http://localhost/ngmd/app</PostBuildEvent>
+    <PostBuildEvent>REM $(SolutionDir)tools\curl.exe http://localhost/ngmd/app</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
