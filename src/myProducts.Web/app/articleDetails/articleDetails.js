@@ -72,5 +72,5 @@
         };
     };
 
-    angular.module("myApp").lazy.controller("articleDetailsController", ["$scope", "$stateParams", "articlesService", "toastService", "$location", "dialogService", "$translate", "categoriesService", ArticleDetailsController]);
+    app.module.lazy.controller("articleDetailsController", ["$scope", "$stateParams", "articlesService", "toastService", "$location", "dialogService", "$translate", "categoriesService", ArticleDetailsController]);
 })();

@@ -116,6 +116,8 @@
 cmd /x /c mkdir "$(TargetDir)client\"
 
 xcopy "$(SolutionDir)myProducts.Web\app\*.*" "$(TargetDir)client\app\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\appServices\*.*" "$(TargetDir)client\appServices\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\appStartup\*.*" "$(TargetDir)client\appStartup\" /E /I /F /Y
 xcopy "$(SolutionDir)myProducts.Web\assets\*.*" "$(TargetDir)client\assets\" /E /I /F /Y
 xcopy "$(SolutionDir)myProducts.Web\libs\*.*" "$(TargetDir)client\libs\" /E /I /F /Y
 xcopy "$(SolutionDir)myProducts.Web\mobile\*.*" "$(TargetDir)client\mobile\" /E /I /F /Y

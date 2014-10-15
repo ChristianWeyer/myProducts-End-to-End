@@ -6,16 +6,19 @@ namespace MyProducts.Web
     {
         public static void Register(BundleCollection bundles)
         {
-            bundles.IgnoreList.Ignore("app.js");
-
-            bundles.Add(new Bundle("~/app/css")
+            bundles.Add(new Bundle("~/libs/css")
                .IncludeDirectory("~/libs", "*.css", true)
                .IncludeDirectory("~/assets", "*.css", true)
                );
 
-            bundles.Add(new Bundle("~/app/js")
+            bundles.Add(new Bundle("~/libs/js")
                 .IncludeDirectory("~/libs", "*.js", true)
                 );
+
+            bundles.Add(new Bundle("~/app/js")
+                .IncludeDirectory("~/appServices", "*.js", true)
+                .IncludeDirectory("~/appStartup", "*.js", true)
+            );
 
             bundles.Add(new Bundle("~/mobile/mobile/css")
                .IncludeDirectory("~/libs/17_Modern", "*.css", true)

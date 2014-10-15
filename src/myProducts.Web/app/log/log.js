@@ -16,5 +16,5 @@
         });
     };
 
-    angular.module("myApp").lazy.controller("logController", ["$scope", "signalRSubscribe", LogController]);
+    app.module.lazy.controller("logController", ["$scope", "signalRSubscribe", LogController]);
 })();

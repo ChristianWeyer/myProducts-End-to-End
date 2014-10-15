@@ -17,5 +17,5 @@
         };
     };
 
-    angular.module("myApp").directive("slidesRefresh", ["$ionicSlideBoxDelegate", Directive]);
+    app.module.directive("slidesRefresh", ["$ionicSlideBoxDelegate", Directive]);
 })();

@@ -33,5 +33,5 @@
         return hub;
     };
 
-    angular.module("myApp").factory("articlesPushService", ["signalRHubProxy", "$rootScope", "settingsService", ArticlesPushService]);
+    app.module.factory("articlesPushService", ["signalRHubProxy", "$rootScope", "settingsService", ArticlesPushService]);
 })();

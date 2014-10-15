@@ -22,5 +22,5 @@
         });
     };
 
-    angular.module("myApp").controller("settingsController", ["$scope", "$rootScope", "settingsService", SettingsController]);
+    app.module.controller("settingsController", ["$scope", "$rootScope", "settingsService", SettingsController]);
 })();

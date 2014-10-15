@@ -22,5 +22,5 @@
         $scope.gallery.loadImages();
     };
 
-    angular.module("myApp").lazy.controller("galleryController", ["$scope", "$http", GalleryController]);
+    app.module.lazy.controller("galleryController", ["$scope", "$http", GalleryController]);
 })();

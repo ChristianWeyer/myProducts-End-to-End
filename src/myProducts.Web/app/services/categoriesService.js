@@ -11,5 +11,5 @@
         return categories;
     };
 
-    angular.module("myApp").factory("categoriesService", ["$localStorage", CatgoriesService]);
+    app.module.factory("categoriesService", ["$localStorage", CatgoriesService]);
 })();

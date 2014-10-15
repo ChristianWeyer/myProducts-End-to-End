@@ -96,15 +96,10 @@
         ttMobile = true;
     </script>
 
+    @System.Web.Optimization.Scripts.Render("~/libs/js")
     @System.Web.Optimization.Scripts.Render("~/app/js")
     <script src="cordova.js"></script>
     @System.Web.Optimization.Scripts.Render("~/mobile/js")
-
-    <script>
-        $(function () {
-            FastClick.attach(document.body);
-        });
-    </script>
 
     <script>
         $(function () {

@@ -15,5 +15,5 @@
         });
     }
 
-    angular.module("myApp").controller("statusController", ["$scope", "networkStatusService", StatusController]);
+    app.module.controller("statusController", ["$scope", "networkStatusService", StatusController]);
 })();

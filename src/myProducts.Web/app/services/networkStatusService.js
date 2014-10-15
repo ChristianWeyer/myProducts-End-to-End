@@ -10,5 +10,5 @@
         };
     };
 
-    angular.module("myApp").service("networkStatusService", NetworkStatusService);
+    app.module.service("networkStatusService", NetworkStatusService);
 })();

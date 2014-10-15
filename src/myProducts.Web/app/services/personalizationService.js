@@ -11,5 +11,5 @@
         return lsPersonalization;
     };
 
-    angular.module("myApp").factory("personalizationService", ["$localStorage", PersonalizationService]);
+    app.module.factory("personalizationService", ["$localStorage", PersonalizationService]);
 })();

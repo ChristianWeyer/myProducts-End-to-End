@@ -10,5 +10,5 @@
 
     };
 
-    angular.module("myApp").controller("infoController", ["$scope", "$http", InfoController]);
+    app.module.controller("infoController", ["$scope", "$http", InfoController]);
 })();

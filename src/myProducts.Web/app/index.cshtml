@@ -21,7 +21,7 @@
     
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
 
-    @System.Web.Optimization.Styles.Render("~/app/css")
+    @System.Web.Optimization.Styles.Render("~/libs/css")
 </head>
 
 <body>
@@ -95,14 +95,8 @@
         ttMobile = false;
     </script>
 
+    @System.Web.Optimization.Scripts.Render("~/libs/js")
     @System.Web.Optimization.Scripts.Render("~/app/js")
-
-    <script>
-        $(function () {
-            FastClick.attach(document.body);
-        });
-    </script>
-
     <script src="app/main.js"></script>
 </body>
 </html>
