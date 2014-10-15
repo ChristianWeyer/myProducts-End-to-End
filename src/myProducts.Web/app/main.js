@@ -4,21 +4,22 @@ $script(
     [
         "translations/translations-de",
         "constants",
-        "../libs/99_appInit/appInit"
+        "../libs/99_appInit/appInit",
+        "../appStartup/appStartup"
     ], "app");
 
 $script.ready("app", function () {
     $script(
     [
-        "appServices/tools",
-        "appServices/services/thinktecture.ng.Authentication",
-        "appServices/services/thinktecture.ng.SignalR",
-        "appServices/filters/baseUrlFilter",
-        "appServices/directives/serverValidationDirective",
-        "appServices/services/routeResolverServices",
-        "appServices/services/thinktecture.ng.Toast",
-        "appServices/services/thinktecture.ng.Dialog",
-        "appServices/services/geoLocationTrackerService",
+        "../appServices/tools",
+        "../appServices/services/thinktecture.ng.Authentication",
+        "../appServices/services/thinktecture.ng.SignalR",
+        "../appServices/filters/baseUrlFilter",
+        "../appServices/directives/serverValidationDirective",
+        "../appServices/services/routeResolverServices",
+        "../appServices/services/thinktecture.ng.Toast",
+        "../appServices/services/thinktecture.ng.Dialog",
+        "../appServices/services/geoLocationTrackerService",
 
         "services/articlesService",
         "services/articlesPushService",
