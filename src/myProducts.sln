@@ -3,14 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Model", "myProducts.DataAccess\myProducts.Model.csproj", "{82EEAA96-8E08-4820-9914-0738CB1C3317}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Model", "myProducts.Model\myProducts.Model.csproj", "{82EEAA96-8E08-4820-9914-0738CB1C3317}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Web", "myProducts.Web\myProducts.Web.csproj", "{7B2C0D1F-37D9-4E8B-91FE-3CE33B1DA822}"
 	ProjectSection(ProjectDependencies) = postProject
 		{59D93108-6C96-496E-A91D-B723B16B23ED} = {59D93108-6C96-496E-A91D-B723B16B23ED}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.DataGenerator", "myProducts.TestData\myProducts.DataGenerator.csproj", "{E24817BB-5AD6-4B27-B75B-1D3824EA88FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.DataGenerator", "myProducts.DataGenerator\myProducts.DataGenerator.csproj", "{E24817BB-5AD6-4B27-B75B-1D3824EA88FB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.OutputCache", "libs\WebAPI.OutputCache\WebAPI.OutputCache.csproj", "{4F32DC89-081B-4264-92F8-F3371A088EB4}"
 EndProject
@@ -24,8 +24,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Hosting", "myPro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.SelfHost", "myProducts.SelfHost\myProducts.SelfHost.csproj", "{97046BCF-227C-4F65-9374-733FDBDBE1F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Tests", "myProducts.Tests\myProducts.Tests.csproj", "{E50EAD59-DA89-4D16-841F-E685C431C762}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{CE8925FC-4049-4DEF-BB3E-5F1557B22C20}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Resources", "myProducts.Resources\myProducts.Resources.csproj", "{7C373040-6D5A-4874-B38F-909CAC45B429}"
@@ -34,7 +32,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinktecture.Applications.F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.WarmupHelper", "myProducts.WarmupHelper\myProducts.WarmupHelper.csproj", "{BD5CC424-1C2E-4AB0-9A1F-628AA2CCE7DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.H5WindowsClient", "myProducts.WindowsClient\myProducts.H5WindowsClient.csproj", "{B970ECB7-6F21-41E5-8923-58B57E6CCFB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.WindowsCEFClient", "myProducts.WindowsCEFClient\myProducts.WindowsCEFClient.csproj", "{B970ECB7-6F21-41E5-8923-58B57E6CCFB5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{8C013A3A-4D93-4DAE-9FEE-03BAE245B5A3}"
 EndProject
@@ -142,16 +140,6 @@ Global
 		{97046BCF-227C-4F65-9374-733FDBDBE1F4}.Release|ARM.ActiveCfg = Release|Any CPU
 		{97046BCF-227C-4F65-9374-733FDBDBE1F4}.Release|x64.ActiveCfg = Release|Any CPU
 		{97046BCF-227C-4F65-9374-733FDBDBE1F4}.Release|x86.ActiveCfg = Release|Any CPU
-		{E50EAD59-DA89-4D16-841F-E685C431C762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E50EAD59-DA89-4D16-841F-E685C431C762}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E50EAD59-DA89-4D16-841F-E685C431C762}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{E50EAD59-DA89-4D16-841F-E685C431C762}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{E50EAD59-DA89-4D16-841F-E685C431C762}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{E50EAD59-DA89-4D16-841F-E685C431C762}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E50EAD59-DA89-4D16-841F-E685C431C762}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E50EAD59-DA89-4D16-841F-E685C431C762}.Release|ARM.ActiveCfg = Release|Any CPU
-		{E50EAD59-DA89-4D16-841F-E685C431C762}.Release|x64.ActiveCfg = Release|Any CPU
-		{E50EAD59-DA89-4D16-841F-E685C431C762}.Release|x86.ActiveCfg = Release|Any CPU
 		{7C373040-6D5A-4874-B38F-909CAC45B429}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7C373040-6D5A-4874-B38F-909CAC45B429}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C373040-6D5A-4874-B38F-909CAC45B429}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -213,7 +201,6 @@ Global
 		{D5C2F6DB-26E7-415C-89E9-97B4C83E09AB} = {D16EC645-05E7-4628-876E-E0E1356CC97E}
 		{3A55D123-F887-4CFD-99E7-B1A9FBD32C36} = {FD9799AD-DC7D-4366-8E67-E6CC63BC41D4}
 		{97046BCF-227C-4F65-9374-733FDBDBE1F4} = {FD9799AD-DC7D-4366-8E67-E6CC63BC41D4}
-		{E50EAD59-DA89-4D16-841F-E685C431C762} = {CE8925FC-4049-4DEF-BB3E-5F1557B22C20}
 		{EA925276-3B76-4178-99AB-FEA985E6AA5B} = {D16EC645-05E7-4628-876E-E0E1356CC97E}
 		{BD5CC424-1C2E-4AB0-9A1F-628AA2CCE7DA} = {CE8925FC-4049-4DEF-BB3E-5F1557B22C20}
 		{B970ECB7-6F21-41E5-8923-58B57E6CCFB5} = {8C013A3A-4D93-4DAE-9FEE-03BAE245B5A3}

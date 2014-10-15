@@ -162,7 +162,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\myProducts.DataAccess\myProducts.Model.csproj">
+    <ProjectReference Include="..\myProducts.Model\myProducts.Model.csproj">
       <Project>{82EEAA96-8E08-4820-9914-0738CB1C3317}</Project>
       <Name>myProducts.Model</Name>
     </ProjectReference>

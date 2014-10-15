@@ -522,7 +522,7 @@
       <Project>{4f32dc89-081b-4264-92f8-f3371a088eb4}</Project>
       <Name>WebAPI.OutputCache</Name>
     </ProjectReference>
-    <ProjectReference Include="..\myProducts.DataAccess\myProducts.Model.csproj">
+    <ProjectReference Include="..\myProducts.Model\myProducts.Model.csproj">
       <Project>{82eeaa96-8e08-4820-9914-0738cb1c3317}</Project>
       <Name>myProducts.Model</Name>
     </ProjectReference>
