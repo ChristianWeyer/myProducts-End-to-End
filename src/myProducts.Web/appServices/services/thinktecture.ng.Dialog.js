@@ -24,7 +24,7 @@ tt.dialog.module = angular.module("Thinktecture.Dialog", ["ng"]);
             backdrop: true,
             keyboard: true,
             modalFade: true,
-            templateUrl: "app/appServices/dialog.html"
+            templateUrl: "appServices/dialog.html"
         };
 
         var modalOptions = {

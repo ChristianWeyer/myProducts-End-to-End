@@ -112,7 +112,7 @@
         };
 
         function showError(data) {
-            dialog.showModalDialog({}, {
+            dialogService.showModalDialog({}, {
                 headerText: $translate.instant("COMMON_ERROR"),
                 bodyText: $translate.instant("DETAILS_ERROR"),
                 closeButtonText: $translate.instant("COMMON_CLOSE"),

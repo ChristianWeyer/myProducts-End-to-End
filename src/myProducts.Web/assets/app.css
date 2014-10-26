@@ -12,12 +12,19 @@
     }
 }
 
+@media (max-width: 767px) {
+    body {
+        padding-right: 20px;
+        padding-left: 0px !important;
+    }
+}
+
 .circle-red {
     width: 15px;
     height: 15px;
     border-radius: 50%;
     background: rgba(210, 50, 45, 0.7);
-    margin-top: auto
+    margin-top: auto;
 }
 
 .circle-green {
@@ -25,7 +32,7 @@
     height: 15px;
     border-radius: 50%;
     background: rgba(71, 164, 71, 0.7);
-    margin-top: auto
+    margin-top: auto;
 }
 
 html {
