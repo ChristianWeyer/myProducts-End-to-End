@@ -29,6 +29,8 @@ mkdir out/web
 cd ${DIR}
 cd tmp
 cp -r ../../src/myProducts.Web/app .
+cp -r ../../src/myProducts.Web/appStartup .
+cp -r ../../src/myProducts.Web/appServices .
 cp -r ../../src/myProducts.Web/libs .
 cp -r ../../src/myProducts.Web/assets .
 

@@ -292,3 +292,4 @@ phonegap_tmp/
 deploy
 myProducts.Xamarin.userprefs
 *.DS_Store
+*.colt
