@@ -15,6 +15,7 @@
     },
 
     onDeviceReady: function () {
+        StatusBar.hide();
         navigator.splashscreen.hide();
     }
 };
