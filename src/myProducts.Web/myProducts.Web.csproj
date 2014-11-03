@@ -257,6 +257,7 @@
     <Content Include="App_Data\ProductsDemo.sdf" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="assets\images\favicon.ico" />
+    <Content Include="assets\images\login_icon.png" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="images\0.jpg" />
@@ -375,7 +376,7 @@
     <Content Include="mobile\assets\images\thinktecture_logo.png" />
     <Content Include="mobile\gallery\refreshSlidesDirective.js" />
     <Content Include="mobile\login\fixViewportDirective.js" />
-    <Content Include="mobile\mobile.js" />
+    <Content Include="appStartup\mobileApp.js" />
     <Content Include="mobile\articleDetails\articleDetails.html" />
     <Content Include="mobile\articles\articles.html" />
     <Content Include="mobile\assets\ionic.css" />

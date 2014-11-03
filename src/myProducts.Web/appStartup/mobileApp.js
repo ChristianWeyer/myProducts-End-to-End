@@ -1,6 +1,4 @@
-﻿var ttMobile = true;
-
-var mobileApp = {
+﻿var mobileApp = {
     initialize: function () {
         if (!document.URL.match(/^https?:/)) {
             this.bindEvents();
