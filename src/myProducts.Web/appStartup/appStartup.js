@@ -54,11 +54,11 @@
             $rootScope.$on(tt.authentication.loginConfirmed, function () {
                 $location.path("/");
 
-                toast.pop({
-                    title: "Login",
-                    body: $translate.instant("LOGIN_SUCCESS"),
-                    type: "success"
-                });
+                //toast.pop({
+                //    title: "Login",
+                //    body: $translate.instant("LOGIN_SUCCESS"),
+                //    type: "success"
+                //});
             });
             $rootScope.$on(tt.authentication.loginFailed, function () {
                 $location.path("/login");

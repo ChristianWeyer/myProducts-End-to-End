@@ -19,6 +19,28 @@
     }
 }
 
+.btn {
+    border-radius: 0    
+}
+
+.add-btn-primary {
+    background-color: rgba(50, 118, 177, 0.75);
+    border-color: rgba(92, 184, 92, 0);
+    font-size: 0.6em;
+}
+
+.list-btn-success {
+    background-color: rgba(92, 184, 92, 0.75);
+    border-color: rgba(92, 184, 92, 0);
+    font-size: 0.6em;
+}
+
+.list-btn-danger {
+    background-color: rgba(217, 83, 79, 0.75);
+    border-color: rgba(217, 83, 79, 0);
+    font-size: 0.6em;
+}
+
 .circle-red {
     width: 15px;
     height: 15px;
