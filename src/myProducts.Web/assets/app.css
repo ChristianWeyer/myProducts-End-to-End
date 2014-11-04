@@ -64,7 +64,7 @@ html {
 
 body {
     height: 100%;
-    overflow: scroll;
+    overflow: hidden;
     background-color: #F0F0F0;
 }
 
