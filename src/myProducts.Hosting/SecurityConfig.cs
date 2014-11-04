@@ -12,6 +12,8 @@ namespace MyProducts.Hosting
     {
         public static void Register(IAppBuilder app)
         {
+            app.UseCors(CorsOptions.AllowAll);
+
             app.UseOAuthAuthorizationServer(new OAuthAuthorizationServerOptions
             {
                 TokenEndpointPath = new PathString("/token"),
@@ -23,8 +25,6 @@ namespace MyProducts.Hosting
                 Provider = new EnhancedAuthenticationProvider(),
                 AuthenticationMode = AuthenticationMode.Passive
             });
-
-            app.UseCors(CorsOptions.AllowAll);
         }
     }
 }
