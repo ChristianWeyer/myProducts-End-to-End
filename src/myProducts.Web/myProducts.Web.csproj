@@ -276,7 +276,6 @@
     <Content Include="images\7.jpg" />
     <Content Include="images\8.jpg" />
     <Content Include="images\9.jpg" />
-    <Content Include="libs\20_Bootstrap\bootstrap - Copy.css" />
     <Content Include="libs\50_AngularStuff\angular-nvd3.js" />
     <Content Include="libs\50_AngularStuff\angular-ui-router.js" />
     <Content Include="app\articleDetails\articleDetails.html" />

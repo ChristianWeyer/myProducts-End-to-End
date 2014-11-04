@@ -32,6 +32,12 @@ cd $TemplateFolder
 Write-Host "--Add Windows 8 platform"
 cordova platform add windows
 
+cordova plugin add org.apache.cordova.device
+cordova plugin add org.apache.cordova.geolocation
+cordova plugin add org.apache.cordova.splashscreen
+cordova plugin add org.apache.cordova.statusbar
+cordova plugin add org.apache.cordova.console
+
 # Wieder ins Root-Verzeichnis des Skriptes springen
 cd $RootFolder
 
@@ -41,10 +47,11 @@ Copy-Item -Path .\$TemplateFolder\platforms\windows\* -Filter *.* -Destination .
 
 # Kopieren der Projektdaten in das Build-Verzeichnis
 Write-Host "--Copy app files"
-Copy-Item -Path .\$ProjectFolder\app -Filter *.* -Destination .\$BuildFolder\www -Recurse -Force -ErrorAction SilentlyContinue 
-Copy-Item -Path .\$ProjectFolder\assets -Filter *.* -Destination .\$BuildFolder\www -Recurse -Force -ErrorAction SilentlyContinue 
-Copy-Item -Path .\$ProjectFolder\libs -Filter *.* -Destination .\$BuildFolder\www -Recurse -Force -ErrorAction SilentlyContinue 
-Copy-Item -Path .\$ProjectFolder\appServices -Filter *.* -Destination .\$BuildFolder\www -Recurse -Force -ErrorAction SilentlyContinue 
+Copy-Item -Path .\$ProjectFolder\app -Filter *.* -Destination .\$BuildFolder\www -Recurse -Force 
+Copy-Item -Path .\$ProjectFolder\assets -Filter *.* -Destination .\$BuildFolder\www -Recurse -Force 
+Copy-Item -Path .\$ProjectFolder\libs -Filter *.* -Destination .\$BuildFolder\www -Recurse -Force 
+Copy-Item -Path .\$ProjectFolder\appServices -Filter *.* -Destination .\$BuildFolder\www -Recurse 
+Copy-Item -Path .\$ProjectFolder\appStartup -Filter *.* -Destination .\$BuildFolder\www -Recurse 
 
 # Index.html vom Server laden
 $URI = $Url -as [System.URI] 
