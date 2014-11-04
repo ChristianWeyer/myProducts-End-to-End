@@ -3,10 +3,7 @@
 ttTools.cloudUrl = "https://ngmd.azurewebsites.net/";
 
 ttTools.isInApp = function () {
-    var local = document.URL.indexOf("http://") === -1 &&
-        document.URL.indexOf("https://") === -1;
-
-    return local;
+    return window.cordova;
 };
 
 ttTools.getBaseUrl = function () {

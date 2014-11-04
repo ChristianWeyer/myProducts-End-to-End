@@ -1,4 +1,5 @@
-﻿using Fabrik.Common.WebAPI;
+﻿using System.Web.Http.Cors;
+using Fabrik.Common.WebAPI;
 using Microsoft.Owin.Security.OAuth;
 using MyProducts.Resources;
 using System.Net.Http.Formatting;
@@ -36,6 +37,8 @@ namespace MyProducts.Hosting
 
             config.Services.Replace(typeof(ModelMetadataProvider),
                 new ConventionalModelMetadataProvider(false, typeof(ValidationResources)));
+
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             var resolver = IocConfiguration.ConfigureContainerForWebApi();
             config.DependencyResolver = resolver;

@@ -38,10 +38,7 @@ $script.ready("app", function () {
         "shell/navigation",
         "shell/status",
 
-        "start/start",
-
-         "../mobile/gallery/refreshSlidesDirective",
-         "../mobile/login/fixViewportDirective"
+        "start/start"
     ], "bundle");
 
     $script.ready("bundle", function () {
