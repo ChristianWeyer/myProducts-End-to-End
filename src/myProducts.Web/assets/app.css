@@ -20,7 +20,7 @@
 }
 
 .btn {
-    border-radius: 0    
+    border-radius: 0;
 }
 
 .add-btn-primary {
@@ -64,8 +64,11 @@ html {
 
 body {
     height: 100%;
-    overflow: hidden;
     background-color: #F0F0F0;
+}
+
+#content {
+    overflow-x: hidden;
 }
 
 h1 {
