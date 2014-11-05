@@ -18,7 +18,7 @@
          and (orientation: landscape)
          and (-webkit-device-pixel-ratio: 2)"
           rel="apple-touch-startup-image">
-    
+
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
 
     @System.Web.Optimization.Styles.Render("~/libs/css")
@@ -66,11 +66,11 @@
                             </ul>
                         </li>
                     </ul>
-                </div>  
+                </div>
             </div>
         </div>
-        <div id="content" class="container-fluid" style="position: relative" ng-cloak translate-cloak>
-            <div ui-view autoscroll="false"></div>
+        <div class="container-fluid" style="position: relative" ng-cloak translate-cloak>
+            <div ui-view autoscroll="false" class="slide-animation" style="width: 98%"></div>
             <br />
         </div>
 
@@ -99,9 +99,9 @@
     @System.Web.Optimization.Scripts.Render("~/app/js")
     <script src="cordova.js"></script>
     <script>
-    $(function () {
-        mobileApp.initialize();
-    });
+        $(function () {
+            mobileApp.initialize();
+        });
     </script>
     <script src="app/main.js"></script>
 </body>
