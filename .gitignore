@@ -288,7 +288,10 @@ pip-log.txt
 .mr.developer.cfg
 
 out/
+out_mobile/
 cordova_tmp/
+cordova_mobile_tmp/
+
 myProducts.Xamarin.userprefs
 *.DS_Store
 *.colt
