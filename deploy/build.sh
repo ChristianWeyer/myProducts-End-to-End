@@ -13,11 +13,11 @@ echo "Cleaning up"
 ## Delete temp directories
 rm -rf tmp
 rm -rf out
-rm -rf phonegap_tmp
+rm -rf cordova_tmp
 
 ## Create temp directories
 mkdir tmp
-mkdir phonegap_tmp
+mkdir cordova_tmp
 mkdir out
 mkdir out/android
 mkdir out/iOS
@@ -56,17 +56,17 @@ cat ../out/windows/nw.exe ../out/app.nw > "../out/windows/myProducts.exe"
 rm ../out/windows/nw.exe
 rm ../out/app.nw
 
-## Create phonegap project
+## Create Cordova project
 cd ${DIR}
-cd phonegap_tmp
+cd cordova_tmp
 cordova create myProducts com.tt.apps.ngmd myProducts
 rm -rf myProducts/www
 
 ## Copy existing application elements
 cp -r ../tmp/ myProducts/www
-cp -r ../phonegap-sharedsource/ myProducts/
+cp -r ../cordova-sharedsource/ myProducts/
 
-echo "Creating PhoneGap projects"
+echo "Creating Cordova projects"
 
 cd myProducts
 
@@ -80,7 +80,7 @@ cordova plugin add org.apache.cordova.statusbar
 cordova plugin add org.apache.cordova.console
 
 ## Build for iOS
-cp -r ../../phonegap-ios/ ./platforms/ios/myProducts
+cp -r ../../cordova-ios/ ./platforms/ios
 cp ./www/config.xml ./platforms/ios/myProducts
 
 echo "Building for iOS"
@@ -91,7 +91,7 @@ mv myProducts.app "../../../../../../out/ios/myProducts.app"
 cd ../../../..
 
 ## Build Android
-cp -r ../../phonegap-android/ ./platforms/android
+cp -r ../../cordova-android/ ./platforms/android
 cp ./www/config.xml ./platforms/android
 
 echo "Building for Android"

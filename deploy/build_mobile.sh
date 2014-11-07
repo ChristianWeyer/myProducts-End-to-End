@@ -13,11 +13,11 @@ echo "Cleaning up"
 ## Delete temp directories
 rm -rf tmp
 rm -rf out_mobile
-rm -rf phonegap_mobile_tmp
+rm -rf cordova_mobile_tmp
 
 ## Create temp directories
 mkdir tmp
-mkdir phonegap_mobile_tmp
+mkdir cordova_mobile_tmp
 mkdir out_mobile
 mkdir out_mobile/android
 mkdir out_mobile/iOS
@@ -37,17 +37,17 @@ echo "GETting index.html"
 curl -k https://windows8vm.local/ngmd/mobile > index.html
 perl -pi -w -e 's/\/ngmd\///g;' index.html
 
-## Create phonegap project
+## Create cordova project
 cd ${DIR}
-cd phonegap_mobile_tmp
+cd cordova_mobile_tmp
 cordova create myProducts com.tt.ngmd myProducts
 rm -rf myProducts/www
 
 ## Copy existing application elements
 cp -r ../tmp/ myProducts/www
-cp -r ../phonegap-sharedsource/ myProducts/
+cp -r ../cordova-sharedsource/ myProducts/
 
-echo "Creating PhoneGap projects"
+echo "Creating cordova projects"
 
 cd myProducts
 
@@ -61,7 +61,7 @@ cordova plugin add org.apache.cordova.statusbar
 cordova plugin add org.apache.cordova.console
 
 ## Build for iOS
-cp -r ../../phonegap-ios/ ./platforms/ios/myProducts
+cp -r ../../cordova-ios/ ./platforms/ios/myProducts
 cp ./www/config.xml ./platforms/ios/myProducts
 
 echo "Building for iOS"
@@ -76,9 +76,9 @@ echo "Building for Android"
 # Tweak Android to use Crosswalk
 : <<‘QWERTY’
 rm -Rf platforms/android/CordovaLib/*
-cp -a ../../phonegap-android/crosswalk-cordova/framework/* \
+cp -a ../../cordova-android/crosswalk-cordova/framework/* \
     platforms/android/CordovaLib/
-cp -a ../../phonegap-android/crosswalk-cordova/VERSION platforms/android/
+cp -a ../../cordova-android/crosswalk-cordova/VERSION platforms/android/
 
 export ANDROID_HOME=$(dirname $(dirname $(which android)))
 cd platforms/android/CordovaLib/
@@ -89,7 +89,7 @@ cd ../../..
 QWERTY
 
 ## Finally build Android
-cp -r ../../phonegap-android/ ./platforms/android/
+cp -r ../../cordova-android/ ./platforms/android/
 
 cordova build android
 
