@@ -1,0 +1,43 @@
+﻿<h3 translate="STATS_TITLE"></h3>
+
+<br />
+<div class="row">
+    <br />
+    <div class="col-md-6">
+        <nvd3 options="statistics.pieOptions" data="statistics.pieSeries"></nvd3>
+        <!--<nvd3-pie-chart data="statistics.pieSeries"
+                        id="pieChart1"
+                        margin="{left:5,top:0,bottom:0,right:0}"
+                        x="statistics.pieX()"
+                        y="statistics.pieY()"
+                        showlabels="true"
+                        pielabelsoutside="true"
+                        showvalues="true"
+                        labeltype="percent"
+                        showlegend="true"
+                        donut="true"
+                        donutratio=".25"
+                        donutlabelsoutside="true"
+                        height="350"
+                        width="600">
+            <svg></svg>
+        </nvd3-pie-chart>-->
+    </div>
+
+    <div class="col-md-5">
+        <nvd3 options="statistics.columnOptions" data="statistics.columnSeries"></nvd3>
+        <!--<nvd3-multi-bar-chart data="statistics.columnSeries"
+                              id="barChart1"
+                              showxaxis="true"
+                              showlegend="true"
+                              margin="{left:60,top:5,bottom:20,right:10}"
+                              height="350"
+                              width="600">
+            <svg></svg>
+        </nvd3-multi-bar-chart>-->
+    </div>
+
+    <div class="col-md-1">
+        <br /><br />
+    </div>
+</div>

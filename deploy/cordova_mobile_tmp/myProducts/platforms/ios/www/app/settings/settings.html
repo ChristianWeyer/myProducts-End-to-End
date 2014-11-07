@@ -1,0 +1,11 @@
+﻿<h3 translate="SETTINGS_TITLE"></h3>
+<div>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="pushCheckbox" class="col-md-2 control-label" translate="SETTINGS_PUSH"></label>
+            <div class="col-md-10">
+                <input type="checkbox" class="form-control" id="pushCheckbox" bs-switch switch-on-label="{{ 'SETTINGS_YES' | translate }}" switch-off-label="{{ 'SETTINGS_NO' | translate }}" ng-model="settings.enablePush">
+            </div>
+        </div>
+    </form>
+</div>

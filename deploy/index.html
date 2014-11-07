@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>myProducts</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+    <link href="../assets/images/apple-touch-startup-image-1024x748.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 1)"
+          rel="apple-touch-startup-image">
+    <link href="../assets/images/apple-touch-startup-image-2048x1496.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image">
+    
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+
+    <link href="/myproducts/client/libs/12_Animate/animate.css" rel="stylesheet"/>
+<link href="/myproducts/client/libs/13_FontAwesome/font-awesome.css" rel="stylesheet"/>
+<link href="/myproducts/client/libs/17_Modern/10/modern.css" rel="stylesheet"/>
+<link href="/myproducts/client/libs/17_Modern/20/modern-responsive.css" rel="stylesheet"/>
+<link href="/myproducts/client/libs/20_Bootstrap/bootstrap.css" rel="stylesheet"/>
+<link href="/myproducts/client/libs/22_BootstrapStuff/bootstrap-switch.css" rel="stylesheet"/>
+<link href="/myproducts/client/libs/25_d3/nv.d3.css" rel="stylesheet"/>
+<link href="/myproducts/client/libs/50_AngularStuff/angular-carousel.css" rel="stylesheet"/>
+<link href="/myproducts/client/libs/50_AngularStuff/loading-bar.css" rel="stylesheet"/>
+<link href="/myproducts/client/libs/80_pnotify/pnotify.custom.css" rel="stylesheet"/>
+<link href="/myproducts/client/libs/99_appInit/tweak-bootstrap.css" rel="stylesheet"/>
+<link href="/myproducts/client/assets/app.css" rel="stylesheet"/>
+
+</head>
+
+<body>
+    <div id="mainContainer" ng-controller="navigationController">
+        <div class="navbar navbar-default navbar-fixed-top" style="position:fixed" bs-navbar ng-cloak translate-cloak>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" ng-click="navigation.isCollapsed=!navigation.isCollapsed">
+                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <span class="navbar-brand">
+                        <img src="../assets/images/logo.png" width="74px" height="17px" /><br />
+                        <span style="font-size: 0.75em"><a href="#" data-match-route="/">myProducts</a></span>
+                    </span>
+                </div>
+                <div class="navbar-collapse" collapse="navigation.isCollapsed">
+                    <ul class="nav navbar-nav">
+                        <li ng-repeat="ni in navigation.navigationItems track by $index" data-match-route='{{ ni.MatchPattern }}'>
+                            <a ng-show="ni.DisplayText" ng-click="navigation.isCollapsed=true" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
+                        </li>
+                        <li data-match-route="/info"><a ng-click="navigation.isCollapsed=true" href="#/info">Info</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li data-match-route="/settings"><a ng-click="navigation.isCollapsed=true" href="#/settings" translate="INDEX_SETTINGS"></a></li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle"><i class="glyphicon glyphicon-align-justify"></i>&nbsp;<span translate="COMMON_LANG"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a ng-click="navigation.isCollapsed=true; navigation.changeLanguage('de');">
+                                        <img src="../assets/images/lang_de_t.png" width="36px" height="26px">
+                                        <span translate="COMMON_DE"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a ng-click="navigation.isCollapsed=true; navigation.changeLanguage('en')">
+                                        <img src="../assets/images/lang_en_t.png" width="36px" height="26px">
+                                        <span translate="COMMON_EN"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" style="position: relative" ng-cloak translate-cloak>
+            <div ui-view autoscroll="false" class="slide-animation" style="width: 97%"></div>
+            <br />
+        </div>
+
+        <footer id="footer" ng-cloak translate-cloak>
+            <div class="container-fluid" ng-controller="statusController">
+                <div ng-if="!status.isOnline" class="circle-red pull-left"></div>
+                <div ng-if="status.isOnline" class="circle-green pull-left"></div>
+
+                <span class="pull-right">
+                    <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
+                        <a href="#/login" translate="INDEX_LOGIN"></a>
+                    </span>
+                    <span ng-if="tt.authentication.userLoggedIn">
+                        <a href="" ng-click="navigation.logout()"><i class="fa fa-sign-out" style="color: white"></i></a>
+                    </span>
+                </span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        ttMobile = false;
+    </script>
+
+    <script src="/myproducts/client/libs/10_jQuery/jquery-2.1.0.js"></script>
+<script src="/myproducts/client/libs/05_Base/fastclick.js"></script>
+<script src="/myproducts/client/libs/05_Base/log4javascript.js"></script>
+<script src="/myproducts/client/libs/20_Bootstrap/bootstrap.js"></script>
+<script src="/myproducts/client/libs/22_BootstrapStuff/bootstrap-filestyle.js"></script>
+<script src="/myproducts/client/libs/22_BootstrapStuff/bootstrap-switch.js"></script>
+<script src="/myproducts/client/libs/25_d3/d3.v3.js"></script>
+<script src="/myproducts/client/libs/25_d3/nv.d3.js"></script>
+<script src="/myproducts/client/libs/30_SignalR/jquery.signalR-2.1.1.js"></script>
+<script src="/myproducts/client/libs/40_Angular/angular.js"></script>
+<script src="/myproducts/client/libs/50_AngularStuff/angular-animate.js"></script>
+<script src="/myproducts/client/libs/50_AngularStuff/angular-bootstrap-switch.js"></script>
+<script src="/myproducts/client/libs/50_AngularStuff/angular-cache.js"></script>
+<script src="/myproducts/client/libs/50_AngularStuff/angular-carousel.js"></script>
+<script src="/myproducts/client/libs/50_AngularStuff/angular-cookies.js"></script>
+<script src="/myproducts/client/libs/50_AngularStuff/angular-nvd3.js"></script>
+<script src="/myproducts/client/libs/50_AngularStuff/angular-sanitize.js"></script>
+<script src="/myproducts/client/libs/50_AngularStuff/angular-strap.js"></script>
+<script src="/myproducts/client/libs/50_AngularStuff/angular-touch.js"></script>
+<script src="/myproducts/client/libs/50_AngularStuff/angular-ui-router.js"></script>
+<script src="/myproducts/client/libs/50_AngularStuff/imageupload.js"></script>
+<script src="/myproducts/client/libs/50_AngularStuff/loading-bar.js"></script>
+<script src="/myproducts/client/libs/50_AngularStuff/ngStorage.js"></script>
+<script src="/myproducts/client/libs/50_AngularStuff/ui-bootstrap-tpls-0.11.0.js"></script>
+<script src="/myproducts/client/libs/55_AngularTranslate/angular-translate.js"></script>
+<script src="/myproducts/client/libs/56_AngularTranslateStuff/angular-translate-loader-static-files.js"></script>
+<script src="/myproducts/client/libs/56_AngularTranslateStuff/angular-translate-loader-url.js"></script>
+<script src="/myproducts/client/libs/56_AngularTranslateStuff/angular-translate-storage-cookie.js"></script>
+<script src="/myproducts/client/libs/56_AngularTranslateStuff/angular-translate-storage-local.js"></script>
+<script src="/myproducts/client/libs/80_pnotify/pnotify.custom.js"></script>
+<script src="/myproducts/client/libs/80_pnotify/pnotify.js"></script>
+<script src="/myproducts/client/libs/90_Phonegap/phonegap-geolocation.js"></script>
+<script src="/myproducts/client/libs/90_Phonegap/phonegap-ready.js"></script>
+<script src="/myproducts/client/libs/99_appInit/appInit.js"></script>
+
+    <script src="/myproducts/client/app/constants.js"></script>
+<script src="/myproducts/client/app/routing.js"></script>
+<script src="/myproducts/client/app/articleDetails/articleDetails.js"></script>
+<script src="/myproducts/client/app/articles/articles.js"></script>
+<script src="/myproducts/client/app/gallery/gallery.js"></script>
+<script src="/myproducts/client/app/info/info.js"></script>
+<script src="/myproducts/client/app/log/log.js"></script>
+<script src="/myproducts/client/app/login/login.js"></script>
+<script src="/myproducts/client/app/services/articlesPushService.js"></script>
+<script src="/myproducts/client/app/services/articlesService.js"></script>
+<script src="/myproducts/client/app/services/categoriesService.js"></script>
+<script src="/myproducts/client/app/services/logPushService.js"></script>
+<script src="/myproducts/client/app/services/networkStatusService.js"></script>
+<script src="/myproducts/client/app/services/personalizationService.js"></script>
+<script src="/myproducts/client/app/services/settingsService.js"></script>
+<script src="/myproducts/client/app/settings/settings.js"></script>
+<script src="/myproducts/client/app/shell/navigation.js"></script>
+<script src="/myproducts/client/app/shell/status.js"></script>
+<script src="/myproducts/client/app/start/start.js"></script>
+<script src="/myproducts/client/app/statistics/statistics.js"></script>
+<script src="/myproducts/client/app/translations/translations-de.js"></script>
+<script src="/myproducts/client/appServices/tools.js"></script>
+<script src="/myproducts/client/appServices/directives/serverValidationDirective.js"></script>
+<script src="/myproducts/client/appServices/filters/baseUrlFilter.js"></script>
+<script src="/myproducts/client/appServices/services/geoLocationTrackerService.js"></script>
+<script src="/myproducts/client/appServices/services/thinktecture.ng.Authentication.js"></script>
+<script src="/myproducts/client/appServices/services/thinktecture.ng.Dialog.js"></script>
+<script src="/myproducts/client/appServices/services/thinktecture.ng.SignalR.js"></script>
+<script src="/myproducts/client/appStartup/appStartup.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>myProducts</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <link href="assets/images/apple-touch-startup-image-1024x748.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 1)"
+          rel="apple-touch-startup-image">
+    <link href="assets/images/apple-touch-startup-image-2048x1496.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image">
+    
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    @System.Web.Optimization.Styles.Render("~/app/css")
+</head>
+
+<body>
+    <div id="mainContainer" ng-controller="navigationController">
+        <div class="navbar navbar-default navbar-fixed-top" style="position:fixed" bs-navbar ng-cloak translate-cloak>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" ng-click="navigation.isCollapsed=!navigation.isCollapsed">
+                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <span class="navbar-brand">
+                        <img src="assets/images/logo.png" width="74px" height="17px" /><br />
+                        <span style="font-size: 0.75em"><a href="#" data-match-route="/">myProducts</a></span>
+                    </span>
+                </div>
+                <div class="navbar-collapse" collapse="navigation.isCollapsed">
+                    <ul class="nav navbar-nav">
+                        <li ng-repeat="ni in navigation.navigationItems track by $index" data-match-route='{{ ni.MatchPattern }}'>
+                            <a ng-show="ni.DisplayText" ng-click="navigation.isCollapsed=true" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
+                        </li>
+                        <li data-match-route="/info"><a ng-click="navigation.isCollapsed=true" href="#/info">Info</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li data-match-route="/settings"><a ng-click="navigation.isCollapsed=true" href="#/settings" translate="INDEX_SETTINGS"></a></li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle"><i class="glyphicon glyphicon-align-justify"></i>&nbsp;<span translate="COMMON_LANG"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a ng-click="navigation.isCollapsed=true; navigation.changeLanguage('de');">
+                                        <img src="assets/images/lang_de_t.png" width="36px" height="26px">
+                                        <span translate="COMMON_DE"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a ng-click="navigation.isCollapsed=true; navigation.changeLanguage('en')">
+                                        <img src="assets/images/lang_en_t.png" width="36px" height="26px">
+                                        <span translate="COMMON_EN"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" style="position: relative" ng-cloak translate-cloak>
+            <div ui-view autoscroll="false" class="slide-animation" style="width: 97%"></div>
+            <br />
+        </div>
+
+        <footer id="footer" ng-cloak translate-cloak>
+            <div class="container-fluid" ng-controller="statusController">
+                <div ng-if="!status.isOnline" class="circle-red pull-left"></div>
+                <div ng-if="status.isOnline" class="circle-green pull-left"></div>
+
+                <span class="pull-right">
+                    <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
+                        <a href="#/login" translate="INDEX_LOGIN"></a>
+                    </span>
+                    <span ng-if="tt.authentication.userLoggedIn">
+                        <a href="" ng-click="navigation.logout()"><i class="fa fa-sign-out" style="color: white"></i></a>
+                    </span>
+                </span>
+            </div>
+        </footer>
+
+    </div>
+    <script>
+        ttMobile = false;
+    </script>
+
+    @System.Web.Optimization.Scripts.Render("~/app/js")
+
+    <script>
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
+
+    <script src="app/main.js"></script>
+</body>
+</html>
