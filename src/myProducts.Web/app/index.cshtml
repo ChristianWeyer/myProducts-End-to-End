@@ -42,7 +42,7 @@
                         <li ng-repeat="ni in navigation.navigationItems track by $index" data-match-route='{{ ni.MatchPattern }}'>
                             <a ng-show="ni.DisplayText" ng-click="navigation.isCollapsed=true" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
                         </li>
-                        <li data-match-route="/info"><a ng-click="navigation.isCollapsed=true" href="#/info">Info</a></li>
+                       @* <li data-match-route="/info"><a ng-click="navigation.isCollapsed=true" href="#/info">Info</a></li>*@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="container-fluid" style="position: relative" ng-cloak translate-cloak>
-            <div ui-view autoscroll="false" class="slide-animation" style="width: 98%"></div>
+            <div id="mainContent" ui-view autoscroll="false" class="slide-animation"></div>
             <br />
         </div>
 

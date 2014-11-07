@@ -18,6 +18,10 @@
     }
 }
 
+#mainContent {
+    padding-right: 25px;
+}
+
 .btn {
     border-radius: 0;
 }
