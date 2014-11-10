@@ -295,8 +295,6 @@
     <Content Include="libs\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\images\default.png" />
     <Content Include="assets\images\emergency_stop.png" />
-    <Content Include="assets\images\offline.png" />
-    <Content Include="assets\images\online.png" />
     <Content Include="assets\images\user.png" />
     <Content Include="assets\images\ajax-loader.gif" />
     <Content Include="assets\images\apple-touch-icon.png" />
