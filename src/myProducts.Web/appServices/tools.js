@@ -99,9 +99,12 @@ ttTools.JsonAppender = function (url) {
 
 ttTools.getSampleData = function () {
     var injector = angular.element(document.body).injector();
-    var articlesApiService = injector.get("articlesApi");
 
-    articlesApiService.getArticlesPaged(10, 1).then(function(resultData) {
-        window.cefCallback.sampleDataResult(resultData);
-    });
+    if (injector) {
+        var articlesApiService = injector.get("articlesApi");
+
+        articlesApiService.getArticlesPaged(10, 1).then(function (resultData) {
+            window.cefCallback.sampleDataResult(resultData);
+        });
+    }
 }
