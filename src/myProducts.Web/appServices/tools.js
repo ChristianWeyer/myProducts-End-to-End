@@ -1,6 +1,7 @@
 ﻿var ttTools = ttTools || {};
 
-ttTools.cloudUrl = "https://ngmd.azurewebsites.net/";
+//ttTools.cloudUrl = "https://ngmd.azurewebsites.net/";
+ttTools.cloudUrl = "https://windows8vm/ngmd/";
 
 ttTools.isInApp = function () {
     return window.cordova || ttTools.isInNodeWebkit();
