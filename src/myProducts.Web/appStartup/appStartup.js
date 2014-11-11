@@ -2,7 +2,7 @@
     'use strict';
 
     app.module.run(["$localStorage", "$stateProviderService", "$state", "$http", "$templateCache", "$rootScope", "$location", "$translate", "toastService", "dialogService", "routeResolver", "personalizationService", "categoriesService", "geoLocationTracker", "articlesPushService", "logPushService",
-        function ($localStorage, $stateProviderService, $state, $http, $templateCache, $rootScope, $location, $translate, toast, dialog, routeResolver, personalization, categories, geoLocationTracker, articlesPush, logPush) {
+        function ($localStorage, $stateProviderService, $state, $http, $templateCache, $rootScope, $location, $translate, toastService, dialogService, routeResolver, personalizationService, categoriesService, geoLocationTracker, articlesPushService, logPushService) {
             geoLocationTracker.startSendPosition(10000, function (pos) { });
 
             window.addEventListener("online", function () {
@@ -24,14 +24,14 @@
             $rootScope.$on(tt.authentication.loggedIn, function () {
                 $http({ method: "GET", url: ttTools.baseUrl + "api/personalization" })
                 .success(function (data) {
-                    if (!categories.data) {
+                    if (!categoriesService.data) {
                         $http({ method: "GET", url: ttTools.baseUrl + "api/categories" })
                         .success(function (data) {
-                            categories.data = data;
+                            categoriesService.data = data;
                         });
                     }
 
-                    personalization.data = data;
+                    personalizationService.data = data;
                     var route = routeResolver.route;
 
                     angular.forEach(data.Features, function (value, key) {
