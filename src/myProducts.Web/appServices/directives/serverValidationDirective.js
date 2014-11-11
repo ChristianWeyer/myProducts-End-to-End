@@ -6,7 +6,7 @@
      * @param $http
      * @constructor
      */
-    function ServerValidateDirective($scope, $http) {
+    function ServerValidateDirective() {
         return {
             require: "ngModel",
             link: function (scope, ele, attrs, c) {
@@ -27,5 +27,5 @@
         };
     };
 
-    app.module.directive("serverValidate", ["$http", ServerValidateDirective]);
+    app.module.directive("serverValidate", ServerValidateDirective);
 })();
