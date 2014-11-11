@@ -3,8 +3,23 @@
 ttTools.cloudUrl = "https://ngmd.azurewebsites.net/";
 
 ttTools.isInApp = function () {
-    return window.cordova;
+    return window.cordova || ttTools.isInNodeWebkit();
 };
+
+ttTools.isInNodeWebkit = function() {
+    var isNode = (typeof process !== "undefined" && typeof require !== "undefined");
+    var isNodeWebkit = false;
+
+    if(isNode) {
+        try {
+            isNodeWebkit = (typeof require('nw.gui') !== "undefined");
+        } catch(e) {
+            isNodeWebkit = false;
+        }
+    }
+
+    return isNodeWebkit;
+}
 
 ttTools.getBaseUrl = function () {
     if (ttTools.isInApp()) {
