@@ -112,14 +112,14 @@ ttTools.JsonAppender = function (url) {
     };
 };
 
-ttTools.getSampleData = function () {
+ttTools.getSampleData = function() {
     var injector = angular.element(document.body).injector();
 
     if (injector) {
         var articlesApiService = injector.get("articlesApi");
 
-        articlesApiService.getArticlesPaged(10, 1).then(function (resultData) {
+        articlesApiService.getArticlesPaged(10, 1).then(function(resultData) {
             window.cefCallback.sampleDataResult(resultData);
         });
     }
-}
+};
