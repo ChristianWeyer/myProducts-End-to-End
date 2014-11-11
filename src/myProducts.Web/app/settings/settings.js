@@ -13,7 +13,7 @@
         $scope.settings.sendPosition = settingsService.sendPosition;
 
         angular.forEach($scope.settings, function (value, key) {
-            $scope.$watch("settingsService." + key, function (newVal, oldVal) {
+            $scope.$watch("settings." + key, function (newVal, oldVal) {
                 if (newVal != oldVal) {
                     settingsService[key] = newVal;
                     $rootScope.$broadcast("settingsService." + key + "Changed", newVal);
