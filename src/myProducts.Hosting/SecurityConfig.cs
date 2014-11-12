@@ -18,7 +18,8 @@ namespace MyProducts.Hosting
             {
                 TokenEndpointPath = new PathString("/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromHours(24),
-                Provider = new AuthorizationServerProvider()
+                Provider = new AuthorizationServerProvider(),
+                AllowInsecureHttp = true
             });
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
             {

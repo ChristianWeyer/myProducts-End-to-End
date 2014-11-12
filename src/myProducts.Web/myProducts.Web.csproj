@@ -548,7 +548,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>16197</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost/ngmd/</IISUrl>
+          <IISUrl>http://localhost/ngmd/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
