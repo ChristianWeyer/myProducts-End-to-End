@@ -76,7 +76,7 @@ public class BackButtonMultiPageTest extends ActivityInstrumentationTestCase2<ba
           public void run()
           {
               String url = testView.getUrl();
-              assertTrue(url.endsWith("sample2.html"));
+              assertEquals("file:///android_asset/www/backbuttonmultipage/sample2.html", url);
               testView.sendJavascript("window.location = 'sample3.html';");          }
       });
      
@@ -85,8 +85,8 @@ public class BackButtonMultiPageTest extends ActivityInstrumentationTestCase2<ba
           public void run()
           {
               String url = testView.getUrl();
-              assertTrue(url.endsWith("sample3.html"));
-              testView.backHistory();
+              assertEquals("file:///android_asset/www/backbuttonmultipage/sample3.html", url);
+              assertTrue(testView.backHistory());
           }
       });
       sleep();
@@ -94,8 +94,8 @@ public class BackButtonMultiPageTest extends ActivityInstrumentationTestCase2<ba
           public void run()
           {
               String url = testView.getUrl();
-              assertTrue(url.endsWith("sample2.html"));
-              testView.backHistory();
+              assertEquals("file:///android_asset/www/backbuttonmultipage/sample2.html", url);
+              assertTrue(testView.backHistory());
           }
       });
       sleep();
@@ -103,7 +103,7 @@ public class BackButtonMultiPageTest extends ActivityInstrumentationTestCase2<ba
           public void run()
           {
               String url = testView.getUrl();
-              assertTrue(url.endsWith("index.html"));
+              assertEquals("file:///android_asset/www/backbuttonmultipage/index.html", url);
           }
       });
   }

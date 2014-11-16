@@ -25,11 +25,12 @@ import org.xwalk.core.XWalkView;
 import org.apache.cordova.*;
 import org.apache.cordova.LOG;
 
-public class whitelist extends DroidGap {
+public class whitelist extends MainTestActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.init(new CordovaWebView(this), new TestViewClient(this), new CordovaChromeClient(this));
+        super.init();
+        appView.setWebViewClient(new TestViewClient(this, appView));
         super.loadUrl("file:///android_asset/www/whitelist/index.html");
     }
 
@@ -38,15 +39,11 @@ public class whitelist extends DroidGap {
      */
     public class TestViewClient extends CordovaWebViewClient {
 
-        public TestViewClient(DroidGap arg0) {
-            super(arg0);
+        public TestViewClient(CordovaInterface ctx, CordovaWebView app) {
+            super(ctx, app);
         }
 
-        @Override
-        public boolean shouldOverrideUrlLoading(XWalkView view, String url) {
-            LOG.d("whitelist", "shouldOverrideUrlLoading(" + url + ")");
-            LOG.d("whitelist", "originalUrl=" + view.getOriginalUrl());
-            return super.shouldOverrideUrlLoading(view, url);
-        }
+        // TODO(gaochun): Implement shouldOverrideUrlLoading()
+        // in CordovaWebViewClient and add the related tests here.
     }
 }

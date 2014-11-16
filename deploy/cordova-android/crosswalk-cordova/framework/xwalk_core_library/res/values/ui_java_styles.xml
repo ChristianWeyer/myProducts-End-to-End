@@ -7,13 +7,10 @@
 <resources>
   
     
-  <style name="SelectPopupDialog">
+  <style name="DropdownPopupWindow" parent="@android:style/Widget.ListPopupWindow">
     
         
-    <item name="select_dialog_singlechoice">@android:layout/select_dialog_singlechoice</item>
-    
-        
-    <item name="select_dialog_multichoice">@android:layout/select_dialog_multichoice</item>
+    <item name="android:popupBackground">@drawable/dropdown_popup_background</item>
     
     
   </style>

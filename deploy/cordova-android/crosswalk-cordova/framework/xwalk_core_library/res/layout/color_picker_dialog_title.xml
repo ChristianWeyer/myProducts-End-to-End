@@ -3,39 +3,23 @@
      Use of this source code is governed by a BSD-style license that can be
      found in the LICENSE file.
 -->
+<RelativeLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:paddingBottom="15dp" android:paddingLeft="20dp" android:paddingRight="20dp" android:paddingTop="15dp" xmlns:android="http://schemas.android.com/apk/res/android">
+  
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingBottom="15dp"
-    android:paddingStart="20dp"
-    android:paddingEnd="20dp"
-    android:paddingTop="15dp" >
+    
+  <TextView android:ellipsize="end" android:id="@+id/title" android:layout_centerVertical="true" android:layout_height="wrap_content" android:layout_toLeftOf="@+id/selected_color_view_border" android:layout_width="match_parent" android:singleLine="true" android:textColor="#33B5E5" style="?android:attr/textAppearanceLarge"/>
+  
 
-    <TextView
-        android:id="@+id/title"
-        style="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toStartOf="@+id/selected_color_view_border"
-        android:layout_centerVertical="true"
-        android:textColor="#33B5E5"
-        android:ellipsize="end"
-        android:singleLine="true" />
+    
+  <FrameLayout android:background="@drawable/color_picker_border" android:id="@+id/selected_color_view_border" android:layout_alignParentRight="true" android:layout_height="40dp" android:layout_width="40dp" android:padding="2px">
+    
 
-    <FrameLayout
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/selected_color_view_border"
-        android:background="@drawable/color_picker_border"
-        android:padding="2px">
+        
+    <View android:background="@android:color/black" android:id="@+id/selected_color_view" android:layout_height="match_parent" android:layout_width="match_parent"/>
+    
+    
+  </FrameLayout>
+  
 
-        <View
-            android:id="@+id/selected_color_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/black" />
-    </FrameLayout>
 
 </RelativeLayout>

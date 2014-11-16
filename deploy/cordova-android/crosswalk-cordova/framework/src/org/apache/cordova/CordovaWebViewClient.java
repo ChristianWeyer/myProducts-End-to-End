@@ -18,7 +18,6 @@
 */
 package org.apache.cordova;
 
-import java.io.ByteArrayInputStream;
 import java.util.Hashtable;
 
 import org.apache.cordova.CordovaInterface;
@@ -29,26 +28,20 @@ import org.json.JSONObject;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.net.http.SslError;
-import android.util.Log;
 import android.view.View;
 //import android.webkit.HttpAuthHandler;
 //import android.webkit.SslErrorHandler;
 import android.webkit.ValueCallback;
-import android.webkit.WebResourceResponse;
 //import android.webkit.WebView;
 //import android.webkit.WebViewClient;
 import org.chromium.net.NetError;
 import org.xwalk.core.XWalkResourceClient;
 import org.xwalk.core.XWalkView;
-import org.xwalk.core.XWalkClient;
-import org.xwalk.core.XWalkHttpAuthHandler;
 
 /**
  * This class is the XWalkResourceClient that implements callbacks for our web view.
@@ -65,11 +58,9 @@ import org.xwalk.core.XWalkHttpAuthHandler;
 public class CordovaWebViewClient extends XWalkResourceClient {
 
 	private static final String TAG = "CordovaWebViewClient";
-	private static final String CORDOVA_EXEC_URL_PREFIX = "http://cdv_exec/";
     CordovaInterface cordova;
     CordovaWebView appView;
-    private boolean doClearHistory = false;
-    boolean isCurrentlyLoading;
+    CordovaUriHelper helper;
 
     // Success
     public static final int ERROR_OK = 0;
@@ -107,11 +98,7 @@ public class CordovaWebViewClient extends XWalkResourceClient {
     /** The authorization tokens. */
     private Hashtable<String, AuthenticationToken> authenticationTokens = new Hashtable<String, AuthenticationToken>();
 
-    /**
-     * Constructor.
-     *
-     * @param cordova
-     */
+    @Deprecated
     public CordovaWebViewClient(CordovaInterface cordova) {
         super(null);
         this.cordova = cordova;
@@ -127,7 +114,7 @@ public class CordovaWebViewClient extends XWalkResourceClient {
         super(view);
         this.cordova = cordova;
         this.appView = view;
-        this.appView.setXWalkClient(new CordovaInternalViewClient(view, cordova, this));
+        helper = new CordovaUriHelper(cordova, view);
     }
 
     /**
@@ -135,127 +122,10 @@ public class CordovaWebViewClient extends XWalkResourceClient {
      *
      * @param view
      */
+    @Deprecated
     public void setWebView(CordovaWebView view) {
         this.appView = view;
-    }
-
-
-    // Parses commands sent by setting the webView's URL to:
-    // cdvbrg:service/action/callbackId#jsonArgs
-	private void handleExecUrl(String url) {
-		int idx1 = CORDOVA_EXEC_URL_PREFIX.length();
-		int idx2 = url.indexOf('#', idx1 + 1);
-		int idx3 = url.indexOf('#', idx2 + 1);
-		int idx4 = url.indexOf('#', idx3 + 1);
-		if (idx1 == -1 || idx2 == -1 || idx3 == -1 || idx4 == -1) {
-			Log.e(TAG, "Could not decode URL command: " + url);
-			return;
-		}
-		String service    = url.substring(idx1, idx2);
-		String action     = url.substring(idx2 + 1, idx3);
-		String callbackId = url.substring(idx3 + 1, idx4);
-		String jsonArgs   = url.substring(idx4 + 1);
-        appView.pluginManager.exec(service, action, callbackId, jsonArgs);
-	}
-
-    // Map XWalk error code about loading a page to Android specific ones.
-    // XWalk shares the error code with chromium currently.
-    private int convertErrorCode(int netError) {
-        // Note: many NetError.Error constants don't have an obvious mapping.
-        // These will be handled by the default case, ERROR_UNKNOWN.
-        switch (netError) {
-            case NetError.ERR_UNSUPPORTED_AUTH_SCHEME:
-                return ERROR_UNSUPPORTED_AUTH_SCHEME;
-
-            case NetError.ERR_INVALID_AUTH_CREDENTIALS:
-            case NetError.ERR_MISSING_AUTH_CREDENTIALS:
-            case NetError.ERR_MISCONFIGURED_AUTH_ENVIRONMENT:
-                return ERROR_AUTHENTICATION;
-
-            case NetError.ERR_TOO_MANY_REDIRECTS:
-                return ERROR_REDIRECT_LOOP;
-
-            case NetError.ERR_UPLOAD_FILE_CHANGED:
-                return ERROR_FILE_NOT_FOUND;
-
-            case NetError.ERR_INVALID_URL:
-                return ERROR_BAD_URL;
-
-            case NetError.ERR_DISALLOWED_URL_SCHEME:
-            case NetError.ERR_UNKNOWN_URL_SCHEME:
-                return ERROR_UNSUPPORTED_SCHEME;
-
-            case NetError.ERR_IO_PENDING:
-            case NetError.ERR_NETWORK_IO_SUSPENDED:
-                return ERROR_IO;
-
-            case NetError.ERR_CONNECTION_TIMED_OUT:
-            case NetError.ERR_TIMED_OUT:
-                return ERROR_TIMEOUT;
-
-            case NetError.ERR_FILE_TOO_BIG:
-                return ERROR_FILE;
-
-            case NetError.ERR_HOST_RESOLVER_QUEUE_TOO_LARGE:
-            case NetError.ERR_INSUFFICIENT_RESOURCES:
-            case NetError.ERR_OUT_OF_MEMORY:
-                return ERROR_TOO_MANY_REQUESTS;
-
-            case NetError.ERR_CONNECTION_CLOSED:
-            case NetError.ERR_CONNECTION_RESET:
-            case NetError.ERR_CONNECTION_REFUSED:
-            case NetError.ERR_CONNECTION_ABORTED:
-            case NetError.ERR_CONNECTION_FAILED:
-            case NetError.ERR_SOCKET_NOT_CONNECTED:
-                return ERROR_CONNECT;
-
-            case NetError.ERR_INTERNET_DISCONNECTED:
-            case NetError.ERR_ADDRESS_INVALID:
-            case NetError.ERR_ADDRESS_UNREACHABLE:
-            case NetError.ERR_NAME_NOT_RESOLVED:
-            case NetError.ERR_NAME_RESOLUTION_FAILED:
-                return ERROR_HOST_LOOKUP;
-
-            case NetError.ERR_SSL_PROTOCOL_ERROR:
-            case NetError.ERR_SSL_CLIENT_AUTH_CERT_NEEDED:
-            case NetError.ERR_TUNNEL_CONNECTION_FAILED:
-            case NetError.ERR_NO_SSL_VERSIONS_ENABLED:
-            case NetError.ERR_SSL_VERSION_OR_CIPHER_MISMATCH:
-            case NetError.ERR_SSL_RENEGOTIATION_REQUESTED:
-            case NetError.ERR_CERT_ERROR_IN_SSL_RENEGOTIATION:
-            case NetError.ERR_BAD_SSL_CLIENT_AUTH_CERT:
-            case NetError.ERR_SSL_NO_RENEGOTIATION:
-            case NetError.ERR_SSL_DECOMPRESSION_FAILURE_ALERT:
-            case NetError.ERR_SSL_BAD_RECORD_MAC_ALERT:
-            case NetError.ERR_SSL_UNSAFE_NEGOTIATION:
-            case NetError.ERR_SSL_WEAK_SERVER_EPHEMERAL_DH_KEY:
-            case NetError.ERR_SSL_CLIENT_AUTH_PRIVATE_KEY_ACCESS_DENIED:
-            case NetError.ERR_SSL_CLIENT_AUTH_CERT_NO_PRIVATE_KEY:
-                return ERROR_FAILED_SSL_HANDSHAKE;
-
-            case NetError.ERR_PROXY_AUTH_UNSUPPORTED:
-            case NetError.ERR_PROXY_AUTH_REQUESTED:
-            case NetError.ERR_PROXY_CONNECTION_FAILED:
-            case NetError.ERR_UNEXPECTED_PROXY_AUTH:
-                return ERROR_PROXY_AUTHENTICATION;
-
-            // The certificate errors are handled by onReceivedSslError
-            // and don't need to be reported here.
-            case NetError.ERR_CERT_COMMON_NAME_INVALID:
-            case NetError.ERR_CERT_DATE_INVALID:
-            case NetError.ERR_CERT_AUTHORITY_INVALID:
-            case NetError.ERR_CERT_CONTAINS_ERRORS:
-            case NetError.ERR_CERT_NO_REVOCATION_MECHANISM:
-            case NetError.ERR_CERT_UNABLE_TO_CHECK_REVOCATION:
-            case NetError.ERR_CERT_REVOKED:
-            case NetError.ERR_CERT_INVALID:
-            case NetError.ERR_CERT_WEAK_SIGNATURE_ALGORITHM:
-            case NetError.ERR_CERT_NON_UNIQUE_NAME:
-                return ERROR_OK;
-
-            default:
-                return ERROR_UNKNOWN;
-        }
+        helper = new CordovaUriHelper(cordova, view);
     }
 
      /**
@@ -275,10 +145,6 @@ public class CordovaWebViewClient extends XWalkResourceClient {
         // Clear timeout flag
         this.appView.loadUrlTimeout++;
 
-        // Convert the XWalk error code to Cordova error code, which follows the Android spec,
-        // http://developer.android.com/reference/android/webkit/WebViewClient.html.
-        errorCode = convertErrorCode(errorCode);
-
         // Handle error
         JSONObject data = new JSONObject();
         try {
@@ -291,284 +157,11 @@ public class CordovaWebViewClient extends XWalkResourceClient {
         this.appView.postMessage("onReceivedError", data);
     }
     
-    public void onPageStarted(XWalkView view, String url) {
-        isCurrentlyLoading = true;
-        LOG.d(TAG, "onPageStarted(" + url + ")");
-
-        // Flush stale messages.
-        this.appView.jsMessageQueue.reset();
-
-        // Broadcast message that page has loaded
-        this.appView.postMessage("onPageStarted", url);
-
-        // Notify all plugins of the navigation, so they can clean up if necessary.
-        if (this.appView.pluginManager != null) {
-            this.appView.pluginManager.onReset();
-        }
-    }
-    
-    public void onPageFinished(XWalkView view, String url) {
-        // Ignore excessive calls.
-        if (!isCurrentlyLoading) {
-            return;
-        }
-        isCurrentlyLoading = false;
-        LOG.d(TAG, "onPageFinished(" + url + ")");
-
-        /**
-         * Because of a timing issue we need to clear this history in onPageFinished as well as
-         * onPageStarted. However we only want to do this if the doClearHistory boolean is set to
-         * true. You see when you load a url with a # in it which is common in jQuery applications
-         * onPageStared is not called. Clearing the history at that point would break jQuery apps.
-         */
-        if (this.doClearHistory) {
-            view.getNavigationHistory().clear();
-            this.doClearHistory = false;
-        }
-
-        // Clear timeout flag
-        this.appView.loadUrlTimeout++;
-
-        // Broadcast message that page has loaded
-        this.appView.postMessage("onPageFinished", url);
-
-        // Make app visible after 2 sec in case there was a JS error and Cordova JS never initialized correctly
-        if (this.appView.getVisibility() == View.INVISIBLE) {
-            Thread t = new Thread(new Runnable() {
-                public void run() {
-                    try {
-                        Thread.sleep(2000);
-                        cordova.getActivity().runOnUiThread(new Runnable() {
-                            public void run() {
-                                appView.postMessage("spinner", "stop");
-                            }
-                        });
-                    } catch (InterruptedException e) {
-                    }
-                }
-            });
-            t.start();
-        }
-
-        // Shutdown if blank loaded
-        if (url.equals("about:blank")) {
-            appView.postMessage("exit", null);
-        }
-    }
-
-    // TODO(yongsheng): remove the dependency of Crosswalk internal class?
-    class CordovaInternalViewClient extends XWalkClient {
-    // Don't add extra indents for keeping them with upstream to avoid
-    // merge conflicts.
-    CordovaInterface cordova;
-    CordovaWebView appView;
-    CordovaWebViewClient publicClient;
-
-    CordovaInternalViewClient(CordovaWebView view, CordovaInterface ci, CordovaWebViewClient client) {
-        super(view);
-        cordova = ci;
-        appView = view;
-        publicClient = client;
-    }
-
 	@Override
     public boolean shouldOverrideUrlLoading(XWalkView view, String url) {
-    	// Check if it's an exec() bridge command message.
-    	if (NativeToJsMessageQueue.ENABLE_LOCATION_CHANGE_EXEC_MODE && url.startsWith(CORDOVA_EXEC_URL_PREFIX)) {
-    		handleExecUrl(url);
-    	}
-
-        // Give plugins the chance to handle the url
-    	else if ((this.appView.pluginManager != null) && this.appView.pluginManager.onOverrideUrlLoading(url)) {
-        }
-
-        // If dialing phone (tel:5551212)
-        else if (url.startsWith("tel:")) {
-            try {
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse(url));
-                this.cordova.getActivity().startActivity(intent);
-            } catch (android.content.ActivityNotFoundException e) {
-                LOG.e(TAG, "Error dialing " + url + ": " + e.toString());
-            }
-        }
-
-        // If displaying map (geo:0,0?q=address)
-        else if (url.startsWith("geo:")) {
-            try {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(url));
-                this.cordova.getActivity().startActivity(intent);
-            } catch (android.content.ActivityNotFoundException e) {
-                LOG.e(TAG, "Error showing map " + url + ": " + e.toString());
-            }
-        }
-
-        // If sending email (mailto:abc@corp.com)
-        else if (url.startsWith("mailto:")) {
-            try {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(url));
-                this.cordova.getActivity().startActivity(intent);
-            } catch (android.content.ActivityNotFoundException e) {
-                LOG.e(TAG, "Error sending email " + url + ": " + e.toString());
-            }
-        }
-
-        // If sms:5551212?body=This is the message
-        else if (url.startsWith("sms:")) {
-            try {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-
-                // Get address
-                String address = null;
-                int parmIndex = url.indexOf('?');
-                if (parmIndex == -1) {
-                    address = url.substring(4);
-                }
-                else {
-                    address = url.substring(4, parmIndex);
-
-                    // If body, then set sms body
-                    Uri uri = Uri.parse(url);
-                    String query = uri.getQuery();
-                    if (query != null) {
-                        if (query.startsWith("body=")) {
-                            intent.putExtra("sms_body", query.substring(5));
-                        }
-                    }
-                }
-                intent.setData(Uri.parse("sms:" + address));
-                intent.putExtra("address", address);
-                intent.setType("vnd.android-dir/mms-sms");
-                this.cordova.getActivity().startActivity(intent);
-            } catch (android.content.ActivityNotFoundException e) {
-                LOG.e(TAG, "Error sending sms " + url + ":" + e.toString());
-            }
-        }
-        
-        //Android Market
-        else if(url.startsWith("market:")) {
-            try {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(url));
-                this.cordova.getActivity().startActivity(intent);
-            } catch (android.content.ActivityNotFoundException e) {
-                LOG.e(TAG, "Error loading Google Play Store: " + url, e);
-            }
-        }
-
-        // All else
-        else {
-
-            // If our app or file:, then load into a new Cordova webview container by starting a new instance of our activity.
-            // Our app continues to run.  When BACK is pressed, our app is redisplayed.
-            if (url.startsWith("file://") || url.startsWith("data:")  || Config.isUrlWhiteListed(url)) {
-                return false;
-            }
-
-            // If not our application, let default viewer handle
-            else {
-                try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse(url));
-                    this.cordova.getActivity().startActivity(intent);
-                } catch (android.content.ActivityNotFoundException e) {
-                    LOG.e(TAG, "Error loading url " + url, e);
-                }
-            }
-        }
-        return true;
+        return helper.shouldOverrideUrlLoading(view, url);
     }
     
-    /**
-     * On received http auth request.
-     * The method reacts on all registered authentication tokens. There is one and only one authentication token for any host + realm combination
-     *
-     * @param view
-     * @param handler
-     * @param host
-     * @param realm
-     */
-    @Override
-    public void onReceivedHttpAuthRequest(XWalkView view, XWalkHttpAuthHandler handler, String host, String realm) {
-
-        // Get the authentication token
-        AuthenticationToken token = getAuthenticationToken(host, realm);
-        if (token != null) {
-            handler.proceed(token.getUserName(), token.getPassword());
-        }
-        else {
-            // Handle 401 like we'd normally do!
-            super.onReceivedHttpAuthRequest(view, handler, host, realm);
-        }
-    }
-
-    /**
-     * Notify the host application that a page has started loading.
-     * This method is called once for each main frame load so a page with iframes or framesets will call onPageStarted
-     * one time for the main frame. This also means that onPageStarted will not be called when the contents of an
-     * embedded frame changes, i.e. clicking a link whose target is an iframe.
-     *
-     * @param view          The webview initiating the callback.
-     * @param url           The url of the page.
-     */
-    @Override
-    public void onPageStarted(XWalkView view, String url) {
-        super.onPageStarted(view, url);
-        this.publicClient.onPageStarted(view, url);
-    }
-
-    /**
-     * Notify the host application that a page has finished loading.
-     * This method is called only for main frame. When onPageFinished() is called, the rendering picture may not be updated yet.
-     *
-     *
-     * @param view          The webview initiating the callback.
-     * @param url           The url of the page.
-     */
-    @Override
-    public void onPageFinished(XWalkView view, String url) {
-        super.onPageFinished(view, url);
-        this.publicClient.onPageFinished(view, url);
-    }
-
-    /**
-     * Notify the host application that an SSL error occurred while loading a resource.
-     * The host application must call either handler.cancel() or handler.proceed().
-     * Note that the decision may be retained for use in response to future SSL errors.
-     * The default behavior is to cancel the load.
-     *
-     * @param view          The WebView that is initiating the callback.
-     * @param handler       An SslErrorHandler object that will handle the user's response.
-     * @param error         The SSL error object.
-     */
-    @TargetApi(8)
-    @Override
-    public void onReceivedSslError(XWalkView view, ValueCallback<Boolean> callback, SslError error) {
-
-        final String packageName = this.cordova.getActivity().getPackageName();
-        final PackageManager pm = this.cordova.getActivity().getPackageManager();
-
-        ApplicationInfo appInfo;
-        try {
-            appInfo = pm.getApplicationInfo(packageName, PackageManager.GET_META_DATA);
-            if ((appInfo.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0) {
-                // debug = true
-                callback.onReceiveValue(true);
-                return;
-            } else {
-                // debug = false
-                super.onReceivedSslError(view, callback, error);
-            }
-        } catch (NameNotFoundException e) {
-            // When it doubt, lock it out!
-            super.onReceivedSslError(view, callback, error);
-        }
-    }
-
-    }
-
     /**
      * Sets the authentication token.
      *

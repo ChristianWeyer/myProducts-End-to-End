@@ -22,13 +22,13 @@ package org.apache.cordova.test;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.apache.cordova.Config;
+import org.apache.cordova.CordovaChromeClient;
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.LOG;
+import org.apache.cordova.CordovaWebViewClient;
 import org.apache.cordova.test.R;
-import org.apache.cordova.test.R.id;
-import org.apache.cordova.test.R.layout;
 
 import android.app.Activity;
 import android.content.Context;
@@ -47,7 +47,12 @@ public class CordovaWebViewTestActivity extends Activity implements CordovaInter
 
         setContentView(R.layout.main);
 
+        //CB-7238: This has to be added now, because it got removed from somewhere else
+        Config.init(this);
+        
         cordovaWebView = (CordovaWebView) findViewById(R.id.cordovaWebView);
+        cordovaWebView.init(this, new CordovaWebViewClient(this, cordovaWebView), new CordovaChromeClient(this, cordovaWebView),
+                Config.getPluginEntries(), Config.getWhitelist(), Config.getExternalWhitelist(), Config.getPreferences());
 
         cordovaWebView.loadUrl("file:///android_asset/www/index.html");
 
@@ -94,10 +99,10 @@ public class CordovaWebViewTestActivity extends Activity implements CordovaInter
      * The final call you receive before your activity is destroyed.
      */
     public void onDestroy() {
-        super.onDestroy();
         if (cordovaWebView != null) {
             // Send destroy event to JavaScript
             cordovaWebView.handleDestroy();
         }
+        super.onDestroy();
     }
 }

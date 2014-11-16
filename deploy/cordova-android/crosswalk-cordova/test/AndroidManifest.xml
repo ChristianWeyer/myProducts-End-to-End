@@ -47,7 +47,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
    
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19"/>
+    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="19"/>
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
@@ -101,7 +101,7 @@
             android:windowSoftInputMode="adjustPan"
             android:label="@string/app_name" 
             android:configChanges="orientation|keyboardHidden"
-            android:name="org.apache.cordova.test.CordovaActivity" >
+            android:name="org.apache.cordova.test.MainTestActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.SAMPLE_CODE" />
@@ -252,6 +252,16 @@
             android:label="@string/app_name" 
             android:configChanges="orientation|keyboardHidden"
             android:name="org.apache.cordova.test.backbuttonmultipage" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+           <activity
+            android:windowSoftInputMode="adjustPan"
+            android:label="@string/app_name" 
+            android:configChanges="orientation|keyboardHidden"
+            android:name="org.apache.cordova.test.SabotagedActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.SAMPLE_CODE" />

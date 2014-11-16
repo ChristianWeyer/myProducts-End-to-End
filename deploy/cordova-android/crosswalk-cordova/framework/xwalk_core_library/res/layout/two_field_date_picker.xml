@@ -4,45 +4,30 @@
      Use of this source code is governed by a BSD-style license that can be
      found in the LICENSE file.
 -->
+<LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:layout_height="wrap_content" android:layout_width="wrap_content" android:orientation="horizontal" xmlns:android="http://schemas.android.com/apk/res/android">
+  
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:orientation="horizontal"
-    android:gravity="center">
+    
+  <LinearLayout android:gravity="center" android:id="@+id/pickers" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="wrap_content" android:orientation="horizontal">
+    
 
-    <LinearLayout android:id="@+id/pickers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:gravity="center">
+        
+    <!-- Position in year -->
+    
+        
+    <NumberPicker android:contentDescription="@string/accessibility_date_picker_month" android:focusable="true" android:focusableInTouchMode="true" android:id="@+id/position_in_year" android:layout_height="wrap_content" android:layout_marginLeft="16dp" android:layout_marginRight="16dp" android:layout_width="wrap_content"/>
+    
 
-        <!-- Position in year -->
-        <NumberPicker
-            android:id="@+id/position_in_year"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:contentDescription="@string/accessibility_date_picker_month"
-            />
+        
+    <!-- Year -->
+    
+        
+    <NumberPicker android:contentDescription="@string/accessibility_date_picker_year" android:focusable="true" android:focusableInTouchMode="true" android:id="@+id/year" android:layout_height="wrap_content" android:layout_marginLeft="16dp" android:layout_marginRight="16dp" android:layout_width="wrap_content"/>
+    
 
-        <!-- Year -->
-        <NumberPicker
-            android:id="@+id/year"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:contentDescription="@string/accessibility_date_picker_year"
-            />
+    
+  </LinearLayout>
+  
 
-    </LinearLayout>
 
 </LinearLayout>

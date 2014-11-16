@@ -25,6 +25,7 @@ import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.test.errorurl;
 
 import android.test.ActivityInstrumentationTestCase2;
+import android.test.suitebuilder.annotation.Suppress;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
@@ -49,11 +50,13 @@ public class ErrorUrlTest extends ActivityInstrumentationTestCase2<errorurl> {
       testView = (CordovaWebView) innerContainer.getChildAt(0);
   }
   
+  @Suppress
   public void testPreconditions(){
       assertNotNull(innerContainer);
       assertNotNull(testView);
   }
   
+  @Suppress
   public void testUrl() throws Throwable
   {
     sleep();
@@ -63,7 +66,7 @@ public class ErrorUrlTest extends ActivityInstrumentationTestCase2<errorurl> {
             String good_url = "file:///android_asset/www/htmlnotfound/error.html";
             String url = testView.getUrl();
             assertNotNull(url);
-            assertTrue(url.equals(good_url));
+            assertEquals(good_url, url);
          
         }
     });
