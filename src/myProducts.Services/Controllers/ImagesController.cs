@@ -48,7 +48,12 @@ namespace MyProducts.Services.Controllers
             var folder = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, Constants.ImagesFolder);
             var stream = new FileStream(Path.Combine(folder, String.Format("{0}.jpg", id)), FileMode.Open);
 
-            var response = new HttpResponseMessage(HttpStatusCode.OK) { Content = new StreamContent(stream) };
+            var response = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StreamContent(stream, 65000)
+                // Default buffer size may result in very slow downloads.
+                // However, buffer size should not go over 85KB due to LOH.
+            };
             response.Content.Headers.ContentType = new MediaTypeHeaderValue("image/jpg");
 
             return response;
