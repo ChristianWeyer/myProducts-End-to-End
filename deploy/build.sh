@@ -93,7 +93,6 @@ cd ../../../..
 echo "Building for Android"
 
 # Tweak Android to use Crosswalk
-: <<‘QWERTY’
 rm -Rf platforms/android/CordovaLib/*
 cp -a ../../cordova-android/crosswalk-cordova/framework/* \
     platforms/android/CordovaLib/
@@ -105,7 +104,6 @@ android update project --subprojects --path . \
     --target "android-19"
 ant debug
 cd ../../..
-QWERTY
 
 ## Finally build Android
 cp -r ../../cordova-android/ ./platforms/android
