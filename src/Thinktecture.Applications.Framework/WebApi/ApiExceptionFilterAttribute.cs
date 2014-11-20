@@ -9,7 +9,7 @@ namespace Thinktecture.Applications.Framework.WebApi
     {
         public override void OnException(HttpActionExecutedContext actionExecutedContext)
         {
-            var argumentException = actionExecutedContext.Exception as Exception;
+            var argumentException = actionExecutedContext.Exception;
 
             if (argumentException != null)
             {
