@@ -258,6 +258,7 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="assets\images\favicon.ico" />
     <Content Include="assets\images\login_icon.png" />
+    <Content Include="assets\images\logo.png" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="images\0.jpg" />
@@ -306,7 +307,7 @@
     <Content Include="assets\images\lang_de_t.png" />
     <Content Include="assets\images\lang_en.png" />
     <Content Include="assets\images\lang_en_t.png" />
-    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\_logo.png" />
     <Content Include="assets\app.css" />
     <Content Include="app\constants.js" />
     <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
