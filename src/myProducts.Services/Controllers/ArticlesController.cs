@@ -1,4 +1,5 @@
-﻿using AutoMapper.QueryableExtensions;
+﻿using System.Web.Http.OData.Extensions;
+using AutoMapper.QueryableExtensions;
 using Microsoft.AspNet.SignalR;
 using MyProducts.Model;
 using MyProducts.Services.DTOs;
@@ -51,13 +52,15 @@ namespace MyProducts.Services.Controllers
         {
             var settings = new ODataQuerySettings { PageSize = 10, EnsureStableOrdering = false };
 
-            var artikelQuery = productsContext.Articles.OrderBy(a => a.Id).AsNoTracking().Project().To<ArticleDto>();
+            var artikelQuery = productsContext.Articles
+                .OrderBy(a => a.Id).AsNoTracking().Project().To<ArticleDto>(null,
+                dest => dest.Id, dest => dest.Name, dest => dest.Code);
             var results = options.ApplyTo(artikelQuery, settings);
 
             return new PageResult<ArticleDto>(
                     results as IEnumerable<ArticleDto>,
-                    Request.GetNextPageLink(),
-                    Request.GetInlineCount());
+                    Request.ODataProperties().NextLink,
+                    Request.ODataProperties().TotalCount);
         }
 
         /// <summary>
