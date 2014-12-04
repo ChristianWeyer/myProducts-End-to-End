@@ -1410,7 +1410,7 @@ angular.module('ionic.service.view', ['ui.router', 'ionic.service.platform'])
   // Set the document title when a new view is shown
   $rootScope.$on('viewState.viewEnter', function(e, data) {
     if(data && data.title) {
-      $document[0].title = data.title;
+      $document[0].message = data.title;
     }
   });
 

@@ -29,6 +29,7 @@ $script.ready("app", function () {
         "services/logPushService",
         "services/settingsService",
 
+        "info/Thinktecture.Angular.js",
         "info/info",
 
         "login/login",

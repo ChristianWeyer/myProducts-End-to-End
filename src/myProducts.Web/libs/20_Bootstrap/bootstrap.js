@@ -1347,7 +1347,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         var o = this.options
 
         title = $e.attr('data-original-title')
-          || (typeof o.title == 'function' ? o.title.call($e[0]) : o.title)
+          || (typeof o.message == 'function' ? o.message.call($e[0]) : o.message)
 
         return title
     }
