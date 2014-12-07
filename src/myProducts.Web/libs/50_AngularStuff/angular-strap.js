@@ -1227,7 +1227,7 @@
                               day = new Date(firstDate.getFullYear(), firstDate.getMonth(), firstDate.getDate() + i);
                               days.push({ date: day, isToday: day.toDateString() === today, label: dateFilter(day, this.format), selected: picker.$date && this.isSelected(day), muted: day.getMonth() !== viewDate.month, disabled: this.isDisabled(day) });
                           }
-                          scope.title = dateFilter(firstDayOfMonth, 'MMMM yyyy');
+                          scope.message = dateFilter(firstDayOfMonth, 'MMMM yyyy');
                           scope.showLabels = true;
                           scope.labels = weekDaysLabelsHtml;
                           scope.rows = split(days, this.split);
@@ -1288,7 +1288,7 @@
                               month = new Date(viewDate.year, i, 1);
                               months.push({ date: month, label: dateFilter(month, this.format), selected: picker.$isSelected(month), disabled: this.isDisabled(month) });
                           }
-                          scope.title = dateFilter(month, 'yyyy');
+                          scope.message = dateFilter(month, 'yyyy');
                           scope.showLabels = false;
                           scope.rows = split(months, this.split);
                           this.built = true;
@@ -1332,7 +1332,7 @@
                               year = new Date(firstYear + i, 0, 1);
                               years.push({ date: year, label: dateFilter(year, this.format), selected: picker.$isSelected(year), disabled: this.isDisabled(year) });
                           }
-                          scope.title = years[0].label + '-' + years[years.length - 1].label;
+                          scope.message = years[0].label + '-' + years[years.length - 1].label;
                           scope.showLabels = false;
                           scope.rows = split(years, this.split);
                           this.built = true;
@@ -3751,8 +3751,8 @@
                   }
 
                   // Support scope as string options
-                  if (options.title) {
-                      $tooltip.$scope.title = options.title;
+                  if (options.message) {
+                      $tooltip.$scope.message = options.message;
                   }
 
                   // Provide scope helpers

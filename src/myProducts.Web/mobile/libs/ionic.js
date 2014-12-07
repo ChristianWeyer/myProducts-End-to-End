@@ -6933,7 +6933,7 @@ ionic.controllers.NavController = ionic.controllers.ViewController.inherit({
       return;
     }
 
-    this.navBar.setTitle(this.getTopController().title);
+    this.navBar.setTitle(this.getTopController().message);
 
     if(this.controllers.length > 1) {
       this.navBar.showBackButton(true);
