@@ -7,13 +7,20 @@
      * @param {SettingsService} settingsService
      * @constructor
      */
-    function ArticlesPushService (signalRHubProxy, $rootScope, settingsService) {
+    function ArticlesPushService(signalRHubProxy, $rootScope, $timeout, settingsService) {
         var hub = signalRHubProxy(ttTools.baseUrl, "clientNotificationHub");
         hub.on("articleChange");
 
         if (settingsService.enablePush) {
             ttTools.startHub(hub);
         }
+
+        hub.connection.disconnected(function () {
+            $timeout(function () {
+                connection.start().done(function () {
+                });
+            }, 5000);
+        });
 
         $rootScope.$on(tt.authentication.loginConfirmed, function () {
             ttTools.startHub(hub);
@@ -33,5 +40,5 @@
         return hub;
     };
 
-    app.module.factory("articlesPushService", ["signalRHubProxy", "$rootScope", "settingsService", ArticlesPushService]);
+    app.module.factory("articlesPushService", ["signalRHubProxy", "$rootScope", "$timeout", "settingsService", ArticlesPushService]);
 })();

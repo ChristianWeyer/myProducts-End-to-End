@@ -16,6 +16,8 @@
         $scope.articledetails = {};
         $scope.articledetails.categories = categoriesService.data;
 
+        articlesService.getArticlesPaged()
+
         var articleId = $stateParams.id;
 
         if (articleId !== "new") {
