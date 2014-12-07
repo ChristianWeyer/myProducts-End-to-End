@@ -318,7 +318,6 @@
     <Content Include="app\settings\settings.js" />
     <Content Include="app\gallery\gallery.js" />
     <Content Include="app\shell\status.js" />
-    <Content Include="app\info\info.js" />
     <Content Include="app\log\log.js" />
     <Content Include="app\statistics\statistics.js" />
     <Content Include="libs\50_AngularStuff\angular-animate.js" />
