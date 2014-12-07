@@ -31,6 +31,8 @@ namespace MyProducts.Web
                 .Include("~/mobile/libs/ionic.js")
                 .Include("~/mobile/libs/ionic-angular.js")
                 );
+
+            BundleTable.EnableOptimizations = false;
         }
     }
 }
