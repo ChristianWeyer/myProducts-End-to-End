@@ -1,14 +1,6 @@
 ﻿declare var app: any;
 
 module MyProducts {
-    export interface IInfoMessage {
-        message: string;
-    }
-
-    export interface IInfoScope extends Thinktecture.Angular.IScope {
-        data: IInfoMessage;
-    }
-
     export class InfoController extends Thinktecture.Angular.Controller {
         scope: IInfoScope;
 
@@ -22,5 +14,5 @@ module MyProducts {
         }
     }
 
-    app.module.controller("infoController", ["$scope", "$http", MyProducts.InfoController]);
+    app.module.controller("infoController", MyProducts.InfoController);
 }

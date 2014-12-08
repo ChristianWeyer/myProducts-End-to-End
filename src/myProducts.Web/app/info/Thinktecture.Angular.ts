@@ -3,7 +3,6 @@
         events: Controller;
     }
 
-
     export class Controller {
         scope: IScope;
 

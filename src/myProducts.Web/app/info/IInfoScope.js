@@ -1,0 +1,1 @@
+//# sourceMappingURL=IInfoScope.js.map

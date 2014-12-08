@@ -534,6 +534,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\info\IInfoMessage.ts" />
+    <TypeScriptCompile Include="app\info\IInfoScope.ts" />
     <TypeScriptCompile Include="app\info\info.ts" />
     <TypeScriptCompile Include="app\info\Thinktecture.Angular.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />

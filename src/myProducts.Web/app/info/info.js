@@ -18,6 +18,6 @@ var MyProducts;
         return InfoController;
     })(Thinktecture.Angular.Controller);
     MyProducts.InfoController = InfoController;
-    app.module.controller("infoController", ["$scope", "$http", MyProducts.InfoController]);
+    app.module.controller("infoController", MyProducts.InfoController);
 })(MyProducts || (MyProducts = {}));
 //# sourceMappingURL=info.js.map
