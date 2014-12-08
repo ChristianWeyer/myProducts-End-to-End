@@ -332,7 +332,7 @@
     <Content Include="libs\22_BootstrapStuff\bootstrap-filestyle.js" />
     <Content Include="libs\22_BootstrapStuff\bootstrap-switch.js" />
     <Content Include="libs\20_Bootstrap\bootstrap.js" />
-    <Content Include="libs\25_d3\d3.v3.js" />
+    <Content Include="libs\25_d3\d3.js" />
     <Content Include="libs\50_AngularStuff\imageupload.js" />
     <Content Include="mobile\libs\ionic-angular.js" />
     <Content Include="mobile\libs\ionic.js" />

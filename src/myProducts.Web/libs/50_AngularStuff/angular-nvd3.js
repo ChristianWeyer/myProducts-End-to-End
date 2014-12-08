@@ -1,14 +1,14 @@
 /**************************************************************************
-* AngularJS-nvD3, v0.0.9; MIT License; 07/24/2014 12:59
+* AngularJS-nvD3, v0.1.0; MIT License; 10/06/2014 17:12
 * http://krispo.github.io/angular-nvd3
 **************************************************************************/
-(function(){
+(function () {
 
     'use strict';
 
     angular.module('nvd3', [])
 
-        .directive('nvd3', [function(){
+        .directive('nvd3', [function () {
             return {
                 restrict: 'AE',
                 scope: {
@@ -18,7 +18,7 @@
                     events: '=?',   //global events that directive would subscribe to, [optional]
                     config: '=?'    //global directive configuration, [optional]
                 },
-                link: function(scope, element, attrs){
+                link: function (scope, element, attrs) {
                     var defaultConfig = { extended: false, visible: true, disabled: false, autorefresh: true, refreshDataOnly: false };
 
                     //basic directive configuration
@@ -27,11 +27,17 @@
                     //directive global api
                     scope.api = {
                         // Fully refresh directive
-                        refresh: function(){
+                        refresh: function () {
                             scope.api.updateWithOptions(scope.options);
                         },
+
+                        // Update chart layout (for example if container is resized)
+                        update: function () {
+                            scope.chart.update();
+                        },
+
                         // Update chart with new options
-                        updateWithOptions: function(options){
+                        updateWithOptions: function (options) {
                             // Clearing
                             scope.api.clearElement();
 
@@ -44,7 +50,7 @@
                             // Initialize chart with specific type
                             scope.chart = nv.models[options.chart.type]();
 
-                            angular.forEach(scope.chart, function(value, key){
+                            angular.forEach(scope.chart, function (value, key) {
                                 if (key === 'options');
 
                                 else if (key === 'dispatch') {
@@ -83,7 +89,7 @@
                                     'y4Axis',
                                     'interactiveLayer',
                                     'controls'
-                                ].indexOf(key) >= 0){
+                                ].indexOf(key) >= 0) {
                                     if (options.chart[key] === undefined || options.chart[key] === null) {
                                         if (scope._config.extended) options.chart[key] = {};
                                     }
@@ -91,7 +97,7 @@
                                 }
 
                                 else if (//TODO: need to fix bug in nvd3
-                                    (key ==='clipEdge' && options.chart.type === 'multiBarHorizontalChart')
+                                    (key === 'clipEdge' && options.chart.type === 'multiBarHorizontalChart')
                                         || (key === 'clipVoronoi' && options.chart.type === 'historicalBarChart')
                                         || (key === 'color' && options.chart.type === 'indentedTreeChart')
                                         || (key === 'defined' && (options.chart.type === 'historicalBarChart' || options.chart.type === 'cumulativeLineChart' || options.chart.type === 'lineWithFisheyeChart'))
@@ -104,10 +110,10 @@
                                         || (key === 'xScale' && options.chart.type === 'scatterChart')
                                         || (key === 'yScale' && options.chart.type === 'scatterChart')
                                         || (key === 'x' && (options.chart.type === 'lineWithFocusChart' || options.chart.type === 'multiChart'))
-                                        || (key === 'y' && options.chart.type === 'lineWithFocusChart' || options.chart.type === 'multiChart')
+                                        || (key === 'y' && (options.chart.type === 'lineWithFocusChart' || options.chart.type === 'multiChart'))
                                     );
 
-                                else if (options.chart[key] === undefined || options.chart[key] === null){
+                                else if (options.chart[key] === undefined || options.chart[key] === null) {
                                     if (scope._config.extended) options.chart[key] = value();
                                 }
 
@@ -126,15 +132,15 @@
                             // Configure styles
                             if (options['styles'] || scope._config.extended) configureStyles();
 
-                            nv.addGraph(function() {
+                            nv.addGraph(function () {
                                 // Update the chart when window resizes
-                                nv.utils.windowResize(function() { scope.chart.update(); });
+                                nv.utils.windowResize(function () { scope.chart.update(); });
                                 return scope.chart;
                             }, options.chart['callback']);
                         },
 
                         // Update chart with new data
-                        updateWithData: function (data){
+                        updateWithData: function (data) {
                             if (data) {
                                 scope.options.chart['transitionDuration'] = +scope.options.chart['transitionDuration'] || 250;
                                 // remove whole svg element with old data
@@ -156,19 +162,22 @@
                         },
 
                         // Fully clear directive element
-                        clearElement: function (){
+                        clearElement: function () {
                             element.find('.title').remove();
                             element.find('.subtitle').remove();
                             element.find('.caption').remove();
                             element.empty();
                             scope.chart = null;
-                        }
+                        },
+
+                        // Get full directive scope
+                        getScope: function () { return scope; }
                     };
 
                     // Configure the chart model with the passed options
-                    function configure(chart, options, chartType){
-                        if (chart && options){
-                            angular.forEach(chart, function(value, key){
+                    function configure(chart, options, chartType) {
+                        if (chart && options) {
+                            angular.forEach(chart, function (value, key) {
                                 if (key === 'dispatch') {
                                     if (options[key] === undefined || options[key] === null) {
                                         if (scope._config.extended) options[key] = {};
@@ -186,8 +195,8 @@
                                     'axis',
                                     'rangeBand',
                                     'rangeBands'
-                                ].indexOf(key) < 0){
-                                    if (options[key] === undefined || options[key] === null){
+                                ].indexOf(key) < 0) {
+                                    if (options[key] === undefined || options[key] === null) {
                                         if (scope._config.extended) options[key] = value();
                                     }
                                     else chart[key](options[key]);
@@ -198,10 +207,10 @@
 
                     // Subscribe to the chart events (contained in 'dispatch')
                     // and pass eventHandler functions in the 'options' parameter
-                    function configureEvents(dispatch, options){
-                        if (dispatch && options){
-                            angular.forEach(dispatch, function(value, key){
-                                if (options[key] === undefined || options[key] === null){
+                    function configureEvents(dispatch, options) {
+                        if (dispatch && options) {
+                            angular.forEach(dispatch, function (value, key) {
+                                if (options[key] === undefined || options[key] === null) {
                                     if (scope._config.extended) options[key] = value.on;
                                 }
                                 else dispatch.on(key + '._', options[key]);
@@ -211,7 +220,7 @@
 
                     // Configure 'title', 'subtitle', 'caption'.
                     // nvd3 has no sufficient models for it yet.
-                    function configureWrapper(name){
+                    function configureWrapper(name) {
                         var _ = extendDeep(defaultWrapper(name), scope.options[name] || {});
 
                         if (scope._config.extended) scope.options[name] = _;
@@ -231,12 +240,12 @@
                     }
 
                     // Add some styles to the whole directive element
-                    function configureStyles(){
+                    function configureStyles() {
                         var _ = extendDeep(defaultStyles(), scope.options['styles'] || {});
 
                         if (scope._config.extended) scope.options['styles'] = _;
 
-                        angular.forEach(_.classes, function(value, key){
+                        angular.forEach(_.classes, function (value, key) {
                             value ? element.addClass(key) : element.removeClass(key);
                         });
 
@@ -244,8 +253,8 @@
                     }
 
                     // Default values for 'title', 'subtitle', 'caption'
-                    function defaultWrapper(_){
-                        switch (_){
+                    function defaultWrapper(_) {
+                        switch (_) {
                             case 'title': return {
                                 enable: false,
                                 text: 'Write Your Title',
@@ -275,7 +284,7 @@
                     }
 
                     // Default values for styles
-                    function defaultStyles(){
+                    function defaultStyles() {
                         return {
                             classes: {
                                 'with-3d-shadow': true,
@@ -288,9 +297,9 @@
 
                     // Deep Extend json object
                     function extendDeep(dst) {
-                        angular.forEach(arguments, function(obj) {
+                        angular.forEach(arguments, function (obj) {
                             if (obj !== dst) {
-                                angular.forEach(obj, function(value, key) {
+                                angular.forEach(obj, function (value, key) {
                                     if (dst[key] && dst[key].constructor && dst[key].constructor === Object) {
                                         extendDeep(dst[key], value);
                                     } else {
@@ -302,23 +311,32 @@
                         return dst;
                     }
 
-                    // Watching on options, data, config changing
-                    scope.$watch('options', function(options){
+                    /* Event Handling */
+                    // Watching on options changing
+                    scope.$watch('options', function (newOptions) {
                         if (!scope._config.disabled && scope._config.autorefresh) scope.api.refresh();
                     }, true);
-                    scope.$watch('data', function(data){
-                        if (!scope._config.disabled && scope._config.autorefresh) {
-                            scope._config.refreshDataOnly ? scope.chart.update() : scope.api.refresh(); // if wanted to refresh data only, use chart.update method, otherwise use full refresh.
+
+                    // Watching on data changing
+                    scope.$watch('data', function (newData, oldData) {
+                        if (newData !== oldData) {
+                            if (!scope._config.disabled && scope._config.autorefresh) {
+                                scope._config.refreshDataOnly ? scope.chart.update() : scope.api.refresh(); // if wanted to refresh data only, use chart.update method, otherwise use full refresh.
+                            }
                         }
                     }, true);
-                    scope.$watch('config', function(config){
-                        scope._config = angular.extend(defaultConfig, config);
-                        scope.api.refresh();
+
+                    // Watching on config changing
+                    scope.$watch('config', function (newConfig, oldConfig) {
+                        if (newConfig !== oldConfig) {
+                            scope._config = angular.extend(defaultConfig, newConfig);
+                            scope.api.refresh();
+                        }
                     }, true);
 
                     //subscribe on global events
-                    angular.forEach(scope.events, function(eventHandler, event){
-                        scope.$on(event, function(e){
+                    angular.forEach(scope.events, function (eventHandler, event) {
+                        scope.$on(event, function (e) {
                             return eventHandler(e, scope);
                         });
                     });
