@@ -280,7 +280,9 @@
     <Content Include="images\7.jpg" />
     <Content Include="images\8.jpg" />
     <Content Include="images\9.jpg" />
-    <Content Include="libs\50_AngularStuff\angular-nvd3.js" />
+    <Content Include="libs\25_Charts\Chart.js" />
+    <Content Include="libs\50_AngularStuff\angular-chart.css" />
+    <Content Include="libs\50_AngularStuff\angular-chart.js" />
     <Content Include="libs\50_AngularStuff\angular-ui-router.js" />
     <Content Include="app\articleDetails\articleDetails.html" />
     <Content Include="app\articleDetails\articleDetails.js" />
@@ -293,7 +295,6 @@
     <Content Include="libs\17_Modern\10\modern.css" />
     <Content Include="libs\99_appInit\tweak-bootstrap.css" />
     <Content Include="libs\13_FontAwesome\font-awesome.css" />
-    <Content Include="libs\25_d3\nv.d3.css" />
     <Content Include="libs\15_Toastr\toastr.css" />
     <Content Include="libs\fonts\fontawesome-webfont.svg" />
     <Content Include="libs\fonts\glyphicons-halflings-regular.svg" />
@@ -332,14 +333,12 @@
     <Content Include="libs\22_BootstrapStuff\bootstrap-filestyle.js" />
     <Content Include="libs\22_BootstrapStuff\bootstrap-switch.js" />
     <Content Include="libs\20_Bootstrap\bootstrap.js" />
-    <Content Include="libs\25_d3\d3.js" />
     <Content Include="libs\50_AngularStuff\imageupload.js" />
     <Content Include="mobile\libs\ionic-angular.js" />
     <Content Include="mobile\libs\ionic.js" />
     <Content Include="libs\50_AngularStuff\loading-bar.js" />
     <Content Include="libs\05_Base\log4javascript.js" />
     <Content Include="libs\50_AngularStuff\ngStorage.js" />
-    <Content Include="libs\25_d3\nv.d3.js" />
     <Content Include="libs\90_Phonegap\phonegap-geolocation.js" />
     <Content Include="libs\90_Phonegap\phonegap-ready.js" />
     <Content Include="libs\05_Base\script.js" />

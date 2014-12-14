@@ -14,51 +14,19 @@
         $http({
             method: "GET",
             url: ttTools.baseUrl + "api/statistics/distribution"
-        }).then(function (data) {
-            $scope.statistics.pieSeries = data.data;
+        }).then(function (response) {
+            $scope.statistics.pieData = response.data.Data;
+            $scope.statistics.pieLabels = response.data.Labels;
         });
 
         $http({
             method: "GET",
             url: ttTools.baseUrl + "api/statistics/sales"
-        }).then(function (data) {
-            $scope.statistics.columnSeries = data.data;
+        }).then(function (response) {
+                $scope.statistics.columnData = response.data.Data;
+                $scope.statistics.columnSeries = response.data.Series;
+                $scope.statistics.columnLabels = response.data.Labels;
         });
-
-        $scope.statistics.pieOptions = {
-            chart: {
-                type: 'pieChart',
-                donut: true,
-                donutRatio:0.3,
-                height: 400,
-                x: function (d) { return d.category; },
-                y: function (d) { return d.value; },
-                showLabels: true,
-                labelType: 'percent',
-                transitionDuration: 500,
-                labelThreshold: 0.01,
-                legend: {
-                    margin: {
-                        top: 5,
-                        right: 35,
-                        bottom: 5,
-                        left: 0
-                    }
-                }
-            }
-        };
-
-        $scope.statistics.columnOptions = {
-            chart: {
-                type: 'multiBarChart',
-                height: 400,
-                x: function (d) { return d.label; },
-                y: function (d) { return d.value; },
-                showControls: false,
-                showValues: true,
-                transitionDuration: 500
-            }
-        };
     };
 
     app.module.lazy.controller("statisticsController", ["$scope", "$http", StatisticsController]);

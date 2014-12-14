@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Dynamic;
 using System.Web.Http;
 
 namespace MyProducts.Services.Controllers
@@ -16,39 +17,10 @@ namespace MyProducts.Services.Controllers
         [Route("distribution")]
         public dynamic GetDistribution()
         {
-            var data = new List<dynamic>
-                {
-                    new
-                        {
-                            category = "Asia",
-                            value = 33.8
-                        },
-                    new
-                        {
-                            category = "Europe",
-                            value = 36.1
-                        },
-                    new
-                        {
-                            category = "Latin America",
-                            value = 11.3
-                        },
-                    new
-                        {
-                            category = "Africa",
-                            value = 9.6
-                        },
-                    new
-                        {
-                            category = "Middle East",
-                            value = 5.2
-                        },
-                    new
-                        {
-                            category = "North America",
-                            value = 3.6
-                        }
-                };
+            dynamic data = new ExpandoObject();
+
+            data.Labels = new[] { "Download Sales", "In-Store Sales", "Mail-Order Sales", "A", "B" };
+            data.Data = new[] { 300, 500, 100, 80, 420 };
 
             return data;
         }
@@ -60,19 +32,11 @@ namespace MyProducts.Services.Controllers
         [Route("sales")]
         public dynamic GetSales()
         {
-            var data = new List<dynamic>
-                {
-                    new
-                        {
-                            key = "Total Sales",
-                            values = new[]{new {label = "A", value =56000}, new {label="B", value=63000}, new {label="C", value=74000}}
-                        },
-                    new
-                        {
-                            key = "Discounted Sales",
-                            values = new[]{new {label = "D", value = 52000}, new {label = "E", value = 34000}, new {label = "F", value = 23000}}
-                        }
-                };
+            dynamic data = new ExpandoObject();
+
+            data.Labels = new[] { "2006", "2007", "2008", "2009", "2010", "2011", "2012" };
+            data.Series = new[] { "Series A", "Series B" };
+            data.Data = new[] { new[] { 65, 59, 80, 81, 56, 55, 40 }, new[] { 28, 48, 40, 19, 86, 27, 90 } };
 
             return data;
         }

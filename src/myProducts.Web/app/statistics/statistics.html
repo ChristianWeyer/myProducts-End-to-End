@@ -2,16 +2,28 @@
 
 <br />
 <div class="row">
-    <br />
     <div class="col-md-6">
-        <nvd3 options="statistics.pieOptions" data="statistics.pieSeries"></nvd3>
+        <div class="panel panel-default">
+            <div class="panel-heading">Sales</div>
+            <div class="panel-body">
+                <canvas id="doughnut" class="chart chart-doughnut"
+                        data="statistics.pieData"
+                        labels="statistics.pieLabels"></canvas>
+            </div>
+        </div>
     </div>
-
-    <div class="col-md-5">
-        <nvd3 options="statistics.columnOptions" data="statistics.columnSeries"></nvd3>
-    </div>
-
-    <div class="col-md-1">
-        <br /><br />
+    
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Series</div>
+            <div class="panel-body">
+                <canvas id="bar" class="chart chart-bar"
+                        data="statistics.columnData"
+                        series="statistics.columnSeries"
+                        labels="statistics.columnLabels">
+                    
+                </canvas>
+            </div>
+        </div>
     </div>
 </div>
