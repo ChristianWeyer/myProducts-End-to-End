@@ -8,22 +8,24 @@
             <div class="panel-body">
                 <canvas id="doughnut" class="chart chart-doughnut"
                         data="statistics.pieData"
-                        labels="statistics.pieLabels"></canvas>
+                        labels="statistics.pieLabels"
+                        legend="true"></canvas>
             </div>
         </div>
     </div>
-    
-    <div class="col-md-6">
+
+    <div class="col-md-5">
         <div class="panel panel-default">
             <div class="panel-heading">Series</div>
             <div class="panel-body">
                 <canvas id="bar" class="chart chart-bar"
                         data="statistics.columnData"
                         series="statistics.columnSeries"
-                        labels="statistics.columnLabels">
-                    
-                </canvas>
+                        labels="statistics.columnLabels"
+                        legend="true"></canvas>
             </div>
         </div>
+    </div>
+    <div class="col-md-1">
     </div>
 </div>

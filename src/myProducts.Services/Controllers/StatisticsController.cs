@@ -19,8 +19,8 @@ namespace MyProducts.Services.Controllers
         {
             dynamic data = new ExpandoObject();
 
-            data.Labels = new[] { "Download Sales", "In-Store Sales", "Mail-Order Sales", "A", "B" };
-            data.Data = new[] { 300, 500, 100, 80, 420 };
+            data.Labels = new[] { "Download Sales", "In-Store Sales", "Mail-Order Sales", "Unspecified" };
+            data.Data = new[] { 300, 500, 100, 80 };
 
             return data;
         }

@@ -6,7 +6,7 @@
             <div class="form-group">
                 <label for="searchtext" translate="OVERVIEW_FILTER" style="font-weight:normal"></label>
                 <input type="text" id="searchtext" class="form-control input-sm" ng-model="articles.selectedFilteredArticle" typeahead="article.Name for article in articles.getFilteredData($viewValue)">
-                <!--<i class="btn btn-success glyphicon glyphicon-refresh" ng-click="articles.getPagedData(true)"></i>-->
+                <i class="fa fa-refresh" ng-click="articles.getPagedData(true)"></i>
             </div>
         </form>
     </div>
