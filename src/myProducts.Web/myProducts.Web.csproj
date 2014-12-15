@@ -340,8 +340,8 @@
     <Content Include="libs\50_AngularStuff\loading-bar.js" />
     <Content Include="libs\05_Base\log4javascript.js" />
     <Content Include="libs\50_AngularStuff\ngStorage.js" />
-    <Content Include="libs\90_Phonegap\phonegap-geolocation.js" />
-    <Content Include="libs\90_Phonegap\phonegap-ready.js" />
+    <Content Include="libs\90_Cordova\cordova-geolocation.js" />
+    <Content Include="libs\90_Cordova\cordova-ready.js" />
     <Content Include="libs\05_Base\script.js" />
     <Content Include="libs\15_Toastr\toastr.js" />
     <Content Include="libs\50_AngularStuff\ui-bootstrap-tpls-0.11.0.js" />
