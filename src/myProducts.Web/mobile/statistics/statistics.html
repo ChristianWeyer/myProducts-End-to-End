@@ -2,7 +2,15 @@
     <h3 class="padding" translate="STATS_TITLE"></h3>
     
     <div id="mobileStats">
-        <nvd3 options="statistics.pieOptions" data="statistics.pieSeries"></nvd3>
-        <nvd3 options="statistics.columnOptions" data="statistics.columnSeries"></nvd3>        
+        <canvas id="doughnut" class="chart chart-doughnut"
+                data="statistics.pieData"
+                labels="statistics.pieLabels"
+                legend="true"></canvas>
+        <br/>
+        <canvas id="bar" class="chart chart-bar"
+                data="statistics.columnData"
+                series="statistics.columnSeries"
+                labels="statistics.columnLabels"
+                legend="true"></canvas>      
     </div>
 </div>

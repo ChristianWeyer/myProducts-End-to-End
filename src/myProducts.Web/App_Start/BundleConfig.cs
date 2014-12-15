@@ -31,6 +31,7 @@ namespace MyProducts.Web
             bundles.Add(new Bundle("~/mobile/js")
                 .Include("~/mobile/libs/ionic.js")
                 .Include("~/mobile/libs/ionic-angular.js")
+                .Include("~/appStartup/mobileApp.js")
                 );
 
             BundleTable.EnableOptimizations = false;

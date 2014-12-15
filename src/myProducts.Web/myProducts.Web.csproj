@@ -395,6 +395,7 @@
     <Content Include="libs\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="libs\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="libs\30_SignalR\jquery.signalR-2.1.1.js" />
+    <Content Include="mobile\translations\translations-de.js" />
     <Content Include="_test\angular-mocks.js" />
     <Content Include="_test\basic\mySpec.js" />
     <Content Include="_test\setup.js" />
@@ -440,6 +441,7 @@
     <Content Include="libs\fonts\fontawesome-webfont.ttf" />
     <Content Include="libs\fonts\fontawesome-webfont.woff" />
     <Content Include="libs\fonts\FontAwesome.otf" />
+    <Content Include="mobile\translations\locale-en.json" />
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
