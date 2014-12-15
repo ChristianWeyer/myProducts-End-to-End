@@ -23,7 +23,7 @@
 
         $translateProvider.translations("de", tt.translations.de);
         $translateProvider.useStaticFilesLoader({
-            prefix: "app/translations/locale-",
+            prefix: "translations/locale-",
             suffix: ".json"
         });
         $translateProvider.preferredLanguage("en");

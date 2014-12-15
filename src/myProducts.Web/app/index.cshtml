@@ -7,19 +7,19 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
-    <link href="assets/images/apple-touch-startup-image-1024x748.png"
+    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+    <link href="../assets/images/apple-touch-startup-image-1024x748.png"
           media="(device-width: 768px) and (device-height: 1024px)
          and (orientation: landscape)
          and (-webkit-device-pixel-ratio: 1)"
           rel="apple-touch-startup-image">
-    <link href="assets/images/apple-touch-startup-image-2048x1496.png"
+    <link href="../assets/images/apple-touch-startup-image-2048x1496.png"
           media="(device-width: 768px) and (device-height: 1024px)
          and (orientation: landscape)
          and (-webkit-device-pixel-ratio: 2)"
           rel="apple-touch-startup-image">
 
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
 
     @System.Web.Optimization.Styles.Render("~/libs/css")
 </head>
@@ -40,7 +40,7 @@
                         <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
                     <span class="navbar-brand">
-                        <img src="assets/images/logo.png" width="74px" height="17px" /><br />
+                        <img src="../assets/images/logo.png" width="74px" height="17px" /><br />
                         <span style="font-size: 0.75em"><a href="#" data-match-route="/">myProducts</a></span>
                     </span>
                 </div>
@@ -60,13 +60,13 @@
                             <ul class="dropdown-menu">
                                 <li>
                                     <a ng-click="navigation.isCollapsed=true; navigation.changeLanguage('de');">
-                                        <img src="assets/images/lang_de_t.png" width="36px" height="26px">
+                                        <img src="../assets/images/lang_de_t.png" width="36px" height="26px">
                                         <span translate="COMMON_DE"></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a ng-click="navigation.isCollapsed=true; navigation.changeLanguage('en')">
-                                        <img src="assets/images/lang_en_t.png" width="36px" height="26px">
+                                        <img src="../assets/images/lang_en_t.png" width="36px" height="26px">
                                         <span translate="COMMON_EN"></span>
                                     </a>
                                 </li>
@@ -104,7 +104,7 @@
 
     @System.Web.Optimization.Scripts.Render("~/libs/js")
     @System.Web.Optimization.Scripts.Render("~/app/js")
-    <script src="cordova.js"></script>
+    <script src="../cordova.js"></script>
     <script>
         $(function () {
             if (mobileApp) {
