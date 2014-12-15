@@ -16,5 +16,5 @@
         });
     };
 
-    app.module.lazy.controller("logController", ["$scope", "signalRSubscribe", LogController]);
+    app.module.controller("logController", LogController);
 })();

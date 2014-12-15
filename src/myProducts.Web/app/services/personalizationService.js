@@ -11,5 +11,5 @@
         return lsPersonalization;
     };
 
-    app.module.factory("personalizationService", ["$localStorage", PersonalizationService]);
+    app.module.factory("personalizationService", PersonalizationService);
 })();

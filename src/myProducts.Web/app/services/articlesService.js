@@ -78,5 +78,5 @@
         };
     };
 
-    app.module.service("articlesService", ["$http", "$q", "$angularCacheFactory", ArticlesService]);
+    app.module.service("articlesService", ArticlesService);
 })();

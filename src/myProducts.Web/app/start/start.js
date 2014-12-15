@@ -25,5 +25,5 @@
         }
     };
 
-    app.module.controller("startController", ["$scope", "personalizationService", StartController]);
+    app.module.controller("startController", StartController);
 })();

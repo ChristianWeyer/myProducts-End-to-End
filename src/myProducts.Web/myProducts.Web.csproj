@@ -250,6 +250,7 @@
     <Content Include="appServices\services\thinktecture.ng.SignalR.js" />
     <Content Include="appServices\services\thinktecture.ng.Toast.js" />
     <Content Include="appServices\tools.js" />
+    <Content Include="app\routing.js" />
     <Content Include="app\services\articlesPushService.js" />
     <Content Include="app\services\articlesService.js" />
     <Content Include="app\services\categoriesService.js" />
@@ -370,7 +371,6 @@
     <Content Include="app\font\fontawesome-webfont.ttf" />
     <Content Include="app\font\fontawesome-webfont.woff" />
     <Content Include="app\font\FontAwesome.otf" />
-    <Content Include="app\main.js" />
     <Content Include="index.html" />
     <Content Include="mobile\assets\mobile.css" />
     <Content Include="mobile\assets\images\thinktecture_logo.png" />
@@ -490,7 +490,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="PerfItInstaller.cs" />
+    <Compile Include="PerfItInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PerfItInstaller.Designer.cs">
       <DependentUpon>PerfItInstaller.cs</DependentUpon>
     </Compile>
@@ -536,7 +538,7 @@
     <TypeScriptCompile Include="app\info\IInfoMessage.ts" />
     <TypeScriptCompile Include="app\info\IInfoScope.ts" />
     <TypeScriptCompile Include="app\info\info.ts" />
-    <TypeScriptCompile Include="app\info\Thinktecture.Angular.ts" />
+    <TypeScriptCompile Include="app\info\00Thinktecture.Angular.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />

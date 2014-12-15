@@ -37,5 +37,5 @@
         };
     };
 
-    app.module.controller("navigationController", ["$http", "$scope", "$translate", "personalizationService", "tokenAuthenticationService", NavigationController]);
+    app.module.controller("navigationController", NavigationController);
 })();

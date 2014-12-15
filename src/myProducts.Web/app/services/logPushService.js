@@ -32,5 +32,5 @@
         return hub;
     };
 
-    app.module.factory("logPushService", ["signalRHubProxy", "$rootScope", "settingsService", LogPushService]);
+    app.module.factory("logPushService", LogPushService);
 })();

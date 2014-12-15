@@ -40,5 +40,5 @@
         return hub;
     };
 
-    app.module.factory("articlesPushService", ["signalRHubProxy", "$rootScope", "$timeout", "settingsService", ArticlesPushService]);
+    app.module.factory("articlesPushService", ArticlesPushService);
 })();

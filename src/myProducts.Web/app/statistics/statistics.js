@@ -29,5 +29,5 @@
         });
     };
 
-    app.module.lazy.controller("statisticsController", ["$scope", "$http", StatisticsController]);
+    app.module.controller("statisticsController", StatisticsController);
 })();

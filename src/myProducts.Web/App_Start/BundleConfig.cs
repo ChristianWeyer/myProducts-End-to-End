@@ -16,6 +16,7 @@ namespace MyProducts.Web
                 );
 
             bundles.Add(new Bundle("~/app/js")
+                .IncludeDirectory("~/app", "*.js", true)
                 .IncludeDirectory("~/appServices", "*.js", true)
                 .IncludeDirectory("~/appStartup", "*.js", true)
             );

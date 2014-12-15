@@ -11,5 +11,5 @@
         return lsSettings;
     };
 
-    app.module.factory("settingsService", ["$localStorage", SettingsService]);
+    app.module.factory("settingsService", SettingsService);
 })();

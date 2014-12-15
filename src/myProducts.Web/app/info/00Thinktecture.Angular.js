@@ -12,4 +12,4 @@ var Thinktecture;
         Angular.Controller = Controller;
     })(Angular = Thinktecture.Angular || (Thinktecture.Angular = {}));
 })(Thinktecture || (Thinktecture = {}));
-//# sourceMappingURL=Thinktecture.Angular.js.map
+//# sourceMappingURL=00Thinktecture.Angular.js.map
