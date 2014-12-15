@@ -103,8 +103,9 @@
     </script>
 
     @System.Web.Optimization.Scripts.Render("~/libs/js")
-    @System.Web.Optimization.Scripts.Render("~/app/js")
     <script src="../cordova.js"></script>
+    @System.Web.Optimization.Scripts.Render("~/app/js")
+
     <script>
         $(function () {
             if (mobileApp) {
