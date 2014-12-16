@@ -26,7 +26,7 @@ namespace myProducts.WindowsClient
 				UniversalAccessFromFileUrlsAllowed = true
 			};
 
-			var urlToNavigate = AppDomain.CurrentDomain.BaseDirectory + @"client\index.html";
+			var urlToNavigate = AppDomain.CurrentDomain.BaseDirectory + @"client\app\index.html";
 
 			webView = new WebView(urlToNavigate, browserSettings);
 			webView.LoadCompleted += webView_LoadCompleted;

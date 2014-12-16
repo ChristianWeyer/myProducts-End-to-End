@@ -12,7 +12,7 @@ namespace MyProducts.Hosting
             var clientOptions = new FileServerOptions
             {
                 RequestPath = new PathString(""),
-                FileSystem = new PhysicalFileSystem("client"),
+                FileSystem = new PhysicalFileSystem(@"client"),
                 EnableDefaultFiles = true
             };
             clientOptions.DefaultFilesOptions.DefaultFileNames.Add("index.html");
