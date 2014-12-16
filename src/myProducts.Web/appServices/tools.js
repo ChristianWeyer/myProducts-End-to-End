@@ -4,17 +4,22 @@ ttTools.cloudUrl = "https://ngmd.azurewebsites.net/";
 //ttTools.cloudUrl = "https://windows8vm.local/ngmd/";
 
 ttTools.isInApp = function () {
-    return window.cordova || ttTools.isInNodeWebkit();
+    return window.cordova || ttTools.isInNodeWebkit() || ttTools.usesLocalUrl();
 };
 
-ttTools.isInNodeWebkit = function() {
+ttTools.usesLocalUrl = function () {
+    return document.URL.indexOf("http://") === -1
+       && document.URL.indexOf("https://") === -1;
+};
+
+ttTools.isInNodeWebkit = function () {
     var isNode = (typeof process !== "undefined" && typeof require !== "undefined");
     var isNodeWebkit = false;
 
-    if(isNode) {
+    if (isNode) {
         try {
             isNodeWebkit = (typeof require('nw.gui') !== "undefined");
-        } catch(e) {
+        } catch (e) {
             isNodeWebkit = false;
         }
     }
@@ -106,13 +111,13 @@ ttTools.JsonAppender = function (url) {
     };
 };
 
-ttTools.getSampleData = function() {
+ttTools.getSampleData = function () {
     var injector = angular.element(document.body).injector();
 
     if (injector) {
-        var articlesApiService = injector.get("articlesApi");
+        var articlesApiService = injector.get("articlesService");
 
-        articlesApiService.getArticlesPaged(10, 1).then(function(resultData) {
+        articlesApiService.getArticlesPaged(10, 1).then(function (resultData) {
             window.cefCallback.sampleDataResult(resultData);
         });
     }
