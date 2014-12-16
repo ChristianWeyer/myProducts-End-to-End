@@ -27,14 +27,7 @@ ttTools.getBaseUrl = function () {
         return ttTools.cloudUrl;
     }
     else {
-        var p = window.location.pathname.split("/");
-        var u = window.location.protocol + "//" + window.location.host + "/";
-
-        if (p.length <= 2) {
-            u = u + p[1] + "/";
-        }
-
-        return u;
+        return "../";
     }
 };
 
