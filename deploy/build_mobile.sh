@@ -26,6 +26,8 @@ mkdir out_mobile/iOS
 cd ${DIR}
 cd tmp
 cp -r ../../src/myProducts.Web/app .
+cp -r ../../src/myProducts.Web/appStartup .
+cp -r ../../src/myProducts.Web/appServices .
 cp -r ../../src/myProducts.Web/mobile .
 cp -r ../../src/myProducts.Web/libs .
 cp -r ../../src/myProducts.Web/assets .
@@ -34,8 +36,8 @@ cp ../node-webkit-sharedsource/* .
 
 ## Download generated index.html page
 echo "GETting index.html"
-curl -k https://windows8vm.local/ngmd/mobile > index.html
-perl -pi -w -e 's/\/ngmd\///g;' index.html
+curl -k https://windows8vm.local/ngmd/mobile/#/ > ./mobile/index.html
+perl -pi -w -e 's/\/ngmd\///g;' ./mobile/index.html
 
 ## Create cordova project
 cd ${DIR}
