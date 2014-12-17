@@ -10,7 +10,7 @@
             .state("login", getRouteConfiguration("login"))
             .state("start", getRouteConfiguration("start", "/"))
             .state("articles", getRouteConfiguration("articles"))
-            .state("articledetails/:id", getRouteConfiguration("articleDetails"))
+            .state("articledetails", { url: "/articledetails/:id", templateUrl: "articleDetails/articleDetails.html", controller: "articleDetailsController" })
             .state("gallery", getRouteConfiguration("gallery"))
             .state("log", getRouteConfiguration("log"))
             .state("statistics", getRouteConfiguration("statistics"));
