@@ -24,7 +24,7 @@
             <textarea type="text" class="form-control" rows="4" ng-model="articledetails.article.Description"></textarea>
         </div>
         <div class="col-md-6">
-            <img ng-if="articledetails.editMode" alt="Product image" class="img-responsive" src="assets/images/default.png" ng-src="{{ articledetails.article.ImageUrl | baseUrl }}" />
+            <img ng-if="articledetails.editMode" alt="Product image" class="img-responsive" src="../assets/images/default.png" ng-src="{{ articledetails.article.ImageUrl | baseUrl }}" />
         </div>
         <span ng-if="!articledetails.editMode">
             <img ng-if="articledetails.image" ng-src="{{ articledetails.image.resized.dataURL }}" type="{{ articledetails.image.file.type }}" />
