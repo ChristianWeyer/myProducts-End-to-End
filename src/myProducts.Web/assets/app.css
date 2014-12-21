@@ -29,6 +29,7 @@
     height: 100%;
     cursor: move;
     overflow: hidden;
+    background: #5C6A78;
 }
 
 .btn {
