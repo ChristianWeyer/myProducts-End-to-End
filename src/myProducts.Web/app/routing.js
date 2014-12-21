@@ -13,7 +13,8 @@
             .state("articledetails", { url: "/articledetails/:id", templateUrl: "articleDetails/articleDetails.html", controller: "articleDetailsController" })
             .state("gallery", getRouteConfiguration("gallery"))
             .state("log", getRouteConfiguration("log"))
-            .state("statistics", getRouteConfiguration("statistics"));
+            .state("statistics", getRouteConfiguration("statistics"))
+            .state("easteregg", getRouteConfiguration("easteregg"));
 
         function getRouteConfiguration(name, overrideUrl) {
             var url = "/" + name;

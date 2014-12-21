@@ -249,6 +249,11 @@
     <Content Include="appServices\services\thinktecture.ng.SignalR.js" />
     <Content Include="appServices\services\thinktecture.ng.Toast.js" />
     <Content Include="appServices\tools.js" />
+    <Content Include="app\easteregg\maze.html" />
+    <Content Include="app\easteregg\easteregg.html" />
+    <Content Include="app\easteregg\easteregg.js" />
+    <Content Include="app\easteregg\mazegen\threemaze.generate.js" />
+    <Content Include="app\easteregg\maze\threemaze.js" />
     <Content Include="app\routing.js" />
     <Content Include="app\services\articlesPushService.js" />
     <Content Include="app\services\articlesService.js" />
@@ -280,6 +285,8 @@
     <Content Include="images\7.jpg" />
     <Content Include="images\8.jpg" />
     <Content Include="images\9.jpg" />
+    <Content Include="libs\07_Three\three.js" />
+    <Content Include="libs\08_Tween\Tween.js" />
     <Content Include="libs\25_Charts\Chart.js" />
     <Content Include="libs\50_AngularStuff\angular-chart.css" />
     <Content Include="libs\50_AngularStuff\angular-chart.js" />
