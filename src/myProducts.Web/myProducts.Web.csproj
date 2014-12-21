@@ -244,7 +244,6 @@
     <Content Include="appServices\directives\serverValidationDirective.js" />
     <Content Include="appServices\filters\baseUrlFilter.js" />
     <Content Include="appServices\services\geoLocationTrackerService.js" />
-    <Content Include="appServices\services\routeResolverServices.js" />
     <Content Include="appServices\services\thinktecture.ng.Authentication.js" />
     <Content Include="appServices\services\thinktecture.ng.Dialog.js" />
     <Content Include="appServices\services\thinktecture.ng.SignalR.js" />
