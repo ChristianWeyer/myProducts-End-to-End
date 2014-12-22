@@ -19,6 +19,7 @@
 }
 
 #mainContent {
+    width: 100%;
     padding-right: 25px;
 }
 
@@ -312,7 +313,6 @@ a {
 }
 
 .slide-animation {
-    width: 98%;
     position: absolute;
 }
 
