@@ -10,10 +10,11 @@
     }
 
     app.module.config(function ($compileProvider, $translateProvider, cfpLoadingBarProvider, tokenAuthenticationServiceProvider) {
-        FastClick.attach(document.body);
-
+        $compileProvider.debugInfoEnabled(false);
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|ghttps?|ms-appx|x-wmapp0):/);
 
+        FastClick.attach(document.body);
+        
         cfpLoadingBarProvider.includeSpinner = false;
 
         tokenAuthenticationServiceProvider.setUrl(ttTools.baseUrl + "token");
