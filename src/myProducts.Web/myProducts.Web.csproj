@@ -254,6 +254,8 @@
     <Content Include="app\easteregg\easteregg.js" />
     <Content Include="app\easteregg\mazegen\threemaze.generate.js" />
     <Content Include="app\easteregg\maze\threemaze.js" />
+    <Content Include="app\navigation\navigation.html" />
+    <Content Include="app\navigation\navigation.js" />
     <Content Include="app\routing.js" />
     <Content Include="app\services\articlesPushService.js" />
     <Content Include="app\services\articlesService.js" />
@@ -262,6 +264,7 @@
     <Content Include="app\services\networkStatusService.js" />
     <Content Include="app\services\personalizationService.js" />
     <Content Include="app\services\settingsService.js" />
+    <Content Include="app\statusBar\statusBar.html" />
     <Content Include="App_Data\ProductsDemo.sdf" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="assets\images\favicon.ico" />
@@ -325,7 +328,7 @@
     <Content Include="app\start\start.js" />
     <Content Include="app\settings\settings.js" />
     <Content Include="app\gallery\gallery.js" />
-    <Content Include="app\shell\status.js" />
+    <Content Include="app\statusBar\statusBar.js" />
     <Content Include="app\log\log.js" />
     <Content Include="app\statistics\statistics.js" />
     <Content Include="libs\50_AngularStuff\angular-animate.js" />
@@ -359,7 +362,6 @@
     <Content Include="app\statistics\statistics.html" />
     <Content Include="libs\99_appInit\appInit.js" />
     <Content Include="app\articles\articles.js" />
-    <Content Include="app\shell\navigation.js" />
     <Content Include="app\translations\translations-de.js" />
     <Content Include="libs\56_AngularTranslateStuff\angular-translate-loader-static-files.js" />
     <Content Include="libs\56_AngularTranslateStuff\angular-translate-loader-url.js" />
@@ -554,6 +556,7 @@
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

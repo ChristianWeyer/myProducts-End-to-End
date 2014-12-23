@@ -32,78 +32,23 @@
             <div class="bounce3"></div>
         </div>
     </div>
-    <div id="mainContainer" ng-controller="navigationController">
-        <div class="navbar navbar-default navbar-fixed-top" style="position:fixed" bs-navbar ng-cloak translate-cloak>
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" ng-click="navigation.isCollapsed=!navigation.isCollapsed">
-                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                    </button>
-                    <span class="navbar-brand">
-                        <img src="../assets/images/logo.png" width="74px" height="17px" /><br />
-                        <span style="font-size: 0.75em"><a href="#/" data-match-route="/#">myProducts</a></span>
-                    </span>
-                </div>
-                <div class="navbar-collapse" collapse="navigation.isCollapsed">
-                    <ul class="nav navbar-nav">
-                        <li ng-repeat="ni in navigation.navigationItems track by $index" data-match-route='{{ ni.MatchPattern }}'>
-                            <a ng-show="ni.DisplayText" ng-click="navigation.isCollapsed=true" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
-                        </li>
-                        @* <li data-match-route="/info"><a ng-click="navigation.isCollapsed=true" href="#/info">Info</a></li>*@
-                    </ul>
+    <div id="mainContainer">
+        <myp-navigation></myp-navigation>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li data-match-route="/settings"><a ng-click="navigation.isCollapsed=true" href="#/settings" translate="INDEX_SETTINGS"></a></li>
-
-                        <li class="dropdown">
-                            <a class="dropdown-toggle"><i class="glyphicon glyphicon-align-justify"></i>&nbsp;<span translate="COMMON_LANG"></span></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a ng-click="navigation.isCollapsed=true; navigation.changeLanguage('de');">
-                                        <img src="../assets/images/lang_de_t.png" width="36px" height="26px">
-                                        <span translate="COMMON_DE"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a ng-click="navigation.isCollapsed=true; navigation.changeLanguage('en')">
-                                        <img src="../assets/images/lang_en_t.png" width="36px" height="26px">
-                                        <span translate="COMMON_EN"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <div class="container-fluid" style="position: relative" ng-cloak translate-cloak>
-            <div id="mainContent" ui-view autoscroll="false" class="slide-animation"></div>
+            <div id="mainContent" ui-view autoscroll="false"></div>
             <br />
         </div>
 
-        <footer id="footer" ng-cloak translate-cloak>
-            <div class="container-fluid" ng-controller="statusController">
-                <div ng-if="!status.isOnline" class="circle-red pull-left"></div>
-                <div ng-if="status.isOnline" class="circle-green pull-left"></div>
-
-                <span class="pull-right">
-                    <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
-                        <a href="#/login" translate="INDEX_LOGIN"></a>
-                    </span>
-                    <span ng-if="tt.authentication.userLoggedIn">
-                        <a href="" ng-click="navigation.logout()"><i class="fa fa-sign-out" style="color: white"></i></a>
-                    </span>
-                </span>
-            </div>
-        </footer>
-
+        <myp-statusbar></myp-statusbar>
     </div>
+
     <script>
         ttMobile = false;
     </script>
 
-    @System.Web.Optimization.Scripts.Render("~/libs/js")
     <script src="../cordova.js"></script>
+    @System.Web.Optimization.Scripts.Render("~/libs/js")
     @System.Web.Optimization.Scripts.Render("~/app/js")
 
     <script>

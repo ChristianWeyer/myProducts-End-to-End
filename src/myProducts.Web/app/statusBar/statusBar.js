@@ -6,7 +6,7 @@
      * @param {NetworkStatusService} networkStatusService
      * @constructor
      */
-    function StatusController($scope, networkStatusService) {
+    function StatusBarController($scope, networkStatusService) {
         $scope.status = {};
         $scope.status.isOnline = networkStatusService.isOnline();
 
@@ -15,5 +15,14 @@
         });
     }
 
-    app.module.controller("statusController", StatusController);
+    function StatusBarDirective() {
+        return {
+            restrict: "E",
+            templateUrl: "statusBar/statusBar.html",
+            controller: StatusBarController
+        };
+    };
+
+    app.module.controller("statusBarController", StatusBarController);
+    app.module.directive("mypStatusbar", StatusBarDirective);
 })();

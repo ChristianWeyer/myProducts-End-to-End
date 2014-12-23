@@ -1,14 +1,14 @@
-(function () {
+﻿(function () {
     "use strict";
 
     /**
-     * @param $http
-     * @param $scope
-     * @param $translate
-     * @param {PersonalizationService} personalizationService
-     * @param {TokenAuthenticationService} tokenAuthenticationService
-     * @constructor
-     */
+    * @param $http
+    * @param $scope
+    * @param $translate
+    * @param {PersonalizationService} personalizationService
+    * @param {TokenAuthenticationService} tokenAuthenticationService
+    * @constructor
+    */
     function NavigationController($http, $scope, $translate, personalizationService, tokenAuthenticationService) {
         $scope.navigation = {};
         $scope.navigation.isCollapsed = true;
@@ -32,10 +32,19 @@
             $translate.use(langKey);
         };
 
-        $scope.navigation.logout = function() {
+        $scope.navigation.logout = function () {
             tokenAuthenticationService.logout();
         };
     };
 
+    function NavigationDirective() {
+        return {
+            restrict: "E",
+            templateUrl: "navigation/navigation.html",
+            controller: NavigationController
+        };
+    };
+
     app.module.controller("navigationController", NavigationController);
+    app.module.directive("mypNavigation", NavigationDirective);
 })();
