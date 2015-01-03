@@ -20,8 +20,11 @@
             <ul class="nav navbar-nav navbar-right">
                 <li data-match-route="/settings"><a ng-click="navigation.isCollapsed=true" href="#/settings" translate="INDEX_SETTINGS"></a></li>
 
-                <li class="dropdown">
-                    <a class="dropdown-toggle"><i class="glyphicon glyphicon-align-justify"></i>&nbsp;<span translate="COMMON_LANG"></span></a>
+                <li class="dropdown" dropdown>
+                    <a class="dropdown-toggle" dropdown-toggle>
+                        <i class="glyphicon glyphicon-align-justify"></i>&nbsp;
+                        <span translate="COMMON_LANG"></span>
+                    </a>
                     <ul class="dropdown-menu">
                         <li>
                             <a ng-click="navigation.isCollapsed=true; navigation.changeLanguage('de');">
