@@ -19,7 +19,6 @@
 
         $scope.articles = {};
         $scope.articles.pagingOptions = { pageSizes: [10], pageSize: 10, currentPage: 1, moreCurrentPage: 1 };
-        $scope.articles.articlesData = [];
 
         $scope.articles.getFilteredData = function (searchText) {
             var search = searchText;
@@ -38,6 +37,10 @@
         $scope.articles.getMoreData = function () {
             articlesService.getArticlesPaged($scope.articles.pagingOptions.pageSize, $scope.articles.pagingOptions.moreCurrentPage += 1, "", true)
                 .then(function (data) {
+                    if (!$scope.articles.articlesData) {
+                        $scope.articles.articlesData = [];
+                    }
+
                     $scope.articles.articlesData.push.apply($scope.articles.articlesData, data.Items);
                     $scope.articles.totalServerItems = data.Count;
 

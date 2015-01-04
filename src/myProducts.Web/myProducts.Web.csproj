@@ -593,7 +593,7 @@ copy "$(SolutionDir)build\MyProducts.Services.dll" "$(TargetDir)"
 copy "$(SolutionDir)build\MyProducts.Model.dll" "$(TargetDir)"</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>REM $(SolutionDir)tools\curl.exe http://localhost/ngmd/app</PostBuildEvent>
+    <PostBuildEvent>grunt html2js</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\AutoMapper.3.3.0\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.0\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
