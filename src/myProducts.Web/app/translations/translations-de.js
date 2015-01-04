@@ -21,7 +21,7 @@ tt.translations.de = {
     "INDEX_USERNAME": "Benutzer",
 
     "OVERVIEW_TITLE": "Überblick",
-    "OVERVIEW_FILTER": "Artikel-Name-Filterung:",
+    "OVERVIEW_FILTER": "Artikel-Name-Filterung",
     "OVERVIEW_SEARCH_PLACEHOLDER": "Nach Artikeln suchen...",
     "OVERVIEW_SEARCH_BUTTON": "Suchen",
 
