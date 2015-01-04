@@ -312,22 +312,22 @@ a {
     }
 }
 
-.slide-animation {
+.fade-animation {
     position: absolute;
 }
 
-    .slide-animation.ng-enter {
-        animation: fadeInRight 0.8s;
-        -webkit-animation: fadeInRight 0.8s;
-        -moz-animation: fadeInRight 0.8s;
-        -ms-animation: fadeInRight 0.8s;
+    .fade-animation.ng-enter {
+        animation: fadeIn 0.8s;
+        -webkit-animation: fadeIn 0.8s;
+        -moz-animation: fadeIn 0.8s;
+        -ms-animation: fadeIn 0.8s;
     }
 
-    .slide-animation.ng-leave {
-        animation: fadeOutLeft 0.8s;
-        -webkit-animation: fadeOutLeft 0.8s;
-        -moz-animation: fadeOutLeft 0.8s;
-        -ms-animation: fadeOutLeft 0.8s;
+    .fade-animation.ng-leave {
+        animation: fadeOut 0.8s;
+        -webkit-animation: fadeOut 0.8s;
+        -moz-animation: fadeOut 0.8s;
+        -ms-animation: fadeOut 0.8s;
     }
 
 .navbar-collapse.collapsing {

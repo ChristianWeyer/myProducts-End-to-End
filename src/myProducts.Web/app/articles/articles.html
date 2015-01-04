@@ -25,8 +25,8 @@
                 </tr>
             </thead>
             <tr ng-repeat="a in articles.articlesData track by $index">
-                <td ng-click="articles.getArticleDetails(a.Id)">{{:: a.Name }}</td>
-                <td class="hidden-xs" ng-click="articles.getArticleDetails(a.Id)">{{:: a.Code }}</td>
+                <td ng-click="articles.getArticleDetails(a.Id)">{{ a.Name }}</td>
+                <td class="hidden-xs" ng-click="articles.getArticleDetails(a.Id)">{{ a.Code }}</td>
                 <td style="width: 90px">
                     <i class="btn btn-success list-btn-success glyphicon glyphicon-edit" ng-click="articles.getArticleDetails(a.Id)"></i>
                     <i class="btn btn-danger list-btn-danger glyphicon glyphicon-trash" ng-click="articles.deleteArticle(a.Id)"></i>
