@@ -5,7 +5,7 @@
         <div class="col-md-4">
             <input type="text" required ng-model="articledetails.article.Name" name="name" server-validate="data.Name" class="form-control">
         </div>
-        <span class="col-md-3 help-block alert alert-danger" ng-repeat="errorMessage in form.name.$error.server" style="padding:10px;margin:0">{{ errorMessage }}</span>
+        <span class="col-md-3 help-block alert alert-warning" ng-repeat="errorMessage in form.name.$error.server" style="padding:10px;margin:0">{{ errorMessage }}</span>
     </div>
     <div class="form-group" ng-class="{ error: form.code.$invalid }">
         <label class="control-label col-md-1" for="code" translate="DETAILS_CODE" style="font-weight:normal"></label>
@@ -16,7 +16,7 @@
     <div class="form-group">
         <label class="control-label col-md-1" for="categories" translate="DETAILS_CATEGORIES" style="font-weight:normal"></label>
         <div class="col-md-2">
-            <select name="categories" ng-model="articledetails.article.Category" ng-options="c as c.Name for c in articledetails.categories track by c.Id" class="form-control"></select>
+            <select name="categories" ng-model="articledetails.article.Category" ng-options="c.Name for c in articledetails.categories track by c.Id" class="form-control"></select>
         </div>
     </div>
     <div class="form-group">
