@@ -18,8 +18,7 @@ namespace myProducts.WindowsClient
         {
             InitializeComponent();
 
-            Cef.Initialize(new CefSettings());
-            //CEF.Initialize(new Settings { CachePath = @".\cachepath" });
+            Cef.Initialize(new CefSettings { CachePath = @".\cachepath" });
 
             var urlToNavigate = AppDomain.CurrentDomain.BaseDirectory + @"client\app\index.html";
             var browserSettings = new BrowserSettings
@@ -30,6 +29,7 @@ namespace myProducts.WindowsClient
             webBrowser = new ChromiumWebBrowser();
             webBrowser.Address = urlToNavigate;
             webBrowser.BrowserSettings = browserSettings;
+
             webBrowser.RegisterJsObject("cefCallback", new CefBridge());
 
             CefSharpContainer.Children.Add(webBrowser);
