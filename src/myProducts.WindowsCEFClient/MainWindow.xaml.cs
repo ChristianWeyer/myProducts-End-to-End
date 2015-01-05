@@ -7,63 +7,55 @@ using Thinktecture.Applications.Framework;
 
 namespace myProducts.WindowsClient
 {
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
-	public partial class MainWindow : Window
-	{
-		private readonly WebView webView;   
-		private bool loaded;
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        private ChromiumWebBrowser webBrowser;
 
-		public MainWindow()
-		{
-			InitializeComponent();
+        public MainWindow()
+        {
+            InitializeComponent();
 
-			CEF.Initialize(new Settings { CachePath = @".\cachepath" });
+            Cef.Initialize(new CefSettings());
+            //CEF.Initialize(new Settings { CachePath = @".\cachepath" });
 
-			var browserSettings = new BrowserSettings
-			{
-				UniversalAccessFromFileUrlsAllowed = true
-			};
+            var urlToNavigate = AppDomain.CurrentDomain.BaseDirectory + @"client\app\index.html";
+            var browserSettings = new BrowserSettings
+            {
+                UniversalAccessFromFileUrlsAllowed = true
+            };
 
-			var urlToNavigate = AppDomain.CurrentDomain.BaseDirectory + @"client\app\index.html";
+            webBrowser = new ChromiumWebBrowser();
+            webBrowser.Address = urlToNavigate;
+            webBrowser.BrowserSettings = browserSettings;
+            webBrowser.RegisterJsObject("cefCallback", new CefBridge());
 
-			webView = new WebView(urlToNavigate, browserSettings);
-			webView.LoadCompleted += webView_LoadCompleted;
-			webView.RegisterJsObject("cefCallback", new CefBridge());
+            CefSharpContainer.Children.Add(webBrowser);
+        }
 
-			CefSharpContainer.Children.Add(webView);
-		}
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.I &&
+                (Keyboard.Modifiers & (ModifierKeys.Control | ModifierKeys.Shift)) == (ModifierKeys.Control | ModifierKeys.Shift))
+            {
+                webBrowser.ShowDevTools();
+            }
+        }
 
-		private void webView_LoadCompleted(object sender, LoadCompletedEventArgs e)
-		{
-			loaded = true;
-		}
+        private void GetSampleDataFromJavaScript(object sender, RoutedEventArgs e)
+        {
+            webBrowser.ExecuteScriptAsync("ttTools.getSampleData()");
+        }
+    }
 
-		private void Window_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (loaded)
-			{
-				if (e.Key == Key.I && 
-					(Keyboard.Modifiers & (ModifierKeys.Control | ModifierKeys.Shift)) == (ModifierKeys.Control | ModifierKeys.Shift))
-				{
-					webView.ShowDevTools();
-				}
-			}
-		}
-
-		private void GetSampleDataFromJavaScript(object sender, RoutedEventArgs e)
-		{
-			webView.ExecuteScript("ttTools.getSampleData()");
-		}
-	}
-
-	public class CefBridge
-	{
-		public void SampleDataResult(object result)
-		{
-			dynamic data = result.ToDynamic();
-			MessageBox.Show("Total articles: " + data.Count, "From JavaScript in Chromium");
-		}
-	}
+    public class CefBridge
+    {
+        public void SampleDataResult(object result)
+        {
+            dynamic data = result.ToDynamic();
+            MessageBox.Show("Total articles: " + data.Count, "From JavaScript in Chromium");
+        }
+    }
 }
