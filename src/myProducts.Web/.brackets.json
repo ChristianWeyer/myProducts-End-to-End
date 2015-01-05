@@ -1,6 +1,0 @@
-{
-    "jscodehints.detectedExclusions": [
-        "/Users/christianweyer/GitHub/myProducts-End-to-End/src/myProducts.Web/mobile/libs/ionic-angular.js",
-        "/Users/christianweyer/GitHub/myProducts-End-to-End/src/myProducts.Web/app/services/articlesService.js"
-    ]
-}
