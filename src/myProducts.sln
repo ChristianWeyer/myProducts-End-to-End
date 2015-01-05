@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myProducts.Model", "myProducts.Model\myProducts.Model.csproj", "{82EEAA96-8E08-4820-9914-0738CB1C3317}"
 EndProject
@@ -172,8 +172,8 @@ Global
 		{BD5CC424-1C2E-4AB0-9A1F-628AA2CCE7DA}.Release|ARM.ActiveCfg = Release|Any CPU
 		{BD5CC424-1C2E-4AB0-9A1F-628AA2CCE7DA}.Release|x64.ActiveCfg = Release|Any CPU
 		{BD5CC424-1C2E-4AB0-9A1F-628AA2CCE7DA}.Release|x86.ActiveCfg = Release|Any CPU
-		{B970ECB7-6F21-41E5-8923-58B57E6CCFB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B970ECB7-6F21-41E5-8923-58B57E6CCFB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B970ECB7-6F21-41E5-8923-58B57E6CCFB5}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{B970ECB7-6F21-41E5-8923-58B57E6CCFB5}.Debug|Any CPU.Build.0 = Debug|x64
 		{B970ECB7-6F21-41E5-8923-58B57E6CCFB5}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{B970ECB7-6F21-41E5-8923-58B57E6CCFB5}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{B970ECB7-6F21-41E5-8923-58B57E6CCFB5}.Debug|x86.ActiveCfg = Debug|Any CPU
