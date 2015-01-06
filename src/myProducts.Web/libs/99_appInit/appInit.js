@@ -27,7 +27,7 @@
             prefix: "translations/locale-",
             suffix: ".json"
         });
-        $translateProvider.preferredLanguage("en");
+        $translateProvider.preferredLanguage("de");
         $translateProvider.useLocalStorage();
     });
 })();
