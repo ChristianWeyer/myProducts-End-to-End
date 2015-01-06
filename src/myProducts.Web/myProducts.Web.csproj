@@ -303,6 +303,9 @@
     <Content Include="libs\50_AngularStuff\loading-bar.css" />
     <Content Include="libs\17_Modern\20\modern-responsive.css" />
     <Content Include="libs\17_Modern\10\modern.css" />
+    <Content Include="libs\60_Offline\offline-language-english.css" />
+    <Content Include="libs\60_Offline\offline-theme-dark.css" />
+    <Content Include="libs\60_Offline\offline.js" />
     <Content Include="libs\99_appInit\tweak-bootstrap.css" />
     <Content Include="libs\13_FontAwesome\font-awesome.css" />
     <Content Include="libs\15_Toastr\toastr.css" />
