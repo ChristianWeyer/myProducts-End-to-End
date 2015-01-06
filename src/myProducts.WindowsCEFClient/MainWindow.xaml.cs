@@ -3,7 +3,7 @@ using CefSharp.Wpf;
 using System;
 using System.Windows;
 using System.Windows.Input;
-using Thinktecture.Applications.Framework;
+using Newtonsoft.Json;
 
 namespace myProducts.WindowsClient
 {
@@ -52,9 +52,10 @@ namespace myProducts.WindowsClient
 
     public class CefBridge
     {
-        public void SampleDataResult(object result)
+        public void SampleDataResult(string result)
         {
-            dynamic data = result.ToDynamic();
+            dynamic data = JsonConvert.DeserializeObject(result);
+           
             MessageBox.Show("Total articles: " + data.Count, "From JavaScript in Chromium");
         }
     }

@@ -118,7 +118,7 @@ ttTools.getSampleData = function () {
         var articlesApiService = injector.get("articlesService");
 
         articlesApiService.getArticlesPaged(10, 1).then(function (resultData) {
-            window.cefCallback.sampleDataResult(resultData);
+            window.cefCallback.sampleDataResult(JSON.stringify(resultData));
         });
     }
 };
