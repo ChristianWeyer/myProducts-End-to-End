@@ -2,7 +2,7 @@
     <div class="login-container">
         <div class="avatar"></div>
         <div class="form-box">
-            <form name="form" novalidate translate-cloak>
+            <form name="form" novalidate>
                 <input name="user" type="text" placeholder="{{ 'LOGIN_USERNAME' | translate }}" required ng-model="login.username">
                 <input type="password" placeholder="{{ 'LOGIN_PASSWORD' | translate }}" required ng-model="login.password">
                 <button class="btn btn-success btn-block login" ng-click="login.submit()" ng-disabled="form.$invalid" translate="LOGIN_BUTTON_LOGIN"></button>
