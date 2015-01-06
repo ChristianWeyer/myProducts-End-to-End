@@ -10,16 +10,6 @@
     }
 
     app.module.config(function ($compileProvider, $translateProvider, cfpLoadingBarProvider, tokenAuthenticationServiceProvider) {
-        Offline.options = {
-            checks: {
-                xhr: {
-                    url: ttTools.getBaseUrl()
-                }
-            },
-            checkOnLoad: true,
-            requests: false
-        };
-
         $compileProvider.debugInfoEnabled(false);
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|ghttps?|ms-appx|x-wmapp0):/);
 
