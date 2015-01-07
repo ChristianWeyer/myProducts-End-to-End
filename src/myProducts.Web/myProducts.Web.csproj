@@ -403,9 +403,6 @@
     <Content Include="libs\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="libs\30_SignalR\jquery.signalR-2.1.1.js" />
     <Content Include="mobile\translations\translations-de.js" />
-    <None Include="Scripts\jquery-2.1.3.intellisense.js" />
-    <Content Include="Scripts\jquery-2.1.3.js" />
-    <Content Include="Scripts\jquery-2.1.3.min.js" />
     <Content Include="_test\angular-mocks.js" />
     <Content Include="_test\basic\mySpec.js" />
     <Content Include="_test\setup.js" />
@@ -453,7 +450,6 @@
     <Content Include="libs\fonts\FontAwesome.otf" />
     <Content Include="mobile\translations\locale-en.json" />
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
-    <Content Include="Scripts\jquery-2.1.3.min.map" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
