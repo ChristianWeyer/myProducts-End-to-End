@@ -20,7 +20,7 @@
                 }
             },
             main: {
-                src: ["app/**/*.html"],
+                src: ["app*/**/*.html"],
                 dest: "app/embeddedTemplates.js"
             },
         }
