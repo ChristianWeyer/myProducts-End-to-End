@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    app.module.run(function ($localStorage, $state, $http, $templateCache, $rootScope, $location, $translate, toastService, dialogService, personalizationService, categoriesService, geoLocationTracker, articlesPushService, logPushService) {
+    app.module.run(function ($localStorage, $state, $http, $templateCache, $rootScope, $location, $translate, toastService, dialogService, personalizationService, categoriesService, geoLocationTracker, articlesPushService, logPushService, networkStatusService) {
         geoLocationTracker.startSendPosition(10000, function (pos) { });
 
         //window.applicationCache.addEventListener("updateready", function (e) {
@@ -12,13 +12,6 @@
         //    } else {
         //    }
         //}, false);
-
-        window.addEventListener("online", function () {
-            $rootScope.$apply($rootScope.$broadcast(tt.networkstatus.onlineChanged, true));
-        }, true);
-        window.addEventListener("offline", function () {
-            $rootScope.$apply($rootScope.$broadcast(tt.networkstatus.onlineChanged, false));
-        }, true);
 
         $http.defaults.headers.common["Accept-Language"] = $translate.proposedLanguage();
         $rootScope.$on("$translateChangeSuccess", function () {
@@ -40,7 +33,7 @@
                 personalizationService.data = data;
 
                 $rootScope.$broadcast(tt.personalization.dataLoaded);
-                $location.path(currentPath);
+                $location.path("/");
             });
         });
 
