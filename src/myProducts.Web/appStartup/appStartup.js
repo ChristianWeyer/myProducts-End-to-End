@@ -18,8 +18,6 @@
             $http.defaults.headers.common["Accept-Language"] = $translate.proposedLanguage();
         });
 
-        var currentPath = $location.path();
-
         $rootScope.$on(tt.authentication.loggedIn, function () {
             $http({ method: "GET", url: ttTools.baseUrl + "api/personalization" })
             .success(function (data) {
