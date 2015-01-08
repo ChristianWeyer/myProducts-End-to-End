@@ -32,7 +32,7 @@ ttTools.getBaseUrl = function () {
         return ttTools.cloudUrl;
     }
     else {
-        return "../";
+        return "../../";
     }
 };
 

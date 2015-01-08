@@ -7,18 +7,18 @@ namespace MyProducts.Web
         public static void Register(BundleCollection bundles)
         {
             bundles.Add(new Bundle("~/libs/css")
-               .IncludeDirectory("~/libs", "*.css", true)
-               .IncludeDirectory("~/assets", "*.css", true)
+               .IncludeDirectory("~/client/libs", "*.css", true)
+               .IncludeDirectory("~/client/assets", "*.css", true)
                );
 
             bundles.Add(new Bundle("~/libs/js")
-                .IncludeDirectory("~/libs", "*.js", true)
+                .IncludeDirectory("~/client/libs", "*.js", true)
                 );
 
             bundles.Add(new Bundle("~/app/js")
-                .IncludeDirectory("~/app", "*.js", true)
-                .IncludeDirectory("~/appServices", "*.js", true)
-                .IncludeDirectory("~/appStartup", "*.js", true)
+                .IncludeDirectory("~/client/app", "*.js", true)
+                .IncludeDirectory("~/client/appServices", "*.js", true)
+                .IncludeDirectory("~/client/appStartup", "*.js", true)
             );
 
             //bundles.Add(new Bundle("~/mobile/mobile/css")

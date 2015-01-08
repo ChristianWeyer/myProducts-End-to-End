@@ -1,8 +1,8 @@
-﻿<div class="metrouicss" style="padding-top: 1em" ng-cloak>
+﻿<div class="metrouicss" style="padding-top: 1em">
     <a ng-repeat="ni in start.navigationItems" ng-href="#{{ ni.Url }}">
-        <div class="tile" ng-class="{{ start.classes[$index % start.classes.length] }}">
+        <div class="tile" ng-class="{{ start.classes[$index % start.classes.length] }}" translate-cloak>
             <div class="brand">
-                <div class="name" translate>{{:: ni.DisplayText }}</div>
+                <div class="name">{{ ni.DisplayText | translate }}</div>
             </div>
         </div>
     </a>

@@ -1,6 +1,6 @@
-curl -k https://localhost/ngmd/app/ > index.html
+curl -k https://localhost/ngmd/client/app/ > index.html
 
-ssr -f index.html -a -s "/ngmd/" -r "../"
+ssr -f index.html -a -s "/ngmd/client/" -r "../"
 
 copy index.html ..\build\client\app
 move index.html ..\ClientBuild\client\app

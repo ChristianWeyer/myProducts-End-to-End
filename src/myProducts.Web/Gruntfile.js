@@ -4,7 +4,7 @@
     grunt.initConfig({
         html2js: {
             options: {
-                base: "app",
+                base: "client/app",
                 module: "myApp.embeddedTemplates",
                 singleModule: true,
                 useStrict: true,
@@ -20,8 +20,8 @@
                 }
             },
             main: {
-                src: ["app*/**/*.html"],
-                dest: "app/embeddedTemplates.js"
+                src: ["client/app*/**/*.html"],
+                dest: "client/app/embeddedTemplates.js"
             },
         }
     });

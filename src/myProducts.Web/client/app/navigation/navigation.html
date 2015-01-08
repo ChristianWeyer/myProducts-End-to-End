@@ -11,9 +11,9 @@
             </span>
         </div>
         <div class="navbar-collapse" collapse="navigation.isCollapsed">
-            <ul class="nav navbar-nav" translate-cloak>
+            <ul class="nav navbar-nav">
                 <li ng-repeat="ni in navigation.navigationItems track by $index" data-match-route='{{ ni.MatchPattern }}'>
-                    <a ng-show="ni.DisplayText" ng-click="navigation.isCollapsed=true" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
+                    <a ng-show="ni.DisplayText" ng-click="navigation.isCollapsed=true" ng-href="#{{ ni.Url }}" translate-cloak>{{ ni.DisplayText | translate }}</a>
                 </li>
             </ul>
 

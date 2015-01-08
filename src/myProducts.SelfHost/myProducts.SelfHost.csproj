@@ -153,7 +153,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="data\ProductsDemo.sdf" />
+    <Content Include="data\ProductsDemo.sdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
@@ -199,12 +201,12 @@
   <PropertyGroup>
     <PostBuildEvent>cmd /x /c mkdir "$(TargetDir)client\"
 
-xcopy "$(SolutionDir)myProducts.Web\app\*.*" "$(TargetDir)client\app\" /E /I /F /Y
-xcopy "$(SolutionDir)myProducts.Web\appServices\*.*" "$(TargetDir)client\appServices\" /E /I /F /Y
-xcopy "$(SolutionDir)myProducts.Web\appStartup\*.*" "$(TargetDir)client\appStartup\" /E /I /F /Y
-xcopy "$(SolutionDir)myProducts.Web\assets\*.*" "$(TargetDir)client\assets\" /E /I /F /Y
-xcopy "$(SolutionDir)myProducts.Web\libs\*.*" "$(TargetDir)client\libs\" /E /I /F /Y
-xcopy "$(SolutionDir)myProducts.Web\mobile\*.*" "$(TargetDir)client\mobile\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\client\app\*.*" "$(TargetDir)client\app\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\client\appServices\*.*" "$(TargetDir)client\appServices\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\client\appStartup\*.*" "$(TargetDir)client\appStartup\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\client\assets\*.*" "$(TargetDir)client\assets\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\client\libs\*.*" "$(TargetDir)client\libs\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\client\mobile\*.*" "$(TargetDir)client\mobile\" /E /I /F /Y
 xcopy "$(SolutionDir)myProducts.Web\images\*.*" "$(TargetDir)images\" /E /I /F /Y
 
 cd $(SolutionDir)tools
