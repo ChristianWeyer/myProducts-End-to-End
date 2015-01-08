@@ -31,7 +31,6 @@
                 personalizationService.data = data;
 
                 $rootScope.$broadcast(tt.personalization.dataLoaded);
-                $location.path("/");
             });
         });
 
