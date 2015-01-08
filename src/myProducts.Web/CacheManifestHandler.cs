@@ -9,7 +9,7 @@ namespace MyProducts.Web
         public void ProcessRequest(HttpContext context)
         {
             context.Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            context.Response.Cache.SetNoStore();
+            //context.Response.Cache.SetNoStore();
             context.Response.Cache.SetExpires(DateTime.MinValue);
 
             context.Response.ContentType = "text/cache-manifest";
