@@ -361,7 +361,6 @@
     <Content Include="client\app\statistics\statistics.html" />
     <Content Include="client\libs\99_appInit\appInit.js" />
     <Content Include="client\app\articles\articles.js" />
-    <Content Include="client\app\translations\translations-de.js" />
     <Content Include="client\libs\56_AngularTranslateStuff\angular-translate-loader-static-files.js" />
     <Content Include="client\libs\56_AngularTranslateStuff\angular-translate-loader-url.js" />
     <Content Include="client\libs\56_AngularTranslateStuff\angular-translate-storage-cookie.js" />

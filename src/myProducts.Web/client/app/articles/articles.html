@@ -5,7 +5,7 @@
         <form id="searchTextForm" class="form-inline">
             <div class="form-group">
                 <label class="sr-only" for="searchtext" translate="OVERVIEW_FILTER" style="font-weight:normal"></label>
-                <input type="text" translate-cloak placeholder="{{ 'OVERVIEW_FILTER' | translate }}" id="searchtext" class="form-control input-sm" ng-model="articles.selectedFilteredArticle" typeahead="article.Name for article in articles.getFilteredData($viewValue)">
+                <input type="text" placeholder="{{ 'OVERVIEW_FILTER' | translate }}" translate-cloak id="searchtext" class="form-control input-sm" ng-model="articles.selectedFilteredArticle" typeahead="article.Name for article in articles.getFilteredData($viewValue)">
                 <!--<i class="fa fa-refresh" ng-click="articles.getPagedData(true)"></i>-->
             </div>
         </form>

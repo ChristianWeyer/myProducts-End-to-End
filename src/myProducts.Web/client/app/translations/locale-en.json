@@ -61,6 +61,7 @@
   "COMMON_OK": "OK",
   "COMMON_CLOSE": "Close",
   "COMMON_ERROR": "Error",
+  "COMMON_INFO": "Info",
   "COMMON_CANCEL": "Cancel",
   "COMMON_SAVE": "Save",
   "COMMON_LANG": "Language",
