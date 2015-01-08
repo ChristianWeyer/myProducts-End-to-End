@@ -1,6 +1,7 @@
 ﻿(function () {
     "use strict";
 
+
     /**/
     var cacheStatusValues = [];
     cacheStatusValues[0] = 'uncached';
