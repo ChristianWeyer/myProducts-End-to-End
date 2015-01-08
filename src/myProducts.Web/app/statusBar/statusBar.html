@@ -1,11 +1,11 @@
-﻿<footer id="footer" ng-cloak translate-cloak>
+﻿<footer id="footer" ng-cloak>
     <div class="container-fluid">
         <div ng-if="!status.isOnline" class="circle-red pull-left"></div>
         <div ng-if="status.isOnline" class="circle-green pull-left"></div>
 
         <span class="pull-right">
             <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
-                <a href="#/login" translate="INDEX_LOGIN"></a>
+                <a href="#/login" translate="INDEX_LOGIN" translate-cloak></a>
             </span>
             <span ng-if="tt.authentication.userLoggedIn">
                 <a href="" ng-click="navigation.logout()"><i class="fa fa-sign-out" style="color: white"></i></a>

@@ -1,5 +1,5 @@
 ﻿
-<div class="navbar navbar-default navbar-fixed-top" style="position:fixed" bs-navbar ng-cloak translate-cloak>
+<div class="navbar navbar-default navbar-fixed-top" style="position:fixed" bs-navbar ng-cloak>
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" ng-click="navigation.isCollapsed=!navigation.isCollapsed">
@@ -11,7 +11,7 @@
             </span>
         </div>
         <div class="navbar-collapse" collapse="navigation.isCollapsed">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" translate-cloak>
                 <li ng-repeat="ni in navigation.navigationItems track by $index" data-match-route='{{ ni.MatchPattern }}'>
                     <a ng-show="ni.DisplayText" ng-click="navigation.isCollapsed=true" ng-href="#{{ ni.Url }}" translate>{{ ni.DisplayText }}</a>
                 </li>
