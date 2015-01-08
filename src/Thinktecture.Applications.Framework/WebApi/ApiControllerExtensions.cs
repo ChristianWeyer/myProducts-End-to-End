@@ -19,7 +19,7 @@ namespace Thinktecture.Applications.Framework.WebApi
             var actionContext = new HttpActionContext(controller.ControllerContext, selectAction);
             var metadataProvider = services.GetModelMetadataProvider();
 
-            var culture = controller.Request.Headers.AcceptLanguage.SingleOrDefault().Value;
+            var culture = controller.Request.Headers.AcceptLanguage.FirstOrDefault().Value;
 
             if (!String.IsNullOrWhiteSpace(culture))
             {
