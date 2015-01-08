@@ -34,7 +34,7 @@ namespace MyProducts.Web
                 .Include("~/appStartup/mobileApp.js")
                 );
 
-            //BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

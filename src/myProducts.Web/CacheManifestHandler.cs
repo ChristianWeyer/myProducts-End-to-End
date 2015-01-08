@@ -15,7 +15,7 @@ namespace MyProducts.Web
             context.Response.ContentType = "text/cache-manifest";
 
             context.Response.Write("CACHE MANIFEST" + Environment.NewLine);
-            context.Response.Write("#V0.0.0.1" + Environment.NewLine);
+            context.Response.Write("#V0.0.0.2" + Environment.NewLine);
 
             context.Response.Write("CACHE:" + Environment.NewLine);
 
