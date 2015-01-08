@@ -400,7 +400,7 @@ a {
     border-radius: 100%;
     border: 2px solid #aaa;
     background-size: cover;
-    background-image: url("images/login_icon.png");
+    background-image: url("../assets/images/login_icon.png");
 }
 
 .form-box input {
