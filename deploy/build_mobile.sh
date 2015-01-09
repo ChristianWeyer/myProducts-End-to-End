@@ -37,7 +37,7 @@ cp ../node-webkit-sharedsource/* .
 ## Download generated index.html page
 echo "GETting index.html"
 curl -k https://windows8vm.local/ngmd/client/mobile/#/ > ./mobile/index.html
-perl -pi -w -e 's/\/ngmd\//..\//g;' ./mobile/index.html
+perl -pi -w -e 's/\/ngmd\/client\//..\//g;' ./mobile/index.html
 
 ## Create cordova project
 cd ${DIR}

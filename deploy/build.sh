@@ -39,7 +39,7 @@ cp ../node-webkit-sharedsource/* .
 ## Download generated index.html page
 echo "GETting index.html"
 curl -k https://windows8vm.local/ngmd/client/app/#/ > ./app/index.html
-perl -pi -w -e 's/\/ngmd\//..\//g;' ./app/index.html
+perl -pi -w -e 's/\/ngmd\/client\//..\//g;' ./app/index.html
 
 ## ZIP directory into .nw for node-webkit
 zip -qr ../out/app.nw *
