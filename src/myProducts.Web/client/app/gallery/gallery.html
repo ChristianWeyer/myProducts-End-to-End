@@ -8,7 +8,7 @@
 <div>
     <ul rn-carousel rn-carousel-indicator class="carouselImages">
         <li ng-repeat="image in gallery.productImages track by $index">
-            <img ng-src="{{:: image | baseUrl  }}" class="carouselImage" />
+            <img ng-src="{{:: image | baseUrl  }}" />
         </li>
     </ul>
 </div>

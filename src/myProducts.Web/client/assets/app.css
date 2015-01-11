@@ -209,12 +209,9 @@ a {
 }
 
 .carouselImages {
-    width: 290px;
-    height: 250px;
+    width: 400px;
+    height: 350px;
     text-align: center;
-}
-
-.carouselImage {
     margin-left: auto;
     margin-right: auto;
 }
