@@ -1,10 +1,10 @@
 ﻿param(
         [string] $ProjectName = "myProductsApp",
-        [string] $ProjectFolder = "..\src\myProducts.Web",
+        [string] $ProjectFolder = "..\src\myProducts.Web\client",
         [string] $AppName = "com.tt.myp",
         [string] $BuildFolder = "out/windows8",
         [string] $IncludeWinJS = "false",
-        [string] $Url = "http://localhost/ngmd/app"
+        [string] $Url = "http://localhost/ngmd/client/app/"
     )
 
 [string] $RootFolder = Get-Location
@@ -60,12 +60,31 @@ curl -Uri $Url -OutFile _index.html
 
 # Verschieben der index.html
 Write-Host "--Move index.html" 
-Move-Item -Path _index.html -Destination .\$BuildFolder\www\index.html -Force
+Move-Item -Path _index.html -Destination .\$BuildFolder\www\app\index.html -Force
 
 # Wechsel ins Windows 8 Verzeichnis
 cd $BuildFolder
 
-# Modifiziere kritsiche AngularJS-Stellen
+Remove-Item www\index.html
+
+# config.xml: index.html Pfad ändern
+Write-Host "--Change index.html path in config.xml"
+$configXml = Get-ChildItem -Filter config.xml
+
+(Get-Content $configXml.FullName) -replace "index.html", "app/index.html" ` |
+Out-File $configXml.FullName
+
+# Modifiziere Start-Seite in .appxmanifest-Dateien
+Write-Host "--Update .appxmanifest files"
+$ManifestFiles=get-childitem . *.appxmanifest
+foreach ($file in $ManifestFiles)
+{
+  (Get-Content $file.PSPath) | 
+  Foreach-Object {$_ -replace 'StartPage="www/index.html"', 'StartPage="www/app/index.html"'} | 
+  Set-Content $file.PSPath
+}
+
+# Modifiziere kritische AngularJS-Stellen
 Write-Host "--Update AngularJS"
 $JQueryFileSearchResult =  Get-ChildItem -Path www -Filter *jquery*.js -Recurse
 (Get-Content -Path $JQueryFileSearchResult.FullName) | 
@@ -79,8 +98,11 @@ Set-Content $JQueryFileSearchResult.FullName
 
 # Einfügen der WinJS-Referencen in die index.html
 Write-Host "--Update index.html"
-$IndexFileSearch = Get-ChildItem -Path www -Filter index.html
+$IndexFileSearch = Get-ChildItem -Path www\app -Filter index.html
 $TempFile = $IndexFileSearch.FullName + "_temp"
+
+(Get-Content $IndexFileSearch.FullName) -replace "/ngmd/client", ".." ` |
+Out-File $IndexFileSearch.FullName
 
 Get-Content -Path $IndexFileSearch.FullName | ForEach-Object {
     $PathToReplace = ""
