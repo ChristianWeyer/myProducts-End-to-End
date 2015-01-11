@@ -6,9 +6,10 @@
 <br />
 <br />
 <div>
-    <ul rn-carousel rn-carousel-indicator class="carouselImages">
+    <ul rn-carousel rn-carousel-index="imagesIndex" class="carouselImages">
         <li ng-repeat="image in gallery.productImages track by $index">
             <img ng-src="{{:: image | baseUrl  }}" />
         </li>
     </ul>
+    <div class="carouselIndicators" rn-carousel-indicators slides="gallery.productImages" rn-carousel-index="imagesIndex"></div>
 </div>

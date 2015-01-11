@@ -210,7 +210,13 @@ a {
 
 .carouselImages {
     width: 400px;
-    height: 350px;
+    height: 250px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carouselIndicators {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
