@@ -343,8 +343,6 @@
     <Content Include="client\libs\22_BootstrapStuff\bootstrap-filestyle.js" />
     <Content Include="client\libs\22_BootstrapStuff\bootstrap-switch.js" />
     <Content Include="client\libs\50_AngularStuff\imageupload.js" />
-    <Content Include="client\mobile\libs\ionic-angular.js" />
-    <Content Include="client\mobile\libs\ionic.js" />
     <Content Include="client\libs\50_AngularStuff\loading-bar.js" />
     <Content Include="client\libs\05_Base\log4javascript.js" />
     <Content Include="client\libs\50_AngularStuff\ngStorage.js" />
@@ -378,30 +376,12 @@
     <Content Include="client\app\font\fontawesome-webfont.woff" />
     <Content Include="client\app\font\FontAwesome.otf" />
     <Content Include="index.html" />
-    <Content Include="client\mobile\assets\mobile.css" />
-    <Content Include="client\mobile\assets\images\thinktecture_logo.png" />
-    <Content Include="client\mobile\gallery\refreshSlidesDirective.js" />
-    <Content Include="client\mobile\login\fixViewportDirective.js" />
     <Content Include="client\appStartup\mobileApp.js" />
-    <Content Include="client\mobile\articleDetails\articleDetails.html" />
-    <Content Include="client\mobile\articles\articles.html" />
-    <Content Include="client\mobile\assets\ionic.css" />
-    <Content Include="client\mobile\fonts\ionicons.svg" />
-    <Content Include="client\mobile\index.cshtml" />
-    <Content Include="client\mobile\infrastructure\dialog.html" />
-    <Content Include="client\mobile\gallery\gallery.html" />
-    <Content Include="client\mobile\settings\settings.html" />
-    <Content Include="client\mobile\info\info.html" />
-    <Content Include="client\mobile\statistics\statistics.html" />
-    <Content Include="client\mobile\log\log.html" />
-    <Content Include="client\mobile\start\start.html" />
-    <Content Include="client\mobile\login\login.html" />
     <Content Include="client\libs\10_jQuery\jquery-2.1.0.js" />
     <Content Include="client\libs\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="client\libs\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="client\libs\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="client\libs\30_SignalR\jquery.signalR-2.1.1.js" />
-    <Content Include="client\mobile\translations\translations-de.js" />
     <Content Include="client\_test\angular-mocks.js" />
     <Content Include="client\_test\basic\mySpec.js" />
     <Content Include="client\_test\setup.js" />
@@ -409,10 +389,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="client\app\translations\locale-en.json" />
-    <Content Include="client\app\index.cshtml" />
-    <Content Include="client\mobile\fonts\ionicons.eot" />
-    <Content Include="client\mobile\fonts\ionicons.ttf" />
-    <Content Include="client\mobile\fonts\ionicons.woff" />
+    <Content Include="client\index.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="client\app\fonts\glyphicons-halflings-regular.eot" />
@@ -447,7 +424,6 @@
     <Content Include="client\libs\fonts\fontawesome-webfont.ttf" />
     <Content Include="client\libs\fonts\fontawesome-webfont.woff" />
     <Content Include="client\libs\fonts\FontAwesome.otf" />
-    <Content Include="client\mobile\translations\locale-en.json" />
     <None Include="Properties\PublishProfiles\aaa.pubxml" />
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
@@ -547,14 +523,14 @@
     <TypeScriptCompile Include="client\app\info\IInfoScope.ts" />
     <TypeScriptCompile Include="client\app\info\info.ts" />
     <TypeScriptCompile Include="client\app\info\00Thinktecture.Angular.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\angularjs\angular-animate.d.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\angularjs\angular-cookies.d.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\angularjs\angular-mocks.d.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\angularjs\angular-resource.d.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\angularjs\angular-route.d.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\angularjs\angular-sanitize.d.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\angularjs\angular.d.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\angularjs\angular-animate.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\angularjs\angular-cookies.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\angularjs\angular-mocks.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\angularjs\angular-resource.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\angularjs\angular-route.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\angularjs\angular-sanitize.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

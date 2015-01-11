@@ -21,19 +21,6 @@ namespace MyProducts.Web
                 .IncludeDirectory("~/client/appStartup", "*.js", true)
             );
 
-            //bundles.Add(new Bundle("~/mobile/mobile/css")
-            //   .IncludeDirectory("~/libs/17_Modern", "*.css", true)
-            //   .Include("~/libs/50_AngularStuff/loading-bar.css")
-            //   .Include("~/mobile/assets/ionic.css")
-            //   .Include("~/mobile/assets/mobile.css")
-            //   );
-
-            //bundles.Add(new Bundle("~/mobile/js")
-            //    .Include("~/mobile/libs/ionic.js")
-            //    .Include("~/mobile/libs/ionic-angular.js")
-            //    .Include("~/appStartup/mobileApp.js")
-            //    );
-
             //BundleTable.EnableOptimizations = true;
         }
     }

@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+@*<html manifest="manifest.appcache" ng-app="myApp">*@
+<html ng-app="myApp">
+<head>
+    <title>myProducts</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <link href="assets/images/apple-touch-startup-image-1024x748.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 1)"
+          rel="apple-touch-startup-image">
+    <link href="assets/images/apple-touch-startup-image-2048x1496.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image">
+
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    @System.Web.Optimization.Styles.Render("~/client/libs/css")
+</head>
+
+<body>
+    <div id="loading-area" ng-if="!ttAppLoaded">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <div id="mainContainer">
+        <myp-navigation></myp-navigation>
+
+        <div class="container-fluid" style="position: relative" ng-cloak>
+            <div id="mainContent" ui-view autoscroll="false"></div>
+            <br />
+        </div>
+
+        <myp-statusbar></myp-statusbar>
+    </div>
+    
+    @*<script>
+        // For debugging HTML5 App Cache
+        var cacheStatusValues = [];
+        cacheStatusValues[0] = 'uncached';
+        cacheStatusValues[1] = 'idle';
+        cacheStatusValues[2] = 'checking';
+        cacheStatusValues[3] = 'downloading';
+        cacheStatusValues[4] = 'updateready';
+        cacheStatusValues[5] = 'obsolete';
+
+        var cache = window.applicationCache;
+        cache.addEventListener('cached', logEvent, false);
+        cache.addEventListener('checking', logEvent, false);
+        cache.addEventListener('downloading', logEvent, false);
+        cache.addEventListener('error', logEvent, false);
+        cache.addEventListener('noupdate', logEvent, false);
+        cache.addEventListener('obsolete', logEvent, false);
+        cache.addEventListener('progress', logEvent, false);
+        cache.addEventListener('updateready', logEvent, false);
+
+        function logEvent(e) {
+            var online, status, type, message;
+            online = (navigator.onLine) ? 'yes' : 'no';
+            status = cacheStatusValues[cache.status];
+            type = e.type;
+            message = 'online: ' + online;
+            message += ', event: ' + type;
+            message += ', status: ' + status;
+            if (type == 'error' && navigator.onLine) {
+                message += ' (prolly a syntax error in manifest)';
+            }
+            console.log(message);
+        }
+
+        window.applicationCache.addEventListener(
+            'updateready',
+            function () {
+                window.applicationCache.swapCache();
+                console.log('swap cache has been called');
+            },
+            false
+        );
+
+        try {
+            setInterval(function () { cache.update(); }, 10000);
+        } catch (error) { }
+    </script>*@
+
+    <script>
+        ttMobile = false;
+    </script>
+
+    <script src="cordova.js"></script>
+    @System.Web.Optimization.Scripts.Render("~/client/libs/js")
+    @System.Web.Optimization.Scripts.Render("~/client/app/js")
+
+    <script>
+        $(function () {
+            mobileApp.initialize();
+        });
+    </script>
+</body>
+</html>
