@@ -7,7 +7,7 @@ var express = require('express'),
 
 var app = express();
 var appDir = __dirname + "/client";
-var virtualDir = "/client";
+var virtualDir = "/node-dev";
 
 var args = process.argv.slice(2);
 
