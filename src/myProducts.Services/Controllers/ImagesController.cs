@@ -33,9 +33,9 @@ namespace MyProducts.Services.Controllers
         [EnableQuery]
         public IQueryable<string> Get()
         {
-            var todos = productsContext.Articles.Select(a => imagesFolder + "/" + a.ImageUrl).Distinct();
-            
-            return todos;
+            var imageUrls = productsContext.Articles.Select(a => imagesFolder + "/" + a.ImageUrl).Distinct();
+
+            return imageUrls;
         }
 
         /// <summary>
