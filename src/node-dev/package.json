@@ -1,0 +1,16 @@
+{
+   "name": "myProducts",
+   "version": "1.0.0",
+   "private": true,
+   "scripts": {
+      "start": "app.js"
+   },
+   "dependencies": {
+      "express": "3.*",
+      "consolidate": "*",
+      "underscore": "*",
+      "async": "*",
+      "walrus": "*"
+   }
+}
+
