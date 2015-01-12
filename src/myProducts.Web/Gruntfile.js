@@ -1,4 +1,5 @@
-﻿module.exports = function (grunt) {
+/// <vs BeforeBuild='html2js' />
+module.exports = function (grunt) {
     "use strict";
 
     grunt.initConfig({
