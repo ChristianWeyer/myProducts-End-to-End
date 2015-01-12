@@ -1,7 +1,7 @@
 ﻿var ttTools = ttTools || {};
 
 ttTools.cloudUrl = "https://ngmd.azurewebsites.net/";
-//ttTools.cloudUrl = "https://windows8vm.local/ngmd/";
+ttTools.localUrl = "../";
 
 ttTools.isInApp = function () {
     return window.cordova || ttTools.isInNodeWebkit() || ttTools.usesLocalUrl();
@@ -30,9 +30,12 @@ ttTools.isInNodeWebkit = function () {
 ttTools.getBaseUrl = function () {
     if (ttTools.isInApp()) {
         return ttTools.cloudUrl;
-    }
-    else {
-        return "../../";
+    } else {
+        if (window.location.pathname == "/node-dev/") {
+            return "https://localhost/ngmd/";
+        } else {
+            return ttTools.localUrl;
+        }
     }
 };
 

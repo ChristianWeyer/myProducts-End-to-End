@@ -1,0 +1,20 @@
+{
+   "name": "myProducts",
+   "version": "1.0.0",
+   "private": true,
+   "scripts": {
+      "start": "app.js"
+   },
+   "dependencies": {
+      "express": "3.*",
+      "consolidate": "*",
+      "underscore": "*",
+      "async": "*",
+      "walrus": "*",
+      "gulp": "^3.8.10",
+      "gulp-minify-html": "0.1.8",
+      "gulp-ng-html2js": "0.1.8",
+      "gulp-concat": "2.4.3",
+      "browser-sync": "1.9.0"
+   }
+}

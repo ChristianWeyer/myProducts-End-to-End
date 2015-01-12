@@ -290,6 +290,8 @@ out_mobile/
 cordova_tmp/
 cordova_mobile_tmp/
 
+node_modules/
+
 myProducts.Xamarin.userprefs
 *.DS_Store
 *.colt

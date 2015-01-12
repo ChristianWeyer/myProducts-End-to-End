@@ -111,26 +111,26 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.7\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="Serilog, Version=1.4.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Serilog.1.4.102\lib\net45\Serilog.dll</HintPath>
+      <HintPath>..\packages\Serilog.1.4.113\lib\net45\Serilog.dll</HintPath>
     </Reference>
     <Reference Include="Serilog.FullNetFx, Version=1.4.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Serilog.1.4.102\lib\net45\Serilog.FullNetFx.dll</HintPath>
+      <HintPath>..\packages\Serilog.1.4.113\lib\net45\Serilog.FullNetFx.dll</HintPath>
     </Reference>
     <Reference Include="Serilog.Sinks.AzureTableStorage, Version=1.4.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Serilog.Sinks.AzureTableStorage.1.4.102\lib\net45\Serilog.Sinks.AzureTableStorage.dll</HintPath>
+      <HintPath>..\packages\Serilog.Sinks.AzureTableStorage.1.4.113\lib\net45\Serilog.Sinks.AzureTableStorage.dll</HintPath>
     </Reference>
     <Reference Include="Serilog.Sinks.SignalR, Version=1.4.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Serilog.Sinks.SignalR.1.4.102\lib\net45\Serilog.Sinks.SignalR.dll</HintPath>
+      <HintPath>..\packages\Serilog.Sinks.SignalR.1.4.113\lib\net45\Serilog.Sinks.SignalR.dll</HintPath>
     </Reference>
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

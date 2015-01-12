@@ -117,27 +117,28 @@
       <HintPath>..\packages\WindowsAzure.Storage.4.3.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.7\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Serilog, Version=1.4.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Serilog.1.4.102\lib\net45\Serilog.dll</HintPath>
+    <Reference Include="Serilog">
+      <HintPath>..\packages\Serilog.1.4.113\lib\net45\Serilog.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Serilog.FullNetFx">
-      <HintPath>..\packages\Serilog.1.4.102\lib\net45\Serilog.FullNetFx.dll</HintPath>
+      <HintPath>..\packages\Serilog.1.4.113\lib\net45\Serilog.FullNetFx.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Serilog.Sinks.AzureTableStorage, Version=1.4.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Serilog.Sinks.AzureTableStorage.1.4.102\lib\net45\Serilog.Sinks.AzureTableStorage.dll</HintPath>
+    <Reference Include="Serilog.Sinks.AzureTableStorage">
+      <HintPath>..\packages\Serilog.Sinks.AzureTableStorage.1.4.113\lib\net45\Serilog.Sinks.AzureTableStorage.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Serilog.Sinks.SignalR, Version=1.4.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Serilog.Sinks.SignalR.1.4.102\lib\net45\Serilog.Sinks.SignalR.dll</HintPath>
+    <Reference Include="Serilog.Sinks.SignalR">
+      <HintPath>..\packages\Serilog.Sinks.SignalR.1.4.113\lib\net45\Serilog.Sinks.SignalR.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Swashbuckle.Core">
       <HintPath>..\packages\Swashbuckle.Core.4.1.0\lib\net40\Swashbuckle.Core.dll</HintPath>
@@ -265,13 +266,11 @@
     <Content Include="client\app\statusBar\statusBar.html" />
     <Content Include="client\app\embeddedTemplates.js" />
     <Content Include="App_Data\ProductsDemo.sdf" />
-    <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="client\assets\images\favicon.ico" />
     <Content Include="client\assets\images\login_icon.png" />
     <Content Include="client\assets\images\logo.png" />
     <Content Include="client\fonts\fontawesome-webfont.svg" />
     <Content Include="client\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Gruntfile.js" />
     <Content Include="Images\0.jpg" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\10.jpg" />
@@ -343,8 +342,6 @@
     <Content Include="client\libs\22_BootstrapStuff\bootstrap-filestyle.js" />
     <Content Include="client\libs\22_BootstrapStuff\bootstrap-switch.js" />
     <Content Include="client\libs\50_AngularStuff\imageupload.js" />
-    <Content Include="client\mobile\libs\ionic-angular.js" />
-    <Content Include="client\mobile\libs\ionic.js" />
     <Content Include="client\libs\50_AngularStuff\loading-bar.js" />
     <Content Include="client\libs\05_Base\log4javascript.js" />
     <Content Include="client\libs\50_AngularStuff\ngStorage.js" />
@@ -378,67 +375,26 @@
     <Content Include="client\app\font\fontawesome-webfont.woff" />
     <Content Include="client\app\font\FontAwesome.otf" />
     <Content Include="index.html" />
-    <Content Include="client\mobile\assets\mobile.css" />
-    <Content Include="client\mobile\assets\images\thinktecture_logo.png" />
-    <Content Include="client\mobile\gallery\refreshSlidesDirective.js" />
-    <Content Include="client\mobile\login\fixViewportDirective.js" />
     <Content Include="client\appStartup\mobileApp.js" />
-    <Content Include="client\mobile\articleDetails\articleDetails.html" />
-    <Content Include="client\mobile\articles\articles.html" />
-    <Content Include="client\mobile\assets\ionic.css" />
-    <Content Include="client\mobile\fonts\ionicons.svg" />
-    <Content Include="client\mobile\index.cshtml" />
-    <Content Include="client\mobile\infrastructure\dialog.html" />
-    <Content Include="client\mobile\gallery\gallery.html" />
-    <Content Include="client\mobile\settings\settings.html" />
-    <Content Include="client\mobile\info\info.html" />
-    <Content Include="client\mobile\statistics\statistics.html" />
-    <Content Include="client\mobile\log\log.html" />
-    <Content Include="client\mobile\start\start.html" />
-    <Content Include="client\mobile\login\login.html" />
     <Content Include="client\libs\10_jQuery\jquery-2.1.0.js" />
     <Content Include="client\libs\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="client\libs\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="client\libs\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="client\libs\30_SignalR\jquery.signalR-2.1.1.js" />
-    <Content Include="client\mobile\translations\translations-de.js" />
     <Content Include="client\_test\angular-mocks.js" />
     <Content Include="client\_test\basic\mySpec.js" />
     <Content Include="client\_test\setup.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="client\app\translations\locale-en.json" />
-    <Content Include="client\app\index.cshtml" />
-    <Content Include="client\mobile\fonts\ionicons.eot" />
-    <Content Include="client\mobile\fonts\ionicons.ttf" />
-    <Content Include="client\mobile\fonts\ionicons.woff" />
-    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="client\translations\locale-en.json" />
+    <Content Include="client\index.cshtml" />
     <Content Include="client\app\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="client\app\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="client\app\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="client\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="client\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="client\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Areas\HelpPage\Views\Web.config" />
-    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
-    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="client\fonts\fontawesome-webfont.eot" />
     <Content Include="client\fonts\fontawesome-webfont.ttf" />
     <Content Include="client\fonts\fontawesome-webfont.woff" />
@@ -447,7 +403,6 @@
     <Content Include="client\libs\fonts\fontawesome-webfont.ttf" />
     <Content Include="client\libs\fonts\fontawesome-webfont.woff" />
     <Content Include="client\libs\fonts\FontAwesome.otf" />
-    <Content Include="client\mobile\translations\locale-en.json" />
     <None Include="Properties\PublishProfiles\aaa.pubxml" />
     <None Include="Properties\PublishProfiles\ngmd.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
@@ -469,43 +424,14 @@
     <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\SwaggerConfig.cs" />
-    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
-    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
-    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
-    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
-    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
-    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="CacheManifestHandler.cs" />
-    <Compile Include="PerfItInstaller.cs" />
-    <Compile Include="PerfItInstaller.Designer.cs">
+    <Compile Include="Server\App_Start\BundleConfig.cs" />
+    <Compile Include="Server\CacheManifestHandler.cs" />
+    <Compile Include="Server\PerfItInstaller.cs" />
+    <Compile Include="Server\PerfItInstaller.Designer.cs">
       <DependentUpon>PerfItInstaller.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="App_Start\WebHostStartup.cs" />
+    <Compile Include="Server\App_Start\WebHostStartup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -547,14 +473,14 @@
     <TypeScriptCompile Include="client\app\info\IInfoScope.ts" />
     <TypeScriptCompile Include="client\app\info\info.ts" />
     <TypeScriptCompile Include="client\app\info\00Thinktecture.Angular.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\angularjs\angular-animate.d.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\angularjs\angular-cookies.d.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\angularjs\angular-mocks.d.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\angularjs\angular-resource.d.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\angularjs\angular-route.d.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\angularjs\angular-sanitize.d.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\angularjs\angular.d.ts" />
-    <TypeScriptCompile Include="client\Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\angularjs\angular-animate.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\angularjs\angular-cookies.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\angularjs\angular-mocks.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\angularjs\angular-resource.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\angularjs\angular-route.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\angularjs\angular-sanitize.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="client\libs\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
