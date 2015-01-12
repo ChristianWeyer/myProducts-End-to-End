@@ -2,7 +2,7 @@
   "name": "my Products",
   "description": "Simple products management app",
   "version": "0.1.0",
-  "main": "app/index.html",
+  "main": "index.html",
   "window": {
     "title": "my Products",
     "toolbar": false,
@@ -10,6 +10,6 @@
     "position": "mouse",
     "width": 1024,
     "height": 720,
-    "icon": "app/images/apple-touch-icon.png"
+    "icon": "assets/images/apple-touch-icon.png"
   }
 }
