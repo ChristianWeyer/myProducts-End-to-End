@@ -34,7 +34,7 @@ ttTools.getBaseUrl = function () {
         if (window.location.pathname == "/node-dev/") {
             return "https://localhost/ngmd/";
         } else {
-            return ttTols.localUrl;
+            return ttTools.localUrl;
         }
     }
 };

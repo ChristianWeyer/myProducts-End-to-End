@@ -270,7 +270,6 @@
     <Content Include="client\assets\images\logo.png" />
     <Content Include="client\fonts\fontawesome-webfont.svg" />
     <Content Include="client\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Gruntfile.js" />
     <Content Include="Images\0.jpg" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\10.jpg" />
@@ -387,7 +386,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="client\app\translations\locale-en.json" />
+    <Content Include="client\translations\locale-en.json" />
     <Content Include="client\index.cshtml" />
     <Content Include="client\app\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="client\app\fonts\glyphicons-halflings-regular.ttf" />
