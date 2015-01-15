@@ -1,4 +1,6 @@
-﻿using System.Web.Http.OData.Extensions;
+﻿using System.Threading;
+using System.Web.Http.Controllers;
+using System.Web.Http.OData.Extensions;
 using AutoMapper.QueryableExtensions;
 using Microsoft.AspNet.SignalR;
 using MyProducts.Model;
@@ -39,6 +41,11 @@ namespace MyProducts.Services.Controllers
         public ArticlesController()
         {
             productsContext = new ProductsContext();
+        }
+
+        public override Task<HttpResponseMessage> ExecuteAsync(HttpControllerContext controllerContext, CancellationToken cancellationToken)
+        {
+            return base.ExecuteAsync(controllerContext, cancellationToken);
         }
 
         /// <summary>
