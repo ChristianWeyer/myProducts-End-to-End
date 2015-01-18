@@ -94,9 +94,9 @@ echo "Building for Android"
 
 # Tweak Android to use Crosswalk
 rm -Rf platforms/android/CordovaLib/*
-cp -a ../../cordova-android/crosswalk-cordova/framework/* \
+cp -a ../../cordova-android/crosswalk-cordova/*arm/framework/* \
     platforms/android/CordovaLib/
-cp -a ../../cordova-android/crosswalk-cordova/VERSION platforms/android/
+cp -a ../../cordova-android/crosswalk-cordova/*arm/VERSION platforms/android/
 
 export ANDROID_HOME=$(dirname $(dirname $(which android)))
 cd platforms/android/CordovaLib/

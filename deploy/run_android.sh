@@ -2,8 +2,7 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd ${DIR} || exit
-cd cordova_tmp/myProducts
 
-cordova run android
+adb install out/android/myProducts-debug.apk
 
 cd ${DIR}
