@@ -4,6 +4,24 @@
         <name>MyProducts.Services</name>
     </assembly>
     <members>
+        <member name="M:MyProducts.Services.Controllers.ArticlesDemoController.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:MyProducts.Services.Controllers.ArticlesDemoController.Get(System.String)">
+            <summary>
+            Get a single article by ID.
+            </summary>
+            <param name="id">Article ID</param>
+            <returns>Article details</returns>
+        </member>
+        <member name="M:MyProducts.Services.Controllers.ArticlesDemoController.Dispose(System.Boolean)">
+            <summary>
+            Dispose DB context.
+            </summary>
+            <param name="disposing"></param>
+        </member>
         <member name="T:MyProducts.Services.Controllers.ArticlesController">
             <summary>
             Web API to manage product articles data. Offers Hub functionality to call into clients via SignalR.
