@@ -73,13 +73,13 @@
     <Reference Include="Fabrik.Common.WebAPI">
       <HintPath>..\Reference Assemblies\Fabrik.Common.WebAPI.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.SignalR.Core">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm">
@@ -125,20 +125,19 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="Serilog">
-      <HintPath>..\packages\Serilog.1.4.113\lib\net45\Serilog.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Serilog.1.4.139\lib\net45\Serilog.dll</HintPath>
     </Reference>
-    <Reference Include="Serilog.FullNetFx">
-      <HintPath>..\packages\Serilog.1.4.113\lib\net45\Serilog.FullNetFx.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Serilog.FullNetFx, Version=1.4.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Serilog.1.4.139\lib\net45\Serilog.FullNetFx.dll</HintPath>
     </Reference>
-    <Reference Include="Serilog.Sinks.AzureTableStorage">
-      <HintPath>..\packages\Serilog.Sinks.AzureTableStorage.1.4.113\lib\net45\Serilog.Sinks.AzureTableStorage.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Serilog.Sinks.AzureTableStorage, Version=1.4.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Serilog.Sinks.AzureTableStorage.1.4.139\lib\net45\Serilog.Sinks.AzureTableStorage.dll</HintPath>
     </Reference>
-    <Reference Include="Serilog.Sinks.SignalR">
-      <HintPath>..\packages\Serilog.Sinks.SignalR.1.4.113\lib\net45\Serilog.Sinks.SignalR.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Serilog.Sinks.SignalR, Version=1.4.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Serilog.Sinks.SignalR.1.4.139\lib\net45\Serilog.Sinks.SignalR.dll</HintPath>
     </Reference>
     <Reference Include="Swashbuckle.Core">
       <HintPath>..\packages\Swashbuckle.Core.4.1.0\lib\net40\Swashbuckle.Core.dll</HintPath>
@@ -380,10 +379,10 @@
     <Content Include="client\libs\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="client\libs\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="client\libs\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="client\libs\30_SignalR\jquery.signalR-2.1.1.js" />
     <Content Include="client\_test\angular-mocks.js" />
     <Content Include="client\_test\basic\mySpec.js" />
     <Content Include="client\_test\setup.js" />
+    <Content Include="client\libs\30_SignalR\jquery.signalR-2.2.0.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -426,7 +425,9 @@
   <ItemGroup>
     <Compile Include="Server\App_Start\BundleConfig.cs" />
     <Compile Include="Server\CacheManifestHandler.cs" />
-    <Compile Include="Server\PerfItInstaller.cs" />
+    <Compile Include="Server\PerfItInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Server\PerfItInstaller.Designer.cs">
       <DependentUpon>PerfItInstaller.cs</DependentUpon>
     </Compile>
