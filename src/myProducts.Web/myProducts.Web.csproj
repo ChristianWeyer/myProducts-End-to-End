@@ -270,6 +270,7 @@
     <Content Include="client\assets\images\logo.png" />
     <Content Include="client\fonts\fontawesome-webfont.svg" />
     <Content Include="client\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="client\index.html" />
     <Content Include="Images\0.jpg" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\10.jpg" />

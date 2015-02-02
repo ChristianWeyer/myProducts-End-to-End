@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="myApp">
+<head>
+    <title>myProducts</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <link href="assets/images/apple-touch-startup-image-1024x748.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 1)"
+          rel="apple-touch-startup-image">
+    <link href="assets/images/apple-touch-startup-image-2048x1496.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image">
+
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <link href="libs/12_Animate/animate.css" rel="stylesheet" />
+    <link href="libs/13_FontAwesome/font-awesome.css" rel="stylesheet" />
+    <link href="libs/15_Toastr/toastr.css" rel="stylesheet" />
+    <link href="libs/17_Modern/10/modern.css" rel="stylesheet" />
+    <link href="libs/17_Modern/20/modern-responsive.css" rel="stylesheet" />
+    <link href="libs/20_Bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="libs/22_BootstrapStuff/bootstrap-switch.css" rel="stylesheet" />
+    <link href="libs/50_AngularStuff/angular-carousel.css" rel="stylesheet" />
+    <link href="libs/50_AngularStuff/angular-chart.css" rel="stylesheet" />
+    <link href="libs/50_AngularStuff/loading-bar.css" rel="stylesheet" />
+    <link href="libs/99_appInit/tweak-bootstrap.css" rel="stylesheet" />
+    <link href="assets/app.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div id="loading-area" ng-if="!ttAppLoaded">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <div id="mainContainer">
+        <myp-navigation></myp-navigation>
+
+        <div class="container-fluid" style="position: relative" ng-cloak>
+            <div id="mainContent" ui-view autoscroll="false"></div>
+            <br />
+        </div>
+
+        <myp-statusbar></myp-statusbar>
+    </div>
+
+
+
+    <script>
+        ttMobile = false;
+    </script>
+
+    <script src="cordova.js"></script>
+    <script src="libs/10_jQuery/jquery-2.1.0.js"></script>
+    <script src="libs/05_Base/fastclick.js"></script>
+    <script src="libs/05_Base/log4javascript.js"></script>
+    <script src="libs/05_Base/script.js"></script>
+    <script src="libs/07_Three/three.js"></script>
+    <script src="libs/08_Tween/Tween.js"></script>
+    <script src="libs/15_Toastr/toastr.js"></script>
+    <script src="libs/22_BootstrapStuff/bootstrap-filestyle.js"></script>
+    <script src="libs/22_BootstrapStuff/bootstrap-switch.js"></script>
+    <script src="libs/25_Charts/Chart.js"></script>
+    <script src="libs/30_SignalR/jquery.signalR-2.2.0.js"></script>
+    <script src="libs/40_Angular/angular.js"></script>
+    <script src="libs/50_AngularStuff/angular-animate.js"></script>
+    <script src="libs/50_AngularStuff/angular-bootstrap-switch.js"></script>
+    <script src="libs/50_AngularStuff/angular-cache.js"></script>
+    <script src="libs/50_AngularStuff/angular-carousel.js"></script>
+    <script src="libs/50_AngularStuff/angular-chart.js"></script>
+    <script src="libs/50_AngularStuff/angular-cookies.js"></script>
+    <script src="libs/50_AngularStuff/angular-sanitize.js"></script>
+    <script src="libs/50_AngularStuff/angular-strap.js"></script>
+    <script src="libs/50_AngularStuff/angular-touch.js"></script>
+    <script src="libs/50_AngularStuff/angular-ui-router.js"></script>
+    <script src="libs/50_AngularStuff/imageupload.js"></script>
+    <script src="libs/50_AngularStuff/loading-bar.js"></script>
+    <script src="libs/50_AngularStuff/ngStorage.js"></script>
+    <script src="libs/50_AngularStuff/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script src="libs/55_AngularTranslate/angular-translate.js"></script>
+    <script src="libs/56_AngularTranslateStuff/angular-translate-loader-static-files.js"></script>
+    <script src="libs/56_AngularTranslateStuff/angular-translate-loader-url.js"></script>
+    <script src="libs/56_AngularTranslateStuff/angular-translate-storage-cookie.js"></script>
+    <script src="libs/56_AngularTranslateStuff/angular-translate-storage-local.js"></script>
+    <script src="libs/90_Cordova/cordova-geolocation.js"></script>
+    <script src="libs/90_Cordova/cordova-ready.js"></script>
+    <script src="libs/99_appInit/appInit.js"></script>
+
+    <script src="app/constants.js"></script>
+    <script src="app/embeddedTemplates.js"></script>
+    <script src="app/routing.js"></script>
+    <script src="app/articleDetails/articleDetails.js"></script>
+    <script src="app/articles/articles.js"></script>
+    <script src="app/easteregg/easteregg.js"></script>
+    <script src="app/easteregg/maze/threemaze.js"></script>
+    <script src="app/easteregg/mazegen/threemaze.generate.js"></script>
+    <script src="app/gallery/gallery.js"></script>
+    <script src="app/info/00Thinktecture.Angular.js"></script>
+    <script src="app/info/IInfoMessage.js"></script>
+    <script src="app/info/IInfoScope.js"></script>
+    <script src="app/info/info.js"></script>
+    <script src="app/log/log.js"></script>
+    <script src="app/login/login.js"></script>
+    <script src="app/navigation/navigation.js"></script>
+    <script src="app/services/articlesPushService.js"></script>
+    <script src="app/services/articlesService.js"></script>
+    <script src="app/services/categoriesService.js"></script>
+    <script src="app/services/logPushService.js"></script>
+    <script src="app/services/networkStatusService.js"></script>
+    <script src="app/services/personalizationService.js"></script>
+    <script src="app/services/settingsService.js"></script>
+    <script src="app/settings/settings.js"></script>
+    <script src="app/start/start.js"></script>
+    <script src="app/statistics/statistics.js"></script>
+    <script src="app/statusBar/statusBar.js"></script>
+    <script src="appServices/tools.js"></script>
+    <script src="appServices/directives/serverValidationDirective.js"></script>
+    <script src="appServices/filters/baseUrlFilter.js"></script>
+    <script src="appServices/services/geoLocationTrackerService.js"></script>
+    <script src="appServices/services/thinktecture.ng.Authentication.js"></script>
+    <script src="appServices/services/thinktecture.ng.Dialog.js"></script>
+    <script src="appServices/services/thinktecture.ng.SignalR.js"></script>
+    <script src="appServices/services/thinktecture.ng.Toast.js"></script>
+    <script src="appStartup/appStartup.js"></script>
+    <script src="appStartup/mobileApp.js"></script>
+
+
+    <script>
+        $(function () {
+            mobileApp.initialize();
+        });
+    </script>
+</body>
+</html>
