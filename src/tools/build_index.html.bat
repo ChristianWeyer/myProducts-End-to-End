@@ -1,8 +1,8 @@
-curl -k https://localhost/ngmd/client/app/ > index.html
+curl -k https://localhost/ngmd/client/ > index.html
 
-ssr -f index.html -a -s "/ngmd/client/" -r "../"
+ssr -f index.html -a -s "/ngmd/client/" -r ""
 
-copy index.html ..\build\client\app
-move index.html ..\ClientBuild\client\app
+copy index.html ..\build\client
+move index.html ..\ClientBuild\client
 
 del *.bak

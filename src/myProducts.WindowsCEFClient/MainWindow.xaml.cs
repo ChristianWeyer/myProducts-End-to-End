@@ -20,7 +20,7 @@ namespace myProducts.WindowsClient
 
             Cef.Initialize(new CefSettings { CachePath = @".\cachepath" });
 
-            var urlToNavigate = AppDomain.CurrentDomain.BaseDirectory + @"client\app\index.html";
+            var urlToNavigate = AppDomain.CurrentDomain.BaseDirectory + @"client\index.html";
             var browserSettings = new BrowserSettings
             {
                 UniversalAccessFromFileUrlsAllowed = true
