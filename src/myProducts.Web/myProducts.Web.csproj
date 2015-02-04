@@ -124,20 +124,20 @@
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Serilog">
-      <HintPath>..\packages\Serilog.1.4.139\lib\net45\Serilog.dll</HintPath>
+    <Reference Include="Serilog, Version=1.4.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Serilog.1.4.155\lib\net45\Serilog.dll</HintPath>
     </Reference>
     <Reference Include="Serilog.FullNetFx, Version=1.4.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Serilog.1.4.139\lib\net45\Serilog.FullNetFx.dll</HintPath>
+      <HintPath>..\packages\Serilog.1.4.155\lib\net45\Serilog.FullNetFx.dll</HintPath>
     </Reference>
     <Reference Include="Serilog.Sinks.AzureTableStorage, Version=1.4.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Serilog.Sinks.AzureTableStorage.1.4.139\lib\net45\Serilog.Sinks.AzureTableStorage.dll</HintPath>
     </Reference>
-    <Reference Include="Serilog.Sinks.SignalR, Version=1.4.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Serilog.Sinks.SignalR.1.4.139\lib\net45\Serilog.Sinks.SignalR.dll</HintPath>
+    <Reference Include="Serilog.Sinks.SignalR">
+      <HintPath>..\packages\Serilog.Sinks.SignalR.1.4.155\lib\net45\Serilog.Sinks.SignalR.dll</HintPath>
     </Reference>
     <Reference Include="Swashbuckle.Core">
       <HintPath>..\packages\Swashbuckle.Core.4.1.0\lib\net40\Swashbuckle.Core.dll</HintPath>
@@ -426,9 +426,7 @@
   <ItemGroup>
     <Compile Include="Server\App_Start\BundleConfig.cs" />
     <Compile Include="Server\CacheManifestHandler.cs" />
-    <Compile Include="Server\PerfItInstaller.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Server\PerfItInstaller.cs" />
     <Compile Include="Server\PerfItInstaller.Designer.cs">
       <DependentUpon>PerfItInstaller.cs</DependentUpon>
     </Compile>
