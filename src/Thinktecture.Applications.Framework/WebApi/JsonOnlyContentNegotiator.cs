@@ -8,9 +8,16 @@ namespace Thinktecture.Applications.Framework.WebApi
 {
     public class JsonOnlyContentNegotiator : IContentNegotiator
     {
+        private readonly JsonMediaTypeFormatter _formatter;
+
+        public JsonOnlyContentNegotiator(JsonMediaTypeFormatter formatter)
+        {
+            _formatter = formatter;
+        }
+
         public ContentNegotiationResult Negotiate(Type type, HttpRequestMessage request, IEnumerable<MediaTypeFormatter> formatters)
         {
-            var result = new ContentNegotiationResult(new JsonMediaTypeFormatter(), new MediaTypeHeaderValue("application/json"));
+            var result = new ContentNegotiationResult(_formatter, new MediaTypeHeaderValue("application/json"));
 
             return result;
         }

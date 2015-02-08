@@ -118,6 +118,7 @@
     <Compile Include="Entities\DbContextExtensions.cs" />
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="WebApi\Debugging\ConsoleLoggingHandler.cs" />
+    <Compile Include="WebApi\HttpConfigurationExtensions.cs" />
     <Compile Include="WebApi\ModelMetadata\AttributeExtensions.cs" />
     <Compile Include="WebApi\ModelMetadata\ConventionalModelMetadataProvider.cs" />
     <Compile Include="WebApi\ModelMetadata\DisplayAttributeExtensions.cs" />
