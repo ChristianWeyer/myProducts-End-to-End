@@ -27,9 +27,9 @@ namespace MyProducts.TestData
                     var fabricProducts = from fp in fabrics.Products
                                          select fp;
                     var nwCategoriesList = (from c in nw.Categories
-                                       select c).ToList();
+                                            select c).ToList();
 
-                    using (var ngmd = new ProductsContext())
+                    using (var ngmd = new ProductsContextEx())
                     {
                         var rnd = new Random();
 
@@ -105,6 +105,15 @@ namespace MyProducts.TestData
             }
 
             Console.WriteLine("Done!");
+        }
+    }
+
+    public class ProductsContextEx : ProductsContext
+    {
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("public");
+            base.OnModelCreating(modelBuilder);
         }
     }
 
