@@ -1,26 +1,19 @@
 ﻿<Properties StartupItem="myProducts.SelfHost/myProducts.SelfHost.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="myProducts.Security/GlobalClaimsAuthorizationManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="myProducts.Services/Controllers/ArticlesController.cs">
     <Files>
-      <File FileName="myProducts.SelfHost/App.config" Line="1" Column="1" />
-      <File FileName="myProducts.Hosting/Startup.cs" Line="1" Column="1" />
-      <File FileName="myProducts.Hosting/SecurityConfig.cs" Line="15" Column="15" />
-      <File FileName="myProducts.Security/AesDataProtectionProvider.cs" Line="1" Column="1" />
-      <File FileName="myProducts.Security/AesDataProtector.cs" Line="1" Column="1" />
-      <File FileName="myProducts.Hosting/app.config" Line="1" Column="1" />
-      <File FileName="myProducts.SelfHost/MyProductsHost.cs" Line="1" Column="1" />
-      <File FileName="myProducts.Hosting/WebApiConfig.cs" Line="13" Column="13" />
-      <File FileName="myProducts.Hosting/LoggingConfig.cs" Line="1" Column="1" />
-      <File FileName="myProducts.Hosting/IocConfiguration.cs" Line="1" Column="1" />
-      <File FileName="myProducts.Services/Controllers/PersonalizationController.cs" Line="56" Column="56" />
-      <File FileName="myProducts.Security/GlobalClaimsAuthorizationManager.cs" Line="1" Column="1" />
+      <File FileName="myProducts.Services/Controllers/ArticlesController.cs" Line="59" Column="59" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
+          <Node name="Libs" expanded="True">
+            <Node name="Thinktecture.Applications.Framework" selected="True" />
+          </Node>
           <Node name="Server" expanded="True">
             <Node name="Hosts" expanded="True" />
           </Node>
+          <Node name="Tools" expanded="True" />
         </State>
       </Pad>
     </Pads>
