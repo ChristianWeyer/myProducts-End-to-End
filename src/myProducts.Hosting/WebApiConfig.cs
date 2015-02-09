@@ -16,8 +16,8 @@ namespace MyProducts.Hosting
         {
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.LocalOnly;
 
-            config.SuppressDefaultHostAuthentication();
-            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            //config.SuppressDefaultHostAuthentication();
+            //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
             config.UseJsonOnly();
 
@@ -27,7 +27,7 @@ namespace MyProducts.Hosting
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional });
 
-            config.Filters.Add(new ResourceActionAuthorizeAttribute());
+            //config.Filters.Add(new ResourceActionAuthorizeAttribute());
 
             config.MessageHandlers.Insert(0, new CompressionHandler());
             //config.MessageHandlers.Add(new PerfItDelegatingHandler(config, "myProducts application services"));
