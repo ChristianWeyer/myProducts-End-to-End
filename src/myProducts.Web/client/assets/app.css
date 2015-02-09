@@ -22,8 +22,7 @@
 }
 
 #mainContent {
-    width: 100%;
-    padding-right: 25px;
+    /*width: 100%;*/
 }
 
 .three {
@@ -209,11 +208,9 @@ a {
 }
 
 .carouselImages {
-    width: 400px;
+    width: 100%;
     height: 250px;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .carouselIndicators {
@@ -318,22 +315,26 @@ a {
     }
 }
 
-.fade-animation {
+.slide-animation {
     position: absolute;
+    top: 0;
+    left: 15px;
+    right: 0;
+    padding-right: 15px;
 }
 
-    .fade-animation.ng-enter {
-        animation: fadeIn 0.8s;
-        -webkit-animation: fadeIn 0.8s;
-        -moz-animation: fadeIn 0.8s;
-        -ms-animation: fadeIn 0.8s;
+    .slide-animation.ng-enter {
+        animation: slideInRight 0.5s;
+        -webkit-animation: slideInRight 0.5s;
+        -moz-animation: slideInRight 0.5s;
+        -ms-animation: slideInRight 0.5s;
     }
 
-    .fade-animation.ng-leave {
-        animation: fadeOut 0.8s;
-        -webkit-animation: fadeOut 0.8s;
-        -moz-animation: fadeOut 0.8s;
-        -ms-animation: fadeOut 0.8s;
+    .slide-animation.ng-leave {
+        animation: slideOutLeft 0.5s;
+        -webkit-animation: slideOutLeft 0.5s;
+        -moz-animation: slideOutLeft 0.5s;
+        -ms-animation: slideOutLeft 0.5s;
     }
 
 .navbar-collapse.collapsing {
