@@ -13,12 +13,11 @@ namespace MyProducts.Hosting
     {
         public static void Register(IAppBuilder app)
         {
-			//app.SetDataProtectionProvider(new AesDataProtectorProvider("123456789"));
+			app.SetDataProtectionProvider(new AesDataProtectorProvider("123456789"));
 
             app.UseCors(CorsOptions.AllowAll);
-
-			/*
-            app.UseOAuthAuthorizationServer(new OAuthAuthorizationServerOptions
+		
+		    app.UseOAuthAuthorizationServer(new OAuthAuthorizationServerOptions
             {
                 TokenEndpointPath = new PathString("/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromHours(24),
@@ -26,8 +25,8 @@ namespace MyProducts.Hosting
 				
 					AllowInsecureHttp = true
             });
-            */
-            /*
+        
+			/*
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
             {
                 Provider = new EnhancedAuthenticationProvider(),
