@@ -19,7 +19,7 @@ namespace MyProducts.Services.Controllers
         public PersonalizationData GetPersonalizationData()
         {
             //var user = RequestContext.Principal;
-            //var x = user as ClaimsPrincipal;
+            
 			var claims = new List<Claim> ();
 			claims.Add (new Claim (ClaimTypes.Name, "cw"));
 			var identity = new ClaimsIdentity(claims, "bearer");
