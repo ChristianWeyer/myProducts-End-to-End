@@ -5,6 +5,7 @@ using Microsoft.Owin.Security.OAuth;
 using MyProducts.Security;
 using Owin;
 using System;
+using Microsoft.Owin.Security.DataProtection;
 
 namespace MyProducts.Hosting
 {
@@ -12,6 +13,8 @@ namespace MyProducts.Hosting
     {
         public static void Register(IAppBuilder app)
         {
+			app.SetDataProtectionProvider(new AesDataProtectorProvider("123456789"));
+
             app.UseCors(CorsOptions.AllowAll);
 
             app.UseOAuthAuthorizationServer(new OAuthAuthorizationServerOptions

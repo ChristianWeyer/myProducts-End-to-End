@@ -63,6 +63,8 @@
     <Compile Include="EnhancedAuthenticationProvider.cs" />
     <Compile Include="GlobalClaimsAuthorizationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AesDataProtectionProvider.cs" />
+    <Compile Include="AesDataProtector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
