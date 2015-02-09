@@ -27,7 +27,7 @@ namespace MyProducts.Services.Controllers
         /// <returns></returns>
         public IQueryable<CategoryDto> Get()
         {
-            var categories = productsContext.Categories.AsNoTracking().Project().To<CategoryDto>().Distinct().OrderBy(a => a.Name);
+            var categories = productsContext.Categories.AsNoTracking().Project().To<CategoryDto>(null).Distinct().OrderBy(a => a.Name);
 
             return categories;
         }

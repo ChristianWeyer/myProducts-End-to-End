@@ -1,8 +1,17 @@
-﻿<Properties StartupItem="libs/WebAPI.OutputCache/WebAPI.OutputCache.csproj">
+﻿<Properties StartupItem="myProducts.SelfHost/myProducts.SelfHost.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="myProducts.Security/GlobalClaimsAuthorizationManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="myProducts.DataGenerator/myProducts.DataGenerator.csproj">
     <Files>
-      <File FileName="myProducts.Security/GlobalClaimsAuthorizationManager.cs" Line="79" Column="79" />
+      <File FileName="myProducts.Security/GlobalClaimsAuthorizationManager.cs" Line="7" Column="7" />
+      <File FileName="myProducts.Services/Controllers/ArticlesDemoController.cs" Line="43" Column="43" />
+      <File FileName="myProducts.Web/myProducts.Web.csproj" Line="34" Column="34" />
+      <File FileName="../../../../../Library/Frameworks/Mono.framework/Versions/3.12.0/lib/mono/4.5/Microsoft.Common.targets" Line="1" Column="1" />
+      <File FileName="myProducts.Services/Controllers/ArticlesController.cs" Line="22" Column="22" />
+      <File FileName="myProducts.Services/Controllers/CategoriesController.cs" Line="102" Column="102" />
+      <File FileName="myProducts.Services/myProducts.Services.csproj" Line="1" Column="1" />
+      <File FileName="myProducts.Model/myProducts.Model.csproj" Line="10" Column="10" />
+      <File FileName="myProducts.SelfHost/myProducts.SelfHost.csproj" Line="1" Column="1" />
+      <File FileName="myProducts.DataGenerator/myProducts.DataGenerator.csproj" Line="8" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

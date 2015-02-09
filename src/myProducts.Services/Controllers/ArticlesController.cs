@@ -90,7 +90,7 @@ namespace MyProducts.Services.Controllers
 
             var artikelQuery = productsContext.Articles.Where(a => a.Id == guid)
                 .Include(a => a.Category).AsNoTracking()
-                .Project().To<ArticleDetailDto>();
+                .Project().To<ArticleDetailDto>(null);
 
             var artikelDetails = artikelQuery.SingleOrDefault();
 

@@ -3,6 +3,7 @@ using System.Security.Claims;
 
 namespace MyProducts.Security
 {
+	/*
     public class GlobalClaimsAuthorizationManager : ClaimsAuthorizationManager
     {
         public override bool CheckAccess(AuthorizationContext context)
@@ -21,4 +22,5 @@ namespace MyProducts.Security
             return true;
         }
     }
+    */
 }
