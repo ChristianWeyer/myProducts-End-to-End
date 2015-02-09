@@ -206,6 +206,7 @@ xcopy "$(SolutionDir)myProducts.Web\client\appServices\*.*" "$(TargetDir)client\
 xcopy "$(SolutionDir)myProducts.Web\client\appStartup\*.*" "$(TargetDir)client\appStartup\" /E /I /F /Y
 xcopy "$(SolutionDir)myProducts.Web\client\assets\*.*" "$(TargetDir)client\assets\" /E /I /F /Y
 xcopy "$(SolutionDir)myProducts.Web\client\libs\*.*" "$(TargetDir)client\libs\" /E /I /F /Y
+xcopy "$(SolutionDir)myProducts.Web\client\translations\*.*" "$(TargetDir)client\translations\" /E /I /F /Y
 xcopy "$(SolutionDir)myProducts.Web\client\mobile\*.*" "$(TargetDir)client\mobile\" /E /I /F /Y
 xcopy "$(SolutionDir)myProducts.Web\images\*.*" "$(TargetDir)images\" /E /I /F /Y
 
