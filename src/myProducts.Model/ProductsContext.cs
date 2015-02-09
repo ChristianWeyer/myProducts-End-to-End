@@ -13,6 +13,12 @@ namespace MyProducts.Model
             this.Configuration.ValidateOnSaveEnabled = false;
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("public");
+            base.OnModelCreating(modelBuilder);
+        }
+
         public DbSet<Article> Articles { get; set; }
         public DbSet<Category> Categories { get; set; }
     }
