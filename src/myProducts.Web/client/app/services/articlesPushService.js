@@ -8,7 +8,7 @@
      * @constructor
      */
     function ArticlesPushService(signalRHubProxy, $rootScope, $timeout, settingsService) {
-        var hub = signalRHubProxy(ttTools.baseUrl, "clientNotificationHub");
+        var hub = signalRHubProxy(ttTools.signalRbaseUrl, "clientNotificationHub");
         hub.on("articleChange");
 
         if (settingsService.enablePush) {

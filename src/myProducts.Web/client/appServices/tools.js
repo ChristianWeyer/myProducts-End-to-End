@@ -41,6 +41,8 @@ ttTools.getBaseUrl = function () {
 
 ttTools.baseUrl = ttTools.getBaseUrl();
 
+ttTools.signalRbaseUrl = ttTools.baseUrl.substring(0, ttTools.baseUrl.length - 1);
+
 ttTools.iOS = function () {
     return (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false);
 };

@@ -7,7 +7,7 @@
      * @param {SettingsService} settingsService
      */
     function LogPushService (signalRHubProxy, $rootScope, settingsService) {
-        var hub = signalRHubProxy(ttTools.baseUrl, "logHub");
+        var hub = signalRHubProxy(ttTools.signalRbaseUrl, "logHub");
         hub.on("sendLogEvent");
 
         if (settingsService.enablePush) {
