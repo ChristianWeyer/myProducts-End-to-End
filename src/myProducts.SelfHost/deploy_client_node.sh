@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rm -r "$2/client" > /dev/nul 2>&1
+rm -r "$2/client" > /dev/null 2>&1
 mkdir "$2/client"
 
 rsync -auv "$1/myProducts.Web/client/app/" "$2/client/app/"
