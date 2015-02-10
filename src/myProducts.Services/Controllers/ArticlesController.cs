@@ -53,8 +53,8 @@ namespace MyProducts.Services.Controllers
         /// </summary>
         /// <param name="options">OData query options</param>
         /// <returns>A paged result list of article data</returns>
-        [CacheOutput(ServerTimeSpan = 3600)]
-        [PerfItFilter(Name = "Articles.GetAll", Description = "Gets all items", Counters = new[] { CounterTypes.TotalNoOfOperations, CounterTypes.AverageTimeTaken })]
+        //[CacheOutput(ServerTimeSpan = 3600)]
+        //[PerfItFilter(Name = "Articles.GetAll", Description = "Gets all items", Counters = new[] { CounterTypes.TotalNoOfOperations, CounterTypes.AverageTimeTaken })]
         public PageResult<ArticleDto> Get(ODataQueryOptions<ArticleDto> options)
         {
             var settings = new ODataQuerySettings { PageSize = 10, EnsureStableOrdering = false };
@@ -75,8 +75,8 @@ namespace MyProducts.Services.Controllers
         /// </summary>
         /// <param name="id">Article ID</param>
         /// <returns>Article details</returns>
-        [CacheOutput(ServerTimeSpan = 3600)]
-        [PerfItFilter(Name = "Articles.GetById", Description = "Gets one item", Counters = new[] { CounterTypes.TotalNoOfOperations, CounterTypes.AverageTimeTaken })]
+        //[CacheOutput(ServerTimeSpan = 3600)]
+        //[PerfItFilter(Name = "Articles.GetById", Description = "Gets one item", Counters = new[] { CounterTypes.TotalNoOfOperations, CounterTypes.AverageTimeTaken })]
         public ArticleDetailDto Get(string id)
         {
             //throw new ApplicationException("Some weird things went wrong!");
@@ -106,8 +106,8 @@ namespace MyProducts.Services.Controllers
         /// Save a new or existing item article - with or without image data.
         /// </summary>
         /// <returns>Nothing, only HTTP status codes</returns>
-        [InvalidateCacheOutput("Get")]
-        [InvalidateCacheOutput("GetById")]
+        //[InvalidateCacheOutput("Get")]
+        //[InvalidateCacheOutput("GetById")]
         //[ResourceActionAuthorize("Save", "Article")]
         public async Task<HttpResponseMessage> Post()
         {
@@ -159,8 +159,8 @@ namespace MyProducts.Services.Controllers
         /// Delete a given article by ID.
         /// </summary>
         /// <param name="id">Article ID</param>
-        [InvalidateCacheOutput("Get")]
-        [InvalidateCacheOutput("GetById")]
+        //[InvalidateCacheOutput("Get")]
+        //[InvalidateCacheOutput("GetById")]
         public void Delete(string id)
         {
             productsContext.SetDeleted<Article>(Guid.Parse(id));

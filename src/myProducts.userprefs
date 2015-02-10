@@ -2,7 +2,10 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/christianweyer/GitHub/myProducts-End-to-End/src/myProducts.Services/Controllers/ArticlesController.cs" line="82" column="1" />
+      <Breakpoint file="/Users/christianweyer/GitHub/myProducts-End-to-End/src/myProducts.Services/Controllers/ArticlesController.cs" line="84" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
