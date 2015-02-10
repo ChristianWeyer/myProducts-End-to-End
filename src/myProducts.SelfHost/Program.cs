@@ -10,7 +10,8 @@ namespace MyProducts.SelfHost
             //AppDomain.CurrentDomain.AssemblyResolve += DynamicAssemblyResolver.AssemblyResolveHandler;
 
             HostFactory.Run(x =>
-            {
+			{
+				x.UseLinuxIfAvailable();
                 x.Service<MyProductsHost>(s =>
                 {
                     s.ConstructUsing(name => new MyProductsHost());

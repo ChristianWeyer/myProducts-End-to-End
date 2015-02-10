@@ -1,11 +1,15 @@
 ﻿<Properties StartupItem="myProducts.SelfHost/myProducts.SelfHost.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="myProducts.SelfHost/packages.config">
+  <MonoDevelop.Ide.Workbench ActiveDocument="myProducts.Security/AuthorizationServerProvider.cs">
     <Files>
-      <File FileName="myProducts.Hosting/WebApiConfig.cs" Line="10" Column="10" />
-      <File FileName="myProducts.Hosting/SecurityConfig.cs" Line="5" Column="5" />
-      <File FileName="myProducts.Services/Controllers/PersonalizationController.cs" Line="4" Column="4" />
+      <File FileName="myProducts.Hosting/WebApiConfig.cs" Line="1" Column="1" />
+      <File FileName="myProducts.Hosting/SecurityConfig.cs" Line="16" Column="16" />
+      <File FileName="myProducts.Services/Controllers/PersonalizationController.cs" Line="1" Column="1" />
       <File FileName="myProducts.SelfHost/packages.config" Line="1" Column="1" />
+      <File FileName="myProducts.SelfHost/myProducts.SelfHost.csproj" Line="1" Column="1" />
+      <File FileName="myProducts.Hosting/Startup.cs" Line="1" Column="1" />
+      <File FileName="myProducts.Hosting/SelfHostStartup.cs" Line="1" Column="1" />
+      <File FileName="myProducts.Security/AuthorizationServerProvider.cs" Line="6" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
