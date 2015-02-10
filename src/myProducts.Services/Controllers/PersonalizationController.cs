@@ -18,12 +18,14 @@ namespace MyProducts.Services.Controllers
         /// <returns></returns>
         public PersonalizationData GetPersonalizationData()
         {
-            //var user = RequestContext.Principal;
+            var user = RequestContext.Principal;
             
+			/*
 			var claims = new List<Claim> ();
 			claims.Add (new Claim (ClaimTypes.Name, "cw"));
 			var identity = new ClaimsIdentity(claims, "bearer");
 			var user = new ClaimsPrincipal (identity);
+			*/
 
             var persData = new PersonalizationData
                 {

@@ -1,6 +1,13 @@
 ﻿<Properties StartupItem="myProducts.SelfHost/myProducts.SelfHost.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="myProducts.SelfHost/packages.config">
+    <Files>
+      <File FileName="myProducts.Hosting/WebApiConfig.cs" Line="10" Column="10" />
+      <File FileName="myProducts.Hosting/SecurityConfig.cs" Line="5" Column="5" />
+      <File FileName="myProducts.Services/Controllers/PersonalizationController.cs" Line="4" Column="4" />
+      <File FileName="myProducts.SelfHost/packages.config" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/christianweyer/GitHub/myProducts-End-to-End/src/myProducts.Services/Controllers/ArticlesController.cs" line="82" column="1" />
