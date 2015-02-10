@@ -23,7 +23,7 @@
 
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
 
-    {{bundler.renderStyles("~/styles/libs")}}
+    {{bundler.renderStyles("~/styles")}}
 </head>
 
 <body>

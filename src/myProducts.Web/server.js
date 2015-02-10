@@ -2,13 +2,13 @@ var express = require('express'),
     http = require('http'),
     walrus = require('walrus'),
     consolidate = require('consolidate'),
-    config = require('./node-dev/config.js'),
-    bundler = require("./node-dev/bundler.js"),
+    config = require('./node/config.js'),
+    bundler = require("./node/bundler.js"),
     browserSync = require('browser-sync');
 
 var app = express();
 var appDir = __dirname + "/client";
-var virtualDir = "/node-dev";
+var virtualDir = "/";
 
 var args = process.argv.slice(2);
 var port = process.env.PORT || args[0] || 8090;

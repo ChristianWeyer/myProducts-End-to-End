@@ -27,7 +27,7 @@ exports.initializeBundles = function (webRoot) {
         }
     ]);
 
-    bundler.addBundle("~/styles/libs", "css", [
+    bundler.addBundle("~/styles", "css", [
         {
             baseDirectory: webRoot + "/",
             path: "libs",
@@ -36,14 +36,6 @@ exports.initializeBundles = function (webRoot) {
         {
             baseDirectory: webRoot + "/",
             path: "assets",
-            includeSubdirectories: true
-        }
-    ]);
-
-    bundler.addBundle("~/styles/app", "css", [
-        {
-            baseDirectory: webRoot + "/",
-            path: "app",
             includeSubdirectories: true
         }
     ]);

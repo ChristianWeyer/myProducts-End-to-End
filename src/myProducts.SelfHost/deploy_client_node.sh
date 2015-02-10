@@ -1,5 +1,6 @@
 #!/bin/sh
 
+rm -r "$2/client" > /dev/nul 2>&1
 mkdir "$2/client"
 
 rsync -auv "$1/myProducts.Web/client/app/" "$2/client/app/"
@@ -11,7 +12,10 @@ rsync -auv "$1/myProducts.Web/client/translations/" "$2/client/translations/"
 rsync -auv "$1/myProducts.Web/client/cordova.js" "$2/client/cordova.js"
 rsync -auv "$1/myProducts.Web/images/" "$2/images/"
 
-curl -k https://windows8vm.local/ngmd/client/#/ > ./index.html
-perl -pi -w -e 's/\/ngmd\/client\///g;' ./index.html
+node "$1/myProducts.Web/server.js" &
+NODEPID=$!
+sleep 1
 
-mv index.html "$2/client/"
+curl -k http://localhost:8090/ > "$2/client/index.html"
+
+kill -9 $NODEPID
