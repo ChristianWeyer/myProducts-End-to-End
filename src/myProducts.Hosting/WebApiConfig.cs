@@ -27,7 +27,8 @@ namespace MyProducts.Hosting
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional });
 
-            //config.Filters.Add(new ResourceActionAuthorizeAttribute());
+            
+			config.Filters.Add(new ResourceActionAuthorizeAttribute());
 
             config.MessageHandlers.Insert(0, new CompressionHandler());
             //config.MessageHandlers.Add(new PerfItDelegatingHandler(config, "myProducts application services"));
@@ -35,7 +36,7 @@ namespace MyProducts.Hosting
             config.Services.Replace(typeof(ModelMetadataProvider),
                 new ConventionalModelMetadataProvider(false, typeof(ValidationResources)));
 
-            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+            //config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             var resolver = IocConfiguration.ConfigureContainerForWebApi();
             config.DependencyResolver = resolver;

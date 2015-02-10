@@ -1,25 +1,10 @@
 ﻿<Properties StartupItem="myProducts.SelfHost/myProducts.SelfHost.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="myProducts.Services/Controllers/ArticlesController.cs">
-    <Files>
-      <File FileName="myProducts.Services/Controllers/ArticlesController.cs" Line="59" Column="59" />
-    </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Libs" expanded="True">
-            <Node name="Thinktecture.Applications.Framework" selected="True" />
-          </Node>
-          <Node name="Server" expanded="True">
-            <Node name="Hosts" expanded="True" />
-          </Node>
-          <Node name="Tools" expanded="True" />
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/christianweyer/GitHub/myProducts-End-to-End/src/myProducts.Services/Controllers/LogController.cs" line="19" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

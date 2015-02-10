@@ -7,7 +7,8 @@ namespace MyProducts.Services.Controllers
     /// <summary>
     /// Web API to provide logging data from clients.
     /// </summary>
-    [AllowAnonymous]
+    
+	[AllowAnonymous]
     public class LogController : ApiController
     {
         /// <summary>
