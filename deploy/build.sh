@@ -81,7 +81,7 @@ cordova plugin add org.apache.cordova.console
 
 ## Build for iOS
 cp -r ../../cordova-ios/ ./platforms/ios
-cp ./www/config.xml ./platforms/ios/myProducts
+#cp ./www/config.xml ./platforms/ios/myProducts
 
 echo "Building for iOS"
 cordova build ios
@@ -107,7 +107,7 @@ cd ../../..
 
 ## Finally build Android
 cp -r ../../cordova-android/ ./platforms/android
-cp ./www/config.xml ./platforms/android
+#cp ./www/config.xml ./platforms/android
 cordova build android
 
 cd platforms/android/ant-build/
