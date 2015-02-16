@@ -81,7 +81,6 @@ cordova plugin add org.apache.cordova.console
 
 ## Build for iOS
 cp -r ../../cordova-ios/ ./platforms/ios
-#cp ./www/config.xml ./platforms/ios/myProducts
 
 echo "Building for iOS"
 cordova build ios
@@ -94,20 +93,17 @@ echo "Building for Android"
 
 # Tweak Android to use Crosswalk
 rm -Rf platforms/android/CordovaLib/*
-cp -a ../../cordova-android/crosswalk-cordova/*arm/framework/* \
-    platforms/android/CordovaLib/
+cp -a ../../cordova-android/crosswalk-cordova/*arm/framework/* platforms/android/CordovaLib/
 cp -a ../../cordova-android/crosswalk-cordova/*arm/VERSION platforms/android/
 
 export ANDROID_HOME=$(dirname $(dirname $(which android)))
 cd platforms/android/CordovaLib/
-android update project --subprojects --path . \
-    --target "android-19"
+android update project --subprojects --path . --target "android-19"
 ant debug
 cd ../../..
 
 ## Finally build Android
 cp -r ../../cordova-android/ ./platforms/android
-#cp ./www/config.xml ./platforms/android
 cordova build android
 
 cd platforms/android/ant-build/
