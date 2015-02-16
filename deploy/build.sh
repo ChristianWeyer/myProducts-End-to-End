@@ -59,7 +59,8 @@ rm ../out/app.nw
 ## Create Cordova project
 cd ${DIR}
 cd cordova_tmp
-cordova create myProducts com.tt.apps.ngmd myProducts
+#cordova create myProducts com.tt.apps.ngmd myProducts
+ionic start -a myProducts -i com.tt.ngmd myProducts blank
 rm -rf myProducts/www
 
 ## Copy existing application elements
@@ -70,8 +71,12 @@ echo "Creating Cordova projects"
 
 cd myProducts
 
-cordova platform add ios
-cordova platform add android
+#cordova platform add ios
+#cordova platform add android
+
+ionic platform add ios
+ionic platform add android
+ionic browser add crosswalk
 
 cordova plugin add org.apache.cordova.device
 cordova plugin add org.apache.cordova.geolocation
@@ -83,7 +88,8 @@ cordova plugin add org.apache.cordova.console
 cp -r ../../cordova-ios/ ./platforms/ios
 
 echo "Building for iOS"
-cordova build ios
+#cordova build ios
+ionic build ios
 
 cd platforms/ios/build/emulator/
 mv myProducts.app "../../../../../../out/ios/myProducts.app"
@@ -91,23 +97,12 @@ cd ../../../..
 
 echo "Building for Android"
 
-# Tweak Android to use Crosswalk
-rm -Rf platforms/android/CordovaLib/*
-cp -a ../../cordova-android/crosswalk-cordova/*arm/framework/* platforms/android/CordovaLib/
-cp -a ../../cordova-android/crosswalk-cordova/*arm/VERSION platforms/android/
-
-export ANDROID_HOME=$(dirname $(dirname $(which android)))
-cd platforms/android/CordovaLib/
-android update project --subprojects --path . --target "android-19"
-ant debug
-cd ../../..
-
-## Finally build Android
 cp -r ../../cordova-android/ ./platforms/android
-cordova build android
+#cordova build android
+ionic build android
 
-cd platforms/android/ant-build/
-cp myProducts-debug.apk ../../../../../out/android/
+cd platforms/android/build/outputs/apk
+cp *.apk ../../../../../../../out/android/
 
 ## Copy for web deployment
 cd ${DIR}
