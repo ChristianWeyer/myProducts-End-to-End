@@ -51,7 +51,7 @@ cp -r ../out/app.nw ../out/mac/node-webkit.app/Contents/Resources/
 mv ../out/mac/node-webkit.app "../out/mac/myProducts.app"
 
 echo "Building for Windows"
-cp -r ../node-webkit-win32/ ../out/windows
+cp -r ../node-webkit-win/ ../out/windows
 cat ../out/windows/nw.exe ../out/app.nw > "../out/windows/myProducts.exe"
 rm ../out/windows/nw.exe
 rm ../out/app.nw
