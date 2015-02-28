@@ -10,7 +10,12 @@
     },
 
     onDeviceReady: function () {
-        StatusBar.hide();
-        navigator.splashscreen.hide();
+        if (Statusbar) {
+            StatusBar.hide();
+        }
+
+        if (navigator.splashscreen) {
+            navigator.splashscreen.hide();
+        }
     }
 };

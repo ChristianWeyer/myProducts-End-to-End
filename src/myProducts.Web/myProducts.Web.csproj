@@ -271,6 +271,7 @@
     <Content Include="client\fonts\fontawesome-webfont.svg" />
     <Content Include="client\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="client\index.html" />
+    <Content Include="client\libs\01_WinstoreCompat\winstore-jscompat.js" />
     <Content Include="Images\0.jpg" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\10.jpg" />
@@ -376,7 +377,7 @@
     <Content Include="client\app\font\FontAwesome.otf" />
     <Content Include="index.html" />
     <Content Include="client\appStartup\mobileApp.js" />
-    <Content Include="client\libs\10_jQuery\jquery-2.1.0.js" />
+    <Content Include="client\libs\10_jQuery\jq-2.1.0.js" />
     <Content Include="client\libs\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="client\libs\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="client\libs\fonts\glyphicons-halflings-regular.woff" />
