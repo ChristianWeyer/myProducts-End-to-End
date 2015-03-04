@@ -10,7 +10,7 @@
     },
 
     onDeviceReady: function () {
-        if (Statusbar) {
+        if (StatusBar) {
             StatusBar.hide();
         }
 

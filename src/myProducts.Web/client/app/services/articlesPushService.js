@@ -29,7 +29,7 @@
             ttTools.stopHub(hub);
         });
 
-        $rootScope.$on("settings.enablePushChanged", function (evt, enable) {
+        $rootScope.$on("settingsService.enablePushChanged", function (evt, enable) {
             if (enable) {
                 ttTools.startHub(hub);
             } else {
