@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Thinktecture.IdentityServer.Core;
 using Thinktecture.IdentityServer.Core.Models;
 
 namespace MyProducts.Security.IdentityServer.Config
@@ -10,10 +9,6 @@ namespace MyProducts.Security.IdentityServer.Config
         {
             return new[]
                 {
-                    ////////////////////////
-                    // identity scopes
-                    ////////////////////////
-
                     StandardScopes.OpenId,
                     StandardScopes.Profile,
                     StandardScopes.Email,
@@ -21,10 +16,6 @@ namespace MyProducts.Security.IdentityServer.Config
                     StandardScopes.OfflineAccess,
                     StandardScopes.RolesAlwaysInclude,
                     StandardScopes.AllClaims,
-
-                    ////////////////////////
-                    // resource scopes
-                    ////////////////////////
 
                     new Scope
                     {
@@ -39,20 +30,6 @@ namespace MyProducts.Security.IdentityServer.Config
                         DisplayName = "Write data",
                         Type = ScopeType.Resource,
                         Emphasize = true,
-                    },
-                    new Scope
-                    {
-                        Name = "idmgr",
-                        DisplayName = "IdentityManager",
-                        Type = ScopeType.Resource,
-                        Emphasize = true,
-                        ShowInDiscoveryDocument = false,
-                        
-                        Claims = new List<ScopeClaim>
-                        {
-                            new ScopeClaim(Constants.ClaimTypes.Name),
-                            new ScopeClaim(Constants.ClaimTypes.Role)
-                        }
                     }
                 };
         }
