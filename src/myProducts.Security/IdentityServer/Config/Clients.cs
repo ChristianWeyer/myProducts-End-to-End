@@ -11,6 +11,21 @@ namespace MyProducts.Security.IdentityServer.Config
             {
                 new Client
                 {
+                    ClientName  = "myProducts RO Client",
+                    Enabled = true,
+
+                    ClientId = "myp-roclient",
+                    ClientSecrets = new List<ClientSecret>
+                    { 
+                        new ClientSecret("not-a-secret".Sha256())
+                    },
+
+                    Flow=Flows.ResourceOwner,
+
+                    AccessTokenLifetime = 3600
+                },
+                new Client
+                {
                     ClientName = "myProducts Implicit Client",
                     Enabled = true,
 

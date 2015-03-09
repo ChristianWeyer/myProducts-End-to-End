@@ -19,17 +19,9 @@ namespace MyProducts.Security.IdentityServer.Config
 
                     new Scope
                     {
-                        Name = "read",
-                        DisplayName = "Read data",
-                        Type = ScopeType.Resource,
-                        Emphasize = false,
-                    },
-                    new Scope
-                    {
-                        Name = "write",
-                        DisplayName = "Write data",
-                        Type = ScopeType.Resource,
-                        Emphasize = true,
+                        Name = "default",
+                        DisplayName = "Default application scope",
+                        Type = ScopeType.Resource
                     }
                 };
         }

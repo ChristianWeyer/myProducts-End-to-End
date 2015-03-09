@@ -243,7 +243,7 @@
     <Content Include="client\appServices\directives\serverValidationDirective.js" />
     <Content Include="client\appServices\filters\baseUrlFilter.js" />
     <Content Include="client\appServices\services\geoLocationTrackerService.js" />
-    <Content Include="client\appServices\services\thinktecture.ng.Authentication.js" />
+    <Content Include="client\appServices\services\oidcTokenService.js" />
     <Content Include="client\appServices\services\thinktecture.ng.Dialog.js" />
     <Content Include="client\appServices\services\thinktecture.ng.SignalR.js" />
     <Content Include="client\appServices\services\thinktecture.ng.Toast.js" />
