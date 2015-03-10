@@ -17,7 +17,7 @@
 
         cfpLoadingBarProvider.includeSpinner = false;
 
-        tokenAuthenticationServiceProvider.setUrl(ttTools.baseUrl + "token");
+        tokenAuthenticationServiceProvider.setUrl(ttTools.baseUrl + "idsrv/connect/token");
 
         ttTools.initLogger(ttTools.baseUrl + "api/log");
         ttTools.logger.info("Configuring myApp...");
