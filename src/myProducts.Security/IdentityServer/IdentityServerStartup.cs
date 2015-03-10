@@ -28,7 +28,7 @@ namespace MyProducts.Security.IdentityServer
 
                 var idsrvOptions = new IdentityServerOptions
                 {
-                    SiteName = "ACME myProducts Identity Server",
+                    SiteName = "ACME Identity Server",
                     IssuerUri = "https://idsrv.acme.com",
                     Factory = factory,
                     SigningCertificate = Cert.Load(),
