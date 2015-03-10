@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.IdentityModel.Claims;
+using Thinktecture.IdentityServer.Core;
 using Thinktecture.IdentityServer.Core.Models;
 
 namespace MyProducts.Security.IdentityServer.Config
@@ -9,19 +11,16 @@ namespace MyProducts.Security.IdentityServer.Config
         {
             return new[]
                 {
-                    StandardScopes.OpenId,
-                    StandardScopes.Profile,
-                    StandardScopes.Email,
-                    StandardScopes.Address,
-                    StandardScopes.OfflineAccess,
-                    StandardScopes.RolesAlwaysInclude,
-                    StandardScopes.AllClaims,
-
                     new Scope
                     {
                         Name = "default",
                         DisplayName = "Default application scope",
-                        Type = ScopeType.Resource
+                        Type = ScopeType.Resource,
+                        Claims = new List<ScopeClaim>
+                        {
+                            //new ScopeClaim("sub"),
+                            //new ScopeClaim(Constants.ClaimTypes.Name)
+                        }
                     }
                 };
         }

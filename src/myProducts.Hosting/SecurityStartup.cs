@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.IdentityModel.Tokens;
+using Microsoft.Owin.Security.Jwt;
 using MyProducts.Security.IdentityServer;
 using MyProducts.Security.IdentityServer.Config;
 using Owin;
@@ -12,12 +15,13 @@ namespace MyProducts.Hosting
             var idSrv = new IdentityServerStartup();
             idSrv.Configuration(app);
 
+            JwtSecurityTokenHandler.InboundClaimTypeMap = new Dictionary<string, string>();
+
             app.UseIdentityServerBearerTokenAuthentication(new IdentityServerBearerTokenAuthenticationOptions
-            {
+            { 
                 ValidationMode = ValidationMode.Local,
                 IssuerName = "https://idsrv.acme.com",
                 IssuerCertificate = Cert.Load()
-
             });
         }
     }
