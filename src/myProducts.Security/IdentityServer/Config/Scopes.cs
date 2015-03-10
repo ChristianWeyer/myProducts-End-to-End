@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IdentityModel.Claims;
 using Thinktecture.IdentityServer.Core;
 using Thinktecture.IdentityServer.Core.Models;
 

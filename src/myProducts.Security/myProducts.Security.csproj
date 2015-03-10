@@ -88,8 +88,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationClaimsValues.cs" />
-    <Compile Include="ApplicationClaimTypes.cs" />
     <Compile Include="IdentityServer\Config\Cert.cs" />
     <Compile Include="IdentityServer\Config\Clients.cs" />
     <Compile Include="IdentityServer\Config\Scopes.cs" />

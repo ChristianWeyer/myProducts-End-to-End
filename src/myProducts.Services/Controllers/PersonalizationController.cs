@@ -7,6 +7,7 @@ using System.Web.Http;
 namespace MyProducts.Services.Controllers
 {
     /// <summary>
+    /// NOTE: This is a hard-coded sample - usually the data would sit in a DB!
     /// Web API to deliver personalized application features and UI claims based on incoming user identity.
     /// </summary>
     public class PersonalizationController : ApiController
