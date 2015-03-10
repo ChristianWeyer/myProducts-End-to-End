@@ -90,13 +90,10 @@
   <ItemGroup>
     <Compile Include="ApplicationClaimsValues.cs" />
     <Compile Include="ApplicationClaimTypes.cs" />
-    <Compile Include="AuthorizationServerProvider.cs" />
     <Compile Include="IdentityServer\Config\Cert.cs" />
     <Compile Include="IdentityServer\Config\Clients.cs" />
     <Compile Include="IdentityServer\Config\Scopes.cs" />
     <Compile Include="IdentityServer\Config\Users.cs" />
-    <Compile Include="EnhancedAuthenticationProvider.cs" />
-    <Compile Include="GlobalClaimsAuthorizationManager.cs" />
     <Compile Include="IdentityServer\IdentityServerStartup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -18,8 +18,7 @@ namespace MyProducts.Security.IdentityServer.Config
                         Type = ScopeType.Resource,
                         Claims = new List<ScopeClaim>
                         {
-                            //new ScopeClaim("sub"),
-                            //new ScopeClaim(Constants.ClaimTypes.Name)
+                            new ScopeClaim(Constants.ClaimTypes.Name)
                         }
                     }
                 };
