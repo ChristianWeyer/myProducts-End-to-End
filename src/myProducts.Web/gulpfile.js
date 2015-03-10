@@ -18,3 +18,5 @@ gulp.task("html2js", function() {
 gulp.task("watch-view-templates", function() {
     gulp.watch("**/*.html", { cwd: config.appFilesPath }, ["html2js"]);
 });
+
+gulp.task("default", ["watch-view-templates"]);
