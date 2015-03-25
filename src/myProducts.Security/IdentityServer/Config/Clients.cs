@@ -23,37 +23,6 @@ namespace MyProducts.Security.IdentityServer.Config
                     Flow=Flows.ResourceOwner,
 
                     AccessTokenLifetime = 3600
-                },
-                new Client
-                {
-                    ClientName = "myProducts Implicit Client",
-                    Enabled = true,
-
-                    ClientId = "myp-implicitclient",
-                    ClientSecrets = new List<ClientSecret>
-                    { 
-                        new ClientSecret("secret".Sha256())
-                    },
-
-                    Flow = Flows.Implicit,
-                    
-                    RequireConsent = true,
-                    AllowRememberConsent = true,
-
-                    RedirectUris = new List<string>
-                    {
-                        "http://localhost:23453/callback.html",
-                        "http://localhost:23453/frame.html",
-                        "http://localhost:23453/modal.html"
-                    },
-
-                    PostLogoutRedirectUris = new List<string>
-                    {
-                        "http://localhost:23453/index.html"
-                    },
-                    
-                    IdentityTokenLifetime = 360,
-                    AccessTokenLifetime = 3600
                 }
             };
         }
