@@ -14,7 +14,8 @@
         $scope.login.password = "";
 
         $scope.login.submit = function () {
-            tokenAuthenticationService.login($scope.login.username, $scope.login.password)
+            tokenAuthenticationService.login(
+                $scope.login.username, $scope.login.password, { clientId: "myp-roclient", clientSecret:"not-a-secret", scope: "default"})
                 .error(function (data, status, headers, config) {
                     if (status === 400) {
                         dialogService.showModalDialog({}, {

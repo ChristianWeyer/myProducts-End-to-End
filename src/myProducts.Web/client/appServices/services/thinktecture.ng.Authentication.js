@@ -52,9 +52,16 @@
 
             checkForValidToken();
 
-            function login(username, password) {
+            function login(username, password, config) {
                 $http = $http || $injector.get("$http");
-                var postData = $.param({ grant_type: "password", username: username, password: password });
+                var postData = $.param({
+                    grant_type: "password",
+                    username: username,
+                    password: password,
+                    client_id: config.clientId,
+                    client_secret: config.clientSecret,
+                    scope: config.scope
+                });
 
                 return $http({
                     method: "POST",

@@ -42,7 +42,7 @@
         });
         $rootScope.$on(tt.authentication.loginFailed, function () {
             $location.path("/login");
-            toast.pop({
+            toastService.pop({
                 title: "Login",
                 body: $translate.instant("LOGIN_FAILED"),
                 type: "error"

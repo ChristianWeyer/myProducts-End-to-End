@@ -1,4 +1,5 @@
 using System.Web.Http;
+using Swashbuckle.Application;
 
 namespace MyProducts.Hosting
 {
@@ -6,9 +7,9 @@ namespace MyProducts.Hosting
     {
         public static void Register(HttpConfiguration config)
         {
-            Swashbuckle.Bootstrapper.Init(config);
-
-            // NOTE: If you want to customize the generated swagger or UI, use SwaggerSpecConfig and/or SwaggerUiConfig here ...
+            config
+                .EnableSwagger(c => c.SingleApiVersion("v1", "myProducts Web API"))
+                .EnableSwaggerUi();
         }
     }
 }

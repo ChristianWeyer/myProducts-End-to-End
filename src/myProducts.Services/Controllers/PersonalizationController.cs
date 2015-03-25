@@ -2,41 +2,41 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Security.Principal;
 using System.Web.Http;
 
 namespace MyProducts.Services.Controllers
 {
     /// <summary>
+    /// NOTE: This is a hard-coded sample - usually the data would sit in a DB!
     /// Web API to deliver personalized application features and UI claims based on incoming user identity.
     /// </summary>
     public class PersonalizationController : ApiController
     {
         /// <summary>
-        /// Get application personalization information based on the icnoming user.
+        /// Get application personalization information based on the incoming user.
         /// </summary>
         /// <returns></returns>
         public PersonalizationData GetPersonalizationData()
         {
-            var user = RequestContext.Principal;
-            var x = user as ClaimsPrincipal;
+            var user = RequestContext.Principal as ClaimsPrincipal;
+            string userName = user.FindFirst("sub").Value;
             
             var persData = new PersonalizationData
                 {
-                    Features = GetFeatures(user).ToList(),
+                    Features = GetFeatures(userName).ToList(),
                     UiClaims = new UiClaimsData
                         {
-                            UserName = user.Identity.Name,
-                            Capabilities = GetCapabilities(user),
-                            Constraints = GetConstraints(user),
-                            NameValueClaims = GetNameValueClaims(user)
+                            UserName = userName,
+                            Capabilities = GetCapabilities(userName),
+                            Constraints = GetConstraints(userName),
+                            NameValueClaims = GetNameValueClaims(userName)
                         }
                 };
 
             return persData;
         }
 
-        private IEnumerable<FeatureItem> GetFeatures(IPrincipal principal)
+        private IEnumerable<FeatureItem> GetFeatures(string userName)
         {
             var module0 = new FeatureItem { Module = "Articles", DisplayText = "INDEX_ARTICLES", Url = "/articles", MatchPattern = "(/article.*)", Users = new List<string> { "cw", "bob" } };
             var module1 = new FeatureItem { Module = "ArticleDetails", Url = "/articledetails/:id", Users = new List<string> { "cw", "bob" } };
@@ -44,12 +44,12 @@ namespace MyProducts.Services.Controllers
             var module3 = new FeatureItem { Module = "Log", DisplayText = "INDEX_LOGS", Url = "/log", MatchPattern = "/log", Users = new List<string> { "cw" } };
             var module4 = new FeatureItem { Module = "Statistics", DisplayText = "INDEX_STATS", Url = "/statistics", MatchPattern = "/statistics", Users = new List<string> { "cw", "bob" } };
 
-            return new List<FeatureItem> { module0, module1, module2, module3, module4 }.Where(m => m.Users.Contains(principal.Identity.Name));
+            return new List<FeatureItem> { module0, module1, module2, module3, module4 }.Where(m => m.Users.Contains(userName));
         }
 
-        private Constraints GetConstraints(IPrincipal principal)
+        private Constraints GetConstraints(string userName)
         {
-            double itemsLimit = GetItemsLimit(principal.Identity.Name);
+            double itemsLimit = GetItemsLimit(userName);
 
             return new Constraints
             {
@@ -72,9 +72,9 @@ namespace MyProducts.Services.Controllers
             return 5;
         }
 
-        private Capabilities GetCapabilities(IPrincipal principal)
+        private Capabilities GetCapabilities(string userName)
         {
-            if (principal.Identity.Name.Equals("cw"))
+            if (userName.Equals("cw"))
             {
                 return new Capabilities
                 {
@@ -85,9 +85,9 @@ namespace MyProducts.Services.Controllers
             return new Capabilities();
         }
 
-        private NameValueClaims GetNameValueClaims(IPrincipal principal)
+        private NameValueClaims GetNameValueClaims(string userName)
         {
-            if (principal.Identity.Name.Equals("cw"))
+            if (userName.Equals("cw"))
             {
                 return new NameValueClaims
                 {

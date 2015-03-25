@@ -1,4 +1,5 @@
-﻿var tt = window.tt || {}; tt.toast = {};
+﻿
+var tt = window.tt || {}; tt.toast = {};
 tt.toast.module = angular.module("Thinktecture.Toast", ["ng"]);
 
 (function () {

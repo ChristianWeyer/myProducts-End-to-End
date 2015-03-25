@@ -13,7 +13,7 @@ namespace MyProducts.Hosting
 
         public void Configuration(IAppBuilder app)
         {            
-            SecurityConfig.Register(app);
+            SecurityStartup.Configuration(app);
             
             HttpConfiguration = new HttpConfiguration();
             WebApiConfig.Register(HttpConfiguration);
