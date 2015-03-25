@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Thinktecture.IdentityServer.Core.Models;
 
-namespace MyProducts.Security.IdentityServer.Config
+namespace MyProducts.Security.Config
 {
     public class Clients
     {

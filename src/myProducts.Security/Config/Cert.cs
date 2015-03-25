@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Security.Cryptography.X509Certificates;
 
-namespace MyProducts.Security.IdentityServer.Config
+namespace MyProducts.Security.Config
 {
     public class Cert
     {

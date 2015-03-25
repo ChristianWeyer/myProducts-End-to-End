@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens;
-using Microsoft.Owin.Security.Jwt;
-using MyProducts.Security.IdentityServer;
-using MyProducts.Security.IdentityServer.Config;
+using MyProducts.Security;
+using MyProducts.Security.Config;
 using Owin;
 using Thinktecture.IdentityServer.AccessTokenValidation;
 

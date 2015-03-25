@@ -88,16 +88,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IdentityServer\Config\Cert.cs" />
-    <Compile Include="IdentityServer\Config\Clients.cs" />
-    <Compile Include="IdentityServer\Config\Scopes.cs" />
-    <Compile Include="IdentityServer\Config\Users.cs" />
-    <Compile Include="IdentityServer\IdentityServerStartup.cs" />
+    <Compile Include="Config\Cert.cs" />
+    <Compile Include="Config\Clients.cs" />
+    <Compile Include="Config\Scopes.cs" />
+    <Compile Include="Config\Users.cs" />
+    <Compile Include="IdentityServerStartup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <EmbeddedResource Include="IdentityServer\Config\idsrv3test.pfx" />
+    <EmbeddedResource Include="Config\idsrv3test.pfx" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

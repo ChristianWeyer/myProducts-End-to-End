@@ -1,9 +1,9 @@
-﻿using MyProducts.Security.IdentityServer.Config;
+﻿using MyProducts.Security.Config;
 using Owin;
 using Thinktecture.IdentityServer.Core.Configuration;
 using Thinktecture.IdentityServer.Core.Logging;
 
-namespace MyProducts.Security.IdentityServer
+namespace MyProducts.Security
 {
     public class IdentityServerStartup
     {

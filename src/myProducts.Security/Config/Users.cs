@@ -3,7 +3,7 @@ using System.Security.Claims;
 using Thinktecture.IdentityServer.Core;
 using Thinktecture.IdentityServer.Core.Services.InMemory;
 
-namespace MyProducts.Security.IdentityServer.Config
+namespace MyProducts.Security.Config
 {
     static class Users
     {
