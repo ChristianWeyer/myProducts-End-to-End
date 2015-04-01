@@ -14,12 +14,12 @@
             ttTools.startHub(hub);
         }
 
-        //$rootScope.$on(tt.authentication.loginConfirmed, function () {
-        //    ttTools.startHub(hub);
-        //});
-        //$rootScope.$on(tt.authentication.logoutConfirmed, function () {
-        //    ttTools.stopHub(hub);
-        //});
+        $rootScope.$on("oauth:authorized", function () {
+            ttTools.startHub(hub);
+        });
+        $rootScope.$on("oauth:loggedOut", function () {
+            ttTools.stopHub(hub);
+        });
 
         $rootScope.$on("settingsService.enablePushChanged", function (evt, enable) {
             if (enable) {
