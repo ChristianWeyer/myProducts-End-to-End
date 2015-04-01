@@ -14,7 +14,17 @@
             .state("gallery", getRouteConfiguration("gallery"))
             .state("log", getRouteConfiguration("log"))
             .state("statistics", getRouteConfiguration("statistics"))
-            .state("easteregg", getRouteConfiguration("easteregg"));
+            .state("easteregg", getRouteConfiguration("easteregg"))
+            .state("token", {
+                url: "/access_token=:accessToken",
+                template: "",
+                controller: function ($location, AccessToken) {
+                    var hash = $location.path().substr(1);
+                    AccessToken.setTokenFromString(hash);
+                    $location.path('/');
+                    $location.replace();
+                }
+            });
 
         function getRouteConfiguration(name, overrideUrl) {
             var url = "/" + name;

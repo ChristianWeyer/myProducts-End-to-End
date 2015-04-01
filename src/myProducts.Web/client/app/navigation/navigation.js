@@ -9,7 +9,7 @@
     * @param {TokenAuthenticationService} tokenAuthenticationService
     * @constructor
     */
-    function NavigationController($http, $scope, $translate, personalizationService, tokenAuthenticationService) {
+    function NavigationController($http, $scope, $translate, personalizationService) {
         $scope.navigation = {};
         $scope.navigation.isCollapsed = true;
 
@@ -23,18 +23,18 @@
             $scope.navigation.navigationItems = personalizationService.data.Features;
         });
 
-        $scope.$on(tt.authentication.logoutConfirmed, function () {
-            $scope.navigation.navigationItems = null;
-        });
+        //$scope.$on(tt.authentication.logoutConfirmed, function () {
+        //    $scope.navigation.navigationItems = null;
+        //});
 
         $scope.navigation.changeLanguage = function (langKey) {
             $scope.navigation.currentLanguage = langKey;
             $translate.use(langKey);
         };
 
-        $scope.navigation.logout = function () {
-            tokenAuthenticationService.logout();
-        };
+        //$scope.navigation.logout = function () {
+        //    tokenAuthenticationService.logout();
+        //};
     };
 
     function NavigationDirective() {

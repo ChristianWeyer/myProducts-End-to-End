@@ -3,13 +3,9 @@
 
     window.app = window.app || { resolver: {} };
 
-    if (ttMobile) {
-        app.module = angular.module("myApp", ["ui.router", "ngTouch", "ngAnimate", "ngSanitize", "Thinktecture.Dialog", "Thinktecture.Toast", "Thinktecture.SignalR", "Thinktecture.Authentication", "ngCookies", "pascalprecht.translate", "ngStorage", "chart.js", "jmdobry.angular-cache", "ionic", "angular-loading-bar", "btford.phonegap.ready", "btford.phonegap.geolocation"]);
-    } else {
-        app.module = angular.module("myApp", ["myApp.embeddedTemplates", "ui.router", "ngTouch", "ngAnimate", "ngSanitize", "Thinktecture.Dialog", "Thinktecture.Toast", "mgcrea.ngStrap", "ui.bootstrap", "Thinktecture.SignalR", "Thinktecture.Authentication", "ngCookies", "pascalprecht.translate", "angular-carousel", "frapontillo.bootstrap-switch", "ngStorage", "imageupload", "chart.js", "jmdobry.angular-cache", "angular-loading-bar", "btford.phonegap.ready", "btford.phonegap.geolocation"]);
-    }
+    app.module = angular.module("myApp", ["oauth", "myApp.embeddedTemplates", "ui.router", "ngTouch", "ngAnimate", "ngSanitize", "Thinktecture.Dialog", "Thinktecture.Toast", "mgcrea.ngStrap", "ui.bootstrap", "Thinktecture.SignalR", "ngCookies", "pascalprecht.translate", "angular-carousel", "frapontillo.bootstrap-switch", "ngStorage", "imageupload", "chart.js", "jmdobry.angular-cache", "angular-loading-bar", "btford.phonegap.ready", "btford.phonegap.geolocation"]);
 
-    app.module.config(function ($compileProvider, $translateProvider, cfpLoadingBarProvider, tokenAuthenticationServiceProvider) {
+    app.module.config(function ($compileProvider, $translateProvider, cfpLoadingBarProvider) {
         $compileProvider.debugInfoEnabled(false);
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|ghttps?|ms-appx|x-wmapp0):/);
 
@@ -17,7 +13,7 @@
 
         cfpLoadingBarProvider.includeSpinner = false;
 
-        tokenAuthenticationServiceProvider.setUrl(ttTools.baseUrl + "idsrv/connect/token");
+        //tokenAuthenticationServiceProvider.setUrl(ttTools.baseUrl + "idsrv/connect/token");
 
         ttTools.initLogger(ttTools.baseUrl + "api/log");
         ttTools.logger.info("Configuring myApp...");

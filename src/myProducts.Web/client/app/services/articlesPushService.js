@@ -22,12 +22,12 @@
             }, 5000);
         });
 
-        $rootScope.$on(tt.authentication.loginConfirmed, function () {
-            ttTools.startHub(hub);
-        });
-        $rootScope.$on(tt.authentication.logoutConfirmed, function () {
-            ttTools.stopHub(hub);
-        });
+        //$rootScope.$on(tt.authentication.loginConfirmed, function () {
+        //    ttTools.startHub(hub);
+        //});
+        //$rootScope.$on(tt.authentication.logoutConfirmed, function () {
+        //    ttTools.stopHub(hub);
+        //});
 
         $rootScope.$on("settingsService.enablePushChanged", function (evt, enable) {
             if (enable) {

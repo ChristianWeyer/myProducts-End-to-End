@@ -90,7 +90,7 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('login/login.html',
-    '<div class=container><div class=login-container><div class=avatar></div><div class=form-box><form name=form novalidate><input name=user type=text placeholder="{{ \'LOGIN_USERNAME\' | translate }}" translate-cloak="" required ng-model=login.username> <input type=password placeholder="{{ \'LOGIN_PASSWORD\' | translate }}" translate-cloak="" required ng-model=login.password> <button class="btn btn-success btn-block login" ng-click=login.submit() ng-disabled=form.$invalid translate=LOGIN_BUTTON_LOGIN></button></form></div></div></div>');
+    '<div class=container><div class=login-container><div class=avatar></div><div class=form-box><form name=form novalidate><oauth site=https://localhost/ngmd/idsrv authorize-path=/connect/authorize client-id=myp-implicitclient redirect-uri="https://localhost/ngmd/client/" scope=default></oauth></form></div></div></div>');
 }]);
 })();
 
@@ -137,8 +137,8 @@ try {
   module = angular.module('myApp.embeddedTemplates', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('statistics/statistics.html',
-    '<h3 translate=STATS_TITLE></h3><br><div class=row><div class=col-md-6><div class="panel panel-default"><div class=panel-heading>Sales</div><div class=panel-body><canvas id=doughnut class="chart chart-doughnut" data=statistics.pieData labels=statistics.pieLabels legend=true></canvas></div></div></div><div class=col-md-6><div class="panel panel-default"><div class=panel-heading>Series</div><div class=panel-body><canvas id=bar class="chart chart-bar" data=statistics.columnData series=statistics.columnSeries labels=statistics.columnLabels legend=true></canvas></div></div></div></div>');
+  $templateCache.put('statusBar/statusBar.html',
+    '<footer id=footer ng-cloak=""><div class=container-fluid><div ng-if=!status.isOnline class="circle-red pull-left"></div><div ng-if=status.isOnline class="circle-green pull-left"></div><span class=pull-right><span ng-if=!tt.authentication.userLoggedIn data-match-route=/login><a href=#/login translate=INDEX_LOGIN translate-cloak=""></a></span> <span ng-if=tt.authentication.userLoggedIn><a ng-click=navigation.logout()><i class="fa fa-sign-out" style="color: white"></i></a></span></span></div></footer>');
 }]);
 })();
 
@@ -149,7 +149,7 @@ try {
   module = angular.module('myApp.embeddedTemplates', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('statusBar/statusBar.html',
-    '<footer id=footer ng-cloak=""><div class=container-fluid><div ng-if=!status.isOnline class="circle-red pull-left"></div><div ng-if=status.isOnline class="circle-green pull-left"></div><span class=pull-right><span ng-if=!tt.authentication.userLoggedIn data-match-route=/login><a href=#/login translate=INDEX_LOGIN translate-cloak=""></a></span> <span ng-if=tt.authentication.userLoggedIn><a ng-click=navigation.logout()><i class="fa fa-sign-out" style="color: white"></i></a></span></span></div></footer>');
+  $templateCache.put('statistics/statistics.html',
+    '<h3 translate=STATS_TITLE></h3><br><div class=row><div class=col-md-6><div class="panel panel-default"><div class=panel-heading>Sales</div><div class=panel-body><canvas id=doughnut class="chart chart-doughnut" data=statistics.pieData labels=statistics.pieLabels legend=true></canvas></div></div></div><div class=col-md-6><div class="panel panel-default"><div class=panel-heading>Series</div><div class=panel-body><canvas id=bar class="chart chart-bar" data=statistics.columnData series=statistics.columnSeries labels=statistics.columnLabels legend=true></canvas></div></div></div></div>');
 }]);
 })();

@@ -244,7 +244,6 @@
     <Content Include="client\appServices\directives\serverValidationDirective.js" />
     <Content Include="client\appServices\filters\baseUrlFilter.js" />
     <Content Include="client\appServices\services\geoLocationTrackerService.js" />
-    <Content Include="client\appServices\services\thinktecture.ng.Authentication.js" />
     <Content Include="client\appServices\services\thinktecture.ng.Dialog.js" />
     <Content Include="client\appServices\services\thinktecture.ng.SignalR.js" />
     <Content Include="client\appServices\services\thinktecture.ng.Toast.js" />
@@ -274,6 +273,10 @@
     <Content Include="client\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="client\index.html" />
     <Content Include="client\libs\01_WinstoreCompat\winstore-jscompat.js" />
+    <Content Include="client\libs\60_oauth-ng\oauth-ng.js" />
+    <Content Include="client\libs\60_oauth-ng\views\templates\button.html" />
+    <Content Include="client\libs\60_oauth-ng\views\templates\default.html" />
+    <Content Include="gulpfile.js" />
     <Content Include="Images\0.jpg" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\10.jpg" />
