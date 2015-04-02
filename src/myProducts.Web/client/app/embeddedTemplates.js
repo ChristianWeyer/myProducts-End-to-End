@@ -17,6 +17,18 @@ try {
   module = angular.module('myApp.embeddedTemplates', []);
 }
 module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('articles/articles.html',
+    '<h3 translate=OVERVIEW_TITLE></h3><div><div><form id=searchTextForm class=form-inline><div class=form-group><label class=sr-only for=searchtext translate=OVERVIEW_FILTER style=font-weight:normal></label> <input type=text placeholder="{{ \'OVERVIEW_FILTER\' | translate }}" translate-cloak="" id=searchtext class="form-control input-sm" ng-model=articles.selectedFilteredArticle typeahead="article.Name for article in articles.getFilteredData($viewValue)"></div></form></div><div class=hidden-xs><br></div><div ng-swipe-right=swipeRight() ng-swipe-left=swipeLeft()><table ng-if=articles.articlesData class="table table-striped table-hover"><thead><tr><th>Name</th><th class=hidden-xs>Code</th><th style="width: 90px"><i ng-if="capabilities.has(\'AddArticle\')" class="btn btn-primary add-btn-primary glyphicon glyphicon-plus" ng-click=articles.addArticle()></i></th></tr></thead><tr ng-repeat="a in articles.articlesData track by $index"><td ng-click=articles.getArticleDetails(a.Id)>{{ a.Name }}</td><td class=hidden-xs ng-click=articles.getArticleDetails(a.Id)>{{ a.Code }}</td><td style="width: 90px"><i class="btn btn-success list-btn-success glyphicon glyphicon-edit" ng-click=articles.getArticleDetails(a.Id)></i> <i class="btn btn-danger list-btn-danger glyphicon glyphicon-trash" ng-click=articles.deleteArticle(a.Id)></i></td></tr></table></div><div ng-if=articles.articlesData class=text-center><pagination ng-model=articles.pagingOptions.currentPage boundary-links=true total-items=articles.totalServerItems max-size=3 rotate=false items-per-page=articles.pagingOptions.pageSize page=articles.pagingOptions.currentPage previous-text=&lsaquo; next-text=&rsaquo; first-text=&laquo; last-text=&raquo;></pagination></div></div><br><br>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('myApp.embeddedTemplates');
+} catch (e) {
+  module = angular.module('myApp.embeddedTemplates', []);
+}
+module.run(['$templateCache', function($templateCache) {
   $templateCache.put('easteregg/easteregg.html',
     '<easteregg-maze></easteregg-maze>');
 }]);
@@ -31,18 +43,6 @@ try {
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('easteregg/maze.html',
     '<div class=three><button class="btn btn-default generate">Re-Generate maze</button> <span class=pull-right>Credits: http://www.johansatge.fr/three-maze/</span></div>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('myApp.embeddedTemplates');
-} catch (e) {
-  module = angular.module('myApp.embeddedTemplates', []);
-}
-module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('articles/articles.html',
-    '<h3 translate=OVERVIEW_TITLE></h3><div><div><form id=searchTextForm class=form-inline><div class=form-group><label class=sr-only for=searchtext translate=OVERVIEW_FILTER style=font-weight:normal></label> <input type=text placeholder="{{ \'OVERVIEW_FILTER\' | translate }}" translate-cloak="" id=searchtext class="form-control input-sm" ng-model=articles.selectedFilteredArticle typeahead="article.Name for article in articles.getFilteredData($viewValue)"></div></form></div><div class=hidden-xs><br></div><div ng-swipe-right=swipeRight() ng-swipe-left=swipeLeft()><table ng-if=articles.articlesData class="table table-striped table-hover"><thead><tr><th>Name</th><th class=hidden-xs>Code</th><th style="width: 90px"><i ng-if="capabilities.has(\'AddArticle\')" class="btn btn-primary add-btn-primary glyphicon glyphicon-plus" ng-click=articles.addArticle()></i></th></tr></thead><tr ng-repeat="a in articles.articlesData track by $index"><td ng-click=articles.getArticleDetails(a.Id)>{{ a.Name }}</td><td class=hidden-xs ng-click=articles.getArticleDetails(a.Id)>{{ a.Code }}</td><td style="width: 90px"><i class="btn btn-success list-btn-success glyphicon glyphicon-edit" ng-click=articles.getArticleDetails(a.Id)></i> <i class="btn btn-danger list-btn-danger glyphicon glyphicon-trash" ng-click=articles.deleteArticle(a.Id)></i></td></tr></table></div><div ng-if=articles.articlesData class=text-center><pagination ng-model=articles.pagingOptions.currentPage boundary-links=true total-items=articles.totalServerItems max-size=3 rotate=false items-per-page=articles.pagingOptions.pageSize page=articles.pagingOptions.currentPage previous-text=&lsaquo; next-text=&rsaquo; first-text=&laquo; last-text=&raquo;></pagination></div></div><br><br>');
 }]);
 })();
 
@@ -113,18 +113,6 @@ try {
   module = angular.module('myApp.embeddedTemplates', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('settings/settings.html',
-    '<h3 translate=SETTINGS_TITLE></h3><div><form class=form-horizontal><div class=form-group><label for=pushCheckbox class="col-md-2 control-label" translate=SETTINGS_PUSH></label><div class=col-md-10><input type=checkbox class=form-control id=pushCheckbox bs-switch="" switch-on-label="{{ \'SETTINGS_YES\' | translate }}" switch-off-label="{{ \'SETTINGS_NO\' | translate }}" ng-model=settings.enablePush></div></div></form></div>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('myApp.embeddedTemplates');
-} catch (e) {
-  module = angular.module('myApp.embeddedTemplates', []);
-}
-module.run(['$templateCache', function($templateCache) {
   $templateCache.put('start/start.html',
     '<div class=metrouicss style="padding-top: 1em"><a ng-repeat="ni in start.navigationItems" ng-href="#{{ ni.Url }}"><div class=tile ng-class="{{ start.classes[$index % start.classes.length] }}" translate-cloak=""><div class=brand><div class=name>{{ ni.DisplayText | translate }}</div></div></div></a> <a href=#/info><div class="tile bg-color-lighten"><div class=brand><div class=name style="color: black">Info</div></div></div></a></div>');
 }]);
@@ -137,8 +125,8 @@ try {
   module = angular.module('myApp.embeddedTemplates', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('statistics/statistics.html',
-    '<h3 translate=STATS_TITLE></h3><br><div class=row><div class=col-md-6><div class="panel panel-default"><div class=panel-heading>Sales</div><div class=panel-body><canvas id=doughnut class="chart chart-doughnut" data=statistics.pieData labels=statistics.pieLabels legend=true></canvas></div></div></div><div class=col-md-6><div class="panel panel-default"><div class=panel-heading>Series</div><div class=panel-body><canvas id=bar class="chart chart-bar" data=statistics.columnData series=statistics.columnSeries labels=statistics.columnLabels legend=true></canvas></div></div></div></div>');
+  $templateCache.put('statusBar/statusBar.html',
+    '<footer id=footer ng-cloak=""><div class=container-fluid><div ng-if=!status.isOnline class="circle-red pull-left"></div><div ng-if=status.isOnline class="circle-green pull-left"></div><span class=pull-right><span ng-if=!tt.authentication.userLoggedIn data-match-route=/login><a href=#/login translate=INDEX_LOGIN translate-cloak=""></a></span> <span ng-if=tt.authentication.userLoggedIn><a ng-click=navigation.logout()><i class="fa fa-sign-out" style="color: white"></i></a></span></span></div></footer>');
 }]);
 })();
 
@@ -149,7 +137,19 @@ try {
   module = angular.module('myApp.embeddedTemplates', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('statusBar/statusBar.html',
-    '<footer id=footer ng-cloak=""><div class=container-fluid><div ng-if=!status.isOnline class="circle-red pull-left"></div><div ng-if=status.isOnline class="circle-green pull-left"></div><span class=pull-right><span ng-if=!tt.authentication.userLoggedIn data-match-route=/login><a href=#/login translate=INDEX_LOGIN translate-cloak=""></a></span> <span ng-if=tt.authentication.userLoggedIn><a ng-click=navigation.logout()><i class="fa fa-sign-out" style="color: white"></i></a></span></span></div></footer>');
+  $templateCache.put('settings/settings.html',
+    '<h3 translate=SETTINGS_TITLE></h3><div><form class=form-horizontal><div class=form-group><label for=pushCheckbox class="col-md-2 control-label" translate=SETTINGS_PUSH></label><div class=col-md-10><input type=checkbox class=form-control id=pushCheckbox bs-switch="" switch-on-label="{{ \'SETTINGS_YES\' | translate }}" switch-off-label="{{ \'SETTINGS_NO\' | translate }}" ng-model=settings.enablePush></div></div></form></div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('myApp.embeddedTemplates');
+} catch (e) {
+  module = angular.module('myApp.embeddedTemplates', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('statistics/statistics.html',
+    '<h3 translate=STATS_TITLE></h3><br><div class=row><div class=col-md-6><div class="panel panel-default"><div class=panel-heading>Sales</div><div class=panel-body><canvas id=doughnut class="chart chart-doughnut" data=statistics.pieData labels=statistics.pieLabels legend=true></canvas></div></div></div><div class=col-md-6><div class="panel panel-default"><div class=panel-heading>Series</div><div class=panel-body><canvas id=bar class="chart chart-bar" data=statistics.columnData series=statistics.columnSeries labels=statistics.columnLabels legend=true></canvas></div></div></div></div>');
 }]);
 })();

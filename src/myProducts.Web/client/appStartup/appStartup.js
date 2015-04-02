@@ -19,6 +19,8 @@
         });
 
         $rootScope.$on("oauth:login", function (evt, token) {
+            $http.defaults.headers.common["Authorization"] = token.token_type + " " + token.access_token;
+
             $http({ method: "GET", url: ttTools.baseUrl + "api/personalization" })
             .success(function (data) {
                 if (!categoriesService.data) {
