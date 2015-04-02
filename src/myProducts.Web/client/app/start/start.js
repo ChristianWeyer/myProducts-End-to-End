@@ -6,9 +6,13 @@
      * @param {PersonalizationService} personalizationService
      * @constructor
      */
-    function StartController($scope, personalizationService) {
+    function StartController($scope, AccessToken, $location, personalizationService) {
         $scope.start = {};
         $scope.start.classes = ["", "'bg-color-blue'", "'bg-color-blueDark'"];
+
+        if (!AccessToken.get()) {
+            $location.path("/login");
+        }
 
         if (personalizationService.data) {
             $scope.start.navigationItems = getTileItems();

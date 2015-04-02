@@ -18,7 +18,7 @@
             $http.defaults.headers.common["Accept-Language"] = $translate.proposedLanguage();
         });
 
-        $rootScope.$on("oauth:authorized", function () {
+        $rootScope.$on("oauth:login", function (evt, token) {
             $http({ method: "GET", url: ttTools.baseUrl + "api/personalization" })
             .success(function (data) {
                 if (!categoriesService.data) {
@@ -33,10 +33,6 @@
                 $rootScope.$broadcast(tt.personalization.dataLoaded);
             });
         });
-
-        //if (!AccessToken.get()) {
-        //    $location.path("/login");
-        //}
 
         $rootScope.ttAppLoaded = true;
     });

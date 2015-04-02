@@ -17,18 +17,6 @@ try {
   module = angular.module('myApp.embeddedTemplates', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('articles/articles.html',
-    '<h3 translate=OVERVIEW_TITLE></h3><div><div><form id=searchTextForm class=form-inline><div class=form-group><label class=sr-only for=searchtext translate=OVERVIEW_FILTER style=font-weight:normal></label> <input type=text placeholder="{{ \'OVERVIEW_FILTER\' | translate }}" translate-cloak="" id=searchtext class="form-control input-sm" ng-model=articles.selectedFilteredArticle typeahead="article.Name for article in articles.getFilteredData($viewValue)"></div></form></div><div class=hidden-xs><br></div><div ng-swipe-right=swipeRight() ng-swipe-left=swipeLeft()><table ng-if=articles.articlesData class="table table-striped table-hover"><thead><tr><th>Name</th><th class=hidden-xs>Code</th><th style="width: 90px"><i ng-if="capabilities.has(\'AddArticle\')" class="btn btn-primary add-btn-primary glyphicon glyphicon-plus" ng-click=articles.addArticle()></i></th></tr></thead><tr ng-repeat="a in articles.articlesData track by $index"><td ng-click=articles.getArticleDetails(a.Id)>{{ a.Name }}</td><td class=hidden-xs ng-click=articles.getArticleDetails(a.Id)>{{ a.Code }}</td><td style="width: 90px"><i class="btn btn-success list-btn-success glyphicon glyphicon-edit" ng-click=articles.getArticleDetails(a.Id)></i> <i class="btn btn-danger list-btn-danger glyphicon glyphicon-trash" ng-click=articles.deleteArticle(a.Id)></i></td></tr></table></div><div ng-if=articles.articlesData class=text-center><pagination ng-model=articles.pagingOptions.currentPage boundary-links=true total-items=articles.totalServerItems max-size=3 rotate=false items-per-page=articles.pagingOptions.pageSize page=articles.pagingOptions.currentPage previous-text=&lsaquo; next-text=&rsaquo; first-text=&laquo; last-text=&raquo;></pagination></div></div><br><br>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('myApp.embeddedTemplates');
-} catch (e) {
-  module = angular.module('myApp.embeddedTemplates', []);
-}
-module.run(['$templateCache', function($templateCache) {
   $templateCache.put('easteregg/easteregg.html',
     '<easteregg-maze></easteregg-maze>');
 }]);
@@ -53,6 +41,18 @@ try {
   module = angular.module('myApp.embeddedTemplates', []);
 }
 module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('articles/articles.html',
+    '<h3 translate=OVERVIEW_TITLE></h3><div><div><form id=searchTextForm class=form-inline><div class=form-group><label class=sr-only for=searchtext translate=OVERVIEW_FILTER style=font-weight:normal></label> <input type=text placeholder="{{ \'OVERVIEW_FILTER\' | translate }}" translate-cloak="" id=searchtext class="form-control input-sm" ng-model=articles.selectedFilteredArticle typeahead="article.Name for article in articles.getFilteredData($viewValue)"></div></form></div><div class=hidden-xs><br></div><div ng-swipe-right=swipeRight() ng-swipe-left=swipeLeft()><table ng-if=articles.articlesData class="table table-striped table-hover"><thead><tr><th>Name</th><th class=hidden-xs>Code</th><th style="width: 90px"><i ng-if="capabilities.has(\'AddArticle\')" class="btn btn-primary add-btn-primary glyphicon glyphicon-plus" ng-click=articles.addArticle()></i></th></tr></thead><tr ng-repeat="a in articles.articlesData track by $index"><td ng-click=articles.getArticleDetails(a.Id)>{{ a.Name }}</td><td class=hidden-xs ng-click=articles.getArticleDetails(a.Id)>{{ a.Code }}</td><td style="width: 90px"><i class="btn btn-success list-btn-success glyphicon glyphicon-edit" ng-click=articles.getArticleDetails(a.Id)></i> <i class="btn btn-danger list-btn-danger glyphicon glyphicon-trash" ng-click=articles.deleteArticle(a.Id)></i></td></tr></table></div><div ng-if=articles.articlesData class=text-center><pagination ng-model=articles.pagingOptions.currentPage boundary-links=true total-items=articles.totalServerItems max-size=3 rotate=false items-per-page=articles.pagingOptions.pageSize page=articles.pagingOptions.currentPage previous-text=&lsaquo; next-text=&rsaquo; first-text=&laquo; last-text=&raquo;></pagination></div></div><br><br>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('myApp.embeddedTemplates');
+} catch (e) {
+  module = angular.module('myApp.embeddedTemplates', []);
+}
+module.run(['$templateCache', function($templateCache) {
   $templateCache.put('gallery/gallery.html',
     '<h3 translate=GALLERY_TITLE></h3><span translate=GALLERY_BODY></span><br><br><br><div><ul rn-carousel="" rn-carousel-index=imagesIndex class=carouselImages><li ng-repeat="image in gallery.productImages track by $index"><img ng-src="{{:: image | baseUrl }}"></li></ul><div class=carouselIndicators rn-carousel-indicators="" slides=gallery.productImages rn-carousel-index=imagesIndex></div></div>');
 }]);
@@ -65,8 +65,8 @@ try {
   module = angular.module('myApp.embeddedTemplates', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('log/log.html',
-    '<h3 translate=LOGS_TITLE></h3><span>Live:</span><br><div><table class="table table-striped table-hover table-condensed"><thead><tr><th></th></tr></thead><tbody><tr ng-repeat="logEntry in log.entries track by $index"><td>{{:: logEntry.RenderedMessage }}</td></tr></tbody></table></div>');
+  $templateCache.put('info/info.html',
+    '<h3 translate=ABOUT_TITLE></h3><span translate=ABOUT_BODY></span><br><br><div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</div><br><br><div ng-click=events.clickMe()>{{:: data.message }}</div><br><span translate=ABOUT_CONTACT></span>');
 }]);
 })();
 
@@ -77,8 +77,8 @@ try {
   module = angular.module('myApp.embeddedTemplates', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('info/info.html',
-    '<h3 translate=ABOUT_TITLE></h3><span translate=ABOUT_BODY></span><br><br><div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</div><br><br><div ng-click=events.clickMe()>{{:: data.message }}</div><br><span translate=ABOUT_CONTACT></span>');
+  $templateCache.put('log/log.html',
+    '<h3 translate=LOGS_TITLE></h3><span>Live:</span><br><div><table class="table table-striped table-hover table-condensed"><thead><tr><th></th></tr></thead><tbody><tr ng-repeat="logEntry in log.entries track by $index"><td>{{:: logEntry.RenderedMessage }}</td></tr></tbody></table></div>');
 }]);
 })();
 
