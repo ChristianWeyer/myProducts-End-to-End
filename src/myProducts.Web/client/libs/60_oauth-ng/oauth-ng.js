@@ -20,7 +20,10 @@ angular.module('oauth').config(['$locationProvider','$httpProvider',
 
 var accessTokenService = angular.module('oauth.accessToken', ['ngStorage']);
 
-accessTokenService.factory('AccessToken', function($rootScope, $location, $sessionStorage, $interval){
+accessTokenService.factory('AccessToken', function($rootScope, $location, $localStorage, $interval){
+    if ($localStorage.token != null) {
+        $rootScope.$broadcast('oauth:login', $localStorage.token);
+    }
 
     var service = {
             token: null
@@ -33,21 +36,25 @@ accessTokenService.factory('AccessToken', function($rootScope, $location, $sessi
     /**
      * Returns the access token.
      */
-    service.get = function(){
+    service.get = function () {
+        if (this.token == null) {
+            this.token = $localStorage.token;
+        }
+
         return this.token;
     };
 
     /**
      * Sets and returns the access token. It tries (in order) the following strategies:
      * - takes the token from the fragment URI
-     * - takes the token from the sessionStorage
+     * - takes the token from the localStorage
      */
     service.set = function(){
         this.setTokenFromString($location.hash());
 
         //If hash is present in URL always use it, cuz its coming from oAuth2 provider redirect
         if(null === service.token){
-            setTokenFromSession();
+            setTokenFromlocal();
         }
 
         return this.token;
@@ -58,7 +65,7 @@ accessTokenService.factory('AccessToken', function($rootScope, $location, $sessi
      * @returns {null}
      */
     service.destroy = function(){
-        delete $sessionStorage.token;
+        delete $localStorage.token;
         this.token = null;
         return this.token;
     };
@@ -93,11 +100,11 @@ accessTokenService.factory('AccessToken', function($rootScope, $location, $sessi
      * * * * * * * * * */
    
     /**
-     * Set the access token from the sessionStorage.
+     * Set the access token from the localStorage.
      */
-    var setTokenFromSession = function(){
-        if($sessionStorage.token){
-            var params = $sessionStorage.token;
+    var setTokenFromlocal = function(){
+        if($localStorage.token){
+            var params = $localStorage.token;
             params.expires_at = new Date(params.expires_at);
             setToken(params);
         }
@@ -112,7 +119,7 @@ accessTokenService.factory('AccessToken', function($rootScope, $location, $sessi
     var setToken = function(params){
         service.token = service.token || {};      // init the token
         angular.extend(service.token, params);      // set the access token params
-        setTokenInSession();                // save the token into the session
+        setTokenInlocal();                // save the token into the local
         setExpiresAtEvent();                // event to fire when the token expires
 
         return service.token;
@@ -138,10 +145,10 @@ accessTokenService.factory('AccessToken', function($rootScope, $location, $sessi
     };
 
     /**
-     * Save the access token into the session
+     * Save the access token into the local
      */
-    var setTokenInSession = function(){
-        $sessionStorage.token = service.token;
+    var setTokenInlocal = function(){
+        $localStorage.token = service.token;
     };
 
     /**
@@ -273,12 +280,12 @@ profileClient.factory('Profile', function($http, AccessToken, $rootScope) {
 
 var interceptorService = angular.module('oauth.interceptor', []);
 
-interceptorService.factory('ExpiredInterceptor', function ($rootScope, $q, $sessionStorage) {
+interceptorService.factory('ExpiredInterceptor', function ($rootScope, $q, $localStorage) {
 
   var service = {};
 
   service.request = function(config) {
-    var token = $sessionStorage.token;
+    var token = $localStorage.token;
 
     if (token && expired(token))
       $rootScope.$broadcast('oauth:expired', token);

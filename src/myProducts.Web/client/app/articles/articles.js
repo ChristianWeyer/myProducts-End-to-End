@@ -16,10 +16,10 @@
         $scope.capabilities.has = function (key) {
             return $scope.capabilities.indexOf(key) > -1;
         };
-
+        
         $scope.articles = {};
         $scope.articles.pagingOptions = { pageSizes: [10], pageSize: 10, currentPage: 1, moreCurrentPage: 1 };
-
+        
         $scope.articles.getFilteredData = function (searchText) {
             var search = searchText;
 

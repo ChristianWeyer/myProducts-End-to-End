@@ -22,7 +22,7 @@ namespace MyProducts.Security.Config
 
                     Flow=Flows.ResourceOwner,
 
-                    AccessTokenLifetime = 3600
+                    AccessTokenLifetime = 86400
                 },
                 new Client
                 {
@@ -43,7 +43,7 @@ namespace MyProducts.Security.Config
                     {
                         "https://localhost/ngmd/client/",
                     },
-                    AccessTokenLifetime = 3600
+                    AccessTokenLifetime = 86400
                 }
             };
         }

@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    app.module.run(function (AccessToken, $localStorage, $state, $http, $templateCache, $rootScope, $location, $translate, toastService, dialogService, personalizationService, categoriesService, geoLocationTracker, articlesPushService, logPushService, networkStatusService) {
+    app.module.run(function ($localStorage, $state, $http, $templateCache, $rootScope, $location, $translate, toastService, dialogService, personalizationService, categoriesService, geoLocationTracker, articlesPushService, logPushService, networkStatusService) {
         geoLocationTracker.startSendPosition(10000, function (pos) { });
 
         //window.applicationCache.addEventListener("updateready", function (e) {
@@ -34,6 +34,18 @@
 
                 $rootScope.$broadcast(tt.personalization.dataLoaded);
             });
+        });
+
+        $rootScope.$on("oauth:logout", function () {
+            $location.path("/login");
+        });
+
+        $rootScope.$on("oauth:loggedOut", function () {
+            $location.path("/login");
+        });
+
+        $rootScope.$on("oauth:expired", function() {
+            $location.path("/login");
         });
 
         $rootScope.ttAppLoaded = true;
