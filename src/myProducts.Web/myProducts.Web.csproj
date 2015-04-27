@@ -141,10 +141,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Serilog.Sinks.SignalR.1.4.196\lib\net45\Serilog.Sinks.SignalR.dll</HintPath>
     </Reference>
-    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Swashbuckle.Core.5.0.4\lib\net40\Swashbuckle.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Services.Client" />
@@ -427,7 +423,6 @@
     <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="Server\App_Start\BundleConfig.cs" />
     <Compile Include="Server\CacheManifestHandler.cs" />
     <Compile Include="Server\PerfItInstaller.cs">
