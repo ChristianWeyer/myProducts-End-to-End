@@ -10,9 +10,9 @@
         $scope.start = {};
         $scope.start.classes = ["", "'bg-color-blue'", "'bg-color-blueDark'"];
 
-        if (!AccessToken.get()) {
-            $location.path("/login");
-        }
+        //if (!AccessToken.get()) {
+        //    $location.path("/login");
+        //}
 
         if (personalizationService.data) {
             $scope.start.navigationItems = getTileItems();

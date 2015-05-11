@@ -4,12 +4,20 @@
         <div ng-if="status.isOnline" class="circle-green pull-left"></div>
 
         <span class="pull-right">
-            <span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
+            <oauth site="https://localhost/ngmd/idsrv"
+                   authorize-path="/connect/authorize"
+                   client-id="myp-implicitclient"
+                   redirect-uri="https://localhost/ngmd/client/"
+                   scope="default"
+                   template="libs/60_oauth-ng/views/templates/default.html"
+                   storage="localStorage">
+            </oauth>
+            <!--<span ng-if="!tt.authentication.userLoggedIn" data-match-route="/login">
                 <a href="#/login" translate="INDEX_LOGIN" translate-cloak></a>
             </span>
             <span ng-if="tt.authentication.userLoggedIn">
                 <a href="" ng-click="navigation.logout()"><i class="fa fa-sign-out" style="color: white"></i></a>
-            </span>
+            </span>-->
         </span>
     </div>
 </footer>

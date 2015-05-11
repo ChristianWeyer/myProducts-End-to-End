@@ -37,16 +37,17 @@
         });
 
         $rootScope.$on("oauth:logout", function () {
-            $location.path("/login");
+            personalizationService.data = null;
+            $location.path("/info");
         });
 
-        $rootScope.$on("oauth:loggedOut", function () {
-            $location.path("/login");
-        });
+        //$rootScope.$on("oauth:loggedOut", function () {
+        //    $location.path("/login");
+        //});
 
-        $rootScope.$on("oauth:expired", function() {
-            $location.path("/login");
-        });
+        //$rootScope.$on("oauth:expired", function() {
+        //    $location.path("/login");
+        //});
 
         $rootScope.ttAppLoaded = true;
     });
