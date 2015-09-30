@@ -245,6 +245,7 @@
     <Content Include="client\appServices\services\thinktecture.ng.SignalR.js" />
     <Content Include="client\appServices\services\thinktecture.ng.Toast.js" />
     <Content Include="client\appServices\tools.js" />
+    <Content Include="client\app\appController.js" />
     <Content Include="client\app\easteregg\maze.html" />
     <Content Include="client\app\easteregg\easteregg.html" />
     <Content Include="client\app\easteregg\easteregg.js" />
