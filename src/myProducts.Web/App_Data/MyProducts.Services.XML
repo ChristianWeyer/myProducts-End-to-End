@@ -7,163 +7,135 @@
         <member name="M:MyProducts.Services.Controllers.ArticlesDemoController.#ctor">
             <summary>
             Default constructor.
-            </summary>
-        </member>
+            </summary></member>
         <member name="M:MyProducts.Services.Controllers.ArticlesDemoController.Get(System.String)">
             <summary>
             Get a single article by ID.
             </summary>
             <param name="id">Article ID</param>
-            <returns>Article details</returns>
-        </member>
+            <returns>Article details</returns></member>
         <member name="M:MyProducts.Services.Controllers.ArticlesDemoController.Dispose(System.Boolean)">
             <summary>
             Dispose DB context.
             </summary>
-            <param name="disposing"></param>
-        </member>
+            <param name="disposing"></param></member>
         <member name="T:MyProducts.Services.Controllers.ArticlesController">
             <summary>
             Web API to manage product articles data. Offers Hub functionality to call into clients via SignalR.
-            </summary>
-        </member>
+            </summary></member>
         <member name="M:MyProducts.Services.Controllers.ArticlesController.#ctor">
             <summary>
             Default constructor.
-            </summary>
-        </member>
+            </summary></member>
         <member name="M:MyProducts.Services.Controllers.ArticlesController.Get(System.Web.Http.OData.Query.ODataQueryOptions{MyProducts.Services.DTOs.ArticleDto})">
             <summary>
             List articles based on OData query syntax filter.
             </summary>
             <param name="options">OData query options</param>
-            <returns>A paged result list of article data</returns>
-        </member>
+            <returns>A paged result list of article data</returns></member>
         <member name="M:MyProducts.Services.Controllers.ArticlesController.Get(System.String)">
             <summary>
             Get a single article by ID.
             </summary>
             <param name="id">Article ID</param>
-            <returns>Article details</returns>
-        </member>
+            <returns>Article details</returns></member>
         <member name="M:MyProducts.Services.Controllers.ArticlesController.Post">
             <summary>
             Save a new or existing item article - with or without image data.
             </summary>
-            <returns>Nothing, only HTTP status codes</returns>
-        </member>
+            <returns>Nothing, only HTTP status codes</returns></member>
         <member name="M:MyProducts.Services.Controllers.ArticlesController.Delete(System.String)">
             <summary>
             Delete a given article by ID.
             </summary>
-            <param name="id">Article ID</param>
-        </member>
+            <param name="id">Article ID</param></member>
         <member name="M:MyProducts.Services.Controllers.ArticlesController.Dispose(System.Boolean)">
             <summary>
             Dispose DB context.
             </summary>
-            <param name="disposing"></param>
-        </member>
+            <param name="disposing"></param></member>
         <member name="T:MyProducts.Services.Controllers.CategoriesController">
             <summary>
             Web API to provide categories lookup data.
-            </summary>
-        </member>
+            </summary></member>
         <member name="M:MyProducts.Services.Controllers.CategoriesController.#ctor">
             <summary>
             Default constructor.
-            </summary>
-        </member>
+            </summary></member>
         <member name="M:MyProducts.Services.Controllers.CategoriesController.Get">
             <summary>
             List categories ordered by name.
             </summary>
-            <returns></returns>
-        </member>
+            <returns></returns></member>
         <member name="M:MyProducts.Services.Controllers.CategoriesController.Dispose(System.Boolean)">
             <summary>
             Dispose DB context.
             </summary>
-            <param name="disposing"></param>
-        </member>
+            <param name="disposing"></param></member>
         <member name="T:MyProducts.Services.Controllers.ImagesController">
             <summary>
             Web API for product images.
-            </summary>
-        </member>
+            </summary></member>
         <member name="M:MyProducts.Services.Controllers.ImagesController.#ctor">
             <summary>
-             Default constructor
-            </summary>
-        </member>
+            Default constructor
+            </summary></member>
         <member name="M:MyProducts.Services.Controllers.ImagesController.Get">
             <summary>
             List product images URLs.
             </summary>
-            <returns></returns>
-        </member>
+            <returns></returns></member>
         <member name="M:MyProducts.Services.Controllers.ImagesController.Get(System.String)">
             <summary>
             Get an image (JPG) by ID.
             </summary>
             <param name="id">Image ID</param>
-            <returns>Raw JPG image data</returns>
-        </member>
+            <returns>Raw JPG image data</returns></member>
         <member name="M:MyProducts.Services.Controllers.ImagesController.Dispose(System.Boolean)">
             <summary>
             Dispose DB context.
             </summary>
-            <param name="disposing"></param>
-        </member>
+            <param name="disposing"></param></member>
         <member name="T:MyProducts.Services.Controllers.GeoLocationController">
             <summary>
             Web API to accept geo location data for tracking.
-            </summary>
-        </member>
-        <member name="M:MyProducts.Services.Controllers.GeoLocationController.Post(System.Object)">
+            </summary></member>
+        <member name="M:MyProducts.Services.Controllers.GeoLocationController.Post(System.dynamic)">
             <summary>
             Post a dynamic data structure with geo location data.
             </summary>
-            <param name="loc"></param>
-        </member>
+            <param name="loc"></param></member>
         <member name="T:MyProducts.Services.Controllers.LogController">
             <summary>
             Web API to provide logging data from clients.
-            </summary>
-        </member>
+            </summary></member>
         <member name="M:MyProducts.Services.Controllers.LogController.Post(MyProducts.Services.DTOs.LogData)">
             <summary>
             Send log data.
             </summary>
-            <param name="logData">Data to log</param>
-        </member>
+            <param name="logData">Data to log</param></member>
         <member name="T:MyProducts.Services.Controllers.PersonalizationController">
             <summary>
             Web API to deliver personalized application features and UI claims based on incoming user identity.
-            </summary>
-        </member>
+            </summary></member>
         <member name="M:MyProducts.Services.Controllers.PersonalizationController.GetPersonalizationData">
             <summary>
             Get application personalization information based on the icnoming user.
             </summary>
-            <returns></returns>
-        </member>
+            <returns></returns></member>
         <member name="T:MyProducts.Services.Controllers.StatisticsController">
             <summary>
             Web API for delivering statistics data.
-            </summary>
-        </member>
+            </summary></member>
         <member name="M:MyProducts.Services.Controllers.StatisticsController.GetDistribution">
             <summary>
             Get sample distribution statistics data.
             </summary>
-            <returns></returns>
-        </member>
+            <returns></returns></member>
         <member name="M:MyProducts.Services.Controllers.StatisticsController.GetSales">
             <summary>
             Get sample sales statistics data.
             </summary>
-            <returns></returns>
-        </member>
+            <returns></returns></member>
     </members>
 </doc>

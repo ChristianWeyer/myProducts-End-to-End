@@ -41,8 +41,8 @@
     <Externalconsole>true</Externalconsole>
     <CustomCommands>
       <CustomCommands>
-        <Command type="AfterBuild" command="deploy_client_iis.sh ${SolutionDir} ${TargetDir}" />
-        <Command type="AfterBuild" command="cp &quot;${SolutionDir}/Reference Assemblies/Patched/Microsoft.Owin.Host.HttpListener.dll&quot; ${TargetDir}" />
+        <Command type="AfterBuild" command="deploy_client_node.sh ${SolutionDir} ${TargetDir}" />
+        <Command type="AfterBuild" command="" />
       </CustomCommands>
     </CustomCommands>
   </PropertyGroup>
