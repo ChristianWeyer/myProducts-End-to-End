@@ -294,3 +294,5 @@ node_modules/
 myProducts.Xamarin.userprefs
 *.DS_Store
 *.colt
+*.bak1
+*.bak*

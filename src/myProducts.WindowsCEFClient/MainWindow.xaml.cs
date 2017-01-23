@@ -23,8 +23,8 @@ namespace myProducts.WindowsClient
             var urlToNavigate = AppDomain.CurrentDomain.BaseDirectory + @"client\index.html";
             var browserSettings = new BrowserSettings
             {
-                UniversalAccessFromFileUrlsAllowed = true,
-                WebSecurityDisabled = true
+                FileAccessFromFileUrls = CefState.Enabled,
+                WebSecurity = CefState.Enabled
             };
 
             webBrowser = new ChromiumWebBrowser();
